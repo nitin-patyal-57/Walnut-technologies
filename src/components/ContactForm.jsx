@@ -4,7 +4,7 @@ import { FiSend, FiCheck, FiMapPin, FiMail, FiPhone, FiClock } from 'react-icons
 import { brand } from '../data/content';
 import { captureLead } from '../hooks/useLeads';
 
-export default function ContactForm({ onOpenQuote }) {
+export default function ContactForm({ onOpenQuote, showBg = false }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' });
@@ -29,7 +29,15 @@ export default function ContactForm({ onOpenQuote }) {
 
   return (
     <section id="contact" className="section-padding relative bg-slate-50">
-      
+      {showBg && (
+        <div className="absolute inset-0">
+          <img
+            src="/contactbackground.png"
+            alt=""
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
+      )}
       <div ref={ref} className="relative container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

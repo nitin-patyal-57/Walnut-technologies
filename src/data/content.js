@@ -46,10 +46,10 @@ export const trustSignals = {
   ],
   certifications: [
     'ISO 13485 Certified',
-    'ISO 9001 Certified',
     'Class 10K Cleanroom',
     'CE, FCC, PCI-DSS',
     'IEC 60601',
+    'BIS Certified',
     '60,000 sq.ft Facility',
   ],
 };
@@ -418,48 +418,56 @@ export const expertise = [
     title: 'Medical Electronics',
     description: 'Life-critical medical device design and manufacturing with full regulatory compliance.',
     icon: 'heart',
+    image: '/Oxygen Concentrator.png',
     areas: ['Patient Monitoring', 'Diagnostics', 'Neuro Rehab', 'Therapeutic Devices', 'Oxygen Concentrators'],
   },
   {
     title: 'Embedded Systems & IoT',
     description: 'Firmware, RTOS, and cloud-connected embedded solutions for smart devices.',
     icon: 'cpu',
+    image: '/Automotive Electronics.png',
     areas: ['ARM/MCU', 'RTOS/Linux', 'BLE/WiFi', 'Cloud IoT', 'Edge Computing'],
   },
   {
     title: 'PCB Design & Fabrication',
     description: 'Multi-layer, HDI, and flex PCB design optimized for high-volume manufacturing.',
     icon: 'board',
+    image: '/pcb designer.png',
     areas: ['Up to 12 Layers', 'HDI Technology', 'Flex/Rigid-Flex', 'Signal Integrity'],
   },
   {
     title: 'Manufacturing & Assembly',
     description: '4 advanced SMT lines with 300K+ units per month capacity and 99.8% yield.',
     icon: 'gear',
+    image: '/Walnut Compressor Nebulizer.png',
     areas: ['SMT Assembly', 'Box Build', 'Conformal Coating', 'In-Circuit Testing'],
   },
   {
     title: 'Quality & Compliance',
     description: 'ISO 13485 certified quality management with Class 10K cleanroom facility.',
     icon: 'check',
+    image: '/BP.png',
     areas: ['ISO 13485', 'ISO 9001', 'FDA QSR', 'CE Marking', 'IEC 60601'],
   },
   {
     title: 'Payment Hardware Security',
     description: 'PCI PTS, EMVCo, and NPCI certified payment terminal design and manufacturing.',
     icon: 'shield',
+    image: '/D and D.png',
     areas: ['PCI PTS 5.x', 'EMV L1/L2', 'Secure Element', 'Tamper Detection'],
   },
   {
     title: 'Software & Firmware',
     description: 'Full-stack firmware development, device drivers, and companion applications.',
     icon: 'code',
+    image: '/3d image.png',
     areas: ['Bare Metal', 'Embedded Linux', 'Android BSP', 'Mobile Apps'],
   },
   {
     title: 'Supply Chain & Logistics',
     description: 'End-to-end supply chain management with global component sourcing and delivery.',
     icon: 'globe',
+    image: '/all images.png',
     areas: ['Global Sourcing', 'Inventory Mgmt', 'Customs Clearance', 'Door-to-Door'],
   },
 ];
@@ -470,6 +478,7 @@ export const clientSectors = [
     description: 'Hospitals, clinics, and medical device companies',
     clients: ['Apollo', 'Fortis', 'Manipal', 'Medanta'],
     icon: 'hospital',
+    image: '/Oxygen Concentrator.png',
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
@@ -477,6 +486,7 @@ export const clientSectors = [
     description: 'Mission-critical electronics for defence applications',
     clients: ['Indian Army', 'Indian Navy', 'IAF', 'AFMS'],
     icon: 'shield',
+    image: '/4.png',
     gradient: 'from-red-500 to-rose-600',
   },
   {
@@ -484,6 +494,7 @@ export const clientSectors = [
     description: 'Large-scale electronics deployments for government initiatives',
     clients: ['DGHS', 'ESIC', 'Indian Railways'],
     icon: 'gov',
+    image: '/all in one.jpg',
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
@@ -491,6 +502,7 @@ export const clientSectors = [
     description: 'Manufacturing equipment and monitoring systems',
     clients: ['Sun Pharma', 'Cipla', 'Ipca Labs'],
     icon: 'pharma',
+    image: '/walklab.png',
     gradient: 'from-green-500 to-emerald-600',
   },
   {
@@ -498,6 +510,7 @@ export const clientSectors = [
     description: 'Smart metering, grid monitoring, and industrial controls',
     clients: [],
     icon: 'energy',
+    image: '/Automotive Electronics.png',
     gradient: 'from-yellow-500 to-amber-600',
   },
   {
@@ -505,6 +518,7 @@ export const clientSectors = [
     description: 'Industrial electronics, sensors, and automotive components',
     clients: [],
     icon: 'industry',
+    image: '/pcb designer.png',
     gradient: 'from-slate-500 to-gray-600',
   },
 ];

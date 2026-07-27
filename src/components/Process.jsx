@@ -22,16 +22,16 @@ const stepIcons = {
 };
 
 const stepImages = [
-  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+  '/3d image.png',
+  '/Automotive Electronics.png',
+  '/Oxygen Concentrator.png',
+  '/Walnut Compressor Nebulizer.png',
+  '/BP.png',
+  '/Infrared Thermometer.png',
+  '/pcb designer.png',
+  '/walklab.png',
+  '/walkex.png',
+  '/all images.png',
 ];
 
 const techIcons = {

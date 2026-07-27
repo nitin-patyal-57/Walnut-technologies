@@ -3,7 +3,6 @@ import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight } from 'react-icons/fi';
 import Hero from '../components/Hero';
-import TrustSignals from '../components/TrustSignals';
 import SolutionCategories from '../components/SolutionCategories';
 
 const divisions = [
@@ -12,7 +11,7 @@ const divisions = [
     title: 'Medical Devices',
     subtitle: 'ISO 13485, Class 10K Cleanroom',
     description: 'Life-critical medical electronics with full regulatory compliance — from oxygen concentrators to rehabilitation robots.',
-    image: '/all in one.jpg',
+    image: '/Oxygen Concentrator.png',
     color: 'from-cyan-500 to-blue-600',
     icon: FiHeart,
     link: '/solutions?category=Medical+Devices',
@@ -32,7 +31,7 @@ const divisions = [
     title: 'Custom Electronics',
     subtitle: '4 SMT Lines, 300K+ Units/Month',
     description: 'Full-spectrum OEM/ODM services from concept to delivery with 4 advanced SMT production lines.',
-    image: '/4.png',
+    image: '/Automotive Electronics.png',
     color: 'from-amber-500 to-orange-600',
     icon: FiCpu,
     link: '/solutions?category=Custom+Electronics',
@@ -192,7 +191,6 @@ export default function HomePage({ onOpenQuote, onOpenSchedule }) {
   return (
     <>
       <Hero onOpenQuote={onOpenQuote} onOpenSchedule={onOpenSchedule} />
-      <TrustSignals />
       <SolutionCategories />
       <DivisionsPreview />
       <CTASection />

@@ -50,19 +50,29 @@ export default function Expertise() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="group glass-card p-6 hover:border-slate-300 hover:shadow-lg transition-all duration-300"
+                className="group glass-card overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center mb-3 group-hover:bg-slate-900 group-hover:text-white group-hover:scale-110 transition-all">
-                  <Icon className="w-5 h-5" />
+                <div className="relative h-32 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+                  <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
                 </div>
-                <h3 className="text-sm font-bold text-slate-900 mb-1.5">{item.title}</h3>
-                <p className="text-xs text-slate-500 mb-2 leading-relaxed">{item.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {item.areas.map((area) => (
-                    <span key={area} className="px-2 py-0.5 text-[11px] bg-slate-100 text-slate-600 rounded-md border border-slate-200">
-                      {area}
-                    </span>
-                  ))}
+                <div className="p-4">
+                  <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
+                  <p className="text-xs text-slate-500 mb-2 leading-relaxed">{item.description}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {item.areas.map((area) => (
+                      <span key={area} className="px-1.5 py-0.5 text-[10px] bg-slate-100 text-slate-600 rounded border border-slate-200">
+                        {area}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             );

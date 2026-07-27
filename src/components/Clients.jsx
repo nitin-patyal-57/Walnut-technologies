@@ -50,11 +50,13 @@ export default function Clients() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-md"
               >
-                <div className="relative p-6">
-                  <div className={`inline-flex w-9 h-9 rounded-lg bg-gradient-to-br ${sector.gradient} items-center justify-center mb-3 shadow-lg`}>
-                    <Icon className="w-4 h-4 text-white" />
+                <div className={`relative p-4 bg-gradient-to-br ${sector.gradient}`}>
+                  <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center mb-3">
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 mb-0.5">{sector.sector}</h3>
+                  <h3 className="text-base font-bold font-display text-white">{sector.sector}</h3>
+                </div>
+                <div className="p-4">
                   <p className="text-xs text-slate-500 mb-2">{sector.description}</p>
                   {sector.clients && sector.clients.length > 0 && (
                     <div className="flex flex-wrap gap-1.5">

@@ -11,9 +11,9 @@ const divisionIcons = {
 };
 
 const divisionImages = {
-  medical: '/all in one.jpg',
+  medical: '/Oxygen Concentrator.png',
   payment: '/D and D.png',
-  custom: '/4.png',
+  custom: '/Automotive Electronics.png',
 };
 
 const categoryColorMap = {

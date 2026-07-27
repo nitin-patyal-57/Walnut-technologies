@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
-import { brand, trustSignals } from '../data/content';
+import { brand } from '../data/content';
 
 export default function Hero({ onOpenQuote, onOpenSchedule }) {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/3d image.png"
+          src="/homepagebackground.png"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -16,13 +16,13 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
 
       <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="max-w-3xl">
             <div className="space-y-5">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs backdrop-blur-sm"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs backdrop-blur-sm w-fit"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 Vertically Integrated OEM/ODM Manufacturer
@@ -70,36 +70,6 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
                 </button>
               </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 15 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="hidden lg:block"
-            >
-              <div className="grid grid-cols-2 gap-3">
-                {trustSignals.stats.map((stat, index) => (
-                  <div key={stat.label} className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4 hover:bg-white/15 transition-all duration-300">
-                    <div className="text-2xl font-bold font-display text-white mb-0.5">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-white/60">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-3 bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4">
-                <div className="flex flex-wrap gap-1.5">
-                  {trustSignals.certifications.map((cert) => (
-                    <span key={cert} className="px-2 py-1 text-[11px] font-medium bg-white/10 text-white/70 rounded-md border border-white/15">
-                      {cert}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>

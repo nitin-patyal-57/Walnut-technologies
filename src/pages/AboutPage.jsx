@@ -7,9 +7,9 @@ import {
 } from 'react-icons/fi';
 
 const facilityImages = [
-  'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&h=500&fit=crop',
-  'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=500&fit=crop',
-  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop',
+  '/Oxygen Concentrator.png',
+  '/Walnut Compressor Nebulizer.png',
+  '/walklab.png',
 ];
 
 const valueIcons = [FiTarget, FiZap, FiGlobe, FiShield];
@@ -42,7 +42,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&h=900&fit=crop"
+            src="/homepagebackground.png"
             alt="Walnut Technologies Facility"
             className="w-full h-full object-cover"
           />
@@ -50,7 +50,7 @@ export default function AboutPage() {
         </div>
 
         {/* Content */}
-        <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div ref={ref} className="relative z-10 max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -212,7 +212,7 @@ export default function AboutPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="text-center mb-12">
+            <div className="mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-4">
                 <FiCpu className="w-4 h-4" />
                 Our Facility
@@ -221,7 +221,7 @@ export default function AboutPage() {
                 Where Innovation Meets{' '}
                 <span className="text-blue-600">Precision</span>
               </h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">
+              <p className="text-slate-500 max-w-2xl">
                 4 SMT Lines, Class 10K Cleanroom, and full vertical integration under one roof
               </p>
             </div>
@@ -272,7 +272,6 @@ export default function AboutPage() {
                     { icon: FiAward, label: 'Legal Name', value: brand.fullName },
                     { icon: FiCalendar, label: 'Founded', value: brand.founded },
                     { icon: FiMapPin, label: 'Headquarters', value: brand.location },
-                    { icon: FiGlobe, label: 'Website', value: brand.domain },
                     { icon: FiUsers, label: 'GSTN/IEC', value: brand.gstn },
                     { icon: FiCpu, label: 'Facility', value: '60,000 sq.ft with 4 SMT Lines, Class 10K Cleanroom' },
                   ].map((item, i) => (
@@ -340,7 +339,7 @@ export default function AboutPage() {
       <section className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="text-center mb-12">
+            <div className="mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-semibold mb-4">
                 <FiHeart className="w-4 h-4" />
                 Our DNA
@@ -348,7 +347,7 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-3">
                 Core <span className="text-blue-400">Values</span>
               </h2>
-              <p className="text-white/50 max-w-2xl mx-auto">
+              <p className="text-white/50 max-w-2xl">
                 The principles that drive every decision we make
               </p>
             </div>
@@ -375,7 +374,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="relative p-12 rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50/30 border border-blue-100 overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl" />
@@ -385,10 +384,10 @@ export default function AboutPage() {
                   Let's Build Something{' '}
                   <span className="text-blue-600">Great Together</span>
                 </h2>
-                <p className="text-slate-500 mb-8 max-w-xl mx-auto">
+                <p className="text-slate-500 mb-8 max-w-xl">
                   From concept to production, we're your trusted partner in electronics manufacturing.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-wrap gap-4">
                   <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
                     Start a Project
                     <FiArrowRight className="w-4 h-4" />

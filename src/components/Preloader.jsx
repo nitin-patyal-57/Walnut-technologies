@@ -58,12 +58,12 @@ export default function Preloader() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="relative z-10 mb-8"
+              className="relative z-10 mb-2"
             >
               <motion.img
-                src="/walnut-logo.svg.png"
+                src="/logo.png"
                 alt="Walnut Technologies"
-                className="w-32 h-32 object-contain"
+                className="w-52 h-52 object-contain"
                 animate={{
                   scale: [1, 1.05, 1],
                   filter: [

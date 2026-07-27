@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
 
 const solutionCategories = [
-  { id: 'oxygen-concentrators', title: 'Oxygen Concentrators', image: '/all in one.jpg', link: '/solutions?product=oxygen-concentrator' },
+  { id: 'oxygen-concentrators', title: 'Oxygen Concentrators', image: '/Oxygen Concentrator.png', link: '/solutions?product=oxygen-concentrator' },
   { id: 'pos-terminals', title: 'POS Terminals', image: '/D and D.png', link: '/solutions?product=pos-terminals' },
-  { id: 'neuro-rehab', title: 'Neuro Rehab Devices', image: '/3d image.png', link: '/solutions?product=walklab' },
-  { id: 'bp-monitors', title: 'BP Monitors', image: '/all in one.jpg', link: '/solutions?product=bp-monitor' },
+  { id: 'neuro-rehab', title: 'Neuro Rehab Devices', image: '/walklab.png', link: '/solutions?product=walklab' },
+  { id: 'bp-monitors', title: 'BP Monitors', image: '/BP.png', link: '/solutions?product=bp-monitor' },
   { id: 'qr-soundboxes', title: 'QR Soundboxes', image: '/D and D.png', link: '/solutions?product=qr-soundbox' },
-  { id: 'thermometers', title: 'IR Thermometers', image: '/all in one.jpg', link: '/solutions?product=thermometer' },
-  { id: 'pcb-design', title: 'PCB Design', image: '/4.png', link: '/solutions?product=pcb-design' },
-  { id: 'iot-solutions', title: 'IoT Solutions', image: '/4.png', link: '/solutions?product=iot-solutions' },
+  { id: 'thermometers', title: 'IR Thermometers', image: '/Infrared Thermometer.png', link: '/solutions?product=thermometer' },
+  { id: 'pcb-design', title: 'PCB Design', image: '/pcb designer.png', link: '/solutions?product=pcb-design' },
+  { id: 'iot-solutions', title: 'IoT Solutions', image: '/Automotive Electronics.png', link: '/solutions?product=iot-solutions' },
 ];
 
 function CategoryCard({ category, index, isInView }) {
@@ -30,12 +30,12 @@ function CategoryCard({ category, index, isInView }) {
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent group-hover:from-slate-900/80 transition-all duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-5">
-            <h3 className="text-sm font-bold font-display text-white uppercase tracking-wide leading-tight mb-2">
+          <div className="absolute inset-0 flex flex-col justify-end p-3">
+            <h3 className="text-[10px] font-bold font-display text-white uppercase tracking-wide leading-tight mb-1.5">
               {category.title}
             </h3>
-            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-all duration-300">
-              <FiArrowUpRight className="w-4 h-4 text-white group-hover:text-slate-900" />
+            <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-all duration-300">
+              <FiArrowUpRight className="w-3 h-3 text-white group-hover:text-slate-900" />
             </div>
           </div>
         </div>
