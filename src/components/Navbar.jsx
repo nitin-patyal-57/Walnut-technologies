@@ -160,6 +160,12 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
             {/* Mobile Menu Button */}
             <div className="flex lg:hidden items-center gap-2">
               <button
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
+                className={`p-1.5 transition-colors ${textColor} ${textColorHover}`}
+              >
+                {isMobileOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
+              </button>
+              <button
                 onClick={() => setIsSidebarOpen(true)}
                 className={`p-1.5 transition-colors ${textColor} ${textColorHover}`}
               >
