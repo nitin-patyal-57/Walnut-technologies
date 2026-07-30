@@ -9,49 +9,55 @@ const divisions = [
     id: 'medical',
     title: 'Medical Devices',
     subtitle: 'ISO 13485, Class 10K Cleanroom',
-    description: 'Life-critical medical electronics with full regulatory compliance — from oxygen concentrators to rehabilitation robots.',
-    image: '/RTMS.png',
+    description: 'Life-critical medical electronics with full regulatory compliance.',
     color: 'from-cyan-500 to-blue-600',
     icon: FiHeart,
     link: '/solutions?category=Medical+Devices',
-    products: [
-      { name: 'Oxygen Concentrators', image: '/RTMS.png' },
-      { name: 'BP Monitors', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp' },
-      { name: 'WalkLab Gait Training', image: '/walklab 3.0.jpeg' },
-      { name: 'IR Thermometers', image: '/TDCS.png' },
-      { name: 'Compressor Nebulizers', image: '/CES repose.png' },
-    ],
+  },
+  {
+    id: 'neuro',
+    title: 'Neuro Rehab Devices',
+    subtitle: 'FDA, IEC 60601 Compliant',
+    description: 'Advanced rehabilitation technology for neurological recovery.',
+    color: 'from-violet-500 to-purple-600',
+    icon: FiCpu,
+    link: '/solutions?category=Medical+Devices',
   },
   {
     id: 'payment',
     title: 'Payment Systems',
     subtitle: 'PCI-DSS, NPCI, RBI Certified',
-    description: 'Secure payment terminal manufacturing with end-to-end compliance for modern financial ecosystems.',
-    image: '/paytm soundbox.png',
-    color: 'from-violet-500 to-purple-600',
+    description: 'Secure payment terminal manufacturing with end-to-end compliance.',
+    color: 'from-emerald-500 to-green-600',
     icon: FiCreditCard,
     link: '/solutions?category=Payment+Systems',
-    products: [
-      { name: 'Smart POS Terminals', image: '/paytm soundbox.png' },
-      { name: 'QR Soundboxes', image: '/Pocket Soundbox.png' },
-      { name: 'QR Scanner', image: '/Qr scanner.jpg' },
-      { name: 'EMV Devices', image: '/soundbox (2).png' },
-    ],
   },
   {
-    id: 'custom',
-    title: 'Custom Electronics',
-    subtitle: '4 SMT Lines, 300K+ Units/Month',
-    description: 'Full-spectrum OEM/ODM services from concept to delivery with 4 advanced SMT production lines.',
-    image: '/smart lock.PNG',
+    id: 'automotive',
+    title: 'Automotive Electronics',
+    subtitle: 'IATF 16949 Compliant',
+    description: 'High-reliability electronics for automotive applications.',
     color: 'from-amber-500 to-orange-600',
     icon: FiCpu,
     link: '/solutions?category=Custom+Electronics',
-    products: [
-      { name: 'PCB Design', image: '/3d image.png' },
-      { name: 'Box Build Assembly', image: '/smart lock.PNG' },
-      { name: 'IoT Solutions', image: '/1.png' },
-    ],
+  },
+  {
+    id: 'iot',
+    title: 'IoT Solutions',
+    subtitle: 'End-to-End Connectivity',
+    description: 'Smart connected devices for industrial and consumer applications.',
+    color: 'from-rose-500 to-pink-600',
+    icon: FiGlobe,
+    link: '/solutions?category=Custom+Electronics',
+  },
+  {
+    id: 'custom',
+    title: 'Custom Solutions',
+    subtitle: '4 SMT Lines, 300K+ Units/Month',
+    description: 'Full-spectrum OEM/ODM services from concept to delivery.',
+    color: 'from-slate-700 to-slate-900',
+    icon: FiCpu,
+    link: '/solutions?category=Custom+Electronics',
   },
 ];
 
@@ -72,24 +78,24 @@ function DivisionsPreview() {
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-sm font-semibold mb-4">
             <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            Our Solutions
+            Our Verticals
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            Three Divisions,{' '}
+            Six Divisions,{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 font-black">
               One Standard
             </span>
           </h2>
           <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            Specialized manufacturing divisions serving the most demanding industries.
+            Specialized manufacturing verticals serving the most demanding industries.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {divisions.map((div, index) => {
             const Icon = div.icon;
             return (
@@ -97,53 +103,34 @@ function DivisionsPreview() {
                 key={div.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group relative rounded-2xl overflow-hidden border border-slate-200 bg-white hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-lg"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="relative h-44 overflow-hidden">
-                  <img
-                    src={div.image}
-                    alt={div.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
-                  <div className={`absolute top-3 left-3 inline-flex w-9 h-9 rounded-lg bg-gradient-to-br ${div.color} items-center justify-center shadow-lg`}>
-                    <Icon className="w-4 h-4 text-white" />
+                <Link
+                  to={div.link}
+                  className="group block relative rounded-2xl overflow-hidden border border-slate-200 bg-white hover:border-transparent hover:shadow-xl transition-all duration-500"
+                >
+                  {/* Gradient Header */}
+                  <div className={`relative h-28 bg-gradient-to-br ${div.color} flex items-center justify-center overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
+                    <Icon className="w-10 h-10 text-white/80 group-hover:scale-110 transition-transform duration-500" />
+                    {/* Decorative circles */}
+                    <div className="absolute -top-8 -right-8 w-24 h-24 bg-white/10 rounded-full" />
+                    <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white/10 rounded-full" />
                   </div>
-                  <h3 className="absolute bottom-3 left-4 text-lg font-bold font-display text-white">{div.title}</h3>
-                </div>
-                <div className="p-4">
-                  <p className="text-[11px] font-medium text-cyan-600 mb-1.5">{div.subtitle}</p>
-                  <p className="text-xs text-slate-500 leading-relaxed mb-3">{div.description}</p>
 
-                  {/* Product Images Grid */}
-                  <div className="mb-3">
-                    <p className="text-[9px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Products</p>
-                    <div className="grid grid-cols-5 gap-1">
-                      {div.products.map((product) => (
-                        <div key={product.name} className="group/img relative aspect-square overflow-hidden rounded-md border border-slate-200 hover:border-slate-300 transition-all">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
-                          <div className="absolute bottom-0 left-0 right-0 p-0.5 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300">
-                            <p className="text-[6px] font-medium text-white leading-tight truncate">{product.name}</p>
-                          </div>
-                        </div>
-                      ))}
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors mb-1">
+                      {div.title}
+                    </h3>
+                    <p className="text-xs font-semibold text-cyan-600 mb-2">{div.subtitle}</p>
+                    <p className="text-xs text-slate-500 leading-relaxed mb-4">{div.description}</p>
+                    
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-slate-900 group-hover:text-blue-600 transition-colors">
+                      Explore Solutions
+                      <FiArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
-
-                  <Link
-                    to={div.link}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-900 hover:text-cyan-600 transition-colors group/link"
-                  >
-                    Explore Solutions
-                    <FiArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
+                </Link>
               </motion.div>
             );
           })}
