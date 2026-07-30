@@ -3,7 +3,6 @@ import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight } from 'react-icons/fi';
 import Hero from '../components/Hero';
-import SolutionCategories from '../components/SolutionCategories';
 
 const divisions = [
   {
@@ -224,7 +223,6 @@ export default function HomePage({ onOpenQuote, onOpenSchedule }) {
   return (
     <>
       <Hero onOpenQuote={onOpenQuote} onOpenSchedule={onOpenSchedule} />
-      <SolutionCategories />
       <DivisionsPreview />
       <CTASection />
     </>
