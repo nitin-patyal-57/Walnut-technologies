@@ -5,7 +5,7 @@ import { FiHome, FiLayers, FiSettings, FiUser, FiMessageCircle } from 'react-ico
 const bottomNavItems = [
   { label: 'Home', to: '/', icon: FiHome },
   { label: 'Solutions', to: '/solutions', icon: FiLayers },
-  { label: 'Process', to: '/process', icon: FiSettings },
+  { label: 'Career', to: '/career', icon: FiSettings },
   { label: 'About', to: '/about', icon: FiUser },
   { label: 'Contact', to: '/contact', icon: FiMessageCircle },
 ];
