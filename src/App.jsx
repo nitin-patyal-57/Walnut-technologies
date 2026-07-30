@@ -20,6 +20,8 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
+const CareerPage = lazy(() => import('./pages/CareerPage'));
+const JobApplicationPage = lazy(() => import('./pages/JobApplicationPage'));
 
 function PageLoader() {
   return (
@@ -70,6 +72,8 @@ function AppContent() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/contact" element={<ContactPage onOpenQuote={() => setQuoteModalOpen(true)} />} />
+          <Route path="/career" element={<CareerPage />} />
+          <Route path="/apply" element={<JobApplicationPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
         </Routes>

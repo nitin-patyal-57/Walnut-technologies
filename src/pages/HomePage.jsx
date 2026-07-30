@@ -162,12 +162,6 @@ function CTASection() {
     <section id="cta-section" className="py-16 md:py-20 bg-slate-50">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-2xl overflow-hidden bg-slate-900">
-          <img
-            src="/CES repose.png"
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/70" />
           <div className="relative z-10 py-12 md:py-16 px-6 md:px-12">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>

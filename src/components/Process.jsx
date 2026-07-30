@@ -338,9 +338,6 @@ export default function Process() {
             transition={{ duration: 0.6 }}
             className="relative p-8 md:p-10 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 overflow-hidden"
           >
-            <div className="absolute inset-0">
-              <img src="/soundbox (3).png" alt="" className="w-full h-full object-cover opacity-20" />
-            </div>
             <div className="relative z-10 text-center">
               <h2 className="text-xl md:text-2xl font-bold font-display text-white mb-3">
                 Ready to Start Your Project?

@@ -380,20 +380,20 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-20">
-        <div className="max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="relative p-12 rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50/30 border border-blue-100 overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-emerald-500/10 to-green-500/10 rounded-full blur-3xl" />
-              <div className="relative z-10">
+              <div className="relative z-10 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
                   Let's Build Something{' '}
                   <span className="text-blue-600">Great Together</span>
                 </h2>
-                <p className="text-slate-500 mb-8 max-w-xl">
+                <p className="text-slate-500 mb-8 max-w-xl mx-auto">
                   From concept to production, we're your trusted partner in electronics manufacturing.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center gap-4">
                   <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
                     Start a Project
                     <FiArrowRight className="w-4 h-4" />
