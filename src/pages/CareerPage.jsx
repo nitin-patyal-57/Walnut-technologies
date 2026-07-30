@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   FiBriefcase, FiUsers, FiTrendingUp, FiGlobe, FiHeart, FiZap,
   FiArrowRight, FiCheckCircle, FiMapPin, FiClock, FiDollarSign,
@@ -346,7 +347,7 @@ export default function CareerPage() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
                 >
-                  <a href={`/apply?title=${encodeURIComponent(job.title)}&dept=${encodeURIComponent(job.department)}&exp=${encodeURIComponent(job.experience)}&salary=${encodeURIComponent(job.salary)}`} className="group block relative rounded-2xl bg-white border border-slate-200 hover:border-transparent hover:shadow-xl transition-all duration-500 overflow-hidden h-full">
+                  <Link to={`/apply?title=${encodeURIComponent(job.title)}&dept=${encodeURIComponent(job.department)}&exp=${encodeURIComponent(job.experience)}&salary=${encodeURIComponent(job.salary)}`} className="group block relative rounded-2xl bg-white border border-slate-200 hover:border-transparent hover:shadow-xl transition-all duration-500 overflow-hidden h-full">
                     {/* Top accent line */}
                     <div className={`h-1 w-full bg-gradient-to-r ${job.color}`} />
 
@@ -384,9 +385,9 @@ export default function CareerPage() {
                         <span className="flex items-center gap-1 font-semibold text-slate-600">
                           <FiDollarSign className="w-3 h-3 text-amber-500" /> {job.salary}
                         </span>
-                      </div>
+                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>
