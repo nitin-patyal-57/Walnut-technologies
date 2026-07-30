@@ -11,30 +11,48 @@ const divisions = [
     title: 'Medical Devices',
     subtitle: 'ISO 13485, Class 10K Cleanroom',
     description: 'Life-critical medical electronics with full regulatory compliance — from oxygen concentrators to rehabilitation robots.',
-    image: '/Oxygen Concentrator.png',
+    image: '/RTMS.png',
     color: 'from-cyan-500 to-blue-600',
     icon: FiHeart,
     link: '/solutions?category=Medical+Devices',
+    products: [
+      { name: 'Oxygen Concentrators', image: '/RTMS.png' },
+      { name: 'BP Monitors', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp' },
+      { name: 'WalkLab Gait Training', image: '/walklab 3.0.jpeg' },
+      { name: 'IR Thermometers', image: '/TDCS.png' },
+      { name: 'Compressor Nebulizers', image: '/CES repose.png' },
+    ],
   },
   {
     id: 'payment',
     title: 'Payment Systems',
     subtitle: 'PCI-DSS, NPCI, RBI Certified',
     description: 'Secure payment terminal manufacturing with end-to-end compliance for modern financial ecosystems.',
-    image: '/D and D.png',
+    image: '/paytm soundbox.png',
     color: 'from-violet-500 to-purple-600',
     icon: FiCreditCard,
     link: '/solutions?category=Payment+Systems',
+    products: [
+      { name: 'Smart POS Terminals', image: '/paytm soundbox.png' },
+      { name: 'QR Soundboxes', image: '/Pocket Soundbox.png' },
+      { name: 'QR Scanner', image: '/Qr scanner.jpg' },
+      { name: 'EMV Devices', image: '/soundbox (2).png' },
+    ],
   },
   {
     id: 'custom',
     title: 'Custom Electronics',
     subtitle: '4 SMT Lines, 300K+ Units/Month',
     description: 'Full-spectrum OEM/ODM services from concept to delivery with 4 advanced SMT production lines.',
-    image: '/Automotive Electronics.png',
+    image: '/smart lock.PNG',
     color: 'from-amber-500 to-orange-600',
     icon: FiCpu,
     link: '/solutions?category=Custom+Electronics',
+    products: [
+      { name: 'PCB Design', image: '/3d image.png' },
+      { name: 'Box Build Assembly', image: '/smart lock.PNG' },
+      { name: 'IoT Solutions', image: '/1.png' },
+    ],
   },
 ];
 
@@ -97,7 +115,28 @@ function DivisionsPreview() {
                 </div>
                 <div className="p-4">
                   <p className="text-[11px] font-medium text-cyan-600 mb-1.5">{div.subtitle}</p>
-                  <p className="text-xs text-slate-500 leading-relaxed mb-4">{div.description}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed mb-3">{div.description}</p>
+
+                  {/* Product Images Grid */}
+                  <div className="mb-3">
+                    <p className="text-[9px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Products</p>
+                    <div className="grid grid-cols-5 gap-1">
+                      {div.products.map((product) => (
+                        <div key={product.name} className="group/img relative aspect-square overflow-hidden rounded-md border border-slate-200 hover:border-slate-300 transition-all">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                          <div className="absolute bottom-0 left-0 right-0 p-0.5 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300">
+                            <p className="text-[6px] font-medium text-white leading-tight truncate">{product.name}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   <Link
                     to={div.link}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-900 hover:text-cyan-600 transition-colors group/link"
@@ -124,7 +163,7 @@ function CTASection() {
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-2xl overflow-hidden bg-slate-900">
           <img
-            src="/Untitled Project (3) (1).png"
+            src="/CES repose.png"
             alt=""
             className="absolute inset-0 w-full h-full object-cover opacity-30"
           />

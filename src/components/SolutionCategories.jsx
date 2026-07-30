@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
 
 const solutionCategories = [
-  { id: 'oxygen-concentrators', title: 'Oxygen Concentrators', image: '/Oxygen Concentrator.png', link: '/solutions?product=oxygen-concentrator' },
-  { id: 'pos-terminals', title: 'POS Terminals', image: '/D and D.png', link: '/solutions?product=pos-terminals' },
-  { id: 'neuro-rehab', title: 'Neuro Rehab Devices', image: '/walklab.png', link: '/solutions?product=walklab' },
-  { id: 'bp-monitors', title: 'BP Monitors', image: '/BP.png', link: '/solutions?product=bp-monitor' },
-  { id: 'qr-soundboxes', title: 'QR Soundboxes', image: '/D and D.png', link: '/solutions?product=qr-soundbox' },
-  { id: 'thermometers', title: 'IR Thermometers', image: '/Infrared Thermometer.png', link: '/solutions?product=thermometer' },
-  { id: 'pcb-design', title: 'PCB Design', image: '/pcb designer.png', link: '/solutions?product=pcb-design' },
-  { id: 'iot-solutions', title: 'IoT Solutions', image: '/Automotive Electronics.png', link: '/solutions?product=iot-solutions' },
+  { id: 'oxygen-concentrators', title: 'Oxygen Concentrators', image: '/RTMS.png', link: '/solutions?product=oxygen-concentrator' },
+  { id: 'pos-terminals', title: 'POS Terminals', image: '/paytm soundbox.png', link: '/solutions?product=pos-terminals' },
+  { id: 'neuro-rehab', title: 'Neuro Rehab Devices', image: '/walklab 3.0.jpeg', link: '/solutions?product=walklab' },
+  { id: 'bp-monitors', title: 'BP Monitors', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp', link: '/solutions?product=bp-monitor' },
+  { id: 'qr-soundboxes', title: 'QR Soundboxes', image: '/Pocket Soundbox.png', link: '/solutions?product=qr-soundbox' },
+  { id: 'thermometers', title: 'IR Thermometers', image: '/TDCS.png', link: '/solutions?product=thermometer' },
+  { id: 'pcb-design', title: 'PCB Design', image: '/3d image.png', link: '/solutions?product=pcb-design' },
+  { id: 'iot-solutions', title: 'IoT Solutions', image: '/smart lock.PNG', link: '/solutions?product=iot-solutions' },
 ];
 
 function CategoryCard({ category, index, isInView }) {

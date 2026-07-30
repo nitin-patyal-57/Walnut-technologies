@@ -7,9 +7,12 @@ import {
 } from 'react-icons/fi';
 
 const facilityImages = [
-  '/Oxygen Concentrator.png',
-  '/Walnut Compressor Nebulizer.png',
-  '/walklab.png',
+  '/RTMS.png',
+  '/paytm soundbox.png',
+  '/walklab 3.0.jpeg',
+  '/TDCS.png',
+  '/smart lock.PNG',
+  '/3d image.png',
 ];
 
 const valueIcons = [FiTarget, FiZap, FiGlobe, FiShield];
@@ -38,7 +41,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero with Image */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -50,14 +53,14 @@ export default function AboutPage() {
         </div>
 
         {/* Content */}
-        <div ref={ref} className="relative z-10 max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <div ref={ref} className="relative z-10 max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-semibold mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-semibold mb-5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 Est. {brand.founded}
               </div>
@@ -67,7 +70,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="text-4xl md:text-6xl font-bold font-display text-white mb-6 leading-tight"
+              className="text-4xl md:text-5xl font-bold font-display text-white mb-5 leading-tight"
             >
               Building the Future of{' '}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
@@ -79,7 +82,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-              className="text-lg text-white/70 mb-8 leading-relaxed"
+              className="text-base text-white/70 mb-7 leading-relaxed"
             >
               {about.story}
             </motion.p>
@@ -119,20 +122,20 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Bar */}
-      <section className="relative -mt-12 z-20">
+      <section className="relative -mt-8 z-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
               {about.stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
-                  className="bg-white rounded-xl p-5 text-center shadow-xl border border-slate-100"
+                  className="bg-white rounded-lg p-3 text-center shadow-lg border border-slate-100"
                 >
-                  <div className="text-2xl font-bold font-display text-blue-600 mb-1">{stat.value}</div>
-                  <div className="text-[11px] text-slate-500 font-medium">{stat.label}</div>
+                  <div className="text-lg font-bold font-display text-blue-600 mb-0.5">{stat.value}</div>
+                  <div className="text-[9px] text-slate-500 font-medium leading-tight">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -149,7 +152,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src={facilityImages[0]}
+                    src="/CES repose.png"
                     alt="Manufacturing Facility"
                     className="w-full h-[400px] object-cover"
                   />
@@ -229,19 +232,22 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {facilityImages.map((img, i) => (
-              <AnimatedSection key={i} delay={i * 0.15}>
+              <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                   <img
                     src={img}
                     alt={`Facility ${i + 1}`}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <h3 className="text-white font-bold">
-                      {i === 0 && 'SMT Production Line'}
-                      {i === 1 && 'Assembly & Integration'}
-                      {i === 2 && 'Quality Testing Lab'}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                    <h3 className="text-white font-bold text-sm">
+                      {i === 0 && 'Medical Devices'}
+                      {i === 1 && 'Payment Systems'}
+                      {i === 2 && 'Rehabilitation Tech'}
+                      {i === 3 && 'Diagnostic Equipment'}
+                      {i === 4 && 'Smart IoT Devices'}
+                      {i === 5 && 'PCB Design Lab'}
                     </h3>
                   </div>
                 </div>

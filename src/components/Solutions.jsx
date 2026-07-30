@@ -11,9 +11,9 @@ const divisionIcons = {
 };
 
 const divisionImages = {
-  medical: '/Oxygen Concentrator.png',
-  payment: '/D and D.png',
-  custom: '/Automotive Electronics.png',
+  medical: '/RTMS.png',
+  payment: '/paytm soundbox.png',
+  custom: '/smart lock.PNG',
 };
 
 const categoryColorMap = {
@@ -85,6 +85,17 @@ function ProductCard({ product, index, onOpenQuote }) {
       className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-lg"
     >
       <div className={`h-1 w-full bg-gradient-to-r ${colors?.bar || 'from-slate-400 to-slate-500'}`} />
+      <div className="relative h-40 overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent" />
+        <div className={`absolute top-3 right-3 px-2 py-0.5 text-[9px] font-semibold text-white bg-gradient-to-r ${colors?.bar || 'from-slate-400 to-slate-500'} rounded-full`}>
+          {product.category}
+        </div>
+      </div>
       <div className="p-5">
         <h3 className="text-base font-bold text-slate-900 mb-1.5">{product.title}</h3>
         <p className="text-xs text-slate-500 mb-3 leading-relaxed">{product.description}</p>

@@ -79,7 +79,7 @@ export default function Divisions({ onOpenQuote }) {
                   </p>
 
                   {/* Features */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {division.features.map((feature) => (
                       <span
                         key={feature}
@@ -88,6 +88,26 @@ export default function Divisions({ onOpenQuote }) {
                         {feature}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Product Images Grid */}
+                  <div className="mb-4">
+                    <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Products</p>
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {division.products.map((product) => (
+                        <div key={product.name} className="group/img relative aspect-square overflow-hidden rounded-lg border border-slate-200 hover:border-slate-300 transition-all">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                          <div className="absolute bottom-0 left-0 right-0 p-0.5 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300">
+                            <p className="text-[7px] font-medium text-white leading-tight truncate">{product.name}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   {/* CTA */}
