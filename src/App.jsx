@@ -1,6 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import MobileBottomNav from './components/MobileBottomNav';
 import Preloader from './components/Preloader';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
@@ -73,6 +74,12 @@ function AppContent() {
           <Route path="/terms" element={<TermsPage />} />
         </Routes>
       </Suspense>
+
+      {/* Mobile Bottom Nav */}
+      <MobileBottomNav onOpenQuote={() => setQuoteModalOpen(true)} />
+
+      {/* Spacer for mobile bottom nav */}
+      <div className="lg:hidden h-20" />
 
       <Footer />
 
