@@ -380,9 +380,10 @@ function ClientsCertifications() {
 
   const certifications = [
     { title: 'ISO 13485', description: 'Quality management for medical devices' },
-    { title: 'CE Certified', description: 'European conformity marking' },
-    { title: 'FCC Certified', description: 'Federal Communications Commission' },
-    { title: 'PCI-DSS', description: 'Payment Card Industry Data Security Standard' },
+    { title: 'Class 10K Cleanroom', description: 'Controlled manufacturing environment' },
+    { title: 'CE, FCC, PCI-DSS', description: 'European, US & payment security standards' },
+    { title: 'IEC 60601', description: 'Medical electrical equipment safety' },
+    { title: 'BIS Certified', description: 'Bureau of Indian Standards compliance' },
   ];
 
   const clients = [
