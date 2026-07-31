@@ -368,7 +368,7 @@ function DivisionsPreview() {
               >
                 <Link to={div.link} className="block p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
                   <div className="flex items-start gap-3">
-                    <img src={div.image} alt={div.title} className="w-16 h-16 rounded-xl object-cover flex-shrink-0" />
+                    <img src={div.image} alt={div.title} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
                     <div>
                       <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
                       <ul className="space-y-1">
@@ -440,10 +440,10 @@ function DivisionsPreview() {
                 >
                   <div className="relative">
                     <div
-                      className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
+                      className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
                       style={{ backgroundColor: div.color }}
                     >
-                      <div.icon className="w-6 h-6 text-white" />
+                      <div.icon className="w-7 h-7 text-white" />
                     </div>
                     {/* Pin Point */}
                     <div
@@ -472,7 +472,7 @@ function DivisionsPreview() {
               >
                 <Link to={div.link} className="block p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
                   <div className="flex items-start gap-3">
-                    <img src={div.image} alt={div.title} className="w-16 h-16 rounded-xl object-cover flex-shrink-0" />
+                    <img src={div.image} alt={div.title} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
                     <div>
                       <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
                       <ul className="space-y-1">
