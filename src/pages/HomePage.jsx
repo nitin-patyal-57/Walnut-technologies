@@ -322,7 +322,7 @@ function DivisionsPreview() {
       color: '#dc2626',
       icon: FiSettings,
       image: '/Prototype Development.jpg',
-      features: ['4 SMT Lines', '300K+ Units/Month', 'Full ODM Services'],
+      features: ['4 SMT Lines', '300K+ Units/Month', 'Full Original Design Manufacturing'],
       link: '/solutions?category=Custom+Electronics',
     },
   ];
