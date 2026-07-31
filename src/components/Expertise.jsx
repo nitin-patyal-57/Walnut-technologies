@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
-  FiArrowRight, FiZap, FiCpu, FiSettings, FiCheckCircle, FiShield, 
-  FiGlobe, FiHeart, FiUsers, FiAward
+  FiArrowRight, FiZap, FiCpu, FiSettings, FiCheckCircle, 
+  FiGlobe, FiUsers
 } from 'react-icons/fi';
 
 const capabilities = [
@@ -56,34 +56,21 @@ const capabilities = [
   },
 ];
 
-const stats = [
-  { icon: FiSettings, value: '150,000+', label: 'Sq. Ft. Facility', color: 'text-blue-600' },
-  { icon: FiCpu, value: '300,000+', label: 'Devices / Month', color: 'text-emerald-600' },
-  { icon: FiUsers, value: '500+', label: 'Engineers', color: 'text-violet-600' },
-  { icon: FiGlobe, value: '20+', label: 'Countries Served', color: 'text-amber-600' },
-  { icon: FiAward, value: 'ISO', label: 'Certified', color: 'text-cyan-600' },
-  { icon: FiHeart, value: '10+', label: 'Years of Excellence', color: 'text-rose-600' },
-];
-
 export default function Expertise() {
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true, margin: '-80px' });
   const capRef = useRef(null);
   const capInView = useInView(capRef, { once: true, margin: '-80px' });
-  const statsRef = useRef(null);
-  const statsInView = useInView(statsRef, { once: true, margin: '-80px' });
 
   return (
     <section id="expertise" className="relative bg-white">
       {/* Hero Section */}
       <div ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
-        {/* Decorative Elements */}
         <div className="absolute top-20 right-20 w-72 h-72 bg-blue-100/50 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-48 h-48 bg-cyan-100/50 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={heroInView ? { opacity: 1, x: 0 } : {}}
@@ -118,7 +105,6 @@ export default function Expertise() {
               </motion.div>
             </motion.div>
 
-            {/* Right Image */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={heroInView ? { opacity: 1, x: 0 } : {}}
@@ -133,8 +119,6 @@ export default function Expertise() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
               </div>
-              
-              {/* Decorative Border */}
               <div className="absolute -top-4 -right-4 w-full h-full border-2 border-blue-200 rounded-3xl -z-10" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-100 rounded-2xl -z-10" />
             </motion.div>
@@ -176,32 +160,6 @@ export default function Expertise() {
               </motion.div>
             );
           })}
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div ref={statsRef} className="border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={statsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  className="flex items-center gap-3"
-                >
-                  <Icon className={`w-6 h-6 ${stat.color} flex-shrink-0`} />
-                  <div>
-                    <div className="text-xl font-bold text-slate-900">{stat.value}</div>
-                    <div className="text-xs text-slate-500">{stat.label}</div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>
