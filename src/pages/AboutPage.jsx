@@ -207,13 +207,23 @@ export default function AboutPage() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <div className="bg-white">
+    <div className="relative">
+      {/* Background Image */}
+      <div className="fixed inset-0 z-0">
+        <img
+          src="/aboutbackground.png"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      <div className="relative z-10">
       {/* Hero with Image */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/homepagebackground.png"
+            src="/aboutbackground.png"
             alt="Walnut Technologies Facility"
             className="w-full h-full object-cover"
           />
@@ -529,9 +539,10 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-          </AnimatedSection>
+           </AnimatedSection>
         </div>
       </section>
+      </div>
     </div>
   );
 }
