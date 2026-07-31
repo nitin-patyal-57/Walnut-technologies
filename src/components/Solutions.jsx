@@ -31,57 +31,44 @@ function DivisionShowcase({ division, onSelect, index }) {
       className="cursor-pointer group text-center"
     >
       {/* Products Display */}
-      <div className="relative h-[280px] md:h-[320px] mb-8">
+      <div className="relative mb-8">
         {/* Background Circle */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-48 h-48 md:w-56 md:h-56 bg-gradient-to-b from-slate-100 to-slate-200 rounded-full opacity-50" />
-        </div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
         
-        {/* Products on Pedestals */}
-        <div className="relative flex justify-center items-end h-full px-4">
-          {division.products.slice(0, 3).map((product, pIndex) => {
-            const isCenter = pIndex === 1;
-            const offsets = ['-translate-x-12 md:-translate-x-16', '', 'translate-x-12 md:translate-x-16'];
-            const heights = ['h-24 md:h-28', 'h-32 md:h-40', 'h-24 md:h-28'];
-            const bottoms = ['bottom-8', 'bottom-16', 'bottom-8'];
-            
-            return (
+        {/* Products Row */}
+        <div className="relative pt-8 pb-4">
+          <div className="flex justify-center items-end gap-2 md:gap-4">
+            {division.products.slice(0, 3).map((product, pIndex) => (
               <motion.div
                 key={product.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + pIndex * 0.1 }}
-                className={`absolute ${offsets[pIndex]} ${bottoms[pIndex]} z-${isCenter ? 20 : 10 - pIndex}`}
+                className={`flex flex-col items-center ${pIndex === 1 ? '-mt-4' : ''}`}
               >
-                {/* Pedestal */}
-                <div className="relative">
-                  {/* Shadow */}
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-black/10 rounded-full blur-sm" />
-                  
-                  {/* Pedestal Base */}
-                  <div className="w-24 h-4 md:w-28 md:h-5 bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-md border border-slate-200/50 mx-auto" />
-                  
-                  {/* Product */}
-                  <div className={`absolute -top-${isCenter ? '32' : '24'} md:-top-${isCenter ? '40' : '32'} left-1/2 -translate-x-1/2 ${heights[pIndex]} w-20 md:w-24 group-hover:scale-105 transition-transform duration-500`}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-contain drop-shadow-lg"
-                    />
-                  </div>
+                {/* Product Image */}
+                <div className={`w-16 h-20 md:w-20 md:h-24 mb-2 group-hover:scale-105 transition-transform duration-500`}>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain drop-shadow-md"
+                  />
                 </div>
+                
+                {/* Pedestal */}
+                <div className="w-16 h-3 md:w-20 md:h-4 bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Division Info */}
       <div className="relative">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200 mb-4 group-hover:scale-110 transition-transform duration-300">
-          <Icon className="w-6 h-6 text-slate-700" />
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200 mb-3 group-hover:scale-110 transition-transform duration-300">
+          <Icon className="w-5 h-5 text-slate-700" />
         </div>
-        <h3 className="text-xl md:text-2xl font-bold font-display text-slate-900 mb-2">{division.title}</h3>
+        <h3 className="text-xl font-bold font-display text-slate-900 mb-2">{division.title}</h3>
         <p className="text-sm text-slate-500 mb-4 max-w-xs mx-auto leading-relaxed">{division.subtitle}</p>
         
         <div className="flex flex-wrap justify-center gap-2 mb-5">
@@ -118,25 +105,25 @@ function ProductCard({ product, index, onOpenQuote }) {
       <div className={`h-1 w-full bg-gradient-to-r ${colors?.bar || 'from-slate-400 to-slate-500'}`} />
       
       {/* Product Image */}
-      <div className="relative h-52 overflow-hidden bg-gradient-to-b from-slate-50 to-white p-6">
+      <div className="relative h-48 overflow-hidden bg-gradient-to-b from-slate-50 to-white p-4">
         <img
           src={product.image}
           alt={product.title}
           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
         />
-        <div className={`absolute top-4 right-4 px-3 py-1 text-[10px] font-semibold text-white bg-gradient-to-r ${colors?.bar || 'from-slate-400 to-slate-500'} rounded-full`}>
+        <div className={`absolute top-3 right-3 px-2.5 py-1 text-[10px] font-semibold text-white bg-gradient-to-r ${colors?.bar || 'from-slate-400 to-slate-500'} rounded-full`}>
           {product.category}
         </div>
       </div>
       
       {/* Content */}
-      <div className="p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-2">{product.title}</h3>
-        <p className="text-sm text-slate-500 mb-4 leading-relaxed">{product.description}</p>
+      <div className="p-5">
+        <h3 className="text-base font-bold text-slate-900 mb-2">{product.title}</h3>
+        <p className="text-sm text-slate-500 mb-3 leading-relaxed">{product.description}</p>
         
-        <div className="flex flex-wrap gap-2 mb-5">
+        <div className="flex flex-wrap gap-2 mb-4">
           {product.features.map((feature) => (
-            <span key={feature} className="px-3 py-1 text-xs bg-slate-100 text-slate-600 rounded-full border border-slate-200">
+            <span key={feature} className="px-2.5 py-1 text-[11px] bg-slate-100 text-slate-600 rounded-full border border-slate-200">
               {feature}
             </span>
           ))}
@@ -144,7 +131,7 @@ function ProductCard({ product, index, onOpenQuote }) {
         
         <button
           onClick={(e) => { e.stopPropagation(); onOpenQuote(); }}
-          className="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition-colors flex items-center justify-center gap-2"
+          className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition-colors flex items-center justify-center gap-2"
         >
           Request Quote
           <FiArrowRight className="w-4 h-4" />
