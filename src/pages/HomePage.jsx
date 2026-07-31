@@ -739,13 +739,25 @@ function CTASection() {
 
 export default function HomePage({ onOpenQuote, onOpenSchedule }) {
   return (
-    <>
-      <Hero onOpenQuote={onOpenQuote} onOpenSchedule={onOpenSchedule} />
-      <DivisionsPreview />
-      <JourneySection />
-      <StatsSection />
-      <ClientsCertifications />
-      <CTASection />
-    </>
+    <div className="relative">
+      {/* Background Image */}
+      <div className="fixed inset-0 z-0">
+        <img
+          src="/homepage background.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-white/85" />
+      </div>
+      
+      <div className="relative z-10">
+        <Hero onOpenQuote={onOpenQuote} onOpenSchedule={onOpenSchedule} />
+        <DivisionsPreview />
+        <JourneySection />
+        <StatsSection />
+        <ClientsCertifications />
+        <CTASection />
+      </div>
+    </div>
   );
 }
