@@ -741,7 +741,7 @@ export default function HomePage({ onOpenQuote, onOpenSchedule }) {
   return (
     <div className="relative">
       {/* Background Image */}
-      <div className="fixed inset-0 z-0">
+      <div className="absolute inset-0 z-0">
         <img
           src="/home background.jpg"
           alt=""
