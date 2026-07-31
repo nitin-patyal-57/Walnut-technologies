@@ -196,7 +196,7 @@ export const products = [
     category: 'Custom Electronics',
     title: 'Contract Manufacturing',
     description: 'Full-stack contract manufacturing with 4 SMT lines, 300K+ units/month capacity, and complete supply chain management.',
-    image: '/soundbox (3).png',
+    image: '/contract manufacturing.jpg',
     features: ['4 SMT Lines', '300K+/Month', 'Full Turnkey', 'Global Logistics'],
   },
 ];
