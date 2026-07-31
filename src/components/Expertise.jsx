@@ -1,66 +1,55 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { 
-  FiArrowRight, FiZap, FiCpu, FiSettings, FiCheckCircle, 
-  FiGlobe, FiUsers
-} from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 
-const capabilities = [
+const expertiseAreas = [
   {
-    title: 'Engineering Excellence',
-    description: 'Multidisciplinary engineering team delivering innovative and reliable solutions.',
-    icon: FiCpu,
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-    borderColor: 'border-blue-100',
+    title: 'Medical Electronics',
+    description: 'Advanced electronic systems designed for healthcare, ensuring precision and reliability in critical medical operations.',
+    image: '/RTMS.png',
   },
   {
-    title: 'Scalable Manufacturing',
-    description: '150,000 sq. ft. facility with advanced automation for high-volume production.',
-    icon: FiSettings,
-    color: 'text-emerald-600',
-    bgColor: 'bg-emerald-50',
-    borderColor: 'border-emerald-100',
+    title: 'Embedded Electronic and IoT',
+    description: 'Integrating smart tech into our day to day use devices, enabling seamless connectivity and enhanced functionality for IoT ecosystems.',
+    image: '/3d image.png',
   },
   {
-    title: 'Innovation Driven',
-    description: 'Continuous R&D and rapid prototyping to turn ideas into impactful products.',
-    icon: FiZap,
-    color: 'text-violet-600',
-    bgColor: 'bg-violet-50',
-    borderColor: 'border-violet-100',
+    title: 'IP Oriented Product',
+    description: 'Innovative products using intellectual property (IP) for a competitive edge and unique tech solutions for a company.',
+    image: '/TDCS.png',
   },
   {
-    title: 'Quality & Compliance',
-    description: 'Rigorous testing and adherence to international quality & regulatory standards.',
-    icon: FiCheckCircle,
-    color: 'text-amber-600',
-    bgColor: 'bg-amber-50',
-    borderColor: 'border-amber-100',
+    title: 'PCB Design & Development',
+    description: 'Custom PCB solutions from concept design to production, optimizing performance and reliability for various applications.',
+    image: '/Design & Engineering.jpg',
   },
   {
-    title: 'Global Delivery',
-    description: 'Strong global supply chain and delivery excellence across 20+ countries.',
-    icon: FiGlobe,
-    color: 'text-cyan-600',
-    bgColor: 'bg-cyan-50',
-    borderColor: 'border-cyan-100',
+    title: 'IT Electronics',
+    description: 'Advanced electronic solutions tailored for IT infrastructure, boosting efficiency and performance across digital environments.',
+    image: '/Qr scanner.jpg',
   },
   {
-    title: 'Customer Partnership',
-    description: 'Collaborative approach with end-to-end support and long-term relationships.',
-    icon: FiUsers,
-    color: 'text-rose-600',
-    bgColor: 'bg-rose-50',
-    borderColor: 'border-rose-100',
+    title: 'IoT Software Development',
+    description: 'Creating robust and scalable software solutions to power IoT devices, ensuring seamless integration and real-time data processing.',
+    image: '/Pocket Soundbox.png',
+  },
+  {
+    title: 'Large Scale Manufacturing',
+    description: 'High volume of production capabilities delivering quality electronics at scale, meeting market demands of the world.',
+    image: '/Manufacturing Engineering & Mold Design.jpg',
+  },
+  {
+    title: 'Payment Systems',
+    description: 'Creating robust and scalable Payment solutions to support all types of industries, ensuring efficiency and security.',
+    image: '/paytm soundbox.png',
   },
 ];
 
 export default function Expertise() {
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true, margin: '-80px' });
-  const capRef = useRef(null);
-  const capInView = useInView(capRef, { once: true, margin: '-80px' });
+  const gridRef = useRef(null);
+  const gridInView = useInView(gridRef, { once: true, margin: '-80px' });
 
   return (
     <section id="expertise" className="relative bg-white">
@@ -126,11 +115,11 @@ export default function Expertise() {
         </div>
       </div>
 
-      {/* Capabilities Section */}
-      <div ref={capRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      {/* Expertise Grid */}
+      <div ref={gridRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={capInView ? { opacity: 1, y: 0 } : {}}
+          animate={gridInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
@@ -140,26 +129,43 @@ export default function Expertise() {
           <div className="w-16 h-1 bg-blue-600 mx-auto" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {capabilities.map((cap, index) => {
-            const Icon = cap.icon;
-            return (
-              <motion.div
-                key={cap.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={capInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center group"
-              >
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${cap.bgColor} border ${cap.borderColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className={`w-7 h-7 ${cap.color}`} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {expertiseAreas.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={gridInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group"
+            >
+              <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-xl h-full">
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                  
+                  {/* Title overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="text-base font-bold text-white">{item.title}</h3>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{cap.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed max-w-xs mx-auto">{cap.description}</p>
-                <div className={`w-10 h-[2px] mx-auto mt-4 ${cap.color.replace('text-', 'bg-')}`} />
-              </motion.div>
-            );
-          })}
+
+                {/* Content */}
+                <div className="p-4">
+                  <p className="text-xs text-slate-500 leading-relaxed mb-4">{item.description}</p>
+                  
+                  <div className="flex items-center gap-1.5 text-xs font-medium text-blue-600 group-hover:text-blue-500 transition-colors">
+                    Learn More
+                    <FiArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
