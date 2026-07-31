@@ -1,332 +1,209 @@
-import { useRef, useState } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { 
-  FiHeart, FiCpu, FiLayout, FiSettings, FiCheckCircle, FiShield, 
-  FiCode, FiGlobe, FiArrowRight, FiX, FiZap 
+  FiArrowRight, FiZap, FiCpu, FiSettings, FiCheckCircle, FiShield, 
+  FiGlobe, FiHeart, FiUsers, FiAward
 } from 'react-icons/fi';
-import { expertise } from '../data/content';
 
-const expertiseIcons = {
-  heart: FiHeart,
-  cpu: FiCpu,
-  board: FiLayout,
-  gear: FiSettings,
-  check: FiCheckCircle,
-  shield: FiShield,
-  code: FiCode,
-  globe: FiGlobe,
-};
-
-const expertiseColors = [
-  'from-cyan-500 to-blue-600',
-  'from-violet-500 to-purple-600',
-  'from-amber-500 to-orange-600',
-  'from-emerald-500 to-green-600',
-  'from-rose-500 to-pink-600',
-  'from-indigo-500 to-blue-600',
-  'from-teal-500 to-cyan-600',
-  'from-fuchsia-500 to-purple-600',
+const capabilities = [
+  {
+    title: 'Engineering Excellence',
+    description: 'Multidisciplinary engineering team delivering innovative and reliable solutions.',
+    icon: FiCpu,
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50',
+    borderColor: 'border-blue-100',
+  },
+  {
+    title: 'Scalable Manufacturing',
+    description: '150,000 sq. ft. facility with advanced automation for high-volume production.',
+    icon: FiSettings,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    borderColor: 'border-emerald-100',
+  },
+  {
+    title: 'Innovation Driven',
+    description: 'Continuous R&D and rapid prototyping to turn ideas into impactful products.',
+    icon: FiZap,
+    color: 'text-violet-600',
+    bgColor: 'bg-violet-50',
+    borderColor: 'border-violet-100',
+  },
+  {
+    title: 'Quality & Compliance',
+    description: 'Rigorous testing and adherence to international quality & regulatory standards.',
+    icon: FiCheckCircle,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    borderColor: 'border-amber-100',
+  },
+  {
+    title: 'Global Delivery',
+    description: 'Strong global supply chain and delivery excellence across 20+ countries.',
+    icon: FiGlobe,
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-50',
+    borderColor: 'border-cyan-100',
+  },
+  {
+    title: 'Customer Partnership',
+    description: 'Collaborative approach with end-to-end support and long-term relationships.',
+    icon: FiUsers,
+    color: 'text-rose-600',
+    bgColor: 'bg-rose-50',
+    borderColor: 'border-rose-100',
+  },
 ];
 
-function ExpertiseHero() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-[80vh] flex items-center">
-      <div className="absolute inset-0">
-        <img
-          src="/3d image.png"
-          alt=""
-          className="w-full h-full object-cover opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/95" />
-      </div>
-      
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-semibold mb-6">
-              <FiZap className="w-3.5 h-3.5 text-cyan-400" />
-              Our Expertise
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-5 leading-tight">
-              Deep Expertise Across{' '}
-              <span className="text-cyan-400">8 Domains</span>
-            </h1>
-            <p className="text-base md:text-lg text-white/60 mb-8 leading-relaxed max-w-lg">
-              Years of accumulated knowledge and proven capabilities across the electronics manufacturing spectrum.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {expertise.slice(0, 4).map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                  className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/10"
-                >
-                  <div className={`w-2.5 h-2.5 rounded-full bg-gradient-to-r ${expertiseColors[i]}`} />
-                  <span className="text-xs text-white/80 font-medium">{item.title}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="hidden lg:grid grid-cols-4 gap-3"
-          >
-            {expertise.slice(0, 8).map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
-                className="aspect-square rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ExpertiseCard({ item, index, onSelect }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const Icon = expertiseIcons[item.icon];
-  const color = expertiseColors[index];
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.08 }}
-      onClick={() => onSelect(item)}
-      className="group relative cursor-pointer"
-    >
-      <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-xl">
-        {/* Image */}
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
-          
-          {/* Icon */}
-          <div className={`absolute top-4 left-4 w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center shadow-lg`}>
-            <Icon className="w-5 h-5 text-white" />
-          </div>
-
-          {/* Title overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-4">
-            <h3 className="text-base font-bold text-white mb-1">{item.title}</h3>
-            <p className="text-[11px] text-white/70 line-clamp-2">{item.description}</p>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-4">
-          <div className="flex flex-wrap gap-1.5">
-            {item.areas.slice(0, 4).map((area) => (
-              <span key={area} className="px-2 py-0.5 text-[9px] bg-slate-100 text-slate-600 rounded-md border border-slate-200">
-                {area}
-              </span>
-            ))}
-            {item.areas.length > 4 && (
-              <span className="px-2 py-0.5 text-[9px] bg-slate-100 text-slate-500 rounded-md">
-                +{item.areas.length - 4}
-              </span>
-            )}
-          </div>
-          
-          <div className="mt-3 flex items-center gap-1.5 text-xs font-medium text-cyan-600 group-hover:text-cyan-500 transition-colors">
-            Learn More
-            <FiArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function ExpertiseModal({ item, onClose }) {
-  const Icon = expertiseIcons[item.icon];
-  const color = expertiseColors[expertise.findIndex(e => e.title === item.title)];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        transition={{ duration: 0.3 }}
-        className="relative w-full max-w-lg bg-white rounded-2xl overflow-hidden shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Image */}
-        <div className="relative h-56 overflow-hidden">
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-          
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-          >
-            <FiX className="w-4 h-4" />
-          </button>
-
-          <div className={`absolute top-4 left-4 w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center shadow-lg`}>
-            <Icon className="w-6 h-6 text-white" />
-          </div>
-
-          <div className="absolute bottom-4 left-4 right-4">
-            <h2 className="text-xl font-bold text-white mb-1">{item.title}</h2>
-            <p className="text-sm text-white/80">{item.description}</p>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          <h3 className="text-sm font-bold text-slate-900 mb-3">Core Areas</h3>
-          <div className="grid grid-cols-2 gap-2">
-            {item.areas.map((area, i) => (
-              <motion.div
-                key={area}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                className="flex items-center gap-2 p-2.5 bg-slate-50 rounded-lg border border-slate-100"
-              >
-                <div className={`w-6 h-6 rounded-md bg-gradient-to-br ${color} flex items-center justify-center shrink-0`}>
-                  <FiCheckCircle className="w-3 h-3 text-white" />
-                </div>
-                <span className="text-xs text-slate-700 font-medium">{area}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-6 flex gap-3">
-            <a
-              href="/contact"
-              className="flex-1 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition-colors text-center"
-            >
-              Get in Touch
-            </a>
-            <a
-              href="/solutions"
-              className="flex-1 py-2.5 bg-white hover:bg-slate-50 text-slate-900 text-sm font-semibold rounded-xl border border-slate-200 transition-colors text-center"
-            >
-              View Solutions
-            </a>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
+const stats = [
+  { icon: FiSettings, value: '150,000+', label: 'Sq. Ft. Facility', color: 'text-blue-600' },
+  { icon: FiCpu, value: '300,000+', label: 'Devices / Month', color: 'text-emerald-600' },
+  { icon: FiUsers, value: '500+', label: 'Engineers', color: 'text-violet-600' },
+  { icon: FiGlobe, value: '20+', label: 'Countries Served', color: 'text-amber-600' },
+  { icon: FiAward, value: 'ISO', label: 'Certified', color: 'text-cyan-600' },
+  { icon: FiHeart, value: '10+', label: 'Years of Excellence', color: 'text-rose-600' },
+];
 
 export default function Expertise() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [selectedItem, setSelectedItem] = useState(null);
+  const heroRef = useRef(null);
+  const heroInView = useInView(heroRef, { once: true, margin: '-80px' });
+  const capRef = useRef(null);
+  const capInView = useInView(capRef, { once: true, margin: '-80px' });
+  const statsRef = useRef(null);
+  const statsInView = useInView(statsRef, { once: true, margin: '-80px' });
 
   return (
     <section id="expertise" className="relative bg-white">
-      {/* Hero */}
-      <ExpertiseHero />
+      {/* Hero Section */}
+      <div ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 right-20 w-72 h-72 bg-blue-100/50 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-48 h-48 bg-cyan-100/50 rounded-full blur-3xl" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              animate={heroInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-sm font-semibold text-blue-600 tracking-wider uppercase">Our Expertise</span>
+                <div className="w-12 h-[2px] bg-blue-600" />
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-slate-900 mb-6 leading-tight">
+                Expertise that powers{' '}
+                <span className="text-blue-600">innovation.</span>
+              </h1>
+              
+              <p className="text-base md:text-lg text-slate-500 mb-8 leading-relaxed max-w-lg">
+                End-to-end capabilities, advanced technologies and uncompromising quality – delivering smart, reliable and future-ready solutions across industries.
+              </p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex items-center gap-4"
+              >
+                <div className="w-12 h-12 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                  <FiArrowRight className="w-5 h-5 text-slate-900" />
+                </div>
+                <span className="text-sm font-semibold text-slate-700">
+                  Discover how we build<br />the technology of tomorrow
+                </span>
+              </motion.div>
+            </motion.div>
 
-      {/* Cards Section */}
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={heroInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="/Design & Engineering.jpg"
+                  alt="Expertise"
+                  className="w-full h-[400px] md:h-[500px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
+              </div>
+              
+              {/* Decorative Border */}
+              <div className="absolute -top-4 -right-4 w-full h-full border-2 border-blue-200 rounded-3xl -z-10" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-100 rounded-2xl -z-10" />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Capabilities Section */}
+      <div ref={capRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={capInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600 text-xs font-semibold mb-4">
-            <FiZap className="w-3.5 h-3.5" />
-            Core Competencies
-          </div>
           <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            Explore Our <span className="text-cyan-600">Expertise</span>
+            WHERE EXPERTISE MEETS <span className="text-blue-600">EXCELLENCE</span>
           </h2>
-          <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            Click on any domain to learn more about our capabilities
-          </p>
+          <div className="w-16 h-1 bg-blue-600 mx-auto" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {expertise.map((item, index) => (
-            <ExpertiseCard
-              key={item.title}
-              item={item}
-              index={index}
-              onSelect={setSelectedItem}
-            />
-          ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {capabilities.map((cap, index) => {
+            const Icon = cap.icon;
+            return (
+              <motion.div
+                key={cap.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={capInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center group"
+              >
+                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl ${cap.bgColor} border ${cap.borderColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className={`w-7 h-7 ${cap.color}`} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{cap.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed max-w-xs mx-auto">{cap.description}</p>
+                <div className={`w-10 h-[2px] mx-auto mt-4 ${cap.color.replace('text-', 'bg-')}`} />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
       {/* Stats Section */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { value: '8+', label: 'Domain Expertise' },
-              { value: '500+', label: 'Engineers' },
-              { value: '20+', label: 'Countries Served' },
-              { value: '10+', label: 'Years Experience' },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-white border border-slate-200"
-              >
-                <div className="text-2xl font-bold font-display text-cyan-600 mb-1">{stat.value}</div>
-                <div className="text-xs text-slate-500">{stat.label}</div>
-              </motion.div>
-            ))}
+      <div ref={statsRef} className="border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={statsInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  className="flex items-center gap-3"
+                >
+                  <Icon className={`w-6 h-6 ${stat.color} flex-shrink-0`} />
+                  <div>
+                    <div className="text-xl font-bold text-slate-900">{stat.value}</div>
+                    <div className="text-xs text-slate-500">{stat.label}</div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
-      </section>
-
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedItem && (
-          <ExpertiseModal item={selectedItem} onClose={() => setSelectedItem(null)} />
-        )}
-      </AnimatePresence>
+      </div>
     </section>
   );
 }
