@@ -25,7 +25,7 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs backdrop-blur-sm w-fit"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Vertically Integrated (ODM) Manufacturer
+                Vertically Integrated Original Design Manufacturer
               </motion.div>
 
               <motion.h1

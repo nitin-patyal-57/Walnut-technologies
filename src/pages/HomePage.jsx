@@ -53,7 +53,7 @@ const divisions = [
     id: 'custom',
     title: 'Custom Solutions',
     subtitle: '4 SMT Lines, 300K+ Units/Month',
-    description: 'Full-spectrum (ODM) services from concept to delivery.',
+    description: 'Full-spectrum Original Design Manufacturer services from concept to delivery.',
     image: '/Prototype Development.jpg',
     link: '/solutions?category=Custom+Electronics',
   },
