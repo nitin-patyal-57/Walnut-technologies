@@ -16,9 +16,7 @@ const navLinks = [
       { label: 'Custom Electronics', to: '/solutions?category=Custom+Electronics' },
     ],
   },
-  { label: 'Process', to: '/process' },
   { label: 'Expertise', to: '/expertise' },
-  { label: 'Clients', to: '/clients' },
   { label: 'Career', to: '/career' },
   { label: 'Contact', to: '/contact' },
 ];

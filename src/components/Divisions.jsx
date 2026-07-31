@@ -109,15 +109,6 @@ export default function Divisions({ onOpenQuote }) {
                       ))}
                     </div>
                   </div>
-
-                  {/* CTA */}
-                  <button
-                    onClick={onOpenQuote}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-cyan-600 hover:text-cyan-500 transition-colors group/btn"
-                  >
-                    Request Quote
-                    <FiArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
                 </div>
               </motion.div>
             );

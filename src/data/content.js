@@ -2,9 +2,9 @@ export const brand = {
   name: 'Walnut Technologies',
   fullName: 'Walnut Technologies Pvt. Ltd.',
   tagline: 'Electronics for the World',
-  subtitle: 'Vertically integrated OEM/ODM manufacturer delivering medical devices, payment systems, and custom electronics with international certifications.',
+  subtitle: 'Vertically integrated (ODM) manufacturer delivering medical devices, payment systems, and custom electronics with international certifications.',
   location: 'Plot No. 132, JLPL Industrial Park, Sector 82, Mohali, Punjab - 160055, India',
-  description: 'Your trusted OEM/ODM manufacturing partner for medical devices, payment systems, and custom electronics. ISO 13485 certified.',
+  description: 'Your trusted (ODM) manufacturing partner for medical devices, payment systems, and custom electronics. ISO 13485 certified.',
   phone: '+91 77194 63719',
   email: 'contact@walnutmedical.in',
   domain: 'walnutmedical.in',
@@ -18,9 +18,9 @@ export const brand = {
 };
 
 export const about = {
-  mission: 'Deliver world-class OEM/ODM electronics manufacturing for healthcare, finance, and technology globally.',
-  vision: 'Most trusted OEM/ODM partner for mission-critical electronics, ISO 13485 certified, serving 50+ countries by 2030.',
-  story: 'Founded in 2016, Walnut Technologies Pvt. Ltd. has grown from a small electronics workshop into a vertically integrated OEM/ODM manufacturer serving 20+ countries. With a 60,000 sq.ft state-of-the-art facility in Mohali, Punjab, we combine cutting-edge technology with uncompromising quality standards to deliver mission-critical electronics across healthcare, finance, and industrial sectors.',
+  mission: 'Deliver world-class (ODM) electronics manufacturing for healthcare, finance, and technology globally.',
+  vision: 'Most trusted (ODM) partner for mission-critical electronics, ISO 13485 certified, serving 50+ countries by 2030.',
+  story: 'Founded in 2016, Walnut Technologies Pvt. Ltd. has grown from a small electronics workshop into a vertically integrated (ODM) manufacturer serving 20+ countries. With a 150,000 sq.ft state-of-the-art facility in Mohali, Punjab, we combine cutting-edge technology with uncompromising quality standards to deliver mission-critical electronics across healthcare, finance, and industrial sectors.',
   values: [
     { title: 'Quality First', description: 'ISO 13485, ISO 9001 certified processes with Class 10K cleanroom facility.' },
     { title: 'Innovation', description: '500+ engineers pushing boundaries in medical, payment, and custom electronics.' },
@@ -32,7 +32,7 @@ export const about = {
     { label: 'Engineers & Technicians', value: '500+' },
     { label: 'Countries Served', value: '20+' },
     { label: 'Units Manufactured/Month', value: '300K+' },
-    { label: 'Facility Size', value: '60,000 sq.ft' },
+    { label: 'Facility Size', value: '150,000 sq.ft' },
     { label: 'SMT Production Lines', value: '4' },
   ],
 };
@@ -50,7 +50,7 @@ export const trustSignals = {
     'CE, FCC, PCI-DSS',
     'IEC 60601',
     'BIS Certified',
-    '60,000 sq.ft Facility',
+    '150,000 sq.ft Facility',
   ],
 };
 
@@ -90,7 +90,7 @@ export const divisions = [
     id: 'custom',
     title: 'Custom Electronics',
     subtitle: '4 SMT Lines, 300K+ Units/Month',
-    description: 'Full-spectrum OEM/ODM services from concept to delivery. 4 advanced SMT lines with 300K+ units monthly capacity.',
+    description: 'Full-spectrum (ODM) services from concept to delivery. 4 advanced SMT lines with 300K+ units monthly capacity.',
     icon: 'chip',
     color: 'from-amber-500 to-orange-600',
     features: ['4 SMT Lines', '300K+/Month Capacity', 'Full Turnkey', 'Global Logistics', 'Up to 12-Layer HDI'],
@@ -525,7 +525,7 @@ export const clientSectors = [
 export const resources = [
   {
     id: 'whitepaper-1',
-    title: 'The Future of OEM Manufacturing in India',
+    title: 'The Future of (ODM) Manufacturing in India',
     type: 'Whitepaper',
     description: 'Comprehensive analysis of India\'s emergence as a global electronics manufacturing hub.',
     icon: 'whitepaper',

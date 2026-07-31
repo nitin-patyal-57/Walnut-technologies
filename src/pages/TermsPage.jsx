@@ -18,7 +18,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-xl font-bold text-dark-950 mb-3">2. Services</h2>
             <p className="text-dark-500 leading-relaxed">
-              {brand.fullName} provides OEM/ODM electronics manufacturing services including medical device manufacturing, payment system manufacturing, and custom electronics design and production. All services are subject to separate service agreements and specifications.
+              {brand.fullName} provides (ODM) electronics manufacturing services including medical device manufacturing, payment system manufacturing, and custom electronics design and production. All services are subject to separate service agreements and specifications.
             </p>
           </div>
 

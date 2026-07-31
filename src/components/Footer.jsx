@@ -42,7 +42,7 @@ export default function Footer() {
               <img src="/logo.png" alt="Walnut Technologies" className="h-10 w-auto object-contain brightness-0 invert" />
             </Link>
             <p className="text-[11px] text-slate-400 leading-relaxed mb-3 max-w-[220px]">
-              Vertically integrated OEM/ODM manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.
+              Vertically integrated (ODM) manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.
             </p>
 
             <div className="space-y-1.5 mb-3">

@@ -1,9 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { brand, about, trustSignals } from '../data/content';
 import {
   FiMapPin, FiMail, FiPhone, FiCalendar, FiGlobe, FiUsers, FiAward, FiCpu,
-  FiArrowRight, FiTarget, FiEye, FiCheckCircle, FiZap, FiShield, FiHeart
+  FiArrowRight, FiTarget, FiEye, FiCheckCircle, FiZap, FiShield, FiHeart, FiClock
 } from 'react-icons/fi';
 
 const facilityImages = [
@@ -16,6 +16,174 @@ const facilityImages = [
 ];
 
 const valueIcons = [FiTarget, FiZap, FiGlobe, FiShield];
+
+function ProcessTimeline() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const steps = [
+    { id: 1, step: 'STEP 1', title: 'IDEA', description: 'Concept ideation and requirement gathering from market needs.', image: '/Idea & Requirement.jpg', color: '#1e40af' },
+    { id: 2, step: 'STEP 2', title: 'RESEARCH', description: 'In-depth market and technology research to validate the idea.', image: '/Research & Market Analysis.jpg', color: '#2563eb' },
+    { id: 3, step: 'STEP 3', title: 'DESIGN', description: 'Product design and engineering with CAD modeling.', image: '/Design & Engineering.jpg', color: '#0284c7' },
+    { id: 4, step: 'STEP 4', title: 'PROTOTYPE', description: 'Rapid prototyping and iterative development cycles.', image: '/Prototype Development.jpg', color: '#0891b2' },
+    { id: 5, step: 'STEP 5', title: 'TESTING', description: 'Rigorous testing and validation for reliability.', image: '/Validation & Testing.jpg', color: '#0d9488' },
+    { id: 6, step: 'STEP 6', title: 'MOLDING', description: 'Manufacturing engineering and mold design.', image: '/Manufacturing Engineering & Mold Design.jpg', color: '#059669' },
+    { id: 7, step: 'STEP 7', title: 'QA', description: 'Comprehensive quality assurance and compliance.', image: '/Quality Assurance.jpg', color: '#16a34a' },
+    { id: 8, step: 'STEP 8', title: 'PACKAGING', description: 'Professional packaging and global dispatch.', image: '/Packaging & Dispatch.jpg', color: '#4d7c0f' },
+    { id: 9, step: 'STEP 9', title: 'SUPPORT', description: 'Dedicated after-sales support and service.', image: '/After Sales Support.jpg', color: '#65a30d' },
+    { id: 10, step: 'STEP 10', title: 'IMPROVEMENT', description: 'Continuous improvement based on feedback.', image: '/Continuous Improvement.jpg', color: '#84cc16' },
+  ];
+
+  return (
+    <section ref={ref} className="py-24 bg-slate-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-slate-900 mb-4">
+            Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">Process</span>
+          </h2>
+          <p className="text-slate-500 max-w-xl mx-auto">
+            From concept to delivery, every step is crafted with precision.
+          </p>
+        </motion.div>
+
+        {/* Zigzag Timeline - Desktop */}
+        <div className="hidden lg:block relative">
+          {/* Top Row - Steps 1, 3, 5, 7, 9 */}
+          <div className="flex justify-between px-[2%] mb-4">
+            {steps.filter((_, i) => i % 2 === 0).map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: -30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="w-[16%] text-center"
+              >
+                <p className="text-[10px] font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
+                <h3 className="text-base font-bold mb-1" style={{ color: step.color }}>{step.title}</h3>
+                <p className="text-[11px] text-slate-500 leading-relaxed">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Diamond Cards Row */}
+          <div className="relative h-[300px]">
+            {/* Zigzag Ribbon SVG */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 300" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#1e40af" />
+                  <stop offset="20%" stopColor="#2563eb" />
+                  <stop offset="40%" stopColor="#0891b2" />
+                  <stop offset="60%" stopColor="#0d9488" />
+                  <stop offset="80%" stopColor="#059669" />
+                  <stop offset="100%" stopColor="#84cc16" />
+                </linearGradient>
+                <filter id="ribbonShadow">
+                  <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.2" />
+                </filter>
+              </defs>
+              <motion.path
+                d="M 0 50 L 100 250 L 200 50 L 300 250 L 400 50 L 500 250 L 600 50 L 700 250 L 800 50 L 900 250 L 1000 50"
+                fill="none"
+                stroke="url(#ribbonGrad)"
+                strokeWidth="40"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                filter="url(#ribbonShadow)"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : {}}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+            </svg>
+
+            {/* Diamond Cards positioned at vertices */}
+            {steps.map((step, index) => {
+              const isTop = index % 2 === 0;
+              const leftPercent = (index / (steps.length - 1)) * 90 + 5;
+              return (
+                <motion.div
+                  key={step.id}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.08, type: 'spring' }}
+                  className="absolute z-10"
+                  style={{
+                    left: `${leftPercent}%`,
+                    top: isTop ? '10px' : '160px',
+                    transform: 'translateX(-50%)',
+                  }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    className="w-[100px] h-[100px] rounded-2xl bg-white shadow-xl overflow-hidden cursor-pointer border-2"
+                    style={{ boxShadow: `0 8px 30px ${step.color}30`, borderColor: `${step.color}30` }}
+                  >
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Row - Steps 2, 4, 6, 8, 10 */}
+          <div className="flex justify-between px-[7%] mt-4">
+            {steps.filter((_, i) => i % 2 === 1).map((step, index) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                className="w-[16%] text-center"
+              >
+                <p className="text-[10px] font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
+                <h3 className="text-base font-bold mb-1" style={{ color: step.color }}>{step.title}</h3>
+                <p className="text-[11px] text-slate-500 leading-relaxed">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Zigzag Timeline - Mobile */}
+        <div className="lg:hidden">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.06 }}
+              className={`flex items-center gap-4 mb-5 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
+            >
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-20 h-20 rounded-xl overflow-hidden shadow-lg flex-shrink-0 border-2"
+                style={{ borderColor: `${step.color}30` }}
+              >
+                <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
+              </motion.div>
+              <div className={index % 2 === 0 ? 'text-left' : 'text-right'}>
+                <p className="text-[9px] font-bold tracking-widest text-slate-400">{step.step}</p>
+                <h3 className="text-sm font-bold" style={{ color: step.color }}>{step.title}</h3>
+                <p className="text-[11px] text-slate-500">{step.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
 
 function AnimatedSection({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -152,7 +320,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/CES repose.png"
+                    src="/career background.jpg"
                     alt="Manufacturing Facility"
                     className="w-full h-[400px] object-cover"
                   />
@@ -165,7 +333,7 @@ export default function AboutPage() {
                       <FiCpu className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-slate-900">60,000 sq.ft</div>
+                      <div className="text-lg font-bold text-slate-900">150,000 sq.ft</div>
                       <div className="text-xs text-slate-500">State-of-the-art facility</div>
                     </div>
                   </div>
@@ -211,51 +379,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Facility Gallery */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-4">
-                <FiCpu className="w-4 h-4" />
-                Our Facility
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3">
-                Where Innovation Meets{' '}
-                <span className="text-blue-600">Precision</span>
-              </h2>
-              <p className="text-slate-500 max-w-2xl">
-                4 SMT Lines, Class 10K Cleanroom, and full vertical integration under one roof
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {facilityImages.map((img, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img
-                    src={img}
-                    alt={`Facility ${i + 1}`}
-                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <h3 className="text-white font-bold text-sm">
-                      {i === 0 && 'Medical Devices'}
-                      {i === 1 && 'Payment Systems'}
-                      {i === 2 && 'Rehabilitation Tech'}
-                      {i === 3 && 'Diagnostic Equipment'}
-                      {i === 4 && 'Smart IoT Devices'}
-                      {i === 5 && 'PCB Design Lab'}
-                    </h3>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Process Timeline */}
+      <ProcessTimeline />
 
       {/* Company Details + Certifications */}
       <section className="py-20">
@@ -279,7 +404,7 @@ export default function AboutPage() {
                     { icon: FiCalendar, label: 'Founded', value: brand.founded },
                     { icon: FiMapPin, label: 'Headquarters', value: brand.location },
                     { icon: FiUsers, label: 'GSTN/IEC', value: brand.gstn },
-                    { icon: FiCpu, label: 'Facility', value: '60,000 sq.ft with 4 SMT Lines, Class 10K Cleanroom' },
+                    { icon: FiCpu, label: 'Facility', value: '150,000 sq.ft with 4 SMT Lines, Class 10K Cleanroom' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors duration-300">
                       <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center shrink-0">
@@ -341,7 +466,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Core Values */}
+      {/* Capabilities */}
       <section className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -351,7 +476,7 @@ export default function AboutPage() {
                 Our DNA
               </div>
               <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-3">
-                Core <span className="text-blue-400">Values</span>
+                Capabilities
               </h2>
               <p className="text-white/50 max-w-2xl">
                 The principles that drive every decision we make
