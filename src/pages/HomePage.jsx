@@ -743,7 +743,7 @@ export default function HomePage({ onOpenQuote, onOpenSchedule }) {
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/homepage background.jpg"
+          src="/home background.jpg"
           alt=""
           className="w-full h-full object-cover"
         />
