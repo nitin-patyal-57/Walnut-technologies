@@ -207,17 +207,7 @@ export default function AboutPage() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <div className="relative">
-      {/* Background Image */}
-      <div className="fixed inset-0 z-0">
-        <img
-          src="/aboutbackground.png"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      <div className="relative z-10">
+    <div className="bg-white">
       {/* Hero with Image */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}
@@ -542,7 +532,6 @@ export default function AboutPage() {
            </AnimatedSection>
         </div>
       </section>
-      </div>
     </div>
   );
 }
