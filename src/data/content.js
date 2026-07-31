@@ -172,7 +172,7 @@ export const products = [
     category: 'Custom Electronics',
     title: 'PCB Design & Fabrication',
     description: 'Advanced multi-layer PCB design and fabrication supporting up to 12-layer HDI technology with signal integrity optimization.',
-    image: '/3d image.png',
+    image: '/pcb.jpg',
     features: ['Up to 12 Layers', 'HDI Technology', 'Signal Integrity', 'Flex/Rigid-Flex'],
   },
   {
