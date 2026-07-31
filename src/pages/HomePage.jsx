@@ -747,7 +747,7 @@ export default function HomePage({ onOpenQuote, onOpenSchedule }) {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-white/85" />
+        <div className="absolute inset-0 bg-white/60" />
       </div>
       
       <div className="relative z-10">
