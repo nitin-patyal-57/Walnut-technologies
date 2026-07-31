@@ -11,12 +11,12 @@ const expertiseAreas = [
   {
     title: 'Embedded Electronic and IoT',
     description: 'Integrating smart tech into our day to day use devices, enabling seamless connectivity and enhanced functionality for IoT ecosystems.',
-    image: '/3d image.png',
+    image: '/Embedded Electronics & IoT.jpg',
   },
   {
     title: 'IP Oriented Product',
     description: 'Innovative products using intellectual property (IP) for a competitive edge and unique tech solutions for a company.',
-    image: '/TDCS.png',
+    image: '/IP Oriented Product.jpg',
   },
   {
     title: 'PCB Design & Development',
@@ -26,17 +26,17 @@ const expertiseAreas = [
   {
     title: 'IT Electronics',
     description: 'Advanced electronic solutions tailored for IT infrastructure, boosting efficiency and performance across digital environments.',
-    image: '/Qr scanner.jpg',
+    image: '/IT Electronics.jpg',
   },
   {
     title: 'IoT Software Development',
     description: 'Creating robust and scalable software solutions to power IoT devices, ensuring seamless integration and real-time data processing.',
-    image: '/Pocket Soundbox.png',
+    image: '/IoT Software Development.jpg',
   },
   {
     title: 'Large Scale Manufacturing',
     description: 'High volume of production capabilities delivering quality electronics at scale, meeting market demands of the world.',
-    image: '/Manufacturing Engineering & Mold Design.jpg',
+    image: '/contract manufacturing.jpg',
   },
   {
     title: 'Payment Systems',
