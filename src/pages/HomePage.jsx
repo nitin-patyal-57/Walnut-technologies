@@ -270,8 +270,68 @@ function DivisionsPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
+  const divisionsData = [
+    {
+      id: 'medical',
+      title: 'Medical Devices',
+      color: '#1e40af',
+      icon: FiHeart,
+      image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
+      features: ['ISO 13485 Certified', 'Class 10K Cleanroom', 'IEC 60601 Compliant'],
+      link: '/solutions?category=Medical+Devices',
+    },
+    {
+      id: 'neuro',
+      title: 'Neuro Rehab Devices',
+      color: '#7c3aed',
+      icon: FiActivity,
+      image: '/walklab 3.0.jpeg',
+      features: ['FDA Approved', 'IEC 60601 Compliant', 'Advanced Rehab Tech'],
+      link: '/solutions?category=Medical+Devices',
+    },
+    {
+      id: 'payment',
+      title: 'Payment Systems',
+      color: '#0891b2',
+      icon: FiCreditCard,
+      image: '/soundbox.jpg',
+      features: ['PCI-DSS Certified', 'NPCI & RBI Compliant', 'EMV L1/L2'],
+      link: '/solutions?category=Payment+Systems',
+    },
+    {
+      id: 'automotive',
+      title: 'Automotive Electronics',
+      color: '#059669',
+      icon: FiCpu,
+      image: '/3d image.png',
+      features: ['IATF 16949 Compliant', 'High Reliability', 'AEC-Q100 Qualified'],
+      link: '/solutions?category=Custom+Electronics',
+    },
+    {
+      id: 'iot',
+      title: 'IoT Solutions',
+      color: '#d97706',
+      icon: FiWifi,
+      image: '/smart lock.PNG',
+      features: ['End-to-End Connectivity', 'Edge Computing', 'Cloud Integration'],
+      link: '/solutions?category=Custom+Electronics',
+    },
+    {
+      id: 'custom',
+      title: 'Custom Solutions',
+      color: '#dc2626',
+      icon: FiSettings,
+      image: '/Prototype Development.jpg',
+      features: ['4 SMT Lines', '300K+ Units/Month', 'Full ODM Services'],
+      link: '/solutions?category=Custom+Electronics',
+    },
+  ];
+
+  const topDivisions = divisionsData.filter((_, i) => i % 2 === 0);
+  const bottomDivisions = divisionsData.filter((_, i) => i % 2 === 1);
+
   return (
-    <section id="divisions-preview" className="py-16 md:py-20 bg-white">
+    <section id="divisions-preview" className="py-16 md:py-20 bg-white overflow-hidden">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -294,42 +354,168 @@ function DivisionsPreview() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {divisions.map((div, index) => (
+        {/* Desktop Roadmap */}
+        <div className="hidden lg:block relative">
+          {/* Top Row Cards */}
+          <div className="flex justify-between px-[3%] mb-2">
+            {topDivisions.map((div, index) => (
+              <motion.div
+                key={div.id}
+                initial={{ opacity: 0, y: -30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="w-[28%]"
+              >
+                <Link to={div.link} className="block p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
+                  <div className="flex items-start gap-3">
+                    <img src={div.image} alt={div.title} className="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
+                      <ul className="space-y-1">
+                        {div.features.map((f, i) => (
+                          <li key={i} className="flex items-center gap-1.5 text-[11px] text-slate-500">
+                            <FiCheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Road SVG */}
+          <div className="relative h-[120px] my-4">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="roadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#1e40af" />
+                  <stop offset="50%" stopColor="#0891b2" />
+                  <stop offset="100%" stopColor="#059669" />
+                </linearGradient>
+              </defs>
+              {/* Road Background */}
+              <path
+                d="M 0 60 C 150 20, 250 100, 400 60 C 550 20, 650 100, 800 60 C 950 20, 1050 100, 1200 60"
+                fill="none"
+                stroke="#e2e8f0"
+                strokeWidth="50"
+                strokeLinecap="round"
+              />
+              {/* Road Center Line */}
+              <path
+                d="M 0 60 C 150 20, 250 100, 400 60 C 550 20, 650 100, 800 60 C 950 20, 1050 100, 1200 60"
+                fill="none"
+                stroke="#fbbf24"
+                strokeWidth="3"
+                strokeDasharray="12 8"
+                strokeLinecap="round"
+              />
+              {/* Colored Overlay */}
+              <motion.path
+                d="M 0 60 C 150 20, 250 100, 400 60 C 550 20, 650 100, 800 60 C 950 20, 1050 100, 1200 60"
+                fill="none"
+                stroke="url(#roadGrad)"
+                strokeWidth="4"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : {}}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+            </svg>
+
+            {/* Pins on Road */}
+            {divisionsData.map((div, index) => {
+              const leftPercent = (index / (divisionsData.length - 1)) * 92 + 4;
+              return (
+                <motion.div
+                  key={div.id}
+                  initial={{ scale: 0, y: 20 }}
+                  animate={isInView ? { scale: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1, type: 'spring' }}
+                  className="absolute top-1/2 -translate-y-1/2 z-10"
+                  style={{ left: `${leftPercent}%`, transform: 'translateX(-50%) translateY(-50%)' }}
+                >
+                  <div className="relative">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+                      style={{ backgroundColor: div.color }}
+                    >
+                      <div.icon className="w-5 h-5 text-white" />
+                    </div>
+                    {/* Pin Point */}
+                    <div
+                      className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0"
+                      style={{
+                        borderLeft: '6px solid transparent',
+                        borderRight: '6px solid transparent',
+                        borderTop: `8px solid ${div.color}`,
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Row Cards */}
+          <div className="flex justify-between px-[8%] mt-2">
+            {bottomDivisions.map((div, index) => (
+              <motion.div
+                key={div.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="w-[28%]"
+              >
+                <Link to={div.link} className="block p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
+                  <div className="flex items-start gap-3">
+                    <img src={div.image} alt={div.title} className="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
+                      <ul className="space-y-1">
+                        {div.features.map((f, i) => (
+                          <li key={i} className="flex items-center gap-1.5 text-[11px] text-slate-500">
+                            <FiCheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Roadmap */}
+        <div className="lg:hidden">
+          {divisionsData.map((div, index) => (
             <motion.div
               key={div.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+              className={`flex items-start gap-4 mb-6 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
             >
-              <Link
-                to={div.link}
-                className="group block relative rounded-2xl overflow-hidden border border-slate-200 bg-white hover:border-transparent hover:shadow-xl transition-all duration-500"
-              >
-                {/* Image Header */}
-                <div className="relative h-44 overflow-hidden">
-                  <img
-                    src={div.image}
-                    alt={div.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-lg font-bold font-display text-white mb-0.5">
-                      {div.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-white/80">{div.subtitle}</p>
+              <Link to={div.link} className="flex-1 block p-4 rounded-xl bg-white border border-slate-200 hover:shadow-lg transition-all group">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${div.color}15` }}>
+                    <div.icon className="w-5 h-5" style={{ color: div.color }} />
                   </div>
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600">{div.title}</h3>
                 </div>
-
-                <div className="p-5">
-                  <p className="text-xs text-slate-500 leading-relaxed mb-4">{div.description}</p>
-                  
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-slate-900 group-hover:text-blue-600 transition-colors">
-                    Explore Solutions
-                    <FiArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </div>
+                <ul className="space-y-1">
+                  {div.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-1.5 text-[10px] text-slate-500">
+                      <FiCheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </Link>
             </motion.div>
           ))}
