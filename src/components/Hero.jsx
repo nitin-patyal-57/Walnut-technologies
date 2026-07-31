@@ -7,7 +7,7 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/homepagebackground.png"
+          src="/home background.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
