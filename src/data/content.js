@@ -95,7 +95,7 @@ export const divisions = [
     color: 'from-amber-500 to-orange-600',
     features: ['4 SMT Lines', '300K+/Month Capacity', 'Full Turnkey', 'Global Logistics', 'Up to 12-Layer HDI'],
     products: [
-      { name: 'PCB Design', image: '/3d image.png' },
+      { name: 'PCB Design', image: '/pcb.jpg' },
       { name: 'Box Build Assembly', image: '/smart lock.PNG' },
       { name: 'IoT Solutions', image: '/1.png' },
     ],

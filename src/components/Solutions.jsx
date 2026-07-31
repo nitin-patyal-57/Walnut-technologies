@@ -33,7 +33,7 @@ function DivisionShowcase({ division, onSelect, index }) {
       {/* Products Display */}
       <div className="relative mb-8">
         {/* Background Circle */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-56 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
         
         {/* Products Row */}
         <div className="relative pt-8 pb-4">
@@ -47,7 +47,7 @@ function DivisionShowcase({ division, onSelect, index }) {
                 className={`flex flex-col items-center ${pIndex === 1 ? '-mt-4' : ''}`}
               >
                 {/* Product Image */}
-                <div className={`w-16 h-20 md:w-20 md:h-24 mb-2 group-hover:scale-105 transition-transform duration-500`}>
+                <div className={`w-20 h-28 md:w-28 md:h-36 mb-2 group-hover:scale-105 transition-transform duration-500`}>
                   <img
                     src={product.image}
                     alt={product.name}
@@ -56,7 +56,7 @@ function DivisionShowcase({ division, onSelect, index }) {
                 </div>
                 
                 {/* Pedestal */}
-                <div className="w-16 h-3 md:w-20 md:h-4 bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
+                <div className="w-20 h-4 md:w-28 md:h-5 bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
               </motion.div>
             ))}
           </div>
