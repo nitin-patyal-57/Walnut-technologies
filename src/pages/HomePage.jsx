@@ -303,7 +303,7 @@ function DivisionsPreview() {
       title: 'Automotive Electronics',
       color: '#059669',
       icon: FiCpu,
-      image: '/3d image.png',
+      image: '/Automotive Electronics.png',
       features: ['IATF 16949 Compliant', 'High Reliability', 'AEC-Q100 Qualified'],
       link: '/solutions?category=Custom+Electronics',
     },
