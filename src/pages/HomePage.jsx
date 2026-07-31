@@ -364,17 +364,17 @@ function DivisionsPreview() {
                 initial={{ opacity: 0, y: -30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="w-[28%]"
+                className="w-[30%]"
               >
-                <Link to={div.link} className="block p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
-                  <div className="flex items-start gap-3">
+                <Link to={div.link} className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
+                  <div className="flex items-start gap-4">
                     <img src={div.image} alt={div.title} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
                     <div>
-                      <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
-                      <ul className="space-y-1">
+                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
+                      <ul className="space-y-1.5">
                         {div.features.map((f, i) => (
-                          <li key={i} className="flex items-center gap-1.5 text-[11px] text-slate-500">
-                            <FiCheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                          <li key={i} className="flex items-center gap-1.5 text-xs text-slate-500">
+                            <FiCheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
                             {f}
                           </li>
                         ))}
@@ -468,17 +468,17 @@ function DivisionsPreview() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="w-[28%]"
+                className="w-[30%]"
               >
-                <Link to={div.link} className="block p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
-                  <div className="flex items-start gap-3">
+                <Link to={div.link} className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
+                  <div className="flex items-start gap-4">
                     <img src={div.image} alt={div.title} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
                     <div>
-                      <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
-                      <ul className="space-y-1">
+                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
+                      <ul className="space-y-1.5">
                         {div.features.map((f, i) => (
-                          <li key={i} className="flex items-center gap-1.5 text-[11px] text-slate-500">
-                            <FiCheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                          <li key={i} className="flex items-center gap-1.5 text-xs text-slate-500">
+                            <FiCheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
                             {f}
                           </li>
                         ))}
