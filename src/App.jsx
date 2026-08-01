@@ -13,6 +13,7 @@ import HomePage from './pages/HomePage';
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
 const ProcessPage = lazy(() => import('./pages/ProcessPage'));
 const ExpertisePage = lazy(() => import('./pages/ExpertisePage'));
+const ExpertiseDetailPage = lazy(() => import('./pages/ExpertiseDetailPage'));
 const ClientsPage = lazy(() => import('./pages/ClientsPage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
@@ -68,6 +69,7 @@ function AppContent() {
           <Route path="/solutions" element={<SolutionsPage onOpenQuote={() => setQuoteModalOpen(true)} />} />
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/expertise" element={<ExpertisePage />} />
+          <Route path="/expertise/:slug" element={<ExpertiseDetailPage />} />
           <Route path="/clients" element={<ClientsPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/news" element={<NewsPage />} />

@@ -129,13 +129,7 @@ function ProductCard({ product, index, onOpenQuote }) {
           ))}
         </div>
         
-        <button
-          onClick={(e) => { e.stopPropagation(); onOpenQuote(); }}
-          className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition-colors flex items-center justify-center gap-2"
-        >
-          Request Quote
-          <FiArrowRight className="w-4 h-4" />
-        </button>
+
       </div>
     </motion.div>
   );

@@ -1,45 +1,54 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 
 const expertiseAreas = [
   {
     title: 'Medical Electronics',
+    slug: 'medical-electronics',
     description: 'Advanced electronic systems designed for healthcare, ensuring precision and reliability in critical medical operations.',
     image: '/RTMS.png',
   },
   {
     title: 'Embedded Electronic and IoT',
+    slug: 'embedded-electronic-and-iot',
     description: 'Integrating smart tech into our day to day use devices, enabling seamless connectivity and enhanced functionality for IoT ecosystems.',
     image: '/Embedded Electronics & IoT.jpg',
   },
   {
     title: 'IP Oriented Product',
+    slug: 'ip-oriented-product',
     description: 'Innovative products using intellectual property (IP) for a competitive edge and unique tech solutions for a company.',
     image: '/IP Oriented Product.jpg',
   },
   {
     title: 'PCB Design & Development',
+    slug: 'pcb-design-development',
     description: 'Custom PCB solutions from concept design to production, optimizing performance and reliability for various applications.',
     image: '/Design & Engineering.jpg',
   },
   {
     title: 'IT Electronics',
+    slug: 'it-electronics',
     description: 'Advanced electronic solutions tailored for IT infrastructure, boosting efficiency and performance across digital environments.',
     image: '/IT Electronics.jpg',
   },
   {
     title: 'IoT Software Development',
+    slug: 'iot-software-development',
     description: 'Creating robust and scalable software solutions to power IoT devices, ensuring seamless integration and real-time data processing.',
     image: '/IoT Software Development.jpg',
   },
   {
     title: 'Large Scale Manufacturing',
+    slug: 'large-scale-manufacturing',
     description: 'High volume of production capabilities delivering quality electronics at scale, meeting market demands of the world.',
     image: '/contract manufacturing.jpg',
   },
   {
     title: 'Payment Systems',
+    slug: 'payment-systems',
     description: 'Creating robust and scalable Payment solutions to support all types of industries, ensuring efficiency and security.',
     image: '/paytm soundbox.png',
   },
@@ -138,32 +147,34 @@ export default function Expertise() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group"
             >
-              <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-xl h-full">
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
-                  
-                  {/* Title overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-base font-bold text-white">{item.title}</h3>
+              <Link to={`/expertise/${item.slug}`} className="block h-full">
+                <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-xl h-full">
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                    
+                    {/* Title overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-base font-bold text-white">{item.title}</h3>
+                    </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-4">
-                  <p className="text-xs text-slate-500 leading-relaxed mb-4">{item.description}</p>
-                  
-                  <div className="flex items-center gap-1.5 text-xs font-medium text-blue-600 group-hover:text-blue-500 transition-colors">
-                    Learn More
-                    <FiArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  {/* Content */}
+                  <div className="p-4">
+                    <p className="text-xs text-slate-500 leading-relaxed mb-4">{item.description}</p>
+                    
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-blue-600 group-hover:text-blue-500 transition-colors">
+                      Learn More
+                      <FiArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
