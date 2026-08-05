@@ -137,11 +137,11 @@ function ProductCard({ product, index, onOpenQuote }) {
     >
       {/* Circular Background */}
       <div className="relative mb-3">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-28 md:w-32 md:h-32 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 md:w-36 md:h-36 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
         
         {/* Product Image */}
-        <div className="relative pt-4 pb-1">
-          <div className="w-20 h-24 md:w-24 md:h-28 mx-auto mb-1 flex items-center justify-center overflow-hidden rounded-lg">
+        <div className="relative pt-5 pb-1">
+          <div className="w-24 h-28 md:w-28 md:h-32 mx-auto mb-1 flex items-center justify-center overflow-hidden rounded-lg">
             <img
               src={product.image}
               alt={product.title}
@@ -150,7 +150,7 @@ function ProductCard({ product, index, onOpenQuote }) {
           </div>
           
           {/* Pedestal */}
-          <div className="w-20 h-3 md:w-24 md:h-3 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
+          <div className="w-24 h-3 md:w-28 md:h-3 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
         </div>
       </div>
 
