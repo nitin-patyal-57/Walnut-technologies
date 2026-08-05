@@ -132,16 +132,16 @@ function ProductCard({ product, index, onOpenQuote }) {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
+      transition={{ duration: 0.7, delay: index * 0.1 }}
       className="group relative text-center"
     >
       {/* Circular Background */}
-      <div className="relative mb-4">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 md:w-48 md:h-48 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
+      <div className="relative mb-3">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-28 md:w-32 md:h-32 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
         
         {/* Product Image */}
-        <div className="relative pt-6 pb-2">
-          <div className="w-24 h-32 md:w-32 md:h-40 mx-auto mb-2 flex items-center justify-center overflow-hidden rounded-xl">
+        <div className="relative pt-4 pb-1">
+          <div className="w-20 h-24 md:w-24 md:h-28 mx-auto mb-1 flex items-center justify-center overflow-hidden rounded-lg">
             <img
               src={product.image}
               alt={product.title}
@@ -150,19 +150,19 @@ function ProductCard({ product, index, onOpenQuote }) {
           </div>
           
           {/* Pedestal */}
-          <div className="w-24 h-4 md:w-32 md:h-5 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
+          <div className="w-20 h-3 md:w-24 md:h-3 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
         </div>
       </div>
 
       {/* Product Info */}
       <div className="relative">
-        <h3 className="text-base font-bold font-display text-slate-900 mb-1">{product.title}</h3>
-        <p className="text-xs text-slate-500 mb-3 max-w-xs mx-auto leading-relaxed px-4">{product.description}</p>
+        <h3 className="text-xs md:text-sm font-bold font-display text-slate-900 mb-1 px-1">{product.title}</h3>
+        <p className="text-[10px] text-slate-500 mb-2 max-w-[150px] mx-auto leading-relaxed px-1 line-clamp-2">{product.description}</p>
         
-        <div className="flex flex-wrap justify-center gap-1.5 mb-3 px-4">
-          {product.features.slice(0, 3).map((f) => (
-            <span key={f} className="inline-flex items-center gap-1 px-2 py-0.5 text-[9px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
-              <FiCheckCircle className="w-2.5 h-2.5 text-emerald-500" />
+        <div className="flex flex-wrap justify-center gap-1 px-1">
+          {product.features.slice(0, 2).map((f) => (
+            <span key={f} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[8px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
+              <FiCheckCircle className="w-2 h-2 text-emerald-500" />
               {f}
             </span>
           ))}
@@ -277,7 +277,7 @@ export default function Solutions({ onOpenQuote }) {
               </button>
 
               {/* Products Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+              <div className={`grid gap-6 ${selectedDivision?.id === 'fintech' ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'}`}>
                 {divisionProducts.map((product, index) => (
                   <ProductCard
                     key={product.id}
