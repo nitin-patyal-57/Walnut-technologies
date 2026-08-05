@@ -182,7 +182,12 @@ export default function Solutions({ onOpenQuote }) {
   const initialDivision = useMemo(() => {
     if (specificProductId) {
       const product = products.find(p => p.id === specificProductId);
-      if (product) return divisions.find(d => d.title === product.category) || null;
+      if (product) {
+        const division = divisions.find(d => d.title === product.category);
+        if (division) return division;
+        // If no matching division, return first division as fallback
+        return divisions[0];
+      }
     }
     if (categoryParam) {
       return divisions.find(d => d.title === categoryParam) || null;
@@ -194,8 +199,12 @@ export default function Solutions({ onOpenQuote }) {
 
   const divisionProducts = useMemo(() => {
     if (!selectedDivision) return [];
+    if (specificProductId) {
+      const product = products.find(p => p.id === specificProductId);
+      if (product) return [product];
+    }
     return products.filter(p => p.category === selectedDivision.title);
-  }, [selectedDivision]);
+  }, [selectedDivision, specificProductId]);
 
   return (
     <section id="solutions" className="py-16 md:py-24 bg-white">
@@ -208,7 +217,11 @@ export default function Solutions({ onOpenQuote }) {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
-            {selectedDivision ? (
+            {specificProductId ? (
+              <>
+                <span className="text-blue-600">{products.find(p => p.id === specificProductId)?.title || 'Product'}</span>
+              </>
+            ) : selectedDivision ? (
               <>
                 <span className="text-blue-600">{selectedDivision.title}</span> Solutions
               </>
