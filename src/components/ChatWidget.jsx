@@ -4,9 +4,10 @@ import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 
 const quickReplies = [
   { label: 'Our Solutions', value: 'products' },
-  { label: 'Medical Devices', value: 'medical' },
-  { label: 'Payment Systems', value: 'payment' },
-  { label: 'Custom Electronics', value: 'custom' },
+  { label: 'Robotics', value: 'robotics' },
+  { label: 'Medical', value: 'medical' },
+  { label: 'Fintech', value: 'fintech' },
+  { label: 'Automotive', value: 'automotive' },
   { label: 'Manufacturing Process', value: 'process' },
   { label: 'Certifications', value: 'capabilities' },
   { label: 'Get a Quote', value: 'quote' },
@@ -18,16 +19,19 @@ const intents = {
     response: "Hello! Welcome to Walnut Technologies. How can I help you today?",
   },
   products: {
-    response: "We manufacture across three divisions:\n\n- **Medical Devices** — ISO 13485, Class 10K Cleanroom\n- **Payment Systems** — NPCI, RBI, PCI DSS Certified\n- **Custom Electronics** — 4 SMT Lines, 300K+ Units/Month\n\nWhich division interests you?",
+    response: "We manufacture across four divisions:\n\n- **Robotics** — AI-assisted rehabilitation & gait training\n- **Medical** — ISO 13485, Class 10K Cleanroom\n- **Fintech** — NPCI, RBI, PCI DSS Certified\n- **Automotive** — Industrial grade electronics\n\nWhich division interests you?",
+  },
+  robotics: {
+    response: "Our robotics division includes:\n- WalkLab Gait Training System\n\nAI-assisted therapy with real-time patient monitoring and tele-rehab capabilities.",
   },
   medical: {
-    response: "Our medical devices include:\n- Oxygen Concentrators (5L, 10L)\n- Blood Pressure Monitors\n- WalkLab Gait Training System\n- Non-Contact Infrared Thermometers\n- Compressor Nebulizers\n\nISO 13485 certified with Class 10K cleanroom.",
+    response: "Our medical devices include:\n- Digital Blood Pressure Monitor\n- IR Thermometer\n- Oxygen Concentrator\n- Walnut Compressor Nebulizer\n\nISO 13485 certified with Class 10K cleanroom.",
   },
-  payment: {
-    response: "Our payment systems include:\n- Smart POS Terminals (Android-based)\n- QR Soundboxes (Paytm, MobiKwik, Airtel, HDFC)\n- Multi-Interface Card Readers\n\nEMV L1/L2 certified, NPCI & RBI compliant.",
+  fintech: {
+    response: "Our fintech payment systems include:\n- Single SIM Model\n- Double SIM Model\n- With Display Model\n- Common Model\n- DQR: Double Display\n- All in One\n\nEMV L1/L2 certified, NPCI & RBI compliant.",
   },
-  custom: {
-    response: "Our custom electronics division provides:\n- PCB Design (up to 12-layer HDI)\n- Box Build Assembly\n- IoT Solutions\n- Contract Manufacturing\n\n4 SMT lines, 300K+ units/month capacity.",
+  automotive: {
+    response: "Our automotive division provides:\n- Cluster Displays\n- Harvester Electronics\n\nIndustrial grade, durable designs for demanding environments.",
   },
   process: {
     response: "Our 6-step manufacturing process:\n1. Consultation\n2. Design & Engineering\n3. PCB Fabrication\n4. Production\n5. Certification & Testing\n6. Delivery & Support\n\nWant to discuss your project?",

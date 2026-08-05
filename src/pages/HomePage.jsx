@@ -10,52 +10,36 @@ import Hero from '../components/Hero';
 
 const divisions = [
   {
-    id: 'medical',
-    title: 'Medical Devices',
-    subtitle: 'ISO 13485, Class 10K Cleanroom',
-    description: 'Life-critical medical electronics with full regulatory compliance.',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
-    link: '/solutions?category=Medical+Devices',
-  },
-  {
-    id: 'neuro',
-    title: 'Neuro Rehab Devices',
-    subtitle: 'FDA, IEC 60601 Compliant',
-    description: 'Advanced rehabilitation technology for neurological recovery.',
+    id: 'robotics',
+    title: 'Robotics',
+    subtitle: 'AI-assisted rehabilitation & gait training',
+    description: 'Cutting-edge robotics solutions for rehabilitation and gait training.',
     image: '/walklab 3.0.jpeg',
-    link: '/solutions?category=Medical+Devices',
+    link: '/solutions?category=Robotics',
   },
   {
-    id: 'payment',
-    title: 'Payment Systems',
+    id: 'medical',
+    title: 'Medical',
+    subtitle: 'ISO 13485, Class 10K Cleanroom',
+    description: 'Precision medical devices for diagnostics and patient care.',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
+    link: '/solutions?category=Medical',
+  },
+  {
+    id: 'fintech',
+    title: 'Fintech',
     subtitle: 'PCI-DSS, NPCI, RBI Certified',
     description: 'Secure payment terminal manufacturing with end-to-end compliance.',
-    image: '/soundbox.jpg',
-    link: '/solutions?category=Payment+Systems',
+    image: '/paytm soundbox.png',
+    link: '/solutions?category=Fintech',
   },
   {
     id: 'automotive',
-    title: 'Automotive Electronics',
-    subtitle: 'IATF 16949 Compliant',
-    description: 'High-reliability electronics for automotive applications.',
-    image: '/3d image.png',
-    link: '/solutions?category=Custom+Electronics',
-  },
-  {
-    id: 'iot',
-    title: 'IoT Solutions',
-    subtitle: 'End-to-End Connectivity',
-    description: 'Smart connected devices for industrial and consumer applications.',
-    image: '/smart lock.PNG',
-    link: '/solutions?category=Custom+Electronics',
-  },
-  {
-    id: 'custom',
-    title: 'Custom Solutions',
-    subtitle: '4 SMT Lines, 300K+ Units/Month',
-    description: 'Full-spectrum Original Design Manufacturer services from concept to delivery.',
-    image: '/Prototype Development.jpg',
-    link: '/solutions?category=Custom+Electronics',
+    title: 'Automotive',
+    subtitle: 'Industrial Grade Electronics',
+    description: 'Robust automotive electronics for demanding environments.',
+    image: '/Automotive Electronics.png',
+    link: '/solutions?category=Automotive',
   },
 ];
 
@@ -276,54 +260,54 @@ function DivisionsPreview() {
       title: 'Medical Devices',
       color: '#1e40af',
       icon: FiHeart,
-      image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
+      image: '/RTMS.png',
       features: ['ISO 13485 Certified', 'Class 10K Cleanroom', 'IEC 60601 Compliant'],
-      link: '/solutions?category=Medical+Devices',
+      link: '/solutions?category=Medical',
     },
     {
-      id: 'neuro',
+      id: 'fintech',
+      title: 'Payment Systems',
+      color: '#7c3aed',
+      icon: FiCreditCard,
+      image: '/paytm soundbox.png',
+      features: ['PCI-DSS Certified', 'NPCI & RBI Compliant', 'EMV L1/L2'],
+      link: '/solutions?category=Fintech',
+    },
+    {
+      id: 'iot',
+      title: 'IoT Solutions',
+      color: '#0891b2',
+      icon: FiWifi,
+      image: '/IOT solutions.PNG',
+      features: ['End-to-End Connectivity', 'Edge Computing', 'Cloud Integration'],
+      link: '/solutions?category=Fintech',
+    },
+    {
+      id: 'robotics',
       title: 'Neuro Rehab Devices',
       color: '#7c3aed',
       icon: FiActivity,
       image: '/walklab 3.0.jpeg',
       features: ['FDA Approved', 'IEC 60601 Compliant', 'Advanced Rehab Tech'],
-      link: '/solutions?category=Medical+Devices',
-    },
-    {
-      id: 'payment',
-      title: 'Payment Systems',
-      color: '#0891b2',
-      icon: FiCreditCard,
-      image: '/soundbox.jpg',
-      features: ['PCI-DSS Certified', 'NPCI & RBI Compliant', 'EMV L1/L2'],
-      link: '/solutions?category=Payment+Systems',
+      link: '/solutions?category=Robotics',
     },
     {
       id: 'automotive',
       title: 'Automotive Electronics',
       color: '#059669',
       icon: FiCpu,
-      image: '/Automotive Electronics.png',
+      image: '/cluster.png',
       features: ['IATF 16949 Compliant', 'High Reliability', 'AEC-Q100 Qualified'],
-      link: '/solutions?category=Custom+Electronics',
-    },
-    {
-      id: 'iot',
-      title: 'IoT Solutions',
-      color: '#d97706',
-      icon: FiWifi,
-      image: '/smart lock.PNG',
-      features: ['End-to-End Connectivity', 'Edge Computing', 'Cloud Integration'],
-      link: '/solutions?category=Custom+Electronics',
+      link: '/solutions?category=Automotive',
     },
     {
       id: 'custom',
       title: 'Custom Solutions',
-      color: '#dc2626',
+      color: '#d97706',
       icon: FiSettings,
-      image: '/Prototype Development.jpg',
+      image: '/custom solutions.jpg',
       features: ['4 SMT Lines', '300K+ Units/Month', 'Full Original Design Manufacturing'],
-      link: '/solutions?category=Custom+Electronics',
+      link: '/solutions?category=Fintech',
     },
   ];
 
@@ -331,7 +315,7 @@ function DivisionsPreview() {
   const bottomDivisions = divisionsData.filter((_, i) => i % 2 === 1);
 
   return (
-    <section id="divisions-preview" className="py-16 md:py-20 bg-white overflow-hidden">
+    <section id="divisions-preview" className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -339,183 +323,92 @@ function DivisionsPreview() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-semibold mb-4 uppercase tracking-wider">
             <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            Our Verticals
+            Our Solutions
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            Six Divisions,{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 font-black">
-              One Standard
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
+            Technology That Powers{' '}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
+              Every Connection
             </span>
           </h2>
           <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            Specialized manufacturing verticals serving the most demanding industries.
+            High-performance engineering solutions across industries, built for reliability, compliance, and scale.
           </p>
         </motion.div>
 
-        {/* Desktop Roadmap */}
-        <div className="hidden lg:block relative">
-          {/* Top Row Cards */}
-          <div className="flex justify-between px-[3%] mb-2">
-            {topDivisions.map((div, index) => (
-              <motion.div
-                key={div.id}
-                initial={{ opacity: 0, y: -30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="w-[30%]"
-              >
-                <Link to={div.link} className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
-                  <div className="flex items-start gap-4">
-                    <img src={div.image} alt={div.title} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
-                      <ul className="space-y-1.5">
-                        {div.features.map((f, i) => (
-                          <li key={i} className="flex items-center gap-1.5 text-xs text-slate-500">
-                            <FiCheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Road SVG */}
-          <div className="relative h-[120px] my-4">
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="roadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#1e40af" />
-                  <stop offset="50%" stopColor="#0891b2" />
-                  <stop offset="100%" stopColor="#059669" />
-                </linearGradient>
-              </defs>
-              {/* Road Background */}
-              <path
-                d="M 0 60 C 150 20, 250 100, 400 60 C 550 20, 650 100, 800 60 C 950 20, 1050 100, 1200 60"
-                fill="none"
-                stroke="#e2e8f0"
-                strokeWidth="50"
-                strokeLinecap="round"
-              />
-              {/* Road Center Line */}
-              <path
-                d="M 0 60 C 150 20, 250 100, 400 60 C 550 20, 650 100, 800 60 C 950 20, 1050 100, 1200 60"
-                fill="none"
-                stroke="#fbbf24"
-                strokeWidth="3"
-                strokeDasharray="12 8"
-                strokeLinecap="round"
-              />
-              {/* Colored Overlay */}
-              <motion.path
-                d="M 0 60 C 150 20, 250 100, 400 60 C 550 20, 650 100, 800 60 C 950 20, 1050 100, 1200 60"
-                fill="none"
-                stroke="url(#roadGrad)"
-                strokeWidth="4"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              />
-            </svg>
-
-            {/* Pins on Road */}
-            {divisionsData.map((div, index) => {
-              const leftPercent = (index / (divisionsData.length - 1)) * 92 + 4;
-              return (
-                <motion.div
-                  key={div.id}
-                  initial={{ scale: 0, y: 20 }}
-                  animate={isInView ? { scale: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1, type: 'spring' }}
-                  className="absolute top-1/2 -translate-y-1/2 z-10"
-                  style={{ left: `${leftPercent}%`, transform: 'translateX(-50%) translateY(-50%)' }}
-                >
-                  <div className="relative">
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: div.color }}
-                    >
-                      <div.icon className="w-7 h-7 text-white" />
-                    </div>
-                    {/* Pin Point */}
-                    <div
-                      className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0"
-                      style={{
-                        borderLeft: '6px solid transparent',
-                        borderRight: '6px solid transparent',
-                        borderTop: `8px solid ${div.color}`,
-                      }}
-                    />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Bottom Row Cards */}
-          <div className="flex justify-between px-[8%] mt-2">
-            {bottomDivisions.map((div, index) => (
-              <motion.div
-                key={div.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="w-[30%]"
-              >
-                <Link to={div.link} className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
-                  <div className="flex items-start gap-4">
-                    <img src={div.image} alt={div.title} className="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
-                      <ul className="space-y-1.5">
-                        {div.features.map((f, i) => (
-                          <li key={i} className="flex items-center gap-1.5 text-xs text-slate-500">
-                            <FiCheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile Roadmap */}
-        <div className="lg:hidden">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
           {divisionsData.map((div, index) => (
             <motion.div
               key={div.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
-              className={`flex items-start gap-4 mb-6 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
             >
-              <Link to={div.link} className="flex-1 block p-4 rounded-xl bg-white border border-slate-200 hover:shadow-lg transition-all group">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${div.color}15` }}>
+              <Link to={div.link} className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                {/* Content - Left Side */}
+                <div className="flex-1 min-w-0">
+                  {/* Icon */}
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ backgroundColor: `${div.color}10`, border: `1px solid ${div.color}20` }}>
                     <div.icon className="w-5 h-5" style={{ color: div.color }} />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600">{div.title}</h3>
+                  
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
+                  <ul className="space-y-1.5 mb-3">
+                    {div.features.map((f, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
+                        <FiCheckCircle className="w-3 h-3 text-blue-500 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  {/* Arrow Button */}
+                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-slate-200 group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
+                    <FiArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                  </div>
                 </div>
-                <ul className="space-y-1">
-                  {div.features.map((f, i) => (
-                    <li key={i} className="flex items-center gap-1.5 text-[10px] text-slate-500">
-                      <FiCheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Image - Right Side */}
+                <div className="w-24 h-24 flex items-center justify-center shrink-0">
+                  <img 
+                    src={div.image} 
+                    alt={div.title} 
+                    className="max-w-full max-h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile Grid */}
+        <div className="md:hidden grid grid-cols-1 gap-4">
+          {divisionsData.map((div, index) => (
+            <motion.div
+              key={div.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+            >
+              <Link to={div.link} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:shadow-lg transition-all group">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${div.color}10`, border: `1px solid ${div.color}20` }}>
+                  <div.icon className="w-6 h-6" style={{ color: div.color }} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 mb-1">{div.title}</h3>
+                  <ul className="flex flex-wrap gap-x-3 gap-y-1">
+                    {div.features.slice(0, 2).map((f, i) => (
+                      <li key={i} className="flex items-center gap-1 text-[10px] text-slate-500">
+                        <FiCheckCircle className="w-2.5 h-2.5 text-blue-500" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <FiArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 transition-colors" />
               </Link>
             </motion.div>
           ))}

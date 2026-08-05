@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
 
 const solutionCategories = [
-  { id: 'oxygen-concentrators', title: 'Oxygen Concentrators', image: '/RTMS.png', link: '/solutions?product=oxygen-concentrator' },
-  { id: 'pos-terminals', title: 'POS Terminals', image: '/paytm soundbox.png', link: '/solutions?product=pos-terminals' },
-  { id: 'neuro-rehab', title: 'Neuro Rehab Devices', image: '/walklab 3.0.jpeg', link: '/solutions?product=walklab' },
-  { id: 'bp-monitors', title: 'BP Monitors', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp', link: '/solutions?product=bp-monitor' },
-  { id: 'qr-soundboxes', title: 'QR Soundboxes', image: '/Pocket Soundbox.png', link: '/solutions?product=qr-soundbox' },
-  { id: 'thermometers', title: 'IR Thermometers', image: '/TDCS.png', link: '/solutions?product=thermometer' },
-  { id: 'pcb-design', title: 'PCB Design', image: '/3d image.png', link: '/solutions?product=pcb-design' },
-  { id: 'iot-solutions', title: 'IoT Solutions', image: '/smart lock.PNG', link: '/solutions?product=iot-solutions' },
+  { id: 'walklab', title: 'Walk Lab', image: '/walklab 3.0.jpeg', link: '/solutions?product=walklab' },
+  { id: 'bp-monitor', title: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp', link: '/solutions?product=bp-monitor' },
+  { id: 'thermometer', title: 'IR Thermometer', image: '/TDCS.png', link: '/solutions?product=thermometer' },
+  { id: 'oxygen-concentrator', title: 'Oxygen Concentrator', image: '/RTMS.png', link: '/solutions?product=oxygen-concentrator' },
+  { id: 'nebulizer', title: 'Compressor Nebulizer', image: '/CES repose.png', link: '/solutions?product=nebulizer' },
+  { id: 'single-sim', title: 'Single SIM Model', image: '/paytm soundbox.png', link: '/solutions?product=single-sim' },
+  { id: 'double-sim', title: 'Double SIM Model', image: '/Pocket Soundbox.png', link: '/solutions?product=double-sim' },
+  { id: 'with-display', title: 'With Display Model', image: '/soundbox (2).png', link: '/solutions?product=with-display' },
 ];
 
 function CategoryCard({ category, index, isInView }) {
@@ -20,23 +20,23 @@ function CategoryCard({ category, index, isInView }) {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.4, delay: 0.2 + index * 0.06 }}
-      className="group relative overflow-hidden rounded-xl cursor-pointer border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-500"
+      className="group relative overflow-hidden rounded-xl cursor-pointer border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-500 bg-white"
     >
       <Link to={category.link} className="block">
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-white flex items-center justify-center p-6">
           <img
             src={category.image}
             alt={category.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700 mix-blend-multiply"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent group-hover:from-slate-900/80 transition-all duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-3">
-            <h3 className="text-[10px] font-bold font-display text-white uppercase tracking-wide leading-tight mb-1.5">
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+          <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+            <h3 className="text-[10px] font-bold font-display text-white uppercase tracking-wide leading-tight">
               {category.title}
             </h3>
-            <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-all duration-300">
-              <FiArrowUpRight className="w-3 h-3 text-white group-hover:text-slate-900" />
-            </div>
+          </div>
+          <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <FiArrowUpRight className="w-3 h-3 text-slate-700" />
           </div>
         </div>
       </Link>
@@ -69,14 +69,15 @@ export default function SolutionCategories() {
               </span>
             </h2>
             <p className="text-sm text-slate-500 leading-relaxed mb-6 max-w-md">
-              From medical devices to payment systems and custom electronics — we design, develop, and manufacture mission-critical products with international certifications.
+              From robotics to medical devices, fintech solutions, and automotive electronics — we design, develop, and manufacture mission-critical products with international certifications.
             </p>
 
             <div className="space-y-3 mb-8">
               {[
-                { label: 'Medical Devices', desc: 'ISO 13485, FDA, IEC 60601 compliant' },
-                { label: 'Payment Systems', desc: 'PCI-DSS, NPCI, RBI certified' },
-                { label: 'Custom Electronics', desc: '4 SMT Lines, 300K+ units/month' },
+                { label: 'Robotics', desc: 'AI-assisted rehabilitation & gait training' },
+                { label: 'Medical', desc: 'ISO 13485, FDA, IEC 60601 compliant' },
+                { label: 'Fintech', desc: 'PCI-DSS, NPCI, RBI certified' },
+                { label: 'Automotive', desc: 'Industrial grade, durable electronics' },
               ].map((item, i) => (
                 <motion.div
                   key={item.label}
@@ -104,7 +105,7 @@ export default function SolutionCategories() {
           </motion.div>
 
           {/* Right Side - Category Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {solutionCategories.map((category, index) => (
               <CategoryCard
                 key={category.id}

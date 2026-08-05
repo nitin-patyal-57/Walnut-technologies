@@ -11,9 +11,10 @@ const navLinks = [
     label: 'Solutions',
     to: '/solutions',
     dropdown: [
-      { label: 'Medical Devices', to: '/solutions?category=Medical+Devices' },
-      { label: 'Payment Systems', to: '/solutions?category=Payment+Systems' },
-      { label: 'Custom Electronics', to: '/solutions?category=Custom+Electronics' },
+      { label: 'Robotics', to: '/solutions?category=Robotics' },
+      { label: 'Medical', to: '/solutions?category=Medical' },
+      { label: 'Fintech', to: '/solutions?category=Fintech' },
+      { label: 'Automotive', to: '/solutions?category=Automotive' },
     ],
   },
   { label: 'Expertise', to: '/expertise' },

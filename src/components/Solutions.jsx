@@ -5,28 +5,54 @@ import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft 
 import { products, divisions } from '../data/content';
 
 const divisionIcons = {
+  robotics: FiCpu,
   medical: FiHeart,
-  payment: FiCreditCard,
-  custom: FiCpu,
+  fintech: FiCreditCard,
+  automotive: FiCpu,
 };
 
 const categoryColorMap = {
-  'Medical Devices': { bar: 'from-cyan-500 to-blue-600', bg: 'from-cyan-50 to-blue-50/30', border: 'border-cyan-200', iconBg: 'from-cyan-500 to-blue-600' },
-  'Payment Systems': { bar: 'from-violet-500 to-purple-600', bg: 'from-violet-50 to-purple-50/30', border: 'border-violet-200', iconBg: 'from-violet-500 to-purple-600' },
-  'Custom Electronics': { bar: 'from-amber-500 to-orange-600', bg: 'from-amber-50 to-orange-50/30', border: 'border-amber-200', iconBg: 'from-amber-500 to-orange-600' },
+  'Robotics': { bar: 'from-emerald-500 to-teal-600', bg: 'from-emerald-50 to-teal-50/30', border: 'border-emerald-200', iconBg: 'from-emerald-500 to-teal-600' },
+  'Medical': { bar: 'from-cyan-500 to-blue-600', bg: 'from-cyan-50 to-blue-50/30', border: 'border-cyan-200', iconBg: 'from-cyan-500 to-blue-600' },
+  'Fintech': { bar: 'from-violet-500 to-purple-600', bg: 'from-violet-50 to-purple-50/30', border: 'border-violet-200', iconBg: 'from-violet-500 to-purple-600' },
+  'Automotive': { bar: 'from-amber-500 to-orange-600', bg: 'from-amber-50 to-orange-50/30', border: 'border-amber-200', iconBg: 'from-amber-500 to-orange-600' },
+};
+
+const divisionAnimations = {
+  robotics: {
+    initial: { opacity: 0, rotateY: -90 },
+    animate: { opacity: 1, rotateY: 0 },
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+  medical: {
+    initial: { opacity: 0, scale: 0.5, blur: 10 },
+    animate: { opacity: 1, scale: 1, blur: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+  fintech: {
+    initial: { opacity: 0, x: -100, skewX: 15 },
+    animate: { opacity: 1, x: 0, skewX: 0 },
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+  automotive: {
+    initial: { opacity: 0, y: 100, rotateX: 45 },
+    animate: { opacity: 1, y: 0, rotateX: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
 function DivisionShowcase({ division, onSelect, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const Icon = divisionIcons[division.id];
+  const anim = divisionAnimations[division.id];
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
+      initial={anim.initial}
+      animate={isInView ? anim.animate : anim.initial}
+      transition={{ ...anim.transition, delay: index * 0.15 }}
       onClick={() => onSelect(division)}
       className="cursor-pointer group text-center"
     >
@@ -37,28 +63,25 @@ function DivisionShowcase({ division, onSelect, index }) {
         
         {/* Products Row */}
         <div className="relative pt-8 pb-4">
-          <div className="flex justify-center items-end gap-2 md:gap-4">
-            {division.products.slice(0, 3).map((product, pIndex) => (
-              <motion.div
-                key={product.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + pIndex * 0.1 }}
-                className={`flex flex-col items-center ${pIndex === 1 ? '-mt-4' : ''}`}
-              >
-                {/* Product Image */}
-                <div className={`w-20 h-28 md:w-28 md:h-36 mb-2 group-hover:scale-105 transition-transform duration-500`}>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-contain drop-shadow-md"
-                  />
-                </div>
-                
-                {/* Pedestal */}
-                <div className="w-20 h-4 md:w-28 md:h-5 bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
-              </motion.div>
-            ))}
+          <div className="flex justify-center items-end">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-col items-center"
+            >
+              {/* Product Image */}
+              <div className="w-24 h-32 md:w-32 md:h-40 mb-2 flex items-center justify-center overflow-hidden rounded-xl">
+                <img
+                  src={division.products[0].image}
+                  alt={division.products[0].name}
+                  className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md mix-blend-multiply"
+                />
+              </div>
+              
+              {/* Pedestal */}
+              <div className="w-24 h-4 md:w-32 md:h-5 bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
+            </motion.div>
           </div>
         </div>
       </div>
@@ -80,10 +103,19 @@ function DivisionShowcase({ division, onSelect, index }) {
           ))}
         </div>
 
-        <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-full transition-colors group/btn">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-full transition-colors"
+        >
           Explore Products
-          <FiArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-        </div>
+          <motion.span
+            animate={{ x: [0, 4, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <FiArrowRight className="w-4 h-4" />
+          </motion.span>
+        </motion.div>
       </div>
     </motion.div>
   );
@@ -91,45 +123,49 @@ function DivisionShowcase({ division, onSelect, index }) {
 
 function ProductCard({ product, index, onOpenQuote }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
   const colors = categoryColorMap[product.category];
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-xl"
+      transition={{ duration: 0.7, delay: index * 0.15 }}
+      className="group relative text-center"
     >
-      <div className={`h-1 w-full bg-gradient-to-r ${colors?.bar || 'from-slate-400 to-slate-500'}`} />
-      
-      {/* Product Image */}
-      <div className="relative h-48 overflow-hidden bg-gradient-to-b from-slate-50 to-white p-4">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-        />
-        <div className={`absolute top-3 right-3 px-2.5 py-1 text-[10px] font-semibold text-white bg-gradient-to-r ${colors?.bar || 'from-slate-400 to-slate-500'} rounded-full`}>
-          {product.category}
+      {/* Circular Background */}
+      <div className="relative mb-4">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 md:w-48 md:h-48 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
+        
+        {/* Product Image */}
+        <div className="relative pt-6 pb-2">
+          <div className="w-24 h-32 md:w-32 md:h-40 mx-auto mb-2 flex items-center justify-center overflow-hidden rounded-xl">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md mix-blend-multiply"
+            />
+          </div>
+          
+          {/* Pedestal */}
+          <div className="w-24 h-4 md:w-32 md:h-5 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
         </div>
       </div>
-      
-      {/* Content */}
-      <div className="p-5">
-        <h3 className="text-base font-bold text-slate-900 mb-2">{product.title}</h3>
-        <p className="text-sm text-slate-500 mb-3 leading-relaxed">{product.description}</p>
+
+      {/* Product Info */}
+      <div className="relative">
+        <h3 className="text-base font-bold font-display text-slate-900 mb-1">{product.title}</h3>
+        <p className="text-xs text-slate-500 mb-3 max-w-xs mx-auto leading-relaxed px-4">{product.description}</p>
         
-        <div className="flex flex-wrap gap-2 mb-4">
-          {product.features.map((feature) => (
-            <span key={feature} className="px-2.5 py-1 text-[11px] bg-slate-100 text-slate-600 rounded-full border border-slate-200">
-              {feature}
+        <div className="flex flex-wrap justify-center gap-1.5 mb-3 px-4">
+          {product.features.slice(0, 3).map((f) => (
+            <span key={f} className="inline-flex items-center gap-1 px-2 py-0.5 text-[9px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
+              <FiCheckCircle className="w-2.5 h-2.5 text-emerald-500" />
+              {f}
             </span>
           ))}
         </div>
-        
-
       </div>
     </motion.div>
   );
@@ -197,7 +233,7 @@ export default function Solutions({ onOpenQuote }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid md:grid-cols-3 gap-8 lg:gap-12"
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10"
             >
               {divisions.map((division, index) => (
                 <DivisionShowcase
@@ -227,7 +263,7 @@ export default function Solutions({ onOpenQuote }) {
               </button>
 
               {/* Products Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                 {divisionProducts.map((product, index) => (
                   <ProductCard
                     key={product.id}

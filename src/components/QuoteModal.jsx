@@ -5,12 +5,10 @@ import Modal from './Modal';
 import { captureLead } from '../hooks/useLeads';
 
 const productOptions = [
+  'Robotics Device',
   'Medical Device',
-  'Payment Terminal',
-  'IoT Device',
-  'Industrial Electronics',
-  'Custom Electronics',
-  'PCB Fabrication',
+  'Fintech Terminal',
+  'Automotive Electronics',
   'Other',
 ];
 
