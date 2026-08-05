@@ -125,7 +125,6 @@ function DivisionShowcase({ division, onSelect, index }) {
 function ProductCard({ product, index, onOpenQuote }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const colors = categoryColorMap[product.category];
 
   return (
     <motion.div
@@ -133,15 +132,15 @@ function ProductCard({ product, index, onOpenQuote }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1 }}
-      className="group relative text-center"
+      className="group relative text-center flex flex-col items-center"
     >
       {/* Circular Background */}
-      <div className="relative mb-3">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-28 md:w-32 md:h-32 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
+      <div className="relative mb-2">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-24 md:w-28 md:h-28 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
         
         {/* Product Image */}
         <div className="relative pt-4 pb-1">
-          <div className="w-20 h-24 md:w-24 md:h-28 mx-auto mb-1 flex items-center justify-center overflow-hidden rounded-lg">
+          <div className="w-16 h-20 md:w-20 md:h-24 mx-auto mb-1 flex items-center justify-center overflow-hidden">
             <img
               src={product.image}
               alt={product.title}
@@ -149,21 +148,18 @@ function ProductCard({ product, index, onOpenQuote }) {
             />
           </div>
           
-          {/* Pedestal */}
-          <div className="w-20 h-3 md:w-24 md:h-3 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
+          {/* Individual Pedestal */}
+          <div className="w-16 h-2 md:w-20 md:h-2 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
         </div>
       </div>
 
       {/* Product Info */}
-      <div className="relative">
-        <h3 className="text-xs md:text-sm font-bold font-display text-slate-900 mb-1 px-1">{product.title}</h3>
-        <p className="text-[10px] text-slate-500 mb-2 max-w-[150px] mx-auto leading-relaxed px-1 line-clamp-2">{product.description}</p>
-        
-        <div className="flex flex-wrap justify-center gap-1 px-1">
+      <div className="relative text-center">
+        <h3 className="text-[10px] md:text-xs font-bold font-display text-slate-900 mb-0.5">{product.title}</h3>
+        <div className="flex flex-wrap justify-center gap-0.5">
           {product.features.slice(0, 2).map((f) => (
-            <span key={f} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[8px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
-              <FiCheckCircle className="w-2 h-2 text-emerald-500" />
-              {f}
+            <span key={f} className="text-[7px] md:text-[8px] text-slate-500">
+              {f}{product.features.slice(0, 2).indexOf(f) === 0 && product.features.slice(0, 2).length > 1 ? ' •' : ''}
             </span>
           ))}
         </div>
@@ -276,17 +272,36 @@ export default function Solutions({ onOpenQuote }) {
                 All Divisions
               </button>
 
-              {/* Products Grid */}
-              <div className={`grid gap-6 ${selectedDivision?.id === 'fintech' ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'}`}>
-                {divisionProducts.map((product, index) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    index={index}
-                    onOpenQuote={onOpenQuote}
-                  />
-                ))}
-              </div>
+              {/* Products Grid - Fintech single platform */}
+              {selectedDivision?.id === 'fintech' ? (
+                <div className="relative">
+                  {/* Shared Platform Base */}
+                  <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-slate-200 to-slate-300 rounded-t-3xl shadow-inner" />
+                  
+                  {/* Products Row */}
+                  <div className="flex justify-center items-end gap-4 md:gap-6 lg:gap-8 pb-4">
+                    {divisionProducts.map((product, index) => (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        index={index}
+                        onOpenQuote={onOpenQuote}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {divisionProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      index={index}
+                      onOpenQuote={onOpenQuote}
+                    />
+                  ))}
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
