@@ -372,7 +372,7 @@ function DivisionsPreview() {
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="w-24 h-24 flex items-center justify-center shrink-0">
+                <div className="w-32 h-32 flex items-center justify-center shrink-0">
                   <img 
                     src={div.image} 
                     alt={div.title} 
