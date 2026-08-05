@@ -280,7 +280,7 @@ function DivisionsPreview() {
       icon: FiWifi,
       image: '/IOT solutions.PNG',
       features: ['End-to-End Connectivity', 'Edge Computing', 'Cloud Integration'],
-      link: '/solutions?category=Fintech',
+      link: '/solutions?product=iot-smart-lock',
     },
     {
       id: 'robotics',

@@ -219,6 +219,14 @@ export const products = [
     image: '/TDCS.png',
     features: ['Industrial Grade', 'Rugged Design', 'Performance', 'Reliable'],
   },
+  {
+    id: 'iot-smart-lock',
+    category: 'IoT',
+    title: 'IoT Smart Lock',
+    description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities.',
+    image: '/smart lock.PNG',
+    features: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
+  },
 ];
 
 export const process = [
