@@ -34,7 +34,7 @@ const contactCards = [
   {
     icon: FiPhone,
     title: 'Call Us',
-    lines: ['+91 172 501 6400', '+91 172 501 6401', '+91 78143 00100'],
+    lines: ['+91 77194 63719'],
     link: 'tel:+911725016400',
     linkText: null,
   },
@@ -101,7 +101,7 @@ export default function ContactPage({ onOpenQuote }) {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="tel:+911725016400"
+                  href="tel:+917719463719"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20"
                 >
                   <FiPhone className="w-4 h-4" />
@@ -128,7 +128,7 @@ export default function ContactPage({ onOpenQuote }) {
                 <img
                   src="/contactbackground.png"
                   alt="Walnut Technologies Manufacturing Facility"
-                  className="w-full h-[400px] lg:h-[500px] object-cover"
+                  className="w-full h-[300px] lg:h-[380px] object-cover"
                 />
               </div>
               {/* Expert Card */}
@@ -138,7 +138,7 @@ export default function ContactPage({ onOpenQuote }) {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-900">Talk to Our Expert</p>
-                  <p className="text-blue-600 font-bold">+91 172 501 6400</p>
+                  <p className="text-blue-600 font-bold">+91 77194 63719</p>
                   <p className="text-xs text-slate-400">Mon - Sat : 9:00 AM - 6:00 PM IST</p>
                 </div>
               </div>
