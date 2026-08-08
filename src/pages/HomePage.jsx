@@ -269,7 +269,7 @@ function DivisionsPreview() {
       title: 'Payment Systems',
       color: '#7c3aed',
       icon: FiCreditCard,
-      image: '/Qr scanner.jpg',
+      image: '/Pocket Soundbox.png',
       features: ['PCI-DSS Certified', 'NPCI & RBI Compliant', 'EMV L1/L2'],
       link: '/solutions?category=Fintech',
     },
