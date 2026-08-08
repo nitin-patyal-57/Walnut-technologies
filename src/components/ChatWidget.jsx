@@ -140,7 +140,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
                 </div>
                 <div>
                   <h4 className="text-xs font-semibold text-slate-900">Walnut Assistant</h4>
-                  <p className="text-[10px] text-emerald-500">Online</p>
+                  <p className="text-xs text-emerald-500">Online</p>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
               {messages.map((msg, index) => (
                 <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
-                    className={`max-[85%] px-3 py-2 rounded-xl text-xs leading-relaxed whitespace-pre-line ${
+                    className={`max-w-[85%] px-3 py-2 rounded-xl text-xs leading-relaxed whitespace-pre-line ${
                       msg.role === 'user'
                         ? 'bg-slate-900 text-white rounded-br-sm'
                         : 'bg-slate-100 text-slate-700 rounded-bl-sm border border-slate-200'
@@ -170,7 +170,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
                   <button
                     key={qr.value}
                     onClick={() => sendMessage(qr.label)}
-                    className="px-2.5 py-1 text-[10px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all"
+                    className="px-2.5 py-1 text-xs font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all"
                   >
                     {qr.label}
                   </button>

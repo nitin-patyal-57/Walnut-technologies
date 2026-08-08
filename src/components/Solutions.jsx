@@ -97,7 +97,7 @@ function DivisionShowcase({ division, onSelect, index }) {
         
         <div className="flex flex-wrap justify-center gap-2 mb-5">
           {division.features.slice(0, 3).map((f) => (
-            <span key={f} className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
+            <span key={f} className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
               <FiCheckCircle className="w-3 h-3 text-emerald-500" />
               {f}
             </span>
@@ -157,11 +157,11 @@ function ProductCard({ product, index, onOpenQuote }) {
       {/* Product Info */}
       <div className="relative">
         <h3 className="text-xs md:text-sm font-bold font-display text-slate-900 mb-1 px-1">{product.title}</h3>
-        <p className="text-[10px] text-slate-500 mb-2 max-w-[150px] mx-auto leading-relaxed px-1 line-clamp-2">{product.description}</p>
+        <p className="text-xs text-slate-500 mb-2 max-w-[150px] mx-auto leading-relaxed px-1 line-clamp-2">{product.description}</p>
         
         <div className="flex flex-wrap justify-center gap-1 px-1">
           {product.features.slice(0, 2).map((f) => (
-            <span key={f} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[8px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
+            <span key={f} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
               <FiCheckCircle className="w-2 h-2 text-emerald-500" />
               {f}
             </span>

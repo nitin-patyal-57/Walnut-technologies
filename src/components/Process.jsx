@@ -142,7 +142,7 @@ function ScrollProcess() {
                             return <Icon className="w-5 h-5 text-white" />;
                           })()}
                         </div>
-                        <span className="px-3 py-1 text-[10px] font-bold bg-white/20 backdrop-blur-sm text-white rounded-full">
+                        <span className="px-3 py-1 text-xs font-bold bg-white/20 backdrop-blur-sm text-white rounded-full">
                           STEP {process[activeStep].step} OF {process.length}
                         </span>
                       </div>
@@ -175,7 +175,7 @@ function ScrollProcess() {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                   >
                     <div className="mb-4">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${process[activeStep].color} text-white text-[10px] font-semibold mb-3`}>
+                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${process[activeStep].color} text-white text-xs font-semibold mb-3`}>
                         <FiZap className="w-2.5 h-2.5" />
                         Step {process[activeStep].step}
                       </div>
@@ -197,7 +197,7 @@ function ScrollProcess() {
                           <div className={`w-5 h-5 rounded-md bg-gradient-to-br ${process[activeStep].color} flex items-center justify-center shrink-0`}>
                             <FiCheckCircle className="w-2.5 h-2.5 text-white" />
                           </div>
-                          <span className="text-[10px] text-white/90 font-medium">{detail}</span>
+                          <span className="text-xs text-white/90 font-medium">{detail}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -257,7 +257,7 @@ function TechSection() {
                   <Icon className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xs font-bold text-slate-900 mb-0.5">{tech.title}</h3>
-                <p className="text-[10px] text-slate-500">{tech.description}</p>
+                <p className="text-xs text-slate-500">{tech.description}</p>
               </motion.div>
             );
           })}
@@ -306,7 +306,7 @@ function ImpactSection() {
                   <Icon className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xs font-bold text-slate-900 mb-0.5">{benefit.title}</h3>
-                <p className="text-[10px] text-slate-500">{benefit.description}</p>
+                <p className="text-xs text-slate-500">{benefit.description}</p>
               </motion.div>
             );
           })}

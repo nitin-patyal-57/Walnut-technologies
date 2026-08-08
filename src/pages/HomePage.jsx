@@ -8,58 +8,10 @@ import {
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 
-const divisions = [
-  {
-    id: 'robotics',
-    title: 'Robotics',
-    subtitle: 'AI-assisted rehabilitation & gait training',
-    description: 'Cutting-edge robotics solutions for rehabilitation and gait training.',
-    image: '/walklab 3.0.jpeg',
-    link: '/solutions?category=Robotics',
-  },
-  {
-    id: 'medical',
-    title: 'Medical',
-    subtitle: 'ISO 13485, Class 10K Cleanroom',
-    description: 'Precision medical devices for diagnostics and patient care.',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
-    link: '/solutions?category=Medical',
-  },
-  {
-    id: 'fintech',
-    title: 'Fintech',
-    subtitle: 'PCI-DSS, NPCI, RBI Certified',
-    description: 'Secure payment terminal manufacturing with end-to-end compliance.',
-    image: '/soundbox.png',
-    link: '/solutions?category=Fintech',
-  },
-  {
-    id: 'automotive',
-    title: 'Automotive',
-    subtitle: 'Industrial Grade Electronics',
-    description: 'Robust automotive electronics for demanding environments.',
-    image: '/Automotive Electronics.png',
-    link: '/solutions?category=Automotive',
-  },
-];
-
 const whyChooseUs = [
   { icon: FiShield, title: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
   { icon: FiGlobe, title: '20+ Countries', desc: 'Global supply chain and logistics' },
   { icon: FiCheckCircle, title: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
-];
-
-const journeySteps = [
-  { year: '2016', title: 'FOUNDED', description: 'Walnut Medical Pvt. Ltd. established in Mohali, Punjab with a vision to make India self-reliant in medical device manufacturing.' },
-  { year: '2017', title: 'R&D PHASE', description: 'Built core engineering team. Started developing indigenous medical devices including BP monitors and thermometers.' },
-  { year: '2018', title: 'FIRST PRODUCTS', description: 'Launched Blood Pressure Monitor and Infrared Thermometer. Established PCB design and firmware development capabilities.' },
-  { year: '2019', title: 'FACILITY EXPANSION', description: 'Expanded to 150,000 sqft manufacturing facility. Installed 4 SMT lines with 300K+ units/month capacity.' },
-  { year: '2020', title: 'OXYGEN CONCENTRATOR', description: 'First Indian manufacturer of Oxygen Concentrators. Supported by CAWACH fund from Dept. of Science & Technology with IIT Delhi.' },
-  { year: '2021', title: 'NEURO REHAB DEVICES', description: 'Launched WalkLab Robotic Gait Training, Walkex FES, rTMS MedStim, TDCS Mind Acquity, and CES Repose.' },
-  { year: '2022', title: 'PAYMENT SYSTEMS', description: 'Entered Payment Systems with POS terminals and QR Soundboxes. Featured in Pharmabiz, Indian Express, DD News.' },
-  { year: '2023', title: 'GLOBAL REACH', description: 'Expanded to 20+ countries. Achieved ISO 13485, CE, FCC, PCI-DSS certifications. 10 million units milestone.' },
-  { year: '2024', title: 'INDUSTRY 4.0', description: 'Adopted Industry 4.0 standards. 4 SMT lines, Class 10K cleanroom, full traceability and smart manufacturing.' },
-  { year: '2025', title: 'INDUSTRY 5.0', description: 'Pioneering Industry 5.0 ecosystem with AI, Digital Twin, IoT, and human-centric manufacturing across 40+ countries.' },
 ];
 
 const processCards = [
@@ -94,7 +46,7 @@ function JourneySection() {
 
   return (
     <section className="py-16 md:py-24 bg-white">
-      <div ref={ref} className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px] gap-8 lg:gap-10">
 
           {/* ===== LEFT COLUMN ===== */}
@@ -172,14 +124,14 @@ function JourneySection() {
                             <div className="flex items-start justify-between gap-3">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1.5">
-                                  <span className="px-2 py-0.5 text-[10px] font-bold bg-slate-900 text-white rounded-md">
+                                  <span className="px-2 py-0.5 text-xs font-bold bg-slate-900 text-white rounded-md">
                                     {item.year}
                                   </span>
                                   <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                                     {item.title}
                                   </h3>
                                 </div>
-                                <p className="text-[11px] text-slate-500 leading-relaxed">
+                                <p className="text-xs text-slate-500 leading-relaxed">
                                   {item.description}
                                 </p>
                               </div>
@@ -221,13 +173,13 @@ function JourneySection() {
                     className="group flex items-stretch gap-0 rounded-xl border border-slate-100 bg-white overflow-hidden hover:border-slate-200 hover:shadow-md transition-all duration-300"
                   >
                     <div className="flex-1 p-3 flex flex-col justify-center">
-                      <div className="text-[10px] font-bold text-slate-400 mb-1">
+                      <div className="text-xs font-bold text-slate-400 mb-1">
                         STEP {item.step}
                       </div>
-                      <h3 className="text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-1">
+                      <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">
                         {item.title}
                       </h3>
-                      <p className="text-[9px] text-slate-500 leading-relaxed">
+                      <p className="text-xs text-slate-500 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -401,7 +353,7 @@ function DivisionsPreview() {
                   <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 mb-1">{div.title}</h3>
                   <ul className="flex flex-wrap gap-x-3 gap-y-1">
                     {div.features.slice(0, 2).map((f, i) => (
-                      <li key={i} className="flex items-center gap-1 text-[10px] text-slate-500">
+                      <li key={i} className="flex items-center gap-1 text-xs text-slate-500">
                         <FiCheckCircle className="w-2.5 h-2.5 text-blue-500" />
                         {f}
                       </li>
@@ -444,7 +396,7 @@ function StatsSection() {
               className="bg-white rounded-lg p-3 text-center shadow-lg border border-slate-100"
             >
               <div className="text-lg font-bold font-display text-blue-600 mb-0.5">{stat.value}</div>
-              <div className="text-[9px] text-slate-500 font-medium leading-tight">{stat.label}</div>
+              <div className="text-xs text-slate-500 font-medium leading-tight">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -521,7 +473,7 @@ function ClientsCertifications() {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-900">{cert.title}</h4>
-                      <p className="text-[10px] text-slate-500">{cert.description}</p>
+                      <p className="text-xs text-slate-500">{cert.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -551,7 +503,7 @@ function ClientsCertifications() {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-900">{client}</h4>
-                      <p className="text-[10px] text-slate-500">Trusted Partner</p>
+                      <p className="text-xs text-slate-500">Trusted Partner</p>
                     </div>
                   </div>
                 </motion.div>
@@ -617,7 +569,7 @@ function CTASection() {
                     >
                       <Icon className="w-5 h-5 text-cyan-400 mx-auto mb-1.5" />
                       <div className="text-xs font-bold text-white mb-0.5">{item.title}</div>
-                      <div className="text-[10px] text-slate-400">{item.desc}</div>
+                      <div className="text-xs text-slate-400">{item.desc}</div>
                     </motion.div>
                   );
                 })}

@@ -42,20 +42,20 @@ export default function Footer() {
             <Link to="/" className="inline-block mb-2">
               <img src="/logo.png" alt="Walnut Technologies" className="h-10 w-auto object-contain brightness-0 invert" />
             </Link>
-            <p className="text-[11px] text-slate-400 leading-relaxed mb-3 max-w-[220px]">
+            <p className="text-xs text-slate-400 leading-relaxed mb-3 max-w-[220px]">
               Vertically integrated Original Design Manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.
             </p>
 
             <div className="space-y-1.5 mb-3">
-              <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+              <div className="flex items-center gap-1.5 text-xs text-slate-400">
                 <FiMapPin className="w-3 h-3 shrink-0" />
                 <span>Mohali, Punjab</span>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+              <div className="flex items-center gap-1.5 text-xs text-slate-400">
                 <FiPhone className="w-3 h-3 shrink-0" />
                 <a href={`tel:${brand.phone}`} className="hover:text-white transition-colors">{brand.phone}</a>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+              <div className="flex items-center gap-1.5 text-xs text-slate-400">
                 <FiMail className="w-3 h-3 shrink-0" />
                 <a href={`mailto:${brand.email}`} className="hover:text-white transition-colors">{brand.email}</a>
               </div>
@@ -77,11 +77,11 @@ export default function Footer() {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-[11px] font-semibold text-white uppercase tracking-wider mb-2">{title}</h4>
+              <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-2">{title}</h4>
               <ul className="space-y-1">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="text-[11px] text-slate-400 hover:text-white transition-colors">
+                    <Link to={link.to} className="text-xs text-slate-400 hover:text-white transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -93,10 +93,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="py-2.5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-1.5">
-          <p className="text-[10px] text-slate-500">
+          <p className="text-xs text-slate-500">
             &copy; {new Date().getFullYear()} {brand.fullName}. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-[10px] text-slate-500">
+          <div className="flex items-center gap-2 text-xs text-slate-500">
             <span>GSTN: {brand.gstn}</span>
             <span>•</span>
             <span>Mohali, Punjab</span>

@@ -293,7 +293,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                         <FiPhone className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-[11px] text-slate-400 font-medium">Phone</p>
+                        <p className="text-xs text-slate-400 font-medium">Phone</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.phone}</p>
                       </div>
                     </a>
@@ -302,7 +302,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                         <FiMail className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-[11px] text-slate-400 font-medium">Email</p>
+                        <p className="text-xs text-slate-400 font-medium">Email</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.email}</p>
                       </div>
                     </a>
@@ -311,7 +311,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                         <FiMapPin className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-[11px] text-slate-400 font-medium">Address</p>
+                        <p className="text-xs text-slate-400 font-medium">Address</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.location}</p>
                       </div>
                     </div>
@@ -334,7 +334,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                         className="flex flex-col items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:bg-slate-100 transition-all group"
                       >
                         <img src={social.icon} alt={social.label} className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                        <span className="text-[11px] text-slate-600 font-medium">{social.label}</span>
+                        <span className="text-xs text-slate-600 font-medium">{social.label}</span>
                       </a>
                     ))}
                   </div>
@@ -366,7 +366,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-bold text-slate-900">Chat with us</h4>
-                  <p className="text-[11px] text-emerald-600 font-medium">Usually replies instantly</p>
+                  <p className="text-xs text-emerald-600 font-medium">Usually replies instantly</p>
                 </div>
                 <button
                   onClick={() => setIsSidebarOpen(false)}

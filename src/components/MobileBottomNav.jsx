@@ -50,7 +50,7 @@ export default function MobileBottomNav({ onOpenQuote }) {
               }`}>
                 <Icon className="w-5 h-5" />
               </div>
-              <span className={`text-[9px] font-semibold transition-all ${
+              <span className={`text-xs font-semibold transition-all ${
                 active ? 'text-cyan-600' : 'text-slate-400'
               }`}>
                 {item.label}
@@ -67,7 +67,7 @@ export default function MobileBottomNav({ onOpenQuote }) {
           <div className="p-1.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-500 text-white shadow-lg shadow-emerald-500/30">
             <FiMessageCircle className="w-5 h-5" />
           </div>
-          <span className="text-[9px] font-semibold text-emerald-600">Quote</span>
+          <span className="text-xs font-semibold text-emerald-600">Quote</span>
         </button>
       </nav>
     </div>

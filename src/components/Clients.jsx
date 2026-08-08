@@ -61,7 +61,7 @@ export default function Clients() {
                   {sector.clients && sector.clients.length > 0 && (
                     <div className="flex flex-wrap gap-1.5">
                       {sector.clients.map((client) => (
-                        <span key={client} className="px-1.5 py-0.5 text-[9px] bg-slate-100 text-slate-600 rounded border border-slate-200">
+                        <span key={client} className="px-1.5 py-0.5 text-xs bg-slate-100 text-slate-600 rounded border border-slate-200">
                           {client}
                         </span>
                       ))}

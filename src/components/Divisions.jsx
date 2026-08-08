@@ -83,7 +83,7 @@ export default function Divisions({ onOpenQuote }) {
                     {division.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-2 py-0.5 text-[10px] bg-slate-100 text-slate-600 rounded-md border border-slate-200"
+                        className="px-2 py-0.5 text-xs bg-slate-100 text-slate-600 rounded-md border border-slate-200"
                       >
                         {feature}
                       </span>
@@ -92,7 +92,7 @@ export default function Divisions({ onOpenQuote }) {
 
                   {/* Product Images Grid */}
                   <div className="mb-4">
-                    <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Products</p>
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Products</p>
                     <div className="grid grid-cols-5 gap-1.5">
                       {division.products.map((product) => (
                         <div key={product.name} className="group/img relative aspect-square overflow-hidden rounded-lg border border-slate-200 hover:border-slate-300 transition-all">
@@ -103,7 +103,7 @@ export default function Divisions({ onOpenQuote }) {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
                           <div className="absolute bottom-0 left-0 right-0 p-0.5 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300">
-                            <p className="text-[7px] font-medium text-white leading-tight truncate">{product.name}</p>
+                            <p className="text-[10px] font-medium text-white leading-tight truncate">{product.name}</p>
                           </div>
                         </div>
                       ))}

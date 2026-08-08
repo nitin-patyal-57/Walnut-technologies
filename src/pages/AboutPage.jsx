@@ -65,9 +65,9 @@ function ProcessTimeline() {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="w-[16%] text-center"
               >
-                <p className="text-[10px] font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
+                <p className="text-xs font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
                 <h3 className="text-base font-bold mb-1" style={{ color: step.color }}>{step.title}</h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed">{step.description}</p>
+                <p className="text-xs text-slate-500 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -146,9 +146,9 @@ function ProcessTimeline() {
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 className="w-[16%] text-center"
               >
-                <p className="text-[10px] font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
+                <p className="text-xs font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
                 <h3 className="text-base font-bold mb-1" style={{ color: step.color }}>{step.title}</h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed">{step.description}</p>
+                <p className="text-xs text-slate-500 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -172,9 +172,9 @@ function ProcessTimeline() {
                 <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
               </motion.div>
               <div className={index % 2 === 0 ? 'text-left' : 'text-right'}>
-                <p className="text-[9px] font-bold tracking-widest text-slate-400">{step.step}</p>
+                <p className="text-xs font-bold tracking-widest text-slate-400">{step.step}</p>
                 <h3 className="text-sm font-bold" style={{ color: step.color }}>{step.title}</h3>
-                <p className="text-[11px] text-slate-500">{step.description}</p>
+                <p className="text-xs text-slate-500">{step.description}</p>
               </div>
             </motion.div>
           ))}
@@ -303,7 +303,7 @@ export default function AboutPage() {
                   className="bg-white rounded-lg p-3 text-center shadow-lg border border-slate-100"
                 >
                   <div className="text-lg font-bold font-display text-blue-600 mb-0.5">{stat.value}</div>
-                  <div className="text-[9px] text-slate-500 font-medium leading-tight">{stat.label}</div>
+                  <div className="text-xs text-slate-500 font-medium leading-tight">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

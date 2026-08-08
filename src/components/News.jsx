@@ -52,7 +52,7 @@ export default function News() {
                 <FiCalendar className="w-3.5 h-3.5 text-slate-400" />
                 <span className="text-xs text-slate-500">{item.date}</span>
               </div>
-              <span className={`inline-block px-2.5 py-0.5 text-[11px] font-medium rounded-lg border mb-3 ${
+              <span className={`inline-block px-2.5 py-0.5 text-xs font-medium rounded-lg border mb-3 ${
                 categoryColors[item.category] || 'bg-slate-100 text-slate-600 border-slate-200'
               }`}>
                 {item.category}
@@ -60,7 +60,7 @@ export default function News() {
               <h3 className="text-xs font-bold text-slate-900 mb-1.5 group-hover:text-cyan-600 transition-colors leading-snug">
                 {item.title}
               </h3>
-              <p className="text-[10px] text-slate-500 leading-relaxed">{item.description}</p>
+              <p className="text-xs text-slate-500 leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
