@@ -12,9 +12,9 @@ import { captureLead } from '../hooks/useLeads';
 const contactCards = [
   {
     icon: FiHome,
-    title: 'Corporate Office',
-    lines: ['Walnut Medical Pvt. Ltd.', 'SCO 113, Sector 47-D,', 'Chandigarh 160047, India'],
-    link: 'https://maps.google.com/?q=SCO+113+Sector+47-D+Chandigarh',
+    title: 'Head Office',
+    lines: ['Walnut Medical Pvt Ltd', '132 JLPL Industrial Park', 'Sector 82, Mohali Punjab 160055'],
+    link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
     linkText: 'Get Directions',
   },
   {
@@ -27,15 +27,15 @@ const contactCards = [
   {
     icon: FiMail,
     title: 'Email Us',
-    lines: ['info@walnutmedical.com', 'sales@walnutmedical.com', 'support@walnutmedical.com'],
-    link: 'mailto:info@walnutmedical.com',
+    lines: ['contact@walnutmedical.in'],
+    link: 'mailto:contact@walnutmedical.in',
     linkText: null,
   },
   {
     icon: FiPhone,
     title: 'Call Us',
     lines: ['+91 77194 63719'],
-    link: 'tel:+911725016400',
+    link: 'tel:+917719463719',
     linkText: null,
   },
 ];
@@ -108,7 +108,7 @@ export default function ContactPage({ onOpenQuote }) {
                   Call Us
                 </a>
                 <a
-                  href="mailto:info@walnutmedical.com"
+                  href="mailto:contact@walnutmedical.in"
                   className="inline-flex items-center gap-2 px-5 py-3 border border-slate-300 text-slate-700 text-sm font-semibold rounded-xl hover:border-slate-400 hover:bg-white transition-all"
                 >
                   <FiMail className="w-4 h-4" />
