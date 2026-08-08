@@ -89,12 +89,12 @@ export default function ContactPage({ onOpenQuote }) {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
+              <span className="inline-block text-sm font-semibold text-emerald-600 tracking-wider uppercase mb-4">
                 Contact Us
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-slate-900 leading-tight mb-6">
                 Let's Build{' '}
-                <span className="text-blue-600">What Matters.</span>
+                <span className="text-emerald-600">What Matters.</span>
               </h1>
               <p className="text-base text-slate-500 leading-relaxed mb-8 max-w-lg">
                 Have a question, collaboration idea or want to learn more about our solutions? We'd love to hear from you. Our team is here to help.
@@ -102,7 +102,7 @@ export default function ContactPage({ onOpenQuote }) {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="tel:+911725016400"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20"
                 >
                   <FiPhone className="w-4 h-4" />
                   Call Us
@@ -133,12 +133,12 @@ export default function ContactPage({ onOpenQuote }) {
               </div>
               {/* Expert Card */}
               <div className="absolute -bottom-6 right-4 lg:right-8 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3 border border-slate-100">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                  <FiHeadphones className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
+                  <FiHeadphones className="w-6 h-6 text-emerald-600" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-900">Talk to Our Expert</p>
-                  <p className="text-blue-600 font-bold">+91 172 501 6400</p>
+                  <p className="text-emerald-600 font-bold">+91 172 501 6400</p>
                   <p className="text-xs text-slate-400">Mon - Sat : 9:00 AM - 6:00 PM IST</p>
                 </div>
               </div>
@@ -159,10 +159,10 @@ export default function ContactPage({ onOpenQuote }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                  className="text-center p-6 rounded-xl border border-slate-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300"
+                  className="text-center p-6 rounded-xl border border-slate-200 hover:border-emerald-200 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-6 h-6 text-blue-600" />
+                  <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-6 h-6 text-emerald-600" />
                   </div>
                   <h3 className="text-sm font-bold text-slate-900 mb-2">{card.title}</h3>
                   <div className="space-y-0.5 mb-3">
@@ -175,7 +175,7 @@ export default function ContactPage({ onOpenQuote }) {
                       href={card.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors"
                     >
                       {card.linkText || card.lines[0]}
                       <FiArrowRight className="w-3 h-3" />
@@ -213,7 +213,7 @@ export default function ContactPage({ onOpenQuote }) {
                         required
                         value={form.name}
                         onChange={(e) => setForm({...form, name: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                         placeholder="Full Name"
                       />
                     </div>
@@ -223,7 +223,7 @@ export default function ContactPage({ onOpenQuote }) {
                         type="text"
                         value={form.company}
                         onChange={(e) => setForm({...form, company: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                         placeholder="Company Name"
                       />
                     </div>
@@ -236,7 +236,7 @@ export default function ContactPage({ onOpenQuote }) {
                         required
                         value={form.email}
                         onChange={(e) => setForm({...form, email: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                         placeholder="you@company.com"
                       />
                     </div>
@@ -246,7 +246,7 @@ export default function ContactPage({ onOpenQuote }) {
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({...form, phone: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                         placeholder="+91 98765 43210"
                       />
                     </div>
@@ -257,7 +257,7 @@ export default function ContactPage({ onOpenQuote }) {
                       required
                       value={form.subject}
                       onChange={(e) => setForm({...form, subject: e.target.value})}
-                      className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                      className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
                     >
                       <option value="">Select a subject</option>
                       <option value="product">Product Inquiry</option>
@@ -275,7 +275,7 @@ export default function ContactPage({ onOpenQuote }) {
                       rows={5}
                       value={form.message}
                       onChange={(e) => setForm({...form, message: e.target.value})}
-                      className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                      className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all resize-none"
                       placeholder="Tell us about your project requirements..."
                     />
                   </div>
@@ -285,18 +285,18 @@ export default function ContactPage({ onOpenQuote }) {
                       required
                       checked={form.privacy}
                       onChange={(e) => setForm({...form, privacy: e.target.checked})}
-                      className="mt-1 w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+                      className="mt-1 w-4 h-4 text-emerald-600 border-slate-300 rounded focus:ring-emerald-500"
                     />
                     <label className="text-xs text-slate-500">
                       I agree to the{' '}
-                      <Link to="/privacy" className="text-blue-600 hover:underline">Privacy Policy</Link>
+                      <Link to="/privacy" className="text-emerald-600 hover:underline">Privacy Policy</Link>
                       {' '}and{' '}
-                      <Link to="/terms" className="text-blue-600 hover:underline">Terms of Use</Link>.
+                      <Link to="/terms" className="text-emerald-600 hover:underline">Terms of Use</Link>.
                     </label>
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-lg shadow-emerald-600/20 transition-all flex items-center justify-center gap-2"
                   >
                     Send Message
                     <FiArrowRight className="w-4 h-4" />
@@ -308,7 +308,7 @@ export default function ContactPage({ onOpenQuote }) {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-16 bg-white rounded-2xl border border-slate-200"
                 >
-                  <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                     <FiCheck className="w-8 h-8" />
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-2">Message Sent!</h4>
@@ -347,8 +347,8 @@ export default function ContactPage({ onOpenQuote }) {
                     const Icon = item.icon;
                     return (
                       <div key={index} className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-                          <Icon className="w-5 h-5 text-blue-600" />
+                        <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0">
+                          <Icon className="w-5 h-5 text-emerald-600" />
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-slate-900">{item.title}</p>
@@ -376,8 +376,8 @@ export default function ContactPage({ onOpenQuote }) {
           >
             {/* Left - Brand */}
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">W</span>
+              <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center">
+                <span className="text-2xl font-bold text-emerald-600">W</span>
               </div>
               <div>
                 <p className="text-sm text-slate-600 max-w-xs">
@@ -399,7 +399,7 @@ export default function ContactPage({ onOpenQuote }) {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="text-center"
                   >
-                    <Icon className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+                    <Icon className="w-6 h-6 text-emerald-600 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
                     <div className="text-xs text-slate-500">{stat.label}</div>
                   </motion.div>
