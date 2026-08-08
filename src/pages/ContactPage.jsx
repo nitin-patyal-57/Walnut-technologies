@@ -128,7 +128,7 @@ export default function ContactPage({ onOpenQuote }) {
                 <img
                   src="/contactbackground.png"
                   alt="Walnut Technologies Manufacturing Facility"
-                  className="w-full h-[300px] lg:h-[400px] object-cover"
+                  className="w-full h-[400px] lg:h-[500px] object-cover"
                 />
               </div>
               {/* Expert Card */}
