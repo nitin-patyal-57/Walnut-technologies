@@ -23,7 +23,7 @@ export const about = {
   story: 'Founded in 2016, Walnut Technologies Pvt. Ltd. has grown from a small electronics workshop into a vertically integrated Original Design Manufacturer serving 20+ countries. With a 150,000 sq.ft state-of-the-art facility in Mohali, Punjab, we combine cutting-edge technology with uncompromising quality standards to deliver mission-critical electronics across healthcare, finance, and industrial sectors.',
   values: [
     { title: 'Quality First', description: 'ISO 13485, ISO 9001 certified processes with Class 10K cleanroom facility.' },
-    { title: 'Innovation', description: '500+ engineers pushing boundaries in medical, payment, and custom electronics.' },
+    { title: 'Innovation', description: '400+ engineers pushing boundaries in medical, payment, and custom electronics.' },
     { title: 'Global Reach', description: 'Serving 20+ countries with end-to-end manufacturing and logistics.' },
     { title: 'Vertical Integration', description: 'From PCB design to final assembly — complete in-house capabilities.' },
   ],

@@ -260,7 +260,7 @@ export default function CareerPage() {
                 { icon: FiBriefcase, stat: '2016', label: 'Year Founded' },
                 { icon: FiGlobe, stat: '150,000+', label: 'Sq. Ft. Manufacturing Facility' },
                 { icon: FiTrendingUp, stat: '300K+', label: 'Devices / Month Capacity' },
-                { icon: FiUsers, stat: '500+', label: 'Team Members' },
+                { icon: FiUsers, stat: '400+', label: 'Team Members' },
               ].map((item, i) => (
                 <motion.div
                   key={item.label}

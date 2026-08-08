@@ -37,7 +37,7 @@ const intents = {
     response: "Our 6-step manufacturing process:\n1. Consultation\n2. Design & Engineering\n3. PCB Fabrication\n4. Production\n5. Certification & Testing\n6. Delivery & Support\n\nWant to discuss your project?",
   },
   capabilities: {
-    response: "Our key capabilities:\n- 150,000 sq.ft facility\n- Class 10K Cleanroom\n- ISO 13485 & ISO 9001 Certified\n- CE, FCC, PCI-DSS compliance\n- 500+ Engineers\n- 300K+ Units/Month",
+    response: "Our key capabilities:\n- 150,000 sq.ft facility\n- Class 10K Cleanroom\n- ISO 13485 & ISO 9001 Certified\n- CE, FCC, PCI-DSS compliance\n- 400+ Engineers\n- 300K+ Units/Month",
   },
   quote: {
     response: "We'd love to provide a custom quote! Pricing depends on product type, volume, certifications, and timeline.\n\nClick **Request a Quote** or call us at +91 77194 63719.",

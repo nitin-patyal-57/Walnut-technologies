@@ -51,7 +51,7 @@ const stats = [
   { icon: FiClock, value: '2016', label: 'Year Founded' },
   { icon: FiServer, value: '150,000+', label: 'Sq. Ft. Manufacturing Facility' },
   { icon: FiBox, value: '300K+', label: 'Devices Per Month Capacity' },
-  { icon: FiUsers, value: '500+', label: 'Team Members' },
+  { icon: FiUsers, value: '400+', label: 'Team Members' },
 ];
 
 export default function ContactPage({ onOpenQuote }) {

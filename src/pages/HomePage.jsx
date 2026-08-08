@@ -376,7 +376,7 @@ function StatsSection() {
 
   const stats = [
     { value: '10+', label: 'Years of Excellence' },
-    { value: '500+', label: 'Engineers & Technicians' },
+    { value: '400+', label: 'Engineers & Technicians' },
     { value: '20+', label: 'Countries Served' },
     { value: '300K+', label: 'Units Manufactured/Month' },
     { value: '150,000 sq.ft', label: 'Facility Size' },
