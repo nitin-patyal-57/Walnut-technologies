@@ -2,10 +2,9 @@ import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FiBriefcase, FiUsers, FiTrendingUp, FiGlobe, FiHeart, FiZap,
-  FiArrowRight, FiCheckCircle, FiMapPin, FiClock, FiDollarSign,
-  FiShield, FiStar, FiCoffee, FiBookOpen, FiAward, FiSmile, FiSearch,
-  FiChevronRight, FiCpu, FiCode, FiLayers, FiSettings, FiMonitor,
+  FiBriefcase, FiUsers, FiTrendingUp, FiGlobe, FiZap,
+  FiArrowRight, FiBookOpen, FiAward, FiSearch,
+  FiCpu, FiCode, FiLayers, FiSettings, FiMonitor,
   FiTool, FiCheckSquare, FiUser
 } from 'react-icons/fi';
 

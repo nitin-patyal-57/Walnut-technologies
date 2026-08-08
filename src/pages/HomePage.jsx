@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight,
   FiZap, FiSearch, FiEdit3, FiLayers, FiSettings, FiTruck, FiHeadphones, FiTrendingUp,
-  FiWifi, FiPieChart, FiMonitor, FiActivity, FiUsers, FiLock, FiSun
+  FiWifi, FiActivity
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 
