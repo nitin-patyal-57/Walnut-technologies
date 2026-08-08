@@ -9,6 +9,7 @@ import ScheduleCallModal from './components/ScheduleCallModal';
 import ChatWidget from './components/ChatWidget';
 import WhatsAppButton from './components/WhatsAppButton';
 import ErrorBoundary from './components/ErrorBoundary';
+import BackToTop from './components/BackToTop';
 import HomePage from './pages/HomePage';
 
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
@@ -95,6 +96,7 @@ function AppContent() {
       <ScheduleCallModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
       <ChatWidget onOpenQuote={() => setQuoteModalOpen(true)} onChatStateChange={setIsChatOpen} />
       <WhatsAppButton isChatOpen={isChatOpen} />
+      <BackToTop />
     </div>
   );
 }

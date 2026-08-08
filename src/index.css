@@ -204,3 +204,82 @@
     padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   }
 }
+
+/* Focus states for accessibility */
+@layer base {
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500 rounded-lg;
+  }
+}
+
+/* Hover effects for interactive elements */
+@layer components {
+  .btn-primary {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .btn-primary:hover {
+    @apply shadow-lg scale-[1.02];
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    @apply scale-[0.98];
+    transform: translateY(0);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply shadow-xl;
+    transform: translateY(-4px);
+  }
+
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+/* Skeleton loader animation */
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-skeleton {
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Back to top button */
+.back-to-top {
+  @apply fixed bottom-24 left-6 z-40 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none;
+}
+
+.back-to-top.visible {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.back-to-top:hover {
+  @apply bg-slate-50 border-slate-300 shadow-xl;
+  transform: translateY(-2px);
+}
