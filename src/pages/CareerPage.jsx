@@ -226,6 +226,7 @@ export default function CareerPage() {
                   src="/career background.jpg"
                   alt="Walnut Medical Team"
                   className="w-full h-[400px] md:h-[500px] object-cover"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
@@ -450,6 +451,7 @@ export default function CareerPage() {
                       src={team.image}
                       alt={team.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                   </div>
@@ -488,6 +490,7 @@ export default function CareerPage() {
                       src={img.src}
                       alt={img.alt}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
                     />
                   </div>
                 ))}

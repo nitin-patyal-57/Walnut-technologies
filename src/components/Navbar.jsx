@@ -152,6 +152,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
               <button
                 onClick={() => setIsSidebarOpen(true)}
                 className={`p-2 transition-colors ${textColor} ${textColorHover} ${bgHover} rounded-lg`}
+                aria-label="Open navigation menu"
               >
                 <FiMenu className="w-5 h-5" />
               </button>
@@ -162,6 +163,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
               <button
                 onClick={() => setIsSidebarOpen(true)}
                 className={`p-2 transition-colors ${textColor} ${textColorHover} bg-slate-100 rounded-xl`}
+                aria-label="Open navigation menu"
               >
                 <FiMenu className="w-5 h-5" />
               </button>

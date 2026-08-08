@@ -8,6 +8,7 @@ import QuoteModal from './components/QuoteModal';
 import ScheduleCallModal from './components/ScheduleCallModal';
 import ChatWidget from './components/ChatWidget';
 import WhatsAppButton from './components/WhatsAppButton';
+import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
@@ -100,9 +101,11 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Preloader />
-      <AppContent />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Preloader />
+        <AppContent />
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }

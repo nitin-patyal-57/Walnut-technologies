@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://walnutmedical.in/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin
+Disallow: /api
