@@ -91,12 +91,12 @@ export const divisions = [
     color: 'from-violet-500 to-purple-600',
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
-      { name: 'Single Sim Model', image: '/paytm soundbox.png' },
+      { name: 'Single Sim Model', image: '/soundbox.png' },
       { name: 'Double Sim Model', image: '/Pocket Soundbox.png' },
       { name: 'With Display Model', image: '/soundbox (2).png' },
       { name: 'Common Model', image: '/Qr scanner.jpg' },
-      { name: 'DQR: Double Display', image: '/Pocket Soundbox.png' },
-      { name: 'All in One', image: '/paytm soundbox.png' },
+      { name: 'DQR: Double Display', image: '/soundbox (3).png' },
+      { name: 'All in One', image: '/soundbox.jpg' },
     ],
   },
   {
@@ -160,7 +160,7 @@ export const products = [
     category: 'Fintech',
     title: 'Single SIM Model',
     description: 'Reliable single SIM payment terminal with essential features for small to medium businesses. Easy deployment and management.',
-    image: '/paytm soundbox.png',
+    image: '/soundbox.png',
     features: ['Single SIM', '4G Connectivity', 'Compact Design', 'Long Battery'],
   },
   {
@@ -192,7 +192,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR: Double Display',
     description: 'Advanced payment terminal with dual display configuration for merchant and customer facing interfaces simultaneously.',
-    image: '/Pocket Soundbox.png',
+    image: '/soundbox (3).png',
     features: ['Dual Display', 'Merchant + Customer', 'Enhanced UX', 'Secure'],
   },
   {
@@ -200,7 +200,7 @@ export const products = [
     category: 'Fintech',
     title: 'All in One',
     description: 'Comprehensive payment solution combining multiple payment methods and features in a single integrated terminal device.',
-    image: '/paytm soundbox.png',
+    image: '/soundbox.jpg',
     features: ['Multiple Payments', 'QR + Card', 'Audio Confirm', 'All-in-One'],
   },
   {

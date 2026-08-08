@@ -30,7 +30,7 @@ const divisions = [
     title: 'Fintech',
     subtitle: 'PCI-DSS, NPCI, RBI Certified',
     description: 'Secure payment terminal manufacturing with end-to-end compliance.',
-    image: '/paytm soundbox.png',
+    image: '/soundbox.png',
     link: '/solutions?category=Fintech',
   },
   {
