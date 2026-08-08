@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { brand } from '../data/content';
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ isChatOpen }) {
   const phoneNumber = brand.phone.replace(/[^0-9]/g, '');
+  
+  if (isChatOpen) return null;
   
   return (
     <motion.a

@@ -64,7 +64,7 @@ function findIntent(message) {
   return 'default';
 }
 
-export default function ChatWidget({ onOpenQuote }) {
+export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { role: 'bot', content: intents.greeting.response },
@@ -81,6 +81,10 @@ export default function ChatWidget({ onOpenQuote }) {
   useEffect(() => {
     if (isOpen) inputRef.current?.focus();
   }, [isOpen]);
+
+  useEffect(() => {
+    onChatStateChange?.(isOpen);
+  }, [isOpen, onChatStateChange]);
 
   const sendMessage = (text) => {
     if (!text.trim()) return;
@@ -109,7 +113,7 @@ export default function ChatWidget({ onOpenQuote }) {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-40 w-12 h-12 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 ${
           isOpen
             ? 'bg-slate-700 text-white scale-90'
             : 'bg-slate-900 text-white hover:scale-110'
@@ -126,7 +130,7 @@ export default function ChatWidget({ onOpenQuote }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.97 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-20 right-6 z-40 w-[340px] max-w-[calc(100vw-2rem)] h-[460px] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-20 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] h-[460px] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-3 border-b border-slate-200 bg-white">

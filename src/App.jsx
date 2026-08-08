@@ -53,6 +53,7 @@ function ScrollToTop() {
 function AppContent() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -91,8 +92,8 @@ function AppContent() {
 
       <QuoteModal isOpen={quoteModalOpen} onClose={() => setQuoteModalOpen(false)} />
       <ScheduleCallModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
-      <ChatWidget onOpenQuote={() => setQuoteModalOpen(true)} />
-      <WhatsAppButton />
+      <ChatWidget onOpenQuote={() => setQuoteModalOpen(true)} onChatStateChange={setIsChatOpen} />
+      <WhatsAppButton isChatOpen={isChatOpen} />
     </div>
   );
 }
