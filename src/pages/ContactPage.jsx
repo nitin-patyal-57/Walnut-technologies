@@ -126,7 +126,7 @@ export default function ContactPage({ onOpenQuote }) {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/contactpagebackground.png"
+                  src="/contactbackground.png"
                   alt="Walnut Technologies Manufacturing Facility"
                   className="w-full h-[300px] lg:h-[400px] object-cover"
                 />
