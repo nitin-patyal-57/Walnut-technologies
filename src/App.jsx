@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MobileBottomNav from './components/MobileBottomNav';
 import Preloader from './components/Preloader';
@@ -80,6 +80,17 @@ function AppContent() {
           <Route path="/apply" element={<JobApplicationPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="*" element={
+            <div className="min-h-screen flex items-center justify-center bg-white">
+              <div className="text-center px-4">
+                <h1 className="text-6xl font-bold font-display text-slate-900 mb-4">404</h1>
+                <p className="text-lg text-slate-500 mb-6">Page not found</p>
+                <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 transition-all">
+                  Go Home
+                </Link>
+              </div>
+            </div>
+          } />
         </Routes>
       </Suspense>
 

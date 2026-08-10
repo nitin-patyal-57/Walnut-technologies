@@ -183,7 +183,7 @@ export default function CareerPage() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-slate-500 text-lg mb-8 max-w-lg leading-relaxed"
               >
-                Join Walnut Medical and work on real-world products across medical technology, robotics, IoT, payment solutions and automotive electronics.
+                Join Walnut Technologies and work on real-world products across medical technology, robotics, IoT, payment solutions and automotive electronics.
               </motion.p>
 
               <motion.div
@@ -260,7 +260,7 @@ export default function CareerPage() {
                 { icon: FiBriefcase, stat: '2016', label: 'Year Founded' },
                 { icon: FiGlobe, stat: '150,000+', label: 'Sq. Ft. Manufacturing Facility' },
                 { icon: FiTrendingUp, stat: '300K+', label: 'Devices / Month Capacity' },
-                { icon: FiUsers, stat: '400+', label: 'Team Members' },
+                { icon: FiUsers, stat: '500+', label: 'Team Members' },
               ].map((item, i) => (
                 <motion.div
                   key={item.label}
@@ -423,7 +423,7 @@ export default function CareerPage() {
 
           <AnimatedSection delay={0.3}>
             <div className="mt-8 text-center">
-              <Link to="/career" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-slate-50 transition-colors">
+              <Link to="/career#openings" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-slate-50 transition-colors">
                 View All Openings
                 <FiArrowRight className="w-4 h-4" />
               </Link>
@@ -476,10 +476,10 @@ export default function CareerPage() {
               <p className="text-slate-500 text-lg mb-8 leading-relaxed">
                 We are a team of curious, passionate and driven individuals who love building innovative solutions.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-white transition-colors">
+              <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-white transition-colors">
                 Explore Our Culture
                 <FiArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>

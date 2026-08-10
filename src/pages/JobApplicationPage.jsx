@@ -462,7 +462,7 @@ export default function JobApplicationPage() {
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Willing to relocate to Manesar? *</label>
+                        <label className="block text-sm font-semibold text-slate-700 mb-2">Willing to relocate to Mohali? *</label>
                         <select name="relocation" value={formData.relocation} onChange={handleChange} required className={selectClass}>
                           <option value="">Select</option>
                           <option value="Yes">Yes</option>

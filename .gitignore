@@ -28,8 +28,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Optional npm dependencies
-package-lock.json
-
 # Build artifacts
 *.local

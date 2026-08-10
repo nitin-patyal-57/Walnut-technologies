@@ -62,13 +62,13 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-1.5">
-              <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+              <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <FiLinkedin className="w-3 h-3" />
               </a>
-              <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" className="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+              <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <FiInstagram className="w-3 h-3" />
               </a>
-              <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" className="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+              <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                 <FiYoutube className="w-3 h-3" />
               </a>
             </div>

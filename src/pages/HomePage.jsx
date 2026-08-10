@@ -80,6 +80,7 @@ function JourneySection() {
                 <img
                   src="/Research & Market Analysis.jpg"
                   alt="Industrial collaboration"
+                  loading="lazy"
                   className="w-full h-[280px] md:h-[360px] object-cover"
                 />
               </div>
@@ -187,6 +188,7 @@ function JourneySection() {
                       <img
                         src={item.image}
                         alt={item.title}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
@@ -259,12 +261,11 @@ function DivisionsPreview() {
       icon: FiSettings,
       image: '/custom solutions.jpg',
       features: ['4 SMT Lines', '300K+ Units/Month', 'Full Original Design Manufacturing'],
-      link: '/solutions?category=Fintech',
+      link: '/solutions',
     },
   ];
 
-  const trustBadges = [
-    { icon: FiShield, title: 'Quality Assured', description: 'Stringent quality standards at every step.' },
+  const trustBadges = [{ icon: FiShield, title: 'Quality Assured', description: 'Stringent quality standards at every step.' },
     { icon: FiAward, title: 'Industry Certified', description: 'Global certifications across multiple domains.' },
     { icon: FiTrendingUp, title: 'Scalable Solutions', description: 'Built to scale with your business needs.' },
     { icon: FiHeadphones, title: 'End-to-End Support', description: 'From concept to after-sales, we\'re with you.' },
@@ -392,6 +393,7 @@ function DivisionsPreview() {
                   <img
                     src={div.image}
                     alt={div.title}
+                    loading="lazy"
                     className="max-w-full max-h-[140px] object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -439,7 +441,7 @@ function StatsSection() {
 
   const stats = [
     { value: '10+', label: 'Years of Excellence' },
-    { value: '400+', label: 'Engineers & Technicians' },
+    { value: '500+', label: 'Engineers & Technicians' },
     { value: '20+', label: 'Countries Served' },
     { value: '300K+', label: 'Units Manufactured/Month' },
     { value: '150,000 sq.ft', label: 'Facility Size' },
@@ -602,19 +604,19 @@ function CTASection() {
                     From concept to certification — we handle the entire manufacturing journey. ISO 13485 certified, 4 SMT lines, 300K+ units/month capacity.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a
-                      href="/contact"
+                    <Link
+                      to="/contact"
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-900 text-sm font-semibold rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-300"
                     >
                       Get in Touch
                       <FiArrowUpRight className="w-4 h-4" />
-                    </a>
-                    <a
-                      href="/solutions"
+                    </Link>
+                    <Link
+                      to="/solutions"
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 hover:bg-white/20 text-white text-sm font-semibold rounded-xl transition-all duration-300 backdrop-blur-sm"
                     >
                       View Solutions
-                    </a>
+                    </Link>
                   </div>
                 </motion.div>
               </div>

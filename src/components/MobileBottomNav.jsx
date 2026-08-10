@@ -34,6 +34,7 @@ export default function MobileBottomNav({ onOpenQuote }) {
             <button
               key={item.label}
               onClick={() => navigate(item.to)}
+              aria-label={item.label}
               className="flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl transition-all relative"
             >
               {active && (
@@ -62,6 +63,7 @@ export default function MobileBottomNav({ onOpenQuote }) {
         {/* Quick Action Button */}
         <button
           onClick={onOpenQuote}
+          aria-label="Request Quote"
           className="flex flex-col items-center gap-0.5 py-1 px-3"
         >
           <div className="p-1.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-500 text-white shadow-lg shadow-emerald-500/30">

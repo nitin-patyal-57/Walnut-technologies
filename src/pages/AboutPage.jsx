@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { brand, about, trustSignals } from '../data/content';
 import {
   FiMapPin, FiMail, FiPhone, FiCalendar, FiGlobe, FiUsers, FiAward, FiCpu,
@@ -261,13 +262,13 @@ export default function AboutPage() {
               transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
               className="flex flex-wrap gap-4"
             >
-              <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
                 Get in Touch
                 <FiArrowRight className="w-4 h-4" />
-              </a>
-              <a href="/solutions" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-semibold transition-colors duration-300">
+              </Link>
+              <Link to="/solutions" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-semibold transition-colors duration-300">
                 Our Solutions
-              </a>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -455,10 +456,10 @@ export default function AboutPage() {
                 <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800">
                   <h3 className="text-white font-bold mb-2">Ready to Partner?</h3>
                   <p className="text-white/60 text-sm mb-4">Let's discuss your next project.</p>
-                  <a href="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:bg-slate-100 transition-colors duration-300">
+                   <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:bg-slate-100 transition-colors duration-300">
                     Contact Us
                     <FiArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </AnimatedSection>
@@ -519,13 +520,13 @@ export default function AboutPage() {
                   From concept to production, we're your trusted partner in electronics manufacturing.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
+                  <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
                     Start a Project
                     <FiArrowRight className="w-4 h-4" />
-                  </a>
-                  <a href="/process" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 rounded-xl font-semibold transition-colors duration-300">
+                  </Link>
+                  <Link to="/process" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 rounded-xl font-semibold transition-colors duration-300">
                     Our Process
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

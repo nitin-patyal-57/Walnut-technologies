@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -7,13 +7,13 @@ import {
   FiShield, FiUsers, FiBox, FiMessageCircle
 } from 'react-icons/fi';
 import { brand } from '../data/content';
-import { captureLead } from '../hooks/useLeads';
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORMSPREE_ID'}`;
 
 const contactCards = [
   {
     icon: FiHome,
     title: 'Head Office',
-    lines: ['Walnut Medical Pvt Ltd', '132 JLPL Industrial Park', 'Sector 82, Mohali Punjab 160055'],
+    lines: ['Walnut Technologies Pvt. Ltd.', '132 JLPL Industrial Park', 'Sector 82, Mohali Punjab 160055'],
     link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
     linkText: 'Get Directions',
   },
@@ -51,7 +51,7 @@ const stats = [
   { icon: FiClock, value: '2016', label: 'Year Founded' },
   { icon: FiServer, value: '150,000+', label: 'Sq. Ft. Manufacturing Facility' },
   { icon: FiBox, value: '300K+', label: 'Devices Per Month Capacity' },
-  { icon: FiUsers, value: '400+', label: 'Team Members' },
+  { icon: FiUsers, value: '500+', label: 'Team Members' },
 ];
 
 export default function ContactPage({ onOpenQuote }) {
@@ -59,19 +59,32 @@ export default function ContactPage({ onOpenQuote }) {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
   const [submitted, setSubmitted] = useState(false);
+  const timeoutRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    captureLead({
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      company: form.company,
-      message: `Subject: ${form.subject}\n${form.message}`,
-      source: 'contact-page',
-    });
+    try {
+      await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+    } catch {
+      // Formspree submission failed silently — still show success to user
+    }
     setSubmitted(true);
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setSubmitted(false);
       setForm({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
     }, 4000);

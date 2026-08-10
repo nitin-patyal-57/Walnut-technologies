@@ -33,7 +33,6 @@ export function useLeads() {
     // Also dispatch a custom event so other components can listen
     window.dispatchEvent(new CustomEvent('walnut-new-lead', { detail: lead }));
 
-    console.log('✅ Lead captured:', lead);
     return lead;
   };
 
@@ -62,6 +61,5 @@ export function captureLead(data) {
   saveLeads(leads);
 
   window.dispatchEvent(new CustomEvent('walnut-new-lead', { detail: lead }));
-  console.log('✅ Lead captured:', lead);
   return lead;
 }

@@ -86,6 +86,12 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
     onChatStateChange?.(isOpen);
   }, [isOpen, onChatStateChange]);
 
+  useEffect(() => {
+    const handleOpenChat = () => setIsOpen(true);
+    window.addEventListener('open-walnut-chat', handleOpenChat);
+    return () => window.removeEventListener('open-walnut-chat', handleOpenChat);
+  }, []);
+
   const sendMessage = (text) => {
     if (!text.trim()) return;
     const userMsg = text.trim();
@@ -113,6 +119,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? 'Close chat' : 'Open chat'}
         className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 ${
           isOpen
             ? 'bg-slate-700 text-white scale-90'
