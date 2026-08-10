@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight,
   FiZap, FiSearch, FiEdit3, FiLayers, FiSettings, FiTruck, FiHeadphones, FiTrendingUp,
-  FiWifi, FiActivity
+  FiWifi, FiActivity, FiAward
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 
@@ -210,7 +210,7 @@ function DivisionsPreview() {
     {
       id: 'medical',
       title: 'Medical Devices',
-      color: '#1e40af',
+      color: '#2563eb',
       icon: FiHeart,
       image: '/RTMS.png',
       features: ['ISO 13485 Certified', 'Class 10K Cleanroom', 'IEC 60601 Compliant'],
@@ -263,72 +263,136 @@ function DivisionsPreview() {
     },
   ];
 
-  const topDivisions = divisionsData.filter((_, i) => i % 2 === 0);
-  const bottomDivisions = divisionsData.filter((_, i) => i % 2 === 1);
+  const trustBadges = [
+    { icon: FiShield, title: 'Quality Assured', description: 'Stringent quality standards at every step.' },
+    { icon: FiAward, title: 'Industry Certified', description: 'Global certifications across multiple domains.' },
+    { icon: FiTrendingUp, title: 'Scalable Solutions', description: 'Built to scale with your business needs.' },
+    { icon: FiHeadphones, title: 'End-to-End Support', description: 'From concept to after-sales, we\'re with you.' },
+  ];
 
   return (
-    <section id="divisions-preview" className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="divisions-preview" className="relative py-16 md:py-24 overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]">
+        <svg className="w-full h-full" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 300C200 200 400 400 600 300C800 200 1000 400 1200 300C1400 200 1440 300 1440 300V0H0V300Z" fill="url(#wave)" />
+          <defs>
+            <linearGradient id="wave" x1="0" y1="0" x2="1440" y2="0">
+              <stop offset="0%" stopColor="#2563eb" />
+              <stop offset="100%" stopColor="#7c3aed" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      {/* Network dots pattern */}
+      <div className="absolute top-10 right-10 w-64 h-64 opacity-[0.04]">
+        <svg className="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="2" fill="#2563eb" />
+          <circle cx="60" cy="40" r="2" fill="#2563eb" />
+          <circle cx="100" cy="20" r="2" fill="#2563eb" />
+          <circle cx="140" cy="60" r="2" fill="#7c3aed" />
+          <circle cx="180" cy="30" r="2" fill="#7c3aed" />
+          <circle cx="40" cy="80" r="2" fill="#2563eb" />
+          <circle cx="80" cy="100" r="2" fill="#2563eb" />
+          <circle cx="120" cy="80" r="2" fill="#7c3aed" />
+          <circle cx="160" cy="120" r="2" fill="#7c3aed" />
+          <circle cx="20" cy="140" r="2" fill="#2563eb" />
+          <circle cx="60" cy="160" r="2" fill="#2563eb" />
+          <circle cx="100" cy="140" r="2" fill="#7c3aed" />
+          <circle cx="140" cy="180" r="2" fill="#7c3aed" />
+          <circle cx="180" cy="160" r="2" fill="#7c3aed" />
+          <line x1="20" y1="20" x2="60" y2="40" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
+          <line x1="60" y1="40" x2="100" y2="20" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
+          <line x1="100" y1="20" x2="140" y2="60" stroke="#7c3aed" strokeWidth="0.5" opacity="0.3" />
+          <line x1="40" y1="80" x2="80" y2="100" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
+          <line x1="80" y1="100" x2="120" y2="80" stroke="#7c3aed" strokeWidth="0.5" opacity="0.3" />
+          <line x1="20" y1="140" x2="60" y2="160" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
+          <line x1="60" y1="160" x2="100" y2="140" stroke="#7c3aed" strokeWidth="0.5" opacity="0.3" />
+        </svg>
+      </div>
+
+      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-12 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-semibold mb-4 uppercase tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold mb-5 uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
             Our Solutions
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold font-display text-slate-900 mb-4 leading-tight">
             Technology That Powers{' '}
+            <br className="hidden sm:block" />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
               Every Connection
             </span>
           </h2>
-          <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            High-performance engineering solutions across industries, built for reliability, compliance, and scale.
+          <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto leading-relaxed">
+            High-performance engineering solutions across industries,
+            <br className="hidden md:block" />
+            built for reliability, compliance, and scale.
           </p>
         </motion.div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-12 md:mb-16">
           {divisionsData.map((div, index) => (
             <motion.div
               key={div.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
             >
-              <Link to={div.link} className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 group overflow-hidden">
+              <Link
+                to={div.link}
+                className="group flex items-stretch bg-white rounded-2xl border border-slate-200/80 hover:border-slate-300 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[200px]"
+              >
                 {/* Content - Left Side */}
-                <div className="flex-1 min-w-0">
-                  {/* Icon */}
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ backgroundColor: `${div.color}10`, border: `1px solid ${div.color}20` }}>
-                    <div.icon className="w-5 h-5" style={{ color: div.color }} />
+                <div className="flex-1 p-5 md:p-6 flex flex-col justify-between">
+                  <div>
+                    {/* Icon */}
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
+                      style={{ backgroundColor: `${div.color}10`, border: `1px solid ${div.color}20` }}
+                    >
+                      <div.icon className="w-5 h-5" style={{ color: div.color }} />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-base md:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-3">
+                      {div.title}
+                    </h3>
+
+                    {/* Features */}
+                    <ul className="space-y-2">
+                      {div.features.map((f, i) => (
+                        <li key={i} className="flex items-center gap-2 text-sm text-slate-600">
+                          <FiCheckCircle className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  
-                  <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">{div.title}</h3>
-                  <ul className="space-y-1.5 mb-3">
-                    {div.features.map((f, i) => (
-                      <li key={i} className="flex items-center gap-2 text-xs text-slate-600">
-                        <FiCheckCircle className="w-3 h-3 text-blue-500 flex-shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {/* Arrow Button */}
-                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-slate-200 group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
-                    <FiArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-colors" />
+
+                  {/* Explore Link */}
+                  <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    Explore Solutions
+                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-slate-200 group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
+                      <FiArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                    </span>
                   </div>
                 </div>
 
                 {/* Image - Right Side */}
-                <div className="w-32 h-32 flex items-center justify-center shrink-0">
-                  <img 
-                    src={div.image} 
-                    alt={div.title} 
-                    className="max-w-full max-h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+                <div className="w-[140px] md:w-[160px] flex items-center justify-center shrink-0 bg-gradient-to-br from-slate-50 to-slate-100/50 p-4">
+                  <img
+                    src={div.image}
+                    alt={div.title}
+                    className="max-w-full max-h-[140px] object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
               </Link>
@@ -336,35 +400,34 @@ function DivisionsPreview() {
           ))}
         </div>
 
-        {/* Mobile Grid */}
-        <div className="md:hidden grid grid-cols-1 gap-4">
-          {divisionsData.map((div, index) => (
-            <motion.div
-              key={div.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
-            >
-              <Link to={div.link} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:shadow-lg transition-all group">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${div.color}10`, border: `1px solid ${div.color}20` }}>
-                  <div.icon className="w-6 h-6" style={{ color: div.color }} />
+        {/* Trust Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
+        >
+          {trustBadges.map((badge, index) => {
+            const BadgeIcon = badge.icon;
+            return (
+              <motion.div
+                key={badge.title}
+                initial={{ opacity: 0, y: 15 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.7 + index * 0.08 }}
+                className="flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300"
+              >
+                <div className="w-11 h-11 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                  <BadgeIcon className="w-5 h-5 text-blue-600" />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 mb-1">{div.title}</h3>
-                  <ul className="flex flex-wrap gap-x-3 gap-y-1">
-                    {div.features.slice(0, 2).map((f, i) => (
-                      <li key={i} className="flex items-center gap-1 text-xs text-slate-500">
-                        <FiCheckCircle className="w-2.5 h-2.5 text-blue-500" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-slate-900 mb-0.5">{badge.title}</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">{badge.description}</p>
                 </div>
-                <FiArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 transition-colors" />
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
