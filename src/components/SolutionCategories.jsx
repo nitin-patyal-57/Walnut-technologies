@@ -74,7 +74,7 @@ export default function SolutionCategories() {
 
             <div className="space-y-3 mb-8">
               {[
-                { label: 'Robotics', desc: 'AI-assisted rehabilitation & gait training' },
+                { label: 'Neuro Rehab', desc: 'AI-assisted rehabilitation & gait training' },
                 { label: 'Medical', desc: 'ISO 13485, FDA, IEC 60601 compliant' },
                 { label: 'Fintech', desc: 'PCI-DSS, NPCI, RBI certified' },
                 { label: 'Automotive', desc: 'Industrial grade, durable electronics' },

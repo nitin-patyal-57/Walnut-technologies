@@ -244,7 +244,7 @@ function DivisionsPreview() {
       icon: FiActivity,
       image: '/walklab 3.0.jpeg',
       features: t('divisions.roboticsFeatures'),
-      link: '/solutions?category=Robotics',
+      link: '/solutions?category=Neuro Rehab Devices',
     },
     {
       id: 'automotive',

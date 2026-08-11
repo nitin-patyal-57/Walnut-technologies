@@ -310,7 +310,7 @@ const enTranslations = {
     welcome: 'Hello! How can we help you today?',
     quickReplies: {
       products: 'Our Solutions',
-      robotics: 'Robotics',
+      robotics: 'Neuro Rehab',
       medical: 'Medical',
       fintech: 'Fintech',
       automotive: 'Automotive',
@@ -321,7 +321,7 @@ const enTranslations = {
     },
     responses: {
       greeting: 'Hello! Welcome to Walnut Technologies. How can I help you today?',
-      products: 'We manufacture across four divisions:\n\n- **Robotics** \u2014 AI-assisted rehabilitation & gait training\n- **Medical** \u2014 ISO 13485, Class 10K Cleanroom\n- **Fintech** \u2014 NPCI, RBI, PCI DSS Certified\n- **Automotive** \u2014 Industrial grade electronics\n\nWhich division interests you?',
+      products: 'We manufacture across four divisions:\n\n- **Neuro Rehab** \u2014 AI-assisted rehabilitation & gait training\n- **Medical** \u2014 ISO 13485, Class 10K Cleanroom\n- **Fintech** \u2014 NPCI, RBI, PCI DSS Certified\n- **Automotive** \u2014 Industrial grade electronics\n\nWhich division interests you?',
       robotics: 'Our robotics division includes:\n- WalkLab Gait Training System\n\nAI-assisted therapy with real-time patient monitoring and tele-rehab capabilities.',
       medical: 'Our medical devices include:\n- Digital Blood Pressure Monitor\n- IR Thermometer\n- Oxygen Concentrator\n- Walnut Compressor Nebulizer\n\nISO 13485 certified with Class 10K cleanroom.',
       fintech: 'Our fintech payment systems include:\n- Single SIM Model\n- Double SIM Model\n- With Display Model\n- Common Model\n- DQR: Double Display\n- All in One\n\nEMV L1/L2 certified, NPCI & RBI compliant.',

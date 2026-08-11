@@ -12,7 +12,7 @@ const navLinks = [
     label: 'Solutions',
     to: '/solutions',
     dropdown: [
-      { label: 'Robotics', to: '/solutions?category=Robotics' },
+      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices' },
       { label: 'Medical', to: '/solutions?category=Medical' },
       { label: 'Fintech', to: '/solutions?category=Fintech' },
       { label: 'Automotive', to: '/solutions?category=Automotive' },
