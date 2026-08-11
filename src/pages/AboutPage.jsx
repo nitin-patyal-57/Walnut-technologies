@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { brand, about, trustSignals } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 import {
   FiMapPin, FiMail, FiPhone, FiCalendar, FiGlobe, FiUsers, FiAward, FiCpu,
   FiArrowRight, FiTarget, FiEye, FiCheckCircle, FiZap, FiShield, FiHeart, FiClock
@@ -21,19 +22,17 @@ const valueIcons = [FiTarget, FiZap, FiGlobe, FiShield];
 function ProcessTimeline() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { t } = useLanguage();
 
-  const steps = [
-    { id: 1, step: 'STEP 1', title: 'IDEA', description: 'Concept ideation and requirement gathering from market needs.', image: '/Idea & Requirement.jpg', color: '#1e40af' },
-    { id: 2, step: 'STEP 2', title: 'RESEARCH', description: 'In-depth market and technology research to validate the idea.', image: '/Research & Market Analysis.jpg', color: '#2563eb' },
-    { id: 3, step: 'STEP 3', title: 'DESIGN', description: 'Product design and engineering with CAD modeling.', image: '/Design & Engineering.jpg', color: '#0284c7' },
-    { id: 4, step: 'STEP 4', title: 'PROTOTYPE', description: 'Rapid prototyping and iterative development cycles.', image: '/Prototype Development.jpg', color: '#0891b2' },
-    { id: 5, step: 'STEP 5', title: 'TESTING', description: 'Rigorous testing and validation for reliability.', image: '/Validation & Testing.jpg', color: '#0d9488' },
-    { id: 6, step: 'STEP 6', title: 'MOLDING', description: 'Manufacturing engineering and mold design.', image: '/Manufacturing Engineering & Mold Design.jpg', color: '#059669' },
-    { id: 7, step: 'STEP 7', title: 'QA', description: 'Comprehensive quality assurance and compliance.', image: '/Quality Assurance.jpg', color: '#16a34a' },
-    { id: 8, step: 'STEP 8', title: 'PACKAGING', description: 'Professional packaging and global dispatch.', image: '/Packaging & Dispatch.jpg', color: '#4d7c0f' },
-    { id: 9, step: 'STEP 9', title: 'SUPPORT', description: 'Dedicated after-sales support and service.', image: '/After Sales Support.jpg', color: '#65a30d' },
-    { id: 10, step: 'STEP 10', title: 'IMPROVEMENT', description: 'Continuous improvement based on feedback.', image: '/Continuous Improvement.jpg', color: '#84cc16' },
-  ];
+  const processSteps = t('about.processSteps');
+  const steps = processSteps.map((s, i) => ({
+    id: i + 1,
+    step: s.step,
+    title: s.title,
+    description: s.description,
+    image: ['/Idea & Requirement.jpg', '/Research & Market Analysis.jpg', '/Design & Engineering.jpg', '/Prototype Development.jpg', '/Validation & Testing.jpg', '/Manufacturing Engineering & Mold Design.jpg', '/Quality Assurance.jpg', '/Packaging & Dispatch.jpg', '/After Sales Support.jpg', '/Continuous Improvement.jpg'][i],
+    color: ['#1e40af', '#2563eb', '#0284c7', '#0891b2', '#0d9488', '#059669', '#16a34a', '#4d7c0f', '#65a30d', '#84cc16'][i],
+  }));
 
   return (
     <section ref={ref} className="py-24 bg-slate-50 overflow-hidden">
@@ -47,10 +46,10 @@ function ProcessTimeline() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-display text-slate-900 mb-4">
-            Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600">Process</span>
+            {t('about.ourProcess')}
           </h2>
           <p className="text-slate-500 max-w-xl mx-auto">
-            From concept to delivery, every step is crafted with precision.
+            {t('about.processSubtitle')}
           </p>
         </motion.div>
 
@@ -206,6 +205,7 @@ function AnimatedSection({ children, className = '', delay = 0 }) {
 export default function AboutPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const { t } = useLanguage();
 
   return (
     <div className="bg-white">
@@ -231,7 +231,7 @@ export default function AboutPage() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-semibold mb-5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Est. {brand.founded}
+                {t('about.est')} {brand.founded}
               </div>
             </motion.div>
 
@@ -241,10 +241,7 @@ export default function AboutPage() {
               transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
               className="text-4xl md:text-5xl font-bold font-display text-white mb-5 leading-tight"
             >
-              Building the Future of{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Electronics Manufacturing
-              </span>
+              {t('about.title')}
             </motion.h1>
 
             <motion.p
@@ -253,7 +250,7 @@ export default function AboutPage() {
               transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
               className="text-base text-white/70 mb-7 leading-relaxed"
             >
-              {about.story}
+              {t('about.story')}
             </motion.p>
 
             <motion.div
@@ -263,11 +260,11 @@ export default function AboutPage() {
               className="flex flex-wrap gap-4"
             >
               <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
-                Get in Touch
+                {t('about.getInTouch')}
                 <FiArrowRight className="w-4 h-4" />
               </Link>
               <Link to="/solutions" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-semibold transition-colors duration-300">
-                Our Solutions
+                {t('about.ourSolutions')}
               </Link>
             </motion.div>
           </div>
@@ -334,8 +331,8 @@ export default function AboutPage() {
                       <FiCpu className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-slate-900">150,000 sq.ft</div>
-                      <div className="text-xs text-slate-500">State-of-the-art facility</div>
+                      <div className="text-lg font-bold text-slate-900">{t('about.facilitySize')}</div>
+                      <div className="text-xs text-slate-500">{t('about.stateOfTheArt')}</div>
                     </div>
                   </div>
                 </div>
@@ -350,10 +347,10 @@ export default function AboutPage() {
                 <div>
                   <div className="inline-flex items-center gap-2 text-blue-600 text-sm font-semibold mb-3">
                     <FiTarget className="w-4 h-4" />
-                    Our Purpose
+                    {t('about.ourPurpose')}
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
-                    Mission & Vision
+                    {t('about.missionVision')}
                   </h2>
                 </div>
 
@@ -361,7 +358,7 @@ export default function AboutPage() {
                   <div className="p-5 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50/30 border border-blue-100">
                     <h3 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2 flex items-center gap-2">
                       <FiTarget className="w-4 h-4" />
-                      Our Mission
+                      {t('about.missionTitle')}
                     </h3>
                     <p className="text-slate-600 leading-relaxed">{about.mission}</p>
                   </div>
@@ -369,7 +366,7 @@ export default function AboutPage() {
                   <div className="p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-green-50/30 border border-emerald-100">
                     <h3 className="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-2 flex items-center gap-2">
                       <FiEye className="w-4 h-4" />
-                      Our Vision
+                      {t('about.visionTitle')}
                     </h3>
                     <p className="text-slate-600 leading-relaxed">{about.vision}</p>
                   </div>
@@ -392,20 +389,20 @@ export default function AboutPage() {
               <div className="h-full">
                 <div className="inline-flex items-center gap-2 text-blue-600 text-sm font-semibold mb-3">
                   <FiAward className="w-4 h-4" />
-                  Company Information
+                  {t('about.companyInfo')}
                 </div>
                 <h2 className="text-3xl font-bold font-display text-slate-900 mb-8">
-                  Trusted Since{' '}
+                  {t('about.trustedSince')}{' '}
                   <span className="text-blue-600">{brand.founded}</span>
                 </h2>
 
                 <div className="space-y-4">
                   {[
-                    { icon: FiAward, label: 'Legal Name', value: brand.fullName },
-                    { icon: FiCalendar, label: 'Founded', value: brand.founded },
-                    { icon: FiMapPin, label: 'Headquarters', value: brand.location },
-                    { icon: FiUsers, label: 'GSTN/IEC', value: brand.gstn },
-                    { icon: FiCpu, label: 'Facility', value: '150,000 sq.ft with 4 SMT Lines, Class 10K Cleanroom' },
+                    { icon: FiAward, label: t('about.legalName'), value: brand.fullName },
+                    { icon: FiCalendar, label: t('about.founded'), value: brand.founded },
+                    { icon: FiMapPin, label: t('about.headquarters'), value: brand.location },
+                    { icon: FiUsers, label: t('about.gstn'), value: brand.gstn },
+                    { icon: FiCpu, label: t('about.facility'), value: t('about.facilityValue') },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors duration-300">
                       <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center shrink-0">
@@ -426,11 +423,10 @@ export default function AboutPage() {
               <div className="h-full">
                 <div className="inline-flex items-center gap-2 text-emerald-600 text-sm font-semibold mb-3">
                   <FiShield className="w-4 h-4" />
-                  Quality & Compliance
+                  {t('about.qualityCompliance')}
                 </div>
                 <h2 className="text-3xl font-bold font-display text-slate-900 mb-8">
-                  Certified{' '}
-                  <span className="text-emerald-600">Excellence</span>
+                  <span className="text-emerald-600">{t('about.certifiedExcellence')}</span>
                 </h2>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -454,10 +450,10 @@ export default function AboutPage() {
 
                 {/* Contact CTA */}
                 <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800">
-                  <h3 className="text-white font-bold mb-2">Ready to Partner?</h3>
-                  <p className="text-white/60 text-sm mb-4">Let's discuss your next project.</p>
+                  <h3 className="text-white font-bold mb-2">{t('about.readyToPartner')}</h3>
+                  <p className="text-white/60 text-sm mb-4">{t('about.partnerDesc')}</p>
                    <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:bg-slate-100 transition-colors duration-300">
-                    Contact Us
+                    {t('about.contactUs')}
                     <FiArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -474,13 +470,13 @@ export default function AboutPage() {
             <div className="mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-semibold mb-4">
                 <FiHeart className="w-4 h-4" />
-                Our DNA
+                {t('about.ourDna')}
               </div>
               <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-3">
-                Capabilities
+                {t('about.capabilities')}
               </h2>
               <p className="text-white/50 max-w-2xl">
-                The principles that drive every decision we make
+                {t('about.capabilitiesDesc')}
               </p>
             </div>
           </AnimatedSection>
@@ -513,19 +509,19 @@ export default function AboutPage() {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-emerald-500/10 to-green-500/10 rounded-full blur-3xl" />
               <div className="relative z-10 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
-                  Let's Build Something{' '}
-                  <span className="text-blue-600">Great Together</span>
+                  {t('about.letsBuild').split(' Great')[0]}{' '}
+                  <span className="text-blue-600">{t('about.letsBuild').split(' Great')[1] || 'Great Together'}</span>
                 </h2>
                 <p className="text-slate-500 mb-8 max-w-xl mx-auto">
-                  From concept to production, we're your trusted partner in electronics manufacturing.
+                  {t('about.letsBuildDesc')}
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors duration-300">
-                    Start a Project
+                    {t('about.startProject')}
                     <FiArrowRight className="w-4 h-4" />
                   </Link>
                   <Link to="/process" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 rounded-xl font-semibold transition-colors duration-300">
-                    Our Process
+                    {t('about.ourProcess')}
                   </Link>
                 </div>
               </div>

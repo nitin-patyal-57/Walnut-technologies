@@ -7,42 +7,44 @@ import {
   FiWifi, FiActivity, FiAward
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
-
-const whyChooseUs = [
-  { icon: FiShield, title: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
-  { icon: FiGlobe, title: '20+ Countries', desc: 'Global supply chain and logistics' },
-  { icon: FiCheckCircle, title: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
-];
-
-const processCards = [
-  { step: 1, title: 'IDEA', description: 'Concept ideation and requirement gathering from market needs.', image: '/Idea & Requirement.jpg' },
-  { step: 2, title: 'RESEARCH', description: 'In-depth market and technology research to validate the idea.', image: '/Research & Market Analysis.jpg' },
-  { step: 3, title: 'DESIGN', description: 'Product design and engineering with CAD modeling.', image: '/Design & Engineering.jpg' },
-  { step: 4, title: 'PROTOTYPE', description: 'Rapid prototyping and iterative development cycles.', image: '/Prototype Development.jpg' },
-  { step: 5, title: 'TESTING', description: 'Rigorous testing and validation for reliability.', image: '/Validation & Testing.jpg' },
-  { step: 6, title: 'MOLDING', description: 'Manufacturing engineering and mold design.', image: '/Manufacturing Engineering & Mold Design.jpg' },
-  { step: 7, title: 'QA', description: 'Comprehensive quality assurance and compliance.', image: '/Quality Assurance.jpg' },
-  { step: 8, title: 'PACKAGING', description: 'Professional packaging and global dispatch.', image: '/Packaging & Dispatch.jpg' },
-  { step: 9, title: 'SUPPORT', description: 'Dedicated after-sales support and service.', image: '/After Sales Support.jpg' },
-  { step: 10, title: 'IMPROVEMENT', description: 'Continuous improvement based on feedback.', image: '/Continuous Improvement.jpg' },
-];
-
-const companyJourney = [
-  { year: '2016', title: 'FOUNDED', description: 'Walnut Medical Pvt. Ltd. established in Mohali, Punjab with a vision to make India self-reliant in medical device manufacturing.', icon: FiZap },
-  { year: '2017', title: 'R&D PHASE', description: 'Built core engineering team. Started developing indigenous medical devices including BP monitors and thermometers.', icon: FiSearch },
-  { year: '2018', title: 'FIRST PRODUCTS', description: 'Launched Blood Pressure Monitor and Infrared Thermometer. Established PCB design and firmware development capabilities.', icon: FiEdit3 },
-  { year: '2019', title: 'FACILITY EXPANSION', description: 'Expanded to 150,000 sqft manufacturing facility. Installed 4 SMT lines with 300K+ units/month capacity.', icon: FiLayers },
-  { year: '2020', title: 'OXYGEN CONCENTRATOR', description: 'First Indian manufacturer of Oxygen Concentrators. Supported by CAWACH fund from Dept. of Science & Technology with IIT Delhi.', icon: FiCheckCircle },
-  { year: '2021', title: 'NEURO REHAB DEVICES', description: 'Launched WalkLab Robotic Gait Training, Walkex FES, rTMS MedStim, TDCS Mind Acquity, and CES Repose.', icon: FiSettings },
-  { year: '2022', title: 'PAYMENT SYSTEMS', description: 'Entered Payment Systems with POS terminals and QR Soundboxes. Featured in Pharmabiz, Indian Express, DD News.', icon: FiShield },
-  { year: '2023', title: 'GLOBAL REACH', description: 'Expanded to 20+ countries. Achieved ISO 13485, CE, FCC, PCI-DSS certifications. 10 million units milestone.', icon: FiTruck },
-  { year: '2024', title: 'INDUSTRY 4.0', description: 'Adopted Industry 4.0 standards. 4 SMT lines, Class 10K cleanroom, full traceability and smart manufacturing.', icon: FiHeadphones },
-  { year: '2025', title: 'INDUSTRY 5.0', description: 'Pioneering Industry 5.0 ecosystem with AI, Digital Twin, IoT, and human-centric manufacturing across 40+ countries.', icon: FiTrendingUp },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 function JourneySection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const { t } = useLanguage();
+
+  const processImages = [
+    '/Idea & Requirement.jpg',
+    '/Research & Market Analysis.jpg',
+    '/Design & Engineering.jpg',
+    '/Prototype Development.jpg',
+    '/Validation & Testing.jpg',
+    '/Manufacturing Engineering & Mold Design.jpg',
+    '/Quality Assurance.jpg',
+    '/Packaging & Dispatch.jpg',
+    '/After Sales Support.jpg',
+    '/Continuous Improvement.jpg',
+  ];
+
+  const processCards = t('journey.processSteps').map((step, index) => ({
+    step: index + 1,
+    ...step,
+    image: processImages[index],
+  }));
+
+  const companyJourney = [
+    { year: '2016', title: t('journey.y2016Title'), description: t('journey.y2016Desc'), icon: FiZap },
+    { year: '2017', title: t('journey.y2017Title'), description: t('journey.y2017Desc'), icon: FiSearch },
+    { year: '2018', title: t('journey.y2018Title'), description: t('journey.y2018Desc'), icon: FiEdit3 },
+    { year: '2019', title: t('journey.y2019Title'), description: t('journey.y2019Desc'), icon: FiLayers },
+    { year: '2020', title: t('journey.y2020Title'), description: t('journey.y2020Desc'), icon: FiCheckCircle },
+    { year: '2021', title: t('journey.y2021Title'), description: t('journey.y2021Desc'), icon: FiSettings },
+    { year: '2022', title: t('journey.y2022Title'), description: t('journey.y2022Desc'), icon: FiShield },
+    { year: '2023', title: t('journey.y2023Title'), description: t('journey.y2023Desc'), icon: FiTruck },
+    { year: '2024', title: t('journey.y2024Title'), description: t('journey.y2024Desc'), icon: FiHeadphones },
+    { year: '2025', title: t('journey.y2025Title'), description: t('journey.y2025Desc'), icon: FiTrendingUp },
+  ];
 
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -60,12 +62,10 @@ function JourneySection() {
               className="mb-8"
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display leading-[1.05] tracking-tight mb-4">
-                <span className="text-slate-900">FROM IDEA TO</span>
-                <br />
-                <span className="text-slate-900">LARGE SCALE.</span>
+                <span className="text-slate-900">{t('journey.title')}</span>
               </h1>
               <p className="text-sm md:text-base text-slate-500 leading-relaxed max-w-lg">
-                End-to-end product development and manufacturing powered by an Industry 5.0 ecosystem.
+                {t('journey.subtitle')}
               </p>
             </motion.div>
 
@@ -95,9 +95,9 @@ function JourneySection() {
             >
               <div className="mb-8">
                 <h2 className="text-xl md:text-2xl font-bold font-display text-slate-900 mb-1">
-                  OUR JOURNEY
+                  {t('journey.journeyTitle')}
                 </h2>
-                <p className="text-sm text-slate-500">From a small workshop to a global manufacturing leader.</p>
+                <p className="text-sm text-slate-500">{t('journey.journeySubtitle')}</p>
               </div>
 
               <div className="relative">
@@ -160,7 +160,7 @@ function JourneySection() {
             <div className="lg:sticky lg:top-24">
               <div className="mb-5">
                 <h2 className="text-base font-bold font-display text-slate-900 uppercase tracking-wider">
-                  PROCESS
+                  {t('journey.processTitle')}
                 </h2>
               </div>
 
@@ -175,7 +175,7 @@ function JourneySection() {
                   >
                     <div className="flex-1 p-3 flex flex-col justify-center">
                       <div className="text-xs font-bold text-slate-400 mb-1">
-                        STEP {item.step}
+                        {t('journey.stepLabel')} {item.step}
                       </div>
                       <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">
                         {item.title}
@@ -207,68 +207,70 @@ function JourneySection() {
 function DivisionsPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   const divisionsData = [
     {
       id: 'medical',
-      title: 'Medical Devices',
+      title: t('divisions.medical'),
       color: '#2563eb',
       icon: FiHeart,
       image: '/RTMS.png',
-      features: ['ISO 13485 Certified', 'Class 10K Cleanroom', 'IEC 60601 Compliant'],
+      features: t('divisions.medicalFeatures'),
       link: '/solutions?category=Medical',
     },
     {
       id: 'fintech',
-      title: 'Payment Systems',
+      title: t('divisions.fintech'),
       color: '#7c3aed',
       icon: FiCreditCard,
       image: '/Pocket Soundbox.png',
-      features: ['PCI-DSS Certified', 'NPCI & RBI Compliant', 'EMV L1/L2'],
+      features: t('divisions.fintechFeatures'),
       link: '/solutions?category=Fintech',
     },
     {
       id: 'iot',
-      title: 'IoT Solutions',
+      title: t('divisions.iot'),
       color: '#0891b2',
       icon: FiWifi,
       image: '/IOT solutions.PNG',
-      features: ['End-to-End Connectivity', 'Edge Computing', 'Cloud Integration'],
+      features: t('divisions.iotFeatures'),
       link: '/solutions?product=iot-smart-lock',
     },
     {
       id: 'robotics',
-      title: 'Neuro Rehab Devices',
+      title: t('divisions.robotics'),
       color: '#7c3aed',
       icon: FiActivity,
       image: '/walklab 3.0.jpeg',
-      features: ['FDA Approved', 'IEC 60601 Compliant', 'Advanced Rehab Tech'],
+      features: t('divisions.roboticsFeatures'),
       link: '/solutions?category=Robotics',
     },
     {
       id: 'automotive',
-      title: 'Automotive Electronics',
+      title: t('divisions.automotive'),
       color: '#059669',
       icon: FiCpu,
       image: '/cluster.png',
-      features: ['IATF 16949 Compliant', 'High Reliability', 'AEC-Q100 Qualified'],
+      features: t('divisions.automotiveFeatures'),
       link: '/solutions?category=Automotive',
     },
     {
       id: 'custom',
-      title: 'Custom Solutions',
+      title: t('divisions.custom'),
       color: '#d97706',
       icon: FiSettings,
       image: '/custom solutions.jpg',
-      features: ['4 SMT Lines', '300K+ Units/Month', 'Full Original Design Manufacturing'],
+      features: t('divisions.customFeatures'),
       link: '/solutions',
     },
   ];
 
-  const trustBadges = [{ icon: FiShield, title: 'Quality Assured', description: 'Stringent quality standards at every step.' },
-    { icon: FiAward, title: 'Industry Certified', description: 'Global certifications across multiple domains.' },
-    { icon: FiTrendingUp, title: 'Scalable Solutions', description: 'Built to scale with your business needs.' },
-    { icon: FiHeadphones, title: 'End-to-End Support', description: 'From concept to after-sales, we\'re with you.' },
+  const trustBadges = [
+    { icon: FiShield, title: t('divisions.quality'), description: t('divisions.qualityDesc') },
+    { icon: FiAward, title: t('divisions.certified'), description: t('divisions.certifiedDesc') },
+    { icon: FiTrendingUp, title: t('divisions.scalable'), description: t('divisions.scalableDesc') },
+    { icon: FiHeadphones, title: t('divisions.support'), description: t('divisions.supportDesc') },
   ];
 
   return (
@@ -323,19 +325,13 @@ function DivisionsPreview() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold mb-5 uppercase tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-            Our Solutions
+            {t('nav.solutions')}
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold font-display text-slate-900 mb-4 leading-tight">
-            Technology That Powers{' '}
-            <br className="hidden sm:block" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
-              Every Connection
-            </span>
+            {t('divisions.title')}
           </h2>
           <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto leading-relaxed">
-            High-performance engineering solutions across industries,
-            <br className="hidden md:block" />
-            built for reliability, compliance, and scale.
+            {t('divisions.subtitle')}
           </p>
         </motion.div>
 
@@ -381,7 +377,7 @@ function DivisionsPreview() {
 
                   {/* Explore Link */}
                   <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
-                    Explore Solutions
+                    {t('divisions.explore')}
                     <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-slate-200 group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
                       <FiArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-colors" />
                     </span>
@@ -438,14 +434,15 @@ function DivisionsPreview() {
 function StatsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   const stats = [
-    { value: '10+', label: 'Years of Excellence' },
-    { value: '500+', label: 'Engineers & Technicians' },
-    { value: '20+', label: 'Countries Served' },
-    { value: '300K+', label: 'Units Manufactured/Month' },
-    { value: '150,000 sq.ft', label: 'Facility Size' },
-    { value: '4', label: 'SMT Production Lines' },
+    { value: '10+', label: t('stats.years') },
+    { value: '400+', label: t('stats.engineers') },
+    { value: '20+', label: t('stats.countries') },
+    { value: '300K+', label: t('stats.units') },
+    { value: '150,000 sq.ft', label: t('stats.facility') },
+    { value: '4', label: t('stats.smt') },
   ];
 
   return (
@@ -473,22 +470,23 @@ function StatsSection() {
 function ClientsCertifications() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   const certifications = [
-    { title: 'ISO 13485', description: 'Quality management for medical devices' },
-    { title: 'Class 10K Cleanroom', description: 'Controlled manufacturing environment' },
-    { title: 'CE, FCC, PCI-DSS', description: 'European, US & payment security standards' },
-    { title: 'IEC 60601', description: 'Medical electrical equipment safety' },
-    { title: 'BIS Certified', description: 'Bureau of Indian Standards compliance' },
+    { title: 'ISO 13485', description: t('clients.qms') },
+    { title: 'Class 10K Cleanroom', description: t('clients.cleanroom') },
+    { title: 'CE, FCC, PCI-DSS', description: t('clients.standards') },
+    { title: 'IEC 60601', description: t('clients.safety') },
+    { title: 'BIS Certified', description: t('clients.indian') },
   ];
 
   const clients = [
-    'Healthcare Leaders',
-    'Banking & Finance',
-    'Tech Innovators',
-    'Industrial Giants',
-    'Government Bodies',
-    'Global Enterprises',
+    t('clients.client1'),
+    t('clients.client2'),
+    t('clients.client3'),
+    t('clients.client4'),
+    t('clients.client5'),
+    t('clients.client6'),
   ];
 
   return (
@@ -502,16 +500,13 @@ function ClientsCertifications() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-sm font-semibold mb-4">
             <FiShield className="w-4 h-4" />
-            Trust & Compliance
+            {t('clients.trusted')}
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            Clients &{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 font-black">
-              Certifications
-            </span>
+            {t('clients.title')}
           </h2>
           <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            Trusted by industry leaders worldwide with international quality standards.
+            {t('clients.subtitle')}
           </p>
         </motion.div>
 
@@ -522,7 +517,7 @@ function ClientsCertifications() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-lg font-bold font-display text-slate-900 mb-4">Certifications</h3>
+            <h3 className="text-lg font-bold font-display text-slate-900 mb-4">{t('clients.certifications')}</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
                 <motion.div
@@ -552,7 +547,7 @@ function ClientsCertifications() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-lg font-bold font-display text-slate-900 mb-4">Our Clients</h3>
+            <h3 className="text-lg font-bold font-display text-slate-900 mb-4">{t('clients.clients')}</h3>
             <div className="grid sm:grid-cols-2 gap-4">
               {clients.map((client, index) => (
                 <motion.div
@@ -568,7 +563,7 @@ function ClientsCertifications() {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-slate-900">{client}</h4>
-                      <p className="text-xs text-slate-500">Trusted Partner</p>
+                      <p className="text-xs text-slate-500">{t('clients.trusted')}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -584,6 +579,13 @@ function ClientsCertifications() {
 function CTASection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
+
+  const whyChooseUs = [
+    { icon: FiShield, title: t('cta.wcu1Title'), desc: t('cta.wcu1Desc') },
+    { icon: FiGlobe, title: t('cta.wcu2Title'), desc: t('cta.wcu2Desc') },
+    { icon: FiCheckCircle, title: t('cta.wcu3Title'), desc: t('cta.wcu3Desc') },
+  ];
 
   return (
     <section id="cta-section" className="py-16 md:py-20 bg-slate-50">
@@ -598,25 +600,25 @@ function CTASection() {
                   transition={{ duration: 0.5 }}
                 >
                   <h2 className="text-2xl md:text-3xl font-bold font-display text-white mb-3">
-                    Ready to Build Your Next Product?
+                    {t('cta.title')}
                   </h2>
                   <p className="text-sm text-slate-400 leading-relaxed max-w-md mb-6">
-                    From concept to certification — we handle the entire manufacturing journey. ISO 13485 certified, 4 SMT lines, 300K+ units/month capacity.
+                    {t('cta.subtitle')}
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Link
                       to="/contact"
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-900 text-sm font-semibold rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-300"
                     >
-                      Get in Touch
+                      {t('cta.touch')}
                       <FiArrowUpRight className="w-4 h-4" />
                     </Link>
-                    <Link
-                      to="/solutions"
+                    <button
+                      onClick={() => document.getElementById('divisions-preview')?.scrollIntoView({ behavior: 'smooth' })}
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 hover:bg-white/20 text-white text-sm font-semibold rounded-xl transition-all duration-300 backdrop-blur-sm"
                     >
-                      View Solutions
-                    </Link>
+                      {t('cta.solutions')}
+                    </button>
                   </div>
                 </motion.div>
               </div>

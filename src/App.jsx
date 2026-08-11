@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import MobileBottomNav from './components/MobileBottomNav';
 import Preloader from './components/Preloader';
@@ -114,8 +115,10 @@ export default function App() {
   return (
     <ErrorBoundary>
       <BrowserRouter>
-        <Preloader />
-        <AppContent />
+        <LanguageProvider>
+          <Preloader />
+          <AppContent />
+        </LanguageProvider>
       </BrowserRouter>
     </ErrorBoundary>
   );

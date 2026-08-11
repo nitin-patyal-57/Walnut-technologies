@@ -3,16 +3,10 @@ import { motion } from 'framer-motion';
 import { FiSend, FiCheck } from 'react-icons/fi';
 import Modal from './Modal';
 import { captureLead } from '../hooks/useLeads';
-
-const productOptions = [
-  'Robotics Device',
-  'Medical Device',
-  'Fintech Terminal',
-  'Automotive Electronics',
-  'Other',
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export default function QuoteModal({ isOpen, onClose }) {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -23,6 +17,8 @@ export default function QuoteModal({ isOpen, onClose }) {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+
+  const productOptions = t('quote.productOptions');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,53 +48,53 @@ export default function QuoteModal({ isOpen, onClose }) {
   const labelClass = "block text-xs font-medium text-slate-500 mb-1.5";
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Request a Quote" size="max-w-lg">
+    <Modal isOpen={isOpen} onClose={onClose} title={t('quote.title')} size="max-w-lg">
       {!submitted ? (
         <form onSubmit={handleSubmit} className="space-y-4">
           <p className="text-sm text-slate-500 mb-4">
-            Fill in your details and we'll get back to you with custom pricing for your project within 24 hours.
+            {t('quote.instruction')}
           </p>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>Name *</label>
-              <input type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder="Your name" />
+              <label className={labelClass}>{t('quote.name')} *</label>
+              <input type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder={t('quote.name')} />
             </div>
             <div>
-              <label className={labelClass}>Email *</label>
+              <label className={labelClass}>{t('quote.email')} *</label>
               <input type="email" required value={form.email} onChange={(e) => updateField('email', e.target.value)} className={inputClass} placeholder="your@email.com" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>Phone</label>
+              <label className={labelClass}>{t('quote.phone')}</label>
               <input type="tel" value={form.phone} onChange={(e) => updateField('phone', e.target.value)} className={inputClass} placeholder="+91 77194 63719" />
             </div>
             <div>
-              <label className={labelClass}>Company</label>
-              <input type="text" value={form.company} onChange={(e) => updateField('company', e.target.value)} className={inputClass} placeholder="Company name" />
+              <label className={labelClass}>{t('quote.company')}</label>
+              <input type="text" value={form.company} onChange={(e) => updateField('company', e.target.value)} className={inputClass} placeholder={t('quote.company')} />
             </div>
           </div>
 
           <div>
-            <label className={labelClass}>Product Type *</label>
+            <label className={labelClass}>{t('quote.productType')} *</label>
             <select required value={form.product} onChange={(e) => updateField('product', e.target.value)} className={inputClass}>
-              <option value="">Select product type</option>
-              {productOptions.map((opt) => (
+              <option value="">{t('quote.selectProduct')}</option>
+              {Array.isArray(productOptions) && productOptions.map((opt) => (
                 <option key={opt} value={opt}>{opt}</option>
               ))}
             </select>
           </div>
 
           <div>
-            <label className={labelClass}>Estimated Quantity</label>
+            <label className={labelClass}>{t('quote.quantity')}</label>
             <input type="number" value={form.quantity} onChange={(e) => updateField('quantity', e.target.value)} className={inputClass} placeholder="e.g., 10,000" />
           </div>
 
           <div>
-            <label className={labelClass}>Message</label>
-            <textarea value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder="Tell us about your project requirements..." />
+            <label className={labelClass}>{t('quote.message')}</label>
+            <textarea value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder={t('contact.messagePlaceholder')} />
           </div>
 
           <button
@@ -106,7 +102,7 @@ export default function QuoteModal({ isOpen, onClose }) {
             className="w-full py-3 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
           >
             <FiSend className="w-4 h-4" />
-            Send Message
+            {t('quote.send')}
           </button>
         </form>
       ) : (
@@ -118,8 +114,8 @@ export default function QuoteModal({ isOpen, onClose }) {
           <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">
             <FiCheck className="w-8 h-8" />
           </div>
-          <h4 className="text-lg font-bold text-slate-900 mb-2">Quote Request Sent!</h4>
-          <p className="text-sm text-slate-500">Our team will get back to you within 24 hours with a custom quote.</p>
+          <h4 className="text-lg font-bold text-slate-900 mb-2">{t('quote.sent')}</h4>
+          <p className="text-sm text-slate-500">{t('quote.sentDesc')}</p>
         </motion.div>
       )}
     </Modal>

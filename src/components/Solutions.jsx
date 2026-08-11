@@ -3,6 +3,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft } from 'react-icons/fi';
 import { products, divisions } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const divisionIcons = {
   robotics: FiCpu,
@@ -43,6 +44,7 @@ const divisionAnimations = {
 };
 
 function DivisionShowcase({ division, onSelect, index }) {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const Icon = divisionIcons[division.id];
@@ -57,12 +59,9 @@ function DivisionShowcase({ division, onSelect, index }) {
       onClick={() => onSelect(division)}
       className="cursor-pointer group text-center"
     >
-      {/* Products Display */}
       <div className="relative mb-8">
-        {/* Background Circle */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-56 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
         
-        {/* Products Row */}
         <div className="relative pt-8 pb-4">
           <div className="flex justify-center items-end">
             <motion.div
@@ -71,7 +70,6 @@ function DivisionShowcase({ division, onSelect, index }) {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col items-center"
             >
-              {/* Product Image */}
               <div className="w-24 h-32 md:w-32 md:h-40 mb-2 flex items-center justify-center overflow-hidden rounded-xl">
                 <img
                   src={division.products[0].image}
@@ -80,14 +78,12 @@ function DivisionShowcase({ division, onSelect, index }) {
                 />
               </div>
               
-              {/* Pedestal */}
               <div className="w-24 h-4 md:w-32 md:h-5 bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
             </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Division Info */}
       <div className="relative">
         <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200 mb-3 group-hover:scale-110 transition-transform duration-300">
           <Icon className="w-5 h-5 text-slate-700" />
@@ -109,7 +105,7 @@ function DivisionShowcase({ division, onSelect, index }) {
           whileTap={{ scale: 0.95 }}
           className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-full transition-colors"
         >
-          Explore Products
+          {t('solutions.exploreProducts')}
           <motion.span
             animate={{ x: [0, 4, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -135,11 +131,9 @@ function ProductCard({ product, index, onOpenQuote }) {
       transition={{ duration: 0.7, delay: index * 0.1 }}
       className="group relative text-center"
     >
-      {/* Circular Background */}
       <div className="relative mb-3">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 md:w-36 md:h-36 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
         
-        {/* Product Image */}
         <div className="relative pt-5 pb-1">
           <div className="w-24 h-28 md:w-28 md:h-32 mx-auto mb-1 flex items-center justify-center overflow-hidden rounded-lg">
             <img
@@ -149,12 +143,10 @@ function ProductCard({ product, index, onOpenQuote }) {
             />
           </div>
           
-          {/* Pedestal */}
           <div className="w-24 h-3 md:w-28 md:h-3 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
         </div>
       </div>
 
-      {/* Product Info */}
       <div className="relative">
         <h3 className="text-xs md:text-sm font-bold font-display text-slate-900 mb-1 px-1">{product.title}</h3>
         <p className="text-xs text-slate-500 mb-2 max-w-[150px] mx-auto leading-relaxed px-1 line-clamp-2">{product.description}</p>
@@ -173,6 +165,7 @@ function ProductCard({ product, index, onOpenQuote }) {
 }
 
 export default function Solutions({ onOpenQuote }) {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [searchParams] = useSearchParams();
@@ -185,7 +178,6 @@ export default function Solutions({ onOpenQuote }) {
       if (product) {
         const division = divisions.find(d => d.title === product.category);
         if (division) return division;
-        // If no matching division, return first division as fallback
         return divisions[0];
       }
     }
@@ -209,7 +201,6 @@ export default function Solutions({ onOpenQuote }) {
   return (
     <section id="solutions" className="py-16 md:py-24 bg-white">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -223,24 +214,23 @@ export default function Solutions({ onOpenQuote }) {
               </>
             ) : selectedDivision ? (
               <>
-                <span className="text-blue-600">{selectedDivision.title}</span> Solutions
+                <span className="text-blue-600">{selectedDivision.title}</span> {t('solutions.solutionsSuffix').replace('{title}', '')}
               </>
             ) : (
               <>
-                Our <span className="text-blue-600">Solutions</span>
+                {t('solutions.ourSolutions')}
               </>
             )}
           </h2>
           <p className="text-base text-slate-500 max-w-2xl mx-auto">
             {selectedDivision
               ? selectedDivision.description
-              : 'Specialized manufacturing verticals serving the most demanding industries.'}
+              : t('solutions.defaultDesc')}
           </p>
         </motion.div>
 
         <AnimatePresence mode="wait">
           {!selectedDivision ? (
-            /* Division Showcase */
             <motion.div
               key="divisions"
               initial={{ opacity: 0 }}
@@ -259,7 +249,6 @@ export default function Solutions({ onOpenQuote }) {
               ))}
             </motion.div>
           ) : (
-            /* Products View */
             <motion.div
               key="products"
               initial={{ opacity: 0, y: 20 }}
@@ -267,16 +256,14 @@ export default function Solutions({ onOpenQuote }) {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Back Button */}
               <button
                 onClick={() => setSelectedDivision(null)}
                 className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-full hover:border-slate-300 hover:text-slate-900 transition-all shadow-sm"
               >
                 <FiArrowLeft className="w-4 h-4" />
-                All Divisions
+                {t('solutions.allDivisions')}
               </button>
 
-              {/* Products Grid */}
               <div className={`grid gap-6 ${selectedDivision?.id === 'fintech' ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'}`}>
                 {divisionProducts.map((product, index) => (
                   <ProductCard

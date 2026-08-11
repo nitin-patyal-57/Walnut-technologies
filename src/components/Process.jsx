@@ -7,6 +7,7 @@ import {
   FiAward, FiClock, FiDollarSign, FiHeart, FiLock, FiUsers, FiArrowRight
 } from 'react-icons/fi';
 import { process, industryFourTechnologies, impactBenefits } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const stepIcons = {
   lightbulb: FiZap,
@@ -53,6 +54,7 @@ const impactIcons = {
 };
 
 function ScrollProcess() {
+  const { t } = useLanguage();
   const containerRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
   const { scrollYProgress } = useScroll({
@@ -70,9 +72,7 @@ function ScrollProcess() {
 
   return (
     <div ref={containerRef} className="relative h-[400vh]">
-      {/* Sticky container */}
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
           <AnimatePresence mode="wait">
             <motion.img
@@ -89,7 +89,6 @@ function ScrollProcess() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/95" />
         </div>
 
-        {/* Progress bar */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-slate-800 z-20">
           <motion.div
             className="h-full bg-gradient-to-r from-cyan-500 to-emerald-500"
@@ -97,7 +96,6 @@ function ScrollProcess() {
           />
         </div>
 
-        {/* Step indicators */}
         <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
           {process.map((_, i) => (
             <div
@@ -113,11 +111,9 @@ function ScrollProcess() {
           ))}
         </div>
 
-        {/* Content */}
         <div className="relative z-10 h-full flex items-center py-8">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
-              {/* Left - Image */}
               <div className="relative">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -143,7 +139,7 @@ function ScrollProcess() {
                           })()}
                         </div>
                         <span className="px-3 py-1 text-xs font-bold bg-white/20 backdrop-blur-sm text-white rounded-full">
-                          STEP {process[activeStep].step} OF {process.length}
+                          {t('process.stepOf').replace('{step}', process[activeStep].step).replace('{total}', process.length)}
                         </span>
                       </div>
                       <h2 className="text-2xl md:text-3xl font-bold font-display text-white mb-1">
@@ -154,7 +150,6 @@ function ScrollProcess() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Floating step number */}
                 <motion.div
                   animate={{ rotate: activeStep * 36 }}
                   transition={{ duration: 0.6 }}
@@ -164,7 +159,6 @@ function ScrollProcess() {
                 </motion.div>
               </div>
 
-              {/* Right - Details */}
               <div>
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -177,7 +171,7 @@ function ScrollProcess() {
                     <div className="mb-4">
                       <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${process[activeStep].color} text-white text-xs font-semibold mb-3`}>
                         <FiZap className="w-2.5 h-2.5" />
-                        Step {process[activeStep].step}
+                        {t('process.step').replace('{step}', process[activeStep].step)}
                       </div>
                       <h3 className="text-lg md:text-xl font-bold font-display text-white mb-1">
                         {process[activeStep].title}
@@ -202,10 +196,9 @@ function ScrollProcess() {
                       ))}
                     </div>
 
-                    {/* Navigation hint */}
                     <div className="flex items-center gap-2 text-white/40 text-xs">
                       <FiArrowRight className="w-3 h-3 animate-pulse" />
-                      <span>Scroll to continue</span>
+                      <span>{t('process.scrollToContinue')}</span>
                     </div>
                   </motion.div>
                 </AnimatePresence>
@@ -219,6 +212,7 @@ function ScrollProcess() {
 }
 
 function TechSection() {
+  const { t } = useLanguage();
   return (
     <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,13 +225,13 @@ function TechSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold mb-4">
             <FiWifi className="w-3.5 h-3.5" />
-            Smart Manufacturing
+            {t('process.smartManufacturing')}
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            Powered by <span className="text-blue-600">Industry 4.0</span>
+            {t('process.poweredByIndustry')}
           </h2>
           <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            Integrating cutting-edge technologies for smart manufacturing
+            {t('process.smartMfgDesc')}
           </p>
         </motion.div>
 
@@ -268,6 +262,7 @@ function TechSection() {
 }
 
 function ImpactSection() {
+  const { t } = useLanguage();
   return (
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -280,13 +275,13 @@ function ImpactSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 text-xs font-semibold mb-4">
             <FiAward className="w-3.5 h-3.5" />
-            Our Commitment
+            {t('process.ourCommitment')}
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            Delivering <span className="text-emerald-600">Impact</span> at Every Step
+            {t('process.deliveringImpact')}
           </h2>
           <p className="text-sm text-slate-500 max-w-xl mx-auto">
-            Excellence in every aspect of manufacturing
+            {t('process.commitmentDesc')}
           </p>
         </motion.div>
 
@@ -317,18 +312,12 @@ function ImpactSection() {
 }
 
 export default function Process() {
+  const { t } = useLanguage();
   return (
     <section id="process" className="relative bg-white">
-      {/* Scroll-animated Process Steps */}
       <ScrollProcess />
-
-      {/* Industry 4.0 Technologies */}
       <TechSection />
-
-      {/* Delivering Impact */}
       <ImpactSection />
-
-      {/* CTA */}
       <section className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -340,16 +329,16 @@ export default function Process() {
           >
             <div className="relative z-10 text-center">
               <h2 className="text-xl md:text-2xl font-bold font-display text-white mb-3">
-                Ready to Start Your Project?
+                {t('process.readyToStart')}
               </h2>
               <p className="text-sm text-white/60 mb-6 max-w-md mx-auto">
-                From concept to mass production — we've got you covered.
+                {t('process.ctaDesc')}
               </p>
               <a
                 href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-xl font-semibold text-sm hover:bg-slate-100 transition-colors duration-300"
               >
-                Get Started
+                {t('process.getStarted')}
                 <FiArrowRight className="w-4 h-4" />
               </a>
             </div>

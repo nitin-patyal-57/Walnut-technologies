@@ -1,35 +1,38 @@
 import { Link } from 'react-router-dom';
 import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 import { brand } from '../data/content';
-
-const footerLinks = {
-  Solutions: [
-    { label: 'Robotics', to: '/solutions?category=Robotics' },
-    { label: 'Medical', to: '/solutions?category=Medical' },
-    { label: 'Fintech', to: '/solutions?category=Fintech' },
-    { label: 'Automotive', to: '/solutions?category=Automotive' },
-  ],
-  Company: [
-    { label: 'About Us', to: '/about' },
-    { label: 'Process', to: '/process' },
-    { label: 'Expertise', to: '/expertise' },
-    { label: 'News', to: '/news' },
-  ],
-  Resources: [
-    { label: 'Whitepapers', to: '/resources' },
-    { label: 'Case Studies', to: '/resources' },
-    { label: 'Brochures', to: '/resources' },
-  ],
-  Legal: [
-    { label: 'Privacy Policy', to: '/privacy' },
-    { label: 'Terms of Service', to: '/terms' },
-    { label: 'Contact', to: '/contact' },
-  ],
-};
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const footerLinks = {
+    [t('footer.solutions')]: [
+      { label: 'Robotics', to: '/solutions?category=Robotics' },
+      { label: 'Medical', to: '/solutions?category=Medical' },
+      { label: 'Fintech', to: '/solutions?category=Fintech' },
+      { label: 'Automotive', to: '/solutions?category=Automotive' },
+    ],
+    [t('footer.company')]: [
+      { label: t('footer.aboutUs'), to: '/about' },
+      { label: t('footer.process'), to: '/process' },
+      { label: t('footer.expertise'), to: '/expertise' },
+      { label: t('footer.news'), to: '/news' },
+    ],
+    [t('footer.resources')]: [
+      { label: t('footer.whitepapers'), to: '/resources' },
+      { label: t('footer.caseStudies'), to: '/resources' },
+      { label: t('footer.brochures'), to: '/resources' },
+    ],
+    [t('footer.legal')]: [
+      { label: t('footer.privacyPolicy'), to: '/privacy' },
+      { label: t('footer.termsOfService'), to: '/terms' },
+      { label: t('footer.contact'), to: '/contact' },
+    ],
   };
 
   return (
@@ -39,11 +42,11 @@ export default function Footer() {
         <div className="py-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {/* Brand & Contact */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <Link to="/" className="inline-block mb-2">
+            <a href="/" onClick={() => window.location.reload()} className="inline-block mb-2">
               <img src="/logo.png" alt="Walnut Technologies" className="h-10 w-auto object-contain brightness-0 invert" />
-            </Link>
+            </a>
             <p className="text-xs text-slate-400 leading-relaxed mb-3 max-w-[220px]">
-              Vertically integrated Original Design Manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.
+              {t('footer.desc')}
             </p>
 
             <div className="space-y-1.5 mb-3">
@@ -94,7 +97,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="py-2.5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-1.5">
           <p className="text-xs text-slate-500">
-            &copy; {new Date().getFullYear()} {brand.fullName}. All rights reserved.
+            &copy; {new Date().getFullYear()} {brand.fullName}. {t('footer.rights')}
           </p>
           <div className="flex items-center gap-2 text-xs text-slate-500">
             <span>GSTN: {brand.gstn}</span>

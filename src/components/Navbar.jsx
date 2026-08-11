@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX, FiChevronDown, FiMapPin, FiMail, FiPhone, FiArrowUpRight, FiMessageSquare } from 'react-icons/fi';
 import { brand, trustSignals } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -33,6 +34,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -89,13 +91,13 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 md:h-12">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <a href="/" onClick={() => window.location.reload()} className="flex items-center gap-3 group">
               <img
                 src="/logo.png"
                 alt="Walnut Technologies"
                 className="h-20 md:h-24 w-auto object-contain mix-blend-multiply"
               />
-            </Link>
+            </a>
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
@@ -140,7 +142,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                 onClick={onOpenSchedule}
                 className={`px-3 py-1.5 text-[13px] border rounded-lg transition-all ${btnOutline}`}
               >
-                Schedule a Call
+                {t('nav.scheduleCall')}
               </button>
               <button
                 onClick={onOpenQuote}
@@ -358,7 +360,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
               </div>
             </div>
 
-            {/* Sidebar Footer - Chatbot */}
+              {/* Sidebar Footer - Chatbot */}
             <div className="border-t border-slate-200 p-4 shrink-0 bg-gradient-to-r from-slate-50 to-white">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-green-500 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/30">

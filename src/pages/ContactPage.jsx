@@ -7,56 +7,13 @@ import {
   FiShield, FiUsers, FiBox, FiMessageCircle
 } from 'react-icons/fi';
 import { brand } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 const FORMSPREE_ENDPOINT = `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORMSPREE_ID'}`;
-
-const contactCards = [
-  {
-    icon: FiHome,
-    title: 'Head Office',
-    lines: ['Walnut Technologies Pvt. Ltd.', '132 JLPL Industrial Park', 'Sector 82, Mohali Punjab 160055'],
-    link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
-    linkText: 'Get Directions',
-  },
-  {
-    icon: FiServer,
-    title: 'Manufacturing Facility',
-    lines: ['150,000+ Sq. Ft. Facility', 'Phase 5, Industrial Area,', 'Mohali, Punjab 160055, India'],
-    link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
-    linkText: 'Get Directions',
-  },
-  {
-    icon: FiMail,
-    title: 'Email Us',
-    lines: ['contact@walnutmedical.in'],
-    link: 'mailto:contact@walnutmedical.in',
-    linkText: null,
-  },
-  {
-    icon: FiPhone,
-    title: 'Call Us',
-    lines: ['+91 77194 63719'],
-    link: 'tel:+917719463719',
-    linkText: null,
-  },
-];
-
-const whyConnect = [
-  { icon: FiMessageCircle, title: 'Product inquiries & solution consulting', desc: 'Get expert advice for your application needs.' },
-  { icon: FiUsers, title: 'Partnerships & business collaborations', desc: 'Explore opportunities to create value together.' },
-  { icon: FiHeadphones, title: 'Careers & employment', desc: 'Join our team and build the future with us.' },
-  { icon: FiShield, title: 'Technical support', desc: 'Our team is here to help you succeed.' },
-];
-
-const stats = [
-  { icon: FiClock, value: '2016', label: 'Year Founded' },
-  { icon: FiServer, value: '150,000+', label: 'Sq. Ft. Manufacturing Facility' },
-  { icon: FiBox, value: '300K+', label: 'Devices Per Month Capacity' },
-  { icon: FiUsers, value: '500+', label: 'Team Members' },
-];
 
 export default function ContactPage({ onOpenQuote }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const { t } = useLanguage();
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
   const [submitted, setSubmitted] = useState(false);
   const timeoutRef = useRef(null);
@@ -64,6 +21,51 @@ export default function ContactPage({ onOpenQuote }) {
   useEffect(() => {
     return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
   }, []);
+
+  const contactCards = [
+    {
+      icon: FiHome,
+      title: t('contact.headOffice'),
+      lines: ['Walnut Technologies Pvt. Ltd.', '132 JLPL Industrial Park', 'Sector 82, Mohali Punjab 160055'],
+      link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
+      linkText: t('contact.getDirections'),
+    },
+    {
+      icon: FiServer,
+      title: t('contact.manufacturing'),
+      lines: ['150,000+ Sq. Ft. Facility', 'Phase 5, Industrial Area,', 'Mohali, Punjab 160055, India'],
+      link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
+      linkText: t('contact.getDirections'),
+    },
+    {
+      icon: FiMail,
+      title: t('contact.emailUs'),
+      lines: ['contact@walnutmedical.in'],
+      link: 'mailto:contact@walnutmedical.in',
+      linkText: null,
+    },
+    {
+      icon: FiPhone,
+      title: t('contact.callUs'),
+      lines: ['+91 77194 63719'],
+      link: 'tel:+917719463719',
+      linkText: null,
+    },
+  ];
+
+  const whyConnect = [
+    { icon: FiMessageCircle, title: t('contact.productInquiries'), desc: t('contact.productInquiriesDesc') },
+    { icon: FiUsers, title: t('contact.partnerships'), desc: t('contact.partnershipsDesc') },
+    { icon: FiHeadphones, title: t('contact.careersTitle'), desc: t('contact.careersDesc') },
+    { icon: FiShield, title: t('contact.techSupport'), desc: t('contact.techSupportDesc') },
+  ];
+
+  const stats = [
+    { icon: FiClock, value: '2016', label: t('about.trustedSince') },
+    { icon: FiServer, value: '150,000+', label: t('contact.sqFtFacility') },
+    { icon: FiBox, value: '300K+', label: t('contact.monthlyCapacity') },
+    { icon: FiUsers, value: '400+', label: t('stats.engineers') },
+  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -103,14 +105,13 @@ export default function ContactPage({ onOpenQuote }) {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block text-sm font-semibold text-blue-600 tracking-wider uppercase mb-4">
-                Contact Us
+                {t('nav.contact')}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-slate-900 leading-tight mb-6">
-                Let's Build{' '}
-                <span className="text-blue-600">What Matters.</span>
+                {t('contact.title')}
               </h1>
               <p className="text-base text-slate-500 leading-relaxed mb-8 max-w-lg">
-                Have a question, collaboration idea or want to learn more about our solutions? We'd love to hear from you. Our team is here to help.
+                {t('contact.subtitle')}
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -118,14 +119,14 @@ export default function ContactPage({ onOpenQuote }) {
                   className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20"
                 >
                   <FiPhone className="w-4 h-4" />
-                  Call Us
+                  {t('contact.callUs')}
                 </a>
                 <a
                   href="mailto:contact@walnutmedical.in"
                   className="inline-flex items-center gap-2 px-5 py-3 border border-slate-300 text-slate-700 text-sm font-semibold rounded-xl hover:border-slate-400 hover:bg-white transition-all"
                 >
                   <FiMail className="w-4 h-4" />
-                  Email Us
+                  {t('contact.emailUs')}
                 </a>
               </div>
             </motion.div>
@@ -150,9 +151,9 @@ export default function ContactPage({ onOpenQuote }) {
                   <FiHeadphones className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-900">Talk to Our Expert</p>
+                  <p className="text-sm font-bold text-slate-900">{t('contact.talkExpert')}</p>
                   <p className="text-blue-600 font-bold">+91 77194 63719</p>
-                  <p className="text-xs text-slate-400">Mon - Sat : 9:00 AM - 6:00 PM IST</p>
+                  <p className="text-xs text-slate-400">{t('contact.monSat')}</p>
                 </div>
               </div>
             </motion.div>
@@ -213,37 +214,37 @@ export default function ContactPage({ onOpenQuote }) {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <h2 className="text-2xl font-bold font-display text-slate-900 mb-2">Send Us a Message</h2>
-              <p className="text-sm text-slate-500 mb-6">Fill the form below and our team will get back to you shortly.</p>
+              <h2 className="text-2xl font-bold font-display text-slate-900 mb-2">{t('contact.sendMessage')}</h2>
+              <p className="text-sm text-slate-500 mb-6">{t('contact.formSubtitle')}</p>
 
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">Full Name *</label>
+                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.fullName')} *</label>
                       <input
                         type="text"
                         required
                         value={form.name}
                         onChange={(e) => setForm({...form, name: e.target.value})}
                         className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
-                        placeholder="Full Name"
+                        placeholder={t('contact.fullName')}
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">Company Name</label>
+                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.companyName')}</label>
                       <input
                         type="text"
                         value={form.company}
                         onChange={(e) => setForm({...form, company: e.target.value})}
                         className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
-                        placeholder="Company Name"
+                        placeholder={t('contact.companyName')}
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">Email Address *</label>
+                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.emailAddress')} *</label>
                       <input
                         type="email"
                         required
@@ -254,7 +255,7 @@ export default function ContactPage({ onOpenQuote }) {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">Phone Number</label>
+                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.phoneNumber')}</label>
                       <input
                         type="tel"
                         value={form.phone}
@@ -265,31 +266,31 @@ export default function ContactPage({ onOpenQuote }) {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 mb-1.5">Subject *</label>
+                    <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.subject')} *</label>
                     <select
                       required
                       value={form.subject}
                       onChange={(e) => setForm({...form, subject: e.target.value})}
                       className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="product">Product Inquiry</option>
-                      <option value="quote">Request a Quote</option>
-                      <option value="partnership">Partnership / Collaboration</option>
-                      <option value="support">Technical Support</option>
-                      <option value="careers">Careers</option>
-                      <option value="other">Other</option>
+                      <option value="">{t('contact.selectSubject')}</option>
+                      <option value="product">{t('contact.productInquiry')}</option>
+                      <option value="quote">{t('contact.requestQuote')}</option>
+                      <option value="partnership">{t('contact.partnership')}</option>
+                      <option value="support">{t('contact.technicalSupport')}</option>
+                      <option value="careers">{t('contact.careers')}</option>
+                      <option value="other">{t('contact.other')}</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 mb-1.5">Message *</label>
+                    <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.message')} *</label>
                     <textarea
                       required
                       rows={5}
                       value={form.message}
                       onChange={(e) => setForm({...form, message: e.target.value})}
                       className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
-                      placeholder="Tell us about your project requirements..."
+                      placeholder={t('contact.messagePlaceholder')}
                     />
                   </div>
                   <div className="flex items-start gap-2">
@@ -301,17 +302,17 @@ export default function ContactPage({ onOpenQuote }) {
                       className="mt-1 w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
                     />
                     <label className="text-xs text-slate-500">
-                      I agree to the{' '}
-                      <Link to="/privacy" className="text-blue-600 hover:underline">Privacy Policy</Link>
-                      {' '}and{' '}
-                      <Link to="/terms" className="text-blue-600 hover:underline">Terms of Use</Link>.
+                      {t('contact.agreeTo')}{' '}
+                      <Link to="/privacy" className="text-blue-600 hover:underline">{t('contact.privacyPolicy')}</Link>
+                      {' '}{t('contact.and')}{' '}
+                      <Link to="/terms" className="text-blue-600 hover:underline">{t('contact.terms')}</Link>.
                     </label>
                   </div>
                   <button
                     type="submit"
                     className="w-full py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
                   >
-                    Send Message
+                    {t('contact.send')}
                     <FiArrowRight className="w-4 h-4" />
                   </button>
                 </form>
@@ -324,8 +325,8 @@ export default function ContactPage({ onOpenQuote }) {
                   <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">
                     <FiCheck className="w-8 h-8" />
                   </div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-2">Message Sent!</h4>
-                  <p className="text-sm text-slate-500">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  <h4 className="text-lg font-bold text-slate-900 mb-2">{t('contact.sent')}</h4>
+                  <p className="text-sm text-slate-500">{t('contact.sentDesc')}</p>
                 </motion.div>
               )}
             </motion.div>
@@ -342,19 +343,20 @@ export default function ContactPage({ onOpenQuote }) {
               <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
                 <iframe
                   title="Walnut Technologies Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.1234567890123!2d76.68999999999999!3d30.709999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0b3d3d3d3d%3A0x1234567890abcdef!2sJLPL%20Industrial%20Park%2C%20Sector%2082%2C%20Mohali%2C%20Punjab%20160055!5e0!3m2!1sen!2sin!4v1234567890123"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.823456789!2d76.68999999999999!3d30.709999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0b3d3d3d3d%3A0x1234567890abcdef!2sJLPL%20Industrial%20Park%2C%20Sector%2082%2C%20Mohali%2C%20Punjab%20160055!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   width="100%"
-                  height="200"
+                  height="250"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
                 />
               </div>
 
               {/* Why Connect */}
               <div className="bg-white rounded-xl border border-slate-200 p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-4">Why Connect with Us?</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-4">{t('contact.whyConnect')}</h3>
                 <div className="space-y-4">
                   {whyConnect.map((item, index) => {
                     const Icon = item.icon;
@@ -394,7 +396,7 @@ export default function ContactPage({ onOpenQuote }) {
               </div>
               <div>
                 <p className="text-sm text-slate-600 max-w-xs">
-                  Trusted by partners across healthcare, technology, mobility and beyond.
+                  {t('contact.trustedBy')}
                 </p>
               </div>
             </div>

@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 import { brand } from '../data/content';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero({ onOpenQuote, onOpenSchedule }) {
+  const { t } = useLanguage();
+  const navigate = useNavigate();
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
@@ -25,7 +30,7 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs backdrop-blur-sm w-fit"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Vertically Integrated Original Design Manufacturer
+                {t('hero.tagline')}
               </motion.div>
 
               <motion.h1
@@ -45,7 +50,7 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
                 transition={{ duration: 0.5, delay: 0.15 }}
                 className="text-sm sm:text-base text-white/70 leading-relaxed max-w-lg"
               >
-                {brand.subtitle}
+                {t('hero.subtitle')}
               </motion.p>
 
               <motion.div
@@ -55,18 +60,18 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
                 className="flex flex-wrap gap-3 pt-1"
               >
                 <button
-                  onClick={onOpenQuote}
+                  onClick={onOpenSchedule}
                   className="group px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-900 text-sm font-semibold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/40 transition-all duration-300 flex items-center gap-2"
                 >
-                  Request a Quote
+                  {t('hero.cta1')}
                   <FiArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </button>
                 <button
-                  onClick={onOpenSchedule}
+                  onClick={onOpenQuote}
                   className="px-6 py-3 bg-white/10 border border-white/20 hover:bg-white/20 text-white text-sm font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
                 >
                   <FiPlay className="w-3.5 h-3.5" />
-                  Schedule a Call
+                  {t('hero.cta2')}
                 </button>
               </motion.div>
             </div>

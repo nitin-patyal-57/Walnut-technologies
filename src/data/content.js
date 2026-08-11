@@ -29,7 +29,7 @@ export const about = {
   ],
   stats: [
     { label: 'Years of Excellence', value: '10+' },
-    { label: 'Engineers & Technicians', value: '500+' },
+    { label: 'Engineers & Technicians', value: '400+' },
     { label: 'Countries Served', value: '20+' },
     { label: 'Units Manufactured/Month', value: '300K+' },
     { label: 'Facility Size', value: '150,000 sq.ft' },
@@ -40,7 +40,7 @@ export const about = {
 export const trustSignals = {
   stats: [
     { label: 'Years of Excellence', value: '10+' },
-    { label: 'Engineers & Technicians', value: '500+' },
+    { label: 'Engineers & Technicians', value: '400+' },
     { label: 'Countries Served', value: '20+' },
     { label: 'Units Manufactured/Month', value: '300K+' },
   ],

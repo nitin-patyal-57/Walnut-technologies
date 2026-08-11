@@ -1,120 +1,13 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import {
   FiBriefcase, FiUsers, FiTrendingUp, FiGlobe, FiZap,
   FiArrowRight, FiBookOpen, FiAward, FiSearch,
   FiCpu, FiCode, FiLayers, FiSettings, FiMonitor,
   FiTool, FiCheckSquare, FiUser
 } from 'react-icons/fi';
-
-const jobOpenings = [
-  {
-    title: 'Software Engineer',
-    department: 'Software',
-    location: 'Mohali',
-    type: 'Full-time',
-    experience: '2-4 years',
-    salary: '₹8-16 LPA',
-    description: 'Build scalable software solutions that connect products, users and intelligent devices.',
-    tags: ['React', 'Node.js', 'Python'],
-    icon: FiCode,
-  },
-  {
-    title: 'Embedded Systems Engineer',
-    department: 'R&D',
-    location: 'Mohali',
-    type: 'Full-time',
-    experience: '3-5 years',
-    salary: '₹10-18 LPA',
-    description: 'Develop firmware and embedded solutions for next-generation connected products.',
-    tags: ['STM32', 'FreeRTOS', 'C'],
-    icon: FiCpu,
-  },
-  {
-    title: 'PCB Design Engineer',
-    department: 'R&D',
-    location: 'Mohali',
-    type: 'Full-time',
-    experience: '2-5 years',
-    salary: '₹8-16 LPA',
-    description: 'Design and develop high-performance PCBs from concept to production.',
-    tags: ['Altium', 'KiCad', 'DFM'],
-    icon: FiLayers,
-  },
-  {
-    title: 'Mechanical Design Engineer',
-    department: 'Mechanical',
-    location: 'Mohali',
-    type: 'Full-time',
-    experience: '3-6 years',
-    salary: '₹9-17 LPA',
-    description: 'Design precision mechanical systems for medical, automotive and electronic products.',
-    tags: ['SolidWorks', 'GD&T', 'FEA'],
-    icon: FiSettings,
-  },
-  {
-    title: 'Production Engineer',
-    department: 'Manufacturing',
-    location: 'Mohali',
-    type: 'Full-time',
-    experience: '3-5 years',
-    salary: '₹7-14 LPA',
-    description: 'Drive efficient production, quality and continuous improvement across operations.',
-    tags: ['Lean', '5S', 'SMT'],
-    icon: FiTool,
-  },
-  {
-    title: 'Quality Engineer',
-    department: 'Quality',
-    location: 'Mohali',
-    type: 'Full-time',
-    experience: '2-5 years',
-    salary: '₹6-13 LPA',
-    description: 'Ensure the highest standards of quality across developed and manufactured products.',
-    tags: ['ISO 13485', 'Audits', 'CAPA'],
-    icon: FiCheckSquare,
-  },
-];
-
-const departments = ['All Departments', 'R&D', 'Software', 'Manufacturing', 'Quality', 'Mechanical'];
-const locations = ['All Locations', 'Mohali'];
-const experiences = ['All Experience', 'Fresher', '1-3 years', '3-5 years', '5+ years'];
-
-const benefits = [
-  { icon: FiZap, title: 'Real-World Impact', desc: 'Work on products that solve real problems and improve lives.' },
-  { icon: FiUsers, title: 'Collaborative Teams', desc: 'Work with talented people across multiple disciplines.' },
-  { icon: FiTrendingUp, title: 'Innovation Driven', desc: 'Encouraging new ideas, research and cutting-edge technologies.' },
-  { icon: FiUser, title: 'Ownership', desc: 'Take responsibility, make decisions and see your impact.' },
-  { icon: FiBookOpen, title: 'Learn & Grow', desc: 'Continuous learning opportunities to build your future.' },
-  { icon: FiAward, title: 'Career Growth', desc: 'Clear growth paths and opportunities to advance.' },
-];
-
-const teams = [
-  { name: 'R&D', icon: FiCpu, image: '/Design & Engineering.jpg' },
-  { name: 'Software', icon: FiCode, image: '/IoT Software Development.jpg' },
-  { name: 'Electronics', icon: FiMonitor, image: '/IT Electronics.jpg' },
-  { name: 'Embedded', icon: FiCpu, image: '/Embedded Electronics & IoT.jpg' },
-  { name: 'Mechanical', icon: FiSettings, image: '/Manufacturing Engineering & Mold Design.jpg' },
-  { name: 'Manufacturing', icon: FiTool, image: '/contract manufacturing.jpg' },
-  { name: 'Quality', icon: FiCheckSquare, image: '/Quality Assurance.jpg' },
-  { name: 'Business', icon: FiBriefcase, image: '/IP Oriented Product.jpg' },
-];
-
-const hiringSteps = [
-  { step: '01', title: 'Apply', desc: 'Submit your application and tell us what you can build.' },
-  { step: '02', title: 'Screening', desc: 'Our team reviews your profile and gets in touch.' },
-  { step: '03', title: 'Technical Round', desc: 'Show us how you think and solve real problems.' },
-  { step: '04', title: 'Interview', desc: 'Meet the team and explore how we can grow together.' },
-  { step: '05', title: 'Welcome', desc: 'Kickstart your journey and build the future with Walnut.' },
-];
-
-const cultureImages = [
-  { src: '/walklab 3.0.jpeg', alt: 'Innovation lab' },
-  { src: '/home background.jpg', alt: 'Team collaboration' },
-  { src: '/Continuous Improvement.jpg', alt: 'Continuous Improvement' },
-  { src: '/Research & Market Analysis.jpg', alt: 'Research & Market Analysis' },
-];
 
 function AnimatedSection({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -136,15 +29,137 @@ function AnimatedSection({ children, className = '', delay = 0 }) {
 export default function CareerPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const { t } = useLanguage();
   const [activeDept, setActiveDept] = useState('All Departments');
   const [activeLocation, setActiveLocation] = useState('All Locations');
   const [activeExperience, setActiveExperience] = useState('All Experience');
   const [searchQuery, setSearchQuery] = useState('');
 
+  const departments = [t('careerExtended.departments.all'), t('careerExtended.departments.rnd'), t('careerExtended.departments.software'), t('careerExtended.departments.manufacturing'), t('careerExtended.departments.quality'), t('careerExtended.departments.mechanical')];
+  const locations = [t('careerExtended.locations.all'), t('careerExtended.locations.mohali')];
+  const experiences = [t('careerExtended.experiences.all'), t('careerExtended.experiences.fresher'), t('careerExtended.experiences.oneToThree'), t('careerExtended.experiences.threeToFive'), t('careerExtended.experiences.fivePlus')];
+
+  const jobOpenings = [
+    {
+      key: 'softwareEngineer',
+      title: t('careerExtended.jobs.softwareEngineer.title'),
+      department: t('careerExtended.departments.software'),
+      location: t('careerExtended.locations.mohali'),
+      type: 'Full-time',
+      experience: '2-4 years',
+      salary: '₹8-16 LPA',
+      description: t('careerExtended.jobs.softwareEngineer.description'),
+      tags: ['React', 'Node.js', 'Python'],
+      icon: FiCode,
+    },
+    {
+      key: 'embeddedEngineer',
+      title: t('careerExtended.jobs.embeddedEngineer.title'),
+      department: t('careerExtended.departments.rnd'),
+      location: t('careerExtended.locations.mohali'),
+      type: 'Full-time',
+      experience: '3-5 years',
+      salary: '₹10-18 LPA',
+      description: t('careerExtended.jobs.embeddedEngineer.description'),
+      tags: ['STM32', 'FreeRTOS', 'C'],
+      icon: FiCpu,
+    },
+    {
+      key: 'pcbDesignEngineer',
+      title: t('careerExtended.jobs.pcbDesignEngineer.title'),
+      department: t('careerExtended.departments.rnd'),
+      location: t('careerExtended.locations.mohali'),
+      type: 'Full-time',
+      experience: '2-5 years',
+      salary: '₹8-16 LPA',
+      description: t('careerExtended.jobs.pcbDesignEngineer.description'),
+      tags: ['Altium', 'KiCad', 'DFM'],
+      icon: FiLayers,
+    },
+    {
+      key: 'mechanicalDesignEngineer',
+      title: t('careerExtended.jobs.mechanicalDesignEngineer.title'),
+      department: t('careerExtended.departments.mechanical'),
+      location: t('careerExtended.locations.mohali'),
+      type: 'Full-time',
+      experience: '3-6 years',
+      salary: '₹9-17 LPA',
+      description: t('careerExtended.jobs.mechanicalDesignEngineer.description'),
+      tags: ['SolidWorks', 'GD&T', 'FEA'],
+      icon: FiSettings,
+    },
+    {
+      key: 'productionEngineer',
+      title: t('careerExtended.jobs.productionEngineer.title'),
+      department: t('careerExtended.departments.manufacturing'),
+      location: t('careerExtended.locations.mohali'),
+      type: 'Full-time',
+      experience: '3-5 years',
+      salary: '₹7-14 LPA',
+      description: t('careerExtended.jobs.productionEngineer.description'),
+      tags: ['Lean', '5S', 'SMT'],
+      icon: FiTool,
+    },
+    {
+      key: 'qualityEngineer',
+      title: t('careerExtended.jobs.qualityEngineer.title'),
+      department: t('careerExtended.departments.quality'),
+      location: t('careerExtended.locations.mohali'),
+      type: 'Full-time',
+      experience: '2-5 years',
+      salary: '₹6-13 LPA',
+      description: t('careerExtended.jobs.qualityEngineer.description'),
+      tags: ['ISO 13485', 'Audits', 'CAPA'],
+      icon: FiCheckSquare,
+    },
+  ];
+
+  const benefits = [
+    { icon: FiZap, title: t('careerExtended.benefits.realWorldImpact.title'), desc: t('careerExtended.benefits.realWorldImpact.desc') },
+    { icon: FiUsers, title: t('careerExtended.benefits.collaborativeTeams.title'), desc: t('careerExtended.benefits.collaborativeTeams.desc') },
+    { icon: FiTrendingUp, title: t('careerExtended.benefits.innovationDriven.title'), desc: t('careerExtended.benefits.innovationDriven.desc') },
+    { icon: FiUser, title: t('careerExtended.benefits.ownership.title'), desc: t('careerExtended.benefits.ownership.desc') },
+    { icon: FiBookOpen, title: t('careerExtended.benefits.learnAndGrow.title'), desc: t('careerExtended.benefits.learnAndGrow.desc') },
+    { icon: FiAward, title: t('careerExtended.benefits.careerGrowth.title'), desc: t('careerExtended.benefits.careerGrowth.desc') },
+  ];
+
+  const teams = [
+    { name: t('careerExtended.teams.rnd'), icon: FiCpu, image: '/Design & Engineering.jpg' },
+    { name: t('careerExtended.teams.software'), icon: FiCode, image: '/IoT Software Development.jpg' },
+    { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/IT Electronics.jpg' },
+    { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/Embedded Electronics & IoT.jpg' },
+    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/Manufacturing Engineering & Mold Design.jpg' },
+    { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/contract manufacturing.jpg' },
+    { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/Quality Assurance.jpg' },
+    { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/IP Oriented Product.jpg' },
+  ];
+
+  const hiringSteps = [
+    { step: '01', title: t('careerExtended.hiringSteps.apply.title'), desc: t('careerExtended.hiringSteps.apply.desc') },
+    { step: '02', title: t('careerExtended.hiringSteps.screening.title'), desc: t('careerExtended.hiringSteps.screening.desc') },
+    { step: '03', title: t('careerExtended.hiringSteps.technicalRound.title'), desc: t('careerExtended.hiringSteps.technicalRound.desc') },
+    { step: '04', title: t('careerExtended.hiringSteps.interview.title'), desc: t('careerExtended.hiringSteps.interview.desc') },
+    { step: '05', title: t('careerExtended.hiringSteps.welcome.title'), desc: t('careerExtended.hiringSteps.welcome.desc') },
+  ];
+
+  const statsData = [
+    { icon: FiBriefcase, stat: '2016', label: t('careerExtended.stats.yearFounded') },
+    { icon: FiGlobe, stat: '150,000+', label: t('careerExtended.stats.manufacturingFacility') },
+    { icon: FiTrendingUp, stat: '300K+', label: t('careerExtended.stats.devicesCapacity') },
+    { icon: FiUsers, stat: '400+', label: t('careerExtended.stats.teamMembers') },
+  ];
+
+  const cultureImages = [
+    { src: '/walklab 3.0.jpeg', alt: 'Innovation lab' },
+    { src: '/home background.jpg', alt: 'Team collaboration' },
+    { src: '/Continuous Improvement.jpg', alt: 'Continuous Improvement' },
+    { src: '/Research & Market Analysis.jpg', alt: 'Research & Market Analysis' },
+  ];
+
   const filteredJobs = jobOpenings.filter(job => {
-    const matchesDept = activeDept === 'All Departments' || job.department === activeDept;
-    const matchesLocation = activeLocation === 'All Locations' || job.location === activeLocation;
-    const matchesExperience = activeExperience === 'All Experience' || job.experience === activeExperience;
+    const matchesDept = activeDept === t('careerExtended.departments.all') || job.department === activeDept;
+    const matchesLocation = activeLocation === t('careerExtended.locations.all') || job.location === activeLocation;
+    const matchesExperience = activeExperience === t('careerExtended.experiences.all') || job.experience === activeExperience;
     const matchesSearch = searchQuery === '' || 
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -164,7 +179,7 @@ export default function CareerPage() {
                 transition={{ duration: 0.5 }}
                 className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4"
               >
-                Careers at Walnut
+                {t('career.title')}
               </motion.p>
 
               <motion.h1
@@ -173,8 +188,7 @@ export default function CareerPage() {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight"
               >
-                Build Technology.{' '}
-                <span className="text-blue-600">Shape the Future.</span>
+                {t('career.subtitle')}
               </motion.h1>
 
               <motion.p
@@ -183,7 +197,7 @@ export default function CareerPage() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-slate-500 text-lg mb-8 max-w-lg leading-relaxed"
               >
-                Join Walnut Technologies and work on real-world products across medical technology, robotics, IoT, payment solutions and automotive electronics.
+                {t('career.subtitle')}
               </motion.p>
 
               <motion.div
@@ -193,11 +207,11 @@ export default function CareerPage() {
                 className="flex flex-wrap gap-4 mb-8"
               >
                 <a href="#openings" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-300">
-                  Explore Open Positions
+                  {t('careerExtended.explorePositions')}
                   <FiArrowRight className="w-4 h-4" />
                 </a>
                 <a href="#culture" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 hover:border-slate-300 text-slate-700 rounded-lg font-semibold transition-colors duration-300">
-                  Life at Walnut
+                  {t('careerExtended.lifeAtWalnut')}
                 </a>
               </motion.div>
 
@@ -207,11 +221,11 @@ export default function CareerPage() {
                 transition={{ duration: 0.7, delay: 0.4 }}
                 className="flex items-center gap-4 text-sm text-slate-500"
               >
-                <span>Engineering</span>
+                <span>{t('careerExtended.engineering')}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <span>Innovation</span>
+                <span>{t('careerExtended.innovation')}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <span>Impact</span>
+                <span>{t('careerExtended.impact')}</span>
               </motion.div>
             </div>
 
@@ -242,8 +256,8 @@ export default function CareerPage() {
                   <div className="w-0 h-0 border-l-[10px] border-l-blue-600 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1" />
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-900 text-sm">Watch Our</p>
-                  <p className="font-semibold text-slate-900 text-sm">Our Story</p>
+                  <p className="font-semibold text-slate-900 text-sm">{t('careerExtended.watchOur')}</p>
+                  <p className="font-semibold text-slate-900 text-sm">{t('careerExtended.ourStory')}</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -256,12 +270,7 @@ export default function CareerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { icon: FiBriefcase, stat: '2016', label: 'Year Founded' },
-                { icon: FiGlobe, stat: '150,000+', label: 'Sq. Ft. Manufacturing Facility' },
-                { icon: FiTrendingUp, stat: '300K+', label: 'Devices / Month Capacity' },
-                { icon: FiUsers, stat: '500+', label: 'Team Members' },
-              ].map((item, i) => (
+              {statsData.map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, y: 20 }}
@@ -285,14 +294,14 @@ export default function CareerPage() {
           <AnimatedSection>
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
-                <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">Why Walnut?</p>
+                <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.whyWalnut')}</p>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                  More Than a Job.{' '}
-                  <span className="text-slate-900">Build Something Real.</span>
+                  {t('careerExtended.moreThanJob')}{' '}
+                  <span className="text-slate-900">{t('careerExtended.buildSomethingReal')}</span>
                 </h2>
               </div>
               <p className="text-slate-500 text-lg leading-relaxed">
-                At Walnut Medical, you don't just work on projects – you work on products that move from ideas and prototypes to real-world impact.
+                {t('careerExtended.whyWalnutDesc')}
               </p>
             </div>
           </AnimatedSection>
@@ -317,9 +326,9 @@ export default function CareerPage() {
       <section id="openings" className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">Find Your Next Challenge</p>
+            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.findNextChallenge')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
-              Explore Open Opportunities
+              {t('careerExtended.exploreOpportunities')}
             </h2>
           </AnimatedSection>
 
@@ -360,7 +369,7 @@ export default function CareerPage() {
                 <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Search jobs..."
+                  placeholder={t('careerExtended.searchPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -390,7 +399,7 @@ export default function CareerPage() {
                         <job.icon className="w-6 h-6 text-blue-600" />
                       </div>
                       <span className="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                        Apply Now <FiArrowRight className="w-4 h-4" />
+                        {t('careerExtended.applyNow')} <FiArrowRight className="w-4 h-4" />
                       </span>
                     </div>
                     
@@ -417,14 +426,14 @@ export default function CareerPage() {
 
           {filteredJobs.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-slate-500 text-lg">No jobs match your filters. Try adjusting your search criteria.</p>
+              <p className="text-slate-500 text-lg">{t('careerExtended.noJobsMatch')}</p>
             </div>
           )}
 
           <AnimatedSection delay={0.3}>
             <div className="mt-8 text-center">
               <Link to="/career#openings" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-slate-50 transition-colors">
-                View All Openings
+                {t('careerExtended.viewAllOpenings')}
                 <FiArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -436,9 +445,9 @@ export default function CareerPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">Teams You Can Join</p>
+            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.teamsYouCanJoin')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
-              Find Your Place at Walnut
+              {t('careerExtended.findYourPlace')}
             </h2>
           </AnimatedSection>
 
@@ -468,16 +477,16 @@ export default function CareerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
-              <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">Life at Walnut</p>
+              <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.lifeAtWalnutTitle')}</p>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Great People.{' '}
-                <span className="text-blue-600">Great Culture.</span>
+                {t('careerExtended.greatPeople')}{' '}
+                <span className="text-blue-600">{t('careerExtended.greatCulture')}</span>
               </h2>
               <p className="text-slate-500 text-lg mb-8 leading-relaxed">
-                We are a team of curious, passionate and driven individuals who love building innovative solutions.
+                {t('careerExtended.cultureDesc')}
               </p>
               <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-white transition-colors">
-                Explore Our Culture
+                {t('careerExtended.exploreOurCulture')}
                 <FiArrowRight className="w-4 h-4" />
               </Link>
             </AnimatedSection>
@@ -504,9 +513,9 @@ export default function CareerPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">Our Hiring Process</p>
+            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.hiringProcess')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12">
-              Simple Steps, Meaningful Connections
+              {t('careerExtended.simpleSteps')}
             </h2>
           </AnimatedSection>
 
@@ -542,21 +551,21 @@ export default function CareerPage() {
               <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                    Your Next Big Idea{' '}
-                    <span className="text-blue-400">Could Start Here.</span>
+                    {t('careerExtended.cta.nextBigIdea')}{' '}
+                    <span className="text-blue-400">{t('careerExtended.cta.couldStartHere')}</span>
                   </h2>
                 </div>
                 
                 <div className="md:text-right">
                   <p className="text-white/70 mb-6">
-                    Be part of a team that builds technology that makes a difference.
+                    {t('careerExtended.cta.ctaDesc')}
                   </p>
                   <div className="flex flex-wrap gap-4 md:justify-end">
                     <a href="#openings" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors">
-                      Explore Open Roles
+                      {t('careerExtended.cta.exploreOpenRoles')}
                     </a>
                     <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg font-semibold transition-colors">
-                      Send Your Resume
+                      {t('careerExtended.cta.sendYourResume')}
                       <FiArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
