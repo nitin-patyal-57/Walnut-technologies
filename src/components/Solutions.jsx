@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft } from 'react-icons/fi';
 import { products, divisions } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
+import ProductShowcase from './ProductShowcase';
 
 const divisionIcons = {
   robotics: FiCpu,
@@ -129,32 +130,28 @@ function ProductCard({ product, index, onOpenQuote }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.1 }}
-      className="group relative text-center"
+      className="group relative text-center flex flex-col items-center"
     >
-      <div className="relative mb-3">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 md:w-36 md:h-36 bg-gradient-to-b from-slate-100 to-slate-50 rounded-full" />
-        
-        <div className="relative pt-5 pb-1">
-          <div className="w-24 h-28 md:w-28 md:h-32 mx-auto mb-1 flex items-center justify-center overflow-hidden rounded-lg">
-            <img
-              src={product.image}
-              alt={product.title}
-              className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md mix-blend-multiply"
-            />
-          </div>
-          
-          <div className="w-24 h-3 md:w-28 md:h-3 mx-auto bg-gradient-to-b from-white via-slate-100 to-slate-200 rounded-full shadow-sm border border-slate-200/50" />
+      <div className="relative mb-4 w-full flex justify-center">
+        <div className="w-44 h-44 lg:w-52 lg:h-52 bg-[#f0f2f5] rounded-full flex items-center justify-center overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-32 h-32 lg:w-40 lg:h-40 object-contain group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+          />
         </div>
       </div>
 
-      <div className="relative">
-        <h3 className="text-xs md:text-sm font-bold font-display text-slate-900 mb-1 px-1">{product.title}</h3>
-        <p className="text-xs text-slate-500 mb-2 max-w-[150px] mx-auto leading-relaxed px-1 line-clamp-2">{product.description}</p>
+      <div className="w-28 h-px bg-slate-200 mb-4" />
+
+      <div className="relative w-full">
+        <h3 className="text-sm lg:text-[15px] font-bold text-slate-900 mb-1">{product.title}</h3>
+        <p className="text-xs text-slate-500 mb-3 px-2 leading-relaxed line-clamp-2">{product.description}</p>
         
-        <div className="flex flex-wrap justify-center gap-1 px-1">
+        <div className="flex flex-wrap justify-center gap-1.5">
           {product.features.slice(0, 2).map((f) => (
-            <span key={f} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200">
-              <FiCheckCircle className="w-2 h-2 text-emerald-500" />
+            <span key={f} className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] lg:text-xs font-medium text-slate-600">
+              <FiCheckCircle className="w-3 h-3 text-emerald-500" />
               {f}
             </span>
           ))}
@@ -198,36 +195,34 @@ export default function Solutions({ onOpenQuote }) {
     return products.filter(p => p.category === selectedDivision.title);
   }, [selectedDivision, specificProductId]);
 
+  const isFintechSelected = selectedDivision?.id === 'fintech';
+
   return (
-    <section id="solutions" className="py-16 md:py-24 bg-white">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
-            {specificProductId ? (
-              <>
-                <span className="text-blue-600">{products.find(p => p.id === specificProductId)?.title || 'Product'}</span>
-              </>
-            ) : selectedDivision ? (
-              <>
-                <span className="text-blue-600">{selectedDivision.title}</span> {t('solutions.solutionsSuffix').replace('{title}', '')}
-              </>
-            ) : (
-              <>
-                {t('solutions.ourSolutions')}
-              </>
-            )}
-          </h2>
-          <p className="text-base text-slate-500 max-w-2xl mx-auto">
-            {selectedDivision
-              ? selectedDivision.description
-              : t('solutions.defaultDesc')}
-          </p>
-        </motion.div>
+    <section id="solutions" className={`bg-white ${isFintechSelected ? 'p-0 m-0' : 'py-16 md:py-24'}`}>
+      <div ref={ref} className={isFintechSelected ? 'p-0 m-0 w-full' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}>
+        {!selectedDivision && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
+              {specificProductId ? (
+                <>
+                  <span className="text-blue-600">{products.find(p => p.id === specificProductId)?.title || 'Product'}</span>
+                </>
+              ) : (
+                <>
+                  {t('solutions.ourSolutions')}
+                </>
+              )}
+            </h2>
+            <p className="text-base text-slate-500 max-w-2xl mx-auto">
+              {t('solutions.defaultDesc')}
+            </p>
+          </motion.div>
+        )}
 
         <AnimatePresence mode="wait">
           {!selectedDivision ? (
@@ -248,6 +243,11 @@ export default function Solutions({ onOpenQuote }) {
                 />
               ))}
             </motion.div>
+          ) : selectedDivision?.id === 'fintech' ? (
+            <ProductShowcase
+              key="fintech-showcase"
+              onBack={() => setSelectedDivision(null)}
+            />
           ) : (
             <motion.div
               key="products"
@@ -264,7 +264,7 @@ export default function Solutions({ onOpenQuote }) {
                 {t('solutions.allDivisions')}
               </button>
 
-              <div className={`grid gap-6 ${selectedDivision?.id === 'fintech' ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'}`}>
+              <div className="grid gap-6 lg:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {divisionProducts.map((product, index) => (
                   <ProductCard
                     key={product.id}
