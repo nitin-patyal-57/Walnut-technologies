@@ -77,7 +77,7 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
                     <FiArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </button>
                   <button
-                    onClick={onOpenQuote}
+                    onClick={() => document.getElementById('divisions-preview')?.scrollIntoView({ behavior: 'smooth' })}
                     className="px-6 py-3 bg-white/10 border border-white/20 hover:bg-white/20 text-white text-sm font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
                   >
                     <FiPlay className="w-3.5 h-3.5" />
