@@ -25,24 +25,24 @@ const categoryColorMap = {
 
 const divisionAnimations = {
   neuro: {
-    initial: { opacity: 0, rotateY: -90 },
-    animate: { opacity: 1, rotateY: 0 },
-    transition: { duration: 0.7, ease: "easeOut" },
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
   medical: {
-    initial: { opacity: 0, scale: 0.5, blur: 10 },
-    animate: { opacity: 1, scale: 1, blur: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
   fintech: {
-    initial: { opacity: 0, x: -100, skewX: 15 },
-    animate: { opacity: 1, x: 0, skewX: 0 },
-    transition: { duration: 0.7, ease: "easeOut" },
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
   automotive: {
-    initial: { opacity: 0, y: 100, rotateX: 45 },
-    animate: { opacity: 1, y: 0, rotateX: 0 },
-    transition: { duration: 0.8, ease: "easeOut" },
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
