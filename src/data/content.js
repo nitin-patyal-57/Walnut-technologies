@@ -56,10 +56,10 @@ export const trustSignals = {
 
 export const divisions = [
   {
-    id: 'robotics',
-    title: 'Robotics',
+    id: 'neuro',
+    title: 'Neuro Rehab Devices',
     subtitle: 'Advanced Rehabilitation & Gait Training Systems',
-    description: 'Cutting-edge robotics solutions for rehabilitation and gait training with AI-assisted therapy and real-time monitoring.',
+    description: 'Cutting-edge neuro rehabilitation solutions for recovery and gait training with AI-assisted therapy and real-time monitoring.',
     icon: 'robot',
     color: 'from-emerald-500 to-teal-600',
     features: ['AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready', 'Real-time Monitoring'],
@@ -117,10 +117,10 @@ export const divisions = [
 export const products = [
   {
     id: 'walklab',
-    category: 'Robotics',
+    category: 'Neuro Rehab Devices',
     title: 'WalkLab Gait Training System',
     description: 'Advanced rehabilitation robot for gait training and motor recovery. AI-assisted therapy with real-time patient monitoring and tele-rehab capabilities.',
-    image: '/walklab 3.0.jpeg',
+    image: '/neuro.jpeg',
     features: ['Rehabilitation Robot', 'AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready'],
   },
   {

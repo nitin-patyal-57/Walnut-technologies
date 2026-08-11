@@ -6,16 +6,17 @@ import { products, divisions } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 import ProductShowcase from './ProductShowcase';
 import MedicalShowcase from './MedicalShowcase';
+import NeuroShowcase from './NeuroShowcase';
 
 const divisionIcons = {
-  robotics: FiCpu,
+  neuro: FiCpu,
   medical: FiHeart,
   fintech: FiCreditCard,
   automotive: FiCpu,
 };
 
 const categoryColorMap = {
-  'Robotics': { bar: 'from-emerald-500 to-teal-600', bg: 'from-emerald-50 to-teal-50/30', border: 'border-emerald-200', iconBg: 'from-emerald-500 to-teal-600' },
+  'Neuro Rehab Devices': { bar: 'from-emerald-500 to-teal-600', bg: 'from-emerald-50 to-teal-50/30', border: 'border-emerald-200', iconBg: 'from-emerald-500 to-teal-600' },
   'Medical': { bar: 'from-cyan-500 to-blue-600', bg: 'from-cyan-50 to-blue-50/30', border: 'border-cyan-200', iconBg: 'from-cyan-500 to-blue-600' },
   'Fintech': { bar: 'from-violet-500 to-purple-600', bg: 'from-violet-50 to-purple-50/30', border: 'border-violet-200', iconBg: 'from-violet-500 to-purple-600' },
   'Automotive': { bar: 'from-amber-500 to-orange-600', bg: 'from-amber-50 to-orange-50/30', border: 'border-amber-200', iconBg: 'from-amber-500 to-orange-600' },
@@ -23,7 +24,7 @@ const categoryColorMap = {
 };
 
 const divisionAnimations = {
-  robotics: {
+  neuro: {
     initial: { opacity: 0, rotateY: -90 },
     animate: { opacity: 1, rotateY: 0 },
     transition: { duration: 0.7, ease: "easeOut" },
@@ -198,7 +199,8 @@ export default function Solutions({ onOpenQuote }) {
 
   const isFintechSelected = selectedDivision?.id === 'fintech';
   const isMedicalSelected = selectedDivision?.id === 'medical';
-  const isSpecialDivision = isFintechSelected || isMedicalSelected;
+  const isNeuroSelected = selectedDivision?.id === 'neuro';
+  const isSpecialDivision = isFintechSelected || isMedicalSelected || isNeuroSelected;
 
   return (
     <section id="solutions" className={`bg-white ${isSpecialDivision ? 'p-0 m-0' : 'py-16 md:py-24'}`}>
@@ -254,6 +256,11 @@ export default function Solutions({ onOpenQuote }) {
           ) : selectedDivision?.id === 'medical' ? (
             <MedicalShowcase
               key="medical-showcase"
+              onBack={() => setSelectedDivision(null)}
+            />
+          ) : selectedDivision?.id === 'neuro' ? (
+            <NeuroShowcase
+              key="neuro-showcase"
               onBack={() => setSelectedDivision(null)}
             />
           ) : (
