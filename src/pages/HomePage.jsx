@@ -225,7 +225,7 @@ function DivisionsPreview() {
       title: t('divisions.fintech'),
       color: '#7c3aed',
       icon: FiCreditCard,
-      image: '/Pocket Soundbox.png',
+      image: '/soundbox1.jpg',
       features: t('divisions.fintechFeatures'),
       link: '/solutions?category=Fintech',
     },
