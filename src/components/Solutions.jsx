@@ -5,6 +5,7 @@ import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft 
 import { products, divisions } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 import ProductShowcase from './ProductShowcase';
+import MedicalShowcase from './MedicalShowcase';
 
 const divisionIcons = {
   robotics: FiCpu,
@@ -196,10 +197,12 @@ export default function Solutions({ onOpenQuote }) {
   }, [selectedDivision, specificProductId]);
 
   const isFintechSelected = selectedDivision?.id === 'fintech';
+  const isMedicalSelected = selectedDivision?.id === 'medical';
+  const isSpecialDivision = isFintechSelected || isMedicalSelected;
 
   return (
-    <section id="solutions" className={`bg-white ${isFintechSelected ? 'p-0 m-0' : 'py-16 md:py-24'}`}>
-      <div ref={ref} className={isFintechSelected ? 'p-0 m-0 w-full' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}>
+    <section id="solutions" className={`bg-white ${isSpecialDivision ? 'p-0 m-0' : 'py-16 md:py-24'}`}>
+      <div ref={ref} className={isSpecialDivision ? 'p-0 m-0 w-full' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}>
         {!selectedDivision && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -246,6 +249,11 @@ export default function Solutions({ onOpenQuote }) {
           ) : selectedDivision?.id === 'fintech' ? (
             <ProductShowcase
               key="fintech-showcase"
+              onBack={() => setSelectedDivision(null)}
+            />
+          ) : selectedDivision?.id === 'medical' ? (
+            <MedicalShowcase
+              key="medical-showcase"
               onBack={() => setSelectedDivision(null)}
             />
           ) : (
