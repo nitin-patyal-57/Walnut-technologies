@@ -242,7 +242,7 @@ function DivisionsPreview() {
       title: t('divisions.robotics'),
       color: '#7c3aed',
       icon: FiActivity,
-      image: '/walklab 3.0.jpeg',
+      image: '/neuro.jpeg',
       features: t('divisions.roboticsFeatures'),
       link: '/solutions?category=Neuro Rehab Devices',
     },
