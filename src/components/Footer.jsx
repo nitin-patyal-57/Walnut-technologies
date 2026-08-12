@@ -28,7 +28,6 @@ export default function Footer() {
     ],
     [t('footer.company')]: [
       { label: t('footer.aboutUs'), to: '/about' },
-      { label: t('footer.process'), to: '/process' },
       { label: t('footer.expertise'), to: '/expertise' },
       { label: t('footer.news'), to: '/news' },
       { label: 'Clients', to: '/clients' },
