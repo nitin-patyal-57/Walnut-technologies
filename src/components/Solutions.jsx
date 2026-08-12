@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import ProductShowcase from './ProductShowcase';
 import MedicalShowcase from './MedicalShowcase';
 import NeuroShowcase from './NeuroShowcase';
+import IoTShowcase from './IoTShowcase';
 
 const divisionIcons = {
   neuro: FiCpu,
@@ -381,7 +382,14 @@ export default function Solutions({ onOpenQuote }) {
 
   useEffect(() => {
     if (selectedDivision) {
+      const isFullPageShowcase = ['fintech', 'medical', 'neuro', 'iot'].includes(selectedDivision.id);
       const el = document.getElementById('solutions');
+      if (isFullPageShowcase) {
+        const timer = setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 350);
+        return () => clearTimeout(timer);
+      }
       if (el) {
         const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
         window.scrollTo({ top: y, behavior: 'smooth' });
@@ -401,7 +409,8 @@ export default function Solutions({ onOpenQuote }) {
   const isFintechSelected = selectedDivision?.id === 'fintech';
   const isMedicalSelected = selectedDivision?.id === 'medical';
   const isNeuroSelected = selectedDivision?.id === 'neuro';
-  const isSpecialDivision = isFintechSelected || isMedicalSelected || isNeuroSelected;
+  const isIoTSelected = selectedDivision?.id === 'iot';
+  const isSpecialDivision = isFintechSelected || isMedicalSelected || isNeuroSelected || isIoTSelected;
 
   return (
     <section id="solutions" className={`relative ${isSpecialDivision ? 'p-0 m-0' : 'py-16 md:py-20'}`}>
@@ -450,6 +459,11 @@ export default function Solutions({ onOpenQuote }) {
           ) : selectedDivision?.id === 'neuro' ? (
             <NeuroShowcase
               key="neuro-showcase"
+              onBack={() => setSelectedDivision(null)}
+            />
+          ) : selectedDivision?.id === 'iot' ? (
+            <IoTShowcase
+              key="iot-showcase"
               onBack={() => setSelectedDivision(null)}
             />
           ) : (
