@@ -112,6 +112,18 @@ export const divisions = [
       { name: 'Harvester', image: '/TDCS.png' },
     ],
   },
+  {
+    id: 'iot',
+    title: 'IoT',
+    subtitle: 'Connected Smart Devices & IoT Solutions',
+    description: 'End-to-end IoT solutions with cloud connectivity, edge computing, and real-time monitoring for smart devices.',
+    icon: 'wifi',
+    color: 'from-cyan-500 to-teal-600',
+    features: ['BLE/WiFi Connected', 'Cloud Integration', 'Edge Computing', 'Real-time Monitoring'],
+    products: [
+      { name: 'IoT Smart Lock', image: '/smart lock.PNG' },
+    ],
+  },
 ];
 
 export const products = [

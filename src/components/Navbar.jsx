@@ -15,6 +15,7 @@ const navLinks = [
       { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices' },
       { label: 'Medical', to: '/solutions?category=Medical' },
       { label: 'Fintech', to: '/solutions?category=Fintech' },
+      { label: 'IoT Solutions', to: '/solutions?category=IoT' },
       { label: 'Automotive', to: '/solutions?category=Automotive' },
     ],
   },

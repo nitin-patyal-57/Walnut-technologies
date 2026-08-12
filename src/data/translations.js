@@ -305,6 +305,10 @@ const enTranslations = {
     ourSolutions: 'Our Solutions',
     defaultDesc: 'Specialized manufacturing verticals serving the most demanding industries.',
     allDivisions: 'All Divisions',
+    heroTitle: 'Electronics for the World',
+    heroDesc: 'Vertically integrated Original Design Manufacturer delivering medical devices, payment systems, and custom electronics with international certifications.',
+    heroTrusted: 'Trusted Across Divisions',
+    heroTrustedDesc: 'ISO 13485 certified, serving 20+ countries.',
   },
   chat: {
     welcome: 'Hello! How can we help you today?',
@@ -865,6 +869,10 @@ export const translations = {
       ourSolutions: '我们的解决方案',
       defaultDesc: '服务最苛刻行业的专业制造垂直领域。',
       allDivisions: '所有部门',
+      heroTitle: '面向世界的电子产品',
+      heroDesc: '垂直整合的原始设计制造商，提供医疗器械、支付系统和定制电子产品，具有国际认证。',
+      heroTrusted: '跨部门信赖',
+      heroTrustedDesc: 'ISO 13485认证，服务20多个国家。',
     },
     chat: {
       welcome: '您好！我们今天能为您提供什么帮助？',

@@ -236,7 +236,7 @@ function DivisionsPreview() {
       icon: FiWifi,
       image: '/IOT solutions.PNG',
       features: t('divisions.iotFeatures'),
-      link: '/solutions?product=iot-smart-lock',
+      link: '/solutions?category=IoT',
     },
     {
       id: 'robotics',
