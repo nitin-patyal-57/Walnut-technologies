@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import {
   FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight,
   FiZap, FiSearch, FiEdit3, FiLayers, FiSettings, FiTruck, FiHeadphones, FiTrendingUp,
-  FiWifi, FiActivity, FiAward, FiMail, FiSend, FiClock, FiTag
+  FiWifi, FiActivity, FiAward, FiMail, FiSend, FiClock, FiTag,
+  FiTarget, FiPenTool, FiBox, FiTool, FiPackage, FiUsers, FiStar, FiPhone, FiPlay
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 import { useLanguage } from '../context/LanguageContext';
@@ -15,24 +16,12 @@ function JourneySection() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const { t } = useLanguage();
 
-  const processImages = [
-    '/Idea & Requirement.webp',
-    '/Research & Market Analysis.webp',
-    '/Design & Engineering.webp',
-    '/Prototype Development.webp',
-    '/Validation & Testing.webp',
-    '/Manufacturing Engineering & Mold Design.webp',
-    '/Quality Assurance.webp',
-    '/Packaging & Dispatch.webp',
-    '/After Sales Support.webp',
-    '/Continuous Improvement.webp',
-  ];
+  const processSteps = t('journey.processSteps');
+  const leftSteps = processSteps.slice(0, 5);
+  const rightSteps = processSteps.slice(5, 10);
 
-  const processCards = t('journey.processSteps').map((step, index) => ({
-    step: index + 1,
-    ...step,
-    image: processImages[index],
-  }));
+  const leftIcons = [FiSearch, FiPenTool, FiBox, FiCheckCircle, FiTool];
+  const rightIcons = [FiPlay, FiCpu, FiShield, FiPackage, FiHeadphones];
 
   const companyJourney = [
     { year: '2016', title: t('journey.y2016Title'), description: t('journey.y2016Desc'), icon: FiZap },
@@ -48,158 +37,202 @@ function JourneySection() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px] gap-8 lg:gap-10">
+    <section className="py-12 md:py-20 bg-white" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* ===== LEFT COLUMN ===== */}
-          <div>
+        {/* Top Section: Approach + Process */}
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-6 mb-12">
 
-            {/* Hero Title */}
+          {/* ===== LEFT: OUR APPROACH ===== */}
+          <div className="flex flex-col">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="mb-8"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display leading-[1.05] tracking-tight mb-4">
-                <span className="text-slate-900">{t('journey.title')}</span>
-              </h1>
-              <p className="text-sm md:text-base text-slate-500 leading-relaxed max-w-lg">
-                {t('journey.subtitle')}
+              <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-3 block">
+                Our Approach
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-black font-display leading-[1.08] tracking-tight mb-4">
+                <span className="text-slate-900">FROM IDEA TO </span>
+                <span className="text-blue-600">LARGE SCALE.</span>
+              </h2>
+              <p className="text-sm text-slate-500 leading-relaxed mb-6 max-w-xs">
+                End-to-end product development and manufacturing powered by an Industry 5.0 ecosystem.
               </p>
-            </motion.div>
-
-            {/* Hero Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-10"
-            >
-              <div className="relative rounded-2xl overflow-hidden">
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
                   src="/Research & Market Analysis.webp"
-                  alt="Industrial collaboration"
+                  alt="Our team collaboration"
                   loading="lazy"
-                  className="w-full h-[280px] md:h-[360px] object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
-
-            {/* Our Journey - Modern Vertical Timeline */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="mb-10"
-            >
-              <div className="mb-8">
-                <h2 className="text-xl md:text-2xl font-bold font-display text-slate-900 mb-1">
-                  {t('journey.journeyTitle')}
-                </h2>
-                <p className="text-sm text-slate-500">{t('journey.journeySubtitle')}</p>
-              </div>
-
-              <div className="relative">
-                <div className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200" />
-
-                <div className="space-y-5">
-                  {companyJourney.map((item, index) => {
-                    const Icon = item.icon;
-                    return (
-                      <motion.div
-                        key={item.year}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.5, delay: 0.2 + index * 0.06 }}
-                        className="relative flex gap-4 md:gap-6"
-                      >
-                        <div className="flex-shrink-0 relative z-10">
-                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center shadow-sm">
-                            <Icon className="w-4 h-4 md:w-5 md:h-5 text-slate-600" />
-                          </div>
-                        </div>
-
-                        <div className="flex-1 pb-1">
-                          <div className="group p-4 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-lg transition-all duration-300">
-                            <div className="flex items-start justify-between gap-3">
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1.5">
-                                  <span className="px-2 py-0.5 text-xs font-bold bg-slate-900 text-white rounded-md">
-                                    {item.year}
-                                  </span>
-                                  <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                                    {item.title}
-                                  </h3>
-                                </div>
-                                <p className="text-xs text-slate-500 leading-relaxed">
-                                  {item.description}
-                                </p>
-                              </div>
-                              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-slate-200 flex items-center justify-center transition-colors">
-                                <FiArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 group-hover:translate-x-0.5 transition-all" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-
-                <div className="absolute left-[15px] md:left-[19px] -bottom-2 w-6 h-6 rounded-full bg-slate-900 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-white" />
-                </div>
-              </div>
-            </motion.div>
-
           </div>
 
-          {/* ===== RIGHT COLUMN - Journey in Detail ===== */}
-          <div className="hidden lg:block">
-            <div className="lg:sticky lg:top-24">
-              <div className="mb-5">
-                <h2 className="text-base font-bold font-display text-slate-900 uppercase tracking-wider">
-                  {t('journey.processTitle')}
-                </h2>
+          {/* ===== RIGHT: OUR PROCESS WHEEL ===== */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative"
+          >
+            <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-3 block text-center lg:text-left">
+              Our Process
+            </span>
+
+            <div className="relative flex items-start gap-4">
+
+              {/* Left Process Steps */}
+              <div className="flex-1 flex flex-col gap-3 pt-2">
+                {leftSteps.map((step, i) => {
+                  const Icon = leftIcons[i];
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                      className="flex items-start gap-3 group"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
+                        <Icon className="w-4.5 h-4.5 text-blue-600" />
+                      </div>
+                      <div className="pt-0.5">
+                        <div className="text-[10px] font-bold text-blue-600 mb-0.5">
+                          0{i + 1}
+                        </div>
+                        <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">
+                          {step.title}
+                        </h4>
+                        <p className="text-[11px] text-slate-500 leading-snug">
+                          {step.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
 
-              <div className="space-y-3">
-                {processCards.map((item, index) => (
-                  <motion.div
-                    key={item.step}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
-                    className="group flex items-stretch gap-0 rounded-xl border border-slate-100 bg-white overflow-hidden hover:border-slate-200 hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="flex-1 p-3 flex flex-col justify-center">
-                      <div className="text-xs font-bold text-slate-400 mb-1">
-                        {t('journey.stepLabel')} {item.step}
+              {/* Center Circle - IDEA TO IMPACT */}
+              <div className="hidden md:flex flex-col items-center justify-center shrink-0 pt-8">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="relative w-40 h-40 lg:w-48 lg:h-48"
+                >
+                  {/* Outer ring */}
+                  <div className="absolute inset-0 rounded-full border-2 border-dashed border-blue-200" />
+                  {/* Inner circle */}
+                  <div className="absolute inset-3 rounded-full bg-gradient-to-br from-blue-50 to-white border border-blue-100 flex flex-col items-center justify-center shadow-lg shadow-blue-100/50">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-2">
+                      <FiTarget className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <span className="text-xs font-black text-slate-900 uppercase tracking-wider text-center leading-tight">
+                      IDEA TO<br/>IMPACT
+                    </span>
+                  </div>
+                  {/* Connecting dots */}
+                  {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+                    <div
+                      key={deg}
+                      className="absolute w-2 h-2 rounded-full bg-blue-400"
+                      style={{
+                        top: `${50 + 48 * Math.sin((deg * Math.PI) / 180)}%`,
+                        left: `${50 + 48 * Math.cos((deg * Math.PI) / 180)}%`,
+                        transform: 'translate(-50%, -50%)',
+                      }}
+                    />
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Right Process Steps */}
+              <div className="flex-1 flex flex-col gap-3 pt-2">
+                {rightSteps.map((step, i) => {
+                  const Icon = rightIcons[i];
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                      className="flex items-start gap-3 group text-right flex-row-reverse"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
+                        <Icon className="w-4.5 h-4.5 text-blue-600" />
                       </div>
-                      <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">
+                      <div className="pt-0.5">
+                        <div className="text-[10px] font-bold text-blue-600 mb-0.5">
+                          0{i + 6}
+                        </div>
+                        <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">
+                          {step.title}
+                        </h4>
+                        <p className="text-[11px] text-slate-500 leading-snug">
+                          {step.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* ===== OUR JOURNEY - Horizontal Timeline ===== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-3 block">
+            Our Journey
+          </span>
+
+          <div className="relative overflow-x-auto pb-4 -mx-4 px-4">
+            {/* Timeline line */}
+            <div className="absolute top-5 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200" />
+
+            <div className="flex gap-0 min-w-max relative">
+              {companyJourney.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.year}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.05 }}
+                    className="flex flex-col items-center w-[120px] lg:w-[130px] relative"
+                  >
+                    {/* Dot */}
+                    <div className="w-3.5 h-3.5 rounded-full bg-blue-600 border-4 border-white shadow-md z-10 mt-3" />
+
+                    {/* Content */}
+                    <div className="mt-3 text-center px-1">
+                      <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-2">
+                        <Icon className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <span className="text-xs font-bold text-blue-600 block mb-0.5">{item.year}</span>
+                      <h4 className="text-[10px] font-bold text-slate-900 uppercase tracking-wider mb-1 leading-tight">
                         {item.title}
-                      </h3>
-                      <p className="text-xs text-slate-500 leading-relaxed">
+                      </h4>
+                      <p className="text-[9px] text-slate-500 leading-snug">
                         {item.description}
                       </p>
                     </div>
-                    <div className="w-[120px] md:w-[140px] flex-shrink-0">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
                   </motion.div>
-                ))}
-              </div>
+                );
+              })}
             </div>
           </div>
+        </motion.div>
 
-        </div>
       </div>
     </section>
   );
@@ -210,9 +243,9 @@ function DivisionsPreview() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const { t } = useLanguage();
 
-  const divisionsData = [
+  const solutions = [
     {
-      id: 'medical',
+      num: '01',
       title: t('divisions.medical'),
       color: '#2563eb',
       icon: FiHeart,
@@ -221,7 +254,7 @@ function DivisionsPreview() {
       link: '/solutions?category=Medical',
     },
     {
-      id: 'fintech',
+      num: '02',
       title: t('divisions.fintech'),
       color: '#7c3aed',
       icon: FiCreditCard,
@@ -230,7 +263,7 @@ function DivisionsPreview() {
       link: '/solutions?category=Fintech',
     },
     {
-      id: 'iot',
+      num: '03',
       title: t('divisions.iot'),
       color: '#0891b2',
       icon: FiWifi,
@@ -239,7 +272,7 @@ function DivisionsPreview() {
       link: '/solutions?category=IoT',
     },
     {
-      id: 'robotics',
+      num: '04',
       title: t('divisions.robotics'),
       color: '#7c3aed',
       icon: FiActivity,
@@ -248,7 +281,7 @@ function DivisionsPreview() {
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {
-      id: 'automotive',
+      num: '05',
       title: t('divisions.automotive'),
       color: '#059669',
       icon: FiCpu,
@@ -257,7 +290,7 @@ function DivisionsPreview() {
       link: '/solutions?category=Automotive',
     },
     {
-      id: 'custom',
+      num: '06',
       title: t('divisions.custom'),
       color: '#d97706',
       icon: FiSettings,
@@ -267,6 +300,9 @@ function DivisionsPreview() {
     },
   ];
 
+  const leftSolutions = solutions.slice(0, 3);
+  const rightSolutions = solutions.slice(3, 6);
+
   const trustBadges = [
     { icon: FiShield, title: t('divisions.quality'), description: t('divisions.qualityDesc') },
     { icon: FiAward, title: t('divisions.certified'), description: t('divisions.certifiedDesc') },
@@ -275,136 +311,137 @@ function DivisionsPreview() {
   ];
 
   return (
-    <section id="divisions-preview" className="relative py-16 md:py-24 overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]">
-        <svg className="w-full h-full" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 300C200 200 400 400 600 300C800 200 1000 400 1200 300C1400 200 1440 300 1440 300V0H0V300Z" fill="url(#wave)" />
-          <defs>
-            <linearGradient id="wave" x1="0" y1="0" x2="1440" y2="0">
-              <stop offset="0%" stopColor="#2563eb" />
-              <stop offset="100%" stopColor="#7c3aed" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      {/* Network dots pattern */}
-      <div className="absolute top-10 right-10 w-64 h-64 opacity-[0.04]">
-        <svg className="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="2" fill="#2563eb" />
-          <circle cx="60" cy="40" r="2" fill="#2563eb" />
-          <circle cx="100" cy="20" r="2" fill="#2563eb" />
-          <circle cx="140" cy="60" r="2" fill="#7c3aed" />
-          <circle cx="180" cy="30" r="2" fill="#7c3aed" />
-          <circle cx="40" cy="80" r="2" fill="#2563eb" />
-          <circle cx="80" cy="100" r="2" fill="#2563eb" />
-          <circle cx="120" cy="80" r="2" fill="#7c3aed" />
-          <circle cx="160" cy="120" r="2" fill="#7c3aed" />
-          <circle cx="20" cy="140" r="2" fill="#2563eb" />
-          <circle cx="60" cy="160" r="2" fill="#2563eb" />
-          <circle cx="100" cy="140" r="2" fill="#7c3aed" />
-          <circle cx="140" cy="180" r="2" fill="#7c3aed" />
-          <circle cx="180" cy="160" r="2" fill="#7c3aed" />
-          <line x1="20" y1="20" x2="60" y2="40" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
-          <line x1="60" y1="40" x2="100" y2="20" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
-          <line x1="100" y1="20" x2="140" y2="60" stroke="#7c3aed" strokeWidth="0.5" opacity="0.3" />
-          <line x1="40" y1="80" x2="80" y2="100" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
-          <line x1="80" y1="100" x2="120" y2="80" stroke="#7c3aed" strokeWidth="0.5" opacity="0.3" />
-          <line x1="20" y1="140" x2="60" y2="160" stroke="#2563eb" strokeWidth="0.5" opacity="0.3" />
-          <line x1="60" y1="160" x2="100" y2="140" stroke="#7c3aed" strokeWidth="0.5" opacity="0.3" />
-        </svg>
-      </div>
+    <section id="divisions-preview" className="relative py-10 md:py-14 bg-white" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold mb-5 uppercase tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-            {t('nav.solutions')}
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold font-display text-slate-900 mb-4 leading-tight">
-            {t('divisions.title')}
-          </h2>
-          <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto leading-relaxed">
-            {t('divisions.subtitle')}
-          </p>
-        </motion.div>
+        {/* Top: Solutions Grid + Title */}
+        <div className="grid lg:grid-cols-[1fr_240px] gap-6 lg:gap-4 items-start mb-8">
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-12 md:mb-16">
-          {divisionsData.map((div, index) => (
-            <motion.div
-              key={div.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
-            >
-              <Link
-                to={div.link}
-                className="group flex items-stretch bg-white rounded-2xl border border-slate-200/80 hover:border-slate-300 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[200px]"
-              >
-                {/* Content - Left Side */}
-                <div className="flex-1 p-5 md:p-6 flex flex-col justify-between">
-                  <div>
-                    {/* Icon */}
-                    <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-                      style={{ backgroundColor: `${div.color}10`, border: `1px solid ${div.color}20` }}
+          {/* ===== LEFT: 3x2 Grid with Center Wheel ===== */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+
+              {/* Left column (01, 03, 05) */}
+              <div className="flex flex-col gap-3">
+                {leftSolutions.map((sol, i) => (
+                  <motion.div
+                    key={sol.num}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+                  >
+                    <Link
+                      to={sol.link}
+                      className="group flex items-center gap-3 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 overflow-hidden p-2.5"
                     >
-                      <div.icon className="w-5 h-5" style={{ color: div.color }} />
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
+                        <img src={sol.image} alt={sol.title} loading="lazy" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                      </div>
+                      <div className="flex items-center gap-2 min-w-0">
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${sol.color}10`, border: `1px solid ${sol.color}20` }}>
+                          <sol.icon className="w-4 h-4" style={{ color: sol.color }} />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-[9px] font-bold" style={{ color: sol.color }}>{sol.num}</span>
+                          <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">{sol.title}</h4>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Center Circle */}
+              <div className="hidden md:flex flex-col items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="relative w-32 h-32 lg:w-36 lg:h-36"
+                >
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="85" fill="none" stroke="#e2e8f0" strokeWidth="2" />
+                    <circle cx="100" cy="100" r="85" fill="none" stroke="#22c55e" strokeWidth="4" strokeDasharray="60 470" strokeDashoffset="0" strokeLinecap="round" />
+                    <circle cx="100" cy="100" r="85" fill="none" stroke="#f97316" strokeWidth="4" strokeDasharray="60 470" strokeDashoffset="-130" strokeLinecap="round" />
+                    <circle cx="100" cy="100" r="85" fill="none" stroke="#8b5cf6" strokeWidth="4" strokeDasharray="60 470" strokeDashoffset="-260" strokeLinecap="round" />
+                    {[0, 60, 120, 180, 240, 300].map((deg) => (
+                      <circle key={deg} cx={100 + 85 * Math.cos((deg * Math.PI) / 180)} cy={100 + 85 * Math.sin((deg * Math.PI) / 180)} r="3" fill="white" stroke="#e2e8f0" strokeWidth="2" />
+                    ))}
+                  </svg>
+                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-blue-50 to-white border border-blue-100 flex flex-col items-center justify-center shadow-lg shadow-blue-100/50 text-center p-2">
+                    <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mb-1">
+                      <FiAward className="w-3.5 h-3.5 text-blue-600" />
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-base md:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-3">
-                      {div.title}
-                    </h3>
-
-                    {/* Features */}
-                    <ul className="space-y-2">
-                      {div.features.map((f, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-slate-600">
-                          <FiCheckCircle className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <span className="text-[9px] font-black text-slate-900 uppercase tracking-wider leading-tight">End-to-End</span>
+                    <span className="text-[9px] font-black text-blue-600 uppercase tracking-wider leading-tight">Engineering</span>
+                    <span className="text-[8px] font-bold text-slate-500 uppercase tracking-wider">Excellence</span>
                   </div>
+                </motion.div>
+              </div>
 
-                  {/* Explore Link */}
-                  <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
-                    {t('divisions.explore')}
-                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-slate-200 group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
-                      <FiArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 transition-colors" />
-                    </span>
-                  </div>
-                </div>
+              {/* Right column (02, 04, 06) */}
+              <div className="flex flex-col gap-3">
+                {rightSolutions.map((sol, i) => (
+                  <motion.div
+                    key={sol.num}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
+                  >
+                    <Link
+                      to={sol.link}
+                      className="group flex items-center gap-3 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 overflow-hidden p-2.5"
+                    >
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
+                        <img src={sol.image} alt={sol.title} loading="lazy" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                      </div>
+                      <div className="flex items-center gap-2 min-w-0">
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${sol.color}10`, border: `1px solid ${sol.color}20` }}>
+                          <sol.icon className="w-4 h-4" style={{ color: sol.color }} />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-[9px] font-bold" style={{ color: sol.color }}>{sol.num}</span>
+                          <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">{sol.title}</h4>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
 
-                {/* Image - Right Side */}
-                <div className="w-[140px] md:w-[160px] flex items-center justify-center shrink-0 bg-gradient-to-br from-slate-50 to-slate-100/50 p-4">
-                  <img
-                    src={div.image}
-                    alt={div.title}
-                    loading="lazy"
-                    className="max-w-full max-h-[140px] object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          {/* ===== RIGHT: Title ===== */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-2 block">
+              Solutions
+            </span>
+            <h2 className="text-2xl md:text-3xl lg:text-[1.8rem] font-black font-display leading-[1.1] tracking-tight mb-3">
+              <span className="text-slate-900">Technology That Powers </span>
+              <span className="text-blue-600">Every Connection</span>
+            </h2>
+            <p className="text-xs text-slate-500 leading-relaxed max-w-[240px]">
+              High-performance engineering solutions across industries, built for reliability, compliance, and scale. From concept to delivery, we ensure every product meets the highest standards of quality and performance — empowering businesses worldwide with cutting-edge technology.
+            </p>
+          </motion.div>
+
         </div>
 
-        {/* Trust Badges */}
+        {/* ===== TRUST BADGES - Bottom Horizontal ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {trustBadges.map((badge, index) => {
             const BadgeIcon = badge.icon;
@@ -413,20 +450,21 @@ function DivisionsPreview() {
                 key={badge.title}
                 initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.7 + index * 0.08 }}
-                className="flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300"
+                transition={{ duration: 0.4, delay: 0.6 + index * 0.08 }}
+                className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
                   <BadgeIcon className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-sm font-bold text-slate-900 mb-0.5">{badge.title}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">{badge.description}</p>
+                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">{badge.title}</h4>
+                  <p className="text-[10px] text-slate-500 leading-snug">{badge.description}</p>
                 </div>
               </motion.div>
             );
           })}
         </motion.div>
+
       </div>
     </section>
   );
@@ -482,12 +520,12 @@ function ClientsCertifications() {
   ];
 
   const clients = [
-    t('clients.client1'),
-    t('clients.client2'),
-    t('clients.client3'),
-    t('clients.client4'),
-    t('clients.client5'),
-    t('clients.client6'),
+    { name: t('clients.client1'), logo: '/clients/hdfc-bank.svg' },
+    { name: t('clients.client2'), logo: '/clients/sbi.svg' },
+    { name: t('clients.client3'), logo: '/clients/paytm.svg' },
+    { name: t('clients.client4'), logo: '/clients/bharatpe.svg' },
+    { name: t('clients.client5'), logo: '/clients/apollo.svg' },
+    { name: t('clients.client6'), logo: '/clients/indian-army.svg' },
   ];
 
   return (
@@ -552,18 +590,18 @@ function ClientsCertifications() {
             <div className="grid sm:grid-cols-2 gap-4">
               {clients.map((client, index) => (
                 <motion.div
-                  key={client}
+                  key={client.name}
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.08 }}
                   className="p-4 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center shrink-0">
-                      <FiGlobe className="w-5 h-5 text-white" />
+                    <div className="w-16 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden p-1">
+                      <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">{client}</h4>
+                      <h4 className="text-sm font-bold text-slate-900">{client.name}</h4>
                       <p className="text-xs text-slate-500">{t('clients.trusted')}</p>
                     </div>
                   </div>
