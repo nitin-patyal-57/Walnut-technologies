@@ -24,6 +24,8 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
           src="/home background.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-800/70" />
       </div>

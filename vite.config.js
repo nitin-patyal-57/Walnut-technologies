@@ -18,5 +18,6 @@ export default defineConfig({
       },
     },
     target: 'es2015',
+    cssMinify: true,
   },
 })
