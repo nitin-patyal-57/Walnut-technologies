@@ -31,7 +31,7 @@ export const about = {
     { label: 'Years of Excellence', value: '10+' },
     { label: 'Engineers & Technicians', value: '400+' },
     { label: 'Countries Served', value: '20+' },
-    { label: 'Units Manufactured/Month', value: '300K+' },
+    { label: 'Units Manufactured/Month', value: '500K+' },
     { label: 'Facility Size', value: '150,000 sq.ft' },
     { label: 'SMT Production Lines', value: '4' },
   ],
@@ -42,7 +42,7 @@ export const trustSignals = {
     { label: 'Years of Excellence', value: '10+' },
     { label: 'Engineers & Technicians', value: '400+' },
     { label: 'Countries Served', value: '20+' },
-    { label: 'Units Manufactured/Month', value: '300K+' },
+    { label: 'Units Manufactured/Month', value: '500K+' },
   ],
   certifications: [
     'ISO 13485 Certified',
@@ -476,7 +476,7 @@ export const expertise = [
   },
   {
     title: 'Manufacturing & Assembly',
-    description: '4 advanced SMT lines with 300K+ units per month capacity and 99.8% yield.',
+    description: '4 advanced SMT lines with 500K+ units per month capacity and 99.8% yield.',
     icon: 'gear',
     image: '/TDCS.webp',
     areas: ['SMT Assembly', 'Box Build', 'Conformal Coating', 'In-Circuit Testing'],
@@ -515,7 +515,7 @@ export const clientSectors = [
   {
     sector: 'Healthcare',
     description: 'Hospitals, clinics, and medical device companies',
-    clients: ['Apollo', 'Fortis', 'Manipal', 'Medanta'],
+    clients: ['Apollo Hospitals', 'Fortis', 'Manipal', 'Medanta'],
     icon: 'hospital',
     image: '/RTMS.webp',
     gradient: 'from-emerald-500 to-teal-600',
@@ -529,9 +529,9 @@ export const clientSectors = [
     gradient: 'from-red-500 to-rose-600',
   },
   {
-    sector: 'Government & Public Sector',
-    description: 'Large-scale electronics deployments for government initiatives',
-    clients: ['DGHS', 'ESIC', 'Indian Railways'],
+    sector: 'Banking & Payments',
+    description: 'POS terminals, soundboxes, and payment devices',
+    clients: ['HDFC Bank', 'SBI', 'Paytm', 'BharatPe'],
     icon: 'gov',
     image: '/soundbox (3).webp',
     gradient: 'from-blue-500 to-indigo-600',

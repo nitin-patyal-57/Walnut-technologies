@@ -145,7 +145,7 @@ export default function CareerPage() {
   const statsData = [
     { icon: FiBriefcase, stat: '2016', label: t('careerExtended.stats.yearFounded') },
     { icon: FiGlobe, stat: '150,000+', label: t('careerExtended.stats.manufacturingFacility') },
-    { icon: FiTrendingUp, stat: '300K+', label: t('careerExtended.stats.devicesCapacity') },
+    { icon: FiTrendingUp, stat: '500K+', label: t('careerExtended.stats.devicesCapacity') },
     { icon: FiUsers, stat: '400+', label: t('careerExtended.stats.teamMembers') },
   ];
 

@@ -50,7 +50,7 @@ const capabilities = [
     number: 3,
     title: 'Manufacturing & Assembly',
     subtitle: 'High-volume IoT production',
-    description: 'Scalable manufacturing with 4 SMT lines and 300K+ units per month capacity. Full traceability from component to finished connected device.',
+    description: 'Scalable manufacturing with 4 SMT lines and 500K+ units per month capacity. Full traceability from component to finished connected device.',
     bulletPoints: ['SMT & PCB Assembly', 'Antenna Tuning & RF Testing', 'Firmware Flashing & Calibration', 'End-of-Line Functional Testing'],
   },
   {

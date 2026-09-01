@@ -63,7 +63,7 @@ export default function ContactPage({ onOpenQuote }) {
   const stats = [
     { icon: FiClock, value: '2016', label: t('about.trustedSince') },
     { icon: FiServer, value: '150,000+', label: t('contact.sqFtFacility') },
-    { icon: FiBox, value: '300K+', label: t('contact.monthlyCapacity') },
+    { icon: FiBox, value: '500K+', label: t('contact.monthlyCapacity') },
     { icon: FiUsers, value: '400+', label: t('stats.engineers') },
   ];
 

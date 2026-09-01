@@ -441,7 +441,7 @@ function StatsSection() {
     { value: '10+', label: t('stats.years') },
     { value: '400+', label: t('stats.engineers') },
     { value: '20+', label: t('stats.countries') },
-    { value: '300K+', label: t('stats.units') },
+    { value: '500K+', label: t('stats.units') },
     { value: '150,000 sq.ft', label: t('stats.facility') },
     { value: '4', label: t('stats.smt') },
   ];

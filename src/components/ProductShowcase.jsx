@@ -24,7 +24,7 @@ const services = [
     title: 'Finish Soundbox Hardware',
     subtitle: 'In customer branding',
     description: 'Experience the ultimate in bespoke hardware solutions with our end-to-end Soundbox hardware system, customized to reflect your brand.',
-    highlights: ['Custom Branding', '300K+ Units/Month', 'End-to-End Solution'],
+    highlights: ['Custom Branding', '500K+ Units/Month', 'End-to-End Solution'],
   },
   {
     number: 2,

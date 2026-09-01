@@ -259,7 +259,7 @@ const expertiseData = {
     intro: 'Scaling from prototype to mass production is where most companies stumble. Not Walnut Technologies. With 4 advanced SMT lines, 300,000+ units monthly capacity, and a 150,000 sq.ft state-of-the-art facility, we deliver consistent quality at volumes that fuel global market demands. Our vertically integrated operations eliminate bottlenecks and ensure on-time delivery.',
     whyChooseUs: [
       '4 High-Speed SMT Production Lines',
-      '300K+ Units Monthly Capacity',
+      '500K+ Units Monthly Capacity',
       '150,000 Sq.Ft Manufacturing Facility',
       'Vertical Integration: PCB to Final Assembly',
       'Class 10K Cleanroom for Sensitive Products',
@@ -274,7 +274,7 @@ const expertiseData = {
       { title: 'Packaging & Logistics', description: 'Custom packaging design, labeling, and global shipping coordination.' },
     ],
     stats: [
-      { value: '300K+', label: 'Units Per Month' },
+      { value: '500K+', label: 'Units Per Month' },
       { value: '4', label: 'SMT Lines' },
       { value: '99.8%', label: 'First-Pass Yield' },
       { value: '150K', label: 'Sq.Ft Facility' },

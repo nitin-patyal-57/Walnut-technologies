@@ -8,7 +8,7 @@ const heroStats = [
   { value: '2016', label: 'Founded' },
   { value: '400+', label: 'Engineers' },
   { value: '20+', label: 'Countries' },
-  { value: '300K+', label: 'Units/Month' },
+  { value: '500K+', label: 'Units/Month' },
   { value: '150K', label: 'sq.ft Facility' },
   { value: '4', label: 'SMT Lines' },
 ];
