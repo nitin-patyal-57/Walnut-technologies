@@ -91,7 +91,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
-        className={`fixed bottom-20 lg:bottom-6 right-6 z-50 w-12 h-12 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 ${
+        className={`fixed bottom-24 lg:bottom-6 right-6 z-50 w-12 h-12 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 ${
           isOpen
             ? 'bg-slate-700 text-white scale-90'
             : 'bg-slate-900 text-white hover:scale-110'
