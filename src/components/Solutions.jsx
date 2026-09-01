@@ -442,9 +442,6 @@ export default function Solutions({ onOpenQuote }) {
 
               {/* Features Section */}
               <FeaturesSection />
-
-              {/* Stats Section */}
-              <StatsSection />
             </motion.div>
           ) : selectedDivision?.id === 'fintech' ? (
             <ProductShowcase
