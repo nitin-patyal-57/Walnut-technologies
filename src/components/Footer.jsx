@@ -64,7 +64,7 @@ export default function Footer() {
           {/* Brand & Contact */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <a href="/" onClick={() => window.location.reload()} className="inline-block mb-3">
-              <img src="/walnut-logo/svg/logo-transparent.svg" alt="Walnut Technologies" className="h-8 w-auto object-contain brightness-0 invert" />
+              <img src="/walnut-logo/walnut_technologies_logo.svg" alt="Walnut Technologies" className="h-8 w-auto object-contain brightness-0 invert" />
             </a>
             <p className="text-xs text-slate-400 leading-relaxed mb-4 max-w-[240px]">
               {t('footer.desc')}
