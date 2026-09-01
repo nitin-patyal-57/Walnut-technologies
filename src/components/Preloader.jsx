@@ -61,7 +61,7 @@ export default function Preloader() {
               className="relative z-10 mb-2"
             >
               <motion.img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Walnut Technologies"
                 className="w-52 h-52 object-contain"
                 animate={{

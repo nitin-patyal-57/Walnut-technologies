@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
 
 const solutionCategories = [
-  { id: 'walklab', title: 'Walk Lab', image: '/walklab 3.0.jpeg', link: '/solutions?product=walklab' },
+  { id: 'walklab', title: 'Walk Lab', image: '/walklab 3.0.webp', link: '/solutions?product=walklab' },
   { id: 'bp-monitor', title: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp', link: '/solutions?product=bp-monitor' },
-  { id: 'thermometer', title: 'IR Thermometer', image: '/TDCS.png', link: '/solutions?product=thermometer' },
-  { id: 'oxygen-concentrator', title: 'Oxygen Concentrator', image: '/RTMS.png', link: '/solutions?product=oxygen-concentrator' },
-  { id: 'nebulizer', title: 'Compressor Nebulizer', image: '/CES repose.png', link: '/solutions?product=nebulizer' },
-  { id: 'single-sim', title: 'Single SIM Model', image: '/paytm soundbox.png', link: '/solutions?product=single-sim' },
-  { id: 'double-sim', title: 'Double SIM Model', image: '/Pocket Soundbox.png', link: '/solutions?product=double-sim' },
-  { id: 'with-display', title: 'With Display Model', image: '/soundbox (2).png', link: '/solutions?product=with-display' },
+  { id: 'thermometer', title: 'IR Thermometer', image: '/TDCS.webp', link: '/solutions?product=thermometer' },
+  { id: 'oxygen-concentrator', title: 'Oxygen Concentrator', image: '/RTMS.webp', link: '/solutions?product=oxygen-concentrator' },
+  { id: 'nebulizer', title: 'Compressor Nebulizer', image: '/CES repose.webp', link: '/solutions?product=nebulizer' },
+  { id: 'single-sim', title: 'Single SIM Model', image: '/paytm soundbox.webp', link: '/solutions?product=single-sim' },
+  { id: 'double-sim', title: 'Double SIM Model', image: '/Pocket Soundbox.webp', link: '/solutions?product=double-sim' },
+  { id: 'with-display', title: 'With Display Model', image: '/soundbox (2).webp', link: '/solutions?product=with-display' },
 ];
 
 function CategoryCard({ category, index, isInView }) {

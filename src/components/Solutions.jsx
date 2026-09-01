@@ -56,7 +56,7 @@ function HeroBanner({ onSelect }) {
     >
       {/* Background image */}
       <img
-        src="/gpsgatewaybackground.png"
+        src="/gpsgatewaybackground.webp"
         alt="GPS Gateway Background"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -150,25 +150,25 @@ function FeaturesSection() {
     {
       title: 'GPS Gateway',
       desc: 'Reliable tracking and connectivity for industrial and logistics applications.',
-      image: '/GPS Gateway.png',
+      image: '/GPS Gateway.webp',
       icon: FiWifi,
     },
     {
       title: 'Bharat Pay Solutions',
       desc: 'Secure payment terminals powering digital transactions across India.',
-      image: '/bharatpay m.png',
+      image: '/bharatpay m.webp',
       icon: FiCreditCard,
     },
     {
       title: 'MedStim Neuro Devices',
       desc: 'Advanced neurostimulation therapy for accelerated recovery.',
-      image: '/medstim new.png',
+      image: '/medstim new.webp',
       icon: FiCpu,
     },
     {
       title: 'Smart Lock Systems',
       desc: 'Connected IoT locks with BLE/WiFi and cloud integration.',
-      image: '/smartlock.png',
+      image: '/smartlock.webp',
       icon: FiWifi,
     },
   ];

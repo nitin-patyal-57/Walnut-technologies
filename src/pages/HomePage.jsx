@@ -16,16 +16,16 @@ function JourneySection() {
   const { t } = useLanguage();
 
   const processImages = [
-    '/Idea & Requirement.jpg',
-    '/Research & Market Analysis.jpg',
-    '/Design & Engineering.jpg',
-    '/Prototype Development.jpg',
-    '/Validation & Testing.jpg',
-    '/Manufacturing Engineering & Mold Design.jpg',
-    '/Quality Assurance.jpg',
-    '/Packaging & Dispatch.jpg',
-    '/After Sales Support.jpg',
-    '/Continuous Improvement.jpg',
+    '/Idea & Requirement.webp',
+    '/Research & Market Analysis.webp',
+    '/Design & Engineering.webp',
+    '/Prototype Development.webp',
+    '/Validation & Testing.webp',
+    '/Manufacturing Engineering & Mold Design.webp',
+    '/Quality Assurance.webp',
+    '/Packaging & Dispatch.webp',
+    '/After Sales Support.webp',
+    '/Continuous Improvement.webp',
   ];
 
   const processCards = t('journey.processSteps').map((step, index) => ({
@@ -79,7 +79,7 @@ function JourneySection() {
             >
               <div className="relative rounded-2xl overflow-hidden">
                 <img
-                  src="/Research & Market Analysis.jpg"
+                  src="/Research & Market Analysis.webp"
                   alt="Industrial collaboration"
                   loading="lazy"
                   className="w-full h-[280px] md:h-[360px] object-cover"
@@ -216,7 +216,7 @@ function DivisionsPreview() {
       title: t('divisions.medical'),
       color: '#2563eb',
       icon: FiHeart,
-      image: '/RTMS.png',
+      image: '/RTMS.webp',
       features: t('divisions.medicalFeatures'),
       link: '/solutions?category=Medical',
     },
@@ -225,7 +225,7 @@ function DivisionsPreview() {
       title: t('divisions.fintech'),
       color: '#7c3aed',
       icon: FiCreditCard,
-      image: '/soundbox1.jpg',
+      image: '/soundbox1.webp',
       features: t('divisions.fintechFeatures'),
       link: '/solutions?category=Fintech',
     },
@@ -234,7 +234,7 @@ function DivisionsPreview() {
       title: t('divisions.iot'),
       color: '#0891b2',
       icon: FiWifi,
-      image: '/IOT solutions.PNG',
+      image: '/IOT solutions.webp',
       features: t('divisions.iotFeatures'),
       link: '/solutions?category=IoT',
     },
@@ -243,7 +243,7 @@ function DivisionsPreview() {
       title: t('divisions.robotics'),
       color: '#7c3aed',
       icon: FiActivity,
-      image: '/walklab 3.0.jpeg',
+      image: '/walklab 3.0.webp',
       features: t('divisions.roboticsFeatures'),
       link: '/solutions?category=Neuro Rehab Devices',
     },
@@ -252,7 +252,7 @@ function DivisionsPreview() {
       title: t('divisions.automotive'),
       color: '#059669',
       icon: FiCpu,
-      image: '/cluster.png',
+      image: '/cluster.webp',
       features: t('divisions.automotiveFeatures'),
       link: '/solutions?category=Automotive',
     },
@@ -261,7 +261,7 @@ function DivisionsPreview() {
       title: t('divisions.custom'),
       color: '#d97706',
       icon: FiSettings,
-      image: '/custom solutions.jpg',
+      image: '/custom solutions.webp',
       features: t('divisions.customFeatures'),
       link: '/solutions',
     },

@@ -64,7 +64,7 @@ export const divisions = [
     color: 'from-emerald-500 to-teal-600',
     features: ['AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready', 'Real-time Monitoring'],
     products: [
-      { name: 'Walk Lab', image: '/walklab 3.0.jpeg' },
+      { name: 'Walk Lab', image: '/walklab 3.0.webp' },
     ],
   },
   {
@@ -77,9 +77,9 @@ export const divisions = [
     features: ['FDA Compliant', 'Class 10K Cleanroom', 'ISO 13485', 'IEC 60601'],
     products: [
       { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp' },
-      { name: 'IR Thermometer', image: '/TDCS.png' },
-      { name: 'Oxygen Concentrator', image: '/RTMS.png' },
-      { name: 'Walnut Compressor Nebulizer', image: '/CES repose.png' },
+      { name: 'IR Thermometer', image: '/TDCS.webp' },
+      { name: 'Oxygen Concentrator', image: '/RTMS.webp' },
+      { name: 'Walnut Compressor Nebulizer', image: '/CES repose.webp' },
     ],
   },
   {
@@ -91,12 +91,12 @@ export const divisions = [
     color: 'from-violet-500 to-purple-600',
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
-      { name: 'Single Sim Model', image: '/soundbox.png' },
-      { name: 'Double Sim Model', image: '/Pocket Soundbox.png' },
-      { name: 'With Display Model', image: '/soundbox (2).png' },
-      { name: 'Common Model', image: '/Qr scanner.jpg' },
-      { name: 'DQR: Double Display', image: '/soundbox (3).png' },
-      { name: 'All in One', image: '/soundbox.jpg' },
+      { name: 'Single Sim Model', image: '/soundbox.webp' },
+      { name: 'Double Sim Model', image: '/Pocket Soundbox.webp' },
+      { name: 'With Display Model', image: '/soundbox (2).webp' },
+      { name: 'Common Model', image: '/Qr scanner.webp' },
+      { name: 'DQR: Double Display', image: '/soundbox (3).webp' },
+      { name: 'All in One', image: '/soundbox.webp' },
     ],
   },
   {
@@ -108,8 +108,8 @@ export const divisions = [
     color: 'from-amber-500 to-orange-600',
     features: ['Durable Design', 'Industrial Grade', 'Quality Tested', 'Custom Solutions'],
     products: [
-      { name: 'Cluster', image: '/cluster.png' },
-      { name: 'Harvester', image: '/TDCS.png' },
+      { name: 'Cluster', image: '/cluster.webp' },
+      { name: 'Harvester', image: '/TDCS.webp' },
     ],
   },
   {
@@ -121,7 +121,7 @@ export const divisions = [
     color: 'from-cyan-500 to-teal-600',
     features: ['BLE/WiFi Connected', 'Cloud Integration', 'Edge Computing', 'Real-time Monitoring'],
     products: [
-      { name: 'IoT Smart Lock', image: '/smart lock.PNG' },
+      { name: 'IoT Smart Lock', image: '/smart lock.webp' },
     ],
   },
 ];
@@ -132,7 +132,7 @@ export const products = [
     category: 'Neuro Rehab Devices',
     title: 'WalkLab Gait Training System',
     description: 'Advanced rehabilitation robot for gait training and motor recovery. AI-assisted therapy with real-time patient monitoring and tele-rehab capabilities.',
-    image: '/neuro.jpeg',
+    image: '/neuro.webp',
     features: ['Rehabilitation Robot', 'AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready'],
   },
   {
@@ -148,7 +148,7 @@ export const products = [
     category: 'Medical',
     title: 'IR Thermometer',
     description: 'Fast, hygienic temperature measurement with infrared technology. Ideal for clinical screening and home use.',
-    image: '/TDCS.png',
+    image: '/TDCS.webp',
     features: ['Non-Contact', 'Instant Reading', 'Hygienic', 'Battery Operated'],
   },
   {
@@ -156,7 +156,7 @@ export const products = [
     category: 'Medical',
     title: 'Oxygen Concentrator',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings.',
-    image: '/RTMS.png',
+    image: '/RTMS.webp',
     features: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise Operation'],
   },
   {
@@ -164,7 +164,7 @@ export const products = [
     category: 'Medical',
     title: 'Walnut Compressor Nebulizer',
     description: 'Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings.',
-    image: '/CES repose.png',
+    image: '/CES repose.webp',
     features: ['Efficient Nebulization', 'Low Noise', 'Compact Design', 'Medical Grade'],
   },
   {
@@ -172,7 +172,7 @@ export const products = [
     category: 'Fintech',
     title: 'Single SIM Model',
     description: 'Reliable single SIM payment terminal with essential features for small to medium businesses. Easy deployment and management.',
-    image: '/soundbox.png',
+    image: '/soundbox.webp',
     features: ['Single SIM', '4G Connectivity', 'Compact Design', 'Long Battery'],
   },
   {
@@ -180,7 +180,7 @@ export const products = [
     category: 'Fintech',
     title: 'Double SIM Model',
     description: 'Dual SIM payment terminal ensuring uninterrupted connectivity with network failover capability for critical transactions.',
-    image: '/Pocket Soundbox.png',
+    image: '/Pocket Soundbox.webp',
     features: ['Dual SIM', 'Network Failover', '4G/3G', 'Secure Payments'],
   },
   {
@@ -188,7 +188,7 @@ export const products = [
     category: 'Fintech',
     title: 'With Display Model',
     description: 'Payment terminal with built-in display for enhanced user interaction, transaction visualization, and digital receipts.',
-    image: '/soundbox (2).png',
+    image: '/soundbox (2).webp',
     features: ['LCD Display', 'Touch Interface', 'Digital Receipts', 'User Friendly'],
   },
   {
@@ -196,7 +196,7 @@ export const products = [
     category: 'Fintech',
     title: 'Common Model',
     description: 'Versatile payment terminal suitable for universal deployment across various business environments and payment scenarios.',
-    image: '/Qr scanner.jpg',
+    image: '/Qr scanner.webp',
     features: ['Universal Design', 'Multi-Payment', 'Easy Setup', 'Reliable'],
   },
   {
@@ -204,7 +204,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR: Double Display',
     description: 'Advanced payment terminal with dual display configuration for merchant and customer facing interfaces simultaneously.',
-    image: '/soundbox (3).png',
+    image: '/soundbox (3).webp',
     features: ['Dual Display', 'Merchant + Customer', 'Enhanced UX', 'Secure'],
   },
   {
@@ -212,7 +212,7 @@ export const products = [
     category: 'Fintech',
     title: 'All in One',
     description: 'Comprehensive payment solution combining multiple payment methods and features in a single integrated terminal device.',
-    image: '/soundbox.jpg',
+    image: '/soundbox.webp',
     features: ['Multiple Payments', 'QR + Card', 'Audio Confirm', 'All-in-One'],
   },
   {
@@ -220,7 +220,7 @@ export const products = [
     category: 'Automotive',
     title: 'Cluster',
     description: 'Automotive cluster display systems with advanced instrumentation for real-time vehicle data visualization and driver information.',
-    image: '/cluster.png',
+    image: '/cluster.webp',
     features: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
   },
   {
@@ -228,7 +228,7 @@ export const products = [
     category: 'Automotive',
     title: 'Harvester',
     description: 'Specialized electronics for harvester machines with robust design for agricultural and industrial applications.',
-    image: '/TDCS.png',
+    image: '/TDCS.webp',
     features: ['Industrial Grade', 'Rugged Design', 'Performance', 'Reliable'],
   },
   {
@@ -236,7 +236,7 @@ export const products = [
     category: 'IoT',
     title: 'IoT Smart Lock',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities.',
-    image: '/smart lock.PNG',
+    image: '/smart lock.webp',
     features: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
   },
 ];
@@ -457,28 +457,28 @@ export const expertise = [
     title: 'Medical Electronics',
     description: 'Life-critical medical device design and manufacturing with full regulatory compliance.',
     icon: 'heart',
-    image: '/RTMS.png',
+    image: '/RTMS.webp',
     areas: ['Patient Monitoring', 'Diagnostics', 'Neuro Rehab', 'Therapeutic Devices', 'Oxygen Concentrators'],
   },
   {
     title: 'Embedded Systems & IoT',
     description: 'Firmware, RTOS, and cloud-connected embedded solutions for smart devices.',
     icon: 'cpu',
-    image: '/smart lock.PNG',
+    image: '/smart lock.webp',
     areas: ['ARM/MCU', 'RTOS/Linux', 'BLE/WiFi', 'Cloud IoT', 'Edge Computing'],
   },
   {
     title: 'PCB Design & Fabrication',
     description: 'Multi-layer, HDI, and flex PCB design optimized for high-volume manufacturing.',
     icon: 'board',
-    image: '/3d image.png',
+    image: '/3d image.webp',
     areas: ['Up to 12 Layers', 'HDI Technology', 'Flex/Rigid-Flex', 'Signal Integrity'],
   },
   {
     title: 'Manufacturing & Assembly',
     description: '4 advanced SMT lines with 300K+ units per month capacity and 99.8% yield.',
     icon: 'gear',
-    image: '/TDCS.png',
+    image: '/TDCS.webp',
     areas: ['SMT Assembly', 'Box Build', 'Conformal Coating', 'In-Circuit Testing'],
   },
   {
@@ -492,21 +492,21 @@ export const expertise = [
     title: 'Payment Hardware Security',
     description: 'PCI PTS, EMVCo, and NPCI certified payment terminal design and manufacturing.',
     icon: 'shield',
-    image: '/paytm soundbox.png',
+    image: '/paytm soundbox.webp',
     areas: ['PCI PTS 5.x', 'EMV L1/L2', 'Secure Element', 'Tamper Detection'],
   },
   {
     title: 'Software & Firmware',
     description: 'Full-stack firmware development, device drivers, and companion applications.',
     icon: 'code',
-    image: '/Pocket Soundbox.png',
+    image: '/Pocket Soundbox.webp',
     areas: ['Bare Metal', 'Embedded Linux', 'Android BSP', 'Mobile Apps'],
   },
   {
     title: 'Supply Chain & Logistics',
     description: 'End-to-end supply chain management with global component sourcing and delivery.',
     icon: 'globe',
-    image: '/soundbox (3).png',
+    image: '/soundbox (3).webp',
     areas: ['Global Sourcing', 'Inventory Mgmt', 'Customs Clearance', 'Door-to-Door'],
   },
 ];
@@ -517,7 +517,7 @@ export const clientSectors = [
     description: 'Hospitals, clinics, and medical device companies',
     clients: ['Apollo', 'Fortis', 'Manipal', 'Medanta'],
     icon: 'hospital',
-    image: '/RTMS.png',
+    image: '/RTMS.webp',
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
@@ -525,7 +525,7 @@ export const clientSectors = [
     description: 'Mission-critical electronics for defence applications',
     clients: ['Indian Army', 'Indian Navy', 'IAF', 'AFMS'],
     icon: 'shield',
-    image: '/CES repose.png',
+    image: '/CES repose.webp',
     gradient: 'from-red-500 to-rose-600',
   },
   {
@@ -533,7 +533,7 @@ export const clientSectors = [
     description: 'Large-scale electronics deployments for government initiatives',
     clients: ['DGHS', 'ESIC', 'Indian Railways'],
     icon: 'gov',
-    image: '/soundbox (3).png',
+    image: '/soundbox (3).webp',
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
@@ -541,7 +541,7 @@ export const clientSectors = [
     description: 'Manufacturing equipment and monitoring systems',
     clients: ['Sun Pharma', 'Cipla', 'Ipca Labs'],
     icon: 'pharma',
-    image: '/walklab 3.0.jpeg',
+    image: '/walklab 3.0.webp',
     gradient: 'from-green-500 to-emerald-600',
   },
   {
@@ -549,7 +549,7 @@ export const clientSectors = [
     description: 'Smart metering, grid monitoring, and industrial controls',
     clients: [],
     icon: 'energy',
-    image: '/smart lock.PNG',
+    image: '/smart lock.webp',
     gradient: 'from-yellow-500 to-amber-600',
   },
   {
@@ -557,7 +557,7 @@ export const clientSectors = [
     description: 'Industrial electronics, sensors, and automotive components',
     clients: [],
     icon: 'industry',
-    image: '/TDCS.png',
+    image: '/TDCS.webp',
     gradient: 'from-slate-500 to-gray-600',
   },
 ];

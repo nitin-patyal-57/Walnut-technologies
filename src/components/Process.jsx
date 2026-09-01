@@ -23,16 +23,16 @@ const stepIcons = {
 };
 
 const stepImages = [
-  '/3d image.png',
-  '/TDCS.png',
-  '/smart lock.PNG',
-  '/Pocket Soundbox.png',
+  '/3d image.webp',
+  '/TDCS.webp',
+  '/smart lock.webp',
+  '/Pocket Soundbox.webp',
   '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
-  '/paytm soundbox.png',
-  '/RTMS.png',
-  '/walklab 3.0.jpeg',
-  '/soundbox.png',
-  '/soundbox (3).png',
+  '/paytm soundbox.webp',
+  '/RTMS.webp',
+  '/walklab 3.0.webp',
+  '/soundbox.webp',
+  '/soundbox (3).webp',
 ];
 
 const techIcons = {

@@ -21,7 +21,7 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/home background.jpg"
+          src="/home background.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />

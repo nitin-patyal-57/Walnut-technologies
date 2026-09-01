@@ -9,12 +9,12 @@ import {
 } from 'react-icons/fi';
 
 const facilityImages = [
-  '/RTMS.png',
-  '/paytm soundbox.png',
-  '/walklab 3.0.jpeg',
-  '/TDCS.png',
-  '/smart lock.PNG',
-  '/3d image.png',
+  '/RTMS.webp',
+  '/paytm soundbox.webp',
+  '/walklab 3.0.webp',
+  '/TDCS.webp',
+  '/smart lock.webp',
+  '/3d image.webp',
 ];
 
 const valueIcons = [FiTarget, FiZap, FiGlobe, FiShield];
@@ -30,7 +30,7 @@ function ProcessTimeline() {
     step: s.step,
     title: s.title,
     description: s.description,
-    image: ['/Idea & Requirement.jpg', '/Research & Market Analysis.jpg', '/Design & Engineering.jpg', '/Prototype Development.jpg', '/Validation & Testing.jpg', '/Manufacturing Engineering & Mold Design.jpg', '/Quality Assurance.jpg', '/Packaging & Dispatch.jpg', '/After Sales Support.jpg', '/Continuous Improvement.jpg'][i],
+    image: ['/Idea & Requirement.webp', '/Research & Market Analysis.webp', '/Design & Engineering.webp', '/Prototype Development.webp', '/Validation & Testing.webp', '/Manufacturing Engineering & Mold Design.webp', '/Quality Assurance.webp', '/Packaging & Dispatch.webp', '/After Sales Support.webp', '/Continuous Improvement.webp'][i],
     color: ['#1e40af', '#2563eb', '#0284c7', '#0891b2', '#0d9488', '#059669', '#16a34a', '#4d7c0f', '#65a30d', '#84cc16'][i],
   }));
 
@@ -214,7 +214,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/aboutbackground.png"
+            src="/aboutbackground.webp"
             alt="Walnut Technologies Facility"
             className="w-full h-full object-cover"
           />
@@ -318,7 +318,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/career background.jpg"
+                    src="/career background.webp"
                     alt="Manufacturing Facility"
                     className="w-full h-[400px] object-cover"
                   />

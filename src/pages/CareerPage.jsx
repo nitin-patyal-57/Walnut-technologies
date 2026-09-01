@@ -124,14 +124,14 @@ export default function CareerPage() {
   ];
 
   const teams = [
-    { name: t('careerExtended.teams.rnd'), icon: FiCpu, image: '/Design & Engineering.jpg' },
-    { name: t('careerExtended.teams.software'), icon: FiCode, image: '/IoT Software Development.jpg' },
-    { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/IT Electronics.jpg' },
-    { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/Embedded Electronics & IoT.jpg' },
-    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/Manufacturing Engineering & Mold Design.jpg' },
-    { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/contract manufacturing.jpg' },
-    { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/Quality Assurance.jpg' },
-    { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/IP Oriented Product.jpg' },
+    { name: t('careerExtended.teams.rnd'), icon: FiCpu, image: '/Design & Engineering.webp' },
+    { name: t('careerExtended.teams.software'), icon: FiCode, image: '/IoT Software Development.webp' },
+    { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/IT Electronics.webp' },
+    { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/Embedded Electronics & IoT.webp' },
+    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/Manufacturing Engineering & Mold Design.webp' },
+    { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/contract manufacturing.webp' },
+    { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/Quality Assurance.webp' },
+    { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/IP Oriented Product.webp' },
   ];
 
   const hiringSteps = [
@@ -150,10 +150,10 @@ export default function CareerPage() {
   ];
 
   const cultureImages = [
-    { src: '/walklab 3.0.jpeg', alt: 'Innovation lab' },
-    { src: '/home background.jpg', alt: 'Team collaboration' },
-    { src: '/Continuous Improvement.jpg', alt: 'Continuous Improvement' },
-    { src: '/Research & Market Analysis.jpg', alt: 'Research & Market Analysis' },
+    { src: '/walklab 3.0.webp', alt: 'Innovation lab' },
+    { src: '/home background.webp', alt: 'Team collaboration' },
+    { src: '/Continuous Improvement.webp', alt: 'Continuous Improvement' },
+    { src: '/Research & Market Analysis.webp', alt: 'Research & Market Analysis' },
   ];
 
   const filteredJobs = jobOpenings.filter(job => {
@@ -237,7 +237,7 @@ export default function CareerPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/career background.jpg"
+                  src="/career background.webp"
                   alt="Walnut Medical Team"
                   className="w-full h-[400px] md:h-[500px] object-cover"
                   loading="eager"

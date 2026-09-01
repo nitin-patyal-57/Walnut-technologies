@@ -32,7 +32,7 @@ export default function ContactForm({ onOpenQuote, showBg = false }) {
       {showBg && (
         <div className="absolute inset-0">
           <img
-            src="/bg remove.png"
+            src="/bg remove.webp"
             alt=""
             className="w-full h-full object-cover opacity-30"
           />

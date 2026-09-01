@@ -9,49 +9,49 @@ const expertiseAreas = [
     titleKey: 'medicalElectronics',
     slug: 'medical-electronics',
     descKey: 'medicalElectronicsDesc',
-    image: '/RTMS.png',
+    image: '/RTMS.webp',
   },
   {
     titleKey: 'embeddedElectronicAndIoT',
     slug: 'embedded-electronic-and-iot',
     descKey: 'embeddedElectronicAndIoTDesc',
-    image: '/Embedded Electronics & IoT.jpg',
+    image: '/Embedded Electronics & IoT.webp',
   },
   {
     titleKey: 'ipOrientedProduct',
     slug: 'ip-oriented-product',
     descKey: 'ipOrientedProductDesc',
-    image: '/IP Oriented Product.jpg',
+    image: '/IP Oriented Product.webp',
   },
   {
     titleKey: 'pcbDesignAndDevelopment',
     slug: 'pcb-design-development',
     descKey: 'pcbDesignAndDevelopmentDesc',
-    image: '/Design & Engineering.jpg',
+    image: '/Design & Engineering.webp',
   },
   {
     titleKey: 'itElectronics',
     slug: 'it-electronics',
     descKey: 'itElectronicsDesc',
-    image: '/IT Electronics.jpg',
+    image: '/IT Electronics.webp',
   },
   {
     titleKey: 'iotSoftwareDevelopment',
     slug: 'iot-software-development',
     descKey: 'iotSoftwareDevelopmentDesc',
-    image: '/IoT Software Development.jpg',
+    image: '/IoT Software Development.webp',
   },
   {
     titleKey: 'largeScaleManufacturing',
     slug: 'large-scale-manufacturing',
     descKey: 'largeScaleManufacturingDesc',
-    image: '/contract manufacturing.jpg',
+    image: '/contract manufacturing.webp',
   },
   {
     titleKey: 'paymentSystems',
     slug: 'payment-systems',
     descKey: 'paymentSystemsDesc',
-    image: '/paytm soundbox.png',
+    image: '/paytm soundbox.webp',
   },
 ];
 
@@ -135,7 +135,7 @@ export default function Expertise() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/Design & Engineering.jpg"
+                  src="/Design & Engineering.webp"
                   alt="Expertise"
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />

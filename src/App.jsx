@@ -9,6 +9,7 @@ import QuoteModal from './components/QuoteModal';
 import ScheduleCallModal from './components/ScheduleCallModal';
 import ChatWidget from './components/ChatWidget';
 import WhatsAppButton from './components/WhatsAppButton';
+import InstallPrompt from './components/InstallPrompt';
 import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 
@@ -107,6 +108,7 @@ function AppContent() {
       <ScheduleCallModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
       <ChatWidget onOpenQuote={() => setQuoteModalOpen(true)} onChatStateChange={setIsChatOpen} />
       <WhatsAppButton isChatOpen={isChatOpen} />
+      <InstallPrompt />
     </div>
   );
 }
