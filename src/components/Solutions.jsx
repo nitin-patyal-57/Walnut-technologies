@@ -414,7 +414,7 @@ export default function Solutions({ onOpenQuote }) {
 
   return (
     <section id="solutions" className={`relative ${isSpecialDivision ? 'p-0 m-0' : 'py-16 md:py-20'}`}>
-      <div ref={ref} className={`${isSpecialDivision ? 'p-0 m-0 w-full' : 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'}`}>
+      <div ref={ref} className={`${isSpecialDivision ? 'p-0 m-0 w-full' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}`}>
 
         <AnimatePresence mode="wait">
           {!selectedDivision ? (
