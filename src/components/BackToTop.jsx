@@ -26,7 +26,7 @@ export default function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 left-6 z-40 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-slate-50 hover:border-slate-300 hover:shadow-xl hover:-translate-y-1"
+          className="fixed bottom-24 lg:bottom-24 left-6 z-40 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-slate-50 hover:border-slate-300 hover:shadow-xl hover:-translate-y-1"
           aria-label="Scroll to top"
         >
           <FiArrowUp className="w-4 h-4 text-slate-600" />

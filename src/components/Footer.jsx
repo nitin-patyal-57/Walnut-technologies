@@ -133,7 +133,7 @@ export default function Footer() {
       {/* Scroll to Top */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 left-6 z-40 w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-white/60 hover:text-white hover:bg-cyan-500/20 flex items-center justify-center transition-all shadow-sm"
+        className="fixed bottom-24 lg:bottom-6 left-6 z-40 w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-white/60 hover:text-white hover:bg-cyan-500/20 flex items-center justify-center transition-all shadow-sm"
       >
         <FiArrowUp className="w-4 h-4" />
       </button>

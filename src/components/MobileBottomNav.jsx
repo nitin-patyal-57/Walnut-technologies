@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiHome, FiLayers, FiSettings, FiUser, FiMessageCircle } from 'react-icons/fi';
+import { FiHome, FiLayers, FiSettings, FiUser, FiMessageCircle, FiDownload } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
 
 const bottomNavItems = [
   { label: 'Home', to: '/', icon: FiHome },
@@ -13,6 +14,23 @@ const bottomNavItems = [
 export default function MobileBottomNav({ onOpenQuote }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstall = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    setDeferredPrompt(null);
+  };
 
   const isActive = (to) => {
     if (to === '/') return location.pathname === '/';
@@ -60,6 +78,20 @@ export default function MobileBottomNav({ onOpenQuote }) {
           );
         })}
         
+        {/* Install App Button */}
+        {deferredPrompt && (
+          <button
+            onClick={handleInstall}
+            aria-label="Install App"
+            className="flex flex-col items-center gap-0.5 py-1 px-3"
+          >
+            <div className="p-1.5 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 text-white shadow-lg shadow-violet-500/30">
+              <FiDownload className="w-5 h-5" />
+            </div>
+            <span className="text-xs font-semibold text-violet-600">Install</span>
+          </button>
+        )}
+
         {/* Quick Action Button */}
         <button
           onClick={onOpenQuote}

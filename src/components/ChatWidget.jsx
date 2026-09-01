@@ -91,7 +91,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
-        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 ${
+        className={`fixed bottom-20 lg:bottom-6 right-6 z-50 w-12 h-12 rounded-xl shadow-2xl flex items-center justify-center transition-all duration-300 ${
           isOpen
             ? 'bg-slate-700 text-white scale-90'
             : 'bg-slate-900 text-white hover:scale-110'
@@ -107,7 +107,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.97 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-20 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] h-[460px] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-32 lg:bottom-20 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] h-[460px] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
           >
             <div className="p-3 border-b border-slate-200 bg-white">
               <div className="flex items-center gap-2.5">
