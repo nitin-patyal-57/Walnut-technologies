@@ -61,9 +61,9 @@ export default function Preloader() {
               className="relative z-10 mb-2"
             >
               <motion.img
-                src="/logo.webp"
+                src="/walnut-logo/svg/logo-transparent.svg"
                 alt="Walnut Technologies"
-                className="w-52 h-52 object-contain"
+                className="w-64 h-auto object-contain"
                 animate={{
                   scale: [1, 1.05, 1],
                   filter: [

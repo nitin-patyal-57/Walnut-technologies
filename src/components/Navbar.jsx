@@ -92,11 +92,11 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 md:h-12">
             {/* Logo */}
-            <a href="/" onClick={() => window.location.reload()} className="flex items-center gap-3 group">
+            <a href="/" onClick={() => window.location.reload()} className="flex items-center group shrink-0">
               <img
-                src="/logo.webp"
+                src="/walnut-logo/svg/logo-transparent.svg"
                 alt="Walnut Technologies"
-                className="h-20 md:h-24 w-auto object-contain mix-blend-multiply"
+                className="h-14 md:h-16 w-auto object-contain -my-2"
               />
             </a>
 
@@ -244,7 +244,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
               <div className="relative p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <img src="/logo.webp" alt="Walnut Technologies" className="h-20 w-auto object-contain mix-blend-multiply" />
+                  <img src="/walnut-logo/svg/logo-transparent.svg" alt="Walnut Technologies" className="h-8 w-auto object-contain" />
                   <button
                     onClick={() => setIsSidebarOpen(false)}
                     className="p-2 text-slate-400 hover:text-slate-700 transition-colors rounded-lg hover:bg-slate-100"
