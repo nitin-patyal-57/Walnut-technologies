@@ -340,12 +340,12 @@ function ClientsCertifications() {
   ];
 
   const clients = [
-    { name: t('clients.client1'), logo: '/clients/hdfc-bank.svg' },
-    { name: t('clients.client2'), logo: '/clients/sbi.svg' },
-    { name: t('clients.client3'), logo: '/clients/paytm.svg' },
-    { name: t('clients.client4'), logo: '/clients/bharatpe.svg' },
-    { name: t('clients.client5'), logo: '/clients/apollo.svg' },
-    { name: t('clients.client6'), logo: '/clients/indian-army.svg' },
+    { name: t('clients.client1'), logo: '/clients/hdfc.jpeg' },
+    { name: t('clients.client2'), logo: '/clients/sbi.jpeg' },
+    { name: t('clients.client3'), logo: '/clients/paytm.jpeg' },
+    { name: t('clients.client4'), logo: '/clients/bhartpe.jpeg' },
+    { name: t('clients.client5'), logo: '/clients/apollo.jpeg' },
+    { name: t('clients.client6'), logo: '/clients/indian army.jpeg' },
   ];
 
   return (
