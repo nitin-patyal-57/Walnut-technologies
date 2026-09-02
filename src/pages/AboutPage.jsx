@@ -21,160 +21,64 @@ const valueIcons = [FiTarget, FiZap, FiGlobe, FiShield];
 
 function ProcessTimeline() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { t } = useLanguage();
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
-  const processSteps = t('about.processSteps');
-  const steps = processSteps.map((s, i) => ({
-    id: i + 1,
-    step: s.step,
-    title: s.title,
-    description: s.description,
-    image: ['/Idea & Requirement.webp', '/Research & Market Analysis.webp', '/Design & Engineering.webp', '/Prototype Development.webp', '/Validation & Testing.webp', '/Manufacturing Engineering & Mold Design.webp', '/Quality Assurance.webp', '/Packaging & Dispatch.webp', '/After Sales Support.webp', '/Continuous Improvement.webp'][i],
-    color: ['#1e40af', '#2563eb', '#0284c7', '#0891b2', '#0d9488', '#059669', '#16a34a', '#4d7c0f', '#65a30d', '#84cc16'][i],
-  }));
+  const steps = [
+    { num: '01', title: 'IDEA', image: '/Idea & Requirement.webp' },
+    { num: '02', title: 'RESEARCH', image: '/Research & Market Analysis.webp' },
+    { num: '03', title: 'DESIGN', image: '/Design & Engineering.webp' },
+    { num: '04', title: 'PROTOTYPE', image: '/Prototype Development.webp' },
+    { num: '05', title: 'TESTING', image: '/Validation & Testing.webp' },
+    { num: '06', title: 'MOLDING', image: '/Manufacturing Engineering & Mold Design.webp' },
+    { num: '07', title: 'QA', image: '/Quality Assurance.webp' },
+    { num: '08', title: 'PACKAGING', image: '/Packaging & Dispatch.webp' },
+    { num: '09', title: 'SUPPORT', image: '/After Sales Support.webp' },
+    { num: '10', title: 'IMPROVEMENT', image: '/Continuous Improvement.webp' },
+  ];
 
   return (
-    <section ref={ref} className="py-24 bg-slate-50 overflow-hidden">
+    <section ref={ref} className="py-16 md:py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-slate-900 mb-4">
-            {t('about.ourProcess')}
+          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-2 block">Our Process</span>
+          <h2 className="text-3xl md:text-4xl font-black font-display leading-tight tracking-tight mb-3">
+            <span className="text-slate-900">From concept to delivery, </span>
+            <span className="text-blue-600">every step is crafted with precision.</span>
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto">
-            {t('about.processSubtitle')}
+          <p className="text-sm text-slate-500 max-w-2xl mx-auto">
+            End-to-end product development and manufacturing powered by an Industry 5.0 ecosystem.
           </p>
         </motion.div>
 
-        {/* Zigzag Timeline - Desktop */}
-        <div className="hidden lg:block relative">
-          {/* Top Row - Steps 1, 3, 5, 7, 9 */}
-          <div className="flex justify-between px-[2%] mb-4">
-            {steps.filter((_, i) => i % 2 === 0).map((step, index) => (
-              <motion.div
-                key={step.id}
-                initial={{ opacity: 0, y: -30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="w-[16%] text-center"
-              >
-                <p className="text-xs font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
-                <h3 className="text-base font-bold mb-1" style={{ color: step.color }}>{step.title}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Diamond Cards Row */}
-          <div className="relative h-[300px]">
-            {/* Zigzag Ribbon SVG */}
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 300" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#1e40af" />
-                  <stop offset="20%" stopColor="#2563eb" />
-                  <stop offset="40%" stopColor="#0891b2" />
-                  <stop offset="60%" stopColor="#0d9488" />
-                  <stop offset="80%" stopColor="#059669" />
-                  <stop offset="100%" stopColor="#84cc16" />
-                </linearGradient>
-                <filter id="ribbonShadow">
-                  <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.2" />
-                </filter>
-              </defs>
-              <motion.path
-                d="M 0 50 L 100 250 L 200 50 L 300 250 L 400 50 L 500 250 L 600 50 L 700 250 L 800 50 L 900 250 L 1000 50"
-                fill="none"
-                stroke="url(#ribbonGrad)"
-                strokeWidth="40"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                filter="url(#ribbonShadow)"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              />
-            </svg>
-
-            {/* Diamond Cards positioned at vertices */}
-            {steps.map((step, index) => {
-              const isTop = index % 2 === 0;
-              const leftPercent = (index / (steps.length - 1)) * 90 + 5;
-              return (
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.08, type: 'spring' }}
-                  className="absolute z-10"
-                  style={{
-                    left: `${leftPercent}%`,
-                    top: isTop ? '10px' : '160px',
-                    transform: 'translateX(-50%)',
-                  }}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="w-[100px] h-[100px] rounded-2xl bg-white shadow-xl overflow-hidden cursor-pointer border-2"
-                    style={{ boxShadow: `0 8px 30px ${step.color}30`, borderColor: `${step.color}30` }}
-                  >
-                    <img
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Bottom Row - Steps 2, 4, 6, 8, 10 */}
-          <div className="flex justify-between px-[7%] mt-4">
-            {steps.filter((_, i) => i % 2 === 1).map((step, index) => (
-              <motion.div
-                key={step.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="w-[16%] text-center"
-              >
-                <p className="text-xs font-bold tracking-widest text-slate-400 mb-1">{step.step}</p>
-                <h3 className="text-base font-bold mb-1" style={{ color: step.color }}>{step.title}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Zigzag Timeline - Mobile */}
-        <div className="lg:hidden">
-          {steps.map((step, index) => (
+        {/* Process Grid - 5x2 */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          {steps.map((step, i) => (
             <motion.div
-              key={step.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.06 }}
-              className={`flex items-center gap-4 mb-5 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
+              key={step.num}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.05 }}
+              className="group"
             >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-20 h-20 rounded-xl overflow-hidden shadow-lg flex-shrink-0 border-2"
-                style={{ borderColor: `${step.color}30` }}
-              >
-                <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-              </motion.div>
-              <div className={index % 2 === 0 ? 'text-left' : 'text-right'}>
-                <p className="text-xs font-bold tracking-widest text-slate-400">{step.step}</p>
-                <h3 className="text-sm font-bold" style={{ color: step.color }}>{step.title}</h3>
-                <p className="text-xs text-slate-500">{step.description}</p>
+              <div className="relative rounded-2xl overflow-hidden bg-slate-100 aspect-square mb-3 shadow-md group-hover:shadow-xl transition-shadow duration-500">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3">
+                  <span className="text-[10px] font-bold text-blue-300 block mb-0.5">{step.num}</span>
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">{step.title}</h4>
+                </div>
               </div>
             </motion.div>
           ))}
