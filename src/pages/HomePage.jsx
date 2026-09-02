@@ -210,56 +210,57 @@ function DivisionsPreview() {
           </p>
         </motion.div>
 
-        {/* 3x2 Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
-          {solutions.map((sol, i) => (
-            <motion.div
-              key={sol.num}
-              initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
-            >
-              <Link
-                to={sol.link}
-                className="group flex items-center gap-3 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 p-3"
+        {/* Main Content: Images Left + Info Right */}
+        <div className="grid lg:grid-cols-[1fr_280px] gap-6 items-start">
+
+          {/* Left: 3x2 Image Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {solutions.map((sol, i) => (
+              <motion.div
+                key={sol.num}
+                initial={{ opacity: 0, y: 15 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
               >
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
-                  <img src={sol.image} alt={sol.title} loading="lazy" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <div className="flex items-center gap-2 min-w-0">
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${sol.color}10`, border: `1px solid ${sol.color}20` }}>
-                    <sol.icon className="w-3.5 h-3.5" style={{ color: sol.color }} />
+                <Link
+                  to={sol.link}
+                  className="group block relative rounded-2xl overflow-hidden bg-slate-100 aspect-[3/2.5]"
+                >
+                  <img
+                    src={sol.image}
+                    alt={sol.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <span className="text-sm font-black text-blue-400 block mb-0.5">{sol.num}</span>
+                    <h4 className="text-sm font-bold text-white uppercase tracking-wider leading-tight">{sol.title}</h4>
                   </div>
-                  <div className="min-w-0">
-                    <span className="text-[9px] font-bold" style={{ color: sol.color }}>{sol.num}</span>
-                    <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">{sol.title}</h4>
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right: Badge + Trust Cards */}
+          <div className="flex flex-col gap-4">
+            {/* End-to-End Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-white border border-blue-100 rounded-xl px-4 py-3"
+            >
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                <FiAward className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <span className="text-[11px] font-black text-slate-900 uppercase tracking-wider leading-tight block">End-to-End</span>
+                <span className="text-[11px] font-black text-blue-600 uppercase tracking-wider leading-tight block">Engineering Excellence</span>
+              </div>
             </motion.div>
-          ))}
-        </div>
 
-        {/* Center Badge + Trust Badges */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-          {/* Center Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-white border border-blue-100 rounded-xl px-4 py-3 shrink-0"
-          >
-            <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center">
-              <FiAward className="w-4.5 h-4.5 text-blue-600" />
-            </div>
-            <div>
-              <span className="text-[10px] font-black text-slate-900 uppercase tracking-wider leading-tight block">End-to-End</span>
-              <span className="text-[10px] font-black text-blue-600 uppercase tracking-wider leading-tight block">Engineering Excellence</span>
-            </div>
-          </motion.div>
-
-          {/* Trust Badges */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 flex-1 w-full">
+            {/* Trust Badges */}
             {trustBadges.map((badge, index) => {
               const BadgeIcon = badge.icon;
               return (
@@ -268,19 +269,20 @@ function DivisionsPreview() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.06 }}
-                  className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300"
+                  className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                    <BadgeIcon className="w-4 h-4 text-blue-600" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                    <BadgeIcon className="w-5 h-5 text-blue-600" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-[10px] font-bold text-slate-900 leading-tight">{badge.title}</h4>
-                    <p className="text-[9px] text-slate-500 leading-snug">{badge.desc}</p>
+                    <h4 className="text-xs font-bold text-slate-900 mb-0.5">{badge.title}</h4>
+                    <p className="text-[10px] text-slate-500 leading-snug">{badge.desc}</p>
                   </div>
                 </motion.div>
               );
             })}
           </div>
+
         </div>
 
       </div>
