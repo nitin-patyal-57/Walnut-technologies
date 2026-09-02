@@ -223,7 +223,7 @@ function DivisionsPreview() {
                 to={sol.link}
                 className="group flex items-center gap-3 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 p-3"
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
                   <img src={sol.image} alt={sol.title} loading="lazy" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="flex items-center gap-2 min-w-0">
