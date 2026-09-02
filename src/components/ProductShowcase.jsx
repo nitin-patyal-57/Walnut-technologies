@@ -95,7 +95,7 @@ export default function ProductShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/fintech bckground.webp" alt="Fintech Soundbox" className="w-full h-auto" loading="eager" />
+          <img src="/fintech homebackground.png" alt="Fintech Soundbox" className="w-full h-auto" loading="eager" />
         </div>
       </section>
 
