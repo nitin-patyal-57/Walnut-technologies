@@ -240,7 +240,7 @@ function JourneySection() {
 
 function DivisionsPreview() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
   const { t } = useLanguage();
 
   const solutions = [
@@ -250,7 +250,6 @@ function DivisionsPreview() {
       color: '#2563eb',
       icon: FiHeart,
       image: '/RTMS.webp',
-      features: t('divisions.medicalFeatures'),
       link: '/solutions?category=Medical',
     },
     {
@@ -259,7 +258,6 @@ function DivisionsPreview() {
       color: '#7c3aed',
       icon: FiCreditCard,
       image: '/soundbox1.webp',
-      features: t('divisions.fintechFeatures'),
       link: '/solutions?category=Fintech',
     },
     {
@@ -268,7 +266,6 @@ function DivisionsPreview() {
       color: '#0891b2',
       icon: FiWifi,
       image: '/IOT solutions.webp',
-      features: t('divisions.iotFeatures'),
       link: '/solutions?category=IoT',
     },
     {
@@ -277,7 +274,6 @@ function DivisionsPreview() {
       color: '#7c3aed',
       icon: FiActivity,
       image: '/walklab 3.0.webp',
-      features: t('divisions.roboticsFeatures'),
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {
@@ -286,7 +282,6 @@ function DivisionsPreview() {
       color: '#059669',
       icon: FiCpu,
       image: '/cluster.webp',
-      features: t('divisions.automotiveFeatures'),
       link: '/solutions?category=Automotive',
     },
     {
@@ -295,175 +290,110 @@ function DivisionsPreview() {
       color: '#d97706',
       icon: FiSettings,
       image: '/custom solutions.webp',
-      features: t('divisions.customFeatures'),
       link: '/solutions',
     },
   ];
 
-  const leftSolutions = solutions.slice(0, 3);
-  const rightSolutions = solutions.slice(3, 6);
-
   const trustBadges = [
-    { icon: FiShield, title: t('divisions.quality'), description: t('divisions.qualityDesc') },
-    { icon: FiAward, title: t('divisions.certified'), description: t('divisions.certifiedDesc') },
-    { icon: FiTrendingUp, title: t('divisions.scalable'), description: t('divisions.scalableDesc') },
-    { icon: FiHeadphones, title: t('divisions.support'), description: t('divisions.supportDesc') },
+    { icon: FiShield, title: t('divisions.quality'), desc: t('divisions.qualityDesc') },
+    { icon: FiAward, title: t('divisions.certified'), desc: t('divisions.certifiedDesc') },
+    { icon: FiTrendingUp, title: t('divisions.scalable'), desc: t('divisions.scalableDesc') },
+    { icon: FiHeadphones, title: t('divisions.support'), desc: t('divisions.supportDesc') },
   ];
 
   return (
-    <section id="divisions-preview" className="relative py-10 md:py-14 bg-white" ref={ref}>
+    <section id="divisions-preview" className="relative py-6 md:py-10 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Top: Solutions Grid + Title */}
-        <div className="grid lg:grid-cols-[1fr_240px] gap-6 lg:gap-4 items-start mb-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="mb-6"
+        >
+          <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-1 block">Solutions</span>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display leading-tight tracking-tight mb-2">
+            <span className="text-slate-900">Technology That Powers </span>
+            <span className="text-blue-600">Every Connection</span>
+          </h2>
+          <p className="text-xs text-slate-500 leading-relaxed max-w-2xl">
+            High-performance engineering solutions across industries, built for reliability, compliance, and scale.
+          </p>
+        </motion.div>
 
-          {/* ===== LEFT: 3x2 Grid with Center Wheel ===== */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-
-              {/* Left column (01, 03, 05) */}
-              <div className="flex flex-col gap-3">
-                {leftSolutions.map((sol, i) => (
-                  <motion.div
-                    key={sol.num}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
-                  >
-                    <Link
-                      to={sol.link}
-                      className="group flex items-center gap-3 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 overflow-hidden p-2.5"
-                    >
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
-                        <img src={sol.image} alt={sol.title} loading="lazy" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
-                      </div>
-                      <div className="flex items-center gap-2 min-w-0">
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${sol.color}10`, border: `1px solid ${sol.color}20` }}>
-                          <sol.icon className="w-4 h-4" style={{ color: sol.color }} />
-                        </div>
-                        <div className="min-w-0">
-                          <span className="text-[9px] font-bold" style={{ color: sol.color }}>{sol.num}</span>
-                          <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">{sol.title}</h4>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Center Circle */}
-              <div className="hidden md:flex flex-col items-center justify-center">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="relative w-32 h-32 lg:w-36 lg:h-36"
-                >
-                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
-                    <circle cx="100" cy="100" r="85" fill="none" stroke="#e2e8f0" strokeWidth="2" />
-                    <circle cx="100" cy="100" r="85" fill="none" stroke="#22c55e" strokeWidth="4" strokeDasharray="60 470" strokeDashoffset="0" strokeLinecap="round" />
-                    <circle cx="100" cy="100" r="85" fill="none" stroke="#f97316" strokeWidth="4" strokeDasharray="60 470" strokeDashoffset="-130" strokeLinecap="round" />
-                    <circle cx="100" cy="100" r="85" fill="none" stroke="#8b5cf6" strokeWidth="4" strokeDasharray="60 470" strokeDashoffset="-260" strokeLinecap="round" />
-                    {[0, 60, 120, 180, 240, 300].map((deg) => (
-                      <circle key={deg} cx={100 + 85 * Math.cos((deg * Math.PI) / 180)} cy={100 + 85 * Math.sin((deg * Math.PI) / 180)} r="3" fill="white" stroke="#e2e8f0" strokeWidth="2" />
-                    ))}
-                  </svg>
-                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-blue-50 to-white border border-blue-100 flex flex-col items-center justify-center shadow-lg shadow-blue-100/50 text-center p-2">
-                    <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mb-1">
-                      <FiAward className="w-3.5 h-3.5 text-blue-600" />
-                    </div>
-                    <span className="text-[9px] font-black text-slate-900 uppercase tracking-wider leading-tight">End-to-End</span>
-                    <span className="text-[9px] font-black text-blue-600 uppercase tracking-wider leading-tight">Engineering</span>
-                    <span className="text-[8px] font-bold text-slate-500 uppercase tracking-wider">Excellence</span>
+        {/* 3x2 Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+          {solutions.map((sol, i) => (
+            <motion.div
+              key={sol.num}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
+            >
+              <Link
+                to={sol.link}
+                className="group flex items-center gap-3 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 p-3"
+              >
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
+                  <img src={sol.image} alt={sol.title} loading="lazy" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${sol.color}10`, border: `1px solid ${sol.color}20` }}>
+                    <sol.icon className="w-3.5 h-3.5" style={{ color: sol.color }} />
                   </div>
-                </motion.div>
-              </div>
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-bold" style={{ color: sol.color }}>{sol.num}</span>
+                    <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">{sol.title}</h4>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
 
-              {/* Right column (02, 04, 06) */}
-              <div className="flex flex-col gap-3">
-                {rightSolutions.map((sol, i) => (
-                  <motion.div
-                    key={sol.num}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
-                  >
-                    <Link
-                      to={sol.link}
-                      className="group flex items-center gap-3 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 overflow-hidden p-2.5"
-                    >
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100/50 flex items-center justify-center shrink-0 overflow-hidden">
-                        <img src={sol.image} alt={sol.title} loading="lazy" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
-                      </div>
-                      <div className="flex items-center gap-2 min-w-0">
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${sol.color}10`, border: `1px solid ${sol.color}20` }}>
-                          <sol.icon className="w-4 h-4" style={{ color: sol.color }} />
-                        </div>
-                        <div className="min-w-0">
-                          <span className="text-[9px] font-bold" style={{ color: sol.color }}>{sol.num}</span>
-                          <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">{sol.title}</h4>
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
+        {/* Center Badge + Trust Badges */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+          {/* Center Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-white border border-blue-100 rounded-xl px-4 py-3 shrink-0"
+          >
+            <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center">
+              <FiAward className="w-4.5 h-4.5 text-blue-600" />
+            </div>
+            <div>
+              <span className="text-[10px] font-black text-slate-900 uppercase tracking-wider leading-tight block">End-to-End</span>
+              <span className="text-[10px] font-black text-blue-600 uppercase tracking-wider leading-tight block">Engineering Excellence</span>
             </div>
           </motion.div>
 
-          {/* ===== RIGHT: Title ===== */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-2 block">
-              Solutions
-            </span>
-            <h2 className="text-2xl md:text-3xl lg:text-[1.8rem] font-black font-display leading-[1.1] tracking-tight mb-3">
-              <span className="text-slate-900">Technology That Powers </span>
-              <span className="text-blue-600">Every Connection</span>
-            </h2>
-            <p className="text-xs text-slate-500 leading-relaxed max-w-[240px]">
-              High-performance engineering solutions across industries, built for reliability, compliance, and scale. From concept to delivery, we ensure every product meets the highest standards of quality and performance — empowering businesses worldwide with cutting-edge technology.
-            </p>
-          </motion.div>
-
+          {/* Trust Badges */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 flex-1 w-full">
+            {trustBadges.map((badge, index) => {
+              const BadgeIcon = badge.icon;
+              return (
+                <motion.div
+                  key={badge.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.06 }}
+                  className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                    <BadgeIcon className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-[10px] font-bold text-slate-900 leading-tight">{badge.title}</h4>
+                    <p className="text-[9px] text-slate-500 leading-snug">{badge.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
-
-        {/* ===== TRUST BADGES - Bottom Horizontal ===== */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
-        >
-          {trustBadges.map((badge, index) => {
-            const BadgeIcon = badge.icon;
-            return (
-              <motion.div
-                key={badge.title}
-                initial={{ opacity: 0, y: 15 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.6 + index * 0.08 }}
-                className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                  <BadgeIcon className="w-5 h-5 text-blue-600" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="text-xs font-bold text-slate-900 mb-0.5">{badge.title}</h4>
-                  <p className="text-[10px] text-slate-500 leading-snug">{badge.description}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
 
       </div>
     </section>
