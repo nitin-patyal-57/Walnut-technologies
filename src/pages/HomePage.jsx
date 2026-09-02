@@ -417,7 +417,7 @@ function ClientsCertifications() {
                   className="p-4 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-16 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden p-1">
+                    <div className="w-20 h-14 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden p-1">
                       <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
                     </div>
                     <div>
