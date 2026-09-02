@@ -9,13 +9,13 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "/walnut-logo/Walnut_Technologies_logo_transparent.png",
+      "src": "/walnut-logo/WM_fevicon.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/walnut-logo/Walnut_Technologies_logo_transparent.png",
+      "src": "/walnut-logo/WM_fevicon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
