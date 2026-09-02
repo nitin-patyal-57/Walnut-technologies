@@ -248,7 +248,7 @@ function FeaturesSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[160px]"
+                className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[240px]"
               >
                 <img
                   src={feature.image}
