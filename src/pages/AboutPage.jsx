@@ -75,10 +75,8 @@ function ProcessTimeline() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
-                <div className="absolute top-3 left-3">
-                  <span className="text-sm font-black text-blue-300">{step.num}</span>
-                </div>
                 <div className="absolute bottom-3 left-3 right-3">
+                  <span className="text-sm font-black text-blue-400 block mb-0.5">{step.num}</span>
                   <h4 className="text-sm font-bold text-white uppercase tracking-wider">{step.title}</h4>
                 </div>
               </div>
