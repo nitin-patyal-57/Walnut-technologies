@@ -224,7 +224,7 @@ function DivisionsPreview() {
               >
                 <Link
                   to={sol.link}
-                  className="group block relative rounded-2xl overflow-hidden bg-slate-100 aspect-[3/2.5]"
+                  className="group block relative rounded-2xl overflow-hidden bg-slate-100 aspect-[3/2]"
                 >
                   <img
                     src={sol.image}
