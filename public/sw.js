@@ -1,9 +1,9 @@
-const CACHE_NAME = 'walnut-v5';
+const CACHE_NAME = 'walnut-v6';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/walnut-logo/Walnut_Technologies_logo_transparent.png'
+  '/walnut-logo/WM_fevicon.png'
 ];
 
 self.addEventListener('install', (event) => {
