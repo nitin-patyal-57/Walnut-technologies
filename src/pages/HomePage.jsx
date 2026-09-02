@@ -200,7 +200,7 @@ function DivisionsPreview() {
           transition={{ duration: 0.5 }}
           className="mb-6 text-center"
         >
-          <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-1 block">Solutions</span>
+          <span className="text-blue-600 font-bold text-lg uppercase tracking-widest mb-1 block">Solutions</span>
           <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display leading-tight tracking-tight mb-2">
             <span className="text-slate-900">Technology That Powers </span>
             <span className="text-blue-600">Every Connection</span>
