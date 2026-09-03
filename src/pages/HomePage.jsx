@@ -42,23 +42,23 @@ function JourneySection() {
   return (
     <section className="relative overflow-hidden" ref={ref}>
       {/* Production Process - Hexagonal Grid */}
-      <div className="bg-white py-8 md:py-10 -mx-4 sm:-mx-6 lg:-mx-8">
+      <div className="bg-white py-6 md:py-8 -mx-4 sm:-mx-6 lg:-mx-8">
         <div className="w-full px-2">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mb-6"
+            className="text-center mb-2"
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight mb-2">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight mb-1">
               Production Process
             </h2>
-            <div className="w-16 h-0.5 bg-blue-600 mx-auto rounded-full" />
+            <div className="w-14 h-0.5 bg-blue-600 mx-auto rounded-full" />
           </motion.div>
 
           {/* Hexagonal Grid - Row 1 (5 items) */}
-          <div className="flex justify-center items-center gap-0 mb-2">
+          <div className="flex justify-center items-center gap-0 mb-1">
             {processImages.slice(0, 5).map((item, i) => (
               <motion.div
                 key={i}
@@ -68,7 +68,7 @@ function JourneySection() {
                 className="flex items-center"
               >
                 <div className="relative group">
-                  <div className="relative w-[120px] h-[120px] md:w-[170px] md:h-[170px]">
+                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px]">
                     <svg viewBox="0 0 200 230" className="w-full h-full">
                       <defs>
                         <clipPath id={`hex-clip-${i}`}>
@@ -95,16 +95,15 @@ function JourneySection() {
                       {item.num}
                     </div>
                   </div>
-                  <div className="text-center mt-1">
-                    <p className="text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[9px] text-blue-600 font-semibold">{item.to}</p>
+                  <div className="text-center mt-0.5">
+                    <p className="text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[8px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
-                {/* Connecting Arrow */}
                 {i < 4 && (
-                  <div className="flex items-center mx-1 md:mx-2 -mt-6">
-                    <div className="w-4 md:w-8 h-[2px] bg-blue-400" />
-                    <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-blue-400" />
+                  <div className="flex items-center mx-0.5 md:mx-1 -mt-4">
+                    <div className="w-4 md:w-6 h-[2px] bg-blue-400" />
+                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-blue-400" />
                   </div>
                 )}
               </motion.div>
@@ -122,7 +121,7 @@ function JourneySection() {
                 className="flex items-center"
               >
                 <div className="relative group">
-                  <div className="relative w-[120px] h-[120px] md:w-[170px] md:h-[170px]">
+                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px]">
                     <svg viewBox="0 0 200 230" className="w-full h-full">
                       <defs>
                         <clipPath id={`hex-clip2-${i}`}>
@@ -149,16 +148,15 @@ function JourneySection() {
                       {item.num}
                     </div>
                   </div>
-                  <div className="text-center mt-1">
-                    <p className="text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[9px] text-blue-600 font-semibold">{item.to}</p>
+                  <div className="text-center mt-0.5">
+                    <p className="text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[8px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
-                {/* Connecting Arrow */}
                 {i < 3 && (
-                  <div className="flex items-center mx-1 md:mx-2 -mt-6">
-                    <div className="w-4 md:w-8 h-[2px] bg-blue-400" />
-                    <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-blue-400" />
+                  <div className="flex items-center mx-0.5 md:mx-1 -mt-4">
+                    <div className="w-4 md:w-6 h-[2px] bg-blue-400" />
+                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-blue-400" />
                   </div>
                 )}
               </motion.div>
@@ -167,53 +165,36 @@ function JourneySection() {
 
           {/* Connecting line from Row 1 to Row 2 */}
           <div className="flex justify-center my-1">
-            <div className="w-[2px] h-4 bg-blue-400" />
+            <div className="w-[2px] h-2 bg-blue-400" />
           </div>
         </div>
       </div>
 
-      {/* Journey Timeline */}
-      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-8 md:py-10">
+      {/* Journey Section */}
+      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-2 md:py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mb-6"
+            className="text-center mb-1.5"
           >
-            <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-2 block">Our Journey</span>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight">
+            <span className="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-0.5 block">Our Journey</span>
+            <h2 className="text-sm md:text-base lg:text-lg font-black font-display text-slate-900 leading-tight">
               Building the <span className="text-blue-600">Future</span>
             </h2>
           </motion.div>
 
-          {/* Timeline Cards */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-            {companyJourney.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.6 + index * 0.08 }}
-                  className="group"
-                >
-                  <div className="relative bg-white rounded-xl border border-slate-200 p-3 text-center hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 h-full">
-                    <span className="inline-block px-2 py-0.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-[10px] font-bold rounded-full mb-2 shadow-sm shadow-blue-500/20">
-                      {item.year}
-                    </span>
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-2 group-hover:bg-blue-100 transition-colors">
-                      <Icon className="w-4 h-4 text-blue-600" />
-                    </div>
-                    <h3 className="text-[11px] font-bold text-slate-900 mb-0.5 leading-tight">{item.title}</h3>
-                    <p className="text-[9px] text-slate-500 leading-snug">{item.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+          {/* Journey Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="rounded-lg overflow-hidden max-h-[150px] md:max-h-[220px]"
+          >
+            <img src="/journey.jpeg" alt="Our Journey" className="w-full h-full object-cover" />
+          </motion.div>
         </div>
       </div>
     </section>
