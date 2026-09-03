@@ -174,24 +174,12 @@ function JourneySection() {
       <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-2 md:py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mb-1.5"
-          >
-            <span className="text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-0.5 block">Our Journey</span>
-            <h2 className="text-sm md:text-base lg:text-lg font-black font-display text-slate-900 leading-tight">
-              Building the <span className="text-blue-600">Future</span>
-            </h2>
-          </motion.div>
-
           {/* Journey Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="rounded-lg overflow-hidden max-h-[150px] md:max-h-[220px]"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="rounded-lg overflow-hidden max-h-[450px] md:max-h-[650px]"
           >
             <img src="/journey.jpeg" alt="Our Journey" className="w-full h-full object-cover" />
           </motion.div>
