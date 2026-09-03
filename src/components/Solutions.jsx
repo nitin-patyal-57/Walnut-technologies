@@ -39,11 +39,11 @@ function HeroBanner({ onSelect }) {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   const divisionsList = [
-    { label: 'Medical', color: '#06b6d4', initial: 'M' },
-    { label: 'Fintech', color: '#8b5cf6', initial: 'F' },
-    { label: 'Neuro', color: '#10b981', initial: 'N' },
-    { label: 'Automotive', color: '#f59e0b', initial: 'A' },
-    { label: 'IoT', color: '#0891b2', initial: 'I' },
+    { label: 'Walk Lab', category: 'Neuro Rehab', desc: 'Advanced Rehabilitation & Gait Training Systems', color: '#10b981', image: '/walklab 3.0.webp', division: divisions[3] },
+    { label: 'Digital BP', category: 'Medical', desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant', color: '#06b6d4', image: '/RTMS.webp', division: divisions[0] },
+    { label: 'Single Sim', category: 'Fintech', desc: 'NPCI, RBI, PCI DSS Certified', color: '#8b5cf6', image: '/soundbox1.webp', division: divisions[1] },
+    { label: 'Cluster', category: 'Automotive', desc: 'Industrial & Automotive Electronics', color: '#f59e0b', image: '/cluster.webp', division: divisions[4] },
+    { label: 'Smart Lock', category: 'IoT', desc: 'Connected Smart Devices & IoT Solutions', color: '#0891b2', image: '/smart lock.webp', division: divisions[2] },
   ];
 
   return (
@@ -52,59 +52,69 @@ function HeroBanner({ onSelect }) {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="relative overflow-hidden rounded-3xl mb-8"
+      className="mb-10"
     >
-      {/* Background image */}
-      <img
-        src="/gpsgatewaybackground.webp"
-        alt="GPS Gateway Background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="relative z-10 flex flex-col lg:flex-row items-center">
-        {/* Left Content */}
-        <div className="flex-1 p-8 md:p-12 lg:p-14">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-2 block"
+        >
+          {t('solutions.ourSolutions')}
+        </motion.span>
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-slate-900 leading-tight tracking-tight mb-3"
+        >
+          {t('solutions.heroTitle')}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-sm md:text-base text-slate-500 leading-relaxed max-w-2xl mx-auto"
+        >
+          {t('solutions.heroDesc')}
+        </motion.p>
+      </div>
+
+      {/* Division Cards with Full Images */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {divisionsList.map((d, i) => (
           <motion.div
+            key={d.label}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-white leading-[1.1] tracking-tight mb-5 drop-shadow-lg">
-              {t('solutions.heroTitle')}
-            </h1>
-            <p className="text-sm md:text-base text-white/90 leading-relaxed max-w-md mb-8 drop-shadow-md">
-              {t('solutions.heroDesc')}
-            </p>
-            <div className="flex items-center gap-4 mb-8">
-              <button
-                onClick={() => onSelect(divisions[0])}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:shadow-xl hover:shadow-blue-600/30"
-              >
-                {t('solutions.exploreProducts')}
-              </button>
-              <button
-                onClick={() => document.getElementById('categories')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-200 transition-colors drop-shadow-md"
-              >
-                See More
-                <FiArrowUpRight className="w-4 h-4" />
-              </button>
-            </div>
-            {/* Trust badges */}
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {divisionsList.map((d, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: d.color }}>
-                    {d.initial}
-                  </div>
-                ))}
+            <button
+              onClick={() => onSelect(d.division)}
+              className="group w-full text-left rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
+            >
+              {/* Full Image */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <img
+                  src={d.image}
+                  alt={d.label}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <p className="text-xs text-white/90 leading-tight drop-shadow-md">
-                <span className="font-semibold text-white">{t('solutions.heroTrusted')}.</span><br />
-                {t('solutions.heroTrustedDesc')}
-              </p>
-            </div>
+
+              {/* Details Below Image */}
+              <div className="p-4">
+                <span className="text-[10px] font-bold uppercase tracking-wider block mb-1" style={{ color: d.color }}>{d.category}</span>
+                <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{d.label}</h4>
+                <p className="text-[11px] text-slate-500 leading-snug">{d.desc}</p>
+              </div>
+            </button>
           </motion.div>
-        </div>
+        ))}
       </div>
     </motion.div>
   );
