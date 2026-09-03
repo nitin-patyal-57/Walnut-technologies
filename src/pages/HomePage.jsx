@@ -57,8 +57,8 @@ function JourneySection() {
             <div className="w-14 h-0.5 bg-blue-600 mx-auto rounded-full" />
           </motion.div>
 
-          {/* Hexagonal Grid - Row 1 (5 items) */}
-          <div className="flex justify-center items-center gap-0 mb-1">
+          {/* Circle Grid - Row 1 (5 items) */}
+          <div className="flex justify-center items-center gap-2 md:gap-4 mb-1">
             {processImages.slice(0, 5).map((item, i) => (
               <motion.div
                 key={i}
@@ -68,40 +68,23 @@ function JourneySection() {
                 className="flex items-center"
               >
                 <div className="relative group">
-                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px]">
-                    <svg viewBox="0 0 200 230" className="w-full h-full">
-                      <defs>
-                        <clipPath id={`hex-clip-${i}`}>
-                          <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
-                        </clipPath>
-                      </defs>
-                      <polygon 
-                        points="100,5 190,60 190,170 100,225 10,170 10,60" 
-                        fill="white" 
-                        stroke="#e2e8f0" 
-                        strokeWidth="2"
-                        className="group-hover:stroke-blue-400 transition-colors duration-300"
-                      />
-                      <image 
-                        href={item.image} 
-                        x="10" y="5" 
-                        width="180" height="220" 
-                        clipPath={`url(#hex-clip-${i})`}
-                        className="group-hover:scale-110 transition-transform duration-500"
-                        preserveAspectRatio="xMidYMid slice"
-                      />
-                    </svg>
+                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                    <img 
+                      src={item.image} 
+                      alt={item.to}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                     <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
-                  <div className="text-center mt-0.5">
+                  <div className="text-center mt-1">
                     <p className="text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
                     <p className="text-[8px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
-                  <div className="flex items-center mx-0.5 md:mx-1 -mt-4">
+                  <div className="flex items-center mx-1 md:mx-2 -mt-4">
                     <div className="w-4 md:w-6 h-[2px] bg-blue-400" />
                     <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-blue-400" />
                   </div>
@@ -110,8 +93,8 @@ function JourneySection() {
             ))}
           </div>
 
-          {/* Hexagonal Grid - Row 2 (4 items) */}
-          <div className="flex justify-center items-center gap-0">
+          {/* Square Grid - Row 2 (4 items) */}
+          <div className="flex justify-center items-center gap-2 md:gap-4">
             {processImages.slice(5, 9).map((item, i) => (
               <motion.div
                 key={i}
@@ -121,40 +104,23 @@ function JourneySection() {
                 className="flex items-center"
               >
                 <div className="relative group">
-                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px]">
-                    <svg viewBox="0 0 200 230" className="w-full h-full">
-                      <defs>
-                        <clipPath id={`hex-clip2-${i}`}>
-                          <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
-                        </clipPath>
-                      </defs>
-                      <polygon 
-                        points="100,5 190,60 190,170 100,225 10,170 10,60" 
-                        fill="white" 
-                        stroke="#e2e8f0" 
-                        strokeWidth="2"
-                        className="group-hover:stroke-blue-400 transition-colors duration-300"
-                      />
-                      <image 
-                        href={item.image} 
-                        x="10" y="5" 
-                        width="180" height="220" 
-                        clipPath={`url(#hex-clip2-${i})`}
-                        className="group-hover:scale-110 transition-transform duration-500"
-                        preserveAspectRatio="xMidYMid slice"
-                      />
-                    </svg>
+                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-xl overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                    <img 
+                      src={item.image} 
+                      alt={item.to}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                     <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
-                  <div className="text-center mt-0.5">
+                  <div className="text-center mt-1">
                     <p className="text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
                     <p className="text-[8px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 3 && (
-                  <div className="flex items-center mx-0.5 md:mx-1 -mt-4">
+                  <div className="flex items-center mx-1 md:mx-2 -mt-4">
                     <div className="w-4 md:w-6 h-[2px] bg-blue-400" />
                     <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-blue-400" />
                   </div>
