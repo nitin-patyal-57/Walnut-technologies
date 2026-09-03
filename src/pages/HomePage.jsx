@@ -208,19 +208,17 @@ function DivisionsPreview() {
                 className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
               >
                 {/* Full Image */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 p-4">
                   <img
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 drop-shadow-lg"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <span className="absolute top-3 left-3 text-[10px] font-black text-white bg-slate-900/70 backdrop-blur-sm px-2 py-1 rounded-md">{sol.num}</span>
                 </div>
 
                 {/* Details Below Image */}
-                <div className="p-4">
+                <div className="p-4 border-t border-slate-100">
                   <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
                   <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
                   <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
