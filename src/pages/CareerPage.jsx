@@ -150,7 +150,7 @@ export default function CareerPage() {
   ];
 
   const cultureImages = [
-    { src: '/walklab 3.0.webp', alt: 'Innovation lab' },
+    { src: '/neuro_rehab_device1.png', alt: 'Innovation lab' },
     { src: '/home background.webp', alt: 'Team collaboration' },
     { src: '/Continuous Improvement.webp', alt: 'Continuous Improvement' },
     { src: '/Research & Market Analysis.webp', alt: 'Research & Market Analysis' },

@@ -25,12 +25,12 @@ const stepIcons = {
 const stepImages = [
   '/3d image.webp',
   '/TDCS.webp',
-  '/smart lock.webp',
+  '/IOT lock smart.png',
   '/Pocket Soundbox.webp',
   '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
   '/paytm soundbox.webp',
-  '/RTMS.webp',
-  '/walklab 3.0.webp',
+  '/futuristic_medical_device_zoomed_out.png',
+  '/neuro_rehab_device1.png',
   '/soundbox.webp',
   '/soundbox (3).webp',
 ];

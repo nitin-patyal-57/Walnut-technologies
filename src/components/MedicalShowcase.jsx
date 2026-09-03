@@ -39,7 +39,7 @@ const products = [
     subtitle: 'Reliable oxygen therapy',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings with low noise operation.',
     highlights: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise'],
-    image: '/RTMS.webp',
+    image: '/futuristic_medical_device_zoomed_out.png',
   },
   {
     number: 4,

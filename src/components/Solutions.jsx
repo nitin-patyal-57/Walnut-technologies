@@ -162,13 +162,13 @@ function FeaturesSection() {
     {
       title: 'MedStim Neuro Devices',
       desc: 'Advanced neurostimulation therapy for accelerated recovery.',
-      image: '/medstim new.webp',
+      image: '/futuristic_medical_device_zoomed_out.png',
       icon: FiCpu,
     },
     {
       title: 'Smart Lock Systems',
       desc: 'Connected IoT locks with BLE/WiFi and cloud integration.',
-      image: '/smartlock.webp',
+      image: '/IOT lock smart.png',
       icon: FiWifi,
     },
   ];
@@ -413,7 +413,7 @@ export default function Solutions({ onOpenQuote }) {
   const isSpecialDivision = isFintechSelected || isMedicalSelected || isNeuroSelected || isIoTSelected;
 
   return (
-    <section id="solutions" className={`relative ${isSpecialDivision ? 'p-0 m-0' : 'py-16 md:py-20'}`}>
+    <section id="solutions" className={`relative ${isSpecialDivision ? 'p-0 m-0' : 'bg-white py-16 md:py-24'}`}>
       <div ref={ref} className={`${isSpecialDivision ? 'p-0 m-0 w-full' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}`}>
 
         <AnimatePresence mode="wait">
@@ -428,15 +428,48 @@ export default function Solutions({ onOpenQuote }) {
               {/* Hero Banner */}
               <HeroBanner onSelect={setSelectedDivision} />
 
-              {/* Category Grid */}
-              <div id="categories" className="grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 mb-8">
+              {/* Centered Title */}
+              <div className="text-center mb-12 mt-12">
+                <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">OUR PRODUCTS</p>
+                <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900 mb-3 leading-tight">
+                  End-to-End Solutions for Global Brands
+                </h2>
+                <p className="text-sm text-slate-500 max-w-md mx-auto">
+                  Explore our comprehensive range of electronics and manufacturing solutions across 5 verticals.
+                </p>
+              </div>
+
+              {/* Category Cards - Full Images with Details Below */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-12">
                 {divisions.map((division, index) => (
-                  <CategoryCard
+                  <motion.div
                     key={division.id}
-                    division={division}
-                    onSelect={setSelectedDivision}
-                    index={index}
-                  />
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
+                  >
+                    <div
+                      onClick={() => setSelectedDivision(division)}
+                      className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 cursor-pointer"
+                    >
+                      {/* Full Image */}
+                      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+                        <img
+                          src={division.products[0]?.image}
+                          alt={division.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+
+                      {/* Details Below Image */}
+                      <div className="p-4 border-t border-slate-100">
+                        <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block mb-1">{division.category || 'Division'}</span>
+                        <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{division.title}</h4>
+                        <p className="text-[11px] text-slate-500 leading-snug">{division.subtitle}</p>
+                      </div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
 

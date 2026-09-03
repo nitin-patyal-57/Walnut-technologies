@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   {
-    label: 'Solutions',
+    label: 'Products',
     to: '/solutions',
     dropdown: [
       { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices' },

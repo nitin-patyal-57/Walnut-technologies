@@ -9,7 +9,7 @@ const expertiseAreas = [
     titleKey: 'medicalElectronics',
     slug: 'medical-electronics',
     descKey: 'medicalElectronicsDesc',
-    image: '/RTMS.webp',
+    image: '/futuristic_medical_device_zoomed_out.png',
   },
   {
     titleKey: 'embeddedElectronicAndIoT',

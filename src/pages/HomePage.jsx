@@ -28,90 +28,98 @@ function JourneySection() {
   ];
 
   return (
-    <section className="py-6 md:py-10 bg-white" ref={ref}>
+    <section className="py-12 md:py-16 bg-gradient-to-b from-slate-50 to-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-6"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
         >
-          <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-1 block">Our Process</span>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display leading-tight tracking-tight mb-1">
+          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-3 block">Our Process</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display leading-tight tracking-tight mb-3">
             <span className="text-slate-900">FROM IDEA TO </span>
             <span className="text-blue-600">LARGE SCALE.</span>
           </h2>
-          <p className="text-xs text-slate-500 leading-relaxed max-w-2xl">
+          <p className="text-sm text-slate-500 leading-relaxed max-w-2xl mx-auto">
             End-to-end product development and manufacturing powered by an Industry 5.0 ecosystem.
           </p>
         </motion.div>
 
-        {/* Process Steps - Horizontal scroll on mobile, grid on desktop */}
-        <div className="mb-6 overflow-x-auto pb-2 -mx-4 px-4">
-          <div className="flex gap-2 min-w-max lg:min-w-0 lg:grid lg:grid-cols-5 lg:gap-2">
+        {/* Process Steps - Modern Grid */}
+        <div className="mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {processSteps.slice(0, 10).map((step, i) => {
               const Icon = processIcons[i];
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.3, delay: 0.1 + i * 0.04 }}
-                  className="flex items-start gap-2 bg-white rounded-xl border border-slate-200 hover:border-blue-200 hover:shadow-md transition-all duration-300 p-2.5 min-w-[160px] lg:min-w-0 group"
+                  transition={{ duration: 0.4, delay: 0.1 + i * 0.05 }}
+                  className="relative bg-white rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 p-4 group"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
-                    <Icon className="w-3.5 h-3.5 text-blue-600" />
+                  {/* Step Number */}
+                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center shadow-md">
+                    {i + 1}
                   </div>
-                  <div className="min-w-0">
-                    <span className="text-[8px] font-bold text-blue-600 block">0{i + 1}</span>
-                    <h4 className="text-[10px] font-bold text-slate-900 uppercase tracking-wider leading-tight mb-0.5">{step.title}</h4>
-                    <p className="text-[9px] text-slate-500 leading-snug">{step.description}</p>
+                  
+                  {/* Icon */}
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 flex items-center justify-center mb-3 group-hover:from-blue-100 group-hover:to-blue-200 transition-colors">
+                    <Icon className="w-5 h-5 text-blue-600" />
                   </div>
+                  
+                  {/* Content */}
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider leading-tight mb-1">{step.title}</h4>
+                  <p className="text-[10px] text-slate-500 leading-snug">{step.description}</p>
                 </motion.div>
               );
             })}
           </div>
         </div>
 
-        {/* Journey Timeline */}
+        {/* Journey Timeline - Modern Design */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest">Our Journey</span>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">Our Journey</span>
             <div className="h-px flex-1 bg-gradient-to-r from-blue-200 to-transparent" />
           </div>
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute top-[18px] left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200" />
+            <div className="absolute top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200" />
 
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-2 relative">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-3 relative">
               {companyJourney.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <motion.div
                     key={item.year}
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.06 }}
                     className="flex flex-col items-center relative"
                   >
-                    {/* Dot */}
-                    <div className="w-3 h-3 rounded-full bg-blue-600 border-3 border-white shadow-md z-10 mt-[6px]" />
+                    {/* Dot with pulse effect */}
+                    <div className="relative z-10">
+                      <div className="w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-lg" />
+                      <div className="absolute inset-0 w-4 h-4 rounded-full bg-blue-400 animate-ping opacity-20" />
+                    </div>
 
                     {/* Content Card */}
-                    <div className="mt-2 bg-white rounded-lg border border-slate-200 p-2 text-center w-full hover:border-blue-200 hover:shadow-md transition-all duration-300">
-                      <div className="w-7 h-7 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-1.5">
-                        <Icon className="w-3 h-3 text-blue-600" />
+                    <div className="mt-4 bg-white rounded-xl border border-slate-200 p-3 text-center w-full hover:border-blue-300 hover:shadow-lg transition-all duration-300 group">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 flex items-center justify-center mx-auto mb-2 group-hover:from-blue-100 group-hover:to-blue-200 transition-colors">
+                        <Icon className="w-4 h-4 text-blue-600" />
                       </div>
-                      <span className="text-[10px] font-bold text-blue-600 block mb-0.5">{item.year}</span>
-                      <h4 className="text-[9px] font-bold text-slate-900 uppercase tracking-wider leading-tight mb-0.5">{item.title}</h4>
-                      <p className="text-[8px] text-slate-500 leading-snug">{item.desc}</p>
+                      <span className="text-xs font-bold text-blue-600 block mb-1">{item.year}</span>
+                      <h4 className="text-[10px] font-bold text-slate-900 uppercase tracking-wider leading-tight mb-1">{item.title}</h4>
+                      <p className="text-[9px] text-slate-500 leading-snug">{item.desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -136,7 +144,7 @@ function DivisionsPreview() {
       title: 'Walk Lab',
       category: t('divisions.robotics'),
       desc: 'Advanced Rehabilitation & Gait Training Systems',
-      image: '/walklab 3.0.webp',
+      image: '/neuro_rehab_device1.png',
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {
@@ -144,7 +152,7 @@ function DivisionsPreview() {
       title: 'Digital Blood Pressure',
       category: t('divisions.medical'),
       desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
-      image: '/RTMS.webp',
+      image: '/futuristic_medical_device_zoomed_out.png',
       link: '/solutions?category=Medical',
     },
     {
@@ -152,7 +160,7 @@ function DivisionsPreview() {
       title: 'Single Sim Model',
       category: t('divisions.fintech'),
       desc: 'NPCI, RBI, PCI DSS Certified',
-      image: '/soundbox1.webp',
+      image: '/boxsound.png',
       link: '/solutions?category=Fintech',
     },
     {
@@ -160,7 +168,7 @@ function DivisionsPreview() {
       title: 'Cluster',
       category: t('divisions.automotive'),
       desc: 'Industrial & Automotive Electronics',
-      image: '/cluster.webp',
+      image: '/cluster1.png',
       link: '/solutions?category=Automotive',
     },
     {
@@ -168,7 +176,7 @@ function DivisionsPreview() {
       title: 'IoT Smart Lock',
       category: t('divisions.iot'),
       desc: 'Connected Smart Devices & IoT Solutions',
-      image: '/smart lock.webp',
+      image: '/IOT lock smart.png',
       link: '/solutions?category=IoT',
     },
   ];
@@ -213,7 +221,7 @@ function DivisionsPreview() {
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
 

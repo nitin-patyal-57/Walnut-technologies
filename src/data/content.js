@@ -64,7 +64,7 @@ export const divisions = [
     color: 'from-emerald-500 to-teal-600',
     features: ['AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready', 'Real-time Monitoring'],
     products: [
-      { name: 'Walk Lab', image: '/walklab 3.0.webp' },
+      { name: 'Walk Lab', image: '/neuro_rehab_device1.png' },
     ],
   },
   {
@@ -78,7 +78,7 @@ export const divisions = [
     products: [
       { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp' },
       { name: 'IR Thermometer', image: '/TDCS.webp' },
-      { name: 'Oxygen Concentrator', image: '/RTMS.webp' },
+      { name: 'Oxygen Concentrator', image: '/futuristic_medical_device_zoomed_out.png' },
       { name: 'Walnut Compressor Nebulizer', image: '/CES repose.webp' },
     ],
   },
@@ -108,7 +108,7 @@ export const divisions = [
     color: 'from-amber-500 to-orange-600',
     features: ['Durable Design', 'Industrial Grade', 'Quality Tested', 'Custom Solutions'],
     products: [
-      { name: 'Cluster', image: '/cluster.webp' },
+      { name: 'Cluster', image: '/cluster1.png' },
       { name: 'Harvester', image: '/TDCS.webp' },
     ],
   },
@@ -121,7 +121,7 @@ export const divisions = [
     color: 'from-cyan-500 to-teal-600',
     features: ['BLE/WiFi Connected', 'Cloud Integration', 'Edge Computing', 'Real-time Monitoring'],
     products: [
-      { name: 'IoT Smart Lock', image: '/smart lock.webp' },
+      { name: 'IoT Smart Lock', image: '/IOT lock smart.png' },
     ],
   },
 ];
@@ -156,7 +156,7 @@ export const products = [
     category: 'Medical',
     title: 'Oxygen Concentrator',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings.',
-    image: '/RTMS.webp',
+    image: '/futuristic_medical_device_zoomed_out.png',
     features: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise Operation'],
   },
   {
@@ -220,7 +220,7 @@ export const products = [
     category: 'Automotive',
     title: 'Cluster',
     description: 'Automotive cluster display systems with advanced instrumentation for real-time vehicle data visualization and driver information.',
-    image: '/cluster.webp',
+    image: '/cluster1.png',
     features: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
   },
   {
@@ -236,7 +236,7 @@ export const products = [
     category: 'IoT',
     title: 'IoT Smart Lock',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities.',
-    image: '/smart lock.webp',
+    image: '/IOT lock smart.png',
     features: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
   },
 ];
@@ -457,14 +457,14 @@ export const expertise = [
     title: 'Medical Electronics',
     description: 'Life-critical medical device design and manufacturing with full regulatory compliance.',
     icon: 'heart',
-    image: '/RTMS.webp',
+    image: '/futuristic_medical_device_zoomed_out.png',
     areas: ['Patient Monitoring', 'Diagnostics', 'Neuro Rehab', 'Therapeutic Devices', 'Oxygen Concentrators'],
   },
   {
     title: 'Embedded Systems & IoT',
     description: 'Firmware, RTOS, and cloud-connected embedded solutions for smart devices.',
     icon: 'cpu',
-    image: '/smart lock.webp',
+    image: '/IOT lock smart.png',
     areas: ['ARM/MCU', 'RTOS/Linux', 'BLE/WiFi', 'Cloud IoT', 'Edge Computing'],
   },
   {
@@ -517,7 +517,7 @@ export const clientSectors = [
     description: 'Hospitals, clinics, and medical device companies',
     clients: ['Apollo Hospitals', 'Fortis', 'Manipal', 'Medanta'],
     icon: 'hospital',
-    image: '/RTMS.webp',
+    image: '/futuristic_medical_device_zoomed_out.png',
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
@@ -541,7 +541,7 @@ export const clientSectors = [
     description: 'Manufacturing equipment and monitoring systems',
     clients: ['Sun Pharma', 'Cipla', 'Ipca Labs'],
     icon: 'pharma',
-    image: '/walklab 3.0.webp',
+    image: '/neuro_rehab_device1.png',
     gradient: 'from-green-500 to-emerald-600',
   },
   {
@@ -549,7 +549,7 @@ export const clientSectors = [
     description: 'Smart metering, grid monitoring, and industrial controls',
     clients: [],
     icon: 'energy',
-    image: '/smart lock.webp',
+    image: '/IOT lock smart.png',
     gradient: 'from-yellow-500 to-amber-600',
   },
   {

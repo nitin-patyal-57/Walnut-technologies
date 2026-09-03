@@ -19,7 +19,7 @@ const products = [
     subtitle: 'Connected access control',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities. Cloud integration for secure management from anywhere.',
     highlights: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
-    image: '/smartlock.webp',
+    image: '/IOT lock smart.png',
   },
   {
     number: 2,

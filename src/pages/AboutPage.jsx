@@ -9,11 +9,11 @@ import {
 } from 'react-icons/fi';
 
 const facilityImages = [
-  '/RTMS.webp',
+  '/futuristic_medical_device_zoomed_out.png',
   '/paytm soundbox.webp',
-  '/walklab 3.0.webp',
+  '/neuro_rehab_device1.png',
   '/TDCS.webp',
-  '/smart lock.webp',
+  '/IOT lock smart.png',
   '/3d image.webp',
 ];
 
