@@ -179,7 +179,7 @@ function JourneySection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="rounded-lg overflow-hidden max-h-[450px] md:max-h-[650px]"
+            className="rounded-lg overflow-hidden"
           >
             <img src="/journey.jpeg" alt="Our Journey" className="w-full h-full object-cover" />
           </motion.div>
