@@ -208,12 +208,12 @@ function DivisionsPreview() {
                 className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
               >
                 {/* Full Image */}
-                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 p-4">
+                <div className="relative aspect-square overflow-hidden bg-slate-50">
                   <img
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 drop-shadow-lg"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
 
