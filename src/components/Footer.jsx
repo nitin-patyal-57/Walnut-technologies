@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail, FiShield, FiCheckCircle } from 'react-icons/fi';
+import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail, FiShield } from 'react-icons/fi';
 import { brand } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 

@@ -27,7 +27,7 @@ function ProcessTimeline() {
     { num: '01', title: 'IDEA', image: '/Idea & Requirement.webp' },
     { num: '02', title: 'RESEARCH', image: '/Research & Market Analysis.webp' },
     { num: '03', title: 'DESIGN', image: '/Design & Engineering.webp' },
-    { num: '04', title: 'PROTOTYPE', image: '/Prototype Development.webp' },
+    { num: '04', title: 'MANUFACTURING', image: '/contract manufacturing.webp' },
     { num: '05', title: 'TESTING', image: '/Validation & Testing.webp' },
     { num: '06', title: 'MOLDING', image: '/Manufacturing Engineering & Mold Design.webp' },
     { num: '07', title: 'QA', image: '/Quality Assurance.webp' },

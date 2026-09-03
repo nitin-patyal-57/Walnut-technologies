@@ -1,9 +1,20 @@
 const STORAGE_KEY = 'walnut-leads';
+const MAX_LEADS = 50;
+const EXPIRY_HOURS = 24;
 
 function getLeads() {
   try {
     const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : [];
+    if (!data) return [];
+    const leads = JSON.parse(data);
+    const now = Date.now();
+    const filtered = leads.filter((lead) => {
+      if (!lead.timestamp) return false;
+      const age = now - new Date(lead.timestamp).getTime();
+      return age < EXPIRY_HOURS * 60 * 60 * 1000;
+    });
+    if (filtered.length !== leads.length) saveLeads(filtered);
+    return filtered;
   } catch {
     return [];
   }
@@ -11,7 +22,8 @@ function getLeads() {
 
 function saveLeads(leads) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+    const trimmed = leads.slice(-MAX_LEADS);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed));
   } catch (e) {
     console.warn('Failed to save lead:', e);
   }
@@ -30,24 +42,17 @@ export function useLeads() {
     leads.push(lead);
     saveLeads(leads);
 
-    // Also dispatch a custom event so other components can listen
     window.dispatchEvent(new CustomEvent('walnut-new-lead', { detail: lead }));
-
     return lead;
   };
 
   const getAllLeads = () => getLeads();
-
   const getLeadCount = () => getLeads().length;
-
-  const clearLeads = () => {
-    localStorage.removeItem(STORAGE_KEY);
-  };
+  const clearLeads = () => localStorage.removeItem(STORAGE_KEY);
 
   return { submitLead, getAllLeads, getLeadCount, clearLeads };
 }
 
-// Simple named export for direct import of the function
 export function captureLead(data) {
   const lead = {
     ...data,

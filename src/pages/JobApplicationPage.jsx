@@ -34,9 +34,20 @@ export default function JobApplicationPage() {
   const [submitted, setSubmitted] = useState(false);
   const [dragActive, setDragActive] = useState(false);
 
+  const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setFormData(prev => ({ ...prev, [name]: files ? files[0] : value }));
+    if (files) {
+      const file = files[0];
+      if (file && file.size > MAX_FILE_SIZE) {
+        alert('File size must be less than 5MB');
+        return;
+      }
+      setFormData(prev => ({ ...prev, [name]: file }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleDrag = (e) => {
@@ -51,7 +62,12 @@ export default function JobApplicationPage() {
     e.stopPropagation();
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setFormData(prev => ({ ...prev, resume: e.dataTransfer.files[0] }));
+      const file = e.dataTransfer.files[0];
+      if (file.size > MAX_FILE_SIZE) {
+        alert('File size must be less than 5MB');
+        return;
+      }
+      setFormData(prev => ({ ...prev, resume: file }));
     }
   };
 

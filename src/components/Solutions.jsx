@@ -1,7 +1,7 @@
 import { useRef, useState, useMemo, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
-import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft, FiWifi, FiArrowUpRight, FiArrowUp } from 'react-icons/fi';
+import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft, FiWifi, FiArrowUpRight } from 'react-icons/fi';
 import { products, divisions } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 import ProductShowcase from './ProductShowcase';

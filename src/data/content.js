@@ -12,7 +12,7 @@ export const brand = {
   founded: '2016',
   social: {
     instagram: 'https://www.instagram.com/walnut_medical/',
-    linkedin: 'https://www.linkedin.com/company/walnut-medical-private-limited/posts/?feedView=all',
+    linkedin: 'https://www.linkedin.com/company/walnut-medical-private-limited',
     youtube: 'https://www.youtube.com/@walnutmedical9305',
   },
 };

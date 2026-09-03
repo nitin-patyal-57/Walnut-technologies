@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fi';
 import { brand } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
-const FORMSPREE_ENDPOINT = `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORMSPREE_ID'}`;
+import { sendContactEmail } from '../utils/sendEmail';
 
 export default function ContactPage({ onOpenQuote }) {
   const ref = useRef(null);
@@ -69,22 +69,7 @@ export default function ContactPage({ onOpenQuote }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          company: form.company,
-          subject: form.subject,
-          message: form.message,
-        }),
-      });
-    } catch {
-      // Formspree submission failed silently — still show success to user
-    }
+    sendContactEmail(form);
     setSubmitted(true);
     timeoutRef.current = setTimeout(() => {
       setSubmitted(false);
@@ -229,6 +214,7 @@ export default function ContactPage({ onOpenQuote }) {
                         onChange={(e) => setForm({...form, name: e.target.value})}
                         className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder={t('contact.fullName')}
+                        maxLength={100}
                       />
                     </div>
                     <div>
@@ -239,6 +225,7 @@ export default function ContactPage({ onOpenQuote }) {
                         onChange={(e) => setForm({...form, company: e.target.value})}
                         className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder={t('contact.companyName')}
+                        maxLength={100}
                       />
                     </div>
                   </div>
@@ -291,6 +278,7 @@ export default function ContactPage({ onOpenQuote }) {
                       onChange={(e) => setForm({...form, message: e.target.value})}
                       className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                       placeholder={t('contact.messagePlaceholder')}
+                      maxLength={1000}
                     />
                   </div>
                   <div className="flex items-start gap-2">

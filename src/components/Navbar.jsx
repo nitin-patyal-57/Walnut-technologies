@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FiMenu, FiX, FiChevronDown, FiMapPin, FiMail, FiPhone, FiArrowUpRight, FiMessageSquare } from 'react-icons/fi';
+import { FiMenu, FiX, FiChevronDown, FiMapPin, FiMail, FiPhone, FiMessageSquare } from 'react-icons/fi';
 import { brand, trustSignals } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -149,7 +149,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                 onClick={onOpenQuote}
                 className={`px-4 py-1.5 text-[13px] font-medium rounded-lg shadow-sm transition-all ${btnSolid}`}
               >
-                Request Quote
+                {t('nav.requestQuote')}
               </button>
               {/* Three Line Menu Button */}
               <button
@@ -201,13 +201,13 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                     onClick={() => { onOpenSchedule(); setIsMobileOpen(false); }}
                     className="w-full py-2 text-[13px] text-slate-600 border border-slate-300 rounded-lg hover:text-slate-900 hover:border-slate-400 transition-all"
                   >
-                    Schedule a Call
+                    {t('nav.scheduleCall')}
                   </button>
                   <button
                     onClick={() => { onOpenQuote(); setIsMobileOpen(false); }}
                     className="w-full py-2 text-[13px] font-medium text-white bg-slate-900 rounded-lg shadow-sm transition-all"
                   >
-                    Request Quote
+                    {t('nav.requestQuote')}
                   </button>
                 </div>
               </div>

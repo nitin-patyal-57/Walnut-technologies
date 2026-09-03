@@ -1,14 +1,12 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { translations } from '../data/translations';
 
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('en');
-
   const t = (path) => {
     const keys = path.split('.');
-    let value = translations[lang];
+    let value = translations.en;
     for (const key of keys) {
       value = value?.[key];
     }
@@ -16,7 +14,7 @@ export function LanguageProvider({ children }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
+    <LanguageContext.Provider value={{ t }}>
       {children}
     </LanguageContext.Provider>
   );

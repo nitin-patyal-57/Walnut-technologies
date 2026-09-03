@@ -9,7 +9,6 @@ import {
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 import { useLanguage } from '../context/LanguageContext';
-import { news } from '../data/content';
 
 function JourneySection() {
   const ref = useRef(null);
@@ -440,62 +439,70 @@ function CTASection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const { t } = useLanguage();
 
-  const whyChooseUs = [
-    { icon: FiShield, title: t('cta.wcu1Title'), desc: t('cta.wcu1Desc') },
-    { icon: FiGlobe, title: t('cta.wcu2Title'), desc: t('cta.wcu2Desc') },
-    { icon: FiCheckCircle, title: t('cta.wcu3Title'), desc: t('cta.wcu3Desc') },
+  const trustItems = [
+    { icon: FiShield, value: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
+    { icon: FiGlobe, value: '20+ Countries', desc: 'Global supply chain and logistics' },
+    { icon: FiTrendingUp, value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
   ];
 
   return (
-    <section id="cta-section" className="py-16 md:py-20 bg-slate-50">
+    <section id="cta-section" className="py-16 md:py-20 bg-white">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-2xl overflow-hidden bg-slate-900">
-          <div className="relative z-10 py-12 md:py-16 px-6 md:px-12">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 border border-slate-200/60 shadow-sm">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-56 h-56 bg-indigo-100/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+
+          <div className="relative z-10 py-14 md:py-18 px-8 md:px-14">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5 }}
                 >
-                  <h2 className="text-2xl md:text-3xl font-bold font-display text-white mb-3">
-                    {t('cta.title')}
+                  <span className="text-blue-600 font-bold text-[11px] uppercase tracking-widest mb-2 block">Let's Collaborate</span>
+                  <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900 leading-tight mb-4">
+                    Ready to Build Your<br />Next Product?
                   </h2>
-                  <p className="text-sm text-slate-400 leading-relaxed max-w-md mb-6">
-                    {t('cta.subtitle')}
+                  <p className="text-sm text-slate-500 leading-relaxed max-w-md mb-8">
+                    From concept to certification — we handle the entire manufacturing journey. ISO 13485 certified, 4 SMT lines, 500K+ units/month capacity.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-900 text-sm font-semibold rounded-xl shadow-lg shadow-cyan-500/25 transition-all duration-300"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl shadow-lg shadow-slate-900/20 transition-all duration-300"
                     >
-                      {t('cta.touch')}
+                      Get in Touch
                       <FiArrowUpRight className="w-4 h-4" />
                     </Link>
                     <button
                       onClick={() => document.getElementById('divisions-preview')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 border border-white/20 hover:bg-white/20 text-white text-sm font-semibold rounded-xl transition-all duration-300 backdrop-blur-sm"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md text-slate-700 text-sm font-semibold rounded-xl transition-all duration-300"
                     >
-                      {t('cta.solutions')}
+                      View Solutions
                     </button>
                   </div>
                 </motion.div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
-                {whyChooseUs.map((item, index) => {
+              <div className="grid gap-3">
+                {trustItems.map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                      className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-3 text-center"
+                      key={item.value}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
+                      className="flex items-center gap-4 bg-white border border-slate-200/80 rounded-2xl p-4 hover:border-blue-200 hover:shadow-md transition-all duration-300"
                     >
-                      <Icon className="w-5 h-5 text-cyan-400 mx-auto mb-1.5" />
-                      <div className="text-xs font-bold text-white mb-0.5">{item.title}</div>
-                      <div className="text-xs text-slate-400">{item.desc}</div>
+                      <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-slate-900">{item.value}</div>
+                        <div className="text-xs text-slate-500">{item.desc}</div>
+                      </div>
                     </motion.div>
                   );
                 })}

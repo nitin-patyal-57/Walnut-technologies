@@ -1,4 +1,3 @@
-import { brand } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function PrivacyPage() {

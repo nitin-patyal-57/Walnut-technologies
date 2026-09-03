@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiSend, FiCheck } from 'react-icons/fi';
 import Modal from './Modal';
 import { captureLead } from '../hooks/useLeads';
+import { sendQuoteEmail } from '../utils/sendEmail';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function QuoteModal({ isOpen, onClose }) {
@@ -32,6 +33,7 @@ export default function QuoteModal({ isOpen, onClose }) {
       message: form.message,
       source: 'quote-modal',
     });
+    sendQuoteEmail(form);
     setSubmitted(true);
     setTimeout(() => {
       onClose();
@@ -58,7 +60,7 @@ export default function QuoteModal({ isOpen, onClose }) {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className={labelClass}>{t('quote.name')} *</label>
-              <input type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder={t('quote.name')} />
+              <input type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder={t('quote.name')} maxLength={100} />
             </div>
             <div>
               <label className={labelClass}>{t('quote.email')} *</label>
@@ -73,7 +75,7 @@ export default function QuoteModal({ isOpen, onClose }) {
             </div>
             <div>
               <label className={labelClass}>{t('quote.company')}</label>
-              <input type="text" value={form.company} onChange={(e) => updateField('company', e.target.value)} className={inputClass} placeholder={t('quote.company')} />
+              <input type="text" value={form.company} onChange={(e) => updateField('company', e.target.value)} className={inputClass} placeholder={t('quote.company')} maxLength={100} />
             </div>
           </div>
 
@@ -94,7 +96,7 @@ export default function QuoteModal({ isOpen, onClose }) {
 
           <div>
             <label className={labelClass}>{t('quote.message')}</label>
-            <textarea value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder={t('contact.messagePlaceholder')} />
+            <textarea value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder={t('contact.messagePlaceholder')} maxLength={1000} />
           </div>
 
           <button
