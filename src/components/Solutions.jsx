@@ -151,21 +151,25 @@ function FeaturesSection() {
       title: 'GPS Gateway',
       desc: 'Reliable tracking and connectivity for industrial and logistics applications.',
       image: '/GPS Gateway.webp',
+      icon: FiWifi,
     },
     {
       title: 'Bharat Pay Solutions',
       desc: 'Secure payment terminals powering digital transactions across India.',
       image: '/bharatpay m.webp',
+      icon: FiCreditCard,
     },
     {
       title: 'MedStim Neuro Devices',
       desc: 'Advanced neurostimulation therapy for accelerated recovery.',
       image: '/medstim new.webp',
+      icon: FiCpu,
     },
     {
       title: 'Smart Lock Systems',
       desc: 'Connected IoT locks with BLE/WiFi and cloud integration.',
       image: '/smartlock.webp',
+      icon: FiWifi,
     },
   ];
 
@@ -186,33 +190,84 @@ function FeaturesSection() {
         </p>
       </motion.div>
 
-      {/* Feature Cards - Same style as homepage solutions */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {features.map((feature, index) => (
-          <motion.div
-            key={feature.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
-            className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
-          >
-            {/* Full Image */}
-            <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 p-4">
-              <img
-                src={feature.image}
-                alt={feature.title}
-                loading="lazy"
-                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 drop-shadow-lg"
-              />
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Left - Large card (GPS Gateway) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative overflow-hidden rounded-2xl bg-slate-900 md:row-span-2 group cursor-pointer"
+        >
+          <img
+            src={features[0].image}
+            alt={features[0].title}
+            className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
+          />
+          <div className="relative z-10 h-full flex flex-col justify-between p-5 md:p-6 min-h-[300px] md:min-h-[420px]">
+            <div className="w-7 h-7 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+              {(() => { const Icon = features[0].icon; return <Icon className="w-3.5 h-3.5 text-white" />; })()}
             </div>
+            <div>
+              <h3 className="text-sm md:text-base font-bold text-white mb-1">{features[0].title}</h3>
+              <p className="text-[11px] text-white/70 leading-relaxed">{features[0].desc}</p>
+            </div>
+          </div>
+        </motion.div>
 
-            {/* Details Below Image */}
-            <div className="p-4 border-t border-slate-100">
-              <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{feature.title}</h4>
-              <p className="text-[11px] text-slate-500 leading-snug">{feature.desc}</p>
+        {/* Right Side - 3 cards stacked */}
+        <div className="flex flex-col gap-4">
+          {/* Bharat Pay */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[160px]"
+          >
+            <img
+              src={features[1].image}
+              alt={features[1].title}
+              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
+            />
+            <div className="relative z-10 h-full flex flex-col justify-between p-5">
+              <div className="w-7 h-7 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                {(() => { const Icon = features[1].icon; return <Icon className="w-3.5 h-3.5 text-white" />; })()}
+              </div>
+              <div>
+                <h3 className="text-xs font-bold text-white mb-0.5">{features[1].title}</h3>
+                <p className="text-[10px] text-white/70">{features[1].desc}</p>
+              </div>
             </div>
           </motion.div>
-        ))}
+
+          {/* Bottom two cards side by side */}
+          <div className="grid grid-cols-2 gap-4">
+            {features.slice(2).map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[240px]"
+              >
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
+                />
+                <div className="relative z-10 h-full flex flex-col justify-between p-4">
+                  <div className="w-6 h-6 rounded-md bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                    {(() => { const Icon = feature.icon; return <Icon className="w-3 h-3 text-white" />; })()}
+                  </div>
+                  <div>
+                    <h3 className="text-[11px] font-bold text-white mb-0.5">{feature.title}</h3>
+                    <p className="text-[9px] text-white/70 leading-relaxed">{feature.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
