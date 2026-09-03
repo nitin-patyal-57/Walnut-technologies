@@ -40,7 +40,7 @@ function JourneySection() {
   return (
     <section className="relative overflow-hidden" ref={ref}>
       {/* Factory Hero Section */}
-      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
+      <div className="relative h-[200px] md:h-[280px] overflow-hidden">
         <img src="/aboutbackground.webp" alt="Walnut Factory" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/80" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -50,8 +50,8 @@ function JourneySection() {
             transition={{ duration: 0.7 }}
             className="text-center"
           >
-            <span className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-3 block">Welcome to</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-white leading-tight tracking-tight">
+            <span className="text-blue-400 font-bold text-[10px] uppercase tracking-widest mb-2 block">Welcome to</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-white leading-tight tracking-tight">
               OUR FACTORY
             </h2>
           </motion.div>
@@ -59,16 +59,16 @@ function JourneySection() {
       </div>
 
       {/* Factory Images Row */}
-      <div className="bg-white py-4">
+      <div className="bg-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-2">
             {['/contract manufacturing.webp', '/pcb.webp', '/Quality Assurance.webp'].map((img, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="relative h-[120px] md:h-[160px] rounded-xl overflow-hidden group"
+                className="relative h-[80px] md:h-[100px] rounded-lg overflow-hidden group"
               >
                 <img src={img} alt="Factory" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
@@ -79,23 +79,23 @@ function JourneySection() {
       </div>
 
       {/* Production Process - Hexagonal Grid */}
-      <div className="bg-white py-12 md:py-16">
+      <div className="bg-white py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mb-10"
+            className="text-center mb-6"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display text-slate-900 leading-tight mb-2">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight mb-2">
               Production Process
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full" />
+            <div className="w-16 h-0.5 bg-blue-600 mx-auto rounded-full" />
           </motion.div>
 
           {/* Hexagonal Grid - Row 1 (3 items) */}
-          <div className="flex justify-center gap-4 md:gap-6 mb-4">
+          <div className="flex justify-center gap-3 md:gap-5 mb-3">
             {processImages.slice(0, 3).map((item, i) => (
               <motion.div
                 key={i}
@@ -104,8 +104,7 @@ function JourneySection() {
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                 className="relative group"
               >
-                {/* Hexagon Container */}
-                <div className="relative w-[140px] h-[160px] md:w-[180px] md:h-[200px]">
+                <div className="relative w-[110px] h-[125px] md:w-[150px] md:h-[170px]">
                   <svg viewBox="0 0 200 230" className="w-full h-full">
                     <defs>
                       <clipPath id={`hex-clip-${i}`}>
@@ -128,21 +127,17 @@ function JourneySection() {
                       preserveAspectRatio="xMidYMid slice"
                     />
                   </svg>
-                  
-                  {/* Number Badge */}
-                  <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-blue-500/30 z-10">
+                  <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md shadow-blue-500/30 z-10">
                     0{i + 1}
                   </div>
                 </div>
-                
-                {/* Label */}
-                <p className="text-center text-sm font-semibold text-slate-700 mt-2">{item.label}</p>
+                <p className="text-center text-[11px] font-semibold text-slate-700 mt-1">{item.label}</p>
               </motion.div>
             ))}
           </div>
 
           {/* Hexagonal Grid - Row 2 (4 items) */}
-          <div className="flex justify-center gap-4 md:gap-6">
+          <div className="flex justify-center gap-3 md:gap-5">
             {processImages.slice(3, 7).map((item, i) => (
               <motion.div
                 key={i}
@@ -151,8 +146,7 @@ function JourneySection() {
                 transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
                 className="relative group"
               >
-                {/* Hexagon Container */}
-                <div className="relative w-[120px] h-[140px] md:w-[160px] md:h-[185px]">
+                <div className="relative w-[95px] h-[110px] md:w-[130px] md:h-[150px]">
                   <svg viewBox="0 0 200 230" className="w-full h-full">
                     <defs>
                       <clipPath id={`hex-clip2-${i}`}>
@@ -175,15 +169,11 @@ function JourneySection() {
                       preserveAspectRatio="xMidYMid slice"
                     />
                   </svg>
-                  
-                  {/* Number Badge */}
-                  <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-blue-500/30 z-10">
+                  <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md shadow-blue-500/30 z-10">
                     0{i + 4}
                   </div>
                 </div>
-                
-                {/* Label */}
-                <p className="text-center text-sm font-semibold text-slate-700 mt-2">{item.label}</p>
+                <p className="text-center text-[11px] font-semibold text-slate-700 mt-1">{item.label}</p>
               </motion.div>
             ))}
           </div>
@@ -191,23 +181,23 @@ function JourneySection() {
       </div>
 
       {/* Journey Timeline */}
-      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-12 md:py-16">
+      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mb-10"
+            className="text-center mb-6"
           >
-            <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-3 block">Our Journey</span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display text-slate-900 leading-tight">
+            <span className="text-blue-600 font-bold text-[10px] uppercase tracking-widest mb-2 block">Our Journey</span>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight">
               Building the <span className="text-blue-600">Future</span>
             </h2>
           </motion.div>
 
           {/* Timeline Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
             {companyJourney.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -218,20 +208,15 @@ function JourneySection() {
                   transition={{ duration: 0.4, delay: 0.6 + index * 0.08 }}
                   className="group"
                 >
-                  <div className="relative bg-white rounded-2xl border border-slate-200 p-4 text-center hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 h-full">
-                    {/* Year */}
-                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold rounded-full mb-3 shadow-md shadow-blue-500/20">
+                  <div className="relative bg-white rounded-xl border border-slate-200 p-3 text-center hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 h-full">
+                    <span className="inline-block px-2 py-0.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-[10px] font-bold rounded-full mb-2 shadow-sm shadow-blue-500/20">
                       {item.year}
                     </span>
-                    
-                    {/* Icon */}
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-100 transition-colors">
-                      <Icon className="w-5 h-5 text-blue-600" />
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-2 group-hover:bg-blue-100 transition-colors">
+                      <Icon className="w-4 h-4 text-blue-600" />
                     </div>
-                    
-                    {/* Content */}
-                    <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
-                    <p className="text-[10px] text-slate-500 leading-snug">{item.desc}</p>
+                    <h3 className="text-[11px] font-bold text-slate-900 mb-0.5 leading-tight">{item.title}</h3>
+                    <p className="text-[9px] text-slate-500 leading-snug">{item.desc}</p>
                   </div>
                 </motion.div>
               );
