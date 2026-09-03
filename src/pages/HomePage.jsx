@@ -18,6 +18,16 @@ function JourneySection() {
   const processSteps = t('journey.processSteps');
   const processIcons = [FiSearch, FiPenTool, FiBox, FiCheckCircle, FiTool, FiPlay, FiCpu, FiShield, FiPackage, FiHeadphones];
 
+  const processImages = [
+    { image: '/Research & Market Analysis.webp', label: 'R&D' },
+    { image: '/Design & Engineering.webp', label: 'Design' },
+    { image: '/Prototype Development.webp', label: 'Prototype' },
+    { image: '/Validation & Testing.webp', label: 'Testing' },
+    { image: '/Manufacturing Engineering & Mold Design.webp', label: 'Tooling' },
+    { image: '/Quality Assurance.webp', label: 'QC' },
+    { image: '/Packaging & Dispatch.webp', label: 'Dispatch' },
+  ];
+
   const companyJourney = [
     { year: '2016', title: t('journey.y2016Title'), desc: t('journey.y2016Desc'), icon: FiZap },
     { year: '2018', title: t('journey.y2018Title'), desc: t('journey.y2018Desc'), icon: FiEdit3 },
@@ -29,124 +39,199 @@ function JourneySection() {
 
   return (
     <section className="relative overflow-hidden" ref={ref}>
-      {/* Process Section - Dark */}
-      <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header */}
+      {/* Factory Hero Section */}
+      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
+        <img src="/aboutbackground.webp" alt="Walnut Factory" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/80" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="text-center mb-14"
+            className="text-center"
           >
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
-              <FiSettings className="w-3.5 h-3.5 text-blue-400" />
-              <span className="text-[10px] font-semibold text-white/90 uppercase tracking-widest">Our Process</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-white leading-tight mb-4">
-              FROM IDEA TO<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">LARGE SCALE.</span>
+            <span className="text-blue-400 font-bold text-xs uppercase tracking-widest mb-3 block">Welcome to</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-white leading-tight tracking-tight">
+              OUR FACTORY
             </h2>
-            <p className="text-sm text-slate-400 max-w-lg mx-auto">
-              End-to-end product development and manufacturing powered by an Industry 5.0 ecosystem.
-            </p>
           </motion.div>
+        </div>
+      </div>
 
-          {/* Process Stepper */}
-          <div className="relative">
-            {/* Connecting Line */}
-            <div className="hidden lg:block absolute top-[40px] left-[5%] right-[5%] h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
-            
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 lg:gap-6">
-              {processSteps.slice(0, 10).map((step, i) => {
-                const Icon = processIcons[i];
-                return (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.1 + i * 0.06 }}
-                    className="relative group"
-                  >
-                    {/* Step Node */}
-                    <div className="flex flex-col items-center">
-                      {/* Circle */}
-                      <div className="relative z-10 w-20 h-20 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600/50 flex items-center justify-center mb-4 group-hover:border-blue-500/50 group-hover:from-slate-700 group-hover:to-slate-600 transition-all duration-500">
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
-                        <Icon className="w-7 h-7 text-slate-400 group-hover:text-blue-400 transition-colors duration-300" />
-                      </div>
-                      
-                      {/* Number */}
-                      <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-blue-500 text-white text-[10px] font-bold flex items-center justify-center shadow-lg shadow-blue-500/30">
-                        {i + 1}
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="text-center">
-                        <h4 className="text-xs font-bold text-white/90 uppercase tracking-wider leading-tight mb-1">{step.title}</h4>
-                        <p className="text-[10px] text-slate-500 leading-snug max-w-[140px] mx-auto">{step.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+      {/* Factory Images Row */}
+      <div className="bg-white py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-3">
+            {['/contract manufacturing.webp', '/pcb.webp', '/Quality Assurance.webp'].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                className="relative h-[120px] md:h-[160px] rounded-xl overflow-hidden group"
+              >
+                <img src={img} alt="Factory" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Journey Section - Light */}
-      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-16 md:py-20">
+      {/* Production Process - Hexagonal Grid */}
+      <div className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-center mb-14"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mb-10"
           >
-            <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-4 py-1.5 mb-4">
-              <FiTrendingUp className="w-3.5 h-3.5 text-blue-600" />
-              <span className="text-[10px] font-semibold text-blue-600 uppercase tracking-widest">Our Journey</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-slate-900 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display text-slate-900 leading-tight mb-2">
+              Production Process
+            </h2>
+            <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full" />
+          </motion.div>
+
+          {/* Hexagonal Grid - Row 1 (3 items) */}
+          <div className="flex justify-center gap-4 md:gap-6 mb-4">
+            {processImages.slice(0, 3).map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                className="relative group"
+              >
+                {/* Hexagon Container */}
+                <div className="relative w-[140px] h-[160px] md:w-[180px] md:h-[200px]">
+                  <svg viewBox="0 0 200 230" className="w-full h-full">
+                    <defs>
+                      <clipPath id={`hex-clip-${i}`}>
+                        <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
+                      </clipPath>
+                    </defs>
+                    <polygon 
+                      points="100,5 190,60 190,170 100,225 10,170 10,60" 
+                      fill="white" 
+                      stroke="#e2e8f0" 
+                      strokeWidth="2"
+                      className="group-hover:stroke-blue-400 transition-colors duration-300"
+                    />
+                    <image 
+                      href={item.image} 
+                      x="10" y="5" 
+                      width="180" height="220" 
+                      clipPath={`url(#hex-clip-${i})`}
+                      className="group-hover:scale-110 transition-transform duration-500"
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                  </svg>
+                  
+                  {/* Number Badge */}
+                  <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-blue-500/30 z-10">
+                    0{i + 1}
+                  </div>
+                </div>
+                
+                {/* Label */}
+                <p className="text-center text-sm font-semibold text-slate-700 mt-2">{item.label}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Hexagonal Grid - Row 2 (4 items) */}
+          <div className="flex justify-center gap-4 md:gap-6">
+            {processImages.slice(3, 7).map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                className="relative group"
+              >
+                {/* Hexagon Container */}
+                <div className="relative w-[120px] h-[140px] md:w-[160px] md:h-[185px]">
+                  <svg viewBox="0 0 200 230" className="w-full h-full">
+                    <defs>
+                      <clipPath id={`hex-clip2-${i}`}>
+                        <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
+                      </clipPath>
+                    </defs>
+                    <polygon 
+                      points="100,5 190,60 190,170 100,225 10,170 10,60" 
+                      fill="white" 
+                      stroke="#e2e8f0" 
+                      strokeWidth="2"
+                      className="group-hover:stroke-blue-400 transition-colors duration-300"
+                    />
+                    <image 
+                      href={item.image} 
+                      x="10" y="5" 
+                      width="180" height="220" 
+                      clipPath={`url(#hex-clip2-${i})`}
+                      className="group-hover:scale-110 transition-transform duration-500"
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                  </svg>
+                  
+                  {/* Number Badge */}
+                  <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-blue-500/30 z-10">
+                    0{i + 4}
+                  </div>
+                </div>
+                
+                {/* Label */}
+                <p className="text-center text-sm font-semibold text-slate-700 mt-2">{item.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Journey Timeline */}
+      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-center mb-10"
+          >
+            <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-3 block">Our Journey</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display text-slate-900 leading-tight">
               Building the <span className="text-blue-600">Future</span>
             </h2>
           </motion.div>
 
           {/* Timeline Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {companyJourney.map((item, index) => {
               const Icon = item.icon;
               return (
                 <motion.div
                   key={item.year}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
-                  className="group relative"
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.08 }}
+                  className="group"
                 >
-                  <div className="relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500">
-                    {/* Year Badge */}
-                    <div className="absolute -top-3 left-6">
-                      <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold rounded-full shadow-lg shadow-blue-500/30">
-                        {item.year}
-                      </span>
+                  <div className="relative bg-white rounded-2xl border border-slate-200 p-4 text-center hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 h-full">
+                    {/* Year */}
+                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold rounded-full mb-3 shadow-md shadow-blue-500/20">
+                      {item.year}
+                    </span>
+                    
+                    {/* Icon */}
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-100 transition-colors">
+                      <Icon className="w-5 h-5 text-blue-600" />
                     </div>
                     
                     {/* Content */}
-                    <div className="pt-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100 flex items-center justify-center mb-4 group-hover:from-blue-100 group-hover:to-cyan-100 transition-colors duration-300">
-                        <Icon className="w-6 h-6 text-blue-600" />
-                      </div>
-                      <h3 className="text-base font-bold text-slate-900 mb-2">{item.title}</h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
-                    </div>
-                    
-                    {/* Bottom Accent */}
-                    <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
+                    <p className="text-[10px] text-slate-500 leading-snug">{item.desc}</p>
                   </div>
                 </motion.div>
               );
