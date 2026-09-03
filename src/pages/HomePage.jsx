@@ -133,63 +133,48 @@ function DivisionsPreview() {
   const solutions = [
     {
       num: '01',
-      title: t('divisions.medical'),
-      color: '#2563eb',
-      icon: FiHeart,
-      image: '/RTMS.webp',
-      link: '/solutions?category=Medical',
-    },
-    {
-      num: '02',
-      title: t('divisions.fintech'),
-      color: '#7c3aed',
-      icon: FiCreditCard,
-      image: '/soundbox1.webp',
-      link: '/solutions?category=Fintech',
-    },
-    {
-      num: '03',
-      title: t('divisions.iot'),
-      color: '#0891b2',
-      icon: FiWifi,
-      image: '/IOT solutions.webp',
-      link: '/solutions?category=IoT',
-    },
-    {
-      num: '04',
-      title: t('divisions.robotics'),
-      color: '#7c3aed',
-      icon: FiActivity,
+      title: 'Walk Lab',
+      category: t('divisions.robotics'),
+      desc: 'Advanced Rehabilitation & Gait Training Systems',
       image: '/walklab 3.0.webp',
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {
-      num: '05',
-      title: t('divisions.automotive'),
-      color: '#059669',
-      icon: FiCpu,
+      num: '02',
+      title: 'Digital Blood Pressure',
+      category: t('divisions.medical'),
+      desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
+      image: '/RTMS.webp',
+      link: '/solutions?category=Medical',
+    },
+    {
+      num: '03',
+      title: 'Single Sim Model',
+      category: t('divisions.fintech'),
+      desc: 'NPCI, RBI, PCI DSS Certified',
+      image: '/soundbox1.webp',
+      link: '/solutions?category=Fintech',
+    },
+    {
+      num: '04',
+      title: 'Cluster',
+      category: t('divisions.automotive'),
+      desc: 'Industrial & Automotive Electronics',
       image: '/cluster.webp',
       link: '/solutions?category=Automotive',
     },
     {
-      num: '06',
-      title: t('divisions.custom'),
-      color: '#d97706',
-      icon: FiSettings,
-      image: '/custom solutions.webp',
-      link: '/solutions',
+      num: '05',
+      title: 'IoT Smart Lock',
+      category: t('divisions.iot'),
+      desc: 'Connected Smart Devices & IoT Solutions',
+      image: '/smart lock.webp',
+      link: '/solutions?category=IoT',
     },
   ];
 
-  const trustBadges = [
-    { icon: FiShield, title: t('divisions.quality'), desc: t('divisions.qualityDesc') },
-    { icon: FiAward, title: t('divisions.certified'), desc: t('divisions.certifiedDesc') },
-    { icon: FiTrendingUp, title: t('divisions.scalable'), desc: t('divisions.scalableDesc') },
-    { icon: FiHeadphones, title: t('divisions.support'), desc: t('divisions.supportDesc') },
-  ];
-
   return (
-    <section id="divisions-preview" className="relative py-6 md:py-10 bg-white" ref={ref}>
+    <section id="divisions-preview" className="relative py-10 md:py-16 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -197,91 +182,52 @@ function DivisionsPreview() {
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-6 text-center"
+          className="mb-10 text-center"
         >
-          <span className="text-blue-600 font-bold text-lg uppercase tracking-widest mb-1 block">Solutions</span>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display leading-tight tracking-tight mb-2">
+          <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-2 block">Solutions</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display leading-tight tracking-tight mb-3">
             <span className="text-slate-900">Technology That Powers </span>
             <span className="text-blue-600">Every Connection</span>
           </h2>
-          <p className="text-xs text-slate-500 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm text-slate-500 leading-relaxed max-w-2xl mx-auto">
             High-performance engineering solutions across industries, built for reliability, compliance, and scale.
           </p>
         </motion.div>
 
-        {/* Main Content: Images Left + Info Right */}
-        <div className="grid lg:grid-cols-[1fr_280px] gap-6 items-start">
-
-          {/* Left: 3x2 Image Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {solutions.map((sol, i) => (
-              <motion.div
-                key={sol.num}
-                initial={{ opacity: 0, y: 15 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
+        {/* Solutions Grid - Full Images with Details Below */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          {solutions.map((sol, i) => (
+            <motion.div
+              key={sol.num}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
+            >
+              <Link
+                to={sol.link}
+                className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
               >
-                <Link
-                  to={sol.link}
-                  className="group block relative rounded-2xl overflow-hidden bg-slate-100 aspect-[3/2]"
-                >
+                {/* Full Image */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                   <img
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <span className="text-sm font-black text-blue-400 block mb-0.5">{sol.num}</span>
-                    <h4 className="text-sm font-bold text-white uppercase tracking-wider leading-tight">{sol.title}</h4>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute top-3 left-3 text-[10px] font-black text-white bg-slate-900/70 backdrop-blur-sm px-2 py-1 rounded-md">{sol.num}</span>
+                </div>
 
-          {/* Right: Badge + Trust Cards */}
-          <div className="flex flex-col gap-4">
-            {/* End-to-End Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-white border border-blue-100 rounded-xl px-4 py-3"
-            >
-              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                <FiAward className="w-5 h-5 text-blue-600" />
-              </div>
-              <div>
-                <span className="text-[11px] font-black text-slate-900 uppercase tracking-wider leading-tight block">End-to-End</span>
-                <span className="text-[11px] font-black text-blue-600 uppercase tracking-wider leading-tight block">Engineering Excellence</span>
-              </div>
+                {/* Details Below Image */}
+                <div className="p-4">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
+                  <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
+                </div>
+              </Link>
             </motion.div>
-
-            {/* Trust Badges */}
-            {trustBadges.map((badge, index) => {
-              const BadgeIcon = badge.icon;
-              return (
-                <motion.div
-                  key={badge.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.5 + index * 0.06 }}
-                  className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                    <BadgeIcon className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-900 mb-0.5">{badge.title}</h4>
-                    <p className="text-[10px] text-slate-500 leading-snug">{badge.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
+          ))}
         </div>
 
       </div>
