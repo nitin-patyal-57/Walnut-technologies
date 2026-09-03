@@ -19,13 +19,15 @@ function JourneySection() {
   const processIcons = [FiSearch, FiPenTool, FiBox, FiCheckCircle, FiTool, FiPlay, FiCpu, FiShield, FiPackage, FiHeadphones];
 
   const processImages = [
-    { image: '/Research & Market Analysis.webp', label: 'R&D' },
-    { image: '/Design & Engineering.webp', label: 'Design' },
-    { image: '/Prototype Development.webp', label: 'Prototype' },
-    { image: '/Validation & Testing.webp', label: 'Testing' },
-    { image: '/Manufacturing Engineering & Mold Design.webp', label: 'Tooling' },
-    { image: '/Quality Assurance.webp', label: 'QC' },
-    { image: '/Packaging & Dispatch.webp', label: 'Dispatch' },
+    { image: '/Idea & Requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
+    { image: '/Research & Market Analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },
+    { image: '/Design & Engineering.webp', num: '03', from: 'DESIGN', to: 'MANUFACTURING' },
+    { image: '/Manufacturing Engineering & Mold Design.webp', num: '04', from: 'MANUFACTURING', to: 'TESTING' },
+    { image: '/Validation & Testing.webp', num: '05', from: 'TESTING', to: 'MOLDING' },
+    { image: '/Prototype Development.webp', num: '06', from: 'MOLDING', to: 'QA' },
+    { image: '/Quality Assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
+    { image: '/Packaging & Dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
+    { image: '/Continuous Improvement.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
   ];
 
   const companyJourney = [
@@ -39,48 +41,9 @@ function JourneySection() {
 
   return (
     <section className="relative overflow-hidden" ref={ref}>
-      {/* Factory Hero Section */}
-      <div className="relative h-[200px] md:h-[280px] overflow-hidden">
-        <img src="/aboutbackground.webp" alt="Walnut Factory" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/80" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
-            className="text-center"
-          >
-            <span className="text-blue-400 font-bold text-[10px] uppercase tracking-widest mb-2 block">Welcome to</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-white leading-tight tracking-tight">
-              OUR FACTORY
-            </h2>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Factory Images Row */}
-      <div className="bg-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-2">
-            {['/contract manufacturing.webp', '/pcb.webp', '/Quality Assurance.webp'].map((img, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className="relative h-[80px] md:h-[100px] rounded-lg overflow-hidden group"
-              >
-                <img src={img} alt="Factory" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Production Process - Hexagonal Grid */}
-      <div className="bg-white py-8 md:py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-white py-8 md:py-10 -mx-4 sm:-mx-6 lg:-mx-8">
+        <div className="w-full px-2">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,88 +57,117 @@ function JourneySection() {
             <div className="w-16 h-0.5 bg-blue-600 mx-auto rounded-full" />
           </motion.div>
 
-          {/* Hexagonal Grid - Row 1 (3 items) */}
-          <div className="flex justify-center gap-3 md:gap-5 mb-3">
-            {processImages.slice(0, 3).map((item, i) => (
+          {/* Hexagonal Grid - Row 1 (5 items) */}
+          <div className="flex justify-center items-center gap-0 mb-2">
+            {processImages.slice(0, 5).map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                className="relative group"
+                className="flex items-center"
               >
-                <div className="relative w-[110px] h-[125px] md:w-[150px] md:h-[170px]">
-                  <svg viewBox="0 0 200 230" className="w-full h-full">
-                    <defs>
-                      <clipPath id={`hex-clip-${i}`}>
-                        <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
-                      </clipPath>
-                    </defs>
-                    <polygon 
-                      points="100,5 190,60 190,170 100,225 10,170 10,60" 
-                      fill="white" 
-                      stroke="#e2e8f0" 
-                      strokeWidth="2"
-                      className="group-hover:stroke-blue-400 transition-colors duration-300"
-                    />
-                    <image 
-                      href={item.image} 
-                      x="10" y="5" 
-                      width="180" height="220" 
-                      clipPath={`url(#hex-clip-${i})`}
-                      className="group-hover:scale-110 transition-transform duration-500"
-                      preserveAspectRatio="xMidYMid slice"
-                    />
-                  </svg>
-                  <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md shadow-blue-500/30 z-10">
-                    0{i + 1}
+                <div className="relative group">
+                  <div className="relative w-[120px] h-[120px] md:w-[170px] md:h-[170px]">
+                    <svg viewBox="0 0 200 230" className="w-full h-full">
+                      <defs>
+                        <clipPath id={`hex-clip-${i}`}>
+                          <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
+                        </clipPath>
+                      </defs>
+                      <polygon 
+                        points="100,5 190,60 190,170 100,225 10,170 10,60" 
+                        fill="white" 
+                        stroke="#e2e8f0" 
+                        strokeWidth="2"
+                        className="group-hover:stroke-blue-400 transition-colors duration-300"
+                      />
+                      <image 
+                        href={item.image} 
+                        x="10" y="5" 
+                        width="180" height="220" 
+                        clipPath={`url(#hex-clip-${i})`}
+                        className="group-hover:scale-110 transition-transform duration-500"
+                        preserveAspectRatio="xMidYMid slice"
+                      />
+                    </svg>
+                    <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md z-10">
+                      {item.num}
+                    </div>
+                  </div>
+                  <div className="text-center mt-1">
+                    <p className="text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[9px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
-                <p className="text-center text-[11px] font-semibold text-slate-700 mt-1">{item.label}</p>
+                {/* Connecting Arrow */}
+                {i < 4 && (
+                  <div className="flex items-center mx-1 md:mx-2 -mt-6">
+                    <div className="w-4 md:w-8 h-[2px] bg-blue-400" />
+                    <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-blue-400" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
 
           {/* Hexagonal Grid - Row 2 (4 items) */}
-          <div className="flex justify-center gap-3 md:gap-5">
-            {processImages.slice(3, 7).map((item, i) => (
+          <div className="flex justify-center items-center gap-0">
+            {processImages.slice(5, 9).map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                className="relative group"
+                className="flex items-center"
               >
-                <div className="relative w-[95px] h-[110px] md:w-[130px] md:h-[150px]">
-                  <svg viewBox="0 0 200 230" className="w-full h-full">
-                    <defs>
-                      <clipPath id={`hex-clip2-${i}`}>
-                        <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
-                      </clipPath>
-                    </defs>
-                    <polygon 
-                      points="100,5 190,60 190,170 100,225 10,170 10,60" 
-                      fill="white" 
-                      stroke="#e2e8f0" 
-                      strokeWidth="2"
-                      className="group-hover:stroke-blue-400 transition-colors duration-300"
-                    />
-                    <image 
-                      href={item.image} 
-                      x="10" y="5" 
-                      width="180" height="220" 
-                      clipPath={`url(#hex-clip2-${i})`}
-                      className="group-hover:scale-110 transition-transform duration-500"
-                      preserveAspectRatio="xMidYMid slice"
-                    />
-                  </svg>
-                  <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md shadow-blue-500/30 z-10">
-                    0{i + 4}
+                <div className="relative group">
+                  <div className="relative w-[120px] h-[120px] md:w-[170px] md:h-[170px]">
+                    <svg viewBox="0 0 200 230" className="w-full h-full">
+                      <defs>
+                        <clipPath id={`hex-clip2-${i}`}>
+                          <polygon points="100,5 190,60 190,170 100,225 10,170 10,60" />
+                        </clipPath>
+                      </defs>
+                      <polygon 
+                        points="100,5 190,60 190,170 100,225 10,170 10,60" 
+                        fill="white" 
+                        stroke="#e2e8f0" 
+                        strokeWidth="2"
+                        className="group-hover:stroke-blue-400 transition-colors duration-300"
+                      />
+                      <image 
+                        href={item.image} 
+                        x="10" y="5" 
+                        width="180" height="220" 
+                        clipPath={`url(#hex-clip2-${i})`}
+                        className="group-hover:scale-110 transition-transform duration-500"
+                        preserveAspectRatio="xMidYMid slice"
+                      />
+                    </svg>
+                    <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md z-10">
+                      {item.num}
+                    </div>
+                  </div>
+                  <div className="text-center mt-1">
+                    <p className="text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[9px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
-                <p className="text-center text-[11px] font-semibold text-slate-700 mt-1">{item.label}</p>
+                {/* Connecting Arrow */}
+                {i < 3 && (
+                  <div className="flex items-center mx-1 md:mx-2 -mt-6">
+                    <div className="w-4 md:w-8 h-[2px] bg-blue-400" />
+                    <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-blue-400" />
+                  </div>
+                )}
               </motion.div>
             ))}
+          </div>
+
+          {/* Connecting line from Row 1 to Row 2 */}
+          <div className="flex justify-center my-1">
+            <div className="w-[2px] h-4 bg-blue-400" />
           </div>
         </div>
       </div>
