@@ -164,11 +164,11 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
             {/* Mobile Menu Button */}
             <div className="flex lg:hidden items-center gap-2">
               <button
-                onClick={() => setIsSidebarOpen(true)}
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
                 className={`p-2 transition-colors ${textColor} ${textColorHover} bg-slate-100 rounded-xl`}
                 aria-label="Open navigation menu"
               >
-                <FiMenu className="w-5 h-5" />
+                {isMobileOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
               </button>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                     key={link.label}
                     to={link.to}
                     onClick={(e) => { handleNavClick(e, link.to); setIsMobileOpen(false); }}
-                    className={`block px-3 py-2 rounded-lg text-[13px] transition-all ${
+                    className={`block px-3 py-2.5 rounded-lg text-[13px] transition-all ${
                       isActive(link.to) ? 'text-slate-900 bg-slate-100 font-medium' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
@@ -199,13 +199,13 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                 <div className="pt-2 space-y-2 border-t border-slate-200 mt-2">
                   <button
                     onClick={() => { onOpenSchedule(); setIsMobileOpen(false); }}
-                    className="w-full py-2 text-[13px] text-slate-600 border border-slate-300 rounded-lg hover:text-slate-900 hover:border-slate-400 transition-all"
+                    className="w-full py-2.5 text-[13px] text-slate-600 border border-slate-300 rounded-lg hover:text-slate-900 hover:border-slate-400 transition-all"
                   >
                     {t('nav.scheduleCall')}
                   </button>
                   <button
                     onClick={() => { onOpenQuote(); setIsMobileOpen(false); }}
-                    className="w-full py-2 text-[13px] font-medium text-white bg-slate-900 rounded-lg shadow-sm transition-all"
+                    className="w-full py-2.5 text-[13px] font-medium text-white bg-slate-900 rounded-lg shadow-sm transition-all"
                   >
                     {t('nav.requestQuote')}
                   </button>

@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-do
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
-import MobileBottomNav from './components/MobileBottomNav';
 import Preloader from './components/Preloader';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
@@ -96,12 +95,6 @@ function AppContent() {
           } />
         </Routes>
       </Suspense>
-
-      {/* Mobile Bottom Nav */}
-      <MobileBottomNav onOpenQuote={() => setQuoteModalOpen(true)} />
-
-      {/* Spacer for mobile bottom nav */}
-      <div className="lg:hidden h-20" />
 
       <Footer />
 
