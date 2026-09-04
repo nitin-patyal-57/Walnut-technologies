@@ -8,6 +8,7 @@ import {
   FiTarget, FiPenTool, FiBox, FiTool, FiPackage, FiUsers, FiStar, FiPhone, FiPlay
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 function JourneySection() {
@@ -492,6 +493,12 @@ function CTASection() {
 export default function HomePage({ onOpenQuote, onOpenSchedule }) {
   return (
     <div className="relative">
+      <SEO
+        title="Electronics for the World"
+        description="Walnut Technologies - Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, and custom electronics. ISO 13485 certified, 500K+ units/month capacity in Mohali, Punjab, India."
+        path="/"
+        keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
+      />
       <Hero onOpenQuote={onOpenQuote} onOpenSchedule={onOpenSchedule} />
       <DivisionsPreview />
       <JourneySection />

@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function PrivacyPage() {
@@ -7,6 +8,12 @@ export default function PrivacyPage() {
 
   return (
     <section className="section-padding relative bg-white">
+      <SEO
+        title="Privacy Policy"
+        description="Walnut Technologies Privacy Policy - Learn how we collect, use, and protect your personal information. Your privacy is important to us."
+        path="/privacy"
+        noindex={true}
+      />
       <div className="container-custom max-w-4xl">
         <h1 className="text-4xl font-bold font-display text-dark-950 mb-8">{t('privacy.title')}</h1>
         <p className="text-sm text-dark-500 mb-8">{t('privacy.lastUpdated')}</p>

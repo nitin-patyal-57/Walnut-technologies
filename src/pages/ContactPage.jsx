@@ -7,6 +7,7 @@ import {
   FiShield, FiUsers, FiBox, FiMessageCircle
 } from 'react-icons/fi';
 import { brand } from '../data/content';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { sendContactEmail } from '../utils/sendEmail';
 
@@ -79,6 +80,12 @@ export default function ContactPage({ onOpenQuote }) {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Walnut Technologies. Located in Mohali, Punjab, India. Contact us for OEM/ODM manufacturing, medical devices, payment systems, and custom electronics inquiries."
+        path="/contact"
+        keywords="contact Walnut Technologies, electronics manufacturer contact, OEM inquiry, medical device manufacturer India"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-50">
         <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-12 lg:pb-16">

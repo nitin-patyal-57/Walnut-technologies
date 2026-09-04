@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import {
   FiBriefcase, FiUsers, FiTrendingUp, FiGlobe, FiZap,
@@ -168,6 +169,12 @@ export default function CareerPage() {
 
   return (
     <div className="bg-white">
+      <SEO
+        title="Career"
+        description="Join Walnut Technologies - Explore exciting career opportunities in medical electronics, embedded systems, IoT, and software development.Grow with us in Mohali, Punjab."
+        path="/career"
+        keywords="Walnut Technologies careers, electronics jobs, medical device careers, embedded systems jobs, IoT careers India"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">

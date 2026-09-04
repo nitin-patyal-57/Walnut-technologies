@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function TermsPage() {
@@ -7,6 +8,12 @@ export default function TermsPage() {
 
   return (
     <section className="section-padding relative bg-white">
+      <SEO
+        title="Terms & Conditions"
+        description="Walnut Technologies Terms and Conditions - Read our terms of service for using our website and services."
+        path="/terms"
+        noindex={true}
+      />
       <div className="container-custom max-w-4xl">
         <h1 className="text-4xl font-bold font-display text-dark-950 mb-8">{t('terms.title')}</h1>
         <p className="text-sm text-dark-500 mb-8">{t('terms.lastUpdated')}</p>

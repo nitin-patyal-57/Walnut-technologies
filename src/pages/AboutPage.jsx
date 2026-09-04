@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { brand, about, trustSignals } from '../data/content';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import {
   FiMapPin, FiMail, FiPhone, FiCalendar, FiGlobe, FiUsers, FiAward, FiCpu,
@@ -113,6 +114,12 @@ export default function AboutPage() {
 
   return (
     <div className="bg-white">
+      <SEO
+        title="About Us"
+        description="Learn about Walnut Technologies - ISO 13485 certified OEM/ODM manufacturer with 15+ years experience, 500K+ units/month capacity, serving medical devices, payment systems, and custom electronics worldwide."
+        path="/about"
+        keywords="about walnut technologies, OEM manufacturer India, electronics manufacturing company, ISO 13485 certified"
+      />
       {/* Hero with Image */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image */}

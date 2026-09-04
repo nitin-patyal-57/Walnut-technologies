@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiCheckCircle, FiArrowRight, FiShield, FiClock, FiGlobe, FiAward, FiPhone, FiMail } from 'react-icons/fi';
+import SEO from '../components/SEO';
 import { brand } from '../data/content';
 
 const expertiseData = {
@@ -362,6 +363,13 @@ export default function ExpertiseDetailPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title={data.title}
+        description={data.intro?.substring(0, 160) || `Walnut Technologies - ${data.title} expertise`}
+        path={`/expertise/${slug}`}
+        image={data.heroImage}
+        keywords={`${data.title}, electronics manufacturing, Walnut Technologies, OEM, ODM`}
+      />
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 md:pt-28 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
