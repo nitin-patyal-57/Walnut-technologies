@@ -1,5 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   FiZap, FiSearch, FiEdit3, FiLayers, FiCheckCircle, FiSettings,
   FiShield, FiTruck, FiHeadphones, FiTrendingUp,
@@ -53,161 +52,120 @@ const impactIcons = {
   customer: FiUsers,
 };
 
-function ScrollProcess() {
+function ProcessSteps() {
   const { t } = useLanguage();
-  const containerRef = useRef(null);
-  const [activeStep, setActiveStep] = useState(0);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (v) => {
-      const stepIndex = Math.min(Math.floor(v * process.length), process.length - 1);
-      setActiveStep(stepIndex);
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
+  const topRow = process.slice(0, 5);
+  const bottomRow = process.slice(5, 10);
 
   return (
-    <div ref={containerRef} className="relative h-[400vh]">
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={activeStep}
-              src={stepImages[activeStep]}
-              alt=""
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 0.25, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.6 }}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/95" />
-        </div>
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3">
+            {t('process.title')}
+          </h2>
+          <p className="text-sm text-slate-500 max-w-xl mx-auto">
+            {t('process.subtitle')}
+          </p>
+        </motion.div>
 
-        <div className="absolute top-0 left-0 right-0 h-1 bg-slate-800 z-20">
-          <motion.div
-            className="h-full bg-gradient-to-r from-cyan-500 to-emerald-500"
-            style={{ scaleX: scrollYProgress, transformOrigin: '0%' }}
-          />
-        </div>
-
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
-          {process.map((_, i) => (
-            <div
-              key={i}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === activeStep
-                  ? 'w-8 bg-cyan-400'
-                  : i < activeStep
-                  ? 'w-3 bg-cyan-600'
-                  : 'w-3 bg-slate-600'
-              }`}
-            />
+        {/* Top Row - Steps 1-5 */}
+        <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
+          {topRow.map((step, index) => (
+            <div key={step.step} className="flex items-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex flex-col items-center"
+              >
+                <div className="relative">
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <img
+                      src={stepImages[index]}
+                      alt={step.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className={`absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
+                    <span className="text-xs font-bold text-white">{step.step}</span>
+                  </div>
+                </div>
+                <div className="mt-3 text-center max-w-[120px]">
+                  <p className="text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                </div>
+              </motion.div>
+              {index < topRow.length - 1 && (
+                <motion.div
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+                  className="mx-2 md:mx-4"
+                >
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 relative">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[6px] border-l-blue-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent" />
+                  </div>
+                </motion.div>
+              )}
+            </div>
           ))}
         </div>
 
-        <div className="relative z-10 h-full flex items-center py-8">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-10 items-center">
-              <div className="relative">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeStep}
-                    initial={{ opacity: 0, x: -50, rotateY: -10 }}
-                    animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                    exit={{ opacity: 0, x: 50, rotateY: 10 }}
-                    transition={{ duration: 0.5, ease: 'easeOut' }}
-                    className="relative rounded-3xl overflow-hidden shadow-2xl"
-                  >
+        {/* Bottom Row - Steps 6-10 */}
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          {bottomRow.map((step, index) => (
+            <div key={step.step} className="flex items-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex flex-col items-center"
+              >
+                <div className="relative">
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
                     <img
-                      src={stepImages[activeStep]}
-                      alt={process[activeStep].title}
-                      className="w-full h-[280px] md:h-[380px] object-cover"
+                      src={stepImages[index + 5]}
+                      alt={step.title}
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${process[activeStep].color} flex items-center justify-center`}>
-                          {(() => {
-                            const Icon = stepIcons[process[activeStep].icon];
-                            return <Icon className="w-5 h-5 text-white" />;
-                          })()}
-                        </div>
-                        <span className="px-3 py-1 text-xs font-bold bg-white/20 backdrop-blur-sm text-white rounded-full">
-                          {t('process.stepOf').replace('{step}', process[activeStep].step).replace('{total}', process.length)}
-                        </span>
-                      </div>
-                      <h2 className="text-2xl md:text-3xl font-bold font-display text-white mb-1">
-                        {process[activeStep].title}
-                      </h2>
-                      <p className="text-sm text-white/70">{process[activeStep].subtitle}</p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
+                  </div>
+                  <div className={`absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
+                    <span className="text-xs font-bold text-white">{step.step}</span>
+                  </div>
+                </div>
+                <div className="mt-3 text-center max-w-[120px]">
+                  <p className="text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                </div>
+              </motion.div>
+              {index < bottomRow.length - 1 && (
                 <motion.div
-                  animate={{ rotate: activeStep * 36 }}
-                  transition={{ duration: 0.6 }}
-                  className="absolute -top-3 -right-3 w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+                  className="mx-2 md:mx-4"
                 >
-                  <span className="text-xl font-bold text-white">{activeStep + 1}</span>
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 relative">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[6px] border-l-blue-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent" />
+                  </div>
                 </motion.div>
-              </div>
-
-              <div>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeStep}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.5, ease: 'easeOut' }}
-                  >
-                    <div className="mb-4">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${process[activeStep].color} text-white text-xs font-semibold mb-3`}>
-                        <FiZap className="w-2.5 h-2.5" />
-                        {t('process.step').replace('{step}', process[activeStep].step)}
-                      </div>
-                      <h3 className="text-lg md:text-xl font-bold font-display text-white mb-1">
-                        {process[activeStep].title}
-                      </h3>
-                      <p className="text-xs text-white/60">{process[activeStep].subtitle}</p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 mb-4">
-                      {process[activeStep].details.map((detail, i) => (
-                        <motion.div
-                          key={detail}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: i * 0.08 }}
-                          className="flex items-center gap-2 p-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/10"
-                        >
-                          <div className={`w-5 h-5 rounded-md bg-gradient-to-br ${process[activeStep].color} flex items-center justify-center shrink-0`}>
-                            <FiCheckCircle className="w-2.5 h-2.5 text-white" />
-                          </div>
-                          <span className="text-xs text-white/90 font-medium">{detail}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-2 text-white/40 text-xs">
-                      <FiArrowRight className="w-3 h-3 animate-pulse" />
-                      <span>{t('process.scrollToContinue')}</span>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+              )}
             </div>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -315,7 +273,7 @@ export default function Process() {
   const { t } = useLanguage();
   return (
     <section id="process" className="relative bg-white">
-      <ScrollProcess />
+      <ProcessSteps />
       <TechSection />
       <ImpactSection />
       <section className="py-12">
