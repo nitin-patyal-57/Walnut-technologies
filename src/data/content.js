@@ -64,7 +64,7 @@ export const divisions = [
     color: 'from-emerald-500 to-teal-600',
     features: ['AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready', 'Real-time Monitoring'],
     products: [
-      { name: 'Walk Lab', image: '/neuro_rehab_device1.png' },
+      { name: 'Walk Lab', image: '/neuro_rehab_device.png' },
     ],
   },
   {
@@ -76,7 +76,7 @@ export const divisions = [
     color: 'from-cyan-500 to-blue-600',
     features: ['FDA Compliant', 'Class 10K Cleanroom', 'ISO 13485', 'IEC 60601'],
     products: [
-      { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp' },
+      { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png' },
       { name: 'IR Thermometer', image: '/TDCS.webp' },
       { name: 'Oxygen Concentrator', image: '/futuristic_medical_device_zoomed_out.png' },
       { name: 'Walnut Compressor Nebulizer', image: '/CES repose.webp' },
@@ -91,12 +91,12 @@ export const divisions = [
     color: 'from-violet-500 to-purple-600',
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
-      { name: 'Single Sim Model', image: '/soundbox.webp' },
+      { name: 'Single Sim Model', image: '/soundbox new.png' },
       { name: 'Double Sim Model', image: '/Pocket Soundbox.webp' },
-      { name: 'With Display Model', image: '/soundbox (2).webp' },
+      { name: 'With Display Model', image: '/soundbox new.png' },
       { name: 'Common Model', image: '/Qr scanner.webp' },
-      { name: 'DQR: Double Display', image: '/soundbox (3).webp' },
-      { name: 'All in One', image: '/soundbox.webp' },
+      { name: 'DQR: Double Display', image: '/soundbox new.png' },
+      { name: 'All in One', image: '/soundbox new.png' },
     ],
   },
   {
@@ -109,7 +109,6 @@ export const divisions = [
     features: ['Durable Design', 'Industrial Grade', 'Quality Tested', 'Custom Solutions'],
     products: [
       { name: 'Cluster', image: '/cluster1.png' },
-      { name: 'Harvester', image: '/TDCS.webp' },
     ],
   },
   {
@@ -140,7 +139,7 @@ export const products = [
     category: 'Medical',
     title: 'Digital Blood Pressure Monitor',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings.',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
     features: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
   },
   {
@@ -172,7 +171,7 @@ export const products = [
     category: 'Fintech',
     title: 'Single SIM Model',
     description: 'Reliable single SIM payment terminal with essential features for small to medium businesses. Easy deployment and management.',
-    image: '/soundbox.webp',
+    image: '/soundbox new.png',
     features: ['Single SIM', '4G Connectivity', 'Compact Design', 'Long Battery'],
   },
   {
@@ -188,7 +187,7 @@ export const products = [
     category: 'Fintech',
     title: 'With Display Model',
     description: 'Payment terminal with built-in display for enhanced user interaction, transaction visualization, and digital receipts.',
-    image: '/soundbox (2).webp',
+    image: '/soundbox new.png',
     features: ['LCD Display', 'Touch Interface', 'Digital Receipts', 'User Friendly'],
   },
   {
@@ -204,7 +203,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR: Double Display',
     description: 'Advanced payment terminal with dual display configuration for merchant and customer facing interfaces simultaneously.',
-    image: '/soundbox (3).webp',
+    image: '/soundbox new.png',
     features: ['Dual Display', 'Merchant + Customer', 'Enhanced UX', 'Secure'],
   },
   {
@@ -212,7 +211,7 @@ export const products = [
     category: 'Fintech',
     title: 'All in One',
     description: 'Comprehensive payment solution combining multiple payment methods and features in a single integrated terminal device.',
-    image: '/soundbox.webp',
+    image: '/soundbox new.png',
     features: ['Multiple Payments', 'QR + Card', 'Audio Confirm', 'All-in-One'],
   },
   {
@@ -222,14 +221,6 @@ export const products = [
     description: 'Automotive cluster display systems with advanced instrumentation for real-time vehicle data visualization and driver information.',
     image: '/cluster1.png',
     features: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
-  },
-  {
-    id: 'harvester',
-    category: 'Automotive',
-    title: 'Harvester',
-    description: 'Specialized electronics for harvester machines with robust design for agricultural and industrial applications.',
-    image: '/TDCS.webp',
-    features: ['Industrial Grade', 'Rugged Design', 'Performance', 'Reliable'],
   },
   {
     id: 'iot-smart-lock',
@@ -485,14 +476,14 @@ export const expertise = [
     title: 'Quality & Compliance',
     description: 'ISO 13485 certified quality management with Class 10K cleanroom facility.',
     icon: 'check',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
     areas: ['ISO 13485', 'ISO 9001', 'FDA QSR', 'CE Marking', 'IEC 60601'],
   },
   {
     title: 'Payment Hardware Security',
     description: 'PCI PTS, EMVCo, and NPCI certified payment terminal design and manufacturing.',
     icon: 'shield',
-    image: '/paytm soundbox.webp',
+    image: '/soundbox new.png',
     areas: ['PCI PTS 5.x', 'EMV L1/L2', 'Secure Element', 'Tamper Detection'],
   },
   {
@@ -506,7 +497,7 @@ export const expertise = [
     title: 'Supply Chain & Logistics',
     description: 'End-to-end supply chain management with global component sourcing and delivery.',
     icon: 'globe',
-    image: '/soundbox (3).webp',
+    image: '/soundbox new.png',
     areas: ['Global Sourcing', 'Inventory Mgmt', 'Customs Clearance', 'Door-to-Door'],
   },
 ];
@@ -533,7 +524,7 @@ export const clientSectors = [
     description: 'POS terminals, soundboxes, and payment devices',
     clients: ['HDFC Bank', 'SBI', 'Paytm', 'BharatPe'],
     icon: 'gov',
-    image: '/soundbox (3).webp',
+    image: '/soundbox new.png',
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
@@ -541,7 +532,7 @@ export const clientSectors = [
     description: 'Manufacturing equipment and monitoring systems',
     clients: ['Sun Pharma', 'Cipla', 'Ipca Labs'],
     icon: 'pharma',
-    image: '/neuro_rehab_device1.png',
+    image: '/neuro_rehab_device.png',
     gradient: 'from-green-500 to-emerald-600',
   },
   {

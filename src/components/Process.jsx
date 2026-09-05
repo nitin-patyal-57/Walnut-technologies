@@ -27,12 +27,12 @@ const stepImages = [
   '/TDCS.webp',
   '/IOT lock smart.png',
   '/Pocket Soundbox.webp',
-  '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
-  '/paytm soundbox.webp',
+  '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
+  '/soundbox new.png',
   '/futuristic_medical_device_zoomed_out.png',
-  '/neuro_rehab_device1.png',
-  '/soundbox.webp',
-  '/soundbox (3).webp',
+  '/neuro_rehab_device.png',
+  '/soundbox new.png',
+  '/soundbox new.png',
 ];
 
 const techIcons = {

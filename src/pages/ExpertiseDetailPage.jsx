@@ -300,7 +300,7 @@ const expertiseData = {
   'payment-systems': {
     title: 'Payment Systems',
     subtitle: 'Secure Transaction Infrastructure',
-    heroImage: '/paytm soundbox.webp',
+    heroImage: '/soundbox new.png',
     tagline: 'Trust in Every Transaction',
     intro: 'In the payment ecosystem, security and reliability are non-negotiable. Walnut Technologies manufactures PCI PTS 5.x certified payment terminals, QR soundboxes, and transaction processing hardware that banks, fintechs, and retailers trust with billions of dollars in daily transactions. Our products meet the highest security standards while delivering exceptional user experience.',
     whyChooseUs: [

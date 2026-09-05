@@ -8,6 +8,7 @@ import ProductShowcase from './ProductShowcase';
 import MedicalShowcase from './MedicalShowcase';
 import NeuroShowcase from './NeuroShowcase';
 import IoTShowcase from './IoTShowcase';
+import AutomotiveShowcase from './AutomotiveShowcase';
 
 const divisionIcons = {
   neuro: FiCpu,
@@ -410,7 +411,8 @@ export default function Solutions({ onOpenQuote }) {
   const isMedicalSelected = selectedDivision?.id === 'medical';
   const isNeuroSelected = selectedDivision?.id === 'neuro';
   const isIoTSelected = selectedDivision?.id === 'iot';
-  const isSpecialDivision = isFintechSelected || isMedicalSelected || isNeuroSelected || isIoTSelected;
+  const isAutomotiveSelected = selectedDivision?.id === 'automotive';
+  const isSpecialDivision = isFintechSelected || isMedicalSelected || isNeuroSelected || isIoTSelected || isAutomotiveSelected;
 
   return (
     <section id="solutions" className={`relative ${isSpecialDivision ? 'p-0 m-0' : 'bg-white py-16 md:py-24'}`}>
@@ -494,6 +496,11 @@ export default function Solutions({ onOpenQuote }) {
           ) : selectedDivision?.id === 'iot' ? (
             <IoTShowcase
               key="iot-showcase"
+              onBack={() => setSelectedDivision(null)}
+            />
+          ) : selectedDivision?.id === 'automotive' ? (
+            <AutomotiveShowcase
+              key="automotive-showcase"
               onBack={() => setSelectedDivision(null)}
             />
           ) : (

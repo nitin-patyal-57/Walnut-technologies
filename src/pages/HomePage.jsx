@@ -167,7 +167,7 @@ function DivisionsPreview() {
       title: 'Walk Lab',
       category: t('divisions.robotics'),
       desc: 'Advanced Rehabilitation & Gait Training Systems',
-      image: '/neuro_rehab_device1.png',
+      image: '/neuro_rehab_device.png',
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {

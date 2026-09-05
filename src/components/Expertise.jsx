@@ -51,7 +51,7 @@ const expertiseAreas = [
     titleKey: 'paymentSystems',
     slug: 'payment-systems',
     descKey: 'paymentSystemsDesc',
-    image: '/paytm soundbox.webp',
+    image: '/soundbox new.png',
   },
 ];
 

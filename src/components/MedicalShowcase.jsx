@@ -23,7 +23,7 @@ const products = [
     subtitle: 'Clinical-grade precision',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings. Features memory storage for multiple readings and easy-to-use interface.',
     highlights: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw.webp',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
   },
   {
     number: 2,

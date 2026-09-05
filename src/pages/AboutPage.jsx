@@ -11,8 +11,8 @@ import {
 
 const facilityImages = [
   '/futuristic_medical_device_zoomed_out.png',
-  '/paytm soundbox.webp',
-  '/neuro_rehab_device1.png',
+  '/soundbox new.png',
+  '/neuro_rehab_device.png',
   '/TDCS.webp',
   '/IOT lock smart.png',
   '/3d image.webp',

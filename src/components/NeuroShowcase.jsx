@@ -115,7 +115,7 @@ export default function NeuroShowcase({ onBack }) {
           <div className={`bg-white border border-slate-100 rounded-2xl p-6 lg:p-8 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="flex items-start gap-5">
               <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
-                <img src="/neuro_rehab_device1.png" alt="WalkLab" className="w-full h-full object-contain mix-blend-multiply" />
+                <img src="/neuro_rehab_device.png" alt="WalkLab" className="w-full h-full object-contain mix-blend-multiply" />
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-[#0f172a] text-lg leading-tight mb-1">WalkLab Gait Training System</h3>
