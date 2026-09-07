@@ -15,7 +15,7 @@ const facilityImages = [
   '/neuro_rehab_device.webp',
   '/TDCS.webp',
   '/IOT lock smart.webp',
-  '/3d image.webp',
+  '/cluster1.webp',
 ];
 
 const valueIcons = [FiTarget, FiZap, FiGlobe, FiShield];

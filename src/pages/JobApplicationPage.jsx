@@ -252,20 +252,20 @@ export default function JobApplicationPage() {
                   <div className="p-8">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
-                        <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required placeholder="John Doe" className={inputClass} />
+                        <label htmlFor="fullName" className="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
+                        <input id="fullName" type="text" name="fullName" value={formData.fullName} onChange={handleChange} required placeholder="John Doe" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address *</label>
-                        <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className={inputClass} />
+                        <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">Email Address *</label>
+                        <input id="email" type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
-                        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+91 98765 43210" className={inputClass} />
+                        <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                        <input id="phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+91 98765 43210" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Current Location *</label>
-                        <input type="text" name="location" value={formData.location} onChange={handleChange} required placeholder="Gurugram, Haryana" className={inputClass} />
+                        <label htmlFor="location" className="block text-sm font-semibold text-slate-700 mb-2">Current Location *</label>
+                        <input id="location" type="text" name="location" value={formData.location} onChange={handleChange} required placeholder="Gurugram, Haryana" className={inputClass} />
                       </div>
                     </div>
                   </div>
@@ -297,16 +297,16 @@ export default function JobApplicationPage() {
                   <div className="p-8">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Current Company</label>
-                        <input type="text" name="currentCompany" value={formData.currentCompany} onChange={handleChange} placeholder="ABC Technologies" className={inputClass} />
+                        <label htmlFor="currentCompany" className="block text-sm font-semibold text-slate-700 mb-2">Current Company</label>
+                        <input id="currentCompany" type="text" name="currentCompany" value={formData.currentCompany} onChange={handleChange} placeholder="ABC Technologies" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Current Designation</label>
-                        <input type="text" name="currentDesignation" value={formData.currentDesignation} onChange={handleChange} placeholder="Senior Engineer" className={inputClass} />
+                        <label htmlFor="currentDesignation" className="block text-sm font-semibold text-slate-700 mb-2">Current Designation</label>
+                        <input id="currentDesignation" type="text" name="currentDesignation" value={formData.currentDesignation} onChange={handleChange} placeholder="Senior Engineer" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Total Experience *</label>
-                        <select name="totalExperience" value={formData.totalExperience} onChange={handleChange} required className={selectClass}>
+                        <label htmlFor="totalExperience" className="block text-sm font-semibold text-slate-700 mb-2">Total Experience *</label>
+                        <select id="totalExperience" name="totalExperience" value={formData.totalExperience} onChange={handleChange} required className={selectClass}>
                           <option value="">Select experience</option>
                           <option value="Fresher">Fresher</option>
                           <option value="0-1 years">0-1 years</option>
@@ -318,8 +318,8 @@ export default function JobApplicationPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Relevant Experience *</label>
-                        <select name="relevantExperience" value={formData.relevantExperience} onChange={handleChange} required className={selectClass}>
+                        <label htmlFor="relevantExperience" className="block text-sm font-semibold text-slate-700 mb-2">Relevant Experience *</label>
+                        <select id="relevantExperience" name="relevantExperience" value={formData.relevantExperience} onChange={handleChange} required className={selectClass}>
                           <option value="">Select experience</option>
                           <option value="0-1 years">0-1 years</option>
                           <option value="1-3 years">1-3 years</option>
@@ -329,12 +329,12 @@ export default function JobApplicationPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Expected Salary (LPA) *</label>
-                        <input type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleChange} required placeholder="e.g. 10-15 LPA" className={inputClass} />
+                        <label htmlFor="expectedSalary" className="block text-sm font-semibold text-slate-700 mb-2">Expected Salary (LPA) *</label>
+                        <input id="expectedSalary" type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleChange} required placeholder="e.g. 10-15 LPA" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Notice Period *</label>
-                        <select name="noticePeriod" value={formData.noticePeriod} onChange={handleChange} required className={selectClass}>
+                        <label htmlFor="noticePeriod" className="block text-sm font-semibold text-slate-700 mb-2">Notice Period *</label>
+                        <select id="noticePeriod" name="noticePeriod" value={formData.noticePeriod} onChange={handleChange} required className={selectClass}>
                           <option value="">Select notice period</option>
                           <option value="Immediate">Immediate</option>
                           <option value="15 days">15 days</option>
@@ -373,8 +373,8 @@ export default function JobApplicationPage() {
                   <div className="p-8">
                     <div className="grid md:grid-cols-3 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Highest Education *</label>
-                        <select name="education" value={formData.education} onChange={handleChange} required className={selectClass}>
+                        <label htmlFor="education" className="block text-sm font-semibold text-slate-700 mb-2">Highest Education *</label>
+                        <select id="education" name="education" value={formData.education} onChange={handleChange} required className={selectClass}>
                           <option value="">Select degree</option>
                           <option value="B.Tech/B.E.">B.Tech / B.E.</option>
                           <option value="M.Tech/M.E.">M.Tech / M.E.</option>
@@ -388,12 +388,12 @@ export default function JobApplicationPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">University / College</label>
-                        <input type="text" name="university" value={formData.university} onChange={handleChange} placeholder="IIT Delhi" className={inputClass} />
+                        <label htmlFor="university" className="block text-sm font-semibold text-slate-700 mb-2">University / College</label>
+                        <input id="university" type="text" name="university" value={formData.university} onChange={handleChange} placeholder="IIT Delhi" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Year of Passing</label>
-                        <input type="text" name="yearOfPassing" value={formData.yearOfPassing} onChange={handleChange} placeholder="2020" className={inputClass} />
+                        <label htmlFor="yearOfPassing" className="block text-sm font-semibold text-slate-700 mb-2">Year of Passing</label>
+                        <input id="yearOfPassing" type="text" name="yearOfPassing" value={formData.yearOfPassing} onChange={handleChange} placeholder="2020" className={inputClass} />
                       </div>
                     </div>
                   </div>
@@ -425,17 +425,17 @@ export default function JobApplicationPage() {
                   <div className="p-8">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Key Skills *</label>
-                        <input type="text" name="skills" value={formData.skills} onChange={handleChange} required placeholder="e.g. STM32, Altium, SMT, ISO 13485, PCB Design" className={inputClass} />
+                        <label htmlFor="skills" className="block text-sm font-semibold text-slate-700 mb-2">Key Skills *</label>
+                        <input id="skills" type="text" name="skills" value={formData.skills} onChange={handleChange} required placeholder="e.g. STM32, Altium, SMT, ISO 13485, PCB Design" className={inputClass} />
                         <p className="text-xs text-slate-400 mt-2">Separate skills with commas</p>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">LinkedIn Profile</label>
-                        <input type="url" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="https://linkedin.com/in/yourprofile" className={inputClass} />
+                        <label htmlFor="linkedin" className="block text-sm font-semibold text-slate-700 mb-2">LinkedIn Profile</label>
+                        <input id="linkedin" type="url" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="https://linkedin.com/in/yourprofile" className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Portfolio / GitHub</label>
-                        <input type="url" name="portfolio" value={formData.portfolio} onChange={handleChange} placeholder="https://github.com/yourprofile" className={inputClass} />
+                        <label htmlFor="portfolio" className="block text-sm font-semibold text-slate-700 mb-2">Portfolio / GitHub</label>
+                        <input id="portfolio" type="url" name="portfolio" value={formData.portfolio} onChange={handleChange} placeholder="https://github.com/yourprofile" className={inputClass} />
                       </div>
                     </div>
                   </div>
@@ -466,8 +466,9 @@ export default function JobApplicationPage() {
                   </div>
                   <div className="p-8 space-y-6">
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Why do you want to join Walnut? *</label>
+                      <label htmlFor="whyJoin" className="block text-sm font-semibold text-slate-700 mb-2">Why do you want to join Walnut? *</label>
                       <textarea
+                        id="whyJoin"
                         name="whyJoin"
                         value={formData.whyJoin}
                         onChange={handleChange}
@@ -480,8 +481,8 @@ export default function JobApplicationPage() {
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">Willing to relocate to Mohali? *</label>
-                        <select name="relocation" value={formData.relocation} onChange={handleChange} required className={selectClass}>
+                        <label htmlFor="relocation" className="block text-sm font-semibold text-slate-700 mb-2">Willing to relocate to Mohali? *</label>
+                        <select id="relocation" name="relocation" value={formData.relocation} onChange={handleChange} required className={selectClass}>
                           <option value="">Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
@@ -489,8 +490,8 @@ export default function JobApplicationPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-2">How did you hear about us?</label>
-                        <select name="referralSource" value={formData.referralSource} onChange={handleChange} className={selectClass}>
+                        <label htmlFor="referralSource" className="block text-sm font-semibold text-slate-700 mb-2">How did you hear about us?</label>
+                        <select id="referralSource" name="referralSource" value={formData.referralSource} onChange={handleChange} className={selectClass}>
                           <option value="">Select</option>
                           <option value="LinkedIn">LinkedIn</option>
                           <option value="Naukri">Naukri</option>
