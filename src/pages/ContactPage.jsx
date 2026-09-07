@@ -96,7 +96,7 @@ export default function ContactPage({ onOpenQuote }) {
       />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-50">
-        <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 lg:pt-12 lg:pb-16">
+        <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-24 lg:pb-16">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left - Content */}
             <motion.div
