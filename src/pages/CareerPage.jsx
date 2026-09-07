@@ -175,6 +175,51 @@ export default function CareerPage() {
         path="/career"
         keywords="Walnut Technologies careers, electronics jobs, medical device careers, embedded systems jobs, IoT careers India"
       />
+      
+      {/* JobPosting Structured Data */}
+      <Helmet>
+        {jobs.map((job, index) => (
+          <script key={job.key} type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "JobPosting",
+              "title": job.title,
+              "description": job.description,
+              "datePosted": new Date().toISOString().split('T')[0],
+              "validThrough": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+              "employmentType": job.type.toUpperCase().replace('-', '_'),
+              "hiringOrganization": {
+                "@type": "Organization",
+                "name": "Walnut Technologies Pvt. Ltd.",
+                "sameAs": "https://walnutmedical.in",
+                "logo": "https://walnutmedical.in/walnut-logo/Walnut_Technologies_logo_transparent.png"
+              },
+              "jobLocation": {
+                "@type": "Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Plot No. 132, JLPL Industrial Park, Sector 82",
+                  "addressLocality": "Mohali",
+                  "addressRegion": "Punjab",
+                  "postalCode": "160055",
+                  "addressCountry": "IN"
+                }
+              },
+              "baseSalary": {
+                "@type": "MonetaryAmount",
+                "currency": "INR",
+                "value": {
+                  "@type": "QuantitativeValue",
+                  "minValue": parseInt(job.salary.match(/[\d]+/g)?.[0] || "5") * 100000,
+                  "maxValue": parseInt(job.salary.match(/[\d]+/g)?.[1] || "15") * 100000,
+                  "unitText": "YEAR"
+                }
+              }
+            })}
+          </script>
+        ))}
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">

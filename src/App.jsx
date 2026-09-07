@@ -13,6 +13,8 @@ import InstallPrompt from './components/InstallPrompt';
 import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 
+import { PageSkeleton } from './components/Skeleton';
+
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
 const ProcessPage = lazy(() => import('./pages/ProcessPage'));
 const ExpertisePage = lazy(() => import('./pages/ExpertisePage'));
@@ -28,14 +30,7 @@ const CareerPage = lazy(() => import('./pages/CareerPage'));
 const JobApplicationPage = lazy(() => import('./pages/JobApplicationPage'));
 
 function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="flex flex-col items-center gap-4">
-        <div className="w-10 h-10 border-2 border-dark-300 border-t-dark-950 rounded-full animate-spin" />
-        <p className="text-sm text-dark-500">Loading...</p>
-      </div>
-    </div>
-  );
+  return <PageSkeleton />;
 }
 
 function ScrollToTop() {
@@ -70,20 +65,20 @@ function AppContent() {
       <main id="main-content">
         <Suspense fallback={<PageLoader />}>
           <Routes>
-          <Route path="/" element={<HomePage onOpenQuote={() => setQuoteModalOpen(true)} onOpenSchedule={() => setScheduleModalOpen(true)} />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/solutions" element={<SolutionsPage onOpenQuote={() => setQuoteModalOpen(true)} />} />
-          <Route path="/process" element={<ProcessPage />} />
-          <Route path="/expertise" element={<ExpertisePage />} />
-          <Route path="/expertise/:slug" element={<ExpertiseDetailPage />} />
-          <Route path="/clients" element={<ClientsPage />} />
-          <Route path="/resources" element={<ResourcesPage />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/contact" element={<ContactPage onOpenQuote={() => setQuoteModalOpen(true)} />} />
-          <Route path="/career" element={<CareerPage />} />
-          <Route path="/apply" element={<JobApplicationPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/" element={<ErrorBoundary isPageLevel><HomePage onOpenQuote={() => setQuoteModalOpen(true)} onOpenSchedule={() => setScheduleModalOpen(true)} /></ErrorBoundary>} />
+          <Route path="/about" element={<ErrorBoundary isPageLevel><AboutPage /></ErrorBoundary>} />
+          <Route path="/solutions" element={<ErrorBoundary isPageLevel><SolutionsPage onOpenQuote={() => setQuoteModalOpen(true)} /></ErrorBoundary>} />
+          <Route path="/process" element={<ErrorBoundary isPageLevel><ProcessPage /></ErrorBoundary>} />
+          <Route path="/expertise" element={<ErrorBoundary isPageLevel><ExpertisePage /></ErrorBoundary>} />
+          <Route path="/expertise/:slug" element={<ErrorBoundary isPageLevel><ExpertiseDetailPage /></ErrorBoundary>} />
+          <Route path="/clients" element={<ErrorBoundary isPageLevel><ClientsPage /></ErrorBoundary>} />
+          <Route path="/resources" element={<ErrorBoundary isPageLevel><ResourcesPage /></ErrorBoundary>} />
+          <Route path="/news" element={<ErrorBoundary isPageLevel><NewsPage /></ErrorBoundary>} />
+          <Route path="/contact" element={<ErrorBoundary isPageLevel><ContactPage onOpenQuote={() => setQuoteModalOpen(true)} /></ErrorBoundary>} />
+          <Route path="/career" element={<ErrorBoundary isPageLevel><CareerPage /></ErrorBoundary>} />
+          <Route path="/apply" element={<ErrorBoundary isPageLevel><JobApplicationPage /></ErrorBoundary>} />
+          <Route path="/privacy" element={<ErrorBoundary isPageLevel><PrivacyPage /></ErrorBoundary>} />
+          <Route path="/terms" element={<ErrorBoundary isPageLevel><TermsPage /></ErrorBoundary>} />
           <Route path="*" element={
             <div className="min-h-screen flex items-center justify-center bg-white">
               <div className="text-center px-4">

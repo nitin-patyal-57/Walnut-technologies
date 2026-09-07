@@ -17,6 +17,7 @@ export default function ContactPage({ onOpenQuote }) {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const timeoutRef = useRef(null);
 
   useEffect(() => {
@@ -70,12 +71,19 @@ export default function ContactPage({ onOpenQuote }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    sendContactEmail(form);
-    setSubmitted(true);
-    timeoutRef.current = setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
-    }, 4000);
+    setIsSubmitting(true);
+    try {
+      await sendContactEmail(form);
+      setSubmitted(true);
+      timeoutRef.current = setTimeout(() => {
+        setSubmitted(false);
+        setForm({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
+      }, 4000);
+    } catch (error) {
+      alert('Failed to send message. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -311,10 +319,20 @@ export default function ContactPage({ onOpenQuote }) {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="w-full py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {t('contact.send')}
-                    <FiArrowRight className="w-4 h-4" />
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        {t('contact.send')}
+                        <FiArrowRight className="w-4 h-4" />
+                      </>
+                    )}
                   </button>
                 </form>
               ) : (

@@ -18,28 +18,36 @@ export default function QuoteModal({ isOpen, onClose }) {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const productOptions = t('quote.productOptions');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    captureLead({
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      company: form.company,
-      product: form.product,
-      quantity: form.quantity,
-      message: form.message,
-      source: 'quote-modal',
-    });
-    sendQuoteEmail(form);
-    setSubmitted(true);
-    setTimeout(() => {
-      onClose();
-      setSubmitted(false);
-      setForm({ name: '', email: '', phone: '', company: '', product: '', quantity: '', message: '' });
-    }, 2000);
+    setIsSubmitting(true);
+    try {
+      captureLead({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        company: form.company,
+        product: form.product,
+        quantity: form.quantity,
+        message: form.message,
+        source: 'quote-modal',
+      });
+      await sendQuoteEmail(form);
+      setSubmitted(true);
+      setTimeout(() => {
+        onClose();
+        setSubmitted(false);
+        setForm({ name: '', email: '', phone: '', company: '', product: '', quantity: '', message: '' });
+      }, 2000);
+    } catch (error) {
+      alert('Failed to submit quote request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const updateField = (field, value) => {
@@ -101,10 +109,20 @@ export default function QuoteModal({ isOpen, onClose }) {
 
           <button
             type="submit"
-            className="w-full py-3 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
+            disabled={isSubmitting}
+            className="w-full py-3 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <FiSend className="w-4 h-4" />
-            {t('quote.send')}
+            {isSubmitting ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                <FiSend className="w-4 h-4" />
+                {t('quote.send')}
+              </>
+            )}
           </button>
         </form>
       ) : (
