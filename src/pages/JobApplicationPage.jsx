@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useSearchParams, Link } from 'react-router-dom';
 import {
   FiArrowLeft, FiSend, FiUser, FiMail, FiPhone, FiMapPin, FiBriefcase,
   FiCalendar, FiDollarSign, FiFileText, FiGlobe, FiCheckCircle,
-  FiLinkedin, FiStar, FiChevronRight, FiUpload, FiAward, FiClock
+  FiLinkedin, FiStar, FiChevronRight, FiUpload, FiAward, FiClock,
+  FiAlertCircle
 } from 'react-icons/fi';
 
 const steps = [
@@ -33,8 +34,35 @@ export default function JobApplicationPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [dragActive, setDragActive] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+  const validateStep = useCallback((step) => {
+    const newErrors = {};
+    if (step === 1) {
+      if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
+      if (!formData.email.trim()) newErrors.email = 'Email is required';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Invalid email format';
+      if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+      if (!formData.location.trim()) newErrors.location = 'Location is required';
+    } else if (step === 2) {
+      if (!formData.totalExperience) newErrors.totalExperience = 'Total experience is required';
+      if (!formData.relevantExperience) newErrors.relevantExperience = 'Relevant experience is required';
+      if (!formData.expectedSalary.trim()) newErrors.expectedSalary = 'Expected salary is required';
+      if (!formData.noticePeriod) newErrors.noticePeriod = 'Notice period is required';
+    } else if (step === 3) {
+      if (!formData.education) newErrors.education = 'Education is required';
+    } else if (step === 4) {
+      if (!formData.skills.trim()) newErrors.skills = 'Skills are required';
+    } else if (step === 5) {
+      if (!formData.whyJoin.trim()) newErrors.whyJoin = 'This field is required';
+      if (!formData.relocation) newErrors.relocation = 'Please select an option';
+      if (!formData.resume) newErrors.resume = 'Resume is required';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -73,14 +101,31 @@ export default function JobApplicationPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validateStep(5)) return;
     setSubmitted(true);
   };
 
-  const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 5));
+  const nextStep = () => {
+    if (validateStep(currentStep)) {
+      setCurrentStep(prev => Math.min(prev + 1, 5));
+    }
+  };
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
   const inputClass = "w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm placeholder:text-slate-400";
+  const inputErrorClass = "w-full px-4 py-3 rounded-xl bg-red-50 border border-red-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-500/20 outline-none transition-all text-sm placeholder:text-slate-400";
   const selectClass = "w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm appearance-none bg-no-repeat bg-[right_0.75rem_center] bg-[length:1.5em_1.5em] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')]";
+  const selectErrorClass = "w-full px-4 py-3 rounded-xl bg-red-50 border border-red-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-500/20 outline-none transition-all text-sm appearance-none bg-no-repeat bg-[right_0.75rem_center] bg-[length:1.5em_1.5em] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')]";
+
+  const FieldError = ({ field }) => {
+    if (!errors[field]) return null;
+    return (
+      <p className="flex items-center gap-1 mt-1.5 text-xs text-red-600">
+        <FiAlertCircle className="w-3 h-3" />
+        {errors[field]}
+      </p>
+    );
+  };
 
   if (submitted) {
     return (
@@ -193,10 +238,12 @@ export default function JobApplicationPage() {
               const Icon = step.icon;
               const isActive = currentStep === step.id;
               const isCompleted = currentStep > step.id;
+              const canClick = step.id <= currentStep;
               return (
                 <div key={step.id} className="flex items-center">
                   <button
-                    onClick={() => setCurrentStep(step.id)}
+                    onClick={() => canClick && setCurrentStep(step.id)}
+                    disabled={!canClick}
                     aria-label={`Step ${step.id}: ${step.label}`}
                     aria-current={isActive ? 'step' : undefined}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
@@ -204,7 +251,9 @@ export default function JobApplicationPage() {
                         ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'
                         : isCompleted
                         ? 'bg-emerald-100 text-emerald-700'
-                        : 'bg-slate-100 text-slate-400 hover:bg-slate-200'
+                        : canClick
+                        ? 'bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer'
+                        : 'bg-slate-50 text-slate-300 cursor-not-allowed'
                     }`}
                   >
                     {isCompleted ? (
@@ -253,19 +302,23 @@ export default function JobApplicationPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="fullName" className="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
-                        <input id="fullName" type="text" name="fullName" value={formData.fullName} onChange={handleChange} required placeholder="John Doe" className={inputClass} />
+                        <input id="fullName" type="text" name="fullName" value={formData.fullName} onChange={handleChange} required placeholder="John Doe" className={errors.fullName ? inputErrorClass : inputClass} />
+                        <FieldError field="fullName" />
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">Email Address *</label>
-                        <input id="email" type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className={inputClass} />
+                        <input id="email" type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" className={errors.email ? inputErrorClass : inputClass} />
+                        <FieldError field="email" />
                       </div>
                       <div>
                         <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
-                        <input id="phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+91 98765 43210" className={inputClass} />
+                        <input id="phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+91 98765 43210" className={errors.phone ? inputErrorClass : inputClass} />
+                        <FieldError field="phone" />
                       </div>
                       <div>
                         <label htmlFor="location" className="block text-sm font-semibold text-slate-700 mb-2">Current Location *</label>
-                        <input id="location" type="text" name="location" value={formData.location} onChange={handleChange} required placeholder="Gurugram, Haryana" className={inputClass} />
+                        <input id="location" type="text" name="location" value={formData.location} onChange={handleChange} required placeholder="Gurugram, Haryana" className={errors.location ? inputErrorClass : inputClass} />
+                        <FieldError field="location" />
                       </div>
                     </div>
                   </div>
@@ -306,7 +359,7 @@ export default function JobApplicationPage() {
                       </div>
                       <div>
                         <label htmlFor="totalExperience" className="block text-sm font-semibold text-slate-700 mb-2">Total Experience *</label>
-                        <select id="totalExperience" name="totalExperience" value={formData.totalExperience} onChange={handleChange} required className={selectClass}>
+                        <select id="totalExperience" name="totalExperience" value={formData.totalExperience} onChange={handleChange} required className={errors.totalExperience ? selectErrorClass : selectClass}>
                           <option value="">Select experience</option>
                           <option value="Fresher">Fresher</option>
                           <option value="0-1 years">0-1 years</option>
@@ -316,10 +369,11 @@ export default function JobApplicationPage() {
                           <option value="8-12 years">8-12 years</option>
                           <option value="12+ years">12+ years</option>
                         </select>
+                        <FieldError field="totalExperience" />
                       </div>
                       <div>
                         <label htmlFor="relevantExperience" className="block text-sm font-semibold text-slate-700 mb-2">Relevant Experience *</label>
-                        <select id="relevantExperience" name="relevantExperience" value={formData.relevantExperience} onChange={handleChange} required className={selectClass}>
+                        <select id="relevantExperience" name="relevantExperience" value={formData.relevantExperience} onChange={handleChange} required className={errors.relevantExperience ? selectErrorClass : selectClass}>
                           <option value="">Select experience</option>
                           <option value="0-1 years">0-1 years</option>
                           <option value="1-3 years">1-3 years</option>
@@ -327,14 +381,16 @@ export default function JobApplicationPage() {
                           <option value="5-8 years">5-8 years</option>
                           <option value="8+ years">8+ years</option>
                         </select>
+                        <FieldError field="relevantExperience" />
                       </div>
                       <div>
                         <label htmlFor="expectedSalary" className="block text-sm font-semibold text-slate-700 mb-2">Expected Salary (LPA) *</label>
-                        <input id="expectedSalary" type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleChange} required placeholder="e.g. 10-15 LPA" className={inputClass} />
+                        <input id="expectedSalary" type="text" name="expectedSalary" value={formData.expectedSalary} onChange={handleChange} required placeholder="e.g. 10-15 LPA" className={errors.expectedSalary ? inputErrorClass : inputClass} />
+                        <FieldError field="expectedSalary" />
                       </div>
                       <div>
                         <label htmlFor="noticePeriod" className="block text-sm font-semibold text-slate-700 mb-2">Notice Period *</label>
-                        <select id="noticePeriod" name="noticePeriod" value={formData.noticePeriod} onChange={handleChange} required className={selectClass}>
+                        <select id="noticePeriod" name="noticePeriod" value={formData.noticePeriod} onChange={handleChange} required className={errors.noticePeriod ? selectErrorClass : selectClass}>
                           <option value="">Select notice period</option>
                           <option value="Immediate">Immediate</option>
                           <option value="15 days">15 days</option>
@@ -342,6 +398,7 @@ export default function JobApplicationPage() {
                           <option value="60 days">60 days</option>
                           <option value="90 days">90 days</option>
                         </select>
+                        <FieldError field="noticePeriod" />
                       </div>
                     </div>
                   </div>
@@ -374,7 +431,7 @@ export default function JobApplicationPage() {
                     <div className="grid md:grid-cols-3 gap-6">
                       <div>
                         <label htmlFor="education" className="block text-sm font-semibold text-slate-700 mb-2">Highest Education *</label>
-                        <select id="education" name="education" value={formData.education} onChange={handleChange} required className={selectClass}>
+                        <select id="education" name="education" value={formData.education} onChange={handleChange} required className={errors.education ? selectErrorClass : selectClass}>
                           <option value="">Select degree</option>
                           <option value="B.Tech/B.E.">B.Tech / B.E.</option>
                           <option value="M.Tech/M.E.">M.Tech / M.E.</option>
@@ -386,6 +443,7 @@ export default function JobApplicationPage() {
                           <option value="Diploma">Diploma</option>
                           <option value="PhD">PhD</option>
                         </select>
+                        <FieldError field="education" />
                       </div>
                       <div>
                         <label htmlFor="university" className="block text-sm font-semibold text-slate-700 mb-2">University / College</label>
@@ -426,7 +484,8 @@ export default function JobApplicationPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="md:col-span-2">
                         <label htmlFor="skills" className="block text-sm font-semibold text-slate-700 mb-2">Key Skills *</label>
-                        <input id="skills" type="text" name="skills" value={formData.skills} onChange={handleChange} required placeholder="e.g. STM32, Altium, SMT, ISO 13485, PCB Design" className={inputClass} />
+                        <input id="skills" type="text" name="skills" value={formData.skills} onChange={handleChange} required placeholder="e.g. STM32, Altium, SMT, ISO 13485, PCB Design" className={errors.skills ? inputErrorClass : inputClass} />
+                        <FieldError field="skills" />
                         <p className="text-xs text-slate-400 mt-2">Separate skills with commas</p>
                       </div>
                       <div>
@@ -475,19 +534,21 @@ export default function JobApplicationPage() {
                         required
                         rows={4}
                         placeholder="Tell us what excites you about this role and Walnut Technologies..."
-                        className={`${inputClass} resize-none`}
+                        className={`${errors.whyJoin ? inputErrorClass : inputClass} resize-none`}
                       />
+                      <FieldError field="whyJoin" />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="relocation" className="block text-sm font-semibold text-slate-700 mb-2">Willing to relocate to Mohali? *</label>
-                        <select id="relocation" name="relocation" value={formData.relocation} onChange={handleChange} required className={selectClass}>
+                        <select id="relocation" name="relocation" value={formData.relocation} onChange={handleChange} required className={errors.relocation ? selectErrorClass : selectClass}>
                           <option value="">Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                           <option value="Open to discussion">Open to discussion</option>
                         </select>
+                        <FieldError field="relocation" />
                       </div>
                       <div>
                         <label htmlFor="referralSource" className="block text-sm font-semibold text-slate-700 mb-2">How did you hear about us?</label>
@@ -516,6 +577,8 @@ export default function JobApplicationPage() {
                             ? 'border-blue-500 bg-blue-50'
                             : formData.resume
                             ? 'border-emerald-300 bg-emerald-50'
+                            : errors.resume
+                            ? 'border-red-300 bg-red-50'
                             : 'border-slate-200 bg-slate-50 hover:border-blue-300 hover:bg-blue-50'
                         }`}
                       >
@@ -534,6 +597,7 @@ export default function JobApplicationPage() {
                           </>
                         )}
                       </label>
+                      <FieldError field="resume" />
                     </div>
 
                     {/* Submit */}
