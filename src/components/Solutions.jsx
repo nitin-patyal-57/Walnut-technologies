@@ -57,7 +57,7 @@ function HeroBanner({ onSelect }) {
     >
       {/* Background image */}
       <img
-        src="/gpsgatewaybackground.webp"
+        src="/gpsgatewaybackground.png"
         alt="GPS Gateway Background"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -151,25 +151,25 @@ function FeaturesSection() {
     {
       title: 'GPS Gateway',
       desc: 'Reliable tracking and connectivity for industrial and logistics applications.',
-      image: '/GPS Gateway.webp',
+      image: '/GPS Gateway.jpeg',
       icon: FiWifi,
     },
     {
       title: 'Bharat Pay Solutions',
       desc: 'Secure payment terminals powering digital transactions across India.',
-      image: '/bharatpay m.webp',
+      image: '/bharatpay m.png',
       icon: FiCreditCard,
     },
     {
       title: 'MedStim Neuro Devices',
       desc: 'Advanced neurostimulation therapy for accelerated recovery.',
-      image: '/futuristic_medical_device_zoomed_out.png',
+      image: '/MedStim Neuro Devices.png',
       icon: FiCpu,
     },
     {
       title: 'Smart Lock Systems',
       desc: 'Connected IoT locks with BLE/WiFi and cloud integration.',
-      image: '/IOT lock smart.png',
+      image: '/iot smaart lock.png',
       icon: FiWifi,
     },
   ];
@@ -251,11 +251,13 @@ function FeaturesSection() {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[240px]"
               >
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
-                />
+                {feature.image && (
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700 ${feature.title === 'MedStim Neuro Devices' ? 'scale-110' : ''}`}
+                  />
+                )}
                 <div className="relative z-10 h-full flex flex-col justify-between p-4">
                   <div className="w-6 h-6 rounded-md bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
                     {(() => { const Icon = feature.icon; return <Icon className="w-3 h-3 text-white" />; })()}

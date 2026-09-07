@@ -27,7 +27,7 @@ const products = [
     subtitle: 'Asset tracking & telemetry',
     description: 'Reliable GPS gateway for industrial and logistics applications. Real-time tracking, telemetry reporting, and fleet management with secure cloud connectivity.',
     highlights: ['GPS Tracking', 'Real-time Telemetry', 'Fleet Management', 'Cloud Connected'],
-    image: '/GPS Gateway.webp',
+    image: '/GPS Gateway.jpeg',
   },
 ];
 
