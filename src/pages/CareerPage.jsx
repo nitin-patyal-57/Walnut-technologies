@@ -239,7 +239,7 @@ export default function CareerPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-slate-900 mb-6 leading-tight"
               >
                 {t('career.subtitle')}
               </motion.h1>
@@ -248,7 +248,7 @@ export default function CareerPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-slate-500 text-lg mb-8 max-w-lg leading-relaxed"
+                className="text-base text-slate-500 mb-8 max-w-lg leading-relaxed"
               >
                 {t('career.subtitle')}
               </motion.p>
@@ -332,7 +332,7 @@ export default function CareerPage() {
                   className="text-center"
                 >
                   <item.icon className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-                  <div className="text-3xl font-bold text-slate-900 mb-1">{item.stat}</div>
+                  <div className="text-3xl font-bold font-display text-slate-900 mb-1">{item.stat}</div>
                   <div className="text-sm text-slate-500">{item.label}</div>
                 </motion.div>
               ))}
@@ -348,7 +348,7 @@ export default function CareerPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
                 <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.whyWalnut')}</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
                   {t('careerExtended.moreThanJob')}{' '}
                   <span className="text-slate-900">{t('careerExtended.buildSomethingReal')}</span>
                 </h2>
@@ -366,7 +366,7 @@ export default function CareerPage() {
                   <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
                     <benefit.icon className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{benefit.title}</h3>
+                  <h3 className="text-lg font-bold font-display text-slate-900 mb-2">{benefit.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">{benefit.desc}</p>
                 </div>
               </AnimatedSection>
@@ -380,7 +380,7 @@ export default function CareerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.findNextChallenge')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-8">
               {t('careerExtended.exploreOpportunities')}
             </h2>
           </AnimatedSection>
@@ -456,7 +456,7 @@ export default function CareerPage() {
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold font-display text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {job.title}
                     </h3>
                     
@@ -499,7 +499,7 @@ export default function CareerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.teamsYouCanJoin')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-8">
               {t('careerExtended.findYourPlace')}
             </h2>
           </AnimatedSection>
@@ -531,11 +531,11 @@ export default function CareerPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
               <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.lifeAtWalnutTitle')}</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
                 {t('careerExtended.greatPeople')}{' '}
                 <span className="text-blue-600">{t('careerExtended.greatCulture')}</span>
               </h2>
-              <p className="text-slate-500 text-lg mb-8 leading-relaxed">
+              <p className="text-base text-slate-500 mb-8 leading-relaxed">
                 {t('careerExtended.cultureDesc')}
               </p>
               <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-white transition-colors">
@@ -567,7 +567,7 @@ export default function CareerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.hiringProcess')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-12">
               {t('careerExtended.simpleSteps')}
             </h2>
           </AnimatedSection>
@@ -583,7 +583,7 @@ export default function CareerPage() {
                     <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
                       <span className="text-blue-600 font-bold text-lg">{step.step}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
+                    <h3 className="text-lg font-bold font-display text-slate-900 mb-2">{step.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
@@ -603,7 +603,7 @@ export default function CareerPage() {
               
               <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-4">
                     {t('careerExtended.cta.nextBigIdea')}{' '}
                     <span className="text-blue-400">{t('careerExtended.cta.couldStartHere')}</span>
                   </h2>
