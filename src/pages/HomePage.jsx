@@ -29,6 +29,7 @@ function JourneySection() {
     { image: '/Quality Assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
     { image: '/Packaging & Dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
     { image: '/Continuous Improvement.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
+    { image: '/After Sales Support.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
   ];
 
   const companyJourney = [
@@ -94,9 +95,9 @@ function JourneySection() {
             ))}
           </div>
 
-          {/* Square Grid - Row 2 (4 items) */}
+          {/* Circle Grid - Row 2 (4 items) */}
           <div className="flex justify-center items-center gap-2 md:gap-4">
-            {processImages.slice(5, 9).map((item, i) => (
+            {processImages.slice(5, 10).map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -105,7 +106,7 @@ function JourneySection() {
                 className="flex items-center"
               >
                 <div className="relative group">
-                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-xl overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <img 
                       src={item.image} 
                       alt={item.to}
@@ -120,7 +121,7 @@ function JourneySection() {
                     <p className="text-[8px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
-                {i < 3 && (
+                {i < 4 && (
                   <div className="flex items-center mx-1 md:mx-2 -mt-4">
                     <div className="w-4 md:w-6 h-[2px] bg-blue-400" />
                     <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-blue-400" />
