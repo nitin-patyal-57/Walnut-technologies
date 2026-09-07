@@ -142,7 +142,7 @@ export default function ContactPage({ onOpenQuote }) {
                 <img
                   src="/contactbackground.webp"
                   alt="Walnut Technologies Manufacturing Facility"
-                  className="w-full h-[300px] lg:h-[380px] object-cover"
+                  className="w-full h-[300px] lg:h-[380px] object-cover object-right"
                 />
               </div>
               {/* Expert Card */}
