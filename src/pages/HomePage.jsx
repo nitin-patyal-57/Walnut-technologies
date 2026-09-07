@@ -149,7 +149,7 @@ function JourneySection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="rounded-lg overflow-hidden"
           >
-            <img src="/journey.jpeg" alt="Our Journey" className="w-full h-full object-cover" />
+            <img src="/journey.webp" alt="Our Journey" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </div>
@@ -168,7 +168,7 @@ function DivisionsPreview() {
       title: 'Walk Lab',
       category: t('divisions.robotics'),
       desc: 'Advanced Rehabilitation & Gait Training Systems',
-      image: '/neuro_rehab_device.png',
+      image: '/neuro_rehab_device.webp',
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {
@@ -176,7 +176,7 @@ function DivisionsPreview() {
       title: 'Digital Blood Pressure',
       category: t('divisions.medical'),
       desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
-      image: '/futuristic_medical_device_zoomed_out.png',
+      image: '/futuristic_medical_device_zoomed_out.webp',
       link: '/solutions?category=Medical',
     },
     {
@@ -184,7 +184,7 @@ function DivisionsPreview() {
       title: 'Single Sim Model',
       category: t('divisions.fintech'),
       desc: 'NPCI, RBI, PCI DSS Certified',
-      image: '/boxsound.png',
+      image: '/boxsound.webp',
       link: '/solutions?category=Fintech',
     },
     {
@@ -192,7 +192,7 @@ function DivisionsPreview() {
       title: 'Cluster',
       category: t('divisions.automotive'),
       desc: 'Industrial & Automotive Electronics',
-      image: '/cluster1.png',
+      image: '/cluster1.webp',
       link: '/solutions?category=Automotive',
     },
     {
@@ -200,7 +200,7 @@ function DivisionsPreview() {
       title: 'IoT Smart Lock',
       category: t('divisions.iot'),
       desc: 'Connected Smart Devices & IoT Solutions',
-      image: '/IOT lock smart.png',
+      image: '/IOT lock smart.webp',
       link: '/solutions?category=IoT',
     },
   ];

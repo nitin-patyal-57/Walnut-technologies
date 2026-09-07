@@ -8,7 +8,7 @@ const expertiseData = {
   'medical-electronics': {
     title: 'Medical Electronics',
     subtitle: 'Life-Critical Precision Manufacturing',
-    heroImage: '/futuristic_medical_device_zoomed_out.png',
+    heroImage: '/futuristic_medical_device_zoomed_out.webp',
     tagline: 'Engineering Trust in Every Heartbeat',
     intro: 'In healthcare, there is no margin for error. Walnut Technologies delivers ISO 13485 certified medical electronics that hospitals, clinics, and med-tech companies trust with patient lives. From concept to production, we manufacture devices that meet the most stringent global regulatory standards.',
     whyChooseUs: [
@@ -300,7 +300,7 @@ const expertiseData = {
   'payment-systems': {
     title: 'Payment Systems',
     subtitle: 'Secure Transaction Infrastructure',
-    heroImage: '/soundbox new.png',
+    heroImage: '/soundbox new.webp',
     tagline: 'Trust in Every Transaction',
     intro: 'In the payment ecosystem, security and reliability are non-negotiable. Walnut Technologies manufactures PCI PTS 5.x certified payment terminals, QR soundboxes, and transaction processing hardware that banks, fintechs, and retailers trust with billions of dollars in daily transactions. Our products meet the highest security standards while delivering exceptional user experience.',
     whyChooseUs: [

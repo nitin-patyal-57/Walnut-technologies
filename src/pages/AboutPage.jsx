@@ -10,11 +10,11 @@ import {
 } from 'react-icons/fi';
 
 const facilityImages = [
-  '/futuristic_medical_device_zoomed_out.png',
-  '/soundbox new.png',
-  '/neuro_rehab_device.png',
+  '/futuristic_medical_device_zoomed_out.webp',
+  '/soundbox new.webp',
+  '/neuro_rehab_device.webp',
   '/TDCS.webp',
-  '/IOT lock smart.png',
+  '/IOT lock smart.webp',
   '/3d image.webp',
 ];
 

@@ -64,7 +64,7 @@ export const divisions = [
     color: 'from-emerald-500 to-teal-600',
     features: ['AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready', 'Real-time Monitoring'],
     products: [
-      { name: 'Walk Lab', image: '/neuro_rehab_device.png' },
+      { name: 'Walk Lab', image: '/neuro_rehab_device.webp' },
     ],
   },
   {
@@ -76,9 +76,9 @@ export const divisions = [
     color: 'from-cyan-500 to-blue-600',
     features: ['FDA Compliant', 'Class 10K Cleanroom', 'ISO 13485', 'IEC 60601'],
     products: [
-      { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png' },
+      { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
       { name: 'IR Thermometer', image: '/TDCS.webp' },
-      { name: 'Oxygen Concentrator', image: '/futuristic_medical_device_zoomed_out.png' },
+      { name: 'Oxygen Concentrator', image: '/futuristic_medical_device_zoomed_out.webp' },
       { name: 'Walnut Compressor Nebulizer', image: '/CES repose.webp' },
     ],
   },
@@ -91,12 +91,12 @@ export const divisions = [
     color: 'from-violet-500 to-purple-600',
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
-      { name: 'Single Sim Model', image: '/soundbox new.png' },
+      { name: 'Single Sim Model', image: '/soundbox new.webp' },
       { name: 'Double Sim Model', image: '/Pocket Soundbox.webp' },
-      { name: 'With Display Model', image: '/soundbox new.png' },
+      { name: 'With Display Model', image: '/soundbox new.webp' },
       { name: 'Common Model', image: '/Qr scanner.webp' },
-      { name: 'DQR: Double Display', image: '/soundbox new.png' },
-      { name: 'All in One', image: '/soundbox new.png' },
+      { name: 'DQR: Double Display', image: '/soundbox new.webp' },
+      { name: 'All in One', image: '/soundbox new.webp' },
     ],
   },
   {
@@ -108,7 +108,7 @@ export const divisions = [
     color: 'from-amber-500 to-orange-600',
     features: ['Durable Design', 'Industrial Grade', 'Quality Tested', 'Custom Solutions'],
     products: [
-      { name: 'Cluster', image: '/cluster1.png' },
+      { name: 'Cluster', image: '/cluster1.webp' },
     ],
   },
   {
@@ -120,7 +120,7 @@ export const divisions = [
     color: 'from-cyan-500 to-teal-600',
     features: ['BLE/WiFi Connected', 'Cloud Integration', 'Edge Computing', 'Real-time Monitoring'],
     products: [
-      { name: 'IoT Smart Lock', image: '/IOT lock smart.png' },
+      { name: 'IoT Smart Lock', image: '/IOT lock smart.webp' },
     ],
   },
 ];
@@ -139,7 +139,7 @@ export const products = [
     category: 'Medical',
     title: 'Digital Blood Pressure Monitor',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings.',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     features: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
   },
   {
@@ -155,7 +155,7 @@ export const products = [
     category: 'Medical',
     title: 'Oxygen Concentrator',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings.',
-    image: '/futuristic_medical_device_zoomed_out.png',
+    image: '/futuristic_medical_device_zoomed_out.webp',
     features: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise Operation'],
   },
   {
@@ -171,7 +171,7 @@ export const products = [
     category: 'Fintech',
     title: 'Single SIM Model',
     description: 'Reliable single SIM payment terminal with essential features for small to medium businesses. Easy deployment and management.',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
     features: ['Single SIM', '4G Connectivity', 'Compact Design', 'Long Battery'],
   },
   {
@@ -187,7 +187,7 @@ export const products = [
     category: 'Fintech',
     title: 'With Display Model',
     description: 'Payment terminal with built-in display for enhanced user interaction, transaction visualization, and digital receipts.',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
     features: ['LCD Display', 'Touch Interface', 'Digital Receipts', 'User Friendly'],
   },
   {
@@ -203,7 +203,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR: Double Display',
     description: 'Advanced payment terminal with dual display configuration for merchant and customer facing interfaces simultaneously.',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
     features: ['Dual Display', 'Merchant + Customer', 'Enhanced UX', 'Secure'],
   },
   {
@@ -211,7 +211,7 @@ export const products = [
     category: 'Fintech',
     title: 'All in One',
     description: 'Comprehensive payment solution combining multiple payment methods and features in a single integrated terminal device.',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
     features: ['Multiple Payments', 'QR + Card', 'Audio Confirm', 'All-in-One'],
   },
   {
@@ -219,7 +219,7 @@ export const products = [
     category: 'Automotive',
     title: 'Cluster',
     description: 'Automotive cluster display systems with advanced instrumentation for real-time vehicle data visualization and driver information.',
-    image: '/cluster1.png',
+    image: '/cluster1.webp',
     features: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
   },
   {
@@ -227,7 +227,7 @@ export const products = [
     category: 'IoT',
     title: 'IoT Smart Lock',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities.',
-    image: '/IOT lock smart.png',
+    image: '/IOT lock smart.webp',
     features: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
   },
 ];
@@ -448,14 +448,14 @@ export const expertise = [
     title: 'Medical Electronics',
     description: 'Life-critical medical device design and manufacturing with full regulatory compliance.',
     icon: 'heart',
-    image: '/futuristic_medical_device_zoomed_out.png',
+    image: '/futuristic_medical_device_zoomed_out.webp',
     areas: ['Patient Monitoring', 'Diagnostics', 'Neuro Rehab', 'Therapeutic Devices', 'Oxygen Concentrators'],
   },
   {
     title: 'Embedded Systems & IoT',
     description: 'Firmware, RTOS, and cloud-connected embedded solutions for smart devices.',
     icon: 'cpu',
-    image: '/IOT lock smart.png',
+    image: '/IOT lock smart.webp',
     areas: ['ARM/MCU', 'RTOS/Linux', 'BLE/WiFi', 'Cloud IoT', 'Edge Computing'],
   },
   {
@@ -476,14 +476,14 @@ export const expertise = [
     title: 'Quality & Compliance',
     description: 'ISO 13485 certified quality management with Class 10K cleanroom facility.',
     icon: 'check',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     areas: ['ISO 13485', 'ISO 9001', 'FDA QSR', 'CE Marking', 'IEC 60601'],
   },
   {
     title: 'Payment Hardware Security',
     description: 'PCI PTS, EMVCo, and NPCI certified payment terminal design and manufacturing.',
     icon: 'shield',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
     areas: ['PCI PTS 5.x', 'EMV L1/L2', 'Secure Element', 'Tamper Detection'],
   },
   {
@@ -497,7 +497,7 @@ export const expertise = [
     title: 'Supply Chain & Logistics',
     description: 'End-to-end supply chain management with global component sourcing and delivery.',
     icon: 'globe',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
     areas: ['Global Sourcing', 'Inventory Mgmt', 'Customs Clearance', 'Door-to-Door'],
   },
 ];
@@ -508,7 +508,7 @@ export const clientSectors = [
     description: 'Hospitals, clinics, and medical device companies',
     clients: ['Apollo Hospitals', 'Fortis', 'Manipal', 'Medanta'],
     icon: 'hospital',
-    image: '/futuristic_medical_device_zoomed_out.png',
+    image: '/futuristic_medical_device_zoomed_out.webp',
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
@@ -524,7 +524,7 @@ export const clientSectors = [
     description: 'POS terminals, soundboxes, and payment devices',
     clients: ['HDFC Bank', 'SBI', 'Paytm', 'BharatPe'],
     icon: 'gov',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
@@ -532,7 +532,7 @@ export const clientSectors = [
     description: 'Manufacturing equipment and monitoring systems',
     clients: ['Sun Pharma', 'Cipla', 'Ipca Labs'],
     icon: 'pharma',
-    image: '/neuro_rehab_device.png',
+    image: '/neuro_rehab_device.webp',
     gradient: 'from-green-500 to-emerald-600',
   },
   {
@@ -540,7 +540,7 @@ export const clientSectors = [
     description: 'Smart metering, grid monitoring, and industrial controls',
     clients: [],
     icon: 'energy',
-    image: '/IOT lock smart.png',
+    image: '/IOT lock smart.webp',
     gradient: 'from-yellow-500 to-amber-600',
   },
   {

@@ -9,7 +9,7 @@ const expertiseAreas = [
     titleKey: 'medicalElectronics',
     slug: 'medical-electronics',
     descKey: 'medicalElectronicsDesc',
-    image: '/futuristic_medical_device_zoomed_out.png',
+    image: '/futuristic_medical_device_zoomed_out.webp',
   },
   {
     titleKey: 'embeddedElectronicAndIoT',
@@ -51,7 +51,7 @@ const expertiseAreas = [
     titleKey: 'paymentSystems',
     slug: 'payment-systems',
     descKey: 'paymentSystemsDesc',
-    image: '/soundbox new.png',
+    image: '/soundbox new.webp',
   },
 ];
 

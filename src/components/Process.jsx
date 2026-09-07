@@ -24,14 +24,14 @@ const stepIcons = {
 const stepImages = [
   '/3d image.webp',
   '/TDCS.webp',
-  '/IOT lock smart.png',
+  '/IOT lock smart.webp',
   '/Pocket Soundbox.webp',
-  '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
-  '/soundbox new.png',
-  '/futuristic_medical_device_zoomed_out.png',
-  '/neuro_rehab_device.png',
-  '/soundbox new.png',
-  '/soundbox new.png',
+  '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+  '/soundbox new.webp',
+  '/futuristic_medical_device_zoomed_out.webp',
+  '/neuro_rehab_device.webp',
+  '/soundbox new.webp',
+  '/soundbox new.webp',
 ];
 
 const techIcons = {

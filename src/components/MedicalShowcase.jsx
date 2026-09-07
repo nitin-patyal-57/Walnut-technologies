@@ -23,7 +23,7 @@ const products = [
     subtitle: 'Clinical-grade precision',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings. Features memory storage for multiple readings and easy-to-use interface.',
     highlights: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.png',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
   },
   {
     number: 2,
@@ -39,7 +39,7 @@ const products = [
     subtitle: 'Reliable oxygen therapy',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings with low noise operation.',
     highlights: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise'],
-    image: '/futuristic_medical_device_zoomed_out.png',
+    image: '/futuristic_medical_device_zoomed_out.webp',
   },
   {
     number: 4,

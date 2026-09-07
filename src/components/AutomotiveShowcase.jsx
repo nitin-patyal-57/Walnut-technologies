@@ -17,7 +17,7 @@ const products = [
     subtitle: 'Advanced instrumentation',
     description: 'Next-generation automotive cluster displays with high-resolution screens, real-time vehicle data visualization, and customizable driver interfaces. Built for durability and clarity.',
     highlights: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
-    image: '/cluster1.png',
+    image: '/cluster1.webp',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function AutomotiveShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 -mt-28 md:-mt-32 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/cluster background.png" alt="Automotive Cluster Display" className="w-full h-auto scale-110" loading="eager" />
+          <img src="/cluster background.webp" alt="Automotive Cluster Display" className="w-full h-auto scale-110" loading="eager" />
         </div>
       </section>
 
