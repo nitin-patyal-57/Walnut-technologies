@@ -166,6 +166,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
                 <button
                   onClick={handleSend}
                   disabled={!input.trim()}
+                  aria-label="Send message"
                   className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center hover:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 >
                   <FiSend className="w-3.5 h-3.5" />

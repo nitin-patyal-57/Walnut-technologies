@@ -213,8 +213,9 @@ export default function ContactPage({ onOpenQuote }) {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.fullName')} *</label>
+                      <label htmlFor="contact-name" className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.fullName')} *</label>
                       <input
+                        id="contact-name"
                         type="text"
                         required
                         value={form.name}
@@ -225,8 +226,9 @@ export default function ContactPage({ onOpenQuote }) {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.companyName')}</label>
+                      <label htmlFor="contact-company" className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.companyName')}</label>
                       <input
+                        id="contact-company"
                         type="text"
                         value={form.company}
                         onChange={(e) => setForm({...form, company: e.target.value})}
@@ -238,8 +240,9 @@ export default function ContactPage({ onOpenQuote }) {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.emailAddress')} *</label>
+                      <label htmlFor="contact-email" className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.emailAddress')} *</label>
                       <input
+                        id="contact-email"
                         type="email"
                         required
                         value={form.email}
@@ -249,8 +252,9 @@ export default function ContactPage({ onOpenQuote }) {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.phoneNumber')}</label>
+                      <label htmlFor="contact-phone" className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.phoneNumber')}</label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({...form, phone: e.target.value})}
@@ -260,8 +264,9 @@ export default function ContactPage({ onOpenQuote }) {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.subject')} *</label>
+                    <label htmlFor="contact-subject" className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.subject')} *</label>
                     <select
+                      id="contact-subject"
                       required
                       value={form.subject}
                       onChange={(e) => setForm({...form, subject: e.target.value})}
@@ -277,8 +282,9 @@ export default function ContactPage({ onOpenQuote }) {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.message')} *</label>
+                    <label htmlFor="contact-message" className="block text-xs font-medium text-slate-600 mb-1.5">{t('contact.message')} *</label>
                     <textarea
+                      id="contact-message"
                       required
                       rows={5}
                       value={form.message}

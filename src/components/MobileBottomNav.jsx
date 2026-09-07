@@ -70,7 +70,7 @@ export default function MobileBottomNav({ onOpenQuote }) {
                 <Icon className="w-5 h-5" />
               </div>
               <span className={`text-xs font-semibold transition-all ${
-                active ? 'text-cyan-600' : 'text-slate-400'
+                active ? 'text-cyan-600' : 'text-slate-500'
               }`}>
                 {item.label}
               </span>

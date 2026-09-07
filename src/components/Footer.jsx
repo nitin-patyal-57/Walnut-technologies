@@ -25,6 +25,7 @@ export default function Footer() {
       { label: 'Medical', to: '/solutions?category=Medical' },
       { label: 'Fintech', to: '/solutions?category=Fintech' },
       { label: 'Automotive', to: '/solutions?category=Automotive' },
+      { label: 'IoT Solutions', to: '/solutions?category=IoT' },
     ],
     [t('footer.company')]: [
       { label: t('footer.aboutUs'), to: '/about' },
@@ -100,7 +101,7 @@ export default function Footer() {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">{title}</h4>
+              <h3 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">{title}</h3>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>

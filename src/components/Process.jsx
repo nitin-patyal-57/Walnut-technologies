@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   FiZap, FiSearch, FiEdit3, FiLayers, FiCheckCircle, FiSettings,
   FiShield, FiTruck, FiHeadphones, FiTrendingUp,
@@ -25,7 +26,7 @@ const stepImages = [
   '/3d image.webp',
   '/TDCS.webp',
   '/IOT lock smart.webp',
-  '/Pocket Soundbox.webp',
+  '/soundbox new.webp',
   '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
   '/soundbox new.webp',
   '/futuristic_medical_device_zoomed_out.webp',
@@ -292,13 +293,13 @@ export default function Process() {
               <p className="text-sm text-white/60 mb-6 max-w-md mx-auto">
                 {t('process.ctaDesc')}
               </p>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-xl font-semibold text-sm hover:bg-slate-100 transition-colors duration-300"
               >
                 {t('process.getStarted')}
                 <FiArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>

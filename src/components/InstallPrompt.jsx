@@ -75,6 +75,7 @@ export default function InstallPrompt() {
             </div>
             <button
               onClick={handleDismiss}
+              aria-label="Dismiss"
               className="text-slate-400 hover:text-slate-600 transition-colors"
             >
               <FiX className="w-4 h-4" />

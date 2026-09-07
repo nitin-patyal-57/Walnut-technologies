@@ -171,7 +171,7 @@ export default function CareerPage() {
     <div className="bg-white">
       <SEO
         title="Career"
-        description="Join Walnut Technologies - Explore exciting career opportunities in medical electronics, embedded systems, IoT, and software development.Grow with us in Mohali, Punjab."
+        description="Join Walnut Technologies - Explore exciting career opportunities in medical electronics, embedded systems, IoT, and software development. Grow with us in Mohali, Punjab."
         path="/career"
         keywords="Walnut Technologies careers, electronics jobs, medical device careers, embedded systems jobs, IoT careers India"
       />

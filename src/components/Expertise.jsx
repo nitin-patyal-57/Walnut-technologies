@@ -136,7 +136,7 @@ export default function Expertise() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/Design & Engineering.webp"
-                  alt="Expertise"
+                  alt="Design and Engineering team at Walnut Technologies"
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />

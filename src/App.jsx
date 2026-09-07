@@ -66,8 +66,9 @@ function AppContent() {
         onOpenSchedule={() => setScheduleModalOpen(true)}
       />
 
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
+      <main id="main-content">
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
           <Route path="/" element={<HomePage onOpenQuote={() => setQuoteModalOpen(true)} onOpenSchedule={() => setScheduleModalOpen(true)} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/solutions" element={<SolutionsPage onOpenQuote={() => setQuoteModalOpen(true)} />} />
@@ -95,6 +96,7 @@ function AppContent() {
           } />
         </Routes>
       </Suspense>
+      </main>
 
       <Footer />
 

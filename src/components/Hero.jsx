@@ -22,7 +22,7 @@ export default function Hero({ onOpenQuote, onOpenSchedule }) {
       <div className="absolute inset-0">
         <img
           src="/home background.webp"
-          alt=""
+          alt="Walnut Technologies electronics manufacturing facility"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"

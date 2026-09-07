@@ -122,6 +122,10 @@ function CategoryCard({ division, onSelect, index }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
       onClick={() => onSelect(division)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(division); } }}
+      tabIndex={0}
+      role="button"
+      aria-label={`View ${division.title} solutions`}
       className="cursor-pointer group"
     >
       {/* Image Container */}

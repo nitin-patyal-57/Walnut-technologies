@@ -247,6 +247,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                    <img src="/walnut-logo/Walnut_Technologies_logo_transparent.png" alt="Walnut Technologies" className="h-12 w-auto object-contain" />
                   <button
                     onClick={() => setIsSidebarOpen(false)}
+                    aria-label="Close sidebar"
                     className="p-2 text-slate-400 hover:text-slate-700 transition-colors rounded-lg hover:bg-slate-100"
                   >
                     <FiX className="w-6 h-6" />

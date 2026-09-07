@@ -92,9 +92,9 @@ export const divisions = [
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
       { name: 'Single Sim Model', image: '/soundbox new.webp' },
-      { name: 'Double Sim Model', image: '/Pocket Soundbox.webp' },
+      { name: 'Double Sim Model', image: '/soundbox new.webp' },
       { name: 'With Display Model', image: '/soundbox new.webp' },
-      { name: 'Common Model', image: '/Qr scanner.webp' },
+      { name: 'Common Model', image: '/soundbox new.webp' },
       { name: 'DQR: Double Display', image: '/soundbox new.webp' },
       { name: 'All in One', image: '/soundbox new.webp' },
     ],
@@ -179,7 +179,7 @@ export const products = [
     category: 'Fintech',
     title: 'Double SIM Model',
     description: 'Dual SIM payment terminal ensuring uninterrupted connectivity with network failover capability for critical transactions.',
-    image: '/Pocket Soundbox.webp',
+    image: '/soundbox new.webp',
     features: ['Dual SIM', 'Network Failover', '4G/3G', 'Secure Payments'],
   },
   {
@@ -195,7 +195,7 @@ export const products = [
     category: 'Fintech',
     title: 'Common Model',
     description: 'Versatile payment terminal suitable for universal deployment across various business environments and payment scenarios.',
-    image: '/Qr scanner.webp',
+    image: '/soundbox new.webp',
     features: ['Universal Design', 'Multi-Payment', 'Easy Setup', 'Reliable'],
   },
   {
@@ -490,7 +490,7 @@ export const expertise = [
     title: 'Software & Firmware',
     description: 'Full-stack firmware development, device drivers, and companion applications.',
     icon: 'code',
-    image: '/Pocket Soundbox.webp',
+    image: '/soundbox new.webp',
     areas: ['Bare Metal', 'Embedded Linux', 'Android BSP', 'Mobile Apps'],
   },
   {
