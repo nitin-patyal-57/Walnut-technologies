@@ -179,7 +179,7 @@ export default function CareerPage() {
       
       {/* JobPosting Structured Data */}
       <Helmet>
-        {jobs.map((job, index) => (
+        {jobOpenings.map((job) => (
           <script key={job.key} type="application/ld+json">
             {JSON.stringify({
               "@context": "https://schema.org",
