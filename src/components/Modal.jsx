@@ -1,20 +1,28 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 
 export default function Modal({ isOpen, onClose, children, title, size = 'max-w-lg' }) {
+  const modalRef = useRef(null);
+  const previousFocusRef = useRef(null);
+
   const handleEscape = useCallback((e) => {
     if (e.key === 'Escape') onClose();
   }, [onClose]);
 
   useEffect(() => {
     if (isOpen) {
+      previousFocusRef.current = document.activeElement;
       document.addEventListener('keydown', handleEscape);
       document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        modalRef.current?.focus();
+      }, 100);
     }
     return () => {
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'unset';
+      previousFocusRef.current?.focus();
     };
   }, [isOpen, handleEscape]);
 
@@ -28,13 +36,19 @@ export default function Modal({ isOpen, onClose, children, title, size = 'max-w-
             exit={{ opacity: 0 }}
             onClick={onClose}
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            aria-hidden="true"
           />
           <motion.div
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
+            tabIndex={-1}
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className={`relative ${size} w-full bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden`}
+            className={`relative ${size} w-full bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden focus:outline-none`}
           >
             <div className="flex items-center justify-between p-6 border-b border-slate-200">
               <h3 className="text-xl font-semibold text-slate-900">{title}</h3>

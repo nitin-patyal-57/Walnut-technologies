@@ -103,6 +103,9 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Chat widget"
             initial={{ opacity: 0, y: 15, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.97 }}
@@ -121,7 +124,7 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-3 space-y-3">
+            <div className="flex-1 overflow-y-auto p-3 space-y-3" aria-live="polite" aria-label="Chat messages">
               {messages.map((msg, index) => (
                 <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
@@ -154,14 +157,16 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
 
             <div className="p-3 border-t border-slate-200">
               <div className="flex gap-1.5">
+                <label htmlFor="chat-input" className="sr-only">{t('chat.placeholder')}</label>
                 <input
+                  id="chat-input"
                   ref={inputRef}
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder={t('chat.placeholder')}
-                  className="flex-1 px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 transition-colors"
+                  className="flex-1 px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-slate-400 transition-colors"
                 />
                 <button
                   onClick={handleSend}

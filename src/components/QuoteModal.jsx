@@ -46,7 +46,7 @@ export default function QuoteModal({ isOpen, onClose }) {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  const inputClass = "w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 transition-colors shadow-sm";
+  const inputClass = "w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm";
   const labelClass = "block text-xs font-medium text-slate-500 mb-1.5";
 
   return (
@@ -59,29 +59,29 @@ export default function QuoteModal({ isOpen, onClose }) {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>{t('quote.name')} *</label>
-              <input type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder={t('quote.name')} maxLength={100} />
+              <label htmlFor="quote-name" className={labelClass}>{t('quote.name')} *</label>
+              <input id="quote-name" type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder={t('quote.name')} maxLength={100} />
             </div>
             <div>
-              <label className={labelClass}>{t('quote.email')} *</label>
-              <input type="email" required value={form.email} onChange={(e) => updateField('email', e.target.value)} className={inputClass} placeholder="your@email.com" />
+              <label htmlFor="quote-email" className={labelClass}>{t('quote.email')} *</label>
+              <input id="quote-email" type="email" required value={form.email} onChange={(e) => updateField('email', e.target.value)} className={inputClass} placeholder="your@email.com" />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>{t('quote.phone')}</label>
-              <input type="tel" value={form.phone} onChange={(e) => updateField('phone', e.target.value)} className={inputClass} placeholder="+91 77194 63719" />
+              <label htmlFor="quote-phone" className={labelClass}>{t('quote.phone')}</label>
+              <input id="quote-phone" type="tel" value={form.phone} onChange={(e) => updateField('phone', e.target.value)} className={inputClass} placeholder="+91 77194 63719" />
             </div>
             <div>
-              <label className={labelClass}>{t('quote.company')}</label>
-              <input type="text" value={form.company} onChange={(e) => updateField('company', e.target.value)} className={inputClass} placeholder={t('quote.company')} maxLength={100} />
+              <label htmlFor="quote-company" className={labelClass}>{t('quote.company')}</label>
+              <input id="quote-company" type="text" value={form.company} onChange={(e) => updateField('company', e.target.value)} className={inputClass} placeholder={t('quote.company')} maxLength={100} />
             </div>
           </div>
 
           <div>
-            <label className={labelClass}>{t('quote.productType')} *</label>
-            <select required value={form.product} onChange={(e) => updateField('product', e.target.value)} className={inputClass}>
+            <label htmlFor="quote-product" className={labelClass}>{t('quote.productType')} *</label>
+            <select id="quote-product" required value={form.product} onChange={(e) => updateField('product', e.target.value)} className={inputClass}>
               <option value="">{t('quote.selectProduct')}</option>
               {Array.isArray(productOptions) && productOptions.map((opt) => (
                 <option key={opt} value={opt}>{opt}</option>
@@ -90,13 +90,13 @@ export default function QuoteModal({ isOpen, onClose }) {
           </div>
 
           <div>
-            <label className={labelClass}>{t('quote.quantity')}</label>
-            <input type="number" value={form.quantity} onChange={(e) => updateField('quantity', e.target.value)} className={inputClass} placeholder="e.g., 10,000" />
+            <label htmlFor="quote-quantity" className={labelClass}>{t('quote.quantity')}</label>
+            <input id="quote-quantity" type="number" value={form.quantity} onChange={(e) => updateField('quantity', e.target.value)} className={inputClass} placeholder="e.g., 10,000" />
           </div>
 
           <div>
-            <label className={labelClass}>{t('quote.message')}</label>
-            <textarea value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder={t('contact.messagePlaceholder')} maxLength={1000} />
+            <label htmlFor="quote-message" className={labelClass}>{t('quote.message')}</label>
+            <textarea id="quote-message" value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder={t('contact.messagePlaceholder')} maxLength={1000} />
           </div>
 
           <button

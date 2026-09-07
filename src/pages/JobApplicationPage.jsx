@@ -197,6 +197,8 @@ export default function JobApplicationPage() {
                 <div key={step.id} className="flex items-center">
                   <button
                     onClick={() => setCurrentStep(step.id)}
+                    aria-label={`Step ${step.id}: ${step.label}`}
+                    aria-current={isActive ? 'step' : undefined}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
                       isActive
                         ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'

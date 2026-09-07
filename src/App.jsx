@@ -60,6 +60,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-white">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <ScrollToTop />
       <Navbar
         onOpenQuote={() => setQuoteModalOpen(true)}

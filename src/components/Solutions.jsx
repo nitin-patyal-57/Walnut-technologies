@@ -458,7 +458,11 @@ export default function Solutions({ onOpenQuote }) {
                   >
                     <div
                       onClick={() => setSelectedDivision(division)}
-                      className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 cursor-pointer"
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedDivision(division); } }}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`View ${division.title} solutions`}
+                      className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     >
                       {/* Full Image */}
                       <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">

@@ -19,6 +19,19 @@
     overflow-x: hidden;
   }
 
+  /* Global focus-visible styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  }
+
+  /* Skip to content link */
+  .skip-link {
+    @apply fixed top-0 left-0 z-[100] px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-br-lg -translate-y-full transition-transform duration-200;
+  }
+  .skip-link:focus {
+    @apply translate-y-0;
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
   }

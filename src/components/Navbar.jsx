@@ -233,6 +233,9 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
       <AnimatePresence>
         {isSidebarOpen && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Information sidebar"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
