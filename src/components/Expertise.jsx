@@ -9,7 +9,7 @@ const expertiseAreas = [
     titleKey: 'medicalElectronics',
     slug: 'medical-electronics',
     descKey: 'medicalElectronicsDesc',
-    image: '/futuristic_medical_device_zoomed_out.webp',
+    image: '/MedStim Neuro Devices.webp',
   },
   {
     titleKey: 'embeddedElectronicAndIoT',
