@@ -42,16 +42,14 @@ export default function ContactPage({ onOpenQuote }) {
     {
       icon: FiMail,
       title: t('contact.emailUs'),
-      lines: ['contact@walnutmedical.in'],
       link: 'mailto:contact@walnutmedical.in',
-      linkText: null,
+      linkText: 'contact@walnutmedical.in',
     },
     {
       icon: FiPhone,
       title: t('contact.callUs'),
-      lines: ['+91 77194 63719'],
       link: 'tel:+917719463719',
-      linkText: null,
+      linkText: '+91 77194 63719',
     },
   ];
 
@@ -172,11 +170,13 @@ export default function ContactPage({ onOpenQuote }) {
                     <Icon className="w-6 h-6 text-blue-600" />
                   </div>
                   <h3 className="text-sm font-bold text-slate-900 mb-2">{card.title}</h3>
-                  <div className="space-y-0.5 mb-3">
-                    {card.lines.map((line, i) => (
-                      <p key={i} className="text-xs text-slate-500">{line}</p>
-                    ))}
-                  </div>
+                  {card.lines && (
+                    <div className="space-y-0.5 mb-3">
+                      {card.lines.map((line, i) => (
+                        <p key={i} className="text-xs text-slate-500">{line}</p>
+                      ))}
+                    </div>
+                  )}
                   {card.link && (
                     <a
                       href={card.link}
