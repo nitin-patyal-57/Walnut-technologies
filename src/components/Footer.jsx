@@ -1,16 +1,7 @@
 import { Link } from 'react-router-dom';
-import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail, FiShield } from 'react-icons/fi';
+import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 import { brand } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
-
-const certifications = [
-  'ISO 13485',
-  'Class 10K Cleanroom',
-  'CE / FCC',
-  'PCI DSS',
-  'IEC 60601',
-  'BIS Certified',
-];
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -47,18 +38,6 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-slate-200 bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Certifications Banner */}
-        <div className="py-4 border-b border-white/10">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {certifications.map((cert) => (
-              <div key={cert} className="flex items-center gap-1.5 text-xs text-slate-400">
-                <FiShield className="w-3 h-3 text-cyan-400" />
-                <span>{cert}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Main Footer */}
         <div className="py-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand & Contact */}
