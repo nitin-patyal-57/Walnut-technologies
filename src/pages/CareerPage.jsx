@@ -152,10 +152,7 @@ export default function CareerPage() {
   ];
 
   const cultureImages = [
-    { src: '/neuro_rehab_device.webp', alt: 'Innovation lab' },
-    { src: '/home background.webp', alt: 'Team collaboration' },
-    { src: '/Continuous Improvement.webp', alt: 'Continuous Improvement' },
-    { src: '/Research & Market Analysis.webp', alt: 'Research & Market Analysis' },
+    { src: '/life at walnut.webp', alt: 'Life at Walnut' },
   ];
 
   const filteredJobs = jobOpenings.filter(job => {
@@ -222,15 +219,15 @@ export default function CareerPage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative overflow-hidden bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div ref={ref}>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5 }}
-                className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4"
+                className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3"
               >
                 {t('career.title')}
               </motion.p>
@@ -239,7 +236,7 @@ export default function CareerPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-slate-900 mb-6 leading-tight"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-slate-900 mb-4 leading-tight"
               >
                 {t('career.subtitle')}
               </motion.h1>
@@ -248,7 +245,7 @@ export default function CareerPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-base text-slate-500 mb-8 max-w-lg leading-relaxed"
+                className="text-sm text-slate-500 mb-6 max-w-lg leading-relaxed"
               >
                 {t('career.subtitle')}
               </motion.p>
@@ -257,28 +254,15 @@ export default function CareerPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="flex flex-wrap gap-4 mb-8"
+                className="flex flex-wrap gap-3 mb-6"
               >
-                <a href="#openings" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-300">
+                <a href="#openings" className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-sm transition-colors duration-300">
                   {t('careerExtended.explorePositions')}
                   <FiArrowRight className="w-4 h-4" />
                 </a>
-                <a href="#culture" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 hover:border-slate-300 text-slate-700 rounded-lg font-semibold transition-colors duration-300">
+                <a href="#culture" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 hover:border-slate-300 text-slate-700 rounded-lg font-semibold text-sm transition-colors duration-300">
                   {t('careerExtended.lifeAtWalnut')}
                 </a>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="flex items-center gap-4 text-sm text-slate-500"
-              >
-                <span>{t('careerExtended.engineering')}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <span>{t('careerExtended.innovation')}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                <span>{t('careerExtended.impact')}</span>
               </motion.div>
             </div>
 
@@ -292,82 +276,129 @@ export default function CareerPage() {
                 <img
                   src="/career background.webp"
                   alt="Walnut Medical Team"
-                  className="w-full h-[400px] md:h-[500px] object-cover"
+                  className="w-full h-[300px] md:h-[400px] object-cover"
                   loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
-              
-              {/* Floating video card */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl flex items-center gap-3"
-              >
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                  <div className="w-0 h-0 border-l-[10px] border-l-blue-600 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1" />
-                </div>
-                <div>
-                  <p className="font-semibold text-slate-900 text-sm">{t('careerExtended.watchOur')}</p>
-                  <p className="font-semibold text-slate-900 text-sm">{t('careerExtended.ourStory')}</p>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="py-12 bg-slate-50">
+      {/* Why Walnut + Benefits */}
+      <section className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {statsData.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
-                  className="text-center"
-                >
-                  <item.icon className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-                  <div className="text-3xl font-bold font-display text-slate-900 mb-1">{item.stat}</div>
-                  <div className="text-sm text-slate-500">{item.label}</div>
-                </motion.div>
-              ))}
+            <div className="text-center mb-8">
+              <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">{t('careerExtended.whyWalnut')}</p>
+              <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-2">
+                {t('careerExtended.moreThanJob')}{' '}
+                <span className="text-blue-600">{t('careerExtended.buildSomethingReal')}</span>
+              </h2>
+              <p className="text-sm text-slate-500 max-w-2xl mx-auto">{t('careerExtended.whyWalnutDesc')}</p>
             </div>
           </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {benefits.map((benefit, i) => (
+              <AnimatedSection key={benefit.title} delay={i * 0.06}>
+                <div className="p-4 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mb-3">
+                    <benefit.icon className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <h3 className="text-sm font-bold font-display text-slate-900 mb-1">{benefit.title}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">{benefit.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Why Walnut */}
-      <section className="py-16">
+      {/* Life at Walnut - Full width image */}
+      <section id="culture" className="py-10 md:py-14 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <div>
-                <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.whyWalnut')}</p>
-                <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
-                  {t('careerExtended.moreThanJob')}{' '}
-                  <span className="text-slate-900">{t('careerExtended.buildSomethingReal')}</span>
-                </h2>
-              </div>
-              <p className="text-slate-500 text-lg leading-relaxed">
-                {t('careerExtended.whyWalnutDesc')}
+          <div className="grid lg:grid-cols-5 gap-8 items-center">
+            <AnimatedSection className="lg:col-span-2">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-slate-900 mb-4">
+                {t('careerExtended.lifeAtWalnutTitle')}
+              </h2>
+              <p className="text-sm text-slate-500 mb-6 leading-relaxed">
+                {t('careerExtended.cultureDesc')}
               </p>
-            </div>
+              <Link to="/about" className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-sm transition-colors">
+                {t('careerExtended.exploreOurCulture')}
+                <FiArrowRight className="w-4 h-4" />
+              </Link>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} className="lg:col-span-3">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={cultureImages[0].src}
+                  alt={cultureImages[0].alt}
+                  className="w-full h-[250px] md:h-[350px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Teams + Hiring Process */}
+      <section className="py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Teams */}
+          <AnimatedSection>
+            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">{t('careerExtended.teamsYouCanJoin')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-6">
+              {t('careerExtended.findYourPlace')}
+            </h2>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {benefits.map((benefit, i) => (
-              <AnimatedSection key={benefit.title} delay={i * 0.08}>
-                <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
-                    <benefit.icon className="w-6 h-6 text-blue-600" />
+          <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-12">
+            {teams.map((team, i) => (
+              <AnimatedSection key={team.name} delay={i * 0.04}>
+                <div className="group text-center">
+                  <div className="w-full aspect-square rounded-lg overflow-hidden mb-2 relative">
+                    <img
+                      src={team.image}
+                      alt={team.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                   </div>
-                  <h3 className="text-lg font-bold font-display text-slate-900 mb-2">{benefit.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{benefit.desc}</p>
+                  <p className="text-[10px] md:text-xs font-semibold text-slate-700">{team.name}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Hiring Process */}
+          <AnimatedSection>
+            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">{t('careerExtended.hiringProcess')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-6">
+              {t('careerExtended.simpleSteps')}
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {hiringSteps.map((step, i) => (
+              <AnimatedSection key={step.step} delay={i * 0.08}>
+                <div className="relative">
+                  {i < hiringSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-6 left-full w-full h-0.5 bg-blue-200 -translate-x-1/2" />
+                  )}
+                  <div className="text-center">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                      <span className="text-blue-600 font-bold text-sm">{step.step}</span>
+                    </div>
+                    <h3 className="text-sm font-bold font-display text-slate-900 mb-1">{step.title}</h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
@@ -376,22 +407,22 @@ export default function CareerPage() {
       </section>
 
       {/* Open Positions */}
-      <section id="openings" className="py-16 bg-slate-50">
+      <section id="openings" className="py-10 md:py-14 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.findNextChallenge')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-8">
+            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">{t('careerExtended.findNextChallenge')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-6">
               {t('careerExtended.exploreOpportunities')}
             </h2>
           </AnimatedSection>
 
           {/* Filters */}
           <AnimatedSection delay={0.1}>
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-wrap gap-3 mb-6">
               <select
                 value={activeDept}
                 onChange={(e) => setActiveDept(e.target.value)}
-                className="px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {departments.map(dept => (
                   <option key={dept} value={dept}>{dept}</option>
@@ -401,7 +432,7 @@ export default function CareerPage() {
               <select
                 value={activeLocation}
                 onChange={(e) => setActiveLocation(e.target.value)}
-                className="px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {locations.map(loc => (
                   <option key={loc} value={loc}>{loc}</option>
@@ -411,28 +442,28 @@ export default function CareerPage() {
               <select
                 value={activeExperience}
                 onChange={(e) => setActiveExperience(e.target.value)}
-                className="px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {experiences.map(exp => (
                   <option key={exp} value={exp}>{exp}</option>
                 ))}
               </select>
               
-              <div className="relative flex-1 min-w-[200px]">
-                <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <div className="relative flex-1 min-w-[180px]">
+                <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
                   type="text"
                   placeholder={t('careerExtended.searchPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full pl-9 pr-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
           </AnimatedSection>
 
           {/* Job Cards */}
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             <AnimatePresence mode="popLayout">
               {filteredJobs.map((job, i) => (
                 <motion.div
@@ -445,22 +476,22 @@ export default function CareerPage() {
                 >
                   <Link
                     to={`/apply?title=${encodeURIComponent(job.title)}&dept=${encodeURIComponent(job.department)}&exp=${encodeURIComponent(job.experience)}&salary=${encodeURIComponent(job.salary)}`}
-                    className="group block bg-white rounded-xl p-6 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
+                    className="group block bg-white rounded-xl p-4 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full"
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                        <job.icon className="w-6 h-6 text-blue-600" />
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                        <job.icon className="w-5 h-5 text-blue-600" />
                       </div>
-                      <span className="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                        {t('careerExtended.applyNow')} <FiArrowRight className="w-4 h-4" />
+                      <span className="text-blue-600 font-semibold text-xs flex items-center gap-1 group-hover:gap-2 transition-all">
+                        {t('careerExtended.applyNow')} <FiArrowRight className="w-3 h-3" />
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-bold font-display text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-base font-bold font-display text-slate-900 mb-1.5 group-hover:text-blue-600 transition-colors">
                       {job.title}
                     </h3>
                     
-                    <div className="flex flex-wrap items-center gap-2 text-sm text-slate-500 mb-3">
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 mb-2">
                       <span>{job.department}</span>
                       <span className="w-1 h-1 rounded-full bg-slate-300" />
                       <span>{job.location}</span>
@@ -468,7 +499,7 @@ export default function CareerPage() {
                       <span>{job.type}</span>
                     </div>
                     
-                    <p className="text-slate-500 text-sm leading-relaxed">
+                    <p className="text-slate-500 text-xs leading-relaxed">
                       {job.description}
                     </p>
                   </Link>
@@ -478,156 +509,13 @@ export default function CareerPage() {
           </div>
 
           {filteredJobs.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-slate-500 text-lg">{t('careerExtended.noJobsMatch')}</p>
+            <div className="text-center py-8">
+              <p className="text-slate-500 text-base">{t('careerExtended.noJobsMatch')}</p>
             </div>
           )}
-
-          <AnimatedSection delay={0.3}>
-            <div className="mt-8 text-center">
-              <Link to="/career#openings" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-slate-50 transition-colors">
-                {t('careerExtended.viewAllOpenings')}
-                <FiArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
-      {/* Teams You Can Join */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.teamsYouCanJoin')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-8">
-              {t('careerExtended.findYourPlace')}
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {teams.map((team, i) => (
-              <AnimatedSection key={team.name} delay={i * 0.05}>
-                <div className="group text-center">
-                  <div className="w-full aspect-square rounded-xl overflow-hidden mb-3 relative">
-                    <img
-                      src={team.image}
-                      alt={team.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                  </div>
-                  <p className="text-sm font-semibold text-slate-700">{team.name}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Life at Walnut */}
-      <section id="culture" className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.lifeAtWalnutTitle')}</p>
-              <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4">
-                {t('careerExtended.greatPeople')}{' '}
-                <span className="text-blue-600">{t('careerExtended.greatCulture')}</span>
-              </h2>
-              <p className="text-base text-slate-500 mb-8 leading-relaxed">
-                {t('careerExtended.cultureDesc')}
-              </p>
-              <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-white transition-colors">
-                {t('careerExtended.exploreOurCulture')}
-                <FiArrowRight className="w-4 h-4" />
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="grid grid-cols-2 gap-4">
-                {cultureImages.map((img, i) => (
-                  <div key={i} className="rounded-xl overflow-hidden aspect-square">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Hiring Process */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-4">{t('careerExtended.hiringProcess')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-12">
-              {t('careerExtended.simpleSteps')}
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {hiringSteps.map((step, i) => (
-              <AnimatedSection key={step.step} delay={i * 0.1}>
-                <div className="relative">
-                  {i < hiringSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-blue-200 -translate-x-1/2" />
-                  )}
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                      <span className="text-blue-600 font-bold text-lg">{step.step}</span>
-                    </div>
-                    <h3 className="text-lg font-bold font-display text-slate-900 mb-2">{step.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl" />
-              
-              <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-4">
-                    {t('careerExtended.cta.nextBigIdea')}{' '}
-                    <span className="text-blue-400">{t('careerExtended.cta.couldStartHere')}</span>
-                  </h2>
-                </div>
-                
-                <div className="md:text-right">
-                  <p className="text-white/70 mb-6">
-                    {t('careerExtended.cta.ctaDesc')}
-                  </p>
-                  <div className="flex flex-wrap gap-4 md:justify-end">
-                    <a href="#openings" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors">
-                      {t('careerExtended.cta.exploreOpenRoles')}
-                    </a>
-                    <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg font-semibold transition-colors">
-                      {t('careerExtended.cta.sendYourResume')}
-                      <FiArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
     </div>
   );
 }
