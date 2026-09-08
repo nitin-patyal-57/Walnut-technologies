@@ -77,9 +77,9 @@ function ProcessSteps() {
         </motion.div>
 
         {/* Top Row - Steps 1-5 */}
-        <div className="flex items-center justify-center gap-2 mb-8 flex-wrap">
+        <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-4 mb-8 flex-wrap overflow-x-auto scrollbar-hide px-1">
           {topRow.map((step, index) => (
-            <div key={step.step} className="flex items-center">
+            <div key={step.step} className="flex items-center shrink-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -88,20 +88,20 @@ function ProcessSteps() {
                 className="flex flex-col items-center"
               >
                 <div className="relative">
-                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg">
                     <img
                       src={stepImages[index]}
                       alt={step.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className={`absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
-                    <span className="text-xs font-bold text-white">{step.step}</span>
+                  <div className={`absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
+                    <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
                   </div>
                 </div>
-                <div className="mt-3 text-center max-w-[120px]">
-                  <p className="text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
-                  <p className="text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
+                  <p className="text-[7px] sm:text-[9px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-[6px] sm:text-[8px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
               </motion.div>
               {index < topRow.length - 1 && (
@@ -110,10 +110,10 @@ function ProcessSteps() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-                  className="mx-2 md:mx-4"
+                  className="mx-0.5 sm:mx-1 md:mx-4"
                 >
-                  <div className="w-8 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 relative">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[6px] border-l-blue-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent" />
+                  <div className="w-3 sm:w-4 md:w-8 h-[1.5px] bg-gradient-to-r from-cyan-400 to-blue-500 relative">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[3px] border-l-blue-500 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent md:border-l-[6px] md:border-t-[4px] md:border-b-[4px]" />
                   </div>
                 </motion.div>
               )}
@@ -122,9 +122,9 @@ function ProcessSteps() {
         </div>
 
         {/* Bottom Row - Steps 6-10 */}
-        <div className="flex items-center justify-center gap-2 flex-wrap">
+        <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-4 flex-wrap overflow-x-auto scrollbar-hide px-1">
           {bottomRow.map((step, index) => (
-            <div key={step.step} className="flex items-center">
+            <div key={step.step} className="flex items-center shrink-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -133,20 +133,20 @@ function ProcessSteps() {
                 className="flex flex-col items-center"
               >
                 <div className="relative">
-                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg">
                     <img
                       src={stepImages[index + 5]}
                       alt={step.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className={`absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
-                    <span className="text-xs font-bold text-white">{step.step}</span>
+                  <div className={`absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
+                    <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
                   </div>
                 </div>
-                <div className="mt-3 text-center max-w-[120px]">
-                  <p className="text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
-                  <p className="text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
+                  <p className="text-[7px] sm:text-[9px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-[6px] sm:text-[8px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
               </motion.div>
               {index < bottomRow.length - 1 && (
@@ -155,10 +155,10 @@ function ProcessSteps() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-                  className="mx-2 md:mx-4"
+                  className="mx-0.5 sm:mx-1 md:mx-4"
                 >
-                  <div className="w-8 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 relative">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[6px] border-l-blue-500 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent" />
+                  <div className="w-3 sm:w-4 md:w-8 h-[1.5px] bg-gradient-to-r from-cyan-400 to-blue-500 relative">
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[3px] border-l-blue-500 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent md:border-l-[6px] md:border-t-[4px] md:border-b-[4px]" />
                   </div>
                 </motion.div>
               )}

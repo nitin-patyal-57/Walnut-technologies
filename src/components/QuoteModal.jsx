@@ -65,7 +65,7 @@ export default function QuoteModal({ isOpen, onClose }) {
             {t('quote.instruction')}
           </p>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="quote-name" className={labelClass}>{t('quote.name')} *</label>
               <input id="quote-name" type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder={t('quote.name')} maxLength={100} />
@@ -76,7 +76,7 @@ export default function QuoteModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="quote-phone" className={labelClass}>{t('quote.phone')}</label>
               <input id="quote-phone" type="tel" value={form.phone} onChange={(e) => updateField('phone', e.target.value)} className={inputClass} placeholder="+91 77194 63719" />

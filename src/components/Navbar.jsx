@@ -89,14 +89,14 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navStyles}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-10 md:h-12">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 md:h-14">
             {/* Logo */}
             <a href="/" onClick={() => window.location.reload()} className="flex items-center group shrink-0">
               <img
                 src="/walnut-logo/Walnut_Technologies_logo_transparent.png"
                 alt="Walnut Technologies"
-                className="h-10 md:h-12 w-auto object-contain"
+                className="h-10 md:h-11 w-auto object-contain"
               />
             </a>
 

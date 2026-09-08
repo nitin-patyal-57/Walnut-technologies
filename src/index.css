@@ -12,11 +12,22 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
     @apply bg-white text-slate-900 font-sans antialiased;
     overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* Global focus-visible styles for accessibility */
@@ -150,6 +161,58 @@
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
   }
+
+  .fluid-text-xs {
+    font-size: clamp(0.625rem, 0.5rem + 0.25vw, 0.75rem);
+  }
+
+  .fluid-text-sm {
+    font-size: clamp(0.75rem, 0.7rem + 0.15vw, 0.875rem);
+  }
+
+  .fluid-text-base {
+    font-size: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+  }
+
+  .fluid-text-lg {
+    font-size: clamp(1rem, 0.9rem + 0.3vw, 1.125rem);
+  }
+
+  .fluid-text-xl {
+    font-size: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+  }
+
+  .fluid-text-2xl {
+    font-size: clamp(1.25rem, 1rem + 0.8vw, 1.5rem);
+  }
+
+  .fluid-text-3xl {
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+  }
+
+  .fluid-text-4xl {
+    font-size: clamp(1.875rem, 1.5rem + 1.2vw, 2.25rem);
+  }
+
+  .fluid-text-5xl {
+    font-size: clamp(2.25rem, 1.8rem + 1.5vw, 3rem);
+  }
+
+  .fluid-text-6xl {
+    font-size: clamp(2.5rem, 1.5rem + 3vw, 3.75rem);
+  }
+
+  .fluid-text-7xl {
+    font-size: clamp(3rem, 2rem + 4vw, 4.5rem);
+  }
+
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
+  .contain-layout {
+    contain: layout;
+  }
 }
 
 /* Mobile specific styles */
@@ -179,7 +242,6 @@
   /* Better touch targets */
   button, a {
     min-height: 44px;
-    min-width: 44px;
   }
 
   /* Snap scrolling for sections */
@@ -187,11 +249,47 @@
     scroll-snap-type: y mandatory;
     overflow-y: auto;
     height: 100vh;
+    height: 100dvh;
   }
 
   .snap-section {
     scroll-snap-align: start;
     min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Process circles responsive sizing */
+  .process-circle {
+    width: clamp(64px, 20vw, 100px);
+    height: clamp(64px, 20vw, 100px);
+  }
+
+  .process-circle-arrow {
+    width: clamp(12px, 3vw, 24px);
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .process-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .process-circle-arrow {
+    width: 10px;
+  }
+}
+
+/* Tablet landscape and up */
+@media (min-width: 1025px) {
+  .process-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .process-circle-arrow {
+    width: 24px;
   }
 }
 
@@ -295,4 +393,37 @@
 .back-to-top:hover {
   @apply bg-slate-50 border-slate-300 shadow-xl;
   transform: translateY(-2px);
+}
+
+/* Responsive container helper */
+@layer utilities {
+  .container-responsive {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 0.5rem + 2vw, 2rem);
+    padding-right: clamp(1rem, 0.5rem + 2vw, 2rem);
+  }
+
+  /* Prevent text overflow on small screens */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Responsive grid gap */
+  .gap-responsive {
+    gap: clamp(0.5rem, 0.25rem + 1vw, 1.5rem);
+  }
+
+  /* Fluid padding for sections */
+  .section-padding-fluid {
+    padding-top: clamp(2rem, 1rem + 4vw, 5rem);
+    padding-bottom: clamp(2rem, 1rem + 4vw, 5rem);
+    padding-left: clamp(1rem, 0.5rem + 2vw, 2rem);
+    padding-right: clamp(1rem, 0.5rem + 2vw, 2rem);
+  }
 }

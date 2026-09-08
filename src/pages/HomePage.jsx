@@ -60,71 +60,71 @@ function JourneySection() {
           </motion.div>
 
           {/* Circle Grid - Row 1 (5 items) */}
-          <div className="flex justify-center items-center gap-2 md:gap-4 mb-1">
+          <div className="flex justify-center items-center gap-1 sm:gap-2 md:gap-4 mb-1 overflow-x-auto scrollbar-hide px-1">
             {processImages.slice(0, 5).map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                className="flex items-center"
+                className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <img 
                       src={item.image} 
                       alt={item.to}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md z-10">
+                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[7px] sm:text-[8px] md:text-[9px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[8px] text-blue-600 font-semibold">{item.to}</p>
+                    <p className="text-[7px] sm:text-[8px] md:text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[6px] sm:text-[7px] md:text-[8px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
-                  <div className="flex items-center mx-1 md:mx-2 -mt-4">
-                    <div className="w-4 md:w-6 h-[2px] bg-blue-400" />
-                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-blue-400" />
+                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 -mt-3 md:-mt-4">
+                    <div className="w-2 sm:w-3 md:w-6 h-[1.5px] bg-blue-400" />
+                    <div className="w-0 h-0 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent border-l-[3px] border-l-blue-400 md:border-t-[3px] md:border-b-[3px] md:border-l-[5px]" />
                   </div>
                 )}
               </motion.div>
             ))}
           </div>
 
-          {/* Circle Grid - Row 2 (4 items) */}
-          <div className="flex justify-center items-center gap-2 md:gap-4">
+          {/* Circle Grid - Row 2 (5 items) */}
+          <div className="flex justify-center items-center gap-1 sm:gap-2 md:gap-4 overflow-x-auto scrollbar-hide px-1">
             {processImages.slice(5, 10).map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                className="flex items-center"
+                className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <img 
                       src={item.image} 
                       alt={item.to}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-blue-600 text-white text-[9px] font-bold flex items-center justify-center shadow-md z-10">
+                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[7px] sm:text-[8px] md:text-[9px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[8px] text-blue-600 font-semibold">{item.to}</p>
+                    <p className="text-[7px] sm:text-[8px] md:text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[6px] sm:text-[7px] md:text-[8px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
-                  <div className="flex items-center mx-1 md:mx-2 -mt-4">
-                    <div className="w-4 md:w-6 h-[2px] bg-blue-400" />
-                    <div className="w-0 h-0 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent border-l-[5px] border-l-blue-400" />
+                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 -mt-3 md:-mt-4">
+                    <div className="w-2 sm:w-3 md:w-6 h-[1.5px] bg-blue-400" />
+                    <div className="w-0 h-0 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent border-l-[3px] border-l-blue-400 md:border-t-[3px] md:border-b-[3px] md:border-l-[5px]" />
                   </div>
                 )}
               </motion.div>

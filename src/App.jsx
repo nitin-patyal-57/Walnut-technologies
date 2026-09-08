@@ -79,11 +79,11 @@ function AppContent() {
           <Route path="/apply" element={<ErrorBoundary isPageLevel><JobApplicationPage /></ErrorBoundary>} />
           <Route path="/privacy" element={<ErrorBoundary isPageLevel><PrivacyPage /></ErrorBoundary>} />
           <Route path="/terms" element={<ErrorBoundary isPageLevel><TermsPage /></ErrorBoundary>} />
-          <Route path="*" element={
+          <Route           path="*" element={
             <div className="min-h-screen flex items-center justify-center bg-white">
               <div className="text-center px-4">
-                <h1 className="text-6xl font-bold font-display text-slate-900 mb-4">404</h1>
-                <p className="text-lg text-slate-500 mb-6">Page not found</p>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-display text-slate-900 mb-4">404</h1>
+                <p className="text-base sm:text-lg text-slate-500 mb-6">Page not found</p>
                 <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 transition-all">
                   Go Home
                 </Link>

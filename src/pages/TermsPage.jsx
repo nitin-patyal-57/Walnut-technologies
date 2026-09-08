@@ -15,7 +15,7 @@ export default function TermsPage() {
         noindex={true}
       />
       <div className="container-custom max-w-4xl">
-        <h1 className="text-4xl font-bold font-display text-dark-950 mb-8">{t('terms.title')}</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold font-display text-dark-950 mb-8">{t('terms.title')}</h1>
         <p className="text-sm text-dark-500 mb-8">{t('terms.lastUpdated')}</p>
 
         <div className="prose prose-sm max-w-none space-y-8">
