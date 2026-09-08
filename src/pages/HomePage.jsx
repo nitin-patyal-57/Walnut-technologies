@@ -323,81 +323,127 @@ function ClientsCertifications() {
   ];
 
   return (
-    <section className="py-10 md:py-12 bg-white">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-12 md:py-16 overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-50/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-50/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+
+      <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-sm font-semibold mb-4">
-            <FiShield className="w-4 h-4" />
-            {t('clients.trusted')}
+          <div className="inline-flex items-center gap-3 mb-4">
+            <span className="w-8 h-px bg-blue-300" />
+            <span className="text-xs font-semibold tracking-[0.2em] text-blue-600 uppercase">
+              {t('clients.trusted')}
+            </span>
+            <span className="w-8 h-px bg-blue-300" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            {t('clients.title')}
+          <h2 className="text-2xl md:text-3xl font-bold font-display text-[#09244D] mb-3">
+            Clients &{' '}
+            <span className="text-blue-600">Certifications</span>
           </h2>
-          <p className="text-sm text-slate-500 max-w-xl mx-auto">
+          <p className="text-sm text-slate-500 max-w-2xl mx-auto">
             {t('clients.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Certifications */}
+        {/* Two Panel Layout */}
+        <div className="grid lg:grid-cols-2 gap-6">
+          {/* LEFT PANEL — Certifications */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative bg-white rounded-2xl border border-[#E3EDF8] shadow-[0_2px_20px_rgba(0,0,0,0.04)] overflow-hidden"
           >
-            <h3 className="text-lg font-bold font-display text-slate-900 mb-4">{t('clients.certifications')}</h3>
-            <div className="grid sm:grid-cols-2 gap-4">
+            {/* Panel Header */}
+            <div className="p-5 pb-4 flex items-start justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-500/20">
+                  <FiShield className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.certifications')}</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">We adhere to global standards for quality, safety and compliance.</p>
+                </div>
+              </div>
+              <span className="px-2.5 py-1 text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
+                Quality & Compliance
+              </span>
+            </div>
+
+            {/* Certification Cards */}
+            <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.title}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.08 }}
-                  className="p-4 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-md transition-all duration-300"
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.06 }}
+                  className="group flex items-center gap-3 p-3 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0">
-                      <FiCheckCircle className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{cert.title}</h4>
-                      <p className="text-xs text-slate-500">{cert.description}</p>
-                    </div>
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center shrink-0 group-hover:from-blue-500 group-hover:to-cyan-500 transition-all duration-300">
+                    <FiCheckCircle className="w-4 h-4 text-blue-500 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-xs font-bold text-[#09244D] leading-tight">{cert.title}</h4>
+                    <p className="text-[10px] text-slate-500 leading-snug mt-0.5">{cert.description}</p>
+                  </div>
+                  <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FiArrowRight className="w-3 h-3 text-slate-500" />
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Clients */}
+          {/* RIGHT PANEL — Our Clients */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative bg-white rounded-2xl border border-[#E3EDF8] shadow-[0_2px_20px_rgba(0,0,0,0.04)] overflow-hidden"
           >
-            <h3 className="text-lg font-bold font-display text-slate-900 mb-4">{t('clients.clients')}</h3>
-            <div className="grid sm:grid-cols-2 gap-4">
+            {/* Panel Header */}
+            <div className="p-5 pb-4 flex items-start justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md shadow-blue-600/20">
+                  <FiUsers className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.clients')}</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">Collaborating with leading organizations across healthcare, finance and government sectors.</p>
+                </div>
+              </div>
+              <span className="px-2.5 py-1 text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
+                Global Reach
+              </span>
+            </div>
+
+            {/* Client Cards */}
+            <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {clients.map((client, index) => (
                 <motion.div
                   key={client.name}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.08 }}
-                  className="p-4 rounded-xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-md transition-all duration-300"
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
+                  className="group flex items-center gap-3 p-3 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-20 h-14 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden p-1">
-                      <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{client.name}</h4>
-                      <p className="text-xs text-slate-500">{t('clients.trusted')}</p>
-                    </div>
+                  <div className="w-11 h-11 rounded-lg bg-white border border-[#E3EDF8] flex items-center justify-center shrink-0 overflow-hidden p-1.5 group-hover:border-blue-200 transition-colors duration-300">
+                    <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-xs font-bold text-[#09244D] leading-tight">{client.name}</h4>
+                    <p className="text-[10px] text-blue-500 font-medium mt-0.5">{t('clients.trusted')}</p>
+                  </div>
+                  <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FiArrowRight className="w-3 h-3 text-slate-500" />
                   </div>
                 </motion.div>
               ))}
