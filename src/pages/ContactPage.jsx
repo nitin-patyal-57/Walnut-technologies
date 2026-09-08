@@ -2,9 +2,9 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FiMapPin, FiMail, FiPhone, FiClock, FiSend, FiCheck,
+  FiMapPin, FiMail, FiPhone, FiSend, FiCheck,
   FiArrowRight, FiHome, FiServer, FiHeadphones,
-  FiShield, FiUsers, FiBox, FiMessageCircle
+  FiShield, FiUsers, FiMessageCircle
 } from 'react-icons/fi';
 import { brand } from '../data/content';
 import SEO from '../components/SEO';
@@ -60,13 +60,6 @@ export default function ContactPage({ onOpenQuote }) {
     { icon: FiUsers, title: t('contact.partnerships'), desc: t('contact.partnershipsDesc') },
     { icon: FiHeadphones, title: t('contact.careersTitle'), desc: t('contact.careersDesc') },
     { icon: FiShield, title: t('contact.techSupport'), desc: t('contact.techSupportDesc') },
-  ];
-
-  const stats = [
-    { icon: FiClock, value: '2016', label: t('about.trustedSince') },
-    { icon: FiServer, value: '150,000+', label: t('contact.sqFtFacility') },
-    { icon: FiBox, value: '500K+', label: t('contact.monthlyCapacity') },
-    { icon: FiUsers, value: '400+', label: t('stats.engineers') },
   ];
 
   const handleSubmit = async (e) => {
@@ -398,51 +391,6 @@ export default function ContactPage({ onOpenQuote }) {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row items-center justify-between gap-8"
-          >
-            {/* Left - Brand */}
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">W</span>
-              </div>
-              <div>
-                <p className="text-sm text-slate-600 max-w-xs">
-                  {t('contact.trustedBy')}
-                </p>
-              </div>
-            </div>
-
-            {/* Right - Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="text-center"
-                  >
-                    <Icon className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
-                    <div className="text-xs text-slate-500">{stat.label}</div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }
