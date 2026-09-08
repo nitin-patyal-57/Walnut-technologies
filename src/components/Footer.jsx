@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
+import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail, FiArrowRight } from 'react-icons/fi';
 import { brand } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -36,55 +36,36 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-slate-200 bg-slate-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer */}
-        <div className="py-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-          {/* Brand & Contact */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
+    <footer className="relative bg-[#0a1628] text-white overflow-hidden">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cyan-600/10 rounded-full blur-[100px]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+          <div className="lg:col-span-4">
             <a href="/" onClick={() => window.location.reload()} className="inline-block mb-3">
               <img src="/walnut-logo/Walnut_Technologies_logo_transparent.png" alt="Walnut Technologies" className="h-8 w-auto object-contain brightness-0 invert" />
             </a>
-            <p className="text-xs text-slate-400 leading-relaxed mb-4 max-w-[240px]">
-              {t('footer.desc')}
+            <p className="text-xs text-slate-400 leading-relaxed mb-4 max-w-[280px]">
+              Vertically integrated Original Design Manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.
             </p>
-
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-xs text-slate-400">
-                <FiMapPin className="w-3 h-3 shrink-0 text-cyan-400" />
-                <span>Plot No. 132, JLPL Industrial Park, Sector 82, Mohali, Punjab - 160055</span>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 text-xs text-slate-400">
+                <FiMapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-cyan-400" />
+                <span>Plot No. 132, JLPL Industrial Park,<br />Sector 82, Mohali, Punjab - 160055</span>
               </div>
-              <div className="flex items-center gap-2 text-xs text-slate-400">
-                <FiPhone className="w-3 h-3 shrink-0 text-cyan-400" />
-                <a href={`tel:${brand.phone}`} className="hover:text-white transition-colors">{brand.phone}</a>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-slate-400">
-                <FiMail className="w-3 h-3 shrink-0 text-cyan-400" />
-                <a href={`mailto:${brand.email}`} className="hover:text-white transition-colors">{brand.email}</a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-cyan-500/20 hover:text-cyan-400 transition-all">
-                <FiLinkedin className="w-4 h-4" />
-              </a>
-              <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-cyan-500/20 hover:text-cyan-400 transition-all">
-                <FiInstagram className="w-4 h-4" />
-              </a>
-              <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-cyan-500/20 hover:text-cyan-400 transition-all">
-                <FiYoutube className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
-          {/* Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">{title}</h3>
+            <div key={title} className="lg:col-span-2">
+              <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-2">{title}</h3>
+              <div className="w-6 h-0.5 bg-cyan-500 mb-3" />
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="text-xs text-slate-400 hover:text-cyan-400 transition-colors">
+                    <Link to={link.to} className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors group">
+                      <FiArrowRight className="w-3 h-3 text-cyan-500 opacity-60 group-hover:opacity-100 transition-opacity" />
                       {link.label}
                     </Link>
                   </li>
@@ -94,22 +75,31 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="py-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-slate-500">
-            &copy; {new Date().getFullYear()} {brand.fullName}. {t('footer.rights')}
+        <div className="border-t border-white/10" />
+
+        <div className="py-3 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-[11px] text-slate-500">
+            &copy; {new Date().getFullYear()} {brand.fullName}. All rights reserved.
           </p>
-          <div className="flex items-center gap-3 text-xs text-slate-500">
-            <span>GSTN: {brand.gstn}</span>
+          <div className="flex items-center gap-2.5">
+            <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all">
+              <FiLinkedin className="w-3.5 h-3.5" />
+            </a>
+            <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all">
+              <FiYoutube className="w-3.5 h-3.5" />
+            </a>
+            <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all">
+              <FiInstagram className="w-3.5 h-3.5" />
+            </a>
+          </div>
+          <div className="flex items-center gap-4 text-[11px] text-slate-500">
+            <a href={`tel:${brand.phone}`} className="hover:text-white transition-colors">{brand.phone}</a>
             <span className="text-white/20">|</span>
-            <span>Est. {brand.founded}</span>
-            <span className="text-white/20">|</span>
-            <span>Mohali, Punjab, India</span>
+            <a href={`mailto:${brand.email}`} className="hover:text-white transition-colors">{brand.email}</a>
           </div>
         </div>
       </div>
 
-      {/* Scroll to Top */}
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"

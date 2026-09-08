@@ -229,9 +229,9 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/career background.webp"
+                    src="/our purpose.webp"
                     alt="Manufacturing Facility"
-                    className="w-full h-[400px] object-cover"
+                    className="w-full h-[400px] object-cover scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                 </div>
