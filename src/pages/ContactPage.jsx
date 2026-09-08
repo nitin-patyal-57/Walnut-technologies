@@ -15,12 +15,14 @@ export default function ContactPage({ onOpenQuote }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const { t } = useLanguage();
-  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false, website: '' });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const timeoutRef = useRef(null);
+  const formTimeRef = useRef(Date.now());
 
   useEffect(() => {
+    formTimeRef.current = Date.now();
     return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
   }, []);
 
@@ -64,11 +66,12 @@ export default function ContactPage({ onOpenQuote }) {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await sendContactEmail(form);
+      await sendContactEmail({ ...form, formTime: formTimeRef.current.toString() });
       setSubmitted(true);
       timeoutRef.current = setTimeout(() => {
         setSubmitted(false);
-        setForm({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false });
+        setForm({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false, website: '' });
+        formTimeRef.current = Date.now();
       }, 4000);
     } catch (error) {
       alert('Failed to send message. Please try again or contact us directly.');
@@ -309,6 +312,19 @@ export default function ContactPage({ onOpenQuote }) {
                       {' '}{t('contact.and')}{' '}
                       <Link to="/terms" className="text-blue-600 hover:underline">{t('contact.terms')}</Link>.
                     </label>
+                  </div>
+                  {/* Honeypot - hidden from humans, bots will fill this */}
+                  <div className="absolute opacity-0 pointer-events-none h-0 overflow-hidden" aria-hidden="true">
+                    <label htmlFor="contact-website">Leave this empty</label>
+                    <input
+                      id="contact-website"
+                      type="text"
+                      name="website"
+                      tabIndex="-1"
+                      autoComplete="off"
+                      value={form.website}
+                      onChange={(e) => setForm({...form, website: e.target.value})}
+                    />
                   </div>
                   <button
                     type="submit"

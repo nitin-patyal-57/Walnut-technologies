@@ -33,6 +33,8 @@ export async function sendQuoteEmail(form) {
     quantity: form.quantity,
     message: form.message,
     type: 'quote',
+    website: form.website || '',
+    formTime: form.formTime || '',
   });
 }
 
@@ -45,5 +47,7 @@ export async function sendContactEmail(form) {
     subject: form.subject,
     message: form.message,
     type: 'contact',
+    website: form.website || '',
+    formTime: form.formTime || '',
   });
 }

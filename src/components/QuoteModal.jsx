@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiSend, FiCheck } from 'react-icons/fi';
 import Modal from './Modal';
@@ -16,9 +16,17 @@ export default function QuoteModal({ isOpen, onClose }) {
     product: '',
     quantity: '',
     message: '',
+    website: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formTimeRef = useRef(Date.now());
+
+  useEffect(() => {
+    if (isOpen) {
+      formTimeRef.current = Date.now();
+    }
+  }, [isOpen]);
 
   const productOptions = t('quote.productOptions');
 
@@ -36,12 +44,13 @@ export default function QuoteModal({ isOpen, onClose }) {
         message: form.message,
         source: 'quote-modal',
       });
-      await sendQuoteEmail(form);
+      await sendQuoteEmail({ ...form, formTime: formTimeRef.current.toString() });
       setSubmitted(true);
       setTimeout(() => {
         onClose();
         setSubmitted(false);
-        setForm({ name: '', email: '', phone: '', company: '', product: '', quantity: '', message: '' });
+        setForm({ name: '', email: '', phone: '', company: '', product: '', quantity: '', message: '', website: '' });
+        formTimeRef.current = Date.now();
       }, 2000);
     } catch (error) {
       alert('Failed to submit quote request. Please try again.');
@@ -105,6 +114,20 @@ export default function QuoteModal({ isOpen, onClose }) {
           <div>
             <label htmlFor="quote-message" className={labelClass}>{t('quote.message')}</label>
             <textarea id="quote-message" value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder={t('contact.messagePlaceholder')} maxLength={1000} />
+          </div>
+
+          {/* Honeypot - hidden from humans, bots will fill this */}
+          <div className="absolute opacity-0 pointer-events-none h-0 overflow-hidden" aria-hidden="true">
+            <label htmlFor="quote-website">Leave this empty</label>
+            <input
+              id="quote-website"
+              type="text"
+              name="website"
+              tabIndex="-1"
+              autoComplete="off"
+              value={form.website}
+              onChange={(e) => updateField('website', e.target.value)}
+            />
           </div>
 
           <button
