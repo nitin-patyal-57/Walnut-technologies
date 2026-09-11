@@ -94,10 +94,10 @@ function HeroBanner({ onSelect }) {
               </button>
             </div>
             {/* Trust badges */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-              <div className="flex -space-x-1.5 sm:-space-x-2">
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2">
                 {divisionsList.map((d, i) => (
-                  <div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: d.color }}>
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: d.color }}>
                     {d.initial}
                   </div>
                 ))}
