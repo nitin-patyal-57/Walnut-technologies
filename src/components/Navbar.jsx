@@ -135,6 +135,8 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                   <Link
                     to={link.to}
                     onClick={(e) => handleNavClick(e, link.to)}
+                    aria-expanded={link.dropdown ? activeDropdown === link.label : undefined}
+                    aria-haspopup={link.dropdown ? 'true' : undefined}
                     className={`px-2.5 py-1.5 text-[13px] rounded-lg transition-all flex items-center gap-1 ${
                       isActive(link.to) ? 'text-slate-900 font-medium' : `${textColor} ${textColorHover}`
                     } ${bgHover}`}

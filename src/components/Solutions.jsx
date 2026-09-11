@@ -60,6 +60,8 @@ function HeroBanner({ onSelect }) {
       <img
         src="/gpsgatewaybackground.webp"
         alt="GPS Gateway Background"
+        width="1920"
+        height="600"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="relative z-10 flex flex-col lg:flex-row items-center">
@@ -241,7 +243,7 @@ function FeaturesSection() {
               </div>
               <div>
                 <h3 className="text-xs font-bold text-white mb-0.5">{features[1].title}</h3>
-                <p className="text-[10px] text-white/70">{features[1].desc}</p>
+                <p className="text-xs text-white/70">{features[1].desc}</p>
               </div>
             </div>
           </motion.div>
@@ -269,7 +271,7 @@ function FeaturesSection() {
                   </div>
                   <div>
                     <h3 className="text-[11px] font-bold text-white mb-0.5">{feature.title}</h3>
-                    <p className="text-[10px] text-white/70 leading-relaxed">{feature.desc}</p>
+                    <p className="text-xs text-white/70 leading-relaxed">{feature.desc}</p>
                   </div>
                 </div>
               </motion.div>
@@ -351,7 +353,7 @@ function ProductCard({ product, index }) {
           <p className="text-xs text-slate-500 mb-3 line-clamp-2 leading-relaxed">{product.description}</p>
           <div className="flex flex-wrap gap-1.5">
             {product.features.slice(0, 2).map((f) => (
-              <span key={f} className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-medium bg-slate-50 text-slate-600 rounded-md border border-slate-200/60">
+              <span key={f} className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-slate-50 text-slate-600 rounded-md border border-slate-200/60">
                 <FiCheckCircle className="w-3 h-3 text-emerald-500" />
                 {f}
               </span>
@@ -477,7 +479,7 @@ export default function Solutions({ onOpenQuote }) {
 
                       {/* Details Below Image */}
                       <div className="p-4 border-t border-slate-100">
-                        <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block mb-1">{division.category || 'Division'}</span>
+                        <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{division.category || 'Division'}</span>
                         <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{division.title}</h4>
                         <p className="text-[11px] text-slate-500 leading-snug">{division.subtitle}</p>
                       </div>

@@ -371,7 +371,7 @@ export default function CareerPage() {
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                   </div>
-                  <p className="text-[10px] md:text-xs font-semibold text-slate-700">{team.name}</p>
+                   <p className="text-xs md:text-xs font-semibold text-slate-700">{team.name}</p>
                 </div>
               </AnimatedSection>
             ))}

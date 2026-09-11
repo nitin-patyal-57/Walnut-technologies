@@ -20,11 +20,13 @@ export default function QuoteModal({ isOpen, onClose }) {
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const formTimeRef = useRef(Date.now());
 
   useEffect(() => {
     if (isOpen) {
       formTimeRef.current = Date.now();
+      setError('');
     }
   }, [isOpen]);
 
@@ -53,7 +55,7 @@ export default function QuoteModal({ isOpen, onClose }) {
         formTimeRef.current = Date.now();
       }, 2000);
     } catch (error) {
-      alert('Failed to submit quote request. Please try again.');
+      setError('Failed to submit quote request. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -129,6 +131,10 @@ export default function QuoteModal({ isOpen, onClose }) {
               onChange={(e) => updateField('website', e.target.value)}
             />
           </div>
+
+          {error && (
+            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{error}</p>
+          )}
 
           <button
             type="submit"

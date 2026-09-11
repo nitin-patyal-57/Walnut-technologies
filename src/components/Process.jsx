@@ -100,8 +100,8 @@ function ProcessSteps() {
                   </div>
                 </div>
                 <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
-                  <p className="text-[10px] sm:text-[10px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
-                  <p className="text-[10px] sm:text-[10px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                  <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
               </motion.div>
               {index < topRow.length - 1 && (
@@ -145,8 +145,8 @@ function ProcessSteps() {
                   </div>
                 </div>
                 <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
-                  <p className="text-[10px] sm:text-[10px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
-                  <p className="text-[10px] sm:text-[10px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                  <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
               </motion.div>
               {index < bottomRow.length - 1 && (

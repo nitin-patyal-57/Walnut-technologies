@@ -70,8 +70,8 @@ function JourneySection() {
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[10px] sm:text-[10px] md:text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[10px] sm:text-[10px] md:text-[10px] text-blue-600 font-semibold">{item.to}</p>
+                    <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
@@ -109,8 +109,8 @@ function JourneySection() {
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[10px] sm:text-[10px] md:text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[10px] sm:text-[10px] md:text-[10px] text-blue-600 font-semibold">{item.to}</p>
+                    <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
@@ -242,7 +242,7 @@ function DivisionsPreview() {
 
                 {/* Details Below Image */}
                 <div className="p-4 border-t border-slate-100">
-                  <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
+                  <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
                   <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
                   <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
                 </div>
@@ -364,7 +364,7 @@ function ClientsCertifications() {
                   <p className="text-xs text-slate-500 mt-0.5">We adhere to global standards for quality, safety and compliance.</p>
                 </div>
               </div>
-              <span className="px-2.5 py-1 text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
+                <span className="px-2.5 py-1 text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
                 Quality & Compliance
               </span>
             </div>
@@ -384,7 +384,7 @@ function ClientsCertifications() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="text-xs font-bold text-[#09244D] leading-tight">{cert.title}</h4>
-                    <p className="text-[10px] text-slate-500 leading-snug mt-0.5">{cert.description}</p>
+                    <p className="text-xs text-slate-500 leading-snug mt-0.5">{cert.description}</p>
                   </div>
                   <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FiArrowRight className="w-3 h-3 text-slate-500" />
@@ -412,7 +412,7 @@ function ClientsCertifications() {
                   <p className="text-xs text-slate-500 mt-0.5">Collaborating with leading organizations across healthcare, finance and government sectors.</p>
                 </div>
               </div>
-              <span className="px-2.5 py-1 text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
+                <span className="px-2.5 py-1 text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
                 Global Reach
               </span>
             </div>
@@ -432,7 +432,7 @@ function ClientsCertifications() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="text-xs font-bold text-[#09244D] leading-tight">{client.name}</h4>
-                    <p className="text-[10px] text-blue-500 font-medium mt-0.5">{t('clients.trusted')}</p>
+                    <p className="text-xs text-blue-500 font-medium mt-0.5">{t('clients.trusted')}</p>
                   </div>
                   <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FiArrowRight className="w-3 h-3 text-slate-500" />
