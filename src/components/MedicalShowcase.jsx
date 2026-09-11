@@ -103,7 +103,7 @@ export default function MedicalShowcase({ onBack }) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <section ref={heroRef} className="relative">
+      <section ref={heroRef} className="relative pt-20">
         <button
           onClick={onBack}
           className="absolute top-16 left-4 sm:top-20 sm:left-6 z-20 flex items-center gap-2 bg-white/95 backdrop-blur-sm text-[#0f172a] border border-slate-200 rounded-full px-5 py-2.5 shadow-md hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer"

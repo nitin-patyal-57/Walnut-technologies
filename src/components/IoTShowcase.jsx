@@ -83,7 +83,7 @@ export default function IoTShowcase({ onBack }) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <section ref={heroRef} className="relative">
+      <section ref={heroRef} className="relative pt-20">
         <button
           onClick={onBack}
           className="absolute top-24 left-4 sm:top-28 sm:left-6 z-20 flex items-center gap-2 bg-white/95 backdrop-blur-sm text-[#0f172a] border border-slate-200 rounded-full px-5 py-2.5 shadow-md hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer"
@@ -92,7 +92,7 @@ export default function IoTShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/iot-smartlock-background1.webp" alt="IoT Solutions" width="1920" height="600" className="w-full h-auto -mt-10 md:-mt-9 scale-110" loading="lazy" />
+          <img src="/iot-smartlock-background1.webp" alt="IoT Solutions" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 

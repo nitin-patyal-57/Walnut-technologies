@@ -77,7 +77,7 @@ function ProcessSteps() {
         </motion.div>
 
         {/* Top Row - Steps 1-5 */}
-        <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-4 mb-8 flex-wrap overflow-x-auto scrollbar-hide px-1">
+        <div className="flex items-center justify-center gap-2 sm:gap-2 md:gap-4 mb-8 flex-wrap overflow-x-auto scrollbar-hide px-1">
           {topRow.map((step, index) => (
             <div key={step.step} className="flex items-center shrink-0">
               <motion.div
@@ -99,7 +99,7 @@ function ProcessSteps() {
                     <span className="text-[10px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
                   </div>
                 </div>
-                <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
+                <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[80px] sm:max-w-[90px] md:max-w-[120px]">
                   <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
                   <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
@@ -122,7 +122,7 @@ function ProcessSteps() {
         </div>
 
         {/* Bottom Row - Steps 6-10 */}
-        <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-4 flex-wrap overflow-x-auto scrollbar-hide px-1">
+        <div className="flex items-center justify-center gap-2 sm:gap-2 md:gap-4 flex-wrap overflow-x-auto scrollbar-hide px-1">
           {bottomRow.map((step, index) => (
             <div key={step.step} className="flex items-center shrink-0">
               <motion.div
@@ -144,7 +144,7 @@ function ProcessSteps() {
                     <span className="text-[10px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
                   </div>
                 </div>
-                <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
+                <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[80px] sm:max-w-[90px] md:max-w-[120px]">
                   <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
                   <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
