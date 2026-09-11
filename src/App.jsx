@@ -7,11 +7,13 @@ import Preloader from './components/Preloader';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
 import ScheduleCallModal from './components/ScheduleCallModal';
-import ChatWidget from './components/ChatWidget';
 import WhatsAppButton from './components/WhatsAppButton';
-import InstallPrompt from './components/InstallPrompt';
 import ErrorBoundary from './components/ErrorBoundary';
+import MobileBottomNav from './components/MobileBottomNav';
 import HomePage from './pages/HomePage';
+
+const ChatWidget = lazy(() => import('./components/ChatWidget'));
+const InstallPrompt = lazy(() => import('./components/InstallPrompt'));
 
 import { PageSkeleton } from './components/Skeleton';
 
@@ -98,9 +100,12 @@ function AppContent() {
 
       <QuoteModal isOpen={quoteModalOpen} onClose={() => setQuoteModalOpen(false)} />
       <ScheduleCallModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
-      <ChatWidget onOpenQuote={() => setQuoteModalOpen(true)} onChatStateChange={setIsChatOpen} />
-      <WhatsAppButton isChatOpen={isChatOpen} />
-      <InstallPrompt />
+      <Suspense fallback={null}>
+        <ChatWidget onOpenQuote={() => setQuoteModalOpen(true)} onChatStateChange={setIsChatOpen} />
+        <WhatsAppButton isChatOpen={isChatOpen} />
+        <InstallPrompt />
+      </Suspense>
+      <MobileBottomNav onOpenQuote={() => setQuoteModalOpen(true)} />
     </div>
   );
 }

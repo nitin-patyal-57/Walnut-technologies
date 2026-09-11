@@ -29,30 +29,6 @@ function saveLeads(leads) {
   }
 }
 
-export function useLeads() {
-  const submitLead = (leadData) => {
-    const lead = {
-      ...leadData,
-      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
-      timestamp: new Date().toISOString(),
-      source: leadData.source || 'unknown',
-    };
-
-    const leads = getLeads();
-    leads.push(lead);
-    saveLeads(leads);
-
-    window.dispatchEvent(new CustomEvent('walnut-new-lead', { detail: lead }));
-    return lead;
-  };
-
-  const getAllLeads = () => getLeads();
-  const getLeadCount = () => getLeads().length;
-  const clearLeads = () => localStorage.removeItem(STORAGE_KEY);
-
-  return { submitLead, getAllLeads, getLeadCount, clearLeads };
-}
-
 export function captureLead(data) {
   const lead = {
     ...data,

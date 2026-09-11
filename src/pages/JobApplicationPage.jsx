@@ -486,7 +486,7 @@ export default function JobApplicationPage() {
                         <label htmlFor="skills" className="block text-sm font-semibold text-slate-700 mb-2">Key Skills *</label>
                         <input id="skills" type="text" name="skills" value={formData.skills} onChange={handleChange} required placeholder="e.g. STM32, Altium, SMT, ISO 13485, PCB Design" className={errors.skills ? inputErrorClass : inputClass} />
                         <FieldError field="skills" />
-                        <p className="text-xs text-slate-400 mt-2">Separate skills with commas</p>
+                        <p className="text-xs text-slate-500 mt-2">Separate skills with commas</p>
                       </div>
                       <div>
                         <label htmlFor="linkedin" className="block text-sm font-semibold text-slate-700 mb-2">LinkedIn Profile</label>
@@ -593,7 +593,7 @@ export default function JobApplicationPage() {
                           <>
                             <FiUpload className="w-10 h-10 text-slate-300 mb-2" />
                             <p className="text-sm font-semibold text-slate-600">Drop your resume here or click to browse</p>
-                            <p className="text-xs text-slate-400 mt-1">PDF, DOC, or DOCX (Max 5MB)</p>
+                            <p className="text-xs text-slate-500 mt-1">PDF, DOC, or DOCX (Max 5MB)</p>
                           </>
                         )}
                       </label>
@@ -602,7 +602,7 @@ export default function JobApplicationPage() {
 
                     {/* Submit */}
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
-                      <p className="text-sm text-slate-400">By submitting, you agree to our privacy policy.</p>
+                      <p className="text-sm text-slate-500">By submitting, you agree to our privacy policy.</p>
                       <button
                         type="submit"
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30"

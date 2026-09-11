@@ -147,7 +147,7 @@ export default function ContactPage({ onOpenQuote }) {
                 <div>
                   <p className="text-sm font-bold text-slate-900">{t('contact.talkExpert')}</p>
                   <p className="text-blue-600 font-bold">+91 77194 63719</p>
-                  <p className="text-xs text-slate-400">{t('contact.monSat')}</p>
+                  <p className="text-xs text-slate-500">{t('contact.monSat')}</p>
                 </div>
               </div>
             </motion.div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX, FiChevronDown, FiMapPin, FiMail, FiPhone, FiMessageSquare } from 'react-icons/fi';
@@ -38,8 +38,29 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
   const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
+  const mobileMenuButtonRef = useRef(null);
+  const previousFocusRef = useRef(null);
 
   const isHomePage = location.pathname === '/';
+
+  const handleMobileEscape = useCallback((e) => {
+    if (e.key === 'Escape' && isMobileOpen) {
+      setIsMobileOpen(false);
+    }
+  }, [isMobileOpen]);
+
+  useEffect(() => {
+    if (isMobileOpen) {
+      previousFocusRef.current = document.activeElement;
+      document.addEventListener('keydown', handleMobileEscape);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleMobileEscape);
+      document.body.style.overflow = 'unset';
+      if (!isMobileOpen) previousFocusRef.current?.focus();
+    };
+  }, [isMobileOpen, handleMobileEscape]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,13 +113,15 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 md:h-14">
             {/* Logo */}
-            <a href="/" onClick={() => window.location.reload()} className="flex items-center group shrink-0">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center group shrink-0">
               <img
                 src="/walnut-logo/Walnut_Technologies_logo_transparent.png"
                 alt="Walnut Technologies"
+                width="160"
+                height="44"
                 className="h-10 md:h-11 w-auto object-contain"
               />
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
@@ -164,6 +187,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
             {/* Mobile Menu Button */}
             <div className="flex lg:hidden items-center gap-2">
               <button
+                ref={mobileMenuButtonRef}
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
                 className={`p-2 transition-colors ${textColor} ${textColorHover} bg-slate-100 rounded-xl`}
                 aria-label="Open navigation menu"
@@ -247,7 +271,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
               <div className="relative p-6">
                 <div className="flex items-center justify-between mb-4">
-                   <img src="/walnut-logo/Walnut_Technologies_logo_transparent.png" alt="Walnut Technologies" className="h-12 w-auto object-contain" />
+                   <img src="/walnut-logo/Walnut_Technologies_logo_transparent.png" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
                   <button
                     onClick={() => setIsSidebarOpen(false)}
                     aria-label="Close sidebar"
@@ -300,7 +324,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                         <FiPhone className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-xs text-slate-400 font-medium">Phone</p>
+                        <p className="text-xs text-slate-500 font-medium">Phone</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.phone}</p>
                       </div>
                     </a>
@@ -309,7 +333,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                         <FiMail className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-xs text-slate-400 font-medium">Email</p>
+                        <p className="text-xs text-slate-500 font-medium">Email</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.email}</p>
                       </div>
                     </a>
@@ -318,7 +342,7 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                         <FiMapPin className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-xs text-slate-400 font-medium">Address</p>
+                        <p className="text-xs text-slate-500 font-medium">Address</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.location}</p>
                       </div>
                     </div>

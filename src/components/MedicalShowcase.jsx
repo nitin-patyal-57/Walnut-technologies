@@ -47,7 +47,7 @@ const products = [
     subtitle: 'Respiratory therapy solutions',
     description: 'Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings. Delivers medication directly to the lungs.',
     highlights: ['Efficient Nebulization', 'Low Noise', 'Compact Design', 'Medical Grade'],
-    image: '/CES repose.webp',
+    image: '/ces-repose.webp',
   },
 ];
 
@@ -112,7 +112,7 @@ export default function MedicalShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/medical background.webp" alt="Medical Devices" className="w-full h-auto" loading="eager" />
+          <img src="/medical-background.webp" alt="Medical Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 

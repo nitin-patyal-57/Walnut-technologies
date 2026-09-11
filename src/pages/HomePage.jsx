@@ -1,11 +1,9 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight,
-  FiZap, FiSearch, FiEdit3, FiLayers, FiSettings, FiTruck, FiHeadphones, FiTrendingUp,
-  FiWifi, FiActivity, FiAward, FiMail, FiSend, FiClock, FiTag,
-  FiTarget, FiPenTool, FiBox, FiTool, FiPackage, FiUsers, FiStar, FiPhone, FiPlay
+  FiArrowRight, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight,
+  FiTrendingUp, FiUsers
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
@@ -16,29 +14,17 @@ function JourneySection() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const { t } = useLanguage();
 
-  const processSteps = t('journey.processSteps');
-  const processIcons = [FiSearch, FiPenTool, FiBox, FiCheckCircle, FiTool, FiPlay, FiCpu, FiShield, FiPackage, FiHeadphones];
-
   const processImages = [
-    { image: '/Idea & Requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
-    { image: '/Research & Market Analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },
-    { image: '/Design & Engineering.webp', num: '03', from: 'DESIGN', to: 'MANUFACTURING' },
-    { image: '/Manufacturing Engineering & Mold Design.webp', num: '04', from: 'MANUFACTURING', to: 'TESTING' },
-    { image: '/Validation & Testing.webp', num: '05', from: 'TESTING', to: 'MOLDING' },
-    { image: '/Prototype Development.webp', num: '06', from: 'MOLDING', to: 'QA' },
-    { image: '/Quality Assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
-    { image: '/Packaging & Dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
-    { image: '/Continuous Improvement.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
-    { image: '/After Sales Support.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
-  ];
-
-  const companyJourney = [
-    { year: '2016', title: t('journey.y2016Title'), desc: t('journey.y2016Desc'), icon: FiZap },
-    { year: '2018', title: t('journey.y2018Title'), desc: t('journey.y2018Desc'), icon: FiEdit3 },
-    { year: '2020', title: t('journey.y2020Title'), desc: t('journey.y2020Desc'), icon: FiCheckCircle },
-    { year: '2022', title: t('journey.y2022Title'), desc: t('journey.y2022Desc'), icon: FiShield },
-    { year: '2024', title: t('journey.y2024Title'), desc: t('journey.y2024Desc'), icon: FiHeadphones },
-    { year: '2025', title: t('journey.y2025Title'), desc: t('journey.y2025Desc'), icon: FiTrendingUp },
+    { image: '/idea-and-requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
+    { image: '/research-and-market-analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },
+    { image: '/design-and-engineering.webp', num: '03', from: 'DESIGN', to: 'MANUFACTURING' },
+    { image: '/manufacturing-engineering-and-mold-design.webp', num: '04', from: 'MANUFACTURING', to: 'TESTING' },
+    { image: '/validation-and-testing.webp', num: '05', from: 'TESTING', to: 'MOLDING' },
+    { image: '/prototype-development.webp', num: '06', from: 'MOLDING', to: 'QA' },
+    { image: '/quality-assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
+    { image: '/packaging-and-dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
+    { image: '/continuous-improvement.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
+    { image: '/after-sales-support.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
   ];
 
   return (
@@ -74,15 +60,18 @@ function JourneySection() {
                     <img 
                       src={item.image} 
                       alt={item.to}
+                      width="150"
+                      height="150"
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[7px] sm:text-[8px] md:text-[9px] font-bold flex items-center justify-center shadow-md z-10">
+                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[7px] sm:text-[8px] md:text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[6px] sm:text-[7px] md:text-[8px] text-blue-600 font-semibold">{item.to}</p>
+                    <p className="text-[10px] sm:text-[10px] md:text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[10px] sm:text-[10px] md:text-[10px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
@@ -110,15 +99,18 @@ function JourneySection() {
                     <img 
                       src={item.image} 
                       alt={item.to}
+                      width="150"
+                      height="150"
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[7px] sm:text-[8px] md:text-[9px] font-bold flex items-center justify-center shadow-md z-10">
+                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[7px] sm:text-[8px] md:text-[9px] font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[6px] sm:text-[7px] md:text-[8px] text-blue-600 font-semibold">{item.to}</p>
+                    <p className="text-[10px] sm:text-[10px] md:text-[10px] font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[10px] sm:text-[10px] md:text-[10px] text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
@@ -148,7 +140,7 @@ function JourneySection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="rounded-lg overflow-hidden"
           >
-            <img src="/journey.webp" alt="Our Journey" className="w-full h-auto object-contain scale-95" />
+            <img src="/journey.webp" alt="Our Journey" width="1200" height="400" className="w-full h-auto object-contain scale-95" loading="lazy" />
           </motion.div>
         </div>
       </div>
@@ -199,7 +191,7 @@ function DivisionsPreview() {
       title: 'IoT Smart Lock',
       category: t('divisions.iot'),
       desc: 'Connected Smart Devices & IoT Solutions',
-      image: '/IOT lock smart.webp',
+      image: '/iot-lock-smart.webp',
       link: '/solutions?category=IoT',
     },
   ];
@@ -319,7 +311,7 @@ function ClientsCertifications() {
     { name: t('clients.client3'), logo: '/clients/paytm.jpeg' },
     { name: t('clients.client4'), logo: '/clients/bhartpe.jpeg' },
     { name: t('clients.client5'), logo: '/clients/apollo.jpeg' },
-    { name: t('clients.client6'), logo: '/clients/indian army.jpeg' },
+    { name: t('clients.client6'), logo: '/clients/indian-army.jpeg' },
   ];
 
   return (
@@ -436,7 +428,7 @@ function ClientsCertifications() {
                   className="group flex items-center gap-3 p-3 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
                   <div className="w-11 h-11 rounded-lg bg-white border border-[#E3EDF8] flex items-center justify-center shrink-0 overflow-hidden p-1.5 group-hover:border-blue-200 transition-colors duration-300">
-                    <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
+                    <img src={client.logo} alt={client.name} width="44" height="44" className="w-full h-full object-contain" loading="lazy" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="text-xs font-bold text-[#09244D] leading-tight">{client.name}</h4>

@@ -25,14 +25,14 @@ const stepIcons = {
 const stepImages = [
   '/3d image.webp',
   '/TDCS.webp',
-  '/IOT lock smart.webp',
-  '/soundbox new.webp',
+  '/iot-lock-smart.webp',
+  '/soundbox-new.webp',
   '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
-  '/soundbox new.webp',
+  '/soundbox-new.webp',
   '/futuristic_medical_device_zoomed_out.webp',
   '/neuro_rehab_device.webp',
-  '/soundbox new.webp',
-  '/soundbox new.webp',
+  '/soundbox-new.webp',
+  '/soundbox-new.webp',
 ];
 
 const techIcons = {
@@ -96,12 +96,12 @@ function ProcessSteps() {
                     />
                   </div>
                   <div className={`absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
-                    <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
+                    <span className="text-[10px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
                   </div>
                 </div>
                 <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
-                  <p className="text-[7px] sm:text-[9px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
-                  <p className="text-[6px] sm:text-[8px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                  <p className="text-[10px] sm:text-[10px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-[10px] sm:text-[10px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
               </motion.div>
               {index < topRow.length - 1 && (
@@ -141,12 +141,12 @@ function ProcessSteps() {
                     />
                   </div>
                   <div className={`absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
-                    <span className="text-[8px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
+                    <span className="text-[10px] sm:text-[10px] md:text-xs font-bold text-white">{step.step}</span>
                   </div>
                 </div>
                 <div className="mt-1.5 sm:mt-2 md:mt-3 text-center max-w-[70px] sm:max-w-[90px] md:max-w-[120px]">
-                  <p className="text-[7px] sm:text-[9px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
-                  <p className="text-[6px] sm:text-[8px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
+                  <p className="text-[10px] sm:text-[10px] md:text-xs font-bold text-slate-900">{step.title.split(' & ')[0]}</p>
+                  <p className="text-[10px] sm:text-[10px] md:text-xs text-blue-600 font-medium">{step.subtitle}</p>
                 </div>
               </motion.div>
               {index < bottomRow.length - 1 && (

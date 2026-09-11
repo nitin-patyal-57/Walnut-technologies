@@ -1,14 +1,15 @@
-import { useRef, useState, useMemo, useEffect } from 'react';
+import { useRef, useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft, FiWifi, FiArrowUpRight } from 'react-icons/fi';
 import { products, divisions } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
-import ProductShowcase from './ProductShowcase';
-import MedicalShowcase from './MedicalShowcase';
-import NeuroShowcase from './NeuroShowcase';
-import IoTShowcase from './IoTShowcase';
-import AutomotiveShowcase from './AutomotiveShowcase';
+
+const ProductShowcase = lazy(() => import('./ProductShowcase'));
+const MedicalShowcase = lazy(() => import('./MedicalShowcase'));
+const NeuroShowcase = lazy(() => import('./NeuroShowcase'));
+const IoTShowcase = lazy(() => import('./IoTShowcase'));
+const AutomotiveShowcase = lazy(() => import('./AutomotiveShowcase'));
 
 const divisionIcons = {
   neuro: FiCpu,
@@ -155,25 +156,25 @@ function FeaturesSection() {
     {
       title: 'GPS Gateway',
       desc: 'Reliable tracking and connectivity for industrial and logistics applications.',
-      image: '/GPS Gateway.webp',
+      image: '/gps-gateway.webp',
       icon: FiWifi,
     },
     {
       title: 'Bharat Pay Solutions',
       desc: 'Secure payment terminals powering digital transactions across India.',
-      image: '/bharatpay m.webp',
+      image: '/bharatpay-m.webp',
       icon: FiCreditCard,
     },
     {
       title: 'MedStim Neuro Devices',
       desc: 'Advanced neurostimulation therapy for accelerated recovery.',
-      image: '/MedStim Neuro Devices.webp',
+      image: '/medstim-neuro-devices.webp',
       icon: FiCpu,
     },
     {
       title: 'Smart Lock Systems',
       desc: 'Connected IoT locks with BLE/WiFi and cloud integration.',
-      image: '/iot smaart lock.webp',
+      image: '/iot-smaart-lock.webp',
       icon: FiWifi,
     },
   ];
@@ -268,7 +269,7 @@ function FeaturesSection() {
                   </div>
                   <div>
                     <h3 className="text-[11px] font-bold text-white mb-0.5">{feature.title}</h3>
-                    <p className="text-[9px] text-white/70 leading-relaxed">{feature.desc}</p>
+                    <p className="text-[10px] text-white/70 leading-relaxed">{feature.desc}</p>
                   </div>
                 </div>
               </motion.div>
@@ -489,30 +490,40 @@ export default function Solutions({ onOpenQuote }) {
               <FeaturesSection />
             </motion.div>
           ) : selectedDivision?.id === 'fintech' ? (
-            <ProductShowcase
-              key="fintech-showcase"
-              onBack={() => setSelectedDivision(null)}
-            />
+            <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
+              <ProductShowcase
+                key="fintech-showcase"
+                onBack={() => setSelectedDivision(null)}
+              />
+            </Suspense>
           ) : selectedDivision?.id === 'medical' ? (
-            <MedicalShowcase
-              key="medical-showcase"
-              onBack={() => setSelectedDivision(null)}
-            />
+            <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
+              <MedicalShowcase
+                key="medical-showcase"
+                onBack={() => setSelectedDivision(null)}
+              />
+            </Suspense>
           ) : selectedDivision?.id === 'neuro' ? (
-            <NeuroShowcase
-              key="neuro-showcase"
-              onBack={() => setSelectedDivision(null)}
-            />
+            <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
+              <NeuroShowcase
+                key="neuro-showcase"
+                onBack={() => setSelectedDivision(null)}
+              />
+            </Suspense>
           ) : selectedDivision?.id === 'iot' ? (
-            <IoTShowcase
-              key="iot-showcase"
-              onBack={() => setSelectedDivision(null)}
-            />
+            <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
+              <IoTShowcase
+                key="iot-showcase"
+                onBack={() => setSelectedDivision(null)}
+              />
+            </Suspense>
           ) : selectedDivision?.id === 'automotive' ? (
-            <AutomotiveShowcase
-              key="automotive-showcase"
-              onBack={() => setSelectedDivision(null)}
-            />
+            <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
+              <AutomotiveShowcase
+                key="automotive-showcase"
+                onBack={() => setSelectedDivision(null)}
+              />
+            </Suspense>
           ) : (
             <motion.div
               key="products"

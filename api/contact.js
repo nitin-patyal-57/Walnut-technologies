@@ -20,16 +20,6 @@ function checkRateLimit(ip) {
   return true;
 }
 
-// Cleanup old entries periodically
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, record] of rateLimitMap) {
-    if (now - record.start > RATE_LIMIT_WINDOW * 2) {
-      rateLimitMap.delete(ip);
-    }
-  }
-}, RATE_LIMIT_WINDOW * 2);
-
 function sanitizeInput(str) {
   if (typeof str !== 'string') return '';
   return str

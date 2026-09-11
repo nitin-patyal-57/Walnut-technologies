@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
@@ -33,6 +33,45 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
   const [showQuickReplies, setShowQuickReplies] = useState(true);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const chatRef = useRef(null);
+  const previousFocusRef = useRef(null);
+
+  const handleEscape = useCallback((e) => {
+    if (e.key === 'Escape') setIsOpen(false);
+  }, []);
+
+  const handleFocusTrap = useCallback((e) => {
+    if (e.key !== 'Tab' || !chatRef.current) return;
+    const focusable = chatRef.current.querySelectorAll(
+      'button:not([disabled]), input, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      previousFocusRef.current = document.activeElement;
+      document.addEventListener('keydown', handleEscape);
+      document.addEventListener('keydown', handleFocusTrap);
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('keydown', handleFocusTrap);
+      document.body.style.overflow = 'unset';
+      previousFocusRef.current?.focus();
+    };
+  }, [isOpen, handleEscape, handleFocusTrap]);
 
   const quickReplies = [
     { key: 'products', value: 'products' },
@@ -103,9 +142,11 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={chatRef}
             role="dialog"
             aria-modal="true"
             aria-label="Chat widget"
+            tabIndex={-1}
             initial={{ opacity: 0, y: 15, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.97 }}

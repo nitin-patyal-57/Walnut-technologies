@@ -19,7 +19,7 @@ const products = [
     subtitle: 'Connected access control',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities. Cloud integration for secure management from anywhere.',
     highlights: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
-    image: '/IOT lock smart.webp',
+    image: '/iot-lock-smart.webp',
   },
   {
     number: 2,
@@ -27,7 +27,7 @@ const products = [
     subtitle: 'Asset tracking & telemetry',
     description: 'Reliable GPS gateway for industrial and logistics applications. Real-time tracking, telemetry reporting, and fleet management with secure cloud connectivity.',
     highlights: ['GPS Tracking', 'Real-time Telemetry', 'Fleet Management', 'Cloud Connected'],
-    image: '/GPS Gateway.webp',
+    image: '/gps-gateway.webp',
   },
 ];
 
@@ -92,7 +92,7 @@ export default function IoTShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/IOT smartlock background1.webp" alt="IoT Solutions" className="w-full h-auto -mt-10 md:-mt-9 scale-110" loading="eager" />
+          <img src="/iot-smartlock-background1.webp" alt="IoT Solutions" width="1920" height="600" className="w-full h-auto -mt-10 md:-mt-9 scale-110" loading="lazy" />
         </div>
       </section>
 

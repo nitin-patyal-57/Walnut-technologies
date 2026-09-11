@@ -79,7 +79,7 @@ export const divisions = [
       { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
       { name: 'IR Thermometer', image: '/TDCS.webp' },
       { name: 'Oxygen Concentrator', image: '/futuristic_medical_device_zoomed_out.webp' },
-      { name: 'Walnut Compressor Nebulizer', image: '/CES repose.webp' },
+      { name: 'Walnut Compressor Nebulizer', image: '/ces-repose.webp' },
     ],
   },
   {
@@ -91,12 +91,12 @@ export const divisions = [
     color: 'from-violet-500 to-purple-600',
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
-      { name: 'Single Sim Model', image: '/soundbox new.webp' },
-      { name: 'Double Sim Model', image: '/soundbox new.webp' },
-      { name: 'With Display Model', image: '/soundbox new.webp' },
-      { name: 'Common Model', image: '/soundbox new.webp' },
-      { name: 'DQR: Double Display', image: '/soundbox new.webp' },
-      { name: 'All in One', image: '/soundbox new.webp' },
+      { name: 'Single Sim Model', image: '/soundbox-new.webp' },
+      { name: 'Double Sim Model', image: '/soundbox-new.webp' },
+      { name: 'With Display Model', image: '/soundbox-new.webp' },
+      { name: 'Common Model', image: '/soundbox-new.webp' },
+      { name: 'DQR: Double Display', image: '/soundbox-new.webp' },
+      { name: 'All in One', image: '/soundbox-new.webp' },
     ],
   },
   {
@@ -120,7 +120,7 @@ export const divisions = [
     color: 'from-cyan-500 to-teal-600',
     features: ['BLE/WiFi Connected', 'Cloud Integration', 'Edge Computing', 'Real-time Monitoring'],
     products: [
-      { name: 'IoT Smart Lock', image: '/IOT lock smart.webp' },
+      { name: 'IoT Smart Lock', image: '/iot-lock-smart.webp' },
     ],
   },
 ];
@@ -163,7 +163,7 @@ export const products = [
     category: 'Medical',
     title: 'Walnut Compressor Nebulizer',
     description: 'Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings.',
-    image: '/CES repose.webp',
+    image: '/ces-repose.webp',
     features: ['Efficient Nebulization', 'Low Noise', 'Compact Design', 'Medical Grade'],
   },
   {
@@ -171,7 +171,7 @@ export const products = [
     category: 'Fintech',
     title: 'Single SIM Model',
     description: 'Reliable single SIM payment terminal with essential features for small to medium businesses. Easy deployment and management.',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     features: ['Single SIM', '4G Connectivity', 'Compact Design', 'Long Battery'],
   },
   {
@@ -179,7 +179,7 @@ export const products = [
     category: 'Fintech',
     title: 'Double SIM Model',
     description: 'Dual SIM payment terminal ensuring uninterrupted connectivity with network failover capability for critical transactions.',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     features: ['Dual SIM', 'Network Failover', '4G/3G', 'Secure Payments'],
   },
   {
@@ -187,7 +187,7 @@ export const products = [
     category: 'Fintech',
     title: 'With Display Model',
     description: 'Payment terminal with built-in display for enhanced user interaction, transaction visualization, and digital receipts.',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     features: ['LCD Display', 'Touch Interface', 'Digital Receipts', 'User Friendly'],
   },
   {
@@ -195,7 +195,7 @@ export const products = [
     category: 'Fintech',
     title: 'Common Model',
     description: 'Versatile payment terminal suitable for universal deployment across various business environments and payment scenarios.',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     features: ['Universal Design', 'Multi-Payment', 'Easy Setup', 'Reliable'],
   },
   {
@@ -203,7 +203,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR: Double Display',
     description: 'Advanced payment terminal with dual display configuration for merchant and customer facing interfaces simultaneously.',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     features: ['Dual Display', 'Merchant + Customer', 'Enhanced UX', 'Secure'],
   },
   {
@@ -211,7 +211,7 @@ export const products = [
     category: 'Fintech',
     title: 'All in One',
     description: 'Comprehensive payment solution combining multiple payment methods and features in a single integrated terminal device.',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     features: ['Multiple Payments', 'QR + Card', 'Audio Confirm', 'All-in-One'],
   },
   {
@@ -227,7 +227,7 @@ export const products = [
     category: 'IoT',
     title: 'IoT Smart Lock',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities.',
-    image: '/IOT lock smart.webp',
+    image: '/iot-lock-smart.webp',
     features: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
   },
 ];
@@ -455,7 +455,7 @@ export const expertise = [
     title: 'Embedded Systems & IoT',
     description: 'Firmware, RTOS, and cloud-connected embedded solutions for smart devices.',
     icon: 'cpu',
-    image: '/IOT lock smart.webp',
+    image: '/iot-lock-smart.webp',
     areas: ['ARM/MCU', 'RTOS/Linux', 'BLE/WiFi', 'Cloud IoT', 'Edge Computing'],
   },
   {
@@ -483,21 +483,21 @@ export const expertise = [
     title: 'Payment Hardware Security',
     description: 'PCI PTS, EMVCo, and NPCI certified payment terminal design and manufacturing.',
     icon: 'shield',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     areas: ['PCI PTS 5.x', 'EMV L1/L2', 'Secure Element', 'Tamper Detection'],
   },
   {
     title: 'Software & Firmware',
     description: 'Full-stack firmware development, device drivers, and companion applications.',
     icon: 'code',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     areas: ['Bare Metal', 'Embedded Linux', 'Android BSP', 'Mobile Apps'],
   },
   {
     title: 'Supply Chain & Logistics',
     description: 'End-to-end supply chain management with global component sourcing and delivery.',
     icon: 'globe',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     areas: ['Global Sourcing', 'Inventory Mgmt', 'Customs Clearance', 'Door-to-Door'],
   },
 ];
@@ -516,7 +516,7 @@ export const clientSectors = [
     description: 'Mission-critical electronics for defence applications',
     clients: ['Indian Army', 'Indian Navy', 'IAF', 'AFMS'],
     icon: 'shield',
-    image: '/CES repose.webp',
+    image: '/ces-repose.webp',
     gradient: 'from-red-500 to-rose-600',
   },
   {
@@ -524,7 +524,7 @@ export const clientSectors = [
     description: 'POS terminals, soundboxes, and payment devices',
     clients: ['HDFC Bank', 'SBI', 'Paytm', 'BharatPe'],
     icon: 'gov',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
@@ -540,7 +540,7 @@ export const clientSectors = [
     description: 'Smart metering, grid monitoring, and industrial controls',
     clients: [],
     icon: 'energy',
-    image: '/IOT lock smart.webp',
+    image: '/iot-lock-smart.webp',
     gradient: 'from-yellow-500 to-amber-600',
   },
   {

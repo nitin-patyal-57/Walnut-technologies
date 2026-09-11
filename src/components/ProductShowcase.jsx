@@ -95,7 +95,7 @@ export default function ProductShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/fintech homebackground.webp" alt="Fintech Soundbox" className="w-full h-auto" loading="eager" />
+          <img src="/fintech-homebackground.webp" alt="Fintech Soundbox" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 
@@ -175,7 +175,7 @@ export default function ProductShowcase({ onBack }) {
           <div className={`max-w-3xl mx-auto bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ${tmsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="bg-[#0f172a] px-6 py-4">
               <h3 className="text-white font-semibold text-lg">Device Status</h3>
-              <p className="text-slate-400 text-sm">IMEI: 490154203237518</p>
+              <p className="text-slate-500 text-sm">IMEI: 490154203237518</p>
             </div>
             <div className="divide-y divide-slate-100">
               {deviceMetrics.map((metric) => (

@@ -81,7 +81,7 @@ export default function AutomotiveShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 -mt-28 md:-mt-32 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/cluster background.webp" alt="Automotive Cluster Display" className="w-full h-auto scale-100" loading="eager" />
+          <img src="/cluster-background.webp" alt="Automotive Cluster Display" width="1920" height="600" className="w-full h-auto scale-100" loading="lazy" />
         </div>
       </section>
 

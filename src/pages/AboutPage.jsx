@@ -11,10 +11,10 @@ import {
 
 const facilityImages = [
   '/futuristic_medical_device_zoomed_out.webp',
-  '/soundbox new.webp',
+  '/soundbox-new.webp',
   '/neuro_rehab_device.webp',
   '/TDCS.webp',
-  '/IOT lock smart.webp',
+  '/iot-lock-smart.webp',
   '/cluster1.webp',
 ];
 
@@ -25,16 +25,16 @@ function ProcessTimeline() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   const steps = [
-    { num: '01', title: 'IDEA', image: '/Idea & Requirement.webp' },
-    { num: '02', title: 'RESEARCH', image: '/Research & Market Analysis.webp' },
-    { num: '03', title: 'DESIGN', image: '/Design & Engineering.webp' },
-    { num: '04', title: 'MANUFACTURING', image: '/contract manufacturing.webp' },
-    { num: '05', title: 'TESTING', image: '/Validation & Testing.webp' },
-    { num: '06', title: 'MOLDING', image: '/Manufacturing Engineering & Mold Design.webp' },
-    { num: '07', title: 'QA', image: '/Quality Assurance.webp' },
-    { num: '08', title: 'PACKAGING', image: '/Packaging & Dispatch.webp' },
-    { num: '09', title: 'SUPPORT', image: '/After Sales Support.webp' },
-    { num: '10', title: 'IMPROVEMENT', image: '/Continuous Improvement.webp' },
+    { num: '01', title: 'IDEA', image: '/idea-and-requirement.webp' },
+    { num: '02', title: 'RESEARCH', image: '/research-and-market-analysis.webp' },
+    { num: '03', title: 'DESIGN', image: '/design-and-engineering.webp' },
+    { num: '04', title: 'MANUFACTURING', image: '/contract-manufacturing.webp' },
+    { num: '05', title: 'TESTING', image: '/validation-and-testing.webp' },
+    { num: '06', title: 'MOLDING', image: '/manufacturing-engineering-and-mold-design.webp' },
+    { num: '07', title: 'QA', image: '/quality-assurance.webp' },
+    { num: '08', title: 'PACKAGING', image: '/packaging-and-dispatch.webp' },
+    { num: '09', title: 'SUPPORT', image: '/after-sales-support.webp' },
+    { num: '10', title: 'IMPROVEMENT', image: '/continuous-improvement.webp' },
   ];
 
   return (
@@ -229,7 +229,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/our purpose.webp"
+                    src="/our-purpose.webp"
                     alt="Manufacturing Facility"
                     className="w-full h-[400px] object-cover scale-105"
                   />
@@ -320,7 +320,7 @@ export default function AboutPage() {
                         <item.icon className="w-5 h-5 text-blue-600" />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-0.5">{item.label}</p>
+                        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-0.5">{item.label}</p>
                         <p className="text-sm text-slate-700">{item.value}</p>
                       </div>
                     </div>

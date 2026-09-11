@@ -15,43 +15,43 @@ const expertiseAreas = [
     titleKey: 'embeddedElectronicAndIoT',
     slug: 'embedded-electronic-and-iot',
     descKey: 'embeddedElectronicAndIoTDesc',
-    image: '/Embedded Electronics & IoT.webp',
+    image: '/embedded-electronics-and-iot.webp',
   },
   {
     titleKey: 'ipOrientedProduct',
     slug: 'ip-oriented-product',
     descKey: 'ipOrientedProductDesc',
-    image: '/IP Oriented Product.webp',
+    image: '/ip-oriented-product.webp',
   },
   {
     titleKey: 'pcbDesignAndDevelopment',
     slug: 'pcb-design-development',
     descKey: 'pcbDesignAndDevelopmentDesc',
-    image: '/Design & Engineering.webp',
+    image: '/design-and-engineering.webp',
   },
   {
     titleKey: 'itElectronics',
     slug: 'it-electronics',
     descKey: 'itElectronicsDesc',
-    image: '/IT Electronics.webp',
+    image: '/it-electronics.webp',
   },
   {
     titleKey: 'iotSoftwareDevelopment',
     slug: 'iot-software-development',
     descKey: 'iotSoftwareDevelopmentDesc',
-    image: '/IoT Software Development.webp',
+    image: '/iot-software-development.webp',
   },
   {
     titleKey: 'largeScaleManufacturing',
     slug: 'large-scale-manufacturing',
     descKey: 'largeScaleManufacturingDesc',
-    image: '/contract manufacturing.webp',
+    image: '/contract-manufacturing.webp',
   },
   {
     titleKey: 'paymentSystems',
     slug: 'payment-systems',
     descKey: 'paymentSystemsDesc',
-    image: '/soundbox new.webp',
+    image: '/soundbox-new.webp',
   },
 ];
 
@@ -135,7 +135,7 @@ export default function Expertise() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/Design & Engineering.webp"
+                  src="/design-and-engineering.webp"
                   alt="Design and Engineering team at Walnut Technologies"
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />

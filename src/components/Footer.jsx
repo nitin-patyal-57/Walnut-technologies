@@ -43,9 +43,9 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
           <div className="lg:col-span-4">
-            <a href="/" onClick={() => window.location.reload()} className="inline-block mb-3">
-              <img src="/walnut-logo/Walnut_Technologies_logo_transparent.png" alt="Walnut Technologies" className="h-8 w-auto object-contain brightness-0 invert" />
-            </a>
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-block mb-3">
+              <img src="/walnut-logo/Walnut_Technologies_logo_transparent.png" alt="Walnut Technologies" width="120" height="32" className="h-8 w-auto object-contain brightness-0 invert" />
+            </Link>
             <p className="text-xs text-slate-400 leading-relaxed mb-4 max-w-[280px]">
               Vertically integrated Original Design Manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.
             </p>
@@ -78,7 +78,7 @@ export default function Footer() {
         <div className="border-t border-white/10" />
 
         <div className="py-3 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[11px] text-slate-500">
+          <p className="text-[11px] text-slate-400">
             &copy; {new Date().getFullYear()} {brand.fullName}. All rights reserved.
           </p>
           <div className="flex items-center gap-2.5">
@@ -92,7 +92,7 @@ export default function Footer() {
               <FiInstagram className="w-3.5 h-3.5" />
             </a>
           </div>
-          <div className="flex items-center gap-4 text-[11px] text-slate-500">
+          <div className="flex items-center gap-4 text-[11px] text-slate-400">
             <a href={`tel:${brand.phone}`} className="hover:text-white transition-colors">{brand.phone}</a>
             <span className="text-white/20">|</span>
             <a href={`mailto:${brand.email}`} className="hover:text-white transition-colors">{brand.email}</a>

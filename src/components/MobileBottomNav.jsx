@@ -43,7 +43,7 @@ export default function MobileBottomNav({ onOpenQuote }) {
       <div className="absolute inset-0 bg-white/95 backdrop-blur-xl border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]" />
       
       {/* Nav items */}
-      <nav className="relative flex items-center justify-around px-2 py-1.5 safe-area-bottom">
+      <nav className="relative flex items-center justify-around px-2 py-1.5 safe-area-bottom" aria-label="Mobile navigation">
         {bottomNavItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.to);

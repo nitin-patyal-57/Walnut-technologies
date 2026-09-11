@@ -126,14 +126,14 @@ export default function CareerPage() {
   ];
 
   const teams = [
-    { name: t('careerExtended.teams.rnd'), icon: FiCpu, image: '/Design & Engineering.webp' },
-    { name: t('careerExtended.teams.software'), icon: FiCode, image: '/IoT Software Development.webp' },
-    { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/IT Electronics.webp' },
-    { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/Embedded Electronics & IoT.webp' },
-    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/Manufacturing Engineering & Mold Design.webp' },
-    { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/contract manufacturing.webp' },
-    { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/Quality Assurance.webp' },
-    { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/IP Oriented Product.webp' },
+    { name: t('careerExtended.teams.rnd'), icon: FiCpu, image: '/design-and-engineering.webp' },
+    { name: t('careerExtended.teams.software'), icon: FiCode, image: '/iot-software-development.webp' },
+    { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/it-electronics.webp' },
+    { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/embedded-electronics-and-iot.webp' },
+    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/manufacturing-engineering-and-mold-design.webp' },
+    { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/contract-manufacturing.webp' },
+    { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/quality-assurance.webp' },
+    { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/ip-oriented-product.webp' },
   ];
 
   const hiringSteps = [
@@ -152,7 +152,7 @@ export default function CareerPage() {
   ];
 
   const cultureImages = [
-    { src: '/life at walnut.webp', alt: 'Life at Walnut' },
+    { src: '/life-at-walnut.webp', alt: 'Life at Walnut' },
   ];
 
   const filteredJobs = jobOpenings.filter(job => {
@@ -274,7 +274,7 @@ export default function CareerPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/career background.webp"
+                  src="/career-background.webp"
                   alt="Walnut Medical Team"
                   className="w-full h-[300px] md:h-[400px] object-cover"
                   loading="eager"
