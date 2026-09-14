@@ -2,7 +2,8 @@ import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import {
   FiCalendar, FiArrowRight, FiClock, FiTag,
-  FiChevronRight, FiArrowUpRight, FiFileText, FiFilter
+  FiChevronRight, FiArrowUpRight, FiFileText, FiFilter,
+  FiX, FiShare2
 } from 'react-icons/fi';
 import { news } from '../data/content';
 
@@ -53,7 +54,185 @@ const categoryConfig = {
 
 const categories = ['All', 'Certification', 'Expansion', 'Partnership', 'Press', 'Product', 'Milestone'];
 
-function FeaturedCard({ item, isInView }) {
+function NewsModal({ item, onClose }) {
+  if (!item) return null;
+  const config = categoryConfig[item.category] || categoryConfig['Certification'];
+
+  // Find related news (same category, excluding current)
+  const related = news.filter((n) => n.id !== item.id && n.category === item.category).slice(0, 2);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm overflow-y-auto"
+      onClick={onClose}
+    >
+      <div className="min-h-screen flex items-start justify-center p-4 py-8 lg:py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.97 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl overflow-hidden"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Hero Image */}
+          <div className="relative h-72 md:h-96 overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/25 transition-all"
+            >
+              <FiX className="w-5 h-5" />
+            </button>
+
+            {/* Bottom overlay content */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <span className={`text-[11px] font-bold ${config.tag} px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm`}>
+                  {item.category}
+                </span>
+                <div className="flex items-center gap-1.5 text-white/70">
+                  <FiCalendar className="w-3.5 h-3.5" />
+                  <span className="text-xs">{item.date}</span>
+                </div>
+                <div className="w-1 h-1 rounded-full bg-white/40" />
+                <div className="flex items-center gap-1.5 text-white/70">
+                  <FiClock className="w-3.5 h-3.5" />
+                  <span className="text-xs">{item.readTime}</span>
+                </div>
+              </div>
+              <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                {item.title}
+              </h1>
+            </div>
+          </div>
+
+          {/* Article Content */}
+          <div className="p-6 md:p-8 lg:p-10">
+            {/* Author / Meta bar */}
+            <div className="flex items-center justify-between pb-6 mb-6 border-b border-slate-100">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold">
+                  WT
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">Walnut Technologies</p>
+                  <p className="text-xs text-slate-500">Corporate Communications</p>
+                </div>
+              </div>
+              <button className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all">
+                <FiShare2 className="w-3.5 h-3.5" />
+                Share
+              </button>
+            </div>
+
+            {/* Lead paragraph */}
+            <div className="mb-8">
+              <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                {item.description}
+              </p>
+            </div>
+
+            {/* Article body */}
+            <div className="prose prose-slate max-w-none mb-8">
+              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                This development marks a significant milestone for Walnut Technologies as the company continues to expand its capabilities across medical devices, payment systems, and custom electronics manufacturing. The achievement reflects our unwavering commitment to quality and innovation.
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                With over 15 years of experience in electronics manufacturing, Walnut Technologies has established itself as a trusted partner for companies seeking reliable OEM/ODM solutions. Our state-of-the-art facility in Mohali, Punjab features 4 SMT lines, a Class 10K cleanroom, and capacity for 500K+ units per month.
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                This achievement further strengthens our position as a leading Original Design Manufacturer serving 20+ countries worldwide, with certifications including ISO 13485, CE, FCC, and PCI-DSS.
+              </p>
+            </div>
+
+            {/* Key takeaways */}
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 rounded-2xl p-6 border border-slate-100 mb-8">
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <div className="w-6 h-0.5 bg-blue-600 rounded-full" />
+                Key Takeaways
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  'Demonstrates continued growth and industry leadership',
+                  'Reinforces commitment to quality and compliance',
+                  'Benefits existing and future global partnerships',
+                  'Positions Walnut Technologies for next phase of expansion',
+                ].map((point, i) => (
+                  <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+                    <div className={`w-6 h-6 rounded-lg bg-gradient-to-br ${config.gradient} flex items-center justify-center shrink-0 mt-0.5`}>
+                      <FiArrowRight className="w-3 h-3 text-white" />
+                    </div>
+                    <span className="text-sm text-slate-600">{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Related news */}
+            {related.length > 0 && (
+              <div>
+                <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
+                  Related News
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {related.map((r) => {
+                    const rConfig = categoryConfig[r.category] || categoryConfig['Certification'];
+                    return (
+                      <div key={r.id} className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all cursor-pointer group">
+                        <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+                          <img src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                        <div>
+                          <span className={`text-[9px] font-bold ${rConfig.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
+                            {r.category}
+                          </span>
+                          <h4 className="text-sm font-semibold text-slate-900 leading-snug mt-1 group-hover:text-blue-600 transition-colors line-clamp-2">
+                            {r.title}
+                          </h4>
+                          <p className="text-xs text-slate-400 mt-0.5">{r.date}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Footer */}
+          <div className="px-6 md:px-8 lg:px-10 py-5 border-t border-slate-100 flex items-center justify-between bg-slate-50/50">
+            <button
+              onClick={onClose}
+              className="px-5 py-2.5 text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 rounded-xl transition-all"
+            >
+              Back to News
+            </button>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg shadow-blue-600/20 transition-all"
+            >
+              Contact Us
+              <FiArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
+function FeaturedCard({ item, isInView, onReadMore }) {
   const config = categoryConfig[item.category] || categoryConfig['Certification'];
 
   return (
@@ -100,7 +279,7 @@ function FeaturedCard({ item, isInView }) {
           <p className="text-sm text-slate-500 leading-relaxed mb-6">
             {item.description}
           </p>
-          <button className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors w-fit group/btn">
+          <button onClick={() => onReadMore(item)} className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors w-fit group/btn">
             Read Full Article
             <FiArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
           </button>
@@ -110,7 +289,7 @@ function FeaturedCard({ item, isInView }) {
   );
 }
 
-function NewsCard({ item, index, isInView }) {
+function NewsCard({ item, index, isInView, onReadMore }) {
   const config = categoryConfig[item.category] || categoryConfig['Certification'];
 
   return (
@@ -159,7 +338,7 @@ function NewsCard({ item, index, isInView }) {
           </p>
 
           <div className="mt-4 pt-4 border-t border-slate-100">
-            <button className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors group/btn">
+            <button onClick={() => onReadMore(item)} className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors group/btn">
               Read More
               <FiArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
             </button>
@@ -170,7 +349,7 @@ function NewsCard({ item, index, isInView }) {
   );
 }
 
-function TimelineCard({ item, index, isInView }) {
+function TimelineCard({ item, index, isInView, onReadMore }) {
   const config = categoryConfig[item.category] || categoryConfig['Certification'];
 
   return (
@@ -215,6 +394,9 @@ function TimelineCard({ item, index, isInView }) {
               <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                 {item.description}
               </p>
+              <button onClick={() => onReadMore(item)} className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+                Read More <FiArrowRight className="w-3 h-3" />
+              </button>
             </div>
           </div>
         </div>
@@ -230,6 +412,7 @@ export default function News() {
   const isContentInView = useInView(contentRef, { once: true, margin: '-50px' });
   const [activeCategory, setActiveCategory] = useState('All');
   const [view, setView] = useState('grid');
+  const [selectedNews, setSelectedNews] = useState(null);
 
   const filteredNews = activeCategory === 'All'
     ? news
@@ -383,7 +566,7 @@ export default function News() {
               {view === 'grid' && featured && (
                 <div className="space-y-6">
                   {/* Featured card */}
-                  <FeaturedCard item={featured} isInView={isContentInView} />
+                  <FeaturedCard item={featured} isInView={isContentInView} onReadMore={setSelectedNews} />
 
                   {/* Grid of remaining */}
                   {rest.length > 0 && (
@@ -394,6 +577,7 @@ export default function News() {
                           item={item}
                           index={index}
                           isInView={isContentInView}
+                          onReadMore={setSelectedNews}
                         />
                       ))}
                     </div>
@@ -439,7 +623,7 @@ export default function News() {
                               </p>
                             </div>
                             <div className="p-5 flex items-center">
-                              <button className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
+                              <button onClick={() => setSelectedNews(item)} className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
                                 <FiArrowUpRight className="w-4 h-4" />
                               </button>
                             </div>
@@ -459,6 +643,7 @@ export default function News() {
                       item={item}
                       index={index}
                       isInView={isContentInView}
+                      onReadMore={setSelectedNews}
                     />
                   ))}
                 </div>
@@ -512,6 +697,12 @@ export default function News() {
           </motion.div>
         </div>
       </section>
+      {/* News Detail Modal */}
+      <AnimatePresence>
+        {selectedNews && (
+          <NewsModal item={selectedNews} onClose={() => setSelectedNews(null)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
