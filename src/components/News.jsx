@@ -1,70 +1,517 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { FiCalendar } from 'react-icons/fi';
+import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import {
+  FiCalendar, FiArrowRight, FiClock, FiTag,
+  FiChevronRight, FiArrowUpRight, FiFileText, FiFilter
+} from 'react-icons/fi';
 import { news } from '../data/content';
 
-const categoryColors = {
-  Certification: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  Expansion: 'bg-blue-50 text-blue-700 border-blue-200',
-  Partnership: 'bg-purple-50 text-purple-700 border-purple-200',
-  Press: 'bg-amber-50 text-amber-700 border-amber-200',
-  Product: 'bg-cyan-50 text-cyan-700 border-cyan-200',
-  Milestone: 'bg-rose-50 text-rose-700 border-rose-200',
+const categoryConfig = {
+  Certification: {
+    gradient: 'from-emerald-500 to-green-500',
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200',
+    text: 'text-emerald-700',
+    tag: 'bg-emerald-100 text-emerald-700',
+  },
+  Expansion: {
+    gradient: 'from-blue-500 to-cyan-500',
+    bg: 'bg-blue-50',
+    border: 'border-blue-200',
+    text: 'text-blue-700',
+    tag: 'bg-blue-100 text-blue-700',
+  },
+  Partnership: {
+    gradient: 'from-purple-500 to-pink-500',
+    bg: 'bg-purple-50',
+    border: 'border-purple-200',
+    text: 'text-purple-700',
+    tag: 'bg-purple-100 text-purple-700',
+  },
+  Press: {
+    gradient: 'from-amber-500 to-orange-500',
+    bg: 'bg-amber-50',
+    border: 'border-amber-200',
+    text: 'text-amber-700',
+    tag: 'bg-amber-100 text-amber-700',
+  },
+  Product: {
+    gradient: 'from-cyan-500 to-blue-500',
+    bg: 'bg-cyan-50',
+    border: 'border-cyan-200',
+    text: 'text-cyan-700',
+    tag: 'bg-cyan-100 text-cyan-700',
+  },
+  Milestone: {
+    gradient: 'from-rose-500 to-red-500',
+    bg: 'bg-rose-50',
+    border: 'border-rose-200',
+    text: 'text-rose-700',
+    tag: 'bg-rose-100 text-rose-700',
+  },
 };
 
-export default function News() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+const categories = ['All', 'Certification', 'Expansion', 'Partnership', 'Press', 'Product', 'Milestone'];
+
+function FeaturedCard({ item, isInView }) {
+  const config = categoryConfig[item.category] || categoryConfig['Certification'];
 
   return (
-    <section id="news" className="section-padding relative bg-white">
-      
-      <div ref={ref} className="relative container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10"
-        >
-          <div className="section-label mx-auto w-fit">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-            News & Updates
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6 }}
+      className="group relative bg-white rounded-2xl border border-slate-200 hover:shadow-2xl transition-all duration-500 overflow-hidden col-span-full lg:col-span-2"
+    >
+      <div className="grid lg:grid-cols-2 h-full">
+        {/* Image */}
+        <div className="relative h-64 lg:h-full overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/20 to-transparent" />
+          <div className="absolute top-4 left-4">
+            <span className="text-[10px] font-bold text-white/90 uppercase tracking-widest bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+              Featured
+            </span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
-            Company{' '}
-            <span className="gradient-text">Milestones</span>
-          </h2>
-          <p className="text-sm text-slate-500 max-w-2xl mx-auto">
-            Stay updated with our latest achievements, partnerships, and industry recognition.
-          </p>
-        </motion.div>
+          <div className="absolute bottom-4 left-4 right-4">
+            <div className="flex items-center gap-2 mb-2">
+              <FiCalendar className="w-3 h-3 text-white/70" />
+              <span className="text-xs text-white/80">{item.date}</span>
+              <span className="text-white/40">·</span>
+              <FiClock className="w-3 h-3 text-white/70" />
+              <span className="text-xs text-white/80">{item.readTime}</span>
+            </div>
+          </div>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          {news.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group glass-card p-6 hover:border-slate-300 transition-all duration-300 cursor-pointer"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <FiCalendar className="w-3.5 h-3.5 text-slate-400" />
-                <span className="text-xs text-slate-500">{item.date}</span>
-              </div>
-              <span className={`inline-block px-2.5 py-0.5 text-xs font-medium rounded-lg border mb-3 ${
-                categoryColors[item.category] || 'bg-slate-100 text-slate-600 border-slate-200'
-              }`}>
-                {item.category}
-              </span>
-              <h3 className="text-xs font-bold text-slate-900 mb-1.5 group-hover:text-cyan-600 transition-colors leading-snug">
-                {item.title}
-              </h3>
-              <p className="text-xs text-slate-500 leading-relaxed">{item.description}</p>
-            </motion.div>
-          ))}
+        {/* Content */}
+        <div className="p-6 lg:p-8 flex flex-col justify-center">
+          <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold ${config.tag} px-2.5 py-1 rounded-full uppercase tracking-wider w-fit mb-4`}>
+            <FiTag className="w-3 h-3" />
+            {item.category}
+          </span>
+          <h2 className="text-xl lg:text-2xl font-bold text-slate-900 leading-snug mb-3 group-hover:text-blue-600 transition-colors">
+            {item.title}
+          </h2>
+          <p className="text-sm text-slate-500 leading-relaxed mb-6">
+            {item.description}
+          </p>
+          <button className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors w-fit group/btn">
+            Read Full Article
+            <FiArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
-    </section>
+    </motion.div>
+  );
+}
+
+function NewsCard({ item, index, isInView }) {
+  const config = categoryConfig[item.category] || categoryConfig['Certification'];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+      className="group"
+    >
+      <div className="relative bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden h-full flex flex-col">
+        {/* Image */}
+        <div className="relative h-48 overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
+          {/* Category badge */}
+          <div className="absolute top-3 right-3">
+            <span className={`text-[10px] font-bold ${config.tag} px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm`}>
+              {item.category}
+            </span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-5 flex flex-col flex-1">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="flex items-center gap-1.5 text-slate-400">
+              <FiCalendar className="w-3 h-3" />
+              <span className="text-xs">{item.date}</span>
+            </div>
+            <div className="w-1 h-1 rounded-full bg-slate-300" />
+            <div className="flex items-center gap-1.5 text-slate-400">
+              <FiClock className="w-3 h-3" />
+              <span className="text-xs">{item.readTime}</span>
+            </div>
+          </div>
+
+          <h3 className="text-sm font-bold text-slate-900 leading-snug mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+            {item.title}
+          </h3>
+          <p className="text-xs text-slate-500 leading-relaxed flex-1 line-clamp-3">
+            {item.description}
+          </p>
+
+          <div className="mt-4 pt-4 border-t border-slate-100">
+            <button className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors group/btn">
+              Read More
+              <FiArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function TimelineCard({ item, index, isInView }) {
+  const config = categoryConfig[item.category] || categoryConfig['Certification'];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+      animate={isInView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+      className="group relative flex items-start gap-6"
+    >
+      {/* Timeline dot */}
+      <div className="relative z-10 shrink-0">
+        <div className={`w-4 h-4 rounded-full bg-gradient-to-br ${config.gradient} ring-4 ring-white shadow-md`} />
+        {index < news.length - 1 && (
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-200" />
+        )}
+      </div>
+
+      {/* Card */}
+      <div className="flex-1 pb-8">
+        <div className="bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+          <div className="flex items-stretch">
+            {/* Image */}
+            <div className="w-32 shrink-0 overflow-hidden hidden sm:block">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="p-4 flex-1">
+              <div className="flex items-center gap-2 mb-2">
+                <span className={`text-[10px] font-bold ${config.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
+                  {item.category}
+                </span>
+                <span className="text-[10px] text-slate-400">{item.date}</span>
+              </div>
+              <h3 className="text-sm font-bold text-slate-900 leading-snug mb-1.5 group-hover:text-blue-600 transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function News() {
+  const heroRef = useRef(null);
+  const contentRef = useRef(null);
+  const isInView = useInView(heroRef, { once: true, margin: '-50px' });
+  const isContentInView = useInView(contentRef, { once: true, margin: '-50px' });
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [view, setView] = useState('grid');
+
+  const filteredNews = activeCategory === 'All'
+    ? news
+    : news.filter((n) => n.category === activeCategory);
+
+  const counts = {
+    All: news.length,
+    ...categories.slice(1).reduce((acc, cat) => {
+      acc[cat] = news.filter((n) => n.category === cat).length;
+      return acc;
+    }, {}),
+  };
+
+  const featured = filteredNews[0];
+  const rest = filteredNews.slice(1);
+
+  return (
+    <div className="bg-white min-h-screen">
+      {/* Hero Section */}
+      <section ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px]" />
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIvPjwvZz48L2c+PC9zdmc+')] opacity-30" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 lg:pt-32 lg:pb-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-semibold mb-6"
+            >
+              <FiFileText className="w-4 h-4" />
+              News & Updates
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white mb-5 leading-tight"
+            >
+              Company{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Milestones
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-base text-white/60 leading-relaxed max-w-2xl mx-auto mb-8"
+            >
+              Stay updated with our latest achievements, partnerships, certifications, and industry recognition.
+            </motion.p>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex justify-center gap-6 flex-wrap"
+            >
+              {[
+                { label: 'Certifications', value: counts.Certification || 0, color: 'text-emerald-400' },
+                { label: 'Expansions', value: counts.Expansion || 0, color: 'text-blue-400' },
+                { label: 'Partnerships', value: counts.Partnership || 0, color: 'text-purple-400' },
+                { label: 'Press Features', value: counts.Press || 0, color: 'text-amber-400' },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
+                  <div className="text-xs text-white/50">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+            <path d="M0 60L48 52C96 44 192 28 288 22C384 16 480 20 576 28C672 36 768 48 864 50C960 52 1056 44 1152 36C1248 28 1344 20 1392 16L1440 12V60H1392C1344 60 1248 60 1152 60C1056 60 960 60 864 60C768 60 672 60 576 60C480 60 384 60 288 60C192 60 96 60 48 60H0Z" fill="white"/>
+          </svg>
+        </div>
+      </section>
+
+      {/* Filters & Content */}
+      <section ref={contentRef} className="py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Filter bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isContentInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8"
+          >
+            {/* Category filters */}
+            <div className="flex flex-wrap items-center gap-2">
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat;
+                const config = categoryConfig[cat];
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 ${
+                      isActive
+                        ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20'
+                        : 'bg-white text-slate-500 border border-slate-200 hover:border-slate-300 hover:text-slate-700'
+                    }`}
+                  >
+                    {cat}
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                      isActive ? 'bg-white/20' : 'bg-slate-100'
+                    }`}>
+                      {counts[cat] || 0}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* View toggle */}
+            <div className="flex items-center gap-1 bg-slate-100 rounded-lg p-1 shrink-0">
+              {['grid', 'list', 'timeline'].map((v) => (
+                <button
+                  key={v}
+                  onClick={() => setView(v)}
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all capitalize ${
+                    view === v ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                >
+                  {v}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* News Content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory + view}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {view === 'grid' && featured && (
+                <div className="space-y-6">
+                  {/* Featured card */}
+                  <FeaturedCard item={featured} isInView={isContentInView} />
+
+                  {/* Grid of remaining */}
+                  {rest.length > 0 && (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+                      {rest.map((item, index) => (
+                        <NewsCard
+                          key={item.id}
+                          item={item}
+                          index={index}
+                          isInView={isContentInView}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {view === 'list' && (
+                <div className="space-y-4">
+                  {filteredNews.map((item, index) => {
+                    const config = categoryConfig[item.category] || categoryConfig['Certification'];
+                    return (
+                      <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={isContentInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        className="group"
+                      >
+                        <div className="bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                          <div className="flex items-stretch">
+                            <div className="w-40 shrink-0 overflow-hidden hidden sm:block">
+                              <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+                            <div className="p-5 flex-1">
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className={`text-[10px] font-bold ${config.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
+                                  {item.category}
+                                </span>
+                                <span className="text-xs text-slate-400">{item.date}</span>
+                                <span className="text-slate-300">·</span>
+                                <span className="text-xs text-slate-400">{item.readTime}</span>
+                              </div>
+                              <h3 className="text-sm font-bold text-slate-900 leading-snug mb-1.5 group-hover:text-blue-600 transition-colors">
+                                {item.title}
+                              </h3>
+                              <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
+                                {item.description}
+                              </p>
+                            </div>
+                            <div className="p-5 flex items-center">
+                              <button className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
+                                <FiArrowUpRight className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {view === 'timeline' && (
+                <div className="max-w-3xl mx-auto">
+                  {filteredNews.map((item, index) => (
+                    <TimelineCard
+                      key={item.id}
+                      item={item}
+                      index={index}
+                      isInView={isContentInView}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {filteredNews.length === 0 && (
+                <div className="text-center py-16">
+                  <p className="text-slate-500">No news found for this category.</p>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[100px]" />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Stay Updated</h2>
+            <p className="text-white/60 mb-8 max-w-xl mx-auto">
+              Follow us on social media or subscribe to our newsletter for the latest updates from Walnut Technologies.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-xl font-semibold transition-all shadow-lg shadow-cyan-600/20"
+              >
+                Subscribe to Newsletter
+                <FiArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-semibold transition-all"
+              >
+                Follow on LinkedIn
+                <FiArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }
