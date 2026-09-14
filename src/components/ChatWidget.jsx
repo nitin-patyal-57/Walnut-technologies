@@ -23,7 +23,7 @@ function findIntent(message) {
   return 'default';
 }
 
-export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
+export default function ChatWidget({ onChatStateChange }) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -112,9 +112,8 @@ export default function ChatWidget({ onOpenQuote, onChatStateChange }) {
 
     setTimeout(() => {
       const intent = findIntent(userMsg);
-      if (intent === 'quote' && onOpenQuote) {
-        onOpenQuote();
-        setMessages((prev) => [...prev, { role: 'bot', content: t('chat.responses.openingQuote') }]);
+      if (intent === 'quote') {
+        setMessages((prev) => [...prev, { role: 'bot', content: 'For pricing inquiries, please contact us at contact@walnutmedical.in or call +91 77194 63719. Our team will provide a detailed quote within 24 hours.' }]);
       } else {
         const response = t(`chat.responses.${intent}`) || t('chat.responses.default');
         setMessages((prev) => [...prev, { role: 'bot', content: response }]);

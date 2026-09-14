@@ -11,7 +11,7 @@ import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { sendContactEmail } from '../utils/sendEmail';
 
-export default function ContactPage({ onOpenQuote }) {
+export default function ContactPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const { t } = useLanguage();
@@ -278,7 +278,6 @@ export default function ContactPage({ onOpenQuote }) {
                     >
                       <option value="">{t('contact.selectSubject')}</option>
                       <option value="product">{t('contact.productInquiry')}</option>
-                      <option value="quote">{t('contact.requestQuote')}</option>
                       <option value="partnership">{t('contact.partnership')}</option>
                       <option value="support">{t('contact.technicalSupport')}</option>
                       <option value="careers">{t('contact.careers')}</option>

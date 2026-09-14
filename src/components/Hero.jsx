@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Hero({ onOpenQuote, onOpenSchedule }) {
+export default function Hero({ onOpenSchedule }) {
   const { t } = useLanguage();
   const navigate = useNavigate();
 

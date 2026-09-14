@@ -30,7 +30,7 @@ const socialLinks = [
   { label: 'LinkedIn', url: 'https://www.linkedin.com/company/walnut-medical-private-limited', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg' },
 ];
 
-export default function Navbar({ onOpenQuote, onOpenSchedule }) {
+export default function Navbar({ onOpenSchedule }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -166,15 +166,9 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
             <div className="hidden lg:flex items-center gap-2">
               <button
                 onClick={onOpenSchedule}
-                className={`px-3 py-1.5 text-[13px] border rounded-lg transition-all ${btnOutline}`}
-              >
-                {t('nav.scheduleCall')}
-              </button>
-              <button
-                onClick={onOpenQuote}
                 className={`px-4 py-1.5 text-[13px] font-medium rounded-lg shadow-sm transition-all ${btnSolid}`}
               >
-                {t('nav.requestQuote')}
+                {t('nav.scheduleCall')}
               </button>
               {/* Three Line Menu Button */}
               <button
@@ -225,15 +219,9 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                 <div className="pt-2 space-y-2 border-t border-slate-200 mt-2">
                   <button
                     onClick={() => { onOpenSchedule(); setIsMobileOpen(false); }}
-                    className="w-full py-2.5 text-[13px] text-slate-600 border border-slate-300 rounded-lg hover:text-slate-900 hover:border-slate-400 transition-all"
-                  >
-                    {t('nav.scheduleCall')}
-                  </button>
-                  <button
-                    onClick={() => { onOpenQuote(); setIsMobileOpen(false); }}
                     className="w-full py-2.5 text-[13px] font-medium text-white bg-slate-900 rounded-lg shadow-sm transition-all"
                   >
-                    {t('nav.requestQuote')}
+                    {t('nav.scheduleCall')}
                   </button>
                 </div>
               </div>
@@ -376,14 +364,8 @@ export default function Navbar({ onOpenQuote, onOpenSchedule }) {
                 {/* Quick Actions */}
                 <div className="space-y-2">
                   <button
-                    onClick={() => { onOpenQuote(); setIsSidebarOpen(false); }}
-                    className="w-full py-3 text-sm font-semibold text-white bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 rounded-xl transition-all shadow-lg shadow-slate-900/20"
-                  >
-                    Request a Quote
-                  </button>
-                  <button
                     onClick={() => { onOpenSchedule(); setIsSidebarOpen(false); }}
-                    className="w-full py-3 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all"
+                    className="w-full py-3 text-sm font-semibold text-white bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 rounded-xl transition-all shadow-lg shadow-slate-900/20"
                   >
                     Schedule a Call
                   </button>

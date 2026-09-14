@@ -365,7 +365,7 @@ function ProductCard({ product, index }) {
   );
 }
 
-export default function Solutions({ onOpenQuote }) {
+export default function Solutions() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });

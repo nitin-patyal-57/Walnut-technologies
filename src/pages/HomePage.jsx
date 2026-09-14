@@ -528,7 +528,7 @@ function CTASection() {
   );
 }
 
-export default function HomePage({ onOpenQuote, onOpenSchedule }) {
+export default function HomePage({ onOpenSchedule }) {
   return (
     <div className="relative">
       <SEO
@@ -537,7 +537,7 @@ export default function HomePage({ onOpenQuote, onOpenSchedule }) {
         path="/"
         keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
       />
-      <Hero onOpenQuote={onOpenQuote} onOpenSchedule={onOpenSchedule} />
+      <Hero onOpenSchedule={onOpenSchedule} />
       <DivisionsPreview />
       <JourneySection />
       <StatsSection />

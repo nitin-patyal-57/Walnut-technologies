@@ -1,7 +1,7 @@
 import Solutions from '../components/Solutions';
 import SEO from '../components/SEO';
 
-export default function SolutionsPage({ onOpenQuote }) {
+export default function SolutionsPage() {
   return (
     <>
       <SEO
@@ -10,7 +10,7 @@ export default function SolutionsPage({ onOpenQuote }) {
         path="/solutions"
         keywords="OEM solutions, ODM solutions, medical device manufacturing, payment system manufacturing, IoT solutions, custom electronics"
       />
-      <Solutions onOpenQuote={onOpenQuote} />
+      <Solutions />
     </>
   );
 }

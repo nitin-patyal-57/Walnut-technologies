@@ -5,7 +5,6 @@ import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
 import Footer from './components/Footer';
-import QuoteModal from './components/QuoteModal';
 import ScheduleCallModal from './components/ScheduleCallModal';
 import WhatsAppButton from './components/WhatsAppButton';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -51,7 +50,6 @@ function ScrollToTop() {
 }
 
 function AppContent() {
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
@@ -60,23 +58,22 @@ function AppContent() {
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <ScrollToTop />
       <Navbar
-        onOpenQuote={() => setQuoteModalOpen(true)}
         onOpenSchedule={() => setScheduleModalOpen(true)}
       />
 
       <main id="main-content">
         <Suspense fallback={<PageLoader />}>
           <Routes>
-          <Route path="/" element={<ErrorBoundary isPageLevel><HomePage onOpenQuote={() => setQuoteModalOpen(true)} onOpenSchedule={() => setScheduleModalOpen(true)} /></ErrorBoundary>} />
+          <Route path="/" element={<ErrorBoundary isPageLevel><HomePage onOpenSchedule={() => setScheduleModalOpen(true)} /></ErrorBoundary>} />
           <Route path="/about" element={<ErrorBoundary isPageLevel><AboutPage /></ErrorBoundary>} />
-          <Route path="/solutions" element={<ErrorBoundary isPageLevel><SolutionsPage onOpenQuote={() => setQuoteModalOpen(true)} /></ErrorBoundary>} />
+          <Route path="/solutions" element={<ErrorBoundary isPageLevel><SolutionsPage /></ErrorBoundary>} />
           <Route path="/process" element={<ErrorBoundary isPageLevel><ProcessPage /></ErrorBoundary>} />
           <Route path="/expertise" element={<ErrorBoundary isPageLevel><ExpertisePage /></ErrorBoundary>} />
           <Route path="/expertise/:slug" element={<ErrorBoundary isPageLevel><ExpertiseDetailPage /></ErrorBoundary>} />
           <Route path="/clients" element={<ErrorBoundary isPageLevel><ClientsPage /></ErrorBoundary>} />
           <Route path="/resources" element={<ErrorBoundary isPageLevel><ResourcesPage /></ErrorBoundary>} />
           <Route path="/news" element={<ErrorBoundary isPageLevel><NewsPage /></ErrorBoundary>} />
-          <Route path="/contact" element={<ErrorBoundary isPageLevel><ContactPage onOpenQuote={() => setQuoteModalOpen(true)} /></ErrorBoundary>} />
+          <Route path="/contact" element={<ErrorBoundary isPageLevel><ContactPage /></ErrorBoundary>} />
           <Route path="/career" element={<ErrorBoundary isPageLevel><CareerPage /></ErrorBoundary>} />
           <Route path="/apply" element={<ErrorBoundary isPageLevel><JobApplicationPage /></ErrorBoundary>} />
           <Route path="/privacy" element={<ErrorBoundary isPageLevel><PrivacyPage /></ErrorBoundary>} />
@@ -98,14 +95,13 @@ function AppContent() {
 
       <Footer />
 
-      <QuoteModal isOpen={quoteModalOpen} onClose={() => setQuoteModalOpen(false)} />
       <ScheduleCallModal isOpen={scheduleModalOpen} onClose={() => setScheduleModalOpen(false)} />
       <Suspense fallback={null}>
-        <ChatWidget onOpenQuote={() => setQuoteModalOpen(true)} onChatStateChange={setIsChatOpen} />
+        <ChatWidget onChatStateChange={setIsChatOpen} />
         <WhatsAppButton isChatOpen={isChatOpen} />
         <InstallPrompt />
       </Suspense>
-      <MobileBottomNav onOpenQuote={() => setQuoteModalOpen(true)} />
+      <MobileBottomNav />
     </div>
   );
 }

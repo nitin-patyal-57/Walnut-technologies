@@ -11,7 +11,7 @@ const bottomNavItems = [
   { label: 'Contact', to: '/contact', icon: FiMessageCircle },
 ];
 
-export default function MobileBottomNav({ onOpenQuote }) {
+export default function MobileBottomNav() {
   const location = useLocation();
   const navigate = useNavigate();
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -91,18 +91,6 @@ export default function MobileBottomNav({ onOpenQuote }) {
             <span className="text-xs font-semibold text-violet-600">Install</span>
           </button>
         )}
-
-        {/* Quick Action Button */}
-        <button
-          onClick={onOpenQuote}
-          aria-label="Request Quote"
-          className="flex flex-col items-center gap-0.5 py-1 px-3"
-        >
-          <div className="p-1.5 rounded-xl bg-gradient-to-br from-emerald-500 to-green-500 text-white shadow-lg shadow-emerald-500/30">
-            <FiMessageCircle className="w-5 h-5" />
-          </div>
-          <span className="text-xs font-semibold text-emerald-600">Quote</span>
-        </button>
       </nav>
     </div>
   );
