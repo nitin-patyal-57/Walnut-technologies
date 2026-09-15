@@ -417,25 +417,18 @@ function ClientsCertifications() {
               </span>
             </div>
 
-            {/* Client Cards */}
-            <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Client Logos */}
+            <div className="px-5 pb-5 grid grid-cols-3 sm:grid-cols-3 gap-4">
               {clients.map((client, index) => (
                 <motion.div
                   key={client.name}
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
-                  className="group flex items-center gap-3 p-3 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
+                  className="group flex items-center justify-center p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-white border border-[#E3EDF8] flex items-center justify-center shrink-0 overflow-hidden p-1.5 group-hover:border-blue-200 transition-colors duration-300">
-                    <img src={client.logo} alt={client.name} width="44" height="44" className="w-full h-full object-contain" loading="lazy" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-xs font-bold text-[#09244D] leading-tight">{client.name}</h4>
-                    <p className="text-xs text-blue-500 font-medium mt-0.5">{t('clients.trusted')}</p>
-                  </div>
-                  <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <FiArrowRight className="w-3 h-3 text-slate-500" />
+                  <div className="w-24 h-24 rounded-lg bg-white border border-[#E3EDF8] flex items-center justify-center overflow-hidden p-2 group-hover:border-blue-200 transition-colors duration-300">
+                    <img src={client.logo} alt={client.name} width="96" height="96" className="w-full h-full object-contain" loading="lazy" />
                   </div>
                 </motion.div>
               ))}
