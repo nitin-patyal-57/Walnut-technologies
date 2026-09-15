@@ -167,7 +167,7 @@ function DivisionsPreview() {
       title: 'Digital Blood Pressure',
       category: t('divisions.medical'),
       desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
-      image: '/futuristic_medical_device_zoomed_out.webp',
+      image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
       link: '/solutions?category=Medical',
     },
     {
@@ -230,15 +230,15 @@ function DivisionsPreview() {
                 to={sol.link}
                 className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
               >
-                {/* Full Image */}
-                <div className="relative aspect-square overflow-hidden bg-slate-50">
-                  <img
-                    src={sol.image}
-                    alt={sol.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
+                  {/* Full Image */}
+                  <div className="relative aspect-square overflow-hidden bg-slate-50">
+                    <img
+                      src={sol.image}
+                      alt={sol.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
 
                 {/* Details Below Image */}
                 <div className="p-4 border-t border-slate-100">
@@ -427,7 +427,7 @@ function ClientsCertifications() {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
                   className="group flex items-center justify-center p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className="w-24 h-24 rounded-lg bg-white border border-[#E3EDF8] flex items-center justify-center overflow-hidden p-2 group-hover:border-blue-200 transition-colors duration-300">
+                  <div className="w-24 h-24 rounded-lg bg-white border border-[#E3EDF8] flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300">
                     <img src={client.logo} alt={client.name} width="96" height="96" className="w-full h-full object-contain" loading="lazy" />
                   </div>
                 </motion.div>
