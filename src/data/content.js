@@ -78,7 +78,7 @@ export const divisions = [
     products: [
       { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
       { name: 'IR Thermometer', image: '/TDCS.webp' },
-      { name: 'Oxygen Concentrator', image: '/futuristic_medical_device_zoomed_out.webp' },
+      { name: 'Oxygen Concentrator', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
       { name: 'Walnut Compressor Nebulizer', image: '/ces-repose.webp' },
     ],
   },
@@ -155,7 +155,7 @@ export const products = [
     category: 'Medical',
     title: 'Oxygen Concentrator',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings.',
-    image: '/futuristic_medical_device_zoomed_out.webp',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     features: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise Operation'],
   },
   {
@@ -448,7 +448,7 @@ export const expertise = [
     title: 'Medical Electronics',
     description: 'Life-critical medical device design and manufacturing with full regulatory compliance.',
     icon: 'heart',
-    image: '/futuristic_medical_device_zoomed_out.webp',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     areas: ['Patient Monitoring', 'Diagnostics', 'Neuro Rehab', 'Therapeutic Devices', 'Oxygen Concentrators'],
   },
   {
@@ -508,7 +508,7 @@ export const clientSectors = [
     description: 'Hospitals, clinics, and medical device companies',
     clients: ['Apollo Hospitals', 'Fortis', 'Manipal', 'Medanta'],
     icon: 'hospital',
-    image: '/futuristic_medical_device_zoomed_out.webp',
+    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     gradient: 'from-emerald-500 to-teal-600',
   },
   {

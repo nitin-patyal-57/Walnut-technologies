@@ -29,7 +29,7 @@ const stepImages = [
   '/soundbox-new.webp',
   '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
   '/soundbox-new.webp',
-  '/futuristic_medical_device_zoomed_out.webp',
+  '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
   '/neuro_rehab_device.webp',
   '/soundbox-new.webp',
   '/soundbox-new.webp',

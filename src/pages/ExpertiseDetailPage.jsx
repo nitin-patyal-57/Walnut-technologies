@@ -8,7 +8,7 @@ const expertiseData = {
   'medical-electronics': {
     title: 'Medical Electronics',
     subtitle: 'Life-Critical Precision Manufacturing',
-    heroImage: '/futuristic_medical_device_zoomed_out.webp',
+    heroImage: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     tagline: 'Engineering Trust in Every Heartbeat',
     intro: 'In healthcare, there is no margin for error. Walnut Technologies delivers ISO 13485 certified medical electronics that hospitals, clinics, and med-tech companies trust with patient lives. From concept to production, we manufacture devices that meet the most stringent global regulatory standards.',
     whyChooseUs: [

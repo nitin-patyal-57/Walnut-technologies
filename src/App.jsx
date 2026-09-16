@@ -29,6 +29,8 @@ const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const CareerPage = lazy(() => import('./pages/CareerPage'));
 const JobApplicationPage = lazy(() => import('./pages/JobApplicationPage'));
+const EvolutionDetailPage = lazy(() => import('./pages/EvolutionDetailPage'));
+const FutureDetailPage = lazy(() => import('./pages/FutureDetailPage'));
 
 function PageLoader() {
   return <PageSkeleton />;
@@ -66,6 +68,8 @@ function AppContent() {
           <Routes>
           <Route path="/" element={<ErrorBoundary isPageLevel><HomePage onOpenSchedule={() => setScheduleModalOpen(true)} /></ErrorBoundary>} />
           <Route path="/about" element={<ErrorBoundary isPageLevel><AboutPage /></ErrorBoundary>} />
+          <Route path="/about/evolution/:slug" element={<ErrorBoundary isPageLevel><EvolutionDetailPage /></ErrorBoundary>} />
+          <Route path="/about/future/:slug" element={<ErrorBoundary isPageLevel><FutureDetailPage /></ErrorBoundary>} />
           <Route path="/solutions" element={<ErrorBoundary isPageLevel><SolutionsPage /></ErrorBoundary>} />
           <Route path="/process" element={<ErrorBoundary isPageLevel><ProcessPage /></ErrorBoundary>} />
           <Route path="/expertise" element={<ErrorBoundary isPageLevel><ExpertisePage /></ErrorBoundary>} />
