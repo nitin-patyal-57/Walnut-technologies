@@ -1,6 +1,54 @@
 import { useRef, useEffect, useState } from 'react';
 import { FiArrowLeft, FiCheckCircle, FiShield, FiCpu, FiWifi, FiBattery, FiRadio, FiHardDrive, FiMonitor, FiSettings } from 'react-icons/fi';
 
+const soundboxProducts = [
+  {
+    id: 'rtos',
+    name: 'RTOS',
+    tagline: 'All In One',
+    image: '/RTOS.png',
+    description: 'All-in-one RTOS-based soundbox with multiple display configurations to suit every merchant need. Features QR generation and built-in keyboard for seamless payment operations.',
+    features: [
+      { label: '3.47" LCD Display', desc: 'Large customer-facing display for clear transaction visibility' },
+      { label: '2.8" LCD Display', desc: 'Compact LCD option for space-efficient deployment' },
+      { label: 'Segment Display', desc: 'Cost-effective segment display for basic transactions' },
+      { label: '2.4" Merchant Display', desc: 'Dedicated merchant-side display for operation feedback' },
+      { label: 'QR Generation', desc: 'On-device QR code generation for instant payment acceptance' },
+      { label: 'Built-in Keyboard', desc: 'Physical keyboard for quick amount entry and navigation' },
+    ],
+  },
+  {
+    id: 'dqr',
+    name: 'DQR',
+    tagline: 'Digital QR',
+    image: '/DQR.png',
+    description: 'Digital QR soundbox with LCD display for clear transaction visibility. A compact and efficient design built for modern payment acceptance with high-contrast digital display.',
+    features: [
+      { label: 'Digital QR Display', desc: 'High-contrast LCD for clear QR code presentation' },
+      { label: 'LCD Screen', desc: 'Bright display for transaction amount and confirmation' },
+      { label: 'Compact Design', desc: 'Space-saving form factor for any counter setup' },
+      { label: 'Clear Audio', desc: 'Loud and clear payment confirmation alerts' },
+      { label: 'Fast Processing', desc: 'Quick transaction processing for minimal wait times' },
+      { label: 'Easy Deployment', desc: 'Plug-and-play setup with minimal configuration' },
+    ],
+  },
+  {
+    id: 'ldqr',
+    name: 'LDQR',
+    tagline: 'Large Display QR',
+    image: '/LDQR.png',
+    description: 'Premium soundbox with a 10-inch touchscreen customer display and 2.4-inch merchant display with keyboard. Generate custom QR codes and accept NFC tap-and-pay contactless payments.',
+    features: [
+      { label: '10" Touch Screen', desc: 'Large interactive customer display for engagement' },
+      { label: '2.4" Merchant Display', desc: 'Dedicated screen for merchant-side operations' },
+      { label: 'Built-in Keyboard', desc: 'Physical keyboard for QR code generation and navigation' },
+      { label: 'Custom QR Generation', desc: 'Generate merchant-specific QR codes on demand' },
+      { label: 'NFC Tap and Pay', desc: 'Contactless payment acceptance via NFC technology' },
+      { label: 'Contactless Payments', desc: 'Support for tap-to-pay cards and mobile wallets' },
+    ],
+  },
+];
+
 const keyFeatures = [
   { icon: FiRadio, label: 'Types', value: 'Tabletop, Pocket, DQR' },
   { icon: FiWifi, label: 'Connectivity', value: 'LTE CAT 1 - 4G, 3G, 2G, BT, WiFi' },
@@ -83,6 +131,7 @@ function useAnimateOnScroll() {
 
 export default function ProductShowcase({ onBack }) {
   const [heroRef, heroVisible] = useAnimateOnScroll();
+  const [prodRef, prodVisible] = useAnimateOnScroll();
   const [featRef, featVisible] = useAnimateOnScroll();
   const [svcRef, svcVisible] = useAnimateOnScroll();
   const [tmsRef, tmsVisible] = useAnimateOnScroll();
@@ -96,6 +145,43 @@ export default function ProductShowcase({ onBack }) {
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
           <img src="/fintech-homebackground.webp" alt="Fintech Soundbox" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+        </div>
+      </section>
+
+      <section ref={prodRef} className="py-16 md:py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`text-center mb-14 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Soundbox Models</h2>
+            <p className="mt-3 text-slate-500 max-w-2xl mx-auto">Explore our range of payment soundboxes designed for every business need — from compact QR displays to premium touchscreen terminals.</p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {soundboxProducts.map((product, index) => (
+              <div key={product.id} className={`bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: prodVisible ? `${index * 100}ms` : '0ms' }}>
+                <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 p-6 flex items-center justify-center h-56 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">{product.tagline}</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0f172a] mb-2">{product.name}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{product.description}</p>
+                  <div className="space-y-3">
+                    {product.features.map((feature) => (
+                      <div key={feature.label} className="flex items-start gap-3">
+                        <FiCheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <div>
+                          <p className="text-sm font-semibold text-[#0f172a]">{feature.label}</p>
+                          <p className="text-xs text-slate-400">{feature.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
