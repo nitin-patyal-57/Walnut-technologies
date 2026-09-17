@@ -218,7 +218,7 @@ function DivisionsPreview() {
         </motion.div>
 
         {/* Solutions Grid - Full Images with Details Below */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
           {solutions.map((sol, i) => (
             <motion.div
               key={sol.num}
@@ -228,10 +228,10 @@ function DivisionsPreview() {
             >
               <Link
                 to={sol.link}
-                className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
+                className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 h-full flex flex-col"
               >
                   {/* Full Image */}
-                  <div className="relative aspect-square overflow-hidden bg-slate-50">
+                  <div className="relative aspect-square overflow-hidden bg-slate-50 flex-shrink-0">
                     <img
                       src={sol.image}
                       alt={sol.title}
@@ -241,7 +241,7 @@ function DivisionsPreview() {
                   </div>
 
                 {/* Details Below Image */}
-                <div className="p-4 border-t border-slate-100">
+                <div className="p-4 border-t border-slate-100 flex-1">
                   <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
                   <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
                   <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
