@@ -3,7 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   FiArrowRight, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight,
-  FiTrendingUp, FiUsers
+  FiTrendingUp, FiUsers, FiActivity, FiCpu, FiTool, FiBatteryCharging,
+  FiServer, FiBox, FiSmartphone, FiHeadphones, FiWifi
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
@@ -131,66 +132,166 @@ function JourneySection() {
       </div>
 
       {/* Journey Section */}
-      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-6 md:py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative bg-gradient-to-br from-slate-50 via-white to-slate-50 py-8 md:py-12 overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-50/50 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-50/50 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mb-8"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight mb-1">
-              Our Journey
+            <span className="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] mb-2 block">Our Journey</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display text-slate-900 leading-tight mb-2">
+              From Walnut Medical to <span className="text-blue-600">Walnut Technologies</span>
             </h2>
-            <div className="w-14 h-0.5 bg-blue-600 mx-auto rounded-full" />
+            <p className="text-sm text-slate-500 max-w-xl mx-auto">A journey of innovation, research and impact in the medical technology space.</p>
           </motion.div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Center line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 -translate-x-1/2" />
-            {/* Mobile left line */}
-            <div className="md:hidden absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200" />
-
-            <div className="space-y-4 md:space-y-0">
+          {/* Row 1: 2016-2020 */}
+          <div className="relative mb-6">
+            <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-0">
               {[
-                { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', side: 'left' },
-                { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', side: 'right' },
-                { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', side: 'left' },
-                { year: '2019', title: 'R&D and Innovation', desc: 'Introduced IR Thermometer, Digital BP Monitor.', side: 'right' },
-                { year: '2020', title: 'Respiratory Medical Devices', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', side: 'left' },
-                { year: '2021', title: 'Introduced Walnut Technologies', desc: 'Walnut Technologies — expanding beyond healthcare into full-spectrum electronics manufacturing.', side: 'right' },
-                { year: '2022', title: 'Fintech Electronics', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', side: 'left' },
-                { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', side: 'right' },
-                { year: '2024', title: 'Terminal Managing System', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', side: 'left' },
-                { year: '2025', title: 'Automotive Electronics', desc: 'Started Smart Instrument Cluster vertical.', side: 'right' },
-                { year: '2026', title: 'Consumer Electronics', desc: 'Scaling vertical of Consumer Electronics — IoT based.', side: 'left' },
+                { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', icon: FiActivity, color: 'blue' },
+                { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', icon: FiActivity, color: 'emerald' },
+                { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', icon: FiTool, color: 'violet' },
+                { year: '2019', title: 'OTC Devices', desc: 'Introduced IR Thermometer, Digital BP Monitor.', icon: FiBatteryCharging, color: 'orange' },
+                { year: '2020', title: 'Scaling Manufacturing', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', icon: FiBox, color: 'cyan' },
               ].map((item, i) => (
                 <motion.div
                   key={item.year}
-                  initial={{ opacity: 0, x: item.side === 'left' ? -30 : 30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
-                  className={`relative flex items-center md:justify-center ${item.side === 'right' ? 'md:flex-row-reverse' : ''}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                  className="flex-1 flex items-center"
                 >
-                  {/* Mobile dot */}
-                  <div className="md:hidden absolute left-4 w-3 h-3 rounded-full bg-blue-600 border-2 border-white shadow -translate-x-1/2 z-10" />
-
-                  {/* Content card */}
-                  <div className={`ml-8 md:ml-0 md:w-[calc(50%-2rem)] ${item.side === 'left' ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
-                    <div className="bg-white p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 group">
-                      <div className="flex items-center gap-2 mb-1 md:justify-end" style={{ justifyContent: item.side === 'right' ? 'flex-start' : undefined }}>
-                        <span className="text-lg font-black text-blue-600">{item.year}</span>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">●</span>
-                        <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">{item.title}</span>
+                  <div className="relative flex-1 group">
+                    {/* Arrow connector */}
+                    {i > 0 && (
+                      <div className="hidden md:flex absolute -left-3 top-1/2 -translate-y-1/2 z-20 w-6 h-6 rounded-full bg-white border-2 border-slate-200 items-center justify-center">
+                        <FiArrowRight className="w-3 h-3 text-slate-400" />
                       </div>
-                      <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                    )}
+                    {/* Card */}
+                    <div className="bg-white rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 p-4 md:p-5 h-full flex flex-col items-center text-center group-hover:-translate-y-1">
+                      {/* Year badge */}
+                      <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-black text-white bg-gradient-to-r ${
+                        item.color === 'blue' ? 'from-blue-500 to-blue-600' :
+                        item.color === 'emerald' ? 'from-emerald-500 to-emerald-600' :
+                        item.color === 'violet' ? 'from-violet-500 to-violet-600' :
+                        item.color === 'orange' ? 'from-orange-400 to-orange-500' :
+                        'from-cyan-400 to-cyan-500'
+                      } shadow-md mb-3`}>
+                        {item.year}
+                      </div>
+                      {/* Icon */}
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
+                        item.color === 'blue' ? 'bg-blue-50' :
+                        item.color === 'emerald' ? 'bg-emerald-50' :
+                        item.color === 'violet' ? 'bg-violet-50' :
+                        item.color === 'orange' ? 'bg-orange-50' :
+                        'bg-cyan-50'
+                      }`}>
+                        <item.icon className={`w-6 h-6 ${
+                          item.color === 'blue' ? 'text-blue-500' :
+                          item.color === 'emerald' ? 'text-emerald-500' :
+                          item.color === 'violet' ? 'text-violet-500' :
+                          item.color === 'orange' ? 'text-orange-500' :
+                          'text-cyan-500'
+                        }`} />
+                      </div>
+                      {/* Content */}
+                      <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
+                      <p className="text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
 
-                  {/* Desktop center dot */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-600 border-3 border-white shadow-lg z-10" />
+          {/* Connecting line from row 1 to row 2 */}
+          <div className="hidden md:flex justify-end px-8 mb-6">
+            <div className="flex items-center gap-0">
+              <div className="w-8 h-[2px] bg-cyan-300" />
+              <div className="w-[2px] h-6 bg-cyan-300" />
+              <div className="w-0 h-0 border-t-[4px] border-t-cyan-300 border-l-[4px] border-l-transparent border-b-[4px] border-b-transparent" />
+            </div>
+          </div>
+
+          {/* Row 2: 2021-2026 */}
+          <div className="relative">
+            <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-0">
+              {[
+                { year: '2021', title: 'Introducing Walnut Technologies', desc: 'Started non-medical applications, expanding our technology footprint beyond healthcare.', icon: FiCpu, color: 'blue' },
+                { year: '2022', title: 'Fintech Integration', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', icon: FiServer, color: 'emerald' },
+                { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', icon: FiBox, color: 'violet' },
+                { year: '2024', title: 'Advanced Manufacturing', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', icon: FiSmartphone, color: 'cyan', badge: 'Major Scale Milestone' },
+                { year: '2025', title: 'Electronics Manufacturing', desc: 'Started Smart Instrument Cluster vertical.', icon: FiCpu, color: 'rose' },
+                { year: '2026', title: 'Smart Cluster', desc: 'Scaling vertical of Consumer Electronics — IoT based.', icon: FiWifi, color: 'violet' },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.year}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
+                  className="flex-1 flex items-center"
+                >
+                  <div className="relative flex-1 group">
+                    {/* Arrow connector */}
+                    {i > 0 && (
+                      <div className="hidden md:flex absolute -left-3 top-1/2 -translate-y-1/2 z-20 w-6 h-6 rounded-full bg-white border-2 border-slate-200 items-center justify-center">
+                        <FiArrowRight className="w-3 h-3 text-slate-400" />
+                      </div>
+                    )}
+                    {/* Card */}
+                    <div className={`bg-white rounded-2xl border hover:shadow-xl transition-all duration-300 p-4 md:p-5 h-full flex flex-col items-center text-center group-hover:-translate-y-1 ${
+                      item.badge ? 'border-cyan-200 shadow-md' : 'border-slate-100 hover:border-blue-200'
+                    }`}>
+                      {/* Year badge */}
+                      <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-black text-white bg-gradient-to-r ${
+                        item.color === 'blue' ? 'from-blue-500 to-blue-600' :
+                        item.color === 'emerald' ? 'from-emerald-500 to-emerald-600' :
+                        item.color === 'violet' ? 'from-violet-500 to-violet-600' :
+                        item.color === 'cyan' ? 'from-cyan-400 to-cyan-500' :
+                        item.color === 'rose' ? 'from-rose-400 to-rose-500' :
+                        'from-violet-500 to-violet-600'
+                      } shadow-md mb-3`}>
+                        {item.year}
+                      </div>
+                      {/* Icon */}
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
+                        item.color === 'blue' ? 'bg-blue-50' :
+                        item.color === 'emerald' ? 'bg-emerald-50' :
+                        item.color === 'violet' ? 'bg-violet-50' :
+                        item.color === 'cyan' ? 'bg-cyan-50' :
+                        item.color === 'rose' ? 'bg-rose-50' :
+                        'bg-violet-50'
+                      }`}>
+                        <item.icon className={`w-6 h-6 ${
+                          item.color === 'blue' ? 'text-blue-500' :
+                          item.color === 'emerald' ? 'text-emerald-500' :
+                          item.color === 'violet' ? 'text-violet-500' :
+                          item.color === 'cyan' ? 'text-cyan-500' :
+                          item.color === 'rose' ? 'text-rose-500' :
+                          'text-violet-500'
+                        }`} />
+                      </div>
+                      {/* Content */}
+                      <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
+                      <p className="text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
+                      {item.badge && (
+                        <div className="mt-2 inline-flex items-center gap-1 px-2 py-0.5 bg-cyan-50 border border-cyan-100 rounded-full">
+                          <FiCheckCircle className="w-3 h-3 text-cyan-500" />
+                          <span className="text-[9px] font-bold text-cyan-600">{item.badge}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
