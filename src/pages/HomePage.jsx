@@ -132,29 +132,23 @@ function JourneySection() {
       </div>
 
       {/* Journey Section */}
-      <div className="relative bg-gradient-to-br from-slate-50 via-white to-slate-50 py-8 md:py-12 overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-50/50 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-50/50 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+      <div className="relative bg-gradient-to-br from-slate-50 via-white to-slate-50 py-3 md:py-4 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-2 sm:px-3 lg:px-4">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mb-8 md:mb-12"
+            transition={{ duration: 0.4, delay: 0.5 }}
+            className="text-center mb-2 md:mb-3"
           >
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] mb-2 block">Our Journey</span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display text-slate-900 leading-tight mb-2">
+            <span className="text-[9px] font-bold text-blue-600 uppercase tracking-[0.2em] block">Our Journey</span>
+            <h2 className="text-base md:text-xl lg:text-2xl font-black font-display text-slate-900 leading-tight">
               From Walnut Medical to <span className="text-blue-600">Walnut Technologies</span>
             </h2>
-            <p className="text-sm text-slate-500 max-w-xl mx-auto">A journey of innovation, research and impact in the medical technology space.</p>
           </motion.div>
 
           {/* Row 1: 2016-2020 */}
-          <div className="relative mb-6">
-            <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-0">
+          <div className="relative mb-1 md:mb-1.5">
+            <div className="flex flex-col md:flex-row items-stretch gap-1 md:gap-0">
               {[
                 { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', icon: FiActivity, color: 'blue' },
                 { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', icon: FiActivity, color: 'emerald' },
@@ -164,39 +158,35 @@ function JourneySection() {
               ].map((item, i) => (
                 <motion.div
                   key={item.year}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                  transition={{ duration: 0.3, delay: 0.6 + i * 0.06 }}
                   className="flex-1 flex items-center"
                 >
                   <div className="relative flex-1 group">
-                    {/* Arrow connector */}
                     {i > 0 && (
-                      <div className="hidden md:flex absolute -left-3 top-1/2 -translate-y-1/2 z-20 w-6 h-6 rounded-full bg-white border-2 border-slate-200 items-center justify-center">
-                        <FiArrowRight className="w-3 h-3 text-slate-400" />
+                      <div className="hidden md:flex absolute -left-1.5 top-1/2 -translate-y-1/2 z-20 w-3 h-3 rounded-full bg-white border-[1.5px] border-slate-300 items-center justify-center">
+                        <FiArrowRight className="w-1.5 h-1.5 text-slate-400" />
                       </div>
                     )}
-                    {/* Card */}
-                    <div className="bg-white rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 p-4 md:p-5 h-full flex flex-col items-center text-center group-hover:-translate-y-1">
-                      {/* Year badge */}
-                      <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-black text-white bg-gradient-to-r ${
+                    <div className="bg-white rounded-lg border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all duration-300 p-1.5 md:p-2 h-full flex flex-col items-center text-center">
+                      <div className={`inline-flex items-center px-2 py-[1px] rounded-full text-[8px] font-black text-white bg-gradient-to-r ${
                         item.color === 'blue' ? 'from-blue-500 to-blue-600' :
                         item.color === 'emerald' ? 'from-emerald-500 to-emerald-600' :
                         item.color === 'violet' ? 'from-violet-500 to-violet-600' :
                         item.color === 'orange' ? 'from-orange-400 to-orange-500' :
                         'from-cyan-400 to-cyan-500'
-                      } shadow-md mb-3`}>
+                      } shadow-sm mb-0.5`}>
                         {item.year}
                       </div>
-                      {/* Icon */}
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
+                      <div className={`w-5 h-5 md:w-6 md:h-6 rounded flex items-center justify-center mb-0.5 ${
                         item.color === 'blue' ? 'bg-blue-50' :
                         item.color === 'emerald' ? 'bg-emerald-50' :
                         item.color === 'violet' ? 'bg-violet-50' :
                         item.color === 'orange' ? 'bg-orange-50' :
                         'bg-cyan-50'
                       }`}>
-                        <item.icon className={`w-6 h-6 ${
+                        <item.icon className={`w-2.5 h-2.5 md:w-3 md:h-3 ${
                           item.color === 'blue' ? 'text-blue-500' :
                           item.color === 'emerald' ? 'text-emerald-500' :
                           item.color === 'violet' ? 'text-violet-500' :
@@ -204,9 +194,8 @@ function JourneySection() {
                           'text-cyan-500'
                         }`} />
                       </div>
-                      {/* Content */}
-                      <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
-                      <p className="text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
+                      <h3 className="text-[8px] md:text-[9px] font-bold text-slate-900 leading-tight">{item.title}</h3>
+                      <p className="text-[7px] text-slate-500 leading-snug hidden lg:block">{item.desc}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -214,18 +203,18 @@ function JourneySection() {
             </div>
           </div>
 
-          {/* Connecting line from row 1 to row 2 */}
-          <div className="hidden md:flex justify-end px-8 mb-6">
-            <div className="flex items-center gap-0">
-              <div className="w-8 h-[2px] bg-cyan-300" />
-              <div className="w-[2px] h-6 bg-cyan-300" />
-              <div className="w-0 h-0 border-t-[4px] border-t-cyan-300 border-l-[4px] border-l-transparent border-b-[4px] border-b-transparent" />
+          {/* Connecting line */}
+          <div className="hidden md:flex justify-end px-3 mb-1">
+            <div className="flex items-center">
+              <div className="w-3 h-[1.5px] bg-cyan-300" />
+              <div className="w-[1.5px] h-2 bg-cyan-300" />
+              <div className="w-0 h-0 border-t-[2.5px] border-t-cyan-300 border-l-[2.5px] border-l-transparent border-b-[2.5px] border-b-transparent" />
             </div>
           </div>
 
           {/* Row 2: 2021-2026 */}
           <div className="relative">
-            <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-0">
+            <div className="flex flex-col md:flex-row items-stretch gap-1 md:gap-0">
               {[
                 { year: '2021', title: 'Introducing Walnut Technologies', desc: 'Started non-medical applications, expanding our technology footprint beyond healthcare.', icon: FiCpu, color: 'blue' },
                 { year: '2022', title: 'Fintech Integration', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', icon: FiServer, color: 'emerald' },
@@ -236,35 +225,31 @@ function JourneySection() {
               ].map((item, i) => (
                 <motion.div
                   key={item.year}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.9 + i * 0.1 }}
+                  transition={{ duration: 0.3, delay: 0.8 + i * 0.06 }}
                   className="flex-1 flex items-center"
                 >
                   <div className="relative flex-1 group">
-                    {/* Arrow connector */}
                     {i > 0 && (
-                      <div className="hidden md:flex absolute -left-3 top-1/2 -translate-y-1/2 z-20 w-6 h-6 rounded-full bg-white border-2 border-slate-200 items-center justify-center">
-                        <FiArrowRight className="w-3 h-3 text-slate-400" />
+                      <div className="hidden md:flex absolute -left-1.5 top-1/2 -translate-y-1/2 z-20 w-3 h-3 rounded-full bg-white border-[1.5px] border-slate-300 items-center justify-center">
+                        <FiArrowRight className="w-1.5 h-1.5 text-slate-400" />
                       </div>
                     )}
-                    {/* Card */}
-                    <div className={`bg-white rounded-2xl border hover:shadow-xl transition-all duration-300 p-4 md:p-5 h-full flex flex-col items-center text-center group-hover:-translate-y-1 ${
-                      item.badge ? 'border-cyan-200 shadow-md' : 'border-slate-100 hover:border-blue-200'
+                    <div className={`bg-white rounded-lg border hover:shadow-md transition-all duration-300 p-1.5 md:p-2 h-full flex flex-col items-center text-center ${
+                      item.badge ? 'border-cyan-200 shadow-sm' : 'border-slate-100 hover:border-blue-200'
                     }`}>
-                      {/* Year badge */}
-                      <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-black text-white bg-gradient-to-r ${
+                      <div className={`inline-flex items-center px-2 py-[1px] rounded-full text-[8px] font-black text-white bg-gradient-to-r ${
                         item.color === 'blue' ? 'from-blue-500 to-blue-600' :
                         item.color === 'emerald' ? 'from-emerald-500 to-emerald-600' :
                         item.color === 'violet' ? 'from-violet-500 to-violet-600' :
                         item.color === 'cyan' ? 'from-cyan-400 to-cyan-500' :
                         item.color === 'rose' ? 'from-rose-400 to-rose-500' :
                         'from-violet-500 to-violet-600'
-                      } shadow-md mb-3`}>
+                      } shadow-sm mb-0.5`}>
                         {item.year}
                       </div>
-                      {/* Icon */}
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
+                      <div className={`w-5 h-5 md:w-6 md:h-6 rounded flex items-center justify-center mb-0.5 ${
                         item.color === 'blue' ? 'bg-blue-50' :
                         item.color === 'emerald' ? 'bg-emerald-50' :
                         item.color === 'violet' ? 'bg-violet-50' :
@@ -272,7 +257,7 @@ function JourneySection() {
                         item.color === 'rose' ? 'bg-rose-50' :
                         'bg-violet-50'
                       }`}>
-                        <item.icon className={`w-6 h-6 ${
+                        <item.icon className={`w-2.5 h-2.5 md:w-3 md:h-3 ${
                           item.color === 'blue' ? 'text-blue-500' :
                           item.color === 'emerald' ? 'text-emerald-500' :
                           item.color === 'violet' ? 'text-violet-500' :
@@ -281,13 +266,12 @@ function JourneySection() {
                           'text-violet-500'
                         }`} />
                       </div>
-                      {/* Content */}
-                      <h3 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h3>
-                      <p className="text-[11px] text-slate-500 leading-relaxed">{item.desc}</p>
+                      <h3 className="text-[8px] md:text-[9px] font-bold text-slate-900 leading-tight">{item.title}</h3>
+                      <p className="text-[7px] text-slate-500 leading-snug hidden lg:block">{item.desc}</p>
                       {item.badge && (
-                        <div className="mt-2 inline-flex items-center gap-1 px-2 py-0.5 bg-cyan-50 border border-cyan-100 rounded-full">
-                          <FiCheckCircle className="w-3 h-3 text-cyan-500" />
-                          <span className="text-[9px] font-bold text-cyan-600">{item.badge}</span>
+                        <div className="mt-0.5 inline-flex items-center gap-0.5 px-1 py-[0.5px] bg-cyan-50 border border-cyan-100 rounded-full">
+                          <FiCheckCircle className="w-1.5 h-1.5 text-cyan-500" />
+                          <span className="text-[6px] font-bold text-cyan-600">{item.badge}</span>
                         </div>
                       )}
                     </div>
