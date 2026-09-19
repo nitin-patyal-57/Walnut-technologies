@@ -16,7 +16,7 @@ const navLinks = [
       { label: 'Medical', to: '/solutions?category=Medical', image: '/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
       { label: 'Fintech', to: '/solutions?category=Fintech', image: '/DQR.webp', desc: 'Digital payment solutions' },
       { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/smartlock product dropdown.png', desc: 'Connected smart devices' },
-      { label: 'Automotive', to: '/solutions?category=Automotive', image: '/cluster-background.webp', desc: 'Smart instrument clusters' },
+      { label: 'Automotive', to: '/solutions?category=Automotive', image: '/cluster-background1.png', desc: 'Smart instrument clusters' },
     ],
   },
   { label: 'Expertise', to: '/expertise' },
@@ -145,22 +145,22 @@ export default function Navbar({ onOpenSchedule }) {
                     {link.dropdown && <FiChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                   </Link>
                   {link.dropdown && activeDropdown === link.label && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
                       <div className="flex items-stretch divide-x divide-slate-100">
                         {link.dropdown.map((item) => (
                           <Link
                             key={item.label}
                             to={item.to}
-                            className="group relative w-44 flex-shrink-0 block"
+                            className="group relative w-52 flex-shrink-0 block"
                             onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
                           >
-                            <div className="h-28 overflow-hidden">
+                            <div className="h-36 overflow-hidden">
                               <img src={item.image} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                             </div>
-                            <div className="absolute bottom-0 left-0 right-0 p-3">
+                            <div className="absolute bottom-0 left-0 right-0 p-4">
                               <div className="text-sm font-semibold text-white">{item.label}</div>
-                              <div className="text-[11px] text-white/80 mt-0.5">{item.desc}</div>
+                              <div className="text-xs text-white/80 mt-0.5">{item.desc}</div>
                             </div>
                           </Link>
                         ))}
