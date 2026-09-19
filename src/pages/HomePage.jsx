@@ -271,6 +271,7 @@ function DivisionsPreview() {
       category: t('divisions.robotics'),
       desc: 'Advanced Rehabilitation & Gait Training Systems',
       image: '/neuro_rehab_device.webp',
+      sideImage: '/Tilt Bed.png',
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {
@@ -341,22 +342,39 @@ function DivisionsPreview() {
                 to={sol.link}
                 className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 h-full flex flex-col"
               >
-                  {/* Full Image */}
-                  <div className="relative aspect-square overflow-hidden bg-slate-50 flex-shrink-0">
-                    <img
-                      src={sol.image}
-                      alt={sol.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-
-                {/* Details Below Image */}
-                <div className="p-4 border-t border-slate-100 flex-1">
-                  <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
-                  <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
+                {/* Full Image */}
+                <div className="relative aspect-square overflow-hidden bg-slate-50 flex-shrink-0">
+                  <img
+                    src={sol.image}
+                    alt={sol.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                  />
                 </div>
+
+                {sol.sideImage ? (
+                  <div className="flex flex-col sm:flex-row">
+                    <div className="p-4 border-t border-slate-100 flex-1">
+                      <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
+                      <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
+                      <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
+                    </div>
+                    <div className="w-full sm:w-40 h-32 sm:h-auto overflow-hidden border-t sm:border-t-0 sm:border-l border-slate-100 flex-shrink-0">
+                      <img
+                        src={sol.sideImage}
+                        alt={`${sol.title} - Tilt Bed`}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-4 border-t border-slate-100 flex-1">
+                    <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
+                    <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
+                    <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
+                  </div>
+                )}
               </Link>
             </motion.div>
           ))}
