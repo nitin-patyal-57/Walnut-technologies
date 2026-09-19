@@ -306,12 +306,12 @@ function ClientsCertifications() {
   ];
 
   const clients = [
-    { name: t('clients.client1'), logo: '/clients/hdfc.jpeg' },
-    { name: t('clients.client2'), logo: '/clients/sbi.jpeg' },
-    { name: t('clients.client3'), logo: '/clients/paytm.jpeg' },
-    { name: t('clients.client4'), logo: '/clients/bhartpe.jpeg' },
-    { name: t('clients.client5'), logo: '/clients/apollo.jpeg' },
-    { name: t('clients.client6'), logo: '/clients/indian-army.jpeg' },
+    { name: t('clients.client1'), logo: '/clients/hdfc.webp' },
+    { name: t('clients.client2'), logo: '/clients/sbi.webp' },
+    { name: t('clients.client3'), logo: '/clients/paytm.webp' },
+    { name: t('clients.client4'), logo: '/clients/bhartpe.webp' },
+    { name: t('clients.client5'), logo: '/clients/apollo.webp' },
+    { name: t('clients.client6'), logo: '/clients/indian-army.webp' },
   ];
 
   return (

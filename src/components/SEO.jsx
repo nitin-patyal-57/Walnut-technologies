@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 
 const SITE_NAME = 'Walnut Technologies';
 const DEFAULT_URL = 'https://walnutmedical.in';
-const DEFAULT_IMAGE = '/walnut-logo/Walnut_Technologies_logo_transparent.png';
+const DEFAULT_IMAGE = '/walnut-logo/Walnut_Technologies_logo_transparent.webp';
 
 export default function SEO({
   title,

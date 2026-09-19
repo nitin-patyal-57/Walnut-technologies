@@ -190,7 +190,7 @@ export default function CareerPage() {
                 "@type": "Organization",
                 "name": "Walnut Technologies Pvt. Ltd.",
                 "sameAs": "https://walnutmedical.in",
-                "logo": "https://walnutmedical.in/walnut-logo/Walnut_Technologies_logo_transparent.png"
+                "logo": "https://walnutmedical.in/walnut-logo/Walnut_Technologies_logo_transparent.webp"
               },
               "jobLocation": {
                 "@type": "Place",

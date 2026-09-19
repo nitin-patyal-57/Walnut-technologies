@@ -115,7 +115,7 @@ export default function Navbar({ onOpenSchedule }) {
             {/* Logo */}
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center group shrink-0">
               <img
-                src="/walnut-logo/Walnut_Technologies_logo_transparent.png"
+                src="/walnut-logo/Walnut_Technologies_logo_transparent.webp"
                 alt="Walnut Technologies"
                 width="160"
                 height="44"
@@ -261,7 +261,7 @@ export default function Navbar({ onOpenSchedule }) {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
               <div className="relative p-6">
                 <div className="flex items-center justify-between mb-4">
-                   <img src="/walnut-logo/Walnut_Technologies_logo_transparent.png" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
+                   <img src="/walnut-logo/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
                   <button
                     onClick={() => setIsSidebarOpen(false)}
                     aria-label="Close sidebar"
