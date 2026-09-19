@@ -131,17 +131,70 @@ function JourneySection() {
       </div>
 
       {/* Journey Section */}
-      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-4 md:py-6">
-        <div className="w-full">
+      <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-6 md:py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="rounded-lg overflow-hidden"
+            className="text-center mb-8"
           >
-            <img src="/journey.webp" alt="Our Journey" width="1200" height="400" className="w-full h-auto object-contain scale-95" loading="lazy" />
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight mb-1">
+              Our Journey
+            </h2>
+            <div className="w-14 h-0.5 bg-blue-600 mx-auto rounded-full" />
           </motion.div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Center line */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200 -translate-x-1/2" />
+            {/* Mobile left line */}
+            <div className="md:hidden absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-200 via-blue-400 to-blue-200" />
+
+            <div className="space-y-4 md:space-y-0">
+              {[
+                { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', side: 'left' },
+                { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', side: 'right' },
+                { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', side: 'left' },
+                { year: '2019', title: 'R&D and Innovation', desc: 'Introduced IR Thermometer, Digital BP Monitor.', side: 'right' },
+                { year: '2020', title: 'Respiratory Medical Devices', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', side: 'left' },
+                { year: '2021', title: 'Introduced Walnut Technologies', desc: 'Walnut Technologies — expanding beyond healthcare into full-spectrum electronics manufacturing.', side: 'right' },
+                { year: '2022', title: 'Fintech Electronics', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', side: 'left' },
+                { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', side: 'right' },
+                { year: '2024', title: 'Terminal Managing System', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', side: 'left' },
+                { year: '2025', title: 'Automotive Electronics', desc: 'Started Smart Instrument Cluster vertical.', side: 'right' },
+                { year: '2026', title: 'Consumer Electronics', desc: 'Scaling vertical of Consumer Electronics — IoT based.', side: 'left' },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.year}
+                  initial={{ opacity: 0, x: item.side === 'left' ? -30 : 30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
+                  className={`relative flex items-center md:justify-center ${item.side === 'right' ? 'md:flex-row-reverse' : ''}`}
+                >
+                  {/* Mobile dot */}
+                  <div className="md:hidden absolute left-4 w-3 h-3 rounded-full bg-blue-600 border-2 border-white shadow -translate-x-1/2 z-10" />
+
+                  {/* Content card */}
+                  <div className={`ml-8 md:ml-0 md:w-[calc(50%-2rem)] ${item.side === 'left' ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
+                    <div className="bg-white p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 group">
+                      <div className="flex items-center gap-2 mb-1 md:justify-end" style={{ justifyContent: item.side === 'right' ? 'flex-start' : undefined }}>
+                        <span className="text-lg font-black text-blue-600">{item.year}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">●</span>
+                        <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">{item.title}</span>
+                      </div>
+                      <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+
+                  {/* Desktop center dot */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-600 border-3 border-white shadow-lg z-10" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
