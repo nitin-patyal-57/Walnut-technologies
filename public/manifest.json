@@ -9,15 +9,15 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "/walnut-logo/WM_fevicon.png",
+      "src": "/walnut-logo/WM_fevicon.webp",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any maskable"
     },
     {
-      "src": "/walnut-logo/WM_fevicon.png",
+      "src": "/walnut-logo/WM_fevicon.webp",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any maskable"
     }
   ],

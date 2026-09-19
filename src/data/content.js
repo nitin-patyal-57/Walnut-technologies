@@ -97,9 +97,9 @@ export const divisions = [
       { name: 'Common Model', image: '/soundbox-new.webp' },
       { name: 'DQR: Double Display', image: '/soundbox-new.webp' },
       { name: 'All in One', image: '/soundbox-new.webp' },
-      { name: 'RTOS - All In One', image: '/RTOS.png' },
-      { name: 'DQR - Digital QR', image: '/DQR.png' },
-      { name: 'LDQR - Large Display QR', image: '/LDQR.png' },
+      { name: 'RTOS - All In One', image: '/RTOS.webp' },
+      { name: 'DQR - Digital QR', image: '/DQR.webp' },
+      { name: 'LDQR - Large Display QR', image: '/LDQR.webp' },
     ],
   },
   {
@@ -222,7 +222,7 @@ export const products = [
     category: 'Fintech',
     title: 'RTOS - All In One',
     description: 'All-in-one RTOS-based soundbox with multiple display configurations. Features 3.47" LCD display, 2.8" LCD display, and Segment display options with 2.4" merchant-side display. Equipped with QR generation and built-in keyboard for seamless payment operations.',
-    image: '/RTOS.png',
+    image: '/RTOS.webp',
     features: ['3.47" LCD Display', '2.8" LCD Display', 'Segment Display', '2.4" Merchant Display', 'QR Generation', 'Built-in Keyboard'],
   },
   {
@@ -230,7 +230,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR - Digital QR',
     description: 'Digital QR soundbox with LCD display for clear transaction visibility. Compact and efficient design for modern payment acceptance with high-contrast digital display.',
-    image: '/DQR.png',
+    image: '/DQR.webp',
     features: ['Digital QR Display', 'LCD Screen', 'Compact Design', 'Clear Audio', 'Fast Processing', 'Easy Deployment'],
   },
   {
@@ -238,7 +238,7 @@ export const products = [
     category: 'Fintech',
     title: 'LDQR - Large Display QR',
     description: 'Premium soundbox featuring a 10-inch touchscreen customer display and 2.4-inch merchant display with keyboard for generating custom QR codes. Supports NFC Tap and Pay for contactless payments.',
-    image: '/LDQR.png',
+    image: '/LDQR.webp',
     features: ['10" Touch Screen', '2.4" Merchant Display', 'Built-in Keyboard', 'Custom QR Generation', 'NFC Tap and Pay', 'Contactless Payments'],
   },
   {

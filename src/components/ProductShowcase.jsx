@@ -6,7 +6,7 @@ const soundboxProducts = [
     id: 'rtos',
     name: 'RTOS',
     tagline: 'All In One',
-    image: '/RTOS.png',
+    image: '/RTOS.webp',
     description: 'All-in-one RTOS-based soundbox with multiple display configurations to suit every merchant need. Features QR generation and built-in keyboard for seamless payment operations.',
     features: [
       { label: '3.47" LCD Display', desc: 'Large customer-facing display for clear transaction visibility' },
@@ -21,7 +21,7 @@ const soundboxProducts = [
     id: 'dqr',
     name: 'DQR',
     tagline: 'Digital QR',
-    image: '/DQR.png',
+    image: '/DQR.webp',
     description: 'Digital QR soundbox with LCD display for clear transaction visibility. A compact and efficient design built for modern payment acceptance with high-contrast digital display.',
     features: [
       { label: 'Digital QR Display', desc: 'High-contrast LCD for clear QR code presentation' },
@@ -36,7 +36,7 @@ const soundboxProducts = [
     id: 'ldqr',
     name: 'LDQR',
     tagline: 'Large Display QR',
-    image: '/LDQR.png',
+    image: '/LDQR.webp',
     description: 'Premium soundbox with a 10-inch touchscreen customer display and 2.4-inch merchant display with keyboard. Generate custom QR codes and accept NFC tap-and-pay contactless payments.',
     features: [
       { label: '10" Touch Screen', desc: 'Large interactive customer display for engagement' },
