@@ -255,6 +255,7 @@ function JourneySection() {
           </div>
         </div>
       </div>
+    </section>
   );
 }
 
