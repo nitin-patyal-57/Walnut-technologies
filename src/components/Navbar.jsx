@@ -12,10 +12,10 @@ const navLinks = [
     label: 'Products',
     to: '/solutions',
     dropdown: [
-      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/neuro_rehab_device.webp', desc: 'Advanced rehabilitation systems' },
+      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/ces-repose.webp', desc: 'Advanced rehabilitation systems' },
       { label: 'Medical', to: '/solutions?category=Medical', image: '/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
       { label: 'Fintech', to: '/solutions?category=Fintech', image: '/soundbox-new.webp', desc: 'Digital payment solutions' },
-      { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/iot-lock-smart.webp', desc: 'Connected smart devices' },
+      { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/cluster-background.webp', desc: 'Connected smart devices' },
       { label: 'Automotive', to: '/solutions?category=Automotive', image: '/cluster1.webp', desc: 'Smart instrument clusters' },
     ],
   },
@@ -145,7 +145,7 @@ export default function Navbar({ onOpenSchedule }) {
                     {link.dropdown && <FiChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                   </Link>
                   {link.dropdown && activeDropdown === link.label && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
                       <div className="flex items-stretch divide-x divide-slate-100">
                         {link.dropdown.map((item) => (
                           <Link
