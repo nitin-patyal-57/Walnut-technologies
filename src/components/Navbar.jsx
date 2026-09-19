@@ -128,7 +128,7 @@ export default function Navbar({ onOpenSchedule }) {
               {navLinks.map((link) => (
                 <div
                   key={link.label}
-                  className="relative pb-8"
+                  className="relative pb-2"
                   onMouseEnter={() => link.dropdown && setActiveDropdown(link.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
@@ -145,7 +145,7 @@ export default function Navbar({ onOpenSchedule }) {
                     {link.dropdown && <FiChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                   </Link>
                   {link.dropdown && activeDropdown === link.label && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
                       <div className="flex items-stretch divide-x divide-slate-100">
                         {link.dropdown.map((item) => (
                           <Link
