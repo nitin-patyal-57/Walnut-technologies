@@ -12,11 +12,11 @@ const navLinks = [
     label: 'Products',
     to: '/solutions',
     dropdown: [
-      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices' },
-      { label: 'Medical', to: '/solutions?category=Medical' },
-      { label: 'Fintech', to: '/solutions?category=Fintech' },
-      { label: 'IoT Solutions', to: '/solutions?category=IoT' },
-      { label: 'Automotive', to: '/solutions?category=Automotive' },
+      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/neuro_rehab_device.webp', desc: 'Advanced rehabilitation systems' },
+      { label: 'Medical', to: '/solutions?category=Medical', image: '/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
+      { label: 'Fintech', to: '/solutions?category=Fintech', image: '/soundbox-new.webp', desc: 'Digital payment solutions' },
+      { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/iot-lock-smart.webp', desc: 'Connected smart devices' },
+      { label: 'Automotive', to: '/solutions?category=Automotive', image: '/cluster1.webp', desc: 'Smart instrument clusters' },
     ],
   },
   { label: 'Expertise', to: '/expertise' },
@@ -145,17 +145,26 @@ export default function Navbar({ onOpenSchedule }) {
                     {link.dropdown && <FiChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                   </Link>
                   {link.dropdown && activeDropdown === link.label && (
-                    <div className={`absolute top-full left-0 mt-1 w-52 ${dropdownBg} border rounded-xl shadow-xl py-2`}>
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.label}
-                          to={item.to}
-                          className={`block px-4 py-2 text-[13px] ${dropdownText} transition-colors`}
-                          onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
+                      <div className="flex items-stretch divide-x divide-slate-100">
+                        {link.dropdown.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={item.to}
+                            className="group relative w-44 flex-shrink-0 block"
+                            onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
+                          >
+                            <div className="h-28 overflow-hidden">
+                              <img src={item.image} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 p-3">
+                              <div className="text-sm font-semibold text-white">{item.label}</div>
+                              <div className="text-[11px] text-white/80 mt-0.5">{item.desc}</div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
