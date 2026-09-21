@@ -271,7 +271,6 @@ function DivisionsPreview() {
       category: t('divisions.robotics'),
       desc: 'Advanced Rehabilitation & Gait Training Systems',
       image: '/neuro_rehab_device.webp',
-      sideImage: '/Tilt Bed.png',
       link: '/solutions?category=Neuro Rehab Devices',
     },
     {
