@@ -437,7 +437,7 @@ function StatsSection() {
   ];
 
   return (
-    <section className="relative mt-2 z-20">
+    <section className="relative mt-6 z-20">
       <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
           {stats.map((stat, index) => (
