@@ -384,6 +384,44 @@ function DivisionsPreview() {
   );
 }
 
+function HeroStats() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: '10+', label: t('stats.years') },
+    { value: '400+', label: t('stats.engineers') },
+    { value: '20+', label: t('stats.countries') },
+    { value: '500K+', label: t('stats.units') },
+    { value: '150,000 sq.ft', label: t('stats.facility') },
+    { value: '4', label: t('stats.smt') },
+  ];
+
+  return (
+    <section className="relative -mt-8 z-30">
+      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }}
+                className="text-center"
+              >
+                <div className="text-lg font-bold font-display text-cyan-400 mb-0.5">{stat.value}</div>
+                <div className="text-[10px] text-white/70 font-medium leading-tight">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function StatsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
@@ -659,6 +697,7 @@ export default function HomePage({ onOpenSchedule }) {
         keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
       />
       <Hero onOpenSchedule={onOpenSchedule} />
+      <HeroStats />
       <DivisionsPreview />
       <JourneySection />
       <StatsSection />
