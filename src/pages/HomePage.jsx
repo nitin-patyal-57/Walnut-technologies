@@ -659,6 +659,7 @@ export default function HomePage({ onOpenSchedule }) {
         keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
       />
       <Hero onOpenSchedule={onOpenSchedule} />
+      <StatsSection />
       <DivisionsPreview />
       <JourneySection />
       <StatsSection />

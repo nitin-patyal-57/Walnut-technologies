@@ -1,11 +1,23 @@
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero({ onOpenSchedule }) {
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const statsRef = useRef(null);
+  const statsInView = useInView(statsRef, { once: true, margin: '-80px' });
+
+  const stats = [
+    { value: '10+', label: t('stats.years') },
+    { value: '400+', label: t('stats.engineers') },
+    { value: '20+', label: t('stats.countries') },
+    { value: '500K+', label: t('stats.units') },
+    { value: '150,000 sq.ft', label: t('stats.facility') },
+    { value: '4', label: t('stats.smt') },
+  ];
 
   return (
     <section id="hero" className="relative min-h-[100dvh] min-h-screen flex flex-col overflow-hidden w-full">
@@ -77,6 +89,28 @@ export default function Hero({ onOpenSchedule }) {
                   </button>
                 </motion.div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Bar at Bottom of Hero */}
+      <div ref={statsRef} className="relative z-10 pb-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={statsInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+                  className="text-center"
+                >
+                  <div className="text-lg font-bold font-display text-cyan-400">{stat.value}</div>
+                  <div className="text-[10px] text-white/60 font-medium leading-tight">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
