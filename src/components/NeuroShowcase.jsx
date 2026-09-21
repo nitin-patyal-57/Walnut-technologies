@@ -106,31 +106,84 @@ export default function NeuroShowcase({ onBack }) {
         </div>
       </section>
 
-      <section ref={prodRef} className="py-16 md:py-24 bg-slate-50">
+      <section ref={prodRef} className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-12 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+          <div className={`text-center mb-14 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Our Product</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Our Products</h2>
+            <p className="text-slate-500 text-sm mt-3 max-w-lg mx-auto">Two powerful systems working together to deliver complete neuro rehabilitation — from gait retraining to therapeutic positioning.</p>
           </div>
-          <div className={`bg-white border border-slate-100 rounded-2xl p-6 lg:p-8 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <div className="flex items-start gap-5">
-              <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
-                <img src="/neuro_rehab_device.webp" alt="WalkLab" className="w-full h-full object-contain mix-blend-multiply" />
+
+          {/* WalkLab Card */}
+          <div className={`relative mb-8 rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="flex flex-col lg:flex-row">
+              {/* Image Side */}
+              <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_30%_50%,#3b82f6,transparent_60%)]" />
+                <img src="/walklab product dropdown.png" alt="WalkLab Gait Training System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
               </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-[#0f172a] text-lg leading-tight mb-1">WalkLab Gait Training System</h3>
-                <p className="text-blue-500 text-sm font-medium mb-2">Advanced rehabilitation robot</p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-3">Advanced rehabilitation robot for gait training and motor recovery. AI-assisted therapy with real-time patient monitoring and tele-rehab capabilities.</p>
-                <div className="flex flex-wrap gap-2">
-                  {['Rehabilitation Robot', 'AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready'].map((h) => (
-                    <span key={h} className="inline-flex items-center gap-1 bg-blue-50 text-blue-600 text-xs font-medium px-3 py-1.5 rounded-full">
-                      <FiCheckCircle className="w-3 h-3" />{h}
-                    </span>
+              {/* Content Side */}
+              <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-4 uppercase tracking-wider">
+                  <FiCpu className="w-3.5 h-3.5" /> Flagship Product
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-bold text-[#0f172a] mb-2 leading-tight">WalkLab Gait Training System</h3>
+                <p className="text-blue-500 font-semibold text-sm mb-4">Advanced Rehabilitation Robot</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">An AI-powered robotic system for gait training and motor recovery. Combines real-time patient monitoring with adaptive therapy protocols for accelerated rehabilitation outcomes.</p>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {[
+                    { icon: FiActivity, label: 'Real-time Gait Analysis' },
+                    { icon: FiCpu, label: 'AI-Assisted Therapy' },
+                    { icon: FiHeart, label: 'Patient Dashboard' },
+                    { icon: FiWifi, label: 'Tele-Rehab Ready' },
+                  ].map((f) => (
+                    <div key={f.label} className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
+                        <f.icon className="w-3.5 h-3.5 text-blue-500" />
+                      </div>
+                      <span className="font-medium">{f.label}</span>
+                    </div>
                   ))}
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Tilt Bed Card */}
+          <div className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: prodVisible ? '150ms' : '0ms' }}>
+            <div className="flex flex-col lg:flex-row-reverse">
+              {/* Image Side */}
+              <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_70%_50%,#3b82f6,transparent_60%)]" />
+                <img src="/Tilt Bed.png" alt="Tilt Bed Therapeutic Positioning System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
+              </div>
+              {/* Content Side */}
+              <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-4 uppercase tracking-wider">
+                  <FiTarget className="w-3.5 h-3.5" /> Therapeutic System
+                </div>
+                <h3 className="text-2xl lg:text-3xl font-bold text-[#0f172a] mb-2 leading-tight">Tilt Bed</h3>
+                <p className="text-blue-500 font-semibold text-sm mb-4">Therapeutic Positioning System</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">A specialized tilt table engineered for early mobilization and progressive weight-bearing therapy. Enables safe, controlled positional training for patients recovering from neurological conditions.</p>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {[
+                    { icon: FiTarget, label: 'Postural Training' },
+                    { icon: FiActivity, label: 'Weight-Bearing Therapy' },
+                    { icon: FiShield, label: 'Patient Safety' },
+                    { icon: FiZap, label: 'Adjustable Angles' },
+                  ].map((f) => (
+                    <div key={f.label} className="flex items-center gap-2 text-sm text-slate-700">
+                      <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
+                        <f.icon className="w-3.5 h-3.5 text-blue-500" />
+                      </div>
+                      <span className="font-medium">{f.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
