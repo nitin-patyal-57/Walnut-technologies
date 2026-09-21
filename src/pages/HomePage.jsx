@@ -472,8 +472,8 @@ function ClientsCertifications() {
   ];
 
   const clients = [
-    { name: t('clients.client1'), logo: '/clients/hdfc.webp' },
-    { name: t('clients.client2'), logo: '/clients/sbi.webp' },
+    { name: t('clients.client1'), logo: '/clients/hdfc-logo.png' },
+    { name: t('clients.client2'), logo: '/clients/sbi-logo.png' },
     { name: t('clients.client3'), logo: '/clients/paytm.webp' },
     { name: t('clients.client4'), logo: '/clients/bhartpe.webp' },
     { name: t('clients.client5'), logo: '/clients/apollo.webp' },
@@ -593,7 +593,7 @@ function ClientsCertifications() {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
                   className="group flex items-center justify-center p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className="w-24 h-24 rounded-lg bg-white border border-[#E3EDF8] flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300">
+                  <div className="w-24 h-24 rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300">
                     <img src={client.logo} alt={client.name} width="96" height="96" className="w-full h-full object-contain" loading="lazy" />
                   </div>
                 </motion.div>
