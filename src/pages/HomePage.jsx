@@ -593,8 +593,8 @@ function ClientsCertifications() {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
                   className="group flex items-center justify-center p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className="w-24 h-24 rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300">
-                    <img src={client.logo} alt={client.name} width="96" height="96" className="w-full h-full object-contain" loading="lazy" />
+                  <div className={`rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300 ${client.logo.includes('bhartpe') ? 'w-36 h-36' : 'w-24 h-24'}`}>
+                    <img src={client.logo} alt={client.name} width="96" height="96" className={`w-full h-full ${client.logo.includes('bhartpe') ? 'object-cover' : 'object-contain'}`} loading="lazy" />
                   </div>
                 </motion.div>
               ))}
