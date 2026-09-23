@@ -52,6 +52,15 @@ export default {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
       },
+      fontSize: {
+        xl: '1.375rem',
+        '2xl': '1.625rem',
+        '3xl': '2rem',
+        '4xl': '2.5rem',
+        '5xl': '3.25rem',
+        '6xl': '4rem',
+        '7xl': '4.75rem',
+      },
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
