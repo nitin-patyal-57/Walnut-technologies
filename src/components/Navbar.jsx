@@ -40,6 +40,7 @@ export default function Navbar({ onOpenSchedule }) {
   const navigate = useNavigate();
   const mobileMenuButtonRef = useRef(null);
   const previousFocusRef = useRef(null);
+  const dropdownCloseTimer = useRef(null);
 
   const isHomePage = location.pathname === '/';
 
@@ -129,8 +130,21 @@ export default function Navbar({ onOpenSchedule }) {
                 <div
                   key={link.label}
                   className="relative pb-2"
-                  onMouseEnter={() => link.dropdown && setActiveDropdown(link.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => {
+                    if (dropdownCloseTimer.current) {
+                      clearTimeout(dropdownCloseTimer.current);
+                      dropdownCloseTimer.current = null;
+                    }
+                    setActiveDropdown(link.dropdown ? link.label : null);
+                  }}
+                  onMouseLeave={() => {
+                    if (!link.dropdown) return;
+                    if (dropdownCloseTimer.current) clearTimeout(dropdownCloseTimer.current);
+                    dropdownCloseTimer.current = setTimeout(() => {
+                      setActiveDropdown(null);
+                      dropdownCloseTimer.current = null;
+                    }, 300);
+                  }}
                 >
                   <Link
                     to={link.to}
@@ -145,25 +159,27 @@ export default function Navbar({ onOpenSchedule }) {
                     {link.dropdown && <FiChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                   </Link>
                   {link.dropdown && activeDropdown === link.label && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 ${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
-                      <div className="flex items-stretch divide-x divide-slate-100">
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.label}
-                            to={item.to}
-                            className="group relative w-52 flex-shrink-0 block"
-                            onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
-                          >
-                            <div className="h-36 overflow-hidden">
-                              <img src={item.image} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                            </div>
-                            <div className="absolute bottom-0 left-0 right-0 p-4">
-                              <div className="text-sm font-semibold text-white">{item.label}</div>
-                              <div className="text-xs text-white/80 mt-0.5">{item.desc}</div>
-                            </div>
-                          </Link>
-                        ))}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
+                      <div className={`${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
+                        <div className="flex items-stretch divide-x divide-slate-100">
+                          {link.dropdown.map((item) => (
+                            <Link
+                              key={item.label}
+                              to={item.to}
+                              className="group relative w-52 flex-shrink-0 block"
+                              onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
+                            >
+                              <div className="h-36 overflow-hidden">
+                                <img src={item.image} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                              </div>
+                              <div className="absolute bottom-0 left-0 right-0 p-4">
+                                <div className="text-sm font-semibold text-white">{item.label}</div>
+                                <div className="text-xs text-white/80 mt-0.5">{item.desc}</div>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}

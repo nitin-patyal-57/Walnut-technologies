@@ -369,7 +369,7 @@ export default function Solutions() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const specificProductId = searchParams.get('product');
   const categoryParam = searchParams.get('category');
 
@@ -389,6 +389,15 @@ export default function Solutions() {
   }, [specificProductId, categoryParam]);
 
   const [selectedDivision, setSelectedDivision] = useState(initialDivision);
+
+  useEffect(() => {
+    setSelectedDivision(initialDivision);
+  }, [initialDivision]);
+
+  const handleBack = () => {
+    setSelectedDivision(null);
+    setSearchParams({}, { replace: true });
+  };
 
   useEffect(() => {
     if (selectedDivision) {
@@ -495,35 +504,35 @@ export default function Solutions() {
             <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
               <ProductShowcase
                 key="fintech-showcase"
-                onBack={() => setSelectedDivision(null)}
+                onBack={handleBack}
               />
             </Suspense>
           ) : selectedDivision?.id === 'medical' ? (
             <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
               <MedicalShowcase
                 key="medical-showcase"
-                onBack={() => setSelectedDivision(null)}
+                onBack={handleBack}
               />
             </Suspense>
           ) : selectedDivision?.id === 'neuro' ? (
             <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
               <NeuroShowcase
                 key="neuro-showcase"
-                onBack={() => setSelectedDivision(null)}
+                onBack={handleBack}
               />
             </Suspense>
           ) : selectedDivision?.id === 'iot' ? (
             <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
               <IoTShowcase
                 key="iot-showcase"
-                onBack={() => setSelectedDivision(null)}
+                onBack={handleBack}
               />
             </Suspense>
           ) : selectedDivision?.id === 'automotive' ? (
             <Suspense fallback={<div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
               <AutomotiveShowcase
                 key="automotive-showcase"
-                onBack={() => setSelectedDivision(null)}
+                onBack={handleBack}
               />
             </Suspense>
           ) : (
@@ -537,7 +546,7 @@ export default function Solutions() {
               {/* Back */}
               <div className="flex items-center gap-4 mb-8">
                 <button
-                  onClick={() => setSelectedDivision(null)}
+                  onClick={handleBack}
                   className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-full hover:border-slate-300 hover:text-slate-900 transition-all shadow-sm hover:shadow-md"
                 >
                   <FiArrowLeft className="w-4 h-4" />
