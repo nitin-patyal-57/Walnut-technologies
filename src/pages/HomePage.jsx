@@ -308,7 +308,7 @@ function DivisionsPreview() {
   ];
 
   return (
-    <section id="divisions-preview" className="relative py-10 md:py-16 bg-white" ref={ref}>
+    <section id="divisions-preview" className="relative pt-2 pb-10 md:pb-16 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -399,7 +399,7 @@ function HeroStats() {
   ];
 
   return (
-    <section className="relative -mt-8 z-30">
+    <section className="relative -mt-12 z-30">
       <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
