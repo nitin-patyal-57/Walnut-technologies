@@ -273,6 +273,7 @@ function DivisionsPreview() {
       image: '/neuro_rehab_device.webp',
       link: '/solutions?category=Neuro Rehab Devices',
       zoom: true,
+      imgClass: 'object-[center_25%]',
     },
     {
       num: '02',
@@ -349,7 +350,7 @@ function DivisionsPreview() {
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className={`w-full h-full object-cover object-center transition-transform duration-700 ${sol.imgClass || (sol.zoom ? 'scale-[1.07] group-hover:scale-[1.14]' : 'group-hover:scale-110')}`}
+                    className={`w-full h-full object-cover ${sol.imgClass || 'object-center'} transition-transform duration-700 ${sol.zoom ? 'scale-[1.07] group-hover:scale-[1.14]' : 'group-hover:scale-110'}`}
                   />
                 </div>
 
