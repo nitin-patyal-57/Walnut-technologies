@@ -449,7 +449,7 @@ export default function Solutions() {
               <HeroBanner onSelect={setSelectedDivision} />
 
               {/* Centered Title */}
-              <div className="text-center mb-12 mt-12">
+              <div id="categories" className="text-center mb-12 mt-12 scroll-mt-20">
                 <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">OUR PRODUCTS</p>
                 <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900 mb-3 leading-tight">
                   End-to-End Solutions for Global Brands
