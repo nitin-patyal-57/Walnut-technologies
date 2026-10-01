@@ -94,10 +94,10 @@ function HeroBanner({ onSelect }) {
               </button>
             </div>
             {/* Trust badges */}
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex -space-x-2 shrink-0">
                 {divisionsList.map((d, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: d.color }}>
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shrink-0" style={{ backgroundColor: d.color }}>
                     {d.initial}
                   </div>
                 ))}
@@ -544,7 +544,7 @@ export default function Solutions() {
               transition={{ duration: 0.3 }}
             >
               {/* Back */}
-              <div className="flex items-center gap-4 mb-8">
+            <div className="flex flex-wrap items-center gap-4 mb-8">
                 <button
                   onClick={handleBack}
                   className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-full hover:border-slate-300 hover:text-slate-900 transition-all shadow-sm hover:shadow-md"

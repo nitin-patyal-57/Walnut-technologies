@@ -220,7 +220,7 @@ export default function CareerPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-14 md:pb-14">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div ref={ref}>
               <motion.p
@@ -358,7 +358,7 @@ export default function CareerPage() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-12">
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-12">
             {teams.map((team, i) => (
               <AnimatedSection key={team.name} delay={i * 0.04}>
                 <div className="group text-center">
@@ -371,7 +371,7 @@ export default function CareerPage() {
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                   </div>
-                   <p className="text-xs md:text-xs font-semibold text-slate-700">{team.name}</p>
+                   <p className="text-xs md:text-xs font-semibold text-slate-700 break-words">{team.name}</p>
                 </div>
               </AnimatedSection>
             ))}

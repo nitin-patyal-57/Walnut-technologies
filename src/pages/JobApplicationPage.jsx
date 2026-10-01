@@ -231,7 +231,7 @@ export default function JobApplicationPage() {
       </div>
 
       {/* Progress Bar */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-30">
+      <div className="bg-white border-b border-slate-200 sticky top-14 z-30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4 overflow-x-auto">
             {steps.map((step, i) => {
@@ -264,7 +264,7 @@ export default function JobApplicationPage() {
                     <span className="text-sm font-semibold hidden sm:inline">{step.label}</span>
                   </button>
                   {i < steps.length - 1 && (
-                    <div className={`w-8 h-0.5 mx-2 ${isCompleted ? 'bg-emerald-300' : 'bg-slate-200'}`} />
+                    <div className={`hidden sm:block w-8 h-0.5 mx-2 ${isCompleted ? 'bg-emerald-300' : 'bg-slate-200'}`} />
                   )}
                 </div>
               );
@@ -623,7 +623,7 @@ export default function JobApplicationPage() {
               type="button"
               onClick={prevStep}
               disabled={currentStep === 1}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                 currentStep === 1
                   ? 'bg-slate-100 text-slate-300 cursor-not-allowed'
                   : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-400 hover:text-slate-900'
@@ -636,7 +636,7 @@ export default function JobApplicationPage() {
               <button
                 type="button"
                 onClick={nextStep}
-                className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 hover:bg-blue-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-slate-900/10"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 bg-slate-900 hover:bg-blue-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-slate-900/10"
               >
                 Continue
                 <FiChevronRight className="w-4 h-4" />

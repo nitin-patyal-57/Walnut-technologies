@@ -66,7 +66,7 @@ function NewsModal({ item, onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm overflow-y-auto"
+      className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       <div className="min-h-screen flex items-start justify-center p-4 py-8 lg:py-12">
@@ -97,7 +97,7 @@ function NewsModal({ item, onClose }) {
 
             {/* Bottom overlay content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
                 <span className={`text-[11px] font-bold ${config.tag} px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm`}>
                   {item.category}
                 </span>
@@ -607,7 +607,7 @@ export default function News() {
                               />
                             </div>
                             <div className="p-5 flex-1">
-                              <div className="flex items-center gap-2 mb-2">
+                              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
                                 <span className={`text-[10px] font-bold ${config.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
                                   {item.category}
                                 </span>

@@ -8,7 +8,7 @@ export default function Hero({ onOpenSchedule }) {
   const navigate = useNavigate();
 
   return (
-    <section id="hero" className="relative min-h-[100dvh] min-h-screen flex flex-col overflow-hidden w-full">
+    <section id="hero" className="relative min-h-[100dvh] flex flex-col overflow-hidden w-full">
       <div className="absolute inset-0">
         <img
           src="/home-background.webp"

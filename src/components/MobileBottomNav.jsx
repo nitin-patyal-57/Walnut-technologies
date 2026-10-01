@@ -53,7 +53,7 @@ export default function MobileBottomNav() {
               key={item.label}
               onClick={() => navigate(item.to)}
               aria-label={item.label}
-              className="flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl transition-all relative"
+              className="flex flex-col items-center gap-0.5 py-1 px-1.5 sm:px-3 rounded-xl transition-all relative flex-1 min-w-0"
             >
               {active && (
                 <motion.div
@@ -69,7 +69,7 @@ export default function MobileBottomNav() {
               }`}>
                 <Icon className="w-5 h-5" />
               </div>
-              <span className={`text-xs font-semibold transition-all ${
+              <span className={`text-[10px] sm:text-xs font-semibold transition-all truncate w-full text-center ${
                 active ? 'text-cyan-600' : 'text-slate-500'
               }`}>
                 {item.label}
@@ -83,12 +83,12 @@ export default function MobileBottomNav() {
           <button
             onClick={handleInstall}
             aria-label="Install App"
-            className="flex flex-col items-center gap-0.5 py-1 px-3"
+            className="flex flex-col items-center gap-0.5 py-1 px-1.5 sm:px-3 flex-1 min-w-0"
           >
             <div className="p-1.5 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 text-white shadow-lg shadow-violet-500/30">
               <FiDownload className="w-5 h-5" />
             </div>
-            <span className="text-xs font-semibold text-violet-600">Install</span>
+            <span className="text-[10px] sm:text-xs font-semibold text-violet-600 truncate w-full text-center">Install</span>
           </button>
         )}
       </nav>

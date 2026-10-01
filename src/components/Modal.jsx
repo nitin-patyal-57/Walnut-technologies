@@ -29,7 +29,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'max-w-
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[60] flex items-start sm:items-center justify-center overflow-y-auto p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -48,7 +48,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'max-w-
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className={`relative ${size} w-full bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden focus:outline-none`}
+            className={`relative ${size} w-full my-auto bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden focus:outline-none`}
           >
             <div className="flex items-center justify-between p-6 border-b border-slate-200">
               <h3 className="text-xl font-semibold text-slate-900">{title}</h3>

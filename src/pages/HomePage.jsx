@@ -47,7 +47,7 @@ function JourneySection() {
           </motion.div>
 
           {/* Circle Grid - Row 1 (5 items) */}
-          <div className="flex justify-center items-center gap-1 sm:gap-2 md:gap-4 mb-1 overflow-x-auto scrollbar-hide px-1">
+          <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-4 mb-1 px-1">
             {processImages.slice(0, 5).map((item, i) => (
               <motion.div
                 key={i}
@@ -86,7 +86,7 @@ function JourneySection() {
           </div>
 
           {/* Circle Grid - Row 2 (5 items) */}
-          <div className="flex justify-center items-center gap-1 sm:gap-2 md:gap-4 overflow-x-auto scrollbar-hide px-1">
+          <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-4 px-1">
             {processImages.slice(5, 10).map((item, i) => (
               <motion.div
                 key={i}
@@ -521,7 +521,7 @@ function ClientsCertifications() {
             className="relative bg-white rounded-2xl border border-[#E3EDF8] shadow-[0_2px_20px_rgba(0,0,0,0.04)] overflow-hidden"
           >
             {/* Panel Header */}
-            <div className="p-5 pb-4 flex items-start justify-between">
+            <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-500/20">
                   <FiShield className="w-5 h-5 text-white" />
@@ -569,7 +569,7 @@ function ClientsCertifications() {
             className="relative bg-white rounded-2xl border border-[#E3EDF8] shadow-[0_2px_20px_rgba(0,0,0,0.04)] overflow-hidden"
           >
             {/* Panel Header */}
-            <div className="p-5 pb-4 flex items-start justify-between">
+            <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md shadow-blue-600/20">
                   <FiUsers className="w-5 h-5 text-white" />
@@ -585,16 +585,16 @@ function ClientsCertifications() {
             </div>
 
             {/* Client Logos */}
-            <div className="px-5 pb-5 grid grid-cols-3 sm:grid-cols-3 gap-4">
+            <div className="px-5 pb-5 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
               {clients.map((client, index) => (
                 <motion.div
                   key={client.name}
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
-                  className="group flex items-center justify-center p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
+                  className="group flex items-center justify-center p-2 sm:p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
-                  <div className={`rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300 ${client.logo.includes('bhartpe') ? 'w-36 h-36' : 'w-24 h-24'}`}>
+                  <div className={`rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300 ${client.logo.includes('bhartpe') ? 'w-24 h-24 sm:w-36 sm:h-36' : 'w-16 h-16 sm:w-24 sm:h-24'}`}>
                     <img src={client.logo} alt={client.name} width="96" height="96" className={`w-full h-full ${client.logo.includes('bhartpe') ? 'object-cover' : 'object-contain'}`} loading="lazy" />
                   </div>
                 </motion.div>

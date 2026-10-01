@@ -192,7 +192,7 @@ export default function EvolutionDetailPage() {
                   <span>{data.year}</span>
                 </div>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-display text-white mb-4 leading-none">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-display text-white mb-4 leading-none">
                 {data.title}
               </h1>
               <p className="text-xl text-white/60 max-w-2xl">{data.subtitle}</p>
@@ -214,7 +214,7 @@ export default function EvolutionDetailPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-black font-display bg-gradient-to-r ${data.color} bg-clip-text text-transparent leading-tight`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-display bg-gradient-to-r ${data.color} bg-clip-text text-transparent leading-tight`}>
               {data.bigStatement}
             </h2>
             <p className="text-lg text-slate-500 mt-6 max-w-2xl mx-auto">{data.intro}</p>
@@ -329,8 +329,8 @@ export default function EvolutionDetailPage() {
             Key Milestones
           </motion.h2>
           <div className="relative">
-            <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-            <div className="grid grid-cols-3 gap-4">
+            <div className="hidden sm:block absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {data.timeline.map((item, i) => (
                 <motion.div
                   key={item.year}

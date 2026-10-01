@@ -394,7 +394,7 @@ export default function ExpertiseDetailPage() {
               <span className="inline-block px-4 py-1.5 text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
                 {data.subtitle}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-display text-white mb-6 leading-tight">
                 {data.title}
               </h1>
               <p className="text-xl text-blue-400 font-display italic mb-6">{data.tagline}</p>
@@ -432,7 +432,7 @@ export default function ExpertiseDetailPage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold font-display text-slate-900">{stat.value}</div>
+                <div className="text-2xl md:text-4xl font-bold font-display text-slate-900">{stat.value}</div>
                 <div className="text-sm text-slate-500 mt-1">{stat.label}</div>
               </motion.div>
             ))}
@@ -602,8 +602,8 @@ export default function ExpertiseDetailPage() {
                       <span>{brand.phone}</span>
                     </a>
                     <a href={`mailto:${brand.email}`} className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors">
-                      <FiMail className="w-5 h-5 text-blue-400" />
-                      <span>{brand.email}</span>
+                      <FiMail className="w-5 h-5 text-blue-400 shrink-0" />
+                      <span className="break-all">{brand.email}</span>
                     </a>
                     <div className="flex items-start gap-4 text-slate-300">
                       <FiGlobe className="w-5 h-5 text-blue-400 mt-0.5" />

@@ -150,7 +150,7 @@ export default function ChatWidget({ onChatStateChange }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.97 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-32 lg:bottom-20 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] h-[460px] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-32 lg:bottom-20 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[calc(100dvh-9rem)] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
           >
             <div className="p-3 border-b border-slate-200 bg-white">
               <div className="flex items-center gap-2.5">

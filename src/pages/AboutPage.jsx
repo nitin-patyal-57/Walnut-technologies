@@ -53,7 +53,7 @@ export default function AboutPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 lg:py-0 w-full">
           <div className="max-w-lg">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -152,7 +152,7 @@ export default function AboutPage() {
                     className="w-full h-[320px] object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-8 -right-6 lg:-right-10 z-20 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                <div className="absolute -bottom-8 -right-2 sm:-right-6 lg:-right-10 z-20 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                   <img
                     src="/Walnut_About_Page_Images_Single/04_Engineering_Team.webp"
                     alt="Engineering Team"
@@ -190,8 +190,8 @@ export default function AboutPage() {
                   { value: '500K+', label: 'Units / Month' },
                   { value: '20+', label: 'Countries Served' },
                 ].map((stat) => (
-                  <div key={stat.label} className="p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
-                    <div className="text-xl font-black text-blue-600">{stat.value}</div>
+                  <div key={stat.label} className="p-2 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
+                    <div className="text-lg sm:text-xl font-black text-blue-600">{stat.value}</div>
                     <div className="text-[11px] text-slate-500 font-medium">{stat.label}</div>
                   </div>
                 ))}
@@ -459,7 +459,7 @@ export default function AboutPage() {
                   />
                 </div>
                 {/* Floating badge */}
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100">
+                <div className="absolute -bottom-6 -right-2 sm:-right-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center">
                       <FiCheckCircle className="w-6 h-6 text-white" />

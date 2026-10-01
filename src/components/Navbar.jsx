@@ -159,14 +159,14 @@ export default function Navbar({ onOpenSchedule }) {
                     {link.dropdown && <FiChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                   </Link>
                   {link.dropdown && activeDropdown === link.label && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
+                    <div className="fixed top-14 left-1/2 -translate-x-1/2">
                       <div className={`${dropdownBg} border rounded-2xl shadow-2xl overflow-hidden`}>
                         <div className="flex items-stretch divide-x divide-slate-100">
                           {link.dropdown.map((item) => (
                             <Link
                               key={item.label}
                               to={item.to}
-                              className="group relative w-52 flex-shrink-0 block"
+                              className="group relative w-44 xl:w-52 flex-shrink-0 block"
                               onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
                             >
                               <div className="h-36 overflow-hidden">
