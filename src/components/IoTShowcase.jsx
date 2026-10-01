@@ -92,7 +92,7 @@ export default function IoTShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/iot-smartlock-background1.webp" alt="IoT Solutions" width="1920" height="600" className="w-full h-auto -mt-10 md:-mt-9 scale-110" loading="lazy" />
+          <img src="/iot-smartlock-background1.webp" alt="IoT Solutions" width="1920" height="600" className="w-full h-auto -mt-24 md:-mt-24 scale-110" loading="lazy" />
         </div>
       </section>
 

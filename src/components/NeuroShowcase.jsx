@@ -67,7 +67,7 @@ export default function NeuroShowcase({ onBack }) {
       <section ref={heroRef} className="relative pt-14">
         <button
           onClick={onBack}
-          className="absolute top-28 left-4 sm:top-32 sm:left-6 z-20 flex items-center gap-2 bg-white/95 backdrop-blur-sm text-[#0f172a] border border-slate-200 rounded-full px-5 py-2.5 shadow-md hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer"
+          className="absolute top-24 left-4 sm:top-28 sm:left-6 z-20 flex items-center gap-2 bg-white/95 backdrop-blur-sm text-[#0f172a] border border-slate-200 rounded-full px-5 py-2.5 shadow-md hover:shadow-lg hover:bg-white transition-all duration-300 cursor-pointer"
         >
           <FiArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">All Divisions</span>
