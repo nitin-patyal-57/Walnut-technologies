@@ -467,6 +467,7 @@ export default function Solutions() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
+                    className="h-full"
                   >
                     <div
                       onClick={() => setSelectedDivision(division)}
@@ -474,7 +475,7 @@ export default function Solutions() {
                       tabIndex={0}
                       role="button"
                       aria-label={`View ${division.title} solutions`}
-                      className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                      className="group h-full flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     >
                       {/* Full Image */}
                       <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
@@ -487,7 +488,7 @@ export default function Solutions() {
                       </div>
 
                       {/* Details Below Image */}
-                      <div className="p-4 border-t border-slate-100">
+                      <div className="p-4 border-t border-slate-100 flex-1">
                         <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{division.category || 'Division'}</span>
                         <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{division.title}</h4>
                         <p className="text-[11px] text-slate-500 leading-snug">{division.subtitle}</p>
