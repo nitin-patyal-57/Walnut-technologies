@@ -272,6 +272,7 @@ function DivisionsPreview() {
       desc: 'Advanced Rehabilitation & Gait Training Systems',
       image: '/neuro_rehab_device.webp',
       link: '/solutions?category=Neuro Rehab Devices',
+      zoom: true,
     },
     {
       num: '02',
@@ -280,6 +281,7 @@ function DivisionsPreview() {
       desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
       image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
       link: '/solutions?category=Medical',
+      zoom: true,
     },
     {
       num: '03',
@@ -347,7 +349,7 @@ function DivisionsPreview() {
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    className={`w-full h-full object-cover object-center transition-transform duration-700 ${sol.imgClass || (sol.zoom ? 'scale-[1.07] group-hover:scale-[1.14]' : 'group-hover:scale-110')}`}
                   />
                 </div>
 
@@ -401,22 +403,21 @@ function HeroStats() {
   return (
     <section className="relative -mt-12 z-30">
       <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xl"
+        >
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }}
-                className="text-center"
-              >
-                <div className="text-lg font-bold font-display text-cyan-400 mb-0.5">{stat.value}</div>
-                <div className="text-[10px] text-white/70 font-medium leading-tight">{stat.label}</div>
-              </motion.div>
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-lg font-bold font-display text-blue-600 mb-0.5">{stat.value}</div>
+                <div className="text-[10px] text-slate-500 font-medium leading-tight">{stat.label}</div>
+              </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
