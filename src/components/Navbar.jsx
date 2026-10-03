@@ -126,7 +126,7 @@ export default function Navbar({ onOpenSchedule }) {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => (
                 <div
                   key={link.label}
