@@ -87,6 +87,16 @@ const SCROLL_CHECK = async () => {
         offenders.push({ tag: el.tagName.toLowerCase(), cls, type: 'TEXT_CLIP', detail: `scrollW ${el.scrollWidth} > clientW ${el.clientWidth}` });
         continue;
       }
+      // inside a deliberate horizontal scroller (carousel): cards sitting past
+      // the viewport edge are swipe content, not page overflow
+      let anc = el.parentElement;
+      let inScroller = false;
+      while (anc && anc !== document.body) {
+        const ox = getComputedStyle(anc).overflowX;
+        if (ox === 'auto' || ox === 'scroll') { inScroller = true; break; }
+        anc = anc.parentElement;
+      }
+      if (inScroller) continue;
       if (r.right > window.innerWidth + 1 || r.left < -1) {
         seen.add(key);
         offenders.push({

@@ -156,43 +156,47 @@ function JourneySection() {
           </motion.div>
 
           {/* Row 1: 2016-2020 */}
-          <div className="relative mb-2 md:mb-3">
-            {/* Horizontal connector line */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-violet-200 to-cyan-200 -translate-y-1/2 z-0" />
-            <div className="flex flex-col md:flex-row items-stretch gap-2 md:gap-2.5 relative z-10">
-              {[
-                { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', icon: FiActivity, color: 'blue', gradient: 'from-blue-500 to-blue-600', glow: 'shadow-blue-200' },
-                { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', icon: FiActivity, color: 'emerald', gradient: 'from-emerald-500 to-emerald-600', glow: 'shadow-emerald-200' },
-                { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', icon: FiTool, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
-                { year: '2019', title: 'OTC Devices', desc: 'Introduced IR Thermometer, Digital BP Monitor.', icon: FiBatteryCharging, color: 'orange', gradient: 'from-orange-400 to-orange-500', glow: 'shadow-orange-200' },
-                { year: '2020', title: 'Scaling Manufacturing', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', icon: FiBox, color: 'cyan', gradient: 'from-cyan-400 to-cyan-500', glow: 'shadow-cyan-200' },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.3, delay: 0.6 + i * 0.06 }}
-                  className="flex-1 flex items-center"
-                >
-                  <div className="relative flex-1 group">
-                    <div className={`bg-white rounded-xl border border-slate-100 hover:border-${item.color}-200 hover:shadow-lg ${item.glow} hover:shadow-xl transition-all duration-300 p-2.5 md:p-3 h-full flex flex-col items-center text-center group-hover:-translate-y-1`}>
-                      {/* Colored top accent */}
-                      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
-                      {/* Year badge */}
-                      <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
-                        {item.year}
+          <div className="relative mb-2 md:mb-3 -mx-3 sm:-mx-5 md:mx-0">
+            <div className="overflow-x-auto md:overflow-visible overscroll-x-contain snap-x snap-mandatory scroll-pl-3 sm:scroll-pl-5 px-3 sm:px-5 md:px-0 py-2 -my-2 scrollbar-hide">
+              <div className="relative min-w-max md:min-w-0">
+                {/* Horizontal connector line */}
+                <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-violet-200 to-cyan-200 -translate-y-1/2 z-0" />
+                <div className="flex items-stretch gap-2 md:gap-2.5 relative z-10">
+                  {[
+                    { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', icon: FiActivity, color: 'blue', gradient: 'from-blue-500 to-blue-600', glow: 'shadow-blue-200' },
+                    { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', icon: FiActivity, color: 'emerald', gradient: 'from-emerald-500 to-emerald-600', glow: 'shadow-emerald-200' },
+                    { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', icon: FiTool, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
+                    { year: '2019', title: 'OTC Devices', desc: 'Introduced IR Thermometer, Digital BP Monitor.', icon: FiBatteryCharging, color: 'orange', gradient: 'from-orange-400 to-orange-500', glow: 'shadow-orange-200' },
+                    { year: '2020', title: 'Scaling Manufacturing', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', icon: FiBox, color: 'cyan', gradient: 'from-cyan-400 to-cyan-500', glow: 'shadow-cyan-200' },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.year}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.3, delay: 0.6 + i * 0.06 }}
+                      className="shrink-0 w-[60vw] max-w-[240px] snap-center md:w-auto md:max-w-none md:flex-1 flex items-center"
+                    >
+                      <div className="relative flex-1 group">
+                        <div className={`bg-white rounded-xl border border-slate-100 hover:border-${item.color}-200 hover:shadow-lg ${item.glow} hover:shadow-xl transition-all duration-300 p-3 h-full flex flex-col items-center text-center group-hover:-translate-y-1`}>
+                          {/* Colored top accent */}
+                          <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
+                          {/* Year badge */}
+                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
+                            {item.year}
+                          </div>
+                          {/* Icon */}
+                          <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-1.5 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                            <item.icon className="w-[18px] h-[18px] text-white" />
+                          </div>
+                          {/* Content */}
+                          <h3 className="text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
+                          <p className="text-[9px] text-slate-500 leading-snug">{item.desc}</p>
+                        </div>
                       </div>
-                      {/* Icon */}
-                      <div className={`w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-1.5 shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                        <item.icon className="w-4 h-4 md:w-[18px] md:h-[18px] text-white" />
-                      </div>
-                      {/* Content */}
-                      <h3 className="text-[10px] md:text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
-                      <p className="text-[8px] md:text-[9px] text-slate-500 leading-snug hidden md:block">{item.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -206,52 +210,56 @@ function JourneySection() {
           </div>
 
           {/* Row 2: 2021-2026 */}
-          <div className="relative">
-            {/* Horizontal connector line */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-rose-200 to-violet-200 -translate-y-1/2 z-0" />
-            <div className="flex flex-col md:flex-row items-stretch gap-2 md:gap-2.5 relative z-10">
-              {[
-                { year: '2021', title: 'Introducing Walnut Technologies', desc: 'Started non-medical applications, expanding our technology footprint beyond healthcare.', icon: FiCpu, color: 'blue', gradient: 'from-blue-500 to-blue-600', glow: 'shadow-blue-200' },
-                { year: '2022', title: 'Fintech Integration', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', icon: FiServer, color: 'emerald', gradient: 'from-emerald-500 to-emerald-600', glow: 'shadow-emerald-200' },
-                { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', icon: FiBox, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
-                { year: '2024', title: 'Advanced Manufacturing', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', icon: FiSmartphone, color: 'cyan', gradient: 'from-cyan-400 to-cyan-500', glow: 'shadow-cyan-200', badge: 'Major Scale Milestone' },
-                { year: '2025', title: 'Electronics Manufacturing', desc: 'Started Smart Instrument Cluster vertical.', icon: FiCpu, color: 'rose', gradient: 'from-rose-400 to-rose-500', glow: 'shadow-rose-200' },
-                { year: '2026', title: 'Smart Cluster', desc: 'Scaling vertical of Consumer Electronics — IoT based.', icon: FiWifi, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.3, delay: 0.8 + i * 0.06 }}
-                  className="flex-1 flex items-center"
-                >
-                  <div className="relative flex-1 group">
-                    <div className={`bg-white rounded-xl border hover:shadow-lg ${item.glow} hover:shadow-xl transition-all duration-300 p-2.5 md:p-3 h-full flex flex-col items-center text-center group-hover:-translate-y-1 ${
-                      item.badge ? `border-${item.color}-200 shadow-md` : 'border-slate-100'
-                    }`}>
-                      {/* Colored top accent */}
-                      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
-                      {/* Year badge */}
-                      <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
-                        {item.year}
-                      </div>
-                      {/* Icon */}
-                      <div className={`w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-1.5 shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                        <item.icon className="w-4 h-4 md:w-[18px] md:h-[18px] text-white" />
-                      </div>
-                      {/* Content */}
-                      <h3 className="text-[10px] md:text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
-                      <p className="text-[8px] md:text-[9px] text-slate-500 leading-snug hidden md:block">{item.desc}</p>
-                      {item.badge && (
-                        <div className="mt-1 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-full">
-                          <FiCheckCircle className="w-2.5 h-2.5 text-cyan-500" />
-                          <span className="text-[7px] font-bold text-cyan-600">{item.badge}</span>
+          <div className="relative -mx-3 sm:-mx-5 md:mx-0">
+            <div className="overflow-x-auto md:overflow-visible overscroll-x-contain snap-x snap-mandatory scroll-pl-3 sm:scroll-pl-5 px-3 sm:px-5 md:px-0 py-2 -my-2 scrollbar-hide">
+              <div className="relative min-w-max md:min-w-0">
+                {/* Horizontal connector line */}
+                <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-rose-200 to-violet-200 -translate-y-1/2 z-0" />
+                <div className="flex items-stretch gap-2 md:gap-2.5 relative z-10">
+                  {[
+                    { year: '2021', title: 'Introducing Walnut Technologies', desc: 'Started non-medical applications, expanding our technology footprint beyond healthcare.', icon: FiCpu, color: 'blue', gradient: 'from-blue-500 to-blue-600', glow: 'shadow-blue-200' },
+                    { year: '2022', title: 'Fintech Integration', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', icon: FiServer, color: 'emerald', gradient: 'from-emerald-500 to-emerald-600', glow: 'shadow-emerald-200' },
+                    { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', icon: FiBox, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
+                    { year: '2024', title: 'Advanced Manufacturing', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', icon: FiSmartphone, color: 'cyan', gradient: 'from-cyan-400 to-cyan-500', glow: 'shadow-cyan-200', badge: 'Major Scale Milestone' },
+                    { year: '2025', title: 'Electronics Manufacturing', desc: 'Started Smart Instrument Cluster vertical.', icon: FiCpu, color: 'rose', gradient: 'from-rose-400 to-rose-500', glow: 'shadow-rose-200' },
+                    { year: '2026', title: 'Smart Cluster', desc: 'Scaling vertical of Consumer Electronics — IoT based.', icon: FiWifi, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.year}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.3, delay: 0.8 + i * 0.06 }}
+                      className="shrink-0 w-[60vw] max-w-[240px] snap-center md:w-auto md:max-w-none md:flex-1 flex items-center"
+                    >
+                      <div className="relative flex-1 group">
+                        <div className={`bg-white rounded-xl border hover:shadow-lg ${item.glow} hover:shadow-xl transition-all duration-300 p-3 h-full flex flex-col items-center text-center group-hover:-translate-y-1 ${
+                          item.badge ? `border-${item.color}-200 shadow-md` : 'border-slate-100'
+                        }`}>
+                          {/* Colored top accent */}
+                          <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
+                          {/* Year badge */}
+                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
+                            {item.year}
+                          </div>
+                          {/* Icon */}
+                          <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-1.5 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                            <item.icon className="w-[18px] h-[18px] text-white" />
+                          </div>
+                          {/* Content */}
+                          <h3 className="text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
+                          <p className="text-[9px] text-slate-500 leading-snug">{item.desc}</p>
+                          {item.badge && (
+                            <div className="mt-1 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-full">
+                              <FiCheckCircle className="w-2.5 h-2.5 text-cyan-500" />
+                              <span className="text-[7px] font-bold text-cyan-600">{item.badge}</span>
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
