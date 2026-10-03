@@ -144,7 +144,7 @@ export default function ProductShowcase({ onBack }) {
           <FiArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">All Divisions</span>
         </button>
-        <div className={`transition-opacity duration-500 -mt-20 md:-mt-24 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`transition-opacity duration-500 md:-mt-24 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
           <Picture src="/fintech-homebackground.webp" alt="Fintech Soundbox" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
