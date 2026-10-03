@@ -54,7 +54,7 @@ export default function AboutPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 lg:pt-24 lg:pb-28 w-full">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 lg:pt-24 lg:pb-28 w-full">
           <div className="max-w-lg">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -116,7 +116,7 @@ export default function AboutPage() {
 
       {/* STATS BAR — overlapping hero */}
       <section className="relative -mt-16 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
               { value: '10+', label: 'Years of Excellence' },
@@ -141,7 +141,7 @@ export default function AboutPage() {
           WHO WE ARE — Magazine style with overlapping images
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Left - Images stack */}
             <AnimatedSection className="lg:col-span-5">
@@ -206,7 +206,7 @@ export default function AboutPage() {
           EVOLUTION — Horizontal scroll-style timeline
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
               <div>
@@ -273,7 +273,7 @@ export default function AboutPage() {
           PRINCIPLES — 4 cards with icons
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-14">
               <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
@@ -318,7 +318,7 @@ export default function AboutPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/95" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-2xl mb-14">
               <span className="inline-block text-xs font-bold text-blue-400 uppercase tracking-widest mb-3">
@@ -359,7 +359,7 @@ export default function AboutPage() {
           OUR PEOPLE — Team section with badges
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Content */}
             <AnimatedSection className="lg:col-span-5 order-2 lg:order-1">
@@ -447,7 +447,7 @@ export default function AboutPage() {
           QUALITY COMMITMENT — With process steps
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <AnimatedSection>
@@ -515,7 +515,7 @@ export default function AboutPage() {
           FUTURE — 3 image cards
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-14">
               <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
@@ -562,7 +562,7 @@ export default function AboutPage() {
           MISSION & VISION
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             {/* Left — Mission & Vision */}
             <div>

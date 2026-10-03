@@ -221,7 +221,7 @@ export default function CareerPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-14 md:pb-14">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-14 md:pb-14">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div ref={ref}>
               <motion.p
@@ -289,7 +289,7 @@ export default function CareerPage() {
 
       {/* Why Walnut + Benefits */}
       <section className="py-10 md:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-8">
               <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">{t('careerExtended.whyWalnut')}</p>
@@ -319,7 +319,7 @@ export default function CareerPage() {
 
       {/* Life at Walnut - Full width image */}
       <section id="culture" className="py-10 md:py-14 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-8 items-center">
             <AnimatedSection className="lg:col-span-2">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-slate-900 mb-4">
@@ -350,7 +350,7 @@ export default function CareerPage() {
 
       {/* Teams + Hiring Process */}
       <section className="py-10 md:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           {/* Teams */}
           <AnimatedSection>
             <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">{t('careerExtended.teamsYouCanJoin')}</p>
@@ -409,7 +409,7 @@ export default function CareerPage() {
 
       {/* Open Positions */}
       <section id="openings" className="py-10 md:py-14 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <p className="text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">{t('careerExtended.findNextChallenge')}</p>
             <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-6">

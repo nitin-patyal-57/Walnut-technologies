@@ -138,7 +138,7 @@ function JourneySection() {
         <div className="absolute top-0 left-1/4 w-48 h-48 bg-blue-100/40 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-cyan-100/40 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-3 sm:px-5 lg:px-6">
+        <div className="relative mx-auto px-3 sm:px-5 lg:px-6">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -321,7 +321,7 @@ function DivisionsPreview() {
 
   return (
     <section id="divisions-preview" className="relative pt-2 pb-10 md:pb-16 bg-white" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
@@ -412,7 +412,7 @@ function HeroStats() {
 
   return (
     <section className="relative -mt-12 z-30">
-      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -449,7 +449,7 @@ function StatsSection() {
 
   return (
     <section className="relative mt-6 z-20">
-      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
           {stats.map((stat, index) => (
             <motion.div
@@ -497,7 +497,7 @@ function ClientsCertifications() {
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-50/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-50/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
-      <div ref={ref} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="relative mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -630,7 +630,7 @@ function CTASection() {
 
   return (
     <section id="cta-section" className="py-10 md:py-12 bg-white">
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 border border-slate-200/60 shadow-sm">
           <div className="absolute top-0 right-0 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
           <div className="absolute bottom-0 left-0 w-56 h-56 bg-indigo-100/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />

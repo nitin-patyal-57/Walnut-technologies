@@ -9,7 +9,7 @@ export function PageSkeleton() {
     <div className="min-h-screen bg-white">
       {/* Header skeleton */}
       <div className="h-16 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
           <Skeleton className="h-8 w-32" />
           <div className="hidden md:flex items-center gap-6">
             <Skeleton className="h-4 w-16" />
@@ -23,7 +23,7 @@ export function PageSkeleton() {
 
       {/* Hero skeleton */}
       <div className="h-[500px] bg-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="max-w-2xl space-y-4">
             <Skeleton className="h-4 w-48" />
             <Skeleton className="h-12 w-full max-w-md" />
@@ -39,7 +39,7 @@ export function PageSkeleton() {
       </div>
 
       {/* Content skeleton */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center space-y-4 mb-12">
           <Skeleton className="h-4 w-32 mx-auto" />
           <Skeleton className="h-8 w-64 mx-auto" />

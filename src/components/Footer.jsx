@@ -41,7 +41,7 @@ export default function Footer() {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cyan-600/5 rounded-full blur-[100px]" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 lg:pb-4">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 lg:pb-4">
         <div className="grid grid-cols-2 min-[360px]:grid-cols-4 lg:grid-cols-12 gap-x-4 gap-y-6 lg:gap-6 mb-6">
           <div className="col-span-2 min-[360px]:col-span-4 lg:col-span-4">
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-block mb-3 !min-h-0">

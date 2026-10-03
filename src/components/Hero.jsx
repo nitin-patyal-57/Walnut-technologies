@@ -25,7 +25,7 @@ export default function Hero({ onOpenSchedule }) {
 
       <div className="relative z-10 flex-1 flex items-center">
         <div className="w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
             <div className="max-w-3xl">
               <div className="space-y-5">
                 <motion.div

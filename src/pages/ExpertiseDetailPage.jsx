@@ -377,7 +377,7 @@ export default function ExpertiseDetailPage() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/expertise"
             className="inline-flex items-center gap-2 mb-8 text-sm text-slate-500 hover:text-white transition-colors"
@@ -423,7 +423,7 @@ export default function ExpertiseDetailPage() {
 
       {/* Stats Bar */}
       <section className="py-8 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {data.stats.map((stat, i) => (
               <motion.div
@@ -443,7 +443,7 @@ export default function ExpertiseDetailPage() {
 
       {/* Why Choose Us */}
       <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -519,7 +519,7 @@ export default function ExpertiseDetailPage() {
 
       {/* Capabilities */}
       <section className="py-16 md:py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -558,7 +558,7 @@ export default function ExpertiseDetailPage() {
 
       {/* CTA Section */}
       <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

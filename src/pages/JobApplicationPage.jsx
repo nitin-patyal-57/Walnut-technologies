@@ -182,7 +182,7 @@ export default function JobApplicationPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-br from-emerald-500/10 to-green-500/10 rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <Link to="/career" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors mb-6">
             <FiArrowLeft className="w-4 h-4" /> Back to Careers
           </Link>
@@ -232,7 +232,7 @@ export default function JobApplicationPage() {
 
       {/* Progress Bar */}
       <div className="bg-white border-b border-slate-200 sticky top-14 z-30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-4 overflow-x-auto">
             {steps.map((step, i) => {
               const Icon = step.icon;
@@ -274,7 +274,7 @@ export default function JobApplicationPage() {
       </div>
 
       {/* Form Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <form onSubmit={handleSubmit}>
           <AnimatePresence mode="wait">
             {/* Step 1: Personal Information */}

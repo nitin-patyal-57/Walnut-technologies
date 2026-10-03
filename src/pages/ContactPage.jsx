@@ -91,7 +91,7 @@ export default function ContactPage() {
       />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-50">
-        <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-24 lg:pb-16">
+        <div ref={ref} className="mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-24 lg:pb-16">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left - Content */}
             <motion.div
@@ -158,7 +158,7 @@ export default function ContactPage() {
 
       {/* Contact Info Cards */}
       <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactCards.map((card, index) => {
               const Icon = card.icon;
@@ -201,7 +201,7 @@ export default function ContactPage() {
 
       {/* Form + Map Section */}
       <section className="py-12 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Contact Form */}
             <motion.div

@@ -150,7 +150,7 @@ export default function ProductShowcase({ onBack }) {
       </section>
 
       <section ref={prodRef} className="py-16 md:py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-14 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Soundbox Models</h2>
@@ -187,7 +187,7 @@ export default function ProductShowcase({ onBack }) {
       </section>
 
       <section ref={featRef} className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${featVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Key Features</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Worlds Most Efficient Soundboxes</h2>
@@ -212,7 +212,7 @@ export default function ProductShowcase({ onBack }) {
       </section>
 
       <section ref={svcRef} className="py-16 md:py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${svcVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">What We Offer</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Our Solutions and Services</h2>
@@ -254,7 +254,7 @@ export default function ProductShowcase({ onBack }) {
       </section>
 
       <section ref={tmsRef} className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${tmsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Terminal Management</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Device and Network Details</h2>

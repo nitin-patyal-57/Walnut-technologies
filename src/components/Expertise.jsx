@@ -88,7 +88,7 @@ export default function Expertise() {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/40" />
         <div className="absolute top-24 right-16 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-28 md:pb-20 w-full">
+        <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-28 md:pb-20 w-full">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Content */}
             <div className="lg:col-span-6">
@@ -168,7 +168,7 @@ export default function Expertise() {
 
       {/* ═══ EXPERTISE GRID — evolution-card pattern from About ═══ */}
       <section ref={gridRef} className="py-14 lg:py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={gridInView ? { opacity: 1, y: 0 } : {}}

@@ -87,7 +87,7 @@ export default function AutomotiveShowcase({ onBack }) {
       </section>
 
       <section ref={prodRef} className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-2">Key Features</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Automotive Cluster Systems</h2>
@@ -116,7 +116,7 @@ export default function AutomotiveShowcase({ onBack }) {
       </section>
 
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Automotive Product Portfolio</h2>
@@ -152,7 +152,7 @@ export default function AutomotiveShowcase({ onBack }) {
       </section>
 
       <section ref={capRef} className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${capVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-2">Our Capabilities</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">End-to-End Automotive Solutions</h2>

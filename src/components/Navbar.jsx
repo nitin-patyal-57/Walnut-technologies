@@ -112,7 +112,7 @@ export default function Navbar({ onOpenSchedule }) {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navStyles}`}>
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 md:h-14">
             {/* Logo */}
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center group shrink-0">
