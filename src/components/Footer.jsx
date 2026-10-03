@@ -42,9 +42,9 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cyan-600/5 rounded-full blur-[100px]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 lg:pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
-          <div className="lg:col-span-4">
-            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-block mb-3">
+        <div className="grid grid-cols-2 min-[360px]:grid-cols-4 lg:grid-cols-12 gap-x-4 gap-y-6 lg:gap-6 mb-6">
+          <div className="col-span-2 min-[360px]:col-span-4 lg:col-span-4">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-block mb-3 !min-h-0">
               <Picture src="/walnut-logo/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="120" height="32" className="h-8 w-auto object-contain" />
             </Link>
             <p className="text-xs text-gray-500 leading-relaxed mb-4 max-w-[280px]">
@@ -60,13 +60,13 @@ export default function Footer() {
 
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="lg:col-span-2">
-              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">{title}</h3>
+              <h3 className="text-[10px] lg:text-xs font-bold text-gray-900 uppercase tracking-wide lg:tracking-wider mb-2 break-words">{title}</h3>
               <div className="w-6 h-0.5 bg-cyan-600 mb-3" />
-              <ul className="space-y-2">
+              <ul className="space-y-1.5 lg:space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-cyan-600 transition-colors group">
-                      <FiArrowRight className="w-3 h-3 text-cyan-600 opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <Link to={link.to} className="flex items-center gap-1.5 !min-h-0 py-1 lg:py-0 text-[11px] lg:text-xs text-gray-500 hover:text-cyan-600 transition-colors group">
+                      <FiArrowRight className="hidden lg:block w-3 h-3 shrink-0 text-cyan-600 opacity-60 group-hover:opacity-100 transition-opacity" />
                       {link.label}
                     </Link>
                   </li>
@@ -83,20 +83,20 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {brand.fullName}. All rights reserved.
           </p>
           <div className="flex items-center gap-2.5">
-            <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-cyan-600 hover:border-cyan-300 transition-all">
+            <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 !min-h-0 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-cyan-600 hover:border-cyan-300 transition-all">
               <FiLinkedin className="w-3.5 h-3.5" />
             </a>
-            <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-cyan-600 hover:border-cyan-300 transition-all">
+            <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 !min-h-0 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-cyan-600 hover:border-cyan-300 transition-all">
               <FiYoutube className="w-3.5 h-3.5" />
             </a>
-            <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-cyan-600 hover:border-cyan-300 transition-all">
+            <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 !min-h-0 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-cyan-600 hover:border-cyan-300 transition-all">
               <FiInstagram className="w-3.5 h-3.5" />
             </a>
           </div>
           <div className="flex items-center gap-4 text-[11px] text-gray-500">
-            <a href={`tel:${brand.phone}`} className="hover:text-gray-900 transition-colors">{brand.phone}</a>
+            <a href={`tel:${brand.phone}`} className="!min-h-0 py-1 lg:py-0 hover:text-gray-900 transition-colors">{brand.phone}</a>
             <span className="text-gray-300">|</span>
-            <a href={`mailto:${brand.email}`} className="hover:text-gray-900 transition-colors">{brand.email}</a>
+            <a href={`mailto:${brand.email}`} className="!min-h-0 py-1 lg:py-0 hover:text-gray-900 transition-colors">{brand.email}</a>
           </div>
         </div>
       </div>
