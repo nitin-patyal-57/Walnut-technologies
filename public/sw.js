@@ -1,4 +1,4 @@
-const CACHE_NAME = 'walnut-v8';
+const CACHE_NAME = 'walnut-v9';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
