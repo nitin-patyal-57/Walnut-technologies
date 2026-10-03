@@ -7,6 +7,7 @@ import {
   FiShield, FiZap, FiHeart, FiUsers, FiCheckCircle, FiTrendingUp,
   FiTool, FiPackage, FiSettings, FiStar
 } from 'react-icons/fi';
+import Picture from '../components/Picture';
 
 const evolutionData = {
   foundation: {
@@ -257,7 +258,7 @@ export default function EvolutionDetailPage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
+                <Picture loading="lazy" decoding="async"
                   src={data.splitContent.image}
                   alt={data.splitContent.title}
                   className="w-full h-80 lg:h-96 object-cover"

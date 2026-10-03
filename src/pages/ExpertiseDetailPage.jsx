@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiArrowLeft, FiCheckCircle, FiArrowRight, FiShield, FiClock, FiGlobe, FiAward, FiPhone, FiMail } from 'react-icons/fi';
 import SEO from '../components/SEO';
 import { brand } from '../data/content';
+import Picture from '../components/Picture';
 
 const expertiseData = {
   'medical-electronics': {
@@ -408,7 +409,7 @@ export default function ExpertiseDetailPage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
-                <img
+                <Picture loading="lazy" decoding="async"
                   src={data.heroImage}
                   alt={data.title}
                   className="w-full h-[350px] md:h-[450px] object-cover"

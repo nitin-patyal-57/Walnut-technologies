@@ -227,13 +227,13 @@ export default function PrivacyPage() {
       {/* Table of Contents + Sections */}
       <section ref={contentRef} className="pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)] gap-8 lg:gap-12">
             {/* Table of Contents - Sticky */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={isContentInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="lg:sticky lg:top-28 lg:self-start"
+              className="lg:sticky lg:top-28 lg:self-start min-w-0"
             >
               <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
                 <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">{t('privacy.tableOfContents')}</h3>
@@ -244,8 +244,8 @@ export default function PrivacyPage() {
                       onClick={() => scrollToSection(i)}
                       className="w-full flex items-center gap-2 px-3 py-2 text-left text-sm text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all group"
                     >
-                      <FiChevronRight className="w-3 h-3 text-slate-400 group-hover:text-blue-600 transition-colors" />
-                      <span className="truncate">{title}</span>
+                      <FiChevronRight className="w-3 h-3 shrink-0 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                      <span className="truncate min-w-0">{title}</span>
                     </button>
                   ))}
                 </nav>

@@ -1,0 +1,915 @@
+{
+  "BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1": {
+    "fallback": "/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+    "fallbackWidth": 1254,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "DQR": {
+    "fallback": "/DQR.webp",
+    "fallbackWidth": 666,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "RTOS": {
+    "fallback": "/RTOS.webp",
+    "fallbackWidth": 666,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "TDCS": {
+    "fallback": "/TDCS.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/02_Electronics_Engineer_Lab": {
+    "fallback": "/Walnut_About_Page_Images_Single/02_Electronics_Engineer_Lab.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/03_Microchip_PCB": {
+    "fallback": "/Walnut_About_Page_Images_Single/03_Microchip_PCB.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/04_Engineering_Team": {
+    "fallback": "/Walnut_About_Page_Images_Single/04_Engineering_Team.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/05_Global_Technology": {
+    "fallback": "/Walnut_About_Page_Images_Single/05_Global_Technology.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/06_Cleanroom_Manufacturing": {
+    "fallback": "/Walnut_About_Page_Images_Single/06_Cleanroom_Manufacturing.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/07_PCB_Testing": {
+    "fallback": "/Walnut_About_Page_Images_Single/07_PCB_Testing.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/08_Electronics_Manufacturing_Factory": {
+    "fallback": "/Walnut_About_Page_Images_Single/08_Electronics_Manufacturing_Factory.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/09_Team_Collaboration": {
+    "fallback": "/Walnut_About_Page_Images_Single/09_Team_Collaboration.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/10_PCB_Closeup": {
+    "fallback": "/Walnut_About_Page_Images_Single/10_PCB_Closeup.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/11_Modern_Conference_Room": {
+    "fallback": "/Walnut_About_Page_Images_Single/11_Modern_Conference_Room.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/12_Business_Partnership": {
+    "fallback": "/Walnut_About_Page_Images_Single/12_Business_Partnership.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "Walnut_About_Page_Images_Single/13_Purpose_Products": {
+    "fallback": "/Walnut_About_Page_Images_Single/13_Purpose_Products.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "aboutbackground": {
+    "fallback": "/aboutbackground.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "after-sales-support": {
+    "fallback": "/after-sales-support.webp",
+    "fallbackWidth": 2000,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "bharatpay-m": {
+    "fallback": "/bharatpay-m.webp",
+    "fallbackWidth": 1983,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "boxsound": {
+    "fallback": "/boxsound.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "career-background": {
+    "fallback": "/career-background.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "ces-repose": {
+    "fallback": "/ces-repose.webp",
+    "fallbackWidth": 1521,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "clients/bhartpe": {
+    "fallback": "/clients/bhartpe.webp",
+    "fallbackWidth": 600,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "clients/hdfc": {
+    "fallback": "/clients/hdfc.webp",
+    "fallbackWidth": 900,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "clients/sbi": {
+    "fallback": "/clients/sbi.webp",
+    "fallbackWidth": 1080,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "cluster-background": {
+    "fallback": "/cluster-background.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "cluster-background1": {
+    "fallback": "/cluster-background1.png",
+    "fallbackWidth": 612,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "cluster1": {
+    "fallback": "/cluster1.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "contactbackground": {
+    "fallback": "/contactbackground.webp",
+    "fallbackWidth": 1717,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "continuous-improvement": {
+    "fallback": "/continuous-improvement.webp",
+    "fallbackWidth": 830,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "contract-manufacturing": {
+    "fallback": "/contract-manufacturing.webp",
+    "fallbackWidth": 1835,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "design-and-engineering": {
+    "fallback": "/design-and-engineering.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "embedded-electronics-and-iot": {
+    "fallback": "/embedded-electronics-and-iot.webp",
+    "fallbackWidth": 1024,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "expertise/circuit-blue": {
+    "fallback": "/expertise/circuit-blue.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/circuit-macro": {
+    "fallback": "/expertise/circuit-macro.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/engineer-work": {
+    "fallback": "/expertise/engineer-work.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/factory-line": {
+    "fallback": "/expertise/factory-line.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/global-network": {
+    "fallback": "/expertise/global-network.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/hero-engineer": {
+    "fallback": "/expertise/hero-engineer.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/medical-tech": {
+    "fallback": "/expertise/medical-tech.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/payment-terminal": {
+    "fallback": "/expertise/payment-terminal.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "expertise/software-code": {
+    "fallback": "/expertise/software-code.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "fintech-homebackground": {
+    "fallback": "/fintech-homebackground.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "gps-gateway": {
+    "fallback": "/gps-gateway.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "gpsgatewaybackground": {
+    "fallback": "/gpsgatewaybackground.webp",
+    "fallbackWidth": 1984,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "home-background": {
+    "fallback": "/home-background.webp",
+    "fallbackWidth": 1458,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "idea-and-requirement": {
+    "fallback": "/idea-and-requirement.webp",
+    "fallbackWidth": 1672,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "iot-lock-smart": {
+    "fallback": "/iot-lock-smart.webp",
+    "fallbackWidth": 1535,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "iot-smaart-lock": {
+    "fallback": "/iot-smaart-lock.webp",
+    "fallbackWidth": 1672,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "iot-smartlock-background1": {
+    "fallback": "/iot-smartlock-background1.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "iot-software-development": {
+    "fallback": "/iot-software-development.webp",
+    "fallbackWidth": 800,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "ip-oriented-product": {
+    "fallback": "/ip-oriented-product.webp",
+    "fallbackWidth": 1376,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "it-electronics": {
+    "fallback": "/it-electronics.webp",
+    "fallbackWidth": 720,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "life-at-walnut": {
+    "fallback": "/life-at-walnut.webp",
+    "fallbackWidth": 1672,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "manufacturing-engineering-and-mold-design": {
+    "fallback": "/manufacturing-engineering-and-mold-design.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "medical-background": {
+    "fallback": "/medical-background.webp",
+    "fallbackWidth": 1670,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "medstim-neuro-devices": {
+    "fallback": "/medstim-neuro-devices.webp",
+    "fallbackWidth": 847,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "neuro": {
+    "fallback": "/neuro.webp",
+    "fallbackWidth": 1671,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "neuro_rehab_device": {
+    "fallback": "/neuro_rehab_device.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "packaging-and-dispatch": {
+    "fallback": "/packaging-and-dispatch.webp",
+    "fallbackWidth": 800,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "prototype-development": {
+    "fallback": "/prototype-development.webp",
+    "fallbackWidth": 765,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "quality-assurance": {
+    "fallback": "/quality-assurance.webp",
+    "fallbackWidth": 1024,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "research-and-market-analysis": {
+    "fallback": "/research-and-market-analysis.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "smartlock-product": {
+    "fallback": "/smartlock-product.webp",
+    "fallbackWidth": 1280,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "soundbox-new": {
+    "fallback": "/soundbox-new.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "tilt-bed": {
+    "fallback": "/tilt-bed.webp",
+    "fallbackWidth": 1280,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "validation-and-testing": {
+    "fallback": "/validation-and-testing.webp",
+    "fallbackWidth": 710,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "walklab-product": {
+    "fallback": "/walklab-product.webp",
+    "fallbackWidth": 1280,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft, FiWifi, FiArrowUpRight } from 'react-icons/fi';
 import { products, divisions } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
+import Picture from '../components/Picture';
 
 const ProductShowcase = lazy(() => import('./ProductShowcase'));
 const MedicalShowcase = lazy(() => import('./MedicalShowcase'));
@@ -57,7 +58,7 @@ function HeroBanner({ onSelect }) {
       className="relative overflow-hidden rounded-3xl mb-8"
     >
       {/* Background image */}
-      <img
+      <Picture loading="lazy" decoding="async"
         src="/gpsgatewaybackground.webp"
         alt="GPS Gateway Background"
         width="1920"
@@ -133,7 +134,7 @@ function CategoryCard({ division, onSelect, index }) {
     >
       {/* Image Container */}
       <div className="relative rounded-2xl bg-slate-100/80 aspect-[4/3] flex items-center justify-center p-6 mb-4 overflow-hidden group-hover:bg-slate-200/60 transition-colors duration-300">
-        <img
+        <Picture loading="lazy" decoding="async"
           src={division.products[0].image}
           alt={division.products[0].name}
           className="max-w-[75%] max-h-[75%] object-contain group-hover:scale-110 transition-transform duration-500 ease-out mix-blend-multiply drop-shadow-md"
@@ -207,7 +208,7 @@ function FeaturesSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="relative overflow-hidden rounded-2xl bg-slate-900 md:row-span-2 group cursor-pointer"
         >
-          <img
+          <Picture loading="lazy" decoding="async"
             src={features[0].image}
             alt={features[0].title}
             className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
@@ -232,7 +233,7 @@ function FeaturesSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[160px]"
           >
-            <img
+            <Picture loading="lazy" decoding="async"
               src={features[1].image}
               alt={features[1].title}
               className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
@@ -259,7 +260,7 @@ function FeaturesSection() {
                 className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[240px]"
               >
                 {feature.image && (
-                  <img
+                  <Picture loading="lazy" decoding="async"
                     src={feature.image}
                     alt={feature.title}
                     className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700 ${feature.title === 'MedStim Neuro Devices' ? 'scale-110' : ''}`}
@@ -342,7 +343,7 @@ function ProductCard({ product, index }) {
     >
       <div className="relative overflow-hidden rounded-2xl bg-white border border-slate-200/60 hover:border-slate-300 transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50">
         <div className="relative h-48 lg:h-56 bg-slate-100/60 flex items-center justify-center overflow-hidden">
-          <img
+          <Picture loading="lazy" decoding="async"
             src={product.image}
             alt={product.title}
             className="w-32 h-32 lg:w-40 lg:h-40 object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700 ease-out drop-shadow-md"
@@ -479,7 +480,7 @@ export default function Solutions() {
                     >
                       {/* Full Image */}
                       <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
-                        <img
+                        <Picture
                           src={division.products[0]?.image}
                           alt={division.title}
                           loading="lazy"

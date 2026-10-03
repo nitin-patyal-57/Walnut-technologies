@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX, FiChevronDown, FiMapPin, FiMail, FiPhone, FiMessageSquare } from 'react-icons/fi';
 import { brand, trustSignals } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
+import Picture from '../components/Picture';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -12,10 +13,10 @@ const navLinks = [
     label: 'Products',
     to: '/solutions',
     dropdown: [
-      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/walklab product dropdown.png', desc: 'Advanced rehabilitation systems' },
+      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/walklab-product.webp', desc: 'Advanced rehabilitation systems' },
       { label: 'Medical', to: '/solutions?category=Medical', image: '/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
       { label: 'Fintech', to: '/solutions?category=Fintech', image: '/DQR.webp', desc: 'Digital payment solutions' },
-      { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/smartlock product dropdown.png', desc: 'Connected smart devices' },
+      { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/smartlock-product.webp', desc: 'Connected smart devices' },
       { label: 'Automotive', to: '/solutions?category=Automotive', image: '/cluster-background1.png', desc: 'Smart instrument clusters' },
     ],
   },
@@ -115,7 +116,7 @@ export default function Navbar({ onOpenSchedule }) {
           <div className="flex items-center justify-between h-14 md:h-14">
             {/* Logo */}
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center group shrink-0">
-              <img
+              <Picture
                 src="/walnut-logo/Walnut_Technologies_logo_transparent.webp"
                 alt="Walnut Technologies"
                 width="160"
@@ -170,7 +171,7 @@ export default function Navbar({ onOpenSchedule }) {
                               onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
                             >
                               <div className="h-36 overflow-hidden">
-                                <img src={item.image} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                <Picture src={item.image} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                               </div>
                               <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -286,7 +287,7 @@ export default function Navbar({ onOpenSchedule }) {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
               <div className="relative p-6">
                 <div className="flex items-center justify-between mb-4">
-                   <img src="/walnut-logo/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
+                   <Picture src="/walnut-logo/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
                   <button
                     onClick={() => setIsSidebarOpen(false)}
                     aria-label="Close sidebar"
@@ -379,7 +380,7 @@ export default function Navbar({ onOpenSchedule }) {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:bg-slate-100 transition-all group"
                       >
-                        <img src={social.icon} alt={social.label} className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        <Picture src={social.icon} alt={social.label} className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
                         <span className="text-xs text-slate-600 font-medium">{social.label}</span>
                       </a>
                     ))}

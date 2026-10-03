@@ -9,6 +9,7 @@ import {
   FiHeart, FiAward, FiCpu, FiUsers, FiCheckCircle, FiArrowUpRight,
   FiTool, FiTrendingUp, FiPackage, FiSettings, FiStar, FiArrowDown
 } from 'react-icons/fi';
+import Picture from '../components/Picture';
 
 function AnimatedSection({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -44,7 +45,7 @@ export default function AboutPage() {
       <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <img
+          <Picture loading="lazy" decoding="async"
             src="/aboutbackground.webp"
             alt="Walnut Technologies"
             className="w-full h-full object-cover"
@@ -53,7 +54,7 @@ export default function AboutPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 lg:py-0 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 lg:pt-24 lg:pb-28 w-full">
           <div className="max-w-lg">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -146,14 +147,14 @@ export default function AboutPage() {
             <AnimatedSection className="lg:col-span-5">
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-                  <img
+                  <Picture loading="lazy" decoding="async"
                     src="/Walnut_About_Page_Images_Single/08_Electronics_Manufacturing_Factory.webp"
                     alt="Manufacturing Facility"
                     className="w-full h-[320px] object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-8 -right-2 sm:-right-6 lg:-right-10 z-20 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                  <img
+                  <Picture loading="lazy" decoding="async"
                     src="/Walnut_About_Page_Images_Single/04_Engineering_Team.webp"
                     alt="Engineering Team"
                     className="w-full h-full object-cover"
@@ -243,7 +244,7 @@ export default function AboutPage() {
                 >
                   {/* Image */}
                   <div className="relative h-44 overflow-hidden">
-                    <img
+                    <Picture loading="lazy" decoding="async"
                       src={step.image}
                       alt={step.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -310,7 +311,7 @@ export default function AboutPage() {
       ═══════════════════════════════════════════════════════════════ */}
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Picture loading="lazy" decoding="async"
             src="/Walnut_About_Page_Images_Single/10_PCB_Closeup.webp"
             alt=""
             className="w-full h-full object-cover"
@@ -406,14 +407,14 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48">
-                    <img
+                    <Picture loading="lazy" decoding="async"
                       src="/Walnut_About_Page_Images_Single/04_Engineering_Team.webp"
                       alt="Engineering Team"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64">
-                    <img
+                    <Picture loading="lazy" decoding="async"
                       src="/Walnut_About_Page_Images_Single/09_Team_Collaboration.webp"
                       alt="Team Collaboration"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -422,14 +423,14 @@ export default function AboutPage() {
                 </div>
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64">
-                    <img
+                    <Picture loading="lazy" decoding="async"
                       src="/Walnut_About_Page_Images_Single/11_Modern_Conference_Room.webp"
                       alt="Conference Room"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48">
-                    <img
+                    <Picture loading="lazy" decoding="async"
                       src="/Walnut_About_Page_Images_Single/12_Business_Partnership.webp"
                       alt="Business Partnership"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -452,7 +453,7 @@ export default function AboutPage() {
             <AnimatedSection>
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-2xl">
-                  <img
+                  <Picture loading="lazy" decoding="async"
                     src="/Walnut_About_Page_Images_Single/07_PCB_Testing.webp"
                     alt="Quality Testing"
                     className="w-full h-[400px] object-cover"
@@ -537,7 +538,7 @@ export default function AboutPage() {
                   to={`/about/future/${item.slug}`}
                   className="group block relative rounded-2xl overflow-hidden h-80 cursor-pointer"
                 >
-                  <img
+                  <Picture loading="lazy" decoding="async"
                     src={item.image}
                     alt={item.title}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -610,7 +611,7 @@ export default function AboutPage() {
             {/* Right — Image */}
             <AnimatedSection delay={0.15}>
               <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
-                <img
+                <Picture loading="lazy" decoding="async"
                   src="/Walnut_About_Page_Images_Single/13_Purpose_Products.webp"
                   alt="Walnut Technologies Products - Medical Devices, Payment Systems, Electronics"
                   className="w-full h-auto object-contain"
@@ -626,7 +627,7 @@ export default function AboutPage() {
       ═══════════════════════════════════════════════════════════════ */}
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Picture loading="lazy" decoding="async"
             src="/Walnut_About_Page_Images_Single/08_Electronics_Manufacturing_Factory.webp"
             alt=""
             className="w-full h-full object-cover"

@@ -10,6 +10,7 @@ import {
   FiCpu, FiCode, FiLayers, FiSettings, FiMonitor,
   FiTool, FiCheckSquare, FiUser
 } from 'react-icons/fi';
+import Picture from '../components/Picture';
 
 function AnimatedSection({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -273,7 +274,7 @@ export default function CareerPage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <Picture
                   src="/career-background.webp"
                   alt="Walnut Medical Team"
                   className="w-full h-[300px] md:h-[400px] object-cover"
@@ -335,7 +336,7 @@ export default function CareerPage() {
 
             <AnimatedSection delay={0.2} className="lg:col-span-3">
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img
+                <Picture
                   src={cultureImages[0].src}
                   alt={cultureImages[0].alt}
                   className="w-full h-[250px] md:h-[350px] object-cover"
@@ -363,7 +364,7 @@ export default function CareerPage() {
               <AnimatedSection key={team.name} delay={i * 0.04}>
                 <div className="group text-center">
                   <div className="w-full aspect-square rounded-lg overflow-hidden mb-2 relative">
-                    <img
+                    <Picture
                       src={team.image}
                       alt={team.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

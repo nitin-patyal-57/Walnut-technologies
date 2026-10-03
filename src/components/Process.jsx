@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fi';
 import { process, industryFourTechnologies, impactBenefits } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
+import Picture from '../components/Picture';
 
 const stepIcons = {
   lightbulb: FiZap,
@@ -23,7 +24,7 @@ const stepIcons = {
 };
 
 const stepImages = [
-  '/3d image.webp',
+  '/idea-and-requirement.webp',
   '/TDCS.webp',
   '/iot-lock-smart.webp',
   '/soundbox-new.webp',
@@ -89,7 +90,7 @@ function ProcessSteps() {
               >
                 <div className="relative">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg">
-                    <img
+                    <Picture loading="lazy" decoding="async"
                       src={stepImages[index]}
                       alt={step.title}
                       className="w-full h-full object-cover"
@@ -134,7 +135,7 @@ function ProcessSteps() {
               >
                 <div className="relative">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg">
-                    <img
+                    <Picture loading="lazy" decoding="async"
                       src={stepImages[index + 5]}
                       alt={step.title}
                       className="w-full h-full object-cover"

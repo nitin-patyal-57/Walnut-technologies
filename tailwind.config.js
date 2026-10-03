@@ -53,13 +53,20 @@ export default {
         display: ['Manrope', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        xl: '1.375rem',
-        '2xl': '1.625rem',
-        '3xl': '2rem',
-        '4xl': '2.5rem',
-        '5xl': '3.25rem',
-        '6xl': '4rem',
-        '7xl': '4.75rem',
+        // Fluid type scale: stock sizes up to 1440px, then scales with the
+        // viewport up to ~3840px (4K) so text grows like images do.
+        xs: ['clamp(0.75rem, 0.64rem + 0.125vw, 0.9375rem)', { lineHeight: '1.333' }],
+        sm: ['clamp(0.875rem, 0.75rem + 0.15vw, 1.125rem)', { lineHeight: '1.429' }],
+        base: ['clamp(1rem, 0.82rem + 0.2vw, 1.3125rem)', { lineHeight: '1.5' }],
+        lg: ['clamp(1.125rem, 0.9rem + 0.25vw, 1.5rem)', { lineHeight: '1.556' }],
+        xl: ['clamp(1.125rem, 1.025rem + 0.25vw, 1.625rem)', { lineHeight: '1.273' }],
+        '2xl': ['clamp(1.3125rem, 1.2rem + 0.333vw, 2rem)', { lineHeight: '1.333' }],
+        '3xl': ['clamp(1.5rem, 1.5rem + 0.417vw, 2.5rem)', { lineHeight: '1.2' }],
+        '4xl': ['clamp(1.875rem, 1.8rem + 0.5vw, 3rem)', { lineHeight: '1.111' }],
+        '5xl': ['clamp(2.25rem, 2.4rem + 0.667vw, 4rem)', { lineHeight: '1.1' }],
+        '6xl': ['clamp(2.75rem, 3rem + 0.833vw, 5rem)', { lineHeight: '1.05' }],
+        '7xl': ['clamp(3.25rem, 3.6rem + 1vw, 6rem)', { lineHeight: '1.05' }],
+        '8xl': ['clamp(4rem, 4.8rem + 1.333vw, 8rem)', { lineHeight: '1' }],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

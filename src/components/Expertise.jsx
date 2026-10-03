@@ -3,53 +3,54 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
+import Picture from '../components/Picture';
 
 const expertiseAreas = [
   {
     slug: 'medical-electronics',
-    image: '/expertise/medical-tech.jpg',
+    image: '/expertise/medical-tech.webp',
     color: 'from-blue-600 to-blue-700',
     num: '01',
   },
   {
     slug: 'embedded-electronic-and-iot',
-    image: '/expertise/global-network.jpg',
+    image: '/expertise/global-network.webp',
     color: 'from-cyan-500 to-cyan-600',
     num: '02',
   },
   {
     slug: 'ip-oriented-product',
-    image: '/expertise/engineer-work.jpg',
+    image: '/expertise/engineer-work.webp',
     color: 'from-blue-500 to-indigo-600',
     num: '03',
   },
   {
     slug: 'pcb-design-development',
-    image: '/expertise/circuit-macro.jpg',
+    image: '/expertise/circuit-macro.webp',
     color: 'from-indigo-500 to-violet-600',
     num: '04',
   },
   {
     slug: 'it-electronics',
-    image: '/expertise/circuit-blue.jpg',
+    image: '/expertise/circuit-blue.webp',
     color: 'from-blue-600 to-blue-700',
     num: '05',
   },
   {
     slug: 'iot-software-development',
-    image: '/expertise/software-code.jpg',
+    image: '/expertise/software-code.webp',
     color: 'from-cyan-500 to-cyan-600',
     num: '06',
   },
   {
     slug: 'large-scale-manufacturing',
-    image: '/expertise/factory-line.jpg',
+    image: '/expertise/factory-line.webp',
     color: 'from-blue-500 to-indigo-600',
     num: '07',
   },
   {
     slug: 'payment-systems',
-    image: '/expertise/payment-terminal.jpg',
+    image: '/expertise/payment-terminal.webp',
     color: 'from-indigo-500 to-violet-600',
     num: '08',
   },
@@ -151,8 +152,8 @@ export default function Expertise() {
             >
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="/expertise/hero-engineer.jpg"
+                  <Picture loading="lazy" decoding="async"
+                    src="/expertise/hero-engineer.webp"
                     alt="Engineer working on electronics at Walnut Technologies"
                     className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-cover"
                   />
@@ -230,7 +231,7 @@ export default function Expertise() {
                   >
                     {/* Image */}
                     <div className="relative h-44 overflow-hidden">
-                      <img
+                      <Picture
                         src={item.image}
                         alt={title}
                         loading="lazy"

@@ -6,6 +6,7 @@ import {
   FiX, FiShare2
 } from 'react-icons/fi';
 import { news } from '../data/content';
+import Picture from '../components/Picture';
 
 const categoryConfig = {
   Certification: {
@@ -80,7 +81,7 @@ function NewsModal({ item, onClose }) {
         >
           {/* Hero Image */}
           <div className="relative h-72 md:h-96 overflow-hidden">
-            <img
+            <Picture loading="lazy" decoding="async"
               src={item.image}
               alt={item.title}
               className="w-full h-full object-cover"
@@ -191,7 +192,7 @@ function NewsModal({ item, onClose }) {
                     return (
                       <div key={r.id} className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all cursor-pointer group">
                         <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0">
-                          <img src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                          <Picture loading="lazy" decoding="async" src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                         </div>
                         <div>
                           <span className={`text-[9px] font-bold ${rConfig.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
@@ -245,7 +246,7 @@ function FeaturedCard({ item, isInView, onReadMore }) {
       <div className="grid lg:grid-cols-2 h-full">
         {/* Image */}
         <div className="relative h-64 lg:h-full overflow-hidden">
-          <img
+          <Picture loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -302,7 +303,7 @@ function NewsCard({ item, index, isInView, onReadMore }) {
       <div className="relative bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden h-full flex flex-col">
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
-          <img
+          <Picture loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -373,7 +374,7 @@ function TimelineCard({ item, index, isInView, onReadMore }) {
           <div className="flex items-stretch">
             {/* Image */}
             <div className="w-32 shrink-0 overflow-hidden hidden sm:block">
-              <img
+              <Picture loading="lazy" decoding="async"
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -600,7 +601,7 @@ export default function News() {
                         <div className="bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                           <div className="flex items-stretch">
                             <div className="w-40 shrink-0 overflow-hidden hidden sm:block">
-                              <img
+                              <Picture loading="lazy" decoding="async"
                                 src={item.image}
                                 alt={item.title}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

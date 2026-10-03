@@ -10,6 +10,7 @@ import { brand } from '../data/content';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { sendContactEmail } from '../utils/sendEmail';
+import Picture from '../components/Picture';
 
 export default function ContactPage() {
   const ref = useRef(null);
@@ -133,7 +134,7 @@ export default function ContactPage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <Picture loading="lazy" decoding="async"
                   src="/contactbackground.webp"
                   alt="Walnut Technologies Manufacturing Facility"
                   className="w-full h-[300px] lg:h-[380px] object-cover object-[right_85%]"

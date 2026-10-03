@@ -1,6 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { MotionConfig } from 'framer-motion';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
@@ -112,15 +113,17 @@ function AppContent() {
 
 export default function App() {
   return (
-    <HelmetProvider>
-      <ErrorBoundary>
-        <BrowserRouter>
-          <LanguageProvider>
-            <Preloader />
-            <AppContent />
-          </LanguageProvider>
-        </BrowserRouter>
-      </ErrorBoundary>
-    </HelmetProvider>
+    <MotionConfig reducedMotion="user">
+      <HelmetProvider>
+        <ErrorBoundary>
+          <BrowserRouter>
+            <LanguageProvider>
+              <Preloader />
+              <AppContent />
+            </LanguageProvider>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </HelmetProvider>
+    </MotionConfig>
   );
 }

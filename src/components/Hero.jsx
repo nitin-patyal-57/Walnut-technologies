@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
+import Picture from '../components/Picture';
 
 export default function Hero({ onOpenSchedule }) {
   const { t } = useLanguage();
@@ -10,11 +11,13 @@ export default function Hero({ onOpenSchedule }) {
   return (
     <section id="hero" className="relative min-h-[100dvh] flex flex-col overflow-hidden w-full">
       <div className="absolute inset-0">
-        <img
+        <Picture
           src="/home-background.webp"
           alt="Walnut Technologies electronics manufacturing facility"
           width="1920"
           height="1080"
+          fetchpriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-800/70" />

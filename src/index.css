@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+picture {
+  display: contents;
+}
+
 @layer base {
   * {
     margin: 0;

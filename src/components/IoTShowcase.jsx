@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { FiArrowLeft, FiCheckCircle, FiWifi, FiCpu, FiCloud, FiLock, FiActivity, FiShield, FiZap, FiTarget, FiSmartphone, FiMapPin } from 'react-icons/fi';
+import Picture from '../components/Picture';
 
 const keyFeatures = [
   { icon: FiWifi, label: 'BLE/WiFi Connectivity', value: 'Seamless wireless communication for smart connected devices' },
@@ -92,7 +93,7 @@ export default function IoTShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/iot-smartlock-background1.webp" alt="IoT Solutions" width="1920" height="600" className="w-full h-auto -mt-24 md:-mt-24 scale-110" loading="lazy" />
+          <Picture src="/iot-smartlock-background1.webp" alt="IoT Solutions" width="1920" height="600" className="w-full h-auto -mt-24 md:-mt-24 scale-110" loading="lazy" />
         </div>
       </section>
 
@@ -140,7 +141,7 @@ export default function IoTShowcase({ onBack }) {
               >
                 <div className="flex items-start gap-5">
                   <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
-                    <img src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
+                    <Picture loading="lazy" decoding="async" src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-[#0f172a] text-lg leading-tight mb-1">{product.title}</h3>

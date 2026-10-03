@@ -489,7 +489,7 @@ export const expertise = [
     title: 'PCB Design & Fabrication',
     description: 'Multi-layer, HDI, and flex PCB design optimized for high-volume manufacturing.',
     icon: 'board',
-    image: '/3d image.webp',
+    image: '/design-and-engineering.webp',
     areas: ['Up to 12 Layers', 'HDI Technology', 'Flex/Rigid-Flex', 'Signal Integrity'],
   },
   {

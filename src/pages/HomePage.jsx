@@ -9,6 +9,7 @@ import {
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
+import Picture from '../components/Picture';
 
 function JourneySection() {
   const ref = useRef(null);
@@ -58,7 +59,7 @@ function JourneySection() {
               >
                 <div className="relative group">
                   <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
-                    <img 
+                    <Picture 
                       src={item.image} 
                       alt={item.to}
                       width="150"
@@ -97,7 +98,7 @@ function JourneySection() {
               >
                 <div className="relative group">
                   <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
-                    <img 
+                    <Picture 
                       src={item.image} 
                       alt={item.to}
                       width="150"
@@ -346,7 +347,7 @@ function DivisionsPreview() {
               >
                 {/* Full Image */}
                 <div className="relative aspect-square overflow-hidden bg-slate-50 flex-shrink-0">
-                  <img
+                  <Picture
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
@@ -362,7 +363,7 @@ function DivisionsPreview() {
                       <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
                     </div>
                     <div className="w-full sm:w-40 h-32 sm:h-auto overflow-hidden border-t sm:border-t-0 sm:border-l border-slate-100 flex-shrink-0">
-                      <img
+                      <Picture
                         src={sol.sideImage}
                         alt={`${sol.title} - Tilt Bed`}
                         loading="lazy"
@@ -596,7 +597,7 @@ function ClientsCertifications() {
                   className="group flex items-center justify-center p-2 sm:p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
                   <div className={`rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300 ${client.logo.includes('bhartpe') ? 'w-24 h-24 sm:w-36 sm:h-36' : 'w-16 h-16 sm:w-24 sm:h-24'}`}>
-                    <img src={client.logo} alt={client.name} width="96" height="96" className={`w-full h-full ${client.logo.includes('bhartpe') ? 'object-cover' : 'object-contain'}`} loading="lazy" />
+                    <Picture src={client.logo} alt={client.name} width="96" height="96" className={`w-full h-full ${client.logo.includes('bhartpe') ? 'object-cover' : 'object-contain'}`} loading="lazy" />
                   </div>
                 </motion.div>
               ))}

@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { FiArrowLeft, FiCheckCircle, FiCpu, FiActivity, FiHeart, FiWifi, FiMonitor, FiZap, FiTarget, FiShield } from 'react-icons/fi';
+import Picture from '../components/Picture';
 
 const keyFeatures = [
   { icon: FiCpu, label: 'AI-Assisted Therapy', value: 'Machine learning algorithms personalize rehabilitation protocols' },
@@ -73,7 +74,7 @@ export default function NeuroShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 -mt-28 md:-mt-32 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <img src="/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture src="/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 
@@ -120,7 +121,7 @@ export default function NeuroShowcase({ onBack }) {
               {/* Image Side */}
               <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_30%_50%,#3b82f6,transparent_60%)]" />
-                <img src="/walklab product dropdown.png" alt="WalkLab Gait Training System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
+                <Picture loading="lazy" decoding="async" src="/walklab-product.webp" alt="WalkLab Gait Training System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
               </div>
               {/* Content Side */}
               <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
@@ -155,7 +156,7 @@ export default function NeuroShowcase({ onBack }) {
               {/* Image Side */}
               <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_70%_50%,#3b82f6,transparent_60%)]" />
-                <img src="/Tilt Bed.png" alt="Tilt Bed Therapeutic Positioning System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
+                <Picture loading="lazy" decoding="async" src="/tilt-bed.webp" alt="Tilt Bed Therapeutic Positioning System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
               </div>
               {/* Content Side */}
               <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">

@@ -7,6 +7,7 @@ import {
   FiShield, FiZap, FiHeart, FiUsers, FiCheckCircle,
   FiSettings, FiStar, FiCloud, FiActivity, FiRadio
 } from 'react-icons/fi';
+import Picture from '../components/Picture';
 
 const futureData = {
   global: {
@@ -224,7 +225,7 @@ export default function FutureDetailPage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
+                <Picture loading="lazy" decoding="async"
                   src={data.splitContent.image}
                   alt={data.splitContent.title}
                   className="w-full h-80 lg:h-96 object-cover"

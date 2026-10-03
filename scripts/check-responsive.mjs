@@ -6,7 +6,7 @@ const PORT = 4173;
 const BASE = `http://localhost:${PORT}`;
 const CHROME = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 
-const WIDTHS = [320, 375, 425, 768, 1024, 1280, 1440, 1920, 2560];
+const WIDTHS = [280, 320, 360, 375, 414, 425, 540, 768, 820, 1024, 1280, 1440, 1920, 2560, 3440, 3840];
 
 const ROUTES = [
   '/', '/about',
@@ -47,56 +47,83 @@ const browser = await puppeteer.launch({
   args: ['--no-sandbox', '--disable-gpu'],
 });
 
-const failures = [];
+// only one tab may be visible at a time: other tabs' bringToFront() calls would
+// steal visibility mid-check and freeze entrance animations / IO callbacks
+let frontLock = Promise.resolve();
+const withFront = (fn) => {
+  const run = frontLock.then(fn, fn);
+  frontLock = run.catch(() => {});
+  return run;
+};
 
-const CHECK_FN = () => {
-  const doc = document.documentElement;
-  const scrollX = doc.scrollWidth - window.innerWidth;
+// runs in-page: scroll through the page step by step (waiting for entrance
+// animations to trigger at each step) and check only elements currently in
+// the viewport - below-fold elements legitimately sit at their initial
+// transform until scrolled to
+const SCROLL_CHECK = async () => {
+  document.documentElement.style.scrollBehavior = 'auto';
+  const tags = new Set(['p','h1','h2','h3','h4','h5','h6','a','button','span','li','td','th','label','input','select']);
   const offenders = [];
   const seen = new Set();
-  const tags = new Set(['p','h1','h2','h3','h4','h5','h6','a','button','span','li','td','th','label','input','select']);
-  const els = document.querySelectorAll('body *');
-  for (const el of els) {
-    if (!tags.has(el.tagName.toLowerCase())) continue;
-    const r = el.getBoundingClientRect();
-    if (r.width === 0 || r.height === 0) continue;
-    if (el.tagName.toLowerCase() !== 'input' && el.tagName.toLowerCase() !== 'select' && !(el.textContent || '').trim()) continue;
-    if (el.closest('[aria-hidden="true"]')) continue;
-    if (r.right > window.innerWidth + 1 || r.left < -1) {
+  let scrollX = 0;
+
+  const check = () => {
+    const doc = document.documentElement;
+    scrollX = Math.max(scrollX, doc.scrollWidth - window.innerWidth);
+    for (const el of document.querySelectorAll('body *')) {
+      if (!tags.has(el.tagName.toLowerCase())) continue;
+      const r = el.getBoundingClientRect();
+      if (r.width === 0 || r.height === 0) continue;
+      if (r.bottom < 0 || r.top > window.innerHeight) continue; // in viewport only
+      if (el.tagName.toLowerCase() !== 'input' && el.tagName.toLowerCase() !== 'select' && !(el.textContent || '').trim()) continue;
+      if (el.closest('[aria-hidden="true"]')) continue;
       const cls = (el.className && el.className.toString ? el.className.toString() : '').slice(0, 60);
       const key = el.tagName + '|' + cls;
       if (seen.has(key)) continue;
-      seen.add(key);
-      offenders.push({
-        tag: el.tagName.toLowerCase(),
-        cls,
-        left: Math.round(r.left),
-        right: Math.round(r.right),
-        text: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 40),
-      });
+      const cs = getComputedStyle(el);
+      const clipsX = (cs.overflowX === 'hidden' || cs.overflow === 'hidden');
+      if (clipsX && !/truncate|line-clamp|whitespace-nowrap/.test(cls) && el.scrollWidth > el.clientWidth + 2) {
+        seen.add(key);
+        offenders.push({ tag: el.tagName.toLowerCase(), cls, type: 'TEXT_CLIP', detail: `scrollW ${el.scrollWidth} > clientW ${el.clientWidth}` });
+        continue;
+      }
+      if (r.right > window.innerWidth + 1 || r.left < -1) {
+        seen.add(key);
+        offenders.push({
+          tag: el.tagName.toLowerCase(),
+          cls,
+          left: Math.round(r.left),
+          right: Math.round(r.right),
+          text: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 40),
+        });
+      }
     }
+  };
+
+  const step = Math.max(400, Math.floor(window.innerHeight * 0.75));
+  for (let y = 0, h = document.body.scrollHeight; y < h; y += step) {
+    window.scrollTo({ top: y, behavior: 'instant' });
+    await new Promise((r) => setTimeout(r, 300));
+    check();
   }
-  return { scrollX, innerW: window.innerWidth, offenders: offenders.slice(0, 8) };
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  return { scrollX, offenders: offenders.slice(0, 8) };
 };
 
 async function runWidth(width) {
   const page = await browser.newPage();
   await page.setViewport({ width, height: 900 });
+  await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
   const local = [];
   for (const route of ROUTES) {
     try {
       await page.goto(BASE + route, { waitUntil: 'domcontentloaded', timeout: 20000 });
-      await sleep(400);
-      await page.evaluate(async () => {
-        const h = document.body.scrollHeight;
-        for (let y = 0; y < h; y += 1200) {
-          window.scrollTo(0, y);
-          await new Promise(r => setTimeout(r, 40));
-        }
-        window.scrollTo(0, 0);
+      await sleep(300);
+      const result = await withFront(async () => {
+        await page.bringToFront();
+        await sleep(150);
+        return page.evaluate(SCROLL_CHECK);
       });
-      await sleep(900);
-      const result = await page.evaluate(CHECK_FN);
 
       if (result.scrollX > 1) {
         local.push({ width, route, type: 'SCROLL', detail: `scrollWidth exceeds viewport by ${result.scrollX}px` });
@@ -113,8 +140,12 @@ async function runWidth(width) {
   return local;
 }
 
-const results = await Promise.all(WIDTHS.map(runWidth));
-for (const r of results) failures.push(...r);
+const failures = [];
+for (let i = 0; i < WIDTHS.length; i += 4) {
+  const batch = WIDTHS.slice(i, i + 4);
+  const out = await Promise.all(batch.map(runWidth));
+  for (const r of out) failures.push(...r);
+}
 
 await browser.close();
 preview.kill();
@@ -126,7 +157,10 @@ if (!failures.length) {
   for (const f of failures) {
     console.log(`[${f.width}px] ${f.route} ${f.type}`);
     if (typeof f.detail === 'string') console.log(`   ${f.detail}`);
-    else for (const o of f.detail) console.log(`   <${o.tag} class="${o.cls}"> [${o.left}..${o.right}] "${o.text}"`);
+    else for (const o of f.detail) {
+      if (o.type === 'TEXT_CLIP') console.log(`   TEXT_CLIP <${o.tag} class="${o.cls}"> ${o.detail}`);
+      else console.log(`   <${o.tag} class="${o.cls}"> [${o.left}..${o.right}] "${o.text}"`);
+    }
   }
   console.log(`\n${failures.length} issue(s)`);
 }
