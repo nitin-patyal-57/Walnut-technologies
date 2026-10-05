@@ -74,7 +74,7 @@ export default function NeuroShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-32 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture src="/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture src="/images/products/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 
@@ -121,7 +121,7 @@ export default function NeuroShowcase({ onBack }) {
               {/* Image Side */}
               <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_30%_50%,#3b82f6,transparent_60%)]" />
-                <Picture loading="lazy" decoding="async" src="/walklab-product.webp" alt="WalkLab Gait Training System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
+                <Picture loading="lazy" decoding="async" src="/images/products/walklab-product.webp" alt="WalkLab Gait Training System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
               </div>
               {/* Content Side */}
               <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
@@ -156,7 +156,7 @@ export default function NeuroShowcase({ onBack }) {
               {/* Image Side */}
               <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_70%_50%,#3b82f6,transparent_60%)]" />
-                <Picture loading="lazy" decoding="async" src="/tilt-bed.webp" alt="Tilt Bed Therapeutic Positioning System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
+                <Picture loading="lazy" decoding="async" src="/images/products/tilt-bed.webp" alt="Tilt Bed Therapeutic Positioning System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
               </div>
               {/* Content Side */}
               <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
@@ -164,14 +164,14 @@ export default function NeuroShowcase({ onBack }) {
                   <FiTarget className="w-3.5 h-3.5" /> Therapeutic System
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-bold text-[#0f172a] mb-2 leading-tight">Tilt Bed</h3>
-                <p className="text-blue-500 font-semibold text-sm mb-4">Therapeutic Positioning System</p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">A specialized tilt table engineered for early mobilization and progressive weight-bearing therapy. Enables safe, controlled positional training for patients recovering from neurological conditions.</p>
+                <p className="text-blue-500 font-semibold text-sm mb-4">Motorised Tilt Table with Leg Stepping</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">A motorised tilt table with an integrated leg-stepping mechanism. The patient lies supine and is strapped in, the table is raised gradually toward vertical while the legs move in a continuous alternating stepping pattern. Working the calf muscle pump maintains venous return, so blood pressure holds and verticalization can start earlier and be tolerated longer — for early mobilization after stroke, traumatic brain injury, spinal cord injury and prolonged ICU stays.</p>
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {[
-                    { icon: FiTarget, label: 'Postural Training' },
-                    { icon: FiActivity, label: 'Weight-Bearing Therapy' },
-                    { icon: FiShield, label: 'Patient Safety' },
-                    { icon: FiZap, label: 'Adjustable Angles' },
+                    { icon: FiTarget, label: 'Progressive Verticalization' },
+                    { icon: FiActivity, label: 'Alternating Stepping Motion' },
+                    { icon: FiHeart, label: 'Maintains Venous Return' },
+                    { icon: FiShield, label: 'Prevents Bed-Rest Complications' },
                   ].map((f) => (
                     <div key={f.label} className="flex items-center gap-2 text-sm text-slate-700">
                       <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
