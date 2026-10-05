@@ -13,7 +13,7 @@ const futureData = {
   global: {
     title: 'Global',
     subtitle: 'Expanding Our Technology and Manufacturing Reach',
-    heroImage: '/Walnut_About_Page_Images_Single/05_Global_Technology.webp',
+    heroImage: '/images/about/05_Global_Technology.webp',
     color: 'from-blue-600 to-blue-700',
     colorSolid: '#2563eb',
     colorBg: 'bg-blue-50',
@@ -36,7 +36,7 @@ const futureData = {
     splitContent: {
       title: 'How We Go Global',
       text: 'Every product we build is designed for global markets from day one. Our certifications — CE, FCC, PCI-DSS, IATF 16949 — are not afterthoughts. They are built into our design and manufacturing process. This means our clients can deploy our products anywhere in the world without worrying about compliance.',
-      image: '/Walnut_About_Page_Images_Single/05_Global_Technology.webp',
+      image: '/images/about/05_Global_Technology.webp',
     },
     nextSlug: 'intelligent',
     nextTitle: 'Intelligent',
@@ -45,7 +45,7 @@ const futureData = {
   intelligent: {
     title: 'Intelligent',
     subtitle: 'Building Smarter Products with AI and IoT',
-    heroImage: '/Walnut_About_Page_Images_Single/03_Microchip_PCB.webp',
+    heroImage: '/images/about/03_Microchip_PCB.webp',
     color: 'from-blue-600 to-blue-700',
     colorSolid: '#2563eb',
     colorBg: 'bg-blue-50',
@@ -68,7 +68,7 @@ const futureData = {
     splitContent: {
       title: 'Industry 5.0 in Action',
       text: 'We are not just adopting new technology — we are building an ecosystem. Our Industry 5.0 approach combines AI analytics, Digital Twin simulation, IoT connectivity, and human-centric automation. Every product we make is smarter than the last, and every process is more efficient.',
-      image: '/Walnut_About_Page_Images_Single/03_Microchip_PCB.webp',
+      image: '/images/about/03_Microchip_PCB.webp',
     },
     nextSlug: 'scalable',
     nextTitle: 'Scalable',
@@ -77,7 +77,7 @@ const futureData = {
   scalable: {
     title: 'Scalable',
     subtitle: 'Solutions Ready for Real-World Deployment at Any Scale',
-    heroImage: '/Walnut_About_Page_Images_Single/06_Cleanroom_Manufacturing.webp',
+    heroImage: '/images/about/06_Cleanroom_Manufacturing.webp',
     color: 'from-blue-600 to-blue-700',
     colorSolid: '#2563eb',
     colorBg: 'bg-blue-50',
@@ -100,7 +100,7 @@ const futureData = {
     splitContent: {
       title: 'Built for Scale',
       text: 'Our 150,000 sqft facility in Mohali is designed for volume without compromising quality. 4 high-speed SMT lines, Class 10K cleanroom, automated testing — we can scale from 100 units to 100,000 units without skipping a beat. 99.8% first-pass yield is not a number we achieved by accident.',
-      image: '/Walnut_About_Page_Images_Single/06_Cleanroom_Manufacturing.webp',
+      image: '/images/about/06_Cleanroom_Manufacturing.webp',
     },
     nextSlug: 'global',
     nextTitle: 'Global',

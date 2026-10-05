@@ -24,16 +24,16 @@ const stepIcons = {
 };
 
 const stepImages = [
-  '/idea-and-requirement.webp',
-  '/TDCS.webp',
-  '/iot-lock-smart.webp',
-  '/soundbox-new.webp',
-  '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
-  '/soundbox-new.webp',
-  '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
-  '/neuro_rehab_device.webp',
-  '/soundbox-new.webp',
-  '/soundbox-new.webp',
+  '/images/process/idea-and-requirement.webp',
+  '/images/products/TDCS.webp',
+  '/images/products/iot-lock-smart.webp',
+  '/images/products/soundbox-new.webp',
+  '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+  '/images/products/soundbox-new.webp',
+  '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+  '/images/products/neuro_rehab_device.webp',
+  '/images/products/soundbox-new.webp',
+  '/images/products/soundbox-new.webp',
 ];
 
 const techIcons = {

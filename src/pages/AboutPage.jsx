@@ -46,7 +46,7 @@ export default function AboutPage() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Picture loading="lazy" decoding="async"
-            src="/aboutbackground.webp"
+            src="/images/backgrounds/aboutbackground.webp"
             alt="Walnut Technologies"
             className="w-full h-full object-cover"
           />
@@ -148,14 +148,14 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <Picture loading="lazy" decoding="async"
-                    src="/Walnut_About_Page_Images_Single/08_Electronics_Manufacturing_Factory.webp"
+                    src="/images/about/08_Electronics_Manufacturing_Factory.webp"
                     alt="Manufacturing Facility"
                     className="w-full h-[320px] object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-8 -right-2 sm:-right-6 lg:-right-10 z-20 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                   <Picture loading="lazy" decoding="async"
-                    src="/Walnut_About_Page_Images_Single/04_Engineering_Team.webp"
+                    src="/images/about/04_Engineering_Team.webp"
                     alt="Engineering Team"
                     className="w-full h-full object-cover"
                   />
@@ -232,10 +232,10 @@ export default function AboutPage() {
           {/* Timeline cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: '01', title: 'Foundation', desc: 'Walnut Medical & Healthcare Technology', image: '/Walnut_About_Page_Images_Single/02_Electronics_Engineer_Lab.webp', color: 'from-blue-600 to-blue-700', slug: 'foundation' },
-              { num: '02', title: 'Innovation', desc: 'Neurorehabilitation & Medical Electronics', image: '/Walnut_About_Page_Images_Single/03_Microchip_PCB.webp', color: 'from-cyan-500 to-cyan-600', slug: 'innovation' },
-              { num: '03', title: 'Expansion', desc: 'Finance, IoT & Electronics', image: '/Walnut_About_Page_Images_Single/05_Global_Technology.webp', color: 'from-blue-500 to-indigo-600', slug: 'expansion' },
-              { num: '04', title: 'Today', desc: 'Engineering & Manufacturing Excellence', image: '/Walnut_About_Page_Images_Single/06_Cleanroom_Manufacturing.webp', color: 'from-indigo-500 to-violet-600', slug: 'today' },
+              { num: '01', title: 'Foundation', desc: 'Walnut Medical & Healthcare Technology', image: '/images/about/02_Electronics_Engineer_Lab.webp', color: 'from-blue-600 to-blue-700', slug: 'foundation' },
+              { num: '02', title: 'Innovation', desc: 'Neurorehabilitation & Medical Electronics', image: '/images/about/03_Microchip_PCB.webp', color: 'from-cyan-500 to-cyan-600', slug: 'innovation' },
+              { num: '03', title: 'Expansion', desc: 'Finance, IoT & Electronics', image: '/images/about/05_Global_Technology.webp', color: 'from-blue-500 to-indigo-600', slug: 'expansion' },
+              { num: '04', title: 'Today', desc: 'Engineering & Manufacturing Excellence', image: '/images/about/06_Cleanroom_Manufacturing.webp', color: 'from-indigo-500 to-violet-600', slug: 'today' },
             ].map((step, i) => (
               <AnimatedSection key={step.num} delay={i * 0.1}>
                 <Link
@@ -312,7 +312,7 @@ export default function AboutPage() {
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0">
           <Picture loading="lazy" decoding="async"
-            src="/Walnut_About_Page_Images_Single/10_PCB_Closeup.webp"
+            src="/images/about/10_PCB_Closeup.webp"
             alt=""
             className="w-full h-full object-cover"
           />
@@ -408,14 +408,14 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48">
                     <Picture loading="lazy" decoding="async"
-                      src="/Walnut_About_Page_Images_Single/04_Engineering_Team.webp"
+                      src="/images/about/04_Engineering_Team.webp"
                       alt="Engineering Team"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64">
                     <Picture loading="lazy" decoding="async"
-                      src="/Walnut_About_Page_Images_Single/09_Team_Collaboration.webp"
+                      src="/images/about/09_Team_Collaboration.webp"
                       alt="Team Collaboration"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
@@ -424,14 +424,14 @@ export default function AboutPage() {
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64">
                     <Picture loading="lazy" decoding="async"
-                      src="/Walnut_About_Page_Images_Single/11_Modern_Conference_Room.webp"
+                      src="/images/about/11_Modern_Conference_Room.webp"
                       alt="Conference Room"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48">
                     <Picture loading="lazy" decoding="async"
-                      src="/Walnut_About_Page_Images_Single/12_Business_Partnership.webp"
+                      src="/images/about/12_Business_Partnership.webp"
                       alt="Business Partnership"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
@@ -454,7 +454,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-2xl">
                   <Picture loading="lazy" decoding="async"
-                    src="/Walnut_About_Page_Images_Single/07_PCB_Testing.webp"
+                    src="/images/about/07_PCB_Testing.webp"
                     alt="Quality Testing"
                     className="w-full h-[400px] object-cover"
                   />
@@ -529,9 +529,9 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: FiGlobe, title: 'Global', desc: 'Expanding our technology and manufacturing reach across 40+ countries.', image: '/Walnut_About_Page_Images_Single/05_Global_Technology.webp', slug: 'global' },
-              { icon: FiCpu, title: 'Intelligent', desc: 'Building smarter connected products with AI and IoT integration.', image: '/Walnut_About_Page_Images_Single/03_Microchip_PCB.webp', slug: 'intelligent' },
-              { icon: FiTrendingUp, title: 'Scalable', desc: 'Creating solutions ready for real-world deployment at any scale.', image: '/Walnut_About_Page_Images_Single/06_Cleanroom_Manufacturing.webp', slug: 'scalable' },
+              { icon: FiGlobe, title: 'Global', desc: 'Expanding our technology and manufacturing reach across 40+ countries.', image: '/images/about/05_Global_Technology.webp', slug: 'global' },
+              { icon: FiCpu, title: 'Intelligent', desc: 'Building smarter connected products with AI and IoT integration.', image: '/images/about/03_Microchip_PCB.webp', slug: 'intelligent' },
+              { icon: FiTrendingUp, title: 'Scalable', desc: 'Creating solutions ready for real-world deployment at any scale.', image: '/images/about/06_Cleanroom_Manufacturing.webp', slug: 'scalable' },
             ].map((item, i) => (
               <AnimatedSection key={item.title} delay={i * 0.1}>
                 <Link
@@ -612,7 +612,7 @@ export default function AboutPage() {
             <AnimatedSection delay={0.15}>
               <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
                 <Picture loading="lazy" decoding="async"
-                  src="/Walnut_About_Page_Images_Single/13_Purpose_Products.webp"
+                  src="/images/about/13_Purpose_Products.webp"
                   alt="Walnut Technologies Products - Medical Devices, Payment Systems, Electronics"
                   className="w-full h-auto object-contain"
                 />
@@ -628,7 +628,7 @@ export default function AboutPage() {
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0">
           <Picture loading="lazy" decoding="async"
-            src="/Walnut_About_Page_Images_Single/08_Electronics_Manufacturing_Factory.webp"
+            src="/images/about/08_Electronics_Manufacturing_Factory.webp"
             alt=""
             className="w-full h-full object-cover"
           />

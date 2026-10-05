@@ -14,7 +14,9 @@ const AVIF = { quality: 55, effort: 4 };
 const WEBP = { quality: 78, effort: 5 };
 
 const SKIP = (rel) =>
-  rel.startsWith('walnut-logo/') || /^(favicon|apple-touch-icon|android-chrome|logo)/i.test(rel);
+  rel.startsWith('images/brand/') ||
+  rel.startsWith('walnut-logo/') ||
+  /^(favicon|apple-touch-icon|android-chrome|logo)/i.test(rel);
 
 const walk = async (dir) => {
   const out = [];
@@ -100,9 +102,10 @@ const sorted = Object.fromEntries(
 await mkdir(path.dirname(MANIFEST), { recursive: true });
 await writeFile(MANIFEST, JSON.stringify(sorted, null, 2) + '\n');
 
-const hero = sorted['home-background'];
+const HERO_KEY = 'images/backgrounds/home-background';
+const hero = sorted[HERO_KEY];
 if (hero && hero.avif.length) {
-  const srcset = hero.avif.map((w) => `/home-background-${w}.avif ${w}w`).join(', ');
+  const srcset = hero.avif.map((w) => `/images/backgrounds/home-background-${w}.avif ${w}w`).join(', ');
   const preload = `(function () {
   var p = location.pathname;
   if (p !== '/' && p !== '/index.html' && p !== '') return;

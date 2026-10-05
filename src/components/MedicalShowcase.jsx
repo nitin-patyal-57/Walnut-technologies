@@ -24,7 +24,7 @@ const products = [
     subtitle: 'Clinical-grade precision',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings. Features memory storage for multiple readings and easy-to-use interface.',
     highlights: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
   },
   {
     number: 2,
@@ -32,7 +32,7 @@ const products = [
     subtitle: 'Non-contact temperature measurement',
     description: 'Fast, hygienic temperature measurement with infrared technology. Ideal for clinical screening and home use. Instant readings without physical contact for maximum hygiene.',
     highlights: ['Non-Contact', 'Instant Reading', 'Hygienic', 'Battery Operated'],
-    image: '/TDCS.webp',
+    image: '/images/products/TDCS.webp',
   },
   {
     number: 3,
@@ -40,7 +40,7 @@ const products = [
     subtitle: 'Reliable oxygen therapy',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings with low noise operation.',
     highlights: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise'],
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
   },
   {
     number: 4,
@@ -48,7 +48,7 @@ const products = [
     subtitle: 'Respiratory therapy solutions',
     description: 'Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings. Delivers medication directly to the lungs.',
     highlights: ['Efficient Nebulization', 'Low Noise', 'Compact Design', 'Medical Grade'],
-    image: '/ces-repose.webp',
+    image: '/images/products/ces-repose.webp',
   },
 ];
 
@@ -113,7 +113,7 @@ export default function MedicalShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-24 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture src="/medical-background.webp" alt="Medical Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture src="/images/backgrounds/medical-background.webp" alt="Medical Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 

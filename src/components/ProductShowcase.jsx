@@ -7,7 +7,7 @@ const soundboxProducts = [
     id: 'rtos',
     name: 'RTOS',
     tagline: 'All In One',
-    image: '/RTOS.webp',
+    image: '/images/products/RTOS.webp',
     description: 'All-in-one RTOS-based soundbox with multiple display configurations to suit every merchant need. Features QR generation and built-in keyboard for seamless payment operations.',
     features: [
       { label: '3.47" LCD Display', desc: 'Large customer-facing display for clear transaction visibility' },
@@ -22,7 +22,7 @@ const soundboxProducts = [
     id: 'dqr',
     name: 'DQR',
     tagline: 'Digital QR',
-    image: '/DQR.webp',
+    image: '/images/products/DQR.webp',
     description: 'Digital QR soundbox with LCD display for clear transaction visibility. A compact and efficient design built for modern payment acceptance with high-contrast digital display.',
     features: [
       { label: 'Digital QR Display', desc: 'High-contrast LCD for clear QR code presentation' },
@@ -37,7 +37,7 @@ const soundboxProducts = [
     id: 'ldqr',
     name: 'LDQR',
     tagline: 'Large Display QR',
-    image: '/LDQR.webp',
+    image: '/images/products/LDQR.webp',
     description: 'Premium soundbox with a 10-inch touchscreen customer display and 2.4-inch merchant display with keyboard. Generate custom QR codes and accept NFC tap-and-pay contactless payments.',
     features: [
       { label: '10" Touch Screen', desc: 'Large interactive customer display for engagement' },
@@ -145,7 +145,7 @@ export default function ProductShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-24 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture src="/fintech-homebackground.webp" alt="Fintech Soundbox" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture src="/images/backgrounds/fintech-homebackground.webp" alt="Fintech Soundbox" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 

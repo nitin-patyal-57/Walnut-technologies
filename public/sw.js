@@ -3,7 +3,7 @@ const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/walnut-logo/WM_fevicon.webp'
+  '/images/brand/WM_fevicon.webp'
 ];
 
 self.addEventListener('install', (event) => {
@@ -34,7 +34,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
   // Cache-first strategy for static assets
-  if (url.pathname.includes('/assets/') || url.pathname.includes('/walnut-logo/')) {
+  if (url.pathname.includes('/assets/') || url.pathname.includes('/images/brand/')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
         if (cachedResponse) {

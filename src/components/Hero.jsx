@@ -12,7 +12,7 @@ export default function Hero({ onOpenSchedule }) {
     <section id="hero" className="relative min-h-[100dvh] flex flex-col overflow-hidden w-full">
       <div className="absolute inset-0">
         <Picture
-          src="/home-background.webp"
+          src="/images/backgrounds/home-background.webp"
           alt="Walnut Technologies electronics manufacturing facility"
           width="1920"
           height="1080"

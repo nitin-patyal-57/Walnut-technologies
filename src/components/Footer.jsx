@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 min-[360px]:grid-cols-4 lg:grid-cols-12 gap-x-4 gap-y-6 lg:gap-6 mb-6">
           <div className="col-span-2 min-[360px]:col-span-4 lg:col-span-4">
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-block mb-3 !min-h-0">
-              <Picture src="/walnut-logo/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="120" height="32" className="h-8 w-auto object-contain" />
+              <Picture src="/images/brand/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="120" height="32" className="h-8 w-auto object-contain" />
             </Link>
             <p className="text-xs text-gray-500 leading-relaxed mb-4 max-w-[280px]">
               Vertically integrated Original Design Manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.

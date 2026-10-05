@@ -13,11 +13,11 @@ const navLinks = [
     label: 'Products',
     to: '/solutions',
     dropdown: [
-      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/walklab-product.webp', desc: 'Advanced rehabilitation systems' },
-      { label: 'Medical', to: '/solutions?category=Medical', image: '/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
-      { label: 'Fintech', to: '/solutions?category=Fintech', image: '/DQR.webp', desc: 'Digital payment solutions' },
-      { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/smartlock-product.webp', desc: 'Connected smart devices' },
-      { label: 'Automotive', to: '/solutions?category=Automotive', image: '/cluster-background1.png', desc: 'Smart instrument clusters' },
+      { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/images/products/walklab-product.webp', desc: 'Advanced rehabilitation systems' },
+      { label: 'Medical', to: '/solutions?category=Medical', image: '/images/products/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
+      { label: 'Fintech', to: '/solutions?category=Fintech', image: '/images/products/DQR.webp', desc: 'Digital payment solutions' },
+      { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/images/products/smartlock-product.webp', desc: 'Connected smart devices' },
+      { label: 'Automotive', to: '/solutions?category=Automotive', image: '/images/backgrounds/cluster-background1.png', desc: 'Smart instrument clusters' },
     ],
   },
   { label: 'Expertise', to: '/expertise' },
@@ -117,7 +117,7 @@ export default function Navbar({ onOpenSchedule }) {
             {/* Logo */}
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center group shrink-0">
               <Picture
-                src="/walnut-logo/Walnut_Technologies_logo_transparent.webp"
+                src="/images/brand/Walnut_Technologies_logo_transparent.webp"
                 alt="Walnut Technologies"
                 width="160"
                 height="44"
@@ -126,7 +126,7 @@ export default function Navbar({ onOpenSchedule }) {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-3">
               {navLinks.map((link) => (
                 <div
                   key={link.label}
@@ -287,7 +287,7 @@ export default function Navbar({ onOpenSchedule }) {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
               <div className="relative p-6">
                 <div className="flex items-center justify-between mb-4">
-                   <Picture src="/walnut-logo/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
+                   <Picture src="/images/brand/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
                   <button
                     onClick={() => setIsSidebarOpen(false)}
                     aria-label="Close sidebar"

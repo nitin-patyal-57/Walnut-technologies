@@ -127,14 +127,14 @@ export default function CareerPage() {
   ];
 
   const teams = [
-    { name: t('careerExtended.teams.rnd'), icon: FiCpu, image: '/design-and-engineering.webp' },
-    { name: t('careerExtended.teams.software'), icon: FiCode, image: '/iot-software-development.webp' },
-    { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/it-electronics.webp' },
-    { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/embedded-electronics-and-iot.webp' },
-    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/manufacturing-engineering-and-mold-design.webp' },
-    { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/contract-manufacturing.webp' },
-    { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/quality-assurance.webp' },
-    { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/ip-oriented-product.webp' },
+    { name: t('careerExtended.teams.rnd'), icon: FiCpu, image: '/images/process/design-and-engineering.webp' },
+    { name: t('careerExtended.teams.software'), icon: FiCode, image: '/images/process/iot-software-development.webp' },
+    { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/images/process/it-electronics.webp' },
+    { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/images/process/embedded-electronics-and-iot.webp' },
+    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/images/process/manufacturing-engineering-and-mold-design.webp' },
+    { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/images/process/contract-manufacturing.webp' },
+    { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/images/process/quality-assurance.webp' },
+    { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/images/process/ip-oriented-product.webp' },
   ];
 
   const hiringSteps = [
@@ -153,7 +153,7 @@ export default function CareerPage() {
   ];
 
   const cultureImages = [
-    { src: '/life-at-walnut.webp', alt: 'Life at Walnut' },
+    { src: '/images/about/life-at-walnut.webp', alt: 'Life at Walnut' },
   ];
 
   const filteredJobs = jobOpenings.filter(job => {
@@ -275,7 +275,7 @@ export default function CareerPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Picture
-                  src="/career-background.webp"
+                  src="/images/backgrounds/career-background.webp"
                   alt="Walnut Medical Team"
                   className="w-full h-[300px] md:h-[400px] object-cover"
                   loading="eager"

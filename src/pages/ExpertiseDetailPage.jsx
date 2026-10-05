@@ -9,7 +9,7 @@ const expertiseData = {
   'medical-electronics': {
     title: 'Medical Electronics',
     subtitle: 'Life-Critical Precision Manufacturing',
-    heroImage: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    heroImage: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     tagline: 'Engineering Trust in Every Heartbeat',
     intro: 'In healthcare, there is no margin for error. Walnut Technologies delivers ISO 13485 certified medical electronics that hospitals, clinics, and med-tech companies trust with patient lives. From concept to production, we manufacture devices that meet the most stringent global regulatory standards.',
     whyChooseUs: [
@@ -49,7 +49,7 @@ const expertiseData = {
   'embedded-electronic-and-iot': {
     title: 'Embedded Electronic and IoT',
     subtitle: 'Intelligent Connected Systems',
-    heroImage: '/embedded-electronics-and-iot.webp',
+    heroImage: '/images/process/embedded-electronics-and-iot.webp',
     tagline: 'Where Intelligence Meets Connectivity',
     intro: 'The future belongs to smart, connected devices. Walnut Technologies designs and manufactures embedded systems and IoT solutions that transform everyday objects into intelligent, data-driven assets. Our vertically integrated capabilities ensure seamless hardware-software integration from prototype to mass production.',
     whyChooseUs: [
@@ -90,7 +90,7 @@ const expertiseData = {
   'ip-oriented-product': {
     title: 'IP Oriented Product',
     subtitle: 'Innovation Protected, Value Multiplied',
-    heroImage: '/ip-oriented-product.webp',
+    heroImage: '/images/process/ip-oriented-product.webp',
     tagline: 'Your Vision, Our Innovation, Protected IP',
     intro: 'Intellectual Property is the currency of modern business. Walnut Technologies partners with companies to develop proprietary products that become competitive moats. Our NDA-protected development process ensures your innovations remain exclusively yours while we handle the complex engineering and manufacturing.',
     whyChooseUs: [
@@ -132,7 +132,7 @@ const expertiseData = {
   'pcb-design-development': {
     title: 'PCB Design & Development',
     subtitle: 'Foundation of Every Great Product',
-    heroImage: '/design-and-engineering.webp',
+    heroImage: '/images/process/design-and-engineering.webp',
     tagline: 'Precision at Every Layer',
     intro: 'Every exceptional electronic product begins with an exceptional PCB. Walnut Technologies delivers advanced PCB design and fabrication services supporting up to 12-layer HDI technology. Our engineering team optimizes for signal integrity, thermal management, and manufacturability — ensuring your boards perform flawlessly from prototype to production.',
     whyChooseUs: [
@@ -173,7 +173,7 @@ const expertiseData = {
   'it-electronics': {
     title: 'IT Electronics',
     subtitle: 'Powering Digital Infrastructure',
-    heroImage: '/it-electronics.webp',
+    heroImage: '/images/process/it-electronics.webp',
     tagline: 'Reliable Hardware for Uninterrupted Digital Operations',
     intro: 'The backbone of modern business runs on reliable IT electronics. Walnut Technologies manufactures high-performance computing hardware, networking equipment, and data center solutions that keep enterprises connected and running. Our products are built for 24/7 operation in mission-critical environments.',
     whyChooseUs: [
@@ -214,7 +214,7 @@ const expertiseData = {
   'iot-software-development': {
     title: 'IoT Software Development',
     subtitle: 'Intelligence at Scale',
-    heroImage: '/iot-software-development.webp',
+    heroImage: '/images/process/iot-software-development.webp',
     tagline: 'Software That Makes Hardware Smart',
     intro: 'Hardware without intelligent software is just metal and silicon. Walnut Technologies develops robust, scalable IoT software platforms that transform connected devices into powerful data engines. From device firmware to cloud analytics, we build the digital nervous system that powers modern IoT ecosystems.',
     whyChooseUs: [
@@ -256,7 +256,7 @@ const expertiseData = {
   'large-scale-manufacturing': {
     title: 'Large Scale Manufacturing',
     subtitle: 'Volume Without Compromise',
-    heroImage: '/contract-manufacturing.webp',
+    heroImage: '/images/process/contract-manufacturing.webp',
     tagline: 'From Prototype to Millions, Flawlessly',
     intro: 'Scaling from prototype to mass production is where most companies stumble. Not Walnut Technologies. With 4 advanced SMT lines, 300,000+ units monthly capacity, and a 150,000 sq.ft state-of-the-art facility, we deliver consistent quality at volumes that fuel global market demands. Our vertically integrated operations eliminate bottlenecks and ensure on-time delivery.',
     whyChooseUs: [
@@ -301,7 +301,7 @@ const expertiseData = {
   'payment-systems': {
     title: 'Payment Systems',
     subtitle: 'Secure Transaction Infrastructure',
-    heroImage: '/soundbox-new.webp',
+    heroImage: '/images/products/soundbox-new.webp',
     tagline: 'Trust in Every Transaction',
     intro: 'In the payment ecosystem, security and reliability are non-negotiable. Walnut Technologies manufactures PCI PTS 5.x certified payment terminals, QR soundboxes, and transaction processing hardware that banks, fintechs, and retailers trust with billions of dollars in daily transactions. Our products meet the highest security standards while delivering exceptional user experience.',
     whyChooseUs: [

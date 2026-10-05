@@ -17,16 +17,16 @@ function JourneySection() {
   const { t } = useLanguage();
 
   const processImages = [
-    { image: '/idea-and-requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
-    { image: '/research-and-market-analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },
-    { image: '/design-and-engineering.webp', num: '03', from: 'DESIGN', to: 'MANUFACTURING' },
-    { image: '/manufacturing-engineering-and-mold-design.webp', num: '04', from: 'MANUFACTURING', to: 'TESTING' },
-    { image: '/validation-and-testing.webp', num: '05', from: 'TESTING', to: 'MOLDING' },
-    { image: '/prototype-development.webp', num: '06', from: 'MOLDING', to: 'QA' },
-    { image: '/quality-assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
-    { image: '/packaging-and-dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
-    { image: '/continuous-improvement.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
-    { image: '/after-sales-support.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
+    { image: '/images/process/idea-and-requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
+    { image: '/images/process/research-and-market-analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },
+    { image: '/images/process/design-and-engineering.webp', num: '03', from: 'DESIGN', to: 'MANUFACTURING' },
+    { image: '/images/process/manufacturing-engineering-and-mold-design.webp', num: '04', from: 'MANUFACTURING', to: 'TESTING' },
+    { image: '/images/process/validation-and-testing.webp', num: '05', from: 'TESTING', to: 'MOLDING' },
+    { image: '/images/process/prototype-development.webp', num: '06', from: 'MOLDING', to: 'QA' },
+    { image: '/images/process/quality-assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
+    { image: '/images/process/packaging-and-dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
+    { image: '/images/process/continuous-improvement.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
+    { image: '/images/process/after-sales-support.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
   ];
 
   return (
@@ -279,7 +279,7 @@ function DivisionsPreview() {
       title: 'Walk Lab',
       category: t('divisions.robotics'),
       desc: 'Advanced Rehabilitation & Gait Training Systems',
-      image: '/neuro_rehab_device.webp',
+      image: '/images/products/neuro_rehab_device.webp',
       link: '/solutions?category=Neuro Rehab Devices',
       zoom: true,
       imgClass: 'object-[center_25%]',
@@ -289,7 +289,7 @@ function DivisionsPreview() {
       title: 'Digital Blood Pressure',
       category: t('divisions.medical'),
       desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
-      image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+      image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
       link: '/solutions?category=Medical',
       zoom: true,
     },
@@ -298,7 +298,7 @@ function DivisionsPreview() {
       title: 'Single Sim Model',
       category: t('divisions.fintech'),
       desc: 'NPCI, RBI, PCI DSS Certified',
-      image: '/boxsound.webp',
+      image: '/images/products/boxsound.webp',
       link: '/solutions?category=Fintech',
     },
     {
@@ -306,7 +306,7 @@ function DivisionsPreview() {
       title: 'Cluster',
       category: t('divisions.automotive'),
       desc: 'Industrial & Automotive Electronics',
-      image: '/cluster1.webp',
+      image: '/images/products/cluster1.webp',
       link: '/solutions?category=Automotive',
     },
     {
@@ -314,7 +314,7 @@ function DivisionsPreview() {
       title: 'IoT Smart Lock',
       category: t('divisions.iot'),
       desc: 'Connected Smart Devices & IoT Solutions',
-      image: '/iot-lock-smart.webp',
+      image: '/images/products/iot-lock-smart.webp',
       link: '/solutions?category=IoT',
     },
   ];
@@ -483,12 +483,12 @@ function ClientsCertifications() {
   ];
 
   const clients = [
-    { name: t('clients.client1'), logo: '/clients/hdfc.webp' },
-    { name: t('clients.client2'), logo: '/clients/sbi.webp' },
-    { name: t('clients.client3'), logo: '/clients/paytm-logo.webp' },
-    { name: t('clients.client4'), logo: '/clients/bhartpe.webp' },
-    { name: t('clients.client5'), logo: '/clients/apollo.webp' },
-    { name: t('clients.client6'), logo: '/clients/indian-army.webp' },
+    { name: t('clients.client1'), logo: '/images/clients/hdfc.webp' },
+    { name: t('clients.client2'), logo: '/images/clients/sbi.webp' },
+    { name: t('clients.client3'), logo: '/images/clients/paytm-logo.webp' },
+    { name: t('clients.client4'), logo: '/images/clients/bhartpe.webp' },
+    { name: t('clients.client5'), logo: '/images/clients/apollo.webp' },
+    { name: t('clients.client6'), logo: '/images/clients/indian-army.webp' },
   ];
 
   return (

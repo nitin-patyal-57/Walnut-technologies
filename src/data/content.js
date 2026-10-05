@@ -64,7 +64,7 @@ export const divisions = [
     color: 'from-emerald-500 to-teal-600',
     features: ['AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready', 'Real-time Monitoring'],
     products: [
-      { name: 'Walk Lab', image: '/neuro_rehab_device.webp' },
+      { name: 'Walk Lab', image: '/images/products/neuro_rehab_device.webp' },
     ],
   },
   {
@@ -76,10 +76,10 @@ export const divisions = [
     color: 'from-cyan-500 to-blue-600',
     features: ['FDA Compliant', 'Class 10K Cleanroom', 'ISO 13485', 'IEC 60601'],
     products: [
-      { name: 'Digital Blood Pressure', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
-      { name: 'IR Thermometer', image: '/TDCS.webp' },
-      { name: 'Oxygen Concentrator', image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
-      { name: 'Walnut Compressor Nebulizer', image: '/ces-repose.webp' },
+      { name: 'Digital Blood Pressure', image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
+      { name: 'IR Thermometer', image: '/images/products/TDCS.webp' },
+      { name: 'Oxygen Concentrator', image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
+      { name: 'Walnut Compressor Nebulizer', image: '/images/products/ces-repose.webp' },
     ],
   },
   {
@@ -91,15 +91,15 @@ export const divisions = [
     color: 'from-violet-500 to-purple-600',
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
-      { name: 'Single Sim Model', image: '/soundbox-new.webp' },
-      { name: 'Double Sim Model', image: '/soundbox-new.webp' },
-      { name: 'With Display Model', image: '/soundbox-new.webp' },
-      { name: 'Common Model', image: '/soundbox-new.webp' },
-      { name: 'DQR: Double Display', image: '/soundbox-new.webp' },
-      { name: 'All in One', image: '/soundbox-new.webp' },
-      { name: 'RTOS - All In One', image: '/RTOS.webp' },
-      { name: 'DQR - Digital QR', image: '/DQR.webp' },
-      { name: 'LDQR - Large Display QR', image: '/LDQR.webp' },
+      { name: 'Single Sim Model', image: '/images/products/soundbox-new.webp' },
+      { name: 'Double Sim Model', image: '/images/products/soundbox-new.webp' },
+      { name: 'With Display Model', image: '/images/products/soundbox-new.webp' },
+      { name: 'Common Model', image: '/images/products/soundbox-new.webp' },
+      { name: 'DQR: Double Display', image: '/images/products/soundbox-new.webp' },
+      { name: 'All in One', image: '/images/products/soundbox-new.webp' },
+      { name: 'RTOS - All In One', image: '/images/products/RTOS.webp' },
+      { name: 'DQR - Digital QR', image: '/images/products/DQR.webp' },
+      { name: 'LDQR - Large Display QR', image: '/images/products/LDQR.webp' },
     ],
   },
   {
@@ -111,7 +111,7 @@ export const divisions = [
     color: 'from-amber-500 to-orange-600',
     features: ['Durable Design', 'Industrial Grade', 'Quality Tested', 'Custom Solutions'],
     products: [
-      { name: 'Cluster', image: '/cluster1.webp' },
+      { name: 'Cluster', image: '/images/products/cluster1.webp' },
     ],
   },
   {
@@ -123,7 +123,7 @@ export const divisions = [
     color: 'from-cyan-500 to-teal-600',
     features: ['BLE/WiFi Connected', 'Cloud Integration', 'Edge Computing', 'Real-time Monitoring'],
     products: [
-      { name: 'IoT Smart Lock', image: '/iot-lock-smart.webp' },
+      { name: 'IoT Smart Lock', image: '/images/products/iot-lock-smart.webp' },
     ],
   },
 ];
@@ -134,7 +134,7 @@ export const products = [
     category: 'Neuro Rehab Devices',
     title: 'WalkLab Gait Training System',
     description: 'Advanced rehabilitation robot for gait training and motor recovery. AI-assisted therapy with real-time patient monitoring and tele-rehab capabilities.',
-    image: '/neuro.webp',
+    image: '/images/products/neuro.webp',
     features: ['Rehabilitation Robot', 'AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready'],
   },
   {
@@ -142,7 +142,7 @@ export const products = [
     category: 'Medical',
     title: 'Digital Blood Pressure Monitor',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings.',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     features: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
   },
   {
@@ -150,7 +150,7 @@ export const products = [
     category: 'Medical',
     title: 'IR Thermometer',
     description: 'Fast, hygienic temperature measurement with infrared technology. Ideal for clinical screening and home use.',
-    image: '/TDCS.webp',
+    image: '/images/products/TDCS.webp',
     features: ['Non-Contact', 'Instant Reading', 'Hygienic', 'Battery Operated'],
   },
   {
@@ -158,7 +158,7 @@ export const products = [
     category: 'Medical',
     title: 'Oxygen Concentrator',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings.',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     features: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise Operation'],
   },
   {
@@ -166,7 +166,7 @@ export const products = [
     category: 'Medical',
     title: 'Walnut Compressor Nebulizer',
     description: 'Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings.',
-    image: '/ces-repose.webp',
+    image: '/images/products/ces-repose.webp',
     features: ['Efficient Nebulization', 'Low Noise', 'Compact Design', 'Medical Grade'],
   },
   {
@@ -174,7 +174,7 @@ export const products = [
     category: 'Fintech',
     title: 'Single SIM Model',
     description: 'Reliable single SIM payment terminal with essential features for small to medium businesses. Easy deployment and management.',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     features: ['Single SIM', '4G Connectivity', 'Compact Design', 'Long Battery'],
   },
   {
@@ -182,7 +182,7 @@ export const products = [
     category: 'Fintech',
     title: 'Double SIM Model',
     description: 'Dual SIM payment terminal ensuring uninterrupted connectivity with network failover capability for critical transactions.',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     features: ['Dual SIM', 'Network Failover', '4G/3G', 'Secure Payments'],
   },
   {
@@ -190,7 +190,7 @@ export const products = [
     category: 'Fintech',
     title: 'With Display Model',
     description: 'Payment terminal with built-in display for enhanced user interaction, transaction visualization, and digital receipts.',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     features: ['LCD Display', 'Touch Interface', 'Digital Receipts', 'User Friendly'],
   },
   {
@@ -198,7 +198,7 @@ export const products = [
     category: 'Fintech',
     title: 'Common Model',
     description: 'Versatile payment terminal suitable for universal deployment across various business environments and payment scenarios.',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     features: ['Universal Design', 'Multi-Payment', 'Easy Setup', 'Reliable'],
   },
   {
@@ -206,7 +206,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR: Double Display',
     description: 'Advanced payment terminal with dual display configuration for merchant and customer facing interfaces simultaneously.',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     features: ['Dual Display', 'Merchant + Customer', 'Enhanced UX', 'Secure'],
   },
   {
@@ -214,7 +214,7 @@ export const products = [
     category: 'Fintech',
     title: 'All in One',
     description: 'Comprehensive payment solution combining multiple payment methods and features in a single integrated terminal device.',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     features: ['Multiple Payments', 'QR + Card', 'Audio Confirm', 'All-in-One'],
   },
   {
@@ -222,7 +222,7 @@ export const products = [
     category: 'Fintech',
     title: 'RTOS - All In One',
     description: 'All-in-one RTOS-based soundbox with multiple display configurations. Features 3.47" LCD display, 2.8" LCD display, and Segment display options with 2.4" merchant-side display. Equipped with QR generation and built-in keyboard for seamless payment operations.',
-    image: '/RTOS.webp',
+    image: '/images/products/RTOS.webp',
     features: ['3.47" LCD Display', '2.8" LCD Display', 'Segment Display', '2.4" Merchant Display', 'QR Generation', 'Built-in Keyboard'],
   },
   {
@@ -230,7 +230,7 @@ export const products = [
     category: 'Fintech',
     title: 'DQR - Digital QR',
     description: 'Digital QR soundbox with LCD display for clear transaction visibility. Compact and efficient design for modern payment acceptance with high-contrast digital display.',
-    image: '/DQR.webp',
+    image: '/images/products/DQR.webp',
     features: ['Digital QR Display', 'LCD Screen', 'Compact Design', 'Clear Audio', 'Fast Processing', 'Easy Deployment'],
   },
   {
@@ -238,7 +238,7 @@ export const products = [
     category: 'Fintech',
     title: 'LDQR - Large Display QR',
     description: 'Premium soundbox featuring a 10-inch touchscreen customer display and 2.4-inch merchant display with keyboard for generating custom QR codes. Supports NFC Tap and Pay for contactless payments.',
-    image: '/LDQR.webp',
+    image: '/images/products/LDQR.webp',
     features: ['10" Touch Screen', '2.4" Merchant Display', 'Built-in Keyboard', 'Custom QR Generation', 'NFC Tap and Pay', 'Contactless Payments'],
   },
   {
@@ -246,7 +246,7 @@ export const products = [
     category: 'Automotive',
     title: 'Cluster',
     description: 'Automotive cluster display systems with advanced instrumentation for real-time vehicle data visualization and driver information.',
-    image: '/cluster1.webp',
+    image: '/images/products/cluster1.webp',
     features: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
   },
   {
@@ -254,7 +254,7 @@ export const products = [
     category: 'IoT',
     title: 'IoT Smart Lock',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities.',
-    image: '/iot-lock-smart.webp',
+    image: '/images/products/iot-lock-smart.webp',
     features: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
   },
 ];
@@ -475,56 +475,56 @@ export const expertise = [
     title: 'Medical Electronics',
     description: 'Life-critical medical device design and manufacturing with full regulatory compliance.',
     icon: 'heart',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     areas: ['Patient Monitoring', 'Diagnostics', 'Neuro Rehab', 'Therapeutic Devices', 'Oxygen Concentrators'],
   },
   {
     title: 'Embedded Systems & IoT',
     description: 'Firmware, RTOS, and cloud-connected embedded solutions for smart devices.',
     icon: 'cpu',
-    image: '/iot-lock-smart.webp',
+    image: '/images/products/iot-lock-smart.webp',
     areas: ['ARM/MCU', 'RTOS/Linux', 'BLE/WiFi', 'Cloud IoT', 'Edge Computing'],
   },
   {
     title: 'PCB Design & Fabrication',
     description: 'Multi-layer, HDI, and flex PCB design optimized for high-volume manufacturing.',
     icon: 'board',
-    image: '/design-and-engineering.webp',
+    image: '/images/process/design-and-engineering.webp',
     areas: ['Up to 12 Layers', 'HDI Technology', 'Flex/Rigid-Flex', 'Signal Integrity'],
   },
   {
     title: 'Manufacturing & Assembly',
     description: '4 advanced SMT lines with 500K+ units per month capacity and 99.8% yield.',
     icon: 'gear',
-    image: '/TDCS.webp',
+    image: '/images/products/TDCS.webp',
     areas: ['SMT Assembly', 'Box Build', 'Conformal Coating', 'In-Circuit Testing'],
   },
   {
     title: 'Quality & Compliance',
     description: 'ISO 13485 certified quality management with Class 10K cleanroom facility.',
     icon: 'check',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     areas: ['ISO 13485', 'ISO 9001', 'FDA QSR', 'CE Marking', 'IEC 60601'],
   },
   {
     title: 'Payment Hardware Security',
     description: 'PCI PTS, EMVCo, and NPCI certified payment terminal design and manufacturing.',
     icon: 'shield',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     areas: ['PCI PTS 5.x', 'EMV L1/L2', 'Secure Element', 'Tamper Detection'],
   },
   {
     title: 'Software & Firmware',
     description: 'Full-stack firmware development, device drivers, and companion applications.',
     icon: 'code',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     areas: ['Bare Metal', 'Embedded Linux', 'Android BSP', 'Mobile Apps'],
   },
   {
     title: 'Supply Chain & Logistics',
     description: 'End-to-end supply chain management with global component sourcing and delivery.',
     icon: 'globe',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     areas: ['Global Sourcing', 'Inventory Mgmt', 'Customs Clearance', 'Door-to-Door'],
   },
 ];
@@ -535,7 +535,7 @@ export const clientSectors = [
     description: 'Hospitals, clinics, and medical device companies',
     clients: ['Apollo Hospitals', 'Fortis', 'Manipal', 'Medanta'],
     icon: 'hospital',
-    image: '/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
@@ -543,7 +543,7 @@ export const clientSectors = [
     description: 'Mission-critical electronics for defence applications',
     clients: ['Indian Army', 'Indian Navy', 'IAF', 'AFMS'],
     icon: 'shield',
-    image: '/ces-repose.webp',
+    image: '/images/products/ces-repose.webp',
     gradient: 'from-red-500 to-rose-600',
   },
   {
@@ -551,7 +551,7 @@ export const clientSectors = [
     description: 'POS terminals, soundboxes, and payment devices',
     clients: ['HDFC Bank', 'SBI', 'Paytm', 'BharatPe'],
     icon: 'gov',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     gradient: 'from-blue-500 to-indigo-600',
   },
   {
@@ -559,7 +559,7 @@ export const clientSectors = [
     description: 'Manufacturing equipment and monitoring systems',
     clients: ['Sun Pharma', 'Cipla', 'Ipca Labs'],
     icon: 'pharma',
-    image: '/neuro_rehab_device.webp',
+    image: '/images/products/neuro_rehab_device.webp',
     gradient: 'from-green-500 to-emerald-600',
   },
   {
@@ -567,7 +567,7 @@ export const clientSectors = [
     description: 'Smart metering, grid monitoring, and industrial controls',
     clients: [],
     icon: 'energy',
-    image: '/iot-lock-smart.webp',
+    image: '/images/products/iot-lock-smart.webp',
     gradient: 'from-yellow-500 to-amber-600',
   },
   {
@@ -575,7 +575,7 @@ export const clientSectors = [
     description: 'Industrial electronics, sensors, and automotive components',
     clients: [],
     icon: 'industry',
-    image: '/TDCS.webp',
+    image: '/images/products/TDCS.webp',
     gradient: 'from-slate-500 to-gray-600',
   },
 ];
@@ -638,7 +638,7 @@ export const news = [
     title: 'Walnut Technologies Achieves ISO 13485:2024 Recertification',
     description: 'Successfully completed recertification audit with zero non-conformities, reaffirming our commitment to quality management systems for medical device manufacturing.',
     category: 'Certification',
-    image: '/quality-assurance.webp',
+    image: '/images/process/quality-assurance.webp',
     readTime: '3 min read',
   },
   {
@@ -647,7 +647,7 @@ export const news = [
     title: 'Expanded Manufacturing Capacity: 4th SMT Line Operational',
     description: 'New SMT line increases monthly production capacity to 500K+ units, supporting growing demand across medical, fintech, and IoT divisions.',
     category: 'Expansion',
-    image: '/contract-manufacturing.webp',
+    image: '/images/process/contract-manufacturing.webp',
     readTime: '4 min read',
   },
   {
@@ -656,7 +656,7 @@ export const news = [
     title: 'Partnership with Leading Neuro-Rehabilitation Research Institute',
     description: 'Strategic collaboration to develop next-generation AI-assisted therapy devices including WalkLab and Walkex FES systems.',
     category: 'Partnership',
-    image: '/neuro_rehab_device.webp',
+    image: '/images/products/neuro_rehab_device.webp',
     readTime: '5 min read',
   },
   {
@@ -665,7 +665,7 @@ export const news = [
     title: 'Featured in Electronics Manufacturing Today',
     description: 'Cover story highlighting India\'s role in global electronics manufacturing and Walnut Technologies\' growth journey from startup to industry leader.',
     category: 'Press',
-    image: '/aboutbackground.webp',
+    image: '/images/backgrounds/aboutbackground.webp',
     readTime: '6 min read',
   },
   {
@@ -674,7 +674,7 @@ export const news = [
     title: 'New Payment Terminal Receives PCI PTS 5.x Certification',
     description: 'Latest payment terminal platform achieves highest security certification standard, enabling deployment across banking and retail sectors.',
     category: 'Product',
-    image: '/soundbox-new.webp',
+    image: '/images/products/soundbox-new.webp',
     readTime: '3 min read',
   },
   {
@@ -683,7 +683,7 @@ export const news = [
     title: 'Walnut Crosses 10 Million Units Manufactured Milestone',
     description: 'Celebrating a major manufacturing milestone with 10 million devices shipped globally across 20+ countries.',
     category: 'Milestone',
-    image: '/packaging-and-dispatch.webp',
+    image: '/images/process/packaging-and-dispatch.webp',
     readTime: '4 min read',
   },
 ];

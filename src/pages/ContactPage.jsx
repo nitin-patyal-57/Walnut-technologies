@@ -135,7 +135,7 @@ export default function ContactPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Picture loading="lazy" decoding="async"
-                  src="/contactbackground.webp"
+                  src="/images/backgrounds/contactbackground.webp"
                   alt="Walnut Technologies Manufacturing Facility"
                   className="w-full h-[300px] lg:h-[380px] object-cover object-[right_85%]"
                 />

@@ -8,49 +8,49 @@ import Picture from '../components/Picture';
 const expertiseAreas = [
   {
     slug: 'medical-electronics',
-    image: '/expertise/medical-tech.webp',
+    image: '/images/expertise/medical-tech.webp',
     color: 'from-blue-600 to-blue-700',
     num: '01',
   },
   {
     slug: 'embedded-electronic-and-iot',
-    image: '/expertise/global-network.webp',
+    image: '/images/expertise/global-network.webp',
     color: 'from-cyan-500 to-cyan-600',
     num: '02',
   },
   {
     slug: 'ip-oriented-product',
-    image: '/expertise/engineer-work.webp',
+    image: '/images/expertise/engineer-work.webp',
     color: 'from-blue-500 to-indigo-600',
     num: '03',
   },
   {
     slug: 'pcb-design-development',
-    image: '/expertise/circuit-macro.webp',
+    image: '/images/expertise/circuit-macro.webp',
     color: 'from-indigo-500 to-violet-600',
     num: '04',
   },
   {
     slug: 'it-electronics',
-    image: '/expertise/circuit-blue.webp',
+    image: '/images/expertise/circuit-blue.webp',
     color: 'from-blue-600 to-blue-700',
     num: '05',
   },
   {
     slug: 'iot-software-development',
-    image: '/expertise/software-code.webp',
+    image: '/images/expertise/software-code.webp',
     color: 'from-cyan-500 to-cyan-600',
     num: '06',
   },
   {
     slug: 'large-scale-manufacturing',
-    image: '/expertise/factory-line.webp',
+    image: '/images/expertise/factory-line.webp',
     color: 'from-blue-500 to-indigo-600',
     num: '07',
   },
   {
     slug: 'payment-systems',
-    image: '/expertise/payment-terminal.webp',
+    image: '/images/expertise/payment-terminal.webp',
     color: 'from-indigo-500 to-violet-600',
     num: '08',
   },
@@ -153,7 +153,7 @@ export default function Expertise() {
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <Picture loading="lazy" decoding="async"
-                    src="/expertise/hero-engineer.webp"
+                    src="/images/expertise/hero-engineer.webp"
                     alt="Engineer working on electronics at Walnut Technologies"
                     className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-cover"
                   />
