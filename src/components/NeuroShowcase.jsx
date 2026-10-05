@@ -44,6 +44,97 @@ const capabilities = [
   },
 ];
 
+const walklabFeatures = [
+  'Neural Gait Retraining',
+  'VR Multitask Training',
+  'Real-time Audio & Visual Feedback',
+  'Objective Progress per Session',
+];
+
+const tiltFeatures = [
+  'Progressive Verticalization',
+  'Alternating Stepping Motion',
+  'Maintains Venous Return',
+  'Prevents Bed-Rest Complications',
+];
+
+const walklabStats = [
+  { value: '150 kg', label: 'Max patient weight' },
+  { value: '1.8–4 km/h', label: 'Treadmill speed' },
+  { value: '<10 min', label: 'Therapist setup time' },
+];
+
+const tiltStats = [
+  { value: '0–90°', label: 'Tilt range' },
+  { value: '45°', label: 'Leg stroke range' },
+  { value: '20–39', label: 'Steps/min · 3 cadences' },
+];
+
+function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features, visible, delay = '0ms', flip = false }) {
+  return (
+    <article
+      className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      style={{ transitionDelay: visible ? delay : '0ms' }}
+    >
+      <div className="relative h-56 sm:h-72 lg:h-80 overflow-hidden bg-white">
+        <div
+          className={
+            flip
+              ? 'absolute inset-0 bg-[radial-gradient(circle_at_70%_45%,rgba(59,130,246,0.22),transparent_62%)]'
+              : 'absolute inset-0 bg-[radial-gradient(circle_at_30%_45%,rgba(59,130,246,0.22),transparent_62%)]'
+          }
+        />
+        <span className="absolute top-3 right-6 text-[5.5rem] lg:text-[7rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
+          {index}
+        </span>
+        <Picture
+          loading="lazy"
+          decoding="async"
+          src={image}
+          alt={alt}
+          className={`relative z-10 w-full h-full object-contain p-5 lg:p-7 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out ${flip ? 'scale-100' : ''}`}
+        />
+        <div className="absolute left-5 top-5 z-20">
+          <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+            <BadgeIcon className="w-3.5 h-3.5" /> {badge}
+          </span>
+        </div>
+      </div>
+
+      <div className="p-6 lg:p-8">
+        <h3 className="text-2xl lg:text-[1.75rem] font-bold text-[#0f172a] mb-1.5 leading-tight">{title}</h3>
+        <p className="text-blue-500 font-semibold text-sm mb-3">{subtitle}</p>
+        <p className="text-slate-600 text-sm leading-relaxed mb-5">{description}</p>
+        <div className="flex flex-wrap gap-2">
+          {features.map((f) => (
+            <span
+              key={f}
+              className="inline-flex items-center gap-1.5 rounded-full border border-blue-100 bg-blue-50/70 px-3 py-1.5 text-[11px] font-semibold text-blue-700 transition-colors group-hover:border-blue-200 group-hover:bg-blue-50"
+            >
+              <FiCheckCircle className="w-3.5 h-3.5 shrink-0" />
+              {f}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function StatCard({ value, label, visible, delay = '0ms' }) {
+  return (
+    <div
+      className={`flex-1 flex flex-col justify-center rounded-3xl bg-white border border-slate-100 shadow-sm px-6 py-7 hover:shadow-lg hover:border-blue-100 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+      style={{ transitionDelay: visible ? delay : '0ms' }}
+    >
+      <p className="text-3xl xl:text-[2.5rem] font-black bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-none">
+        {value}
+      </p>
+      <p className="mt-2.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 leading-snug">{label}</p>
+    </div>
+  );
+}
+
 function useAnimateOnScroll() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -115,73 +206,49 @@ export default function NeuroShowcase({ onBack }) {
             <p className="text-slate-500 text-sm mt-3 max-w-lg mx-auto">Two powerful systems working together to deliver complete neuro rehabilitation — from gait retraining to therapeutic positioning.</p>
           </div>
 
-          {/* WalkLab Card */}
-          <div className={`relative mb-8 rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex flex-col lg:flex-row">
-              {/* Image Side */}
-              <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_30%_50%,#3b82f6,transparent_60%)]" />
-                <Picture loading="lazy" decoding="async" src="/images/products/walklab-product.webp" alt="WalkLab Gait Training System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
-              </div>
-              {/* Content Side */}
-              <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-4 uppercase tracking-wider">
-                  <FiCpu className="w-3.5 h-3.5" /> Flagship Product
-                </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-[#0f172a] mb-2 leading-tight">WalkLab Gait Training System</h3>
-                <p className="text-blue-500 font-semibold text-sm mb-4">Advanced Rehabilitation Robot</p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">An AI-powered robotic system for gait training and motor recovery. Combines real-time patient monitoring with adaptive therapy protocols for accelerated rehabilitation outcomes.</p>
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {[
-                    { icon: FiActivity, label: 'Real-time Gait Analysis' },
-                    { icon: FiCpu, label: 'AI-Assisted Therapy' },
-                    { icon: FiHeart, label: 'Patient Dashboard' },
-                    { icon: FiWifi, label: 'Tele-Rehab Ready' },
-                  ].map((f) => (
-                    <div key={f.label} className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
-                        <f.icon className="w-3.5 h-3.5 text-blue-500" />
-                      </div>
-                      <span className="font-medium">{f.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1">
+              <ProductTile
+                index="01"
+                image="/images/products/walklab-product.webp"
+                alt="WalkLab Gait Training System"
+                badge="Flagship Product"
+                badgeIcon={FiCpu}
+                title="WalkLab Gait Training System"
+                subtitle="Lower Limb Gait Training System"
+                description="A high-level gait training platform that improves gait outcomes, accelerates recovery and reduces cost of care through intensive, repetitive retraining of normal movement. Sensors track lower-limb kinematics and muscle activation to guide each step with the correct timing and force, with instant audio and visual feedback — for stroke, TBI, spinal cord injury, cerebral palsy, MS, Parkinson's and orthopedic conditions."
+                features={walklabFeatures}
+                visible={prodVisible}
+              />
             </div>
-          </div>
 
-          {/* Tilt Bed Card */}
-          <div className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: prodVisible ? '150ms' : '0ms' }}>
-            <div className="flex flex-col lg:flex-row-reverse">
-              {/* Image Side */}
-              <div className="relative lg:w-[45%] bg-gradient-to-br from-slate-100 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_70%_50%,#3b82f6,transparent_60%)]" />
-                <Picture loading="lazy" decoding="async" src="/images/products/tilt-bed.webp" alt="Tilt Bed Therapeutic Positioning System" className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out mix-blend-multiply" />
-              </div>
-              {/* Content Side */}
-              <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-xs font-semibold px-3 py-1.5 rounded-full w-fit mb-4 uppercase tracking-wider">
-                  <FiTarget className="w-3.5 h-3.5" /> Therapeutic System
-                </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-[#0f172a] mb-2 leading-tight">Tilt Bed</h3>
-                <p className="text-blue-500 font-semibold text-sm mb-4">Motorised Tilt Table with Leg Stepping</p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">A motorised tilt table with an integrated leg-stepping mechanism. The patient lies supine and is strapped in, the table is raised gradually toward vertical while the legs move in a continuous alternating stepping pattern. Working the calf muscle pump maintains venous return, so blood pressure holds and verticalization can start earlier and be tolerated longer — for early mobilization after stroke, traumatic brain injury, spinal cord injury and prolonged ICU stays.</p>
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {[
-                    { icon: FiTarget, label: 'Progressive Verticalization' },
-                    { icon: FiActivity, label: 'Alternating Stepping Motion' },
-                    { icon: FiHeart, label: 'Maintains Venous Return' },
-                    { icon: FiShield, label: 'Prevents Bed-Rest Complications' },
-                  ].map((f) => (
-                    <div key={f.label} className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-100 transition-colors">
-                        <f.icon className="w-3.5 h-3.5 text-blue-500" />
-                      </div>
-                      <span className="font-medium">{f.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="lg:col-start-3 lg:row-start-1 flex flex-col gap-5">
+              {walklabStats.map((s, i) => (
+                <StatCard key={s.label} value={s.value} label={s.label} visible={prodVisible} delay={`${i * 80}ms`} />
+              ))}
+            </div>
+
+            <div className="lg:col-span-2 lg:col-start-2 lg:row-start-2">
+              <ProductTile
+                index="02"
+                flip
+                image="/images/products/tilt-bed.webp"
+                alt="Tilt Bed Therapeutic Positioning System"
+                badge="Therapeutic System"
+                badgeIcon={FiTarget}
+                title="Tilt Bed"
+                subtitle="Motorised Tilt Table with Leg Stepping"
+                description="A motorised tilt table with an integrated leg-stepping mechanism. The patient lies supine and is strapped in, the table is raised gradually toward vertical while the legs move in a continuous alternating stepping pattern. Working the calf muscle pump maintains venous return, so blood pressure holds and verticalization can start earlier and be tolerated longer — for early mobilization after stroke, traumatic brain injury, spinal cord injury and prolonged ICU stays."
+                features={tiltFeatures}
+                visible={prodVisible}
+                delay="150ms"
+              />
+            </div>
+
+            <div className="lg:col-start-1 lg:row-start-2 flex flex-col gap-5">
+              {tiltStats.map((s, i) => (
+                <StatCard key={s.label} value={s.value} label={s.label} visible={prodVisible} delay={`${200 + i * 80}ms`} />
+              ))}
             </div>
           </div>
 
