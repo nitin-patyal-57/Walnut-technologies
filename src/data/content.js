@@ -64,7 +64,7 @@ export const divisions = [
     color: 'from-emerald-500 to-teal-600',
     features: ['AI-Assisted Therapy', 'Patient Dashboard', 'Tele-Rehab Ready', 'Real-time Monitoring'],
     products: [
-      { name: 'Walk Lab', image: '/images/products/neuro_rehab_device.webp' },
+      { name: 'Walk Lab', image: '/images/products/walklab-product.webp' },
     ],
   },
   {
@@ -76,7 +76,7 @@ export const divisions = [
     color: 'from-cyan-500 to-blue-600',
     features: ['FDA Compliant', 'Class 10K Cleanroom', 'ISO 13485', 'IEC 60601'],
     products: [
-      { name: 'Digital Blood Pressure', image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
+      { name: 'Digital Blood Pressure', image: '/images/products/bp-monitor-removebg.webp' },
       { name: 'IR Thermometer', image: '/images/products/TDCS.webp' },
       { name: 'Oxygen Concentrator', image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp' },
       { name: 'Walnut Compressor Nebulizer', image: '/images/products/ces-repose.webp' },
@@ -91,7 +91,7 @@ export const divisions = [
     color: 'from-violet-500 to-purple-600',
     features: ['PCI-DSS Certified', 'NPCI Compliant', 'RBI Guidelines', 'EMV L1/L2'],
     products: [
-      { name: 'Single Sim Model', image: '/images/products/soundbox-new.webp' },
+      { name: 'Single Sim Model', image: '/images/products/soundbox-removebg.webp' },
       { name: 'Double Sim Model', image: '/images/products/soundbox-new.webp' },
       { name: 'With Display Model', image: '/images/products/soundbox-new.webp' },
       { name: 'Common Model', image: '/images/products/soundbox-new.webp' },
@@ -111,7 +111,7 @@ export const divisions = [
     color: 'from-amber-500 to-orange-600',
     features: ['Durable Design', 'Industrial Grade', 'Quality Tested', 'Custom Solutions'],
     products: [
-      { name: 'Cluster', image: '/images/products/cluster1.webp' },
+      { name: 'Cluster', image: '/images/products/cluster-removebg.webp' },
     ],
   },
   {
@@ -123,7 +123,7 @@ export const divisions = [
     color: 'from-cyan-500 to-teal-600',
     features: ['BLE/WiFi Connected', 'Cloud Integration', 'Edge Computing', 'Real-time Monitoring'],
     products: [
-      { name: 'IoT Smart Lock', image: '/images/products/iot-lock-smart.webp' },
+      { name: 'IoT Smart Lock', image: '/images/products/smartlock-product.webp' },
     ],
   },
 ];

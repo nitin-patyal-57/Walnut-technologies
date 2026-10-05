@@ -1,50 +1,4 @@
 {
-  "images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1": {
-    "fallback": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
-    "fallbackWidth": 1254,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/products/DQR": {
-    "fallback": "/images/products/DQR.webp",
-    "fallbackWidth": 666,
-    "avif": [
-      480
-    ],
-    "webp": [
-      480
-    ]
-  },
-  "images/products/RTOS": {
-    "fallback": "/images/products/RTOS.webp",
-    "fallbackWidth": 666,
-    "avif": [
-      480
-    ],
-    "webp": [
-      480
-    ]
-  },
-  "images/products/TDCS": {
-    "fallback": "/images/products/TDCS.webp",
-    "fallbackWidth": 1536,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
   "images/about/02_Electronics_Engineer_Lab": {
     "fallback": "/images/about/02_Electronics_Engineer_Lab.webp",
     "fallbackWidth": 1600,
@@ -215,54 +169,22 @@
       1280
     ]
   },
+  "images/about/life-at-walnut": {
+    "fallback": "/images/about/life-at-walnut.webp",
+    "fallbackWidth": 1672,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
   "images/backgrounds/aboutbackground": {
     "fallback": "/images/backgrounds/aboutbackground.webp",
-    "fallbackWidth": 1536,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/process/after-sales-support": {
-    "fallback": "/images/process/after-sales-support.webp",
-    "fallbackWidth": 2000,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
-    ],
-    "webp": [
-      480,
-      768,
-      1280,
-      1920
-    ]
-  },
-  "images/products/bharatpay-m": {
-    "fallback": "/images/products/bharatpay-m.webp",
-    "fallbackWidth": 1983,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
-    ],
-    "webp": [
-      480,
-      768,
-      1280,
-      1920
-    ]
-  },
-  "images/products/boxsound": {
-    "fallback": "/images/products/boxsound.webp",
     "fallbackWidth": 1536,
     "avif": [
       480,
@@ -290,9 +212,107 @@
       1280
     ]
   },
-  "images/products/ces-repose": {
-    "fallback": "/images/products/ces-repose.webp",
-    "fallbackWidth": 1521,
+  "images/backgrounds/cluster-background": {
+    "fallback": "/images/backgrounds/cluster-background.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/cluster-background1": {
+    "fallback": "/images/backgrounds/cluster-background1.png",
+    "fallbackWidth": 612,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "images/backgrounds/contactbackground": {
+    "fallback": "/images/backgrounds/contactbackground.webp",
+    "fallbackWidth": 1717,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/fintech-homebackground": {
+    "fallback": "/images/backgrounds/fintech-homebackground.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/gpsgatewaybackground": {
+    "fallback": "/images/backgrounds/gpsgatewaybackground.webp",
+    "fallbackWidth": 1984,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/backgrounds/home-background": {
+    "fallback": "/images/backgrounds/home-background.webp",
+    "fallbackWidth": 1458,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/iot-smartlock-background1": {
+    "fallback": "/images/backgrounds/iot-smartlock-background1.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/medical-background": {
+    "fallback": "/images/backgrounds/medical-background.webp",
+    "fallbackWidth": 1670,
     "avif": [
       480,
       768,
@@ -329,110 +349,6 @@
   "images/clients/sbi": {
     "fallback": "/images/clients/sbi.webp",
     "fallbackWidth": 1080,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/backgrounds/cluster-background": {
-    "fallback": "/images/backgrounds/cluster-background.webp",
-    "fallbackWidth": 1536,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/backgrounds/cluster-background1": {
-    "fallback": "/images/backgrounds/cluster-background1.png",
-    "fallbackWidth": 612,
-    "avif": [
-      480
-    ],
-    "webp": [
-      480
-    ]
-  },
-  "images/products/cluster1": {
-    "fallback": "/images/products/cluster1.webp",
-    "fallbackWidth": 1536,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/backgrounds/contactbackground": {
-    "fallback": "/images/backgrounds/contactbackground.webp",
-    "fallbackWidth": 1717,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/process/continuous-improvement": {
-    "fallback": "/images/process/continuous-improvement.webp",
-    "fallbackWidth": 830,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/process/contract-manufacturing": {
-    "fallback": "/images/process/contract-manufacturing.webp",
-    "fallbackWidth": 1835,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/process/design-and-engineering": {
-    "fallback": "/images/process/design-and-engineering.webp",
-    "fallbackWidth": 1536,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/process/embedded-electronics-and-iot": {
-    "fallback": "/images/process/embedded-electronics-and-iot.webp",
-    "fallbackWidth": 1024,
     "avif": [
       480,
       768
@@ -568,39 +484,9 @@
       1280
     ]
   },
-  "images/backgrounds/fintech-homebackground": {
-    "fallback": "/images/backgrounds/fintech-homebackground.webp",
-    "fallbackWidth": 1920,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/products/gps-gateway": {
-    "fallback": "/images/products/gps-gateway.webp",
-    "fallbackWidth": 1920,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/backgrounds/gpsgatewaybackground": {
-    "fallback": "/images/backgrounds/gpsgatewaybackground.webp",
-    "fallbackWidth": 1984,
+  "images/process/after-sales-support": {
+    "fallback": "/images/process/after-sales-support.webp",
+    "fallbackWidth": 2000,
     "avif": [
       480,
       768,
@@ -614,9 +500,21 @@
       1920
     ]
   },
-  "images/backgrounds/home-background": {
-    "fallback": "/images/backgrounds/home-background.webp",
-    "fallbackWidth": 1458,
+  "images/process/continuous-improvement": {
+    "fallback": "/images/process/continuous-improvement.webp",
+    "fallbackWidth": 830,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/process/contract-manufacturing": {
+    "fallback": "/images/process/contract-manufacturing.webp",
+    "fallbackWidth": 1835,
     "avif": [
       480,
       768,
@@ -626,6 +524,32 @@
       480,
       768,
       1280
+    ]
+  },
+  "images/process/design-and-engineering": {
+    "fallback": "/images/process/design-and-engineering.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/process/embedded-electronics-and-iot": {
+    "fallback": "/images/process/embedded-electronics-and-iot.webp",
+    "fallbackWidth": 1024,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
     ]
   },
   "images/process/idea-and-requirement": {
@@ -635,49 +559,6 @@
       480,
       768,
       1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/products/iot-lock-smart": {
-    "fallback": "/images/products/iot-lock-smart.webp",
-    "fallbackWidth": 1535,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/products/iot-smaart-lock": {
-    "fallback": "/images/products/iot-smaart-lock.webp",
-    "fallbackWidth": 1672,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/backgrounds/iot-smartlock-background1": {
-    "fallback": "/images/backgrounds/iot-smartlock-background1.webp",
-    "fallbackWidth": 1920,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
     ],
     "webp": [
       480,
@@ -721,77 +602,9 @@
       480
     ]
   },
-  "images/about/life-at-walnut": {
-    "fallback": "/images/about/life-at-walnut.webp",
-    "fallbackWidth": 1672,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
   "images/process/manufacturing-engineering-and-mold-design": {
     "fallback": "/images/process/manufacturing-engineering-and-mold-design.webp",
     "fallbackWidth": 1536,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/backgrounds/medical-background": {
-    "fallback": "/images/backgrounds/medical-background.webp",
-    "fallbackWidth": 1670,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/products/medstim-neuro-devices": {
-    "fallback": "/images/products/medstim-neuro-devices.webp",
-    "fallbackWidth": 847,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/products/neuro": {
-    "fallback": "/images/products/neuro.webp",
-    "fallbackWidth": 1671,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/products/neuro_rehab_device": {
-    "fallback": "/images/products/neuro_rehab_device.webp",
-    "fallbackWidth": 1448,
     "avif": [
       480,
       768,
@@ -849,6 +662,213 @@
       768
     ]
   },
+  "images/process/validation-and-testing": {
+    "fallback": "/images/process/validation-and-testing.webp",
+    "fallbackWidth": 710,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1": {
+    "fallback": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+    "fallbackWidth": 1254,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/DQR": {
+    "fallback": "/images/products/DQR.webp",
+    "fallbackWidth": 666,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "images/products/RTOS": {
+    "fallback": "/images/products/RTOS.webp",
+    "fallbackWidth": 666,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "images/products/TDCS": {
+    "fallback": "/images/products/TDCS.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/bharatpay-m": {
+    "fallback": "/images/products/bharatpay-m.webp",
+    "fallbackWidth": 1983,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/products/boxsound": {
+    "fallback": "/images/products/boxsound.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/ces-repose": {
+    "fallback": "/images/products/ces-repose.webp",
+    "fallbackWidth": 1521,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/cluster-removebg": {
+    "fallback": "/images/products/cluster-removebg.webp",
+    "fallbackWidth": 612,
+    "avif": [
+      480
+    ],
+    "webp": [
+      480
+    ]
+  },
+  "images/products/cluster1": {
+    "fallback": "/images/products/cluster1.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/gps-gateway": {
+    "fallback": "/images/products/gps-gateway.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/iot-lock-smart": {
+    "fallback": "/images/products/iot-lock-smart.webp",
+    "fallbackWidth": 1535,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/iot-smaart-lock": {
+    "fallback": "/images/products/iot-smaart-lock.webp",
+    "fallbackWidth": 1672,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/medstim-neuro-devices": {
+    "fallback": "/images/products/medstim-neuro-devices.webp",
+    "fallbackWidth": 847,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/neuro": {
+    "fallback": "/images/products/neuro.webp",
+    "fallbackWidth": 1671,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/products/neuro_rehab_device": {
+    "fallback": "/images/products/neuro_rehab_device.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
   "images/products/smartlock-product": {
     "fallback": "/images/products/smartlock-product.webp",
     "fallbackWidth": 1280,
@@ -887,16 +907,6 @@
     "webp": [
       480,
       768
-    ]
-  },
-  "images/process/validation-and-testing": {
-    "fallback": "/images/process/validation-and-testing.webp",
-    "fallbackWidth": 710,
-    "avif": [
-      480
-    ],
-    "webp": [
-      480
     ]
   },
   "images/products/walklab-product": {
