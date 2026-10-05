@@ -58,7 +58,7 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] lg:w-[clamp(150px,calc((100vw_-_560px)/5),600px)] lg:h-[clamp(150px,calc((100vw_-_560px)/5),600px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture 
                       src={item.image} 
                       alt={item.to}
@@ -97,7 +97,7 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] lg:w-[clamp(150px,calc((100vw_-_560px)/5),600px)] lg:h-[clamp(150px,calc((100vw_-_560px)/5),600px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture 
                       src={item.image} 
                       alt={item.to}
