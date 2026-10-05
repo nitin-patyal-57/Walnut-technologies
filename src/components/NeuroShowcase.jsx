@@ -70,7 +70,7 @@ const tiltStats = [
   { value: '20–39', label: 'Steps/min · 3 cadences' },
 ];
 
-function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features, visible, delay = '0ms', flip = false }) {
+function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features, stats, visible, delay = '0ms', flip = false }) {
   return (
     <article
       className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
@@ -116,22 +116,20 @@ function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, su
             </span>
           ))}
         </div>
+
+        <div className="mt-6 pt-5 border-t border-slate-100 grid grid-cols-3">
+          {stats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`min-w-0 px-3 first:pl-0 last:pr-0 ${i > 0 ? 'border-l border-slate-100' : ''}`}
+            >
+              <p className="text-base sm:text-lg font-black text-[#0f172a] leading-none tracking-tight">{s.value}</p>
+              <p className="mt-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 leading-snug">{s.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </article>
-  );
-}
-
-function StatCard({ value, label, visible, delay = '0ms' }) {
-  return (
-    <div
-      className={`flex-1 flex flex-col justify-center rounded-3xl bg-white border border-slate-100 shadow-sm px-6 py-7 hover:shadow-lg hover:border-blue-100 transition-all duration-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-      style={{ transitionDelay: visible ? delay : '0ms' }}
-    >
-      <p className="text-3xl xl:text-[2.5rem] font-black bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-none">
-        {value}
-      </p>
-      <p className="mt-2.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 leading-snug">{label}</p>
-    </div>
   );
 }
 
@@ -206,50 +204,36 @@ export default function NeuroShowcase({ onBack }) {
             <p className="text-slate-500 text-sm mt-3 max-w-lg mx-auto">Two powerful systems working together to deliver complete neuro rehabilitation — from gait retraining to therapeutic positioning.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1">
-              <ProductTile
-                index="01"
-                image="/images/products/walklab-product.webp"
-                alt="WalkLab Gait Training System"
-                badge="Flagship Product"
-                badgeIcon={FiCpu}
-                title="WalkLab Gait Training System"
-                subtitle="Lower Limb Gait Training System"
-                description="A high-level gait training platform that improves gait outcomes, accelerates recovery and reduces cost of care through intensive, repetitive retraining of normal movement. Sensors track lower-limb kinematics and muscle activation to guide each step with the correct timing and force, with instant audio and visual feedback — for stroke, TBI, spinal cord injury, cerebral palsy, MS, Parkinson's and orthopedic conditions."
-                features={walklabFeatures}
-                visible={prodVisible}
-              />
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <ProductTile
+              index="01"
+              image="/images/products/walklab-product.webp"
+              alt="WalkLab Gait Training System"
+              badge="Flagship Product"
+              badgeIcon={FiCpu}
+              title="WalkLab Gait Training System"
+              subtitle="Lower Limb Gait Training System"
+              description="A high-level gait training platform that improves gait outcomes, accelerates recovery and reduces cost of care through intensive, repetitive retraining of normal movement. Sensors track lower-limb kinematics and muscle activation to guide each step with the correct timing and force, with instant audio and visual feedback — for stroke, TBI, spinal cord injury, cerebral palsy, MS, Parkinson's and orthopedic conditions."
+              features={walklabFeatures}
+              stats={walklabStats}
+              visible={prodVisible}
+            />
 
-            <div className="lg:col-start-3 lg:row-start-1 flex flex-col gap-5">
-              {walklabStats.map((s, i) => (
-                <StatCard key={s.label} value={s.value} label={s.label} visible={prodVisible} delay={`${i * 80}ms`} />
-              ))}
-            </div>
-
-            <div className="lg:col-span-2 lg:col-start-2 lg:row-start-2">
-              <ProductTile
-                index="02"
-                flip
-                image="/images/products/tilt-bed.webp"
-                alt="Tilt Bed Therapeutic Positioning System"
-                badge="Therapeutic System"
-                badgeIcon={FiTarget}
-                title="Tilt Bed"
-                subtitle="Motorised Tilt Table with Leg Stepping"
-                description="A motorised tilt table with an integrated leg-stepping mechanism. The patient lies supine and is strapped in, the table is raised gradually toward vertical while the legs move in a continuous alternating stepping pattern. Working the calf muscle pump maintains venous return, so blood pressure holds and verticalization can start earlier and be tolerated longer — for early mobilization after stroke, traumatic brain injury, spinal cord injury and prolonged ICU stays."
-                features={tiltFeatures}
-                visible={prodVisible}
-                delay="150ms"
-              />
-            </div>
-
-            <div className="lg:col-start-1 lg:row-start-2 flex flex-col gap-5">
-              {tiltStats.map((s, i) => (
-                <StatCard key={s.label} value={s.value} label={s.label} visible={prodVisible} delay={`${200 + i * 80}ms`} />
-              ))}
-            </div>
+            <ProductTile
+              index="02"
+              flip
+              image="/images/products/tilt-bed.webp"
+              alt="Tilt Bed Therapeutic Positioning System"
+              badge="Therapeutic System"
+              badgeIcon={FiTarget}
+              title="Tilt Bed"
+              subtitle="Motorised Tilt Table with Leg Stepping"
+              description="A motorised tilt table with an integrated leg-stepping mechanism. The patient lies supine and is strapped in, the table is raised gradually toward vertical while the legs move in a continuous alternating stepping pattern. Working the calf muscle pump maintains venous return, so blood pressure holds and verticalization can start earlier and be tolerated longer — for early mobilization after stroke, traumatic brain injury, spinal cord injury and prolonged ICU stays."
+              features={tiltFeatures}
+              stats={tiltStats}
+              visible={prodVisible}
+              delay="150ms"
+            />
           </div>
 
         </div>
