@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
+import Button from './ui/Button';
+import { scrollBehavior } from '../utils/motion';
 
 export default function Hero({ onOpenSchedule }) {
   const { t } = useLanguage();
@@ -11,7 +13,7 @@ export default function Hero({ onOpenSchedule }) {
   return (
     <section id="hero" className="relative min-h-[100dvh] flex flex-col overflow-hidden w-full">
       <div className="absolute inset-0">
-        <Picture
+        <Picture sizes="100vw"
           src="/images/backgrounds/home-background.webp"
           alt="Walnut Technologies electronics manufacturing facility"
           width="1920"
@@ -64,20 +66,22 @@ export default function Hero({ onOpenSchedule }) {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="flex flex-wrap gap-3 pt-1"
                 >
-                  <button
+                  <Button
+                    variant="accent"
+                    className="group hover:shadow-cyan-400/40"
                     onClick={onOpenSchedule}
-                    className="group px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-slate-900 text-sm font-semibold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/40 transition-all duration-300 flex items-center gap-2"
                   >
                     {t('hero.cta1')}
                     <FiArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
-                  <button
-                    onClick={() => document.getElementById('divisions-preview')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="px-6 py-3 bg-white/10 border border-white/20 hover:bg-white/20 text-white text-sm font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
+                  </Button>
+                  <Button
+                    variant="ghostLight"
+                    className="backdrop-blur-sm"
+                    onClick={() => document.getElementById('divisions-preview')?.scrollIntoView({ behavior: scrollBehavior() })}
                   >
                     <FiPlay className="w-3.5 h-3.5" />
                     {t('hero.cta2')}
-                  </button>
+                  </Button>
                 </motion.div>
               </div>
             </div>

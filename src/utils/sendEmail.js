@@ -51,3 +51,30 @@ export async function sendContactEmail(form) {
     formTime: form.formTime || '',
   });
 }
+
+export async function sendResourceRequest(form) {
+  return submitForm('contact', {
+    name: form.name,
+    email: form.email,
+    resourceTitle: form.resourceTitle,
+    message: form.message || '',
+    type: 'resource',
+    website: form.website || '',
+    formTime: form.formTime || '',
+  });
+}
+
+export async function sendApplication(form) {
+  return submitForm('contact', {
+    name: form.name,
+    email: form.email,
+    phone: form.phone,
+    company: form.company || '',
+    jobTitle: form.jobTitle,
+    message: form.message,
+    resume: form.resume || null,
+    type: 'application',
+    website: form.website || '',
+    formTime: form.formTime || '',
+  });
+}

@@ -1,12 +1,13 @@
 export function Skeleton({ className = '' }) {
   return (
-    <div className={`animate-pulse bg-slate-200 rounded ${className}`} />
+    <div aria-hidden="true" className={`animate-pulse bg-slate-200 rounded ${className}`} />
   );
 }
 
 export function PageSkeleton() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" role="status" aria-live="polite" aria-label="Loading page">
+      <span className="sr-only">Loading page...</span>
       {/* Header skeleton */}
       <div className="h-16 bg-white border-b border-slate-200">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">

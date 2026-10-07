@@ -9,16 +9,22 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "/images/brand/WM_fevicon.webp",
+      "src": "/images/brand/icon-192.png",
       "sizes": "192x192",
-      "type": "image/webp",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/images/brand/WM_fevicon.webp",
+      "src": "/images/brand/icon-512.png",
       "sizes": "512x512",
-      "type": "image/webp",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "categories": ["business", "technology"],

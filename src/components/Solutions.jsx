@@ -5,6 +5,8 @@ import { FiArrowRight, FiHeart, FiCreditCard, FiCpu, FiCheckCircle, FiArrowLeft,
 import { products, divisions } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
+import { scrollBehavior } from '../utils/motion';
+import CtaSection from './CtaSection';
 
 const ProductShowcase = lazy(() => import('./ProductShowcase'));
 const MedicalShowcase = lazy(() => import('./MedicalShowcase'));
@@ -58,7 +60,7 @@ function HeroBanner({ onSelect }) {
       className="relative overflow-hidden rounded-3xl mb-8"
     >
       {/* Background image */}
-      <Picture loading="lazy" decoding="async"
+      <Picture sizes="100vw" loading="lazy" decoding="async"
         src="/images/backgrounds/gpsgatewaybackground.webp"
         alt="GPS Gateway Background"
         width="1920"
@@ -87,7 +89,7 @@ function HeroBanner({ onSelect }) {
                 {t('solutions.exploreProducts')}
               </button>
               <button
-                onClick={() => document.getElementById('categories')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('categories')?.scrollIntoView({ behavior: scrollBehavior() })}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-200 transition-colors drop-shadow-md"
               >
                 See More
@@ -134,7 +136,7 @@ function CategoryCard({ division, onSelect, index }) {
     >
       {/* Image Container */}
       <div className="relative rounded-2xl bg-slate-100/80 aspect-[4/3] flex items-center justify-center p-6 mb-4 overflow-hidden group-hover:bg-slate-200/60 transition-colors duration-300">
-        <Picture loading="lazy" decoding="async"
+        <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
           src={division.products[0].image}
           alt={division.products[0].name}
           className="max-w-[75%] max-h-[75%] object-contain group-hover:scale-110 transition-transform duration-500 ease-out mix-blend-multiply drop-shadow-md"
@@ -208,7 +210,7 @@ function FeaturesSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="relative overflow-hidden rounded-2xl bg-slate-900 md:row-span-2 group cursor-pointer"
         >
-          <Picture loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={features[0].image}
             alt={features[0].title}
             className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
@@ -233,7 +235,7 @@ function FeaturesSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[160px]"
           >
-            <Picture loading="lazy" decoding="async"
+            <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
               src={features[1].image}
               alt={features[1].title}
               className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
@@ -260,7 +262,7 @@ function FeaturesSection() {
                 className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[240px]"
               >
                 {feature.image && (
-                  <Picture loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src={feature.image}
                     alt={feature.title}
                     className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700 ${feature.title === 'MedStim Neuro Devices' ? 'scale-110' : ''}`}
@@ -343,7 +345,7 @@ function ProductCard({ product, index }) {
     >
       <div className="relative overflow-hidden rounded-2xl bg-white border border-slate-200/60 hover:border-slate-300 transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50">
         <div className="relative h-48 lg:h-56 bg-slate-100/60 flex items-center justify-center overflow-hidden">
-          <Picture loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={product.image}
             alt={product.title}
             className="w-32 h-32 lg:w-40 lg:h-40 object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700 ease-out drop-shadow-md"
@@ -355,7 +357,7 @@ function ProductCard({ product, index }) {
           <div className="flex flex-wrap gap-1.5">
             {product.features.slice(0, 2).map((f) => (
               <span key={f} className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-slate-50 text-slate-600 rounded-md border border-slate-200/60">
-                <FiCheckCircle className="w-3 h-3 text-emerald-500" />
+                <FiCheckCircle className="w-3 h-3 text-emerald-600" />
                 {f}
               </span>
             ))}
@@ -406,13 +408,13 @@ export default function Solutions() {
       const el = document.getElementById('solutions');
       if (isFullPageShowcase) {
         const timer = setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: scrollBehavior() });
         }, 350);
         return () => clearTimeout(timer);
       }
       if (el) {
         const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({ top: y, behavior: 'smooth' });
+        window.scrollTo({ top: y, behavior: scrollBehavior() });
       }
     }
   }, [selectedDivision]);
@@ -434,6 +436,7 @@ export default function Solutions() {
   const isSpecialDivision = isFintechSelected || isMedicalSelected || isNeuroSelected || isIoTSelected || isAutomotiveSelected;
 
   return (
+    <>
     <section id="solutions" className={`relative ${isSpecialDivision ? 'p-0 m-0' : 'bg-white py-16 md:py-24'}`}>
       <div ref={ref} className={`${isSpecialDivision ? 'p-0 m-0 w-full' : 'mx-auto px-4 sm:px-6 lg:px-8'}`}>
 
@@ -480,7 +483,7 @@ export default function Solutions() {
                     >
                       {/* Full Image */}
                       <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
-                        <Picture
+                        <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                           src={division.products[0]?.image}
                           alt={division.title}
                           loading="lazy"
@@ -574,19 +577,31 @@ export default function Solutions() {
               </div>
 
               {/* Products */}
-              <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {divisionProducts.map((product, index) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    index={index}
-                  />
-                ))}
-              </div>
+              {divisionProducts.length === 0 ? (
+                <div role="status" className="col-span-full text-center py-10 bg-slate-50 rounded-2xl border border-slate-200">
+                  <p className="text-sm text-slate-500">Products for this division are being updated. Contact us for details.</p>
+                </div>
+              ) : (
+                <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                  {divisionProducts.map((product, index) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
     </section>
+    <CtaSection
+      eyebrow="Build With Us"
+      title="Found the Right Division?"
+      description="Share your requirements and our engineering team will respond with a detailed quote within 24 hours."
+    />
+    </>
   );
 }

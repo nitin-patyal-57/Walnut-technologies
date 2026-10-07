@@ -69,9 +69,9 @@ function ProcessSteps() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-3">
             {t('process.title')}
-          </h2>
+          </h1>
           <p className="text-sm text-slate-500 max-w-xl mx-auto">
             {t('process.subtitle')}
           </p>
@@ -90,7 +90,7 @@ function ProcessSteps() {
               >
                 <div className="relative">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg">
-                    <Picture loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src={stepImages[index]}
                       alt={step.title}
                       className="w-full h-full object-cover"
@@ -135,7 +135,7 @@ function ProcessSteps() {
               >
                 <div className="relative">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg">
-                    <Picture loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src={stepImages[index + 5]}
                       alt={step.title}
                       className="w-full h-full object-cover"

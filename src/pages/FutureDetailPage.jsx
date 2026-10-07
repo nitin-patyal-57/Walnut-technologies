@@ -89,7 +89,7 @@ const futureData = {
       { year: '2016', event: 'Started with 2,000 sqft facility and manual assembly' },
       { year: '2019', event: 'Expanded to 150,000 sqft with 2 SMT lines' },
       { year: '2023', event: 'Added 3rd and 4th SMT lines. Capacity reached 500K+ units/month' },
-      { year: '2026', event: '4th SMT line operational. Placement accuracy 99.95%, yield rate 99.8%' },
+      { year: '2026', event: 'All 4 SMT lines at full scale. Placement accuracy 99.95%, yield rate 99.8%' },
     ],
     features: [
       { icon: FiSettings, title: '150,000 sqft Facility', text: 'Class 10K cleanroom, 4 high-speed SMT lines, automated optical inspection, X-ray testing, and dedicated R&D labs in Mohali, Punjab.', stat: '150K' },
@@ -225,7 +225,7 @@ export default function FutureDetailPage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Picture loading="lazy" decoding="async"
+                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src={data.splitContent.image}
                   alt={data.splitContent.title}
                   className="w-full h-80 lg:h-96 object-cover"

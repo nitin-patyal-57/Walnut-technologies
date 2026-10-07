@@ -87,7 +87,7 @@ function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, su
         <span className="absolute top-3 right-6 text-[5.5rem] lg:text-[7rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
           {index}
         </span>
-        <Picture
+        <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
           loading="lazy"
           decoding="async"
           src={image}
@@ -124,7 +124,7 @@ function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, su
               className={`min-w-0 px-3 first:pl-0 last:pr-0 ${i > 0 ? 'border-l border-slate-100' : ''}`}
             >
               <p className="text-base sm:text-lg font-black text-[#0f172a] leading-none tracking-tight">{s.value}</p>
-              <p className="mt-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 leading-snug">{s.label}</p>
+              <p className="mt-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 leading-snug">{s.label}</p>
             </div>
           ))}
         </div>
@@ -163,7 +163,7 @@ export default function NeuroShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-32 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture src="/images/products/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src="/images/products/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 

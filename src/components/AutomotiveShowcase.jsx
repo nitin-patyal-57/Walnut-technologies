@@ -82,7 +82,7 @@ export default function AutomotiveShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-48 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture src="/images/backgrounds/cluster-background.webp" alt="Automotive Cluster Display" width="1920" height="600" className="w-full h-auto scale-100" loading="lazy" />
+          <Picture sizes="100vw" src="/images/backgrounds/cluster-background.webp" alt="Automotive Cluster Display" width="1920" height="600" className="w-full h-auto scale-100" loading="lazy" />
         </div>
       </section>
 
@@ -130,7 +130,7 @@ export default function AutomotiveShowcase({ onBack }) {
               >
                 <div className="flex items-start gap-5">
                   <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
-                    <Picture loading="lazy" decoding="async" src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-[#0f172a] text-lg leading-tight mb-1">{product.title}</h3>

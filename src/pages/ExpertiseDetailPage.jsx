@@ -409,7 +409,7 @@ export default function ExpertiseDetailPage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
-                <Picture loading="lazy" decoding="async"
+                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src={data.heroImage}
                   alt={data.title}
                   className="w-full h-[350px] md:h-[450px] object-cover"
@@ -472,7 +472,7 @@ export default function ExpertiseDetailPage() {
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     className="flex items-start gap-3"
                   >
-                    <FiCheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                    <FiCheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
                     <span className="text-slate-700">{item}</span>
                   </motion.div>
                 ))}

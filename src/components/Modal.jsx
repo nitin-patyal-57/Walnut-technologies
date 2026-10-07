@@ -6,25 +6,44 @@ export default function Modal({ isOpen, onClose, children, title, size = 'max-w-
   const modalRef = useRef(null);
   const previousFocusRef = useRef(null);
 
-  const handleEscape = useCallback((e) => {
-    if (e.key === 'Escape') onClose();
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') {
+      onClose();
+      return;
+    }
+    if (e.key !== 'Tab' || !modalRef.current) return;
+
+    const focusables = modalRef.current.querySelectorAll(
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey && (document.activeElement === first || document.activeElement === modalRef.current)) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   }, [onClose]);
 
   useEffect(() => {
     if (isOpen) {
       previousFocusRef.current = document.activeElement;
-      document.addEventListener('keydown', handleEscape);
+      document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
       setTimeout(() => {
         modalRef.current?.focus();
       }, 100);
     }
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
       previousFocusRef.current?.focus();
     };
-  }, [isOpen, handleEscape]);
+  }, [isOpen, handleKeyDown]);
 
   return (
     <AnimatePresence>
@@ -55,7 +74,7 @@ export default function Modal({ isOpen, onClose, children, title, size = 'max-w-
               <button
                 onClick={onClose}
                 aria-label="Close modal"
-                className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
+                className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
               >
                 <FiX className="w-5 h-5" />
               </button>

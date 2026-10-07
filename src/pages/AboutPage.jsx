@@ -36,7 +36,7 @@ export default function AboutPage() {
     <div className="bg-white min-h-screen">
       <SEO
         title="About Us"
-        description="Learn about Walnut Technologies - ISO 13485 certified OEM/ODM manufacturer with 15+ years experience, 500K+ units/month capacity, serving medical devices, payment systems, and custom electronics worldwide."
+        description="ISO 13485 certified OEM/ODM manufacturer with 10+ years of experience and 500K+ units/month capacity, serving medical, payment and electronics markets."
         path="/about"
         keywords="about walnut technologies, OEM manufacturer India, electronics manufacturing company, ISO 13485 certified"
       />
@@ -45,7 +45,7 @@ export default function AboutPage() {
       <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <Picture loading="lazy" decoding="async"
+          <Picture sizes="100vw" loading="lazy" decoding="async"
             src="/images/backgrounds/aboutbackground.webp"
             alt="Walnut Technologies"
             className="w-full h-full object-cover"
@@ -147,14 +147,14 @@ export default function AboutPage() {
             <AnimatedSection className="lg:col-span-5">
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-                  <Picture loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src="/images/about/08_Electronics_Manufacturing_Factory.webp"
                     alt="Manufacturing Facility"
                     className="w-full h-[320px] object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-8 -right-2 sm:-right-6 lg:-right-10 z-20 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                  <Picture loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src="/images/about/04_Engineering_Team.webp"
                     alt="Engineering Team"
                     className="w-full h-full object-cover"
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 >
                   {/* Image */}
                   <div className="relative h-44 overflow-hidden">
-                    <Picture loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src={step.image}
                       alt={step.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -311,7 +311,7 @@ export default function AboutPage() {
       ═══════════════════════════════════════════════════════════════ */}
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0">
-          <Picture loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src="/images/about/10_PCB_Closeup.webp"
             alt=""
             className="w-full h-full object-cover"
@@ -407,14 +407,14 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48">
-                    <Picture loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/04_Engineering_Team.webp"
                       alt="Engineering Team"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64">
-                    <Picture loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/09_Team_Collaboration.webp"
                       alt="Team Collaboration"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -423,14 +423,14 @@ export default function AboutPage() {
                 </div>
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64">
-                    <Picture loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/11_Modern_Conference_Room.webp"
                       alt="Conference Room"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48">
-                    <Picture loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/12_Business_Partnership.webp"
                       alt="Business Partnership"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -453,7 +453,7 @@ export default function AboutPage() {
             <AnimatedSection>
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-2xl">
-                  <Picture loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src="/images/about/07_PCB_Testing.webp"
                     alt="Quality Testing"
                     className="w-full h-[400px] object-cover"
@@ -538,7 +538,7 @@ export default function AboutPage() {
                   to={`/about/future/${item.slug}`}
                   className="group block relative rounded-2xl overflow-hidden h-80 cursor-pointer"
                 >
-                  <Picture loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src={item.image}
                     alt={item.title}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -611,7 +611,7 @@ export default function AboutPage() {
             {/* Right — Image */}
             <AnimatedSection delay={0.15}>
               <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
-                <Picture loading="lazy" decoding="async"
+                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src="/images/about/13_Purpose_Products.webp"
                   alt="Walnut Technologies Products - Medical Devices, Payment Systems, Electronics"
                   className="w-full h-auto object-contain"
@@ -627,7 +627,7 @@ export default function AboutPage() {
       ═══════════════════════════════════════════════════════════════ */}
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0">
-          <Picture loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src="/images/about/08_Electronics_Manufacturing_Factory.webp"
             alt=""
             className="w-full h-full object-cover"

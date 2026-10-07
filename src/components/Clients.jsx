@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FiHeart, FiShield, FiBriefcase, FiActivity, FiZap, FiTool } from 'react-icons/fi';
 import { clientSectors } from '../data/content';
+import CtaSection from './CtaSection';
 
 const sectorIcons = {
   hospital: FiHeart,
@@ -17,6 +18,7 @@ export default function Clients() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
+    <>
     <section id="clients" className="section-padding relative bg-white">
       
       <div ref={ref} className="relative container-custom">
@@ -30,10 +32,10 @@ export default function Clients() {
             <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
             Industries We Serve
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
+          <h1 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mb-3">
             Trusted Across{' '}
             <span className="gradient-text">6 Key Sectors</span>
-          </h2>
+          </h1>
           <p className="text-sm text-slate-500 max-w-2xl mx-auto">
             From healthcare to defence — our manufacturing capabilities serve the most demanding industries worldwide.
           </p>
@@ -54,7 +56,7 @@ export default function Clients() {
                   <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center mb-3">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-base font-bold font-display text-white">{sector.sector}</h3>
+                  <h2 className="text-base font-bold font-display text-white">{sector.sector}</h2>
                 </div>
                 <div className="p-4">
                   <p className="text-xs text-slate-500 mb-2">{sector.description}</p>
@@ -74,5 +76,11 @@ export default function Clients() {
         </div>
       </div>
     </section>
+    <CtaSection
+      eyebrow="Work With Us"
+      title="Need a Trusted Manufacturing Partner?"
+      description="From healthcare to defence, we build devices that perform when it matters most. Tell us what you need and we'll get back to you within 24 hours."
+    />
+    </>
   );
 }

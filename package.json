@@ -3,6 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "browserslist": [
+    ">= 0.2%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not dead",
+    "iOS >= 14",
+    "Safari >= 14"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",

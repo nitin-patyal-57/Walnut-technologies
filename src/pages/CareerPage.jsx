@@ -11,6 +11,7 @@ import {
   FiTool, FiCheckSquare, FiUser
 } from 'react-icons/fi';
 import Picture from '../components/Picture';
+import CtaSection from '../components/CtaSection';
 
 function AnimatedSection({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -170,7 +171,7 @@ export default function CareerPage() {
     <div className="bg-white">
       <SEO
         title="Career"
-        description="Join Walnut Technologies - Explore exciting career opportunities in medical electronics, embedded systems, IoT, and software development. Grow with us in Mohali, Punjab."
+        description="Explore careers at Walnut Technologies in medical electronics, embedded systems, IoT and software development. Grow with us in Mohali, Punjab."
         path="/career"
         keywords="Walnut Technologies careers, electronics jobs, medical device careers, embedded systems jobs, IoT careers India"
       />
@@ -191,7 +192,7 @@ export default function CareerPage() {
                 "@type": "Organization",
                 "name": "Walnut Technologies Pvt. Ltd.",
                 "sameAs": "https://walnutmedical.in",
-                "logo": "https://walnutmedical.in/walnut-logo/Walnut_Technologies_logo_transparent.webp"
+                "logo": "https://walnutmedical.in/images/brand/Walnut_Technologies_logo_transparent.webp"
               },
               "jobLocation": {
                 "@type": "Place",
@@ -274,9 +275,9 @@ export default function CareerPage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Picture
+                <Picture sizes="100vw"
                   src="/images/backgrounds/career-background.webp"
-                  alt="Walnut Medical Team"
+                  alt="Walnut Technologies Team"
                   className="w-full h-[300px] md:h-[400px] object-cover"
                   loading="eager"
                 />
@@ -336,7 +337,7 @@ export default function CareerPage() {
 
             <AnimatedSection delay={0.2} className="lg:col-span-3">
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <Picture
+                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                   src={cultureImages[0].src}
                   alt={cultureImages[0].alt}
                   className="w-full h-[250px] md:h-[350px] object-cover"
@@ -364,7 +365,7 @@ export default function CareerPage() {
               <AnimatedSection key={team.name} delay={i * 0.04}>
                 <div className="group text-center">
                   <div className="w-full aspect-square rounded-lg overflow-hidden mb-2 relative">
-                    <Picture
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                       src={team.image}
                       alt={team.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
@@ -423,6 +424,7 @@ export default function CareerPage() {
               <select
                 value={activeDept}
                 onChange={(e) => setActiveDept(e.target.value)}
+                aria-label="Filter jobs by department"
                 className="px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {departments.map(dept => (
@@ -433,6 +435,7 @@ export default function CareerPage() {
               <select
                 value={activeLocation}
                 onChange={(e) => setActiveLocation(e.target.value)}
+                aria-label="Filter jobs by location"
                 className="px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {locations.map(loc => (
@@ -443,6 +446,7 @@ export default function CareerPage() {
               <select
                 value={activeExperience}
                 onChange={(e) => setActiveExperience(e.target.value)}
+                aria-label="Filter jobs by experience level"
                 className="px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {experiences.map(exp => (
@@ -451,10 +455,11 @@ export default function CareerPage() {
               </select>
               
               <div className="relative flex-1 min-w-[180px]">
-                <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
                   type="text"
                   placeholder={t('careerExtended.searchPlaceholder')}
+                  aria-label="Search jobs"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-9 pr-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 font-medium text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -510,13 +515,19 @@ export default function CareerPage() {
           </div>
 
           {filteredJobs.length === 0 && (
-            <div className="text-center py-8">
+            <div role="status" className="text-center py-8">
               <p className="text-slate-500 text-base">{t('careerExtended.noJobsMatch')}</p>
             </div>
           )}
         </div>
       </section>
 
+      <CtaSection
+        eyebrow="Join the Team"
+        title="Don't See Your Role?"
+        description="We're always looking for talented engineers and designers. Tell us about yourself - we'd love to talk."
+        showQuote={false}
+      />
     </div>
   );
 }

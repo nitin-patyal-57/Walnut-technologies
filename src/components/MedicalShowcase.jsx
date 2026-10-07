@@ -113,14 +113,14 @@ export default function MedicalShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-24 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture src="/images/backgrounds/medical-background.webp" alt="Medical Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture sizes="100vw" src="/images/backgrounds/medical-background.webp" alt="Medical Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 
       <section ref={featRef} className="py-16 md:py-24 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${featVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <p className="text-cyan-500 font-semibold text-sm uppercase tracking-wider mb-2">Key Features</p>
+            <p className="text-cyan-700 font-semibold text-sm uppercase tracking-wider mb-2">Key Features</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Medical Device Excellence</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -133,7 +133,7 @@ export default function MedicalShowcase({ onBack }) {
                   style={{ transitionDelay: featVisible ? `${index * 50}ms` : '0ms' }}
                 >
                   <div className="w-9 h-9 rounded-lg bg-cyan-50 flex items-center justify-center shrink-0 group-hover:bg-cyan-100 transition-colors">
-                    <Icon className="w-4 h-4 text-cyan-500" />
+                    <Icon className="w-4 h-4 text-cyan-700" />
                   </div>
                   <div className="min-w-0">
                     <p className="font-semibold text-[#0f172a] text-sm leading-tight">{feature.label}</p>
@@ -149,7 +149,7 @@ export default function MedicalShowcase({ onBack }) {
       <section ref={prodRef} className="py-16 md:py-24 bg-slate-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <p className="text-cyan-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
+            <p className="text-cyan-700 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Medical Device Portfolio</h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -161,15 +161,15 @@ export default function MedicalShowcase({ onBack }) {
               >
                 <div className="flex items-start gap-5">
                   <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
-                    <Picture loading="lazy" decoding="async" src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-[#0f172a] text-lg leading-tight mb-1">{product.title}</h3>
-                    <p className="text-cyan-500 text-sm font-medium mb-2">{product.subtitle}</p>
+                    <p className="text-cyan-700 text-sm font-medium mb-2">{product.subtitle}</p>
                     <p className="text-slate-600 text-sm leading-relaxed mb-3">{product.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {product.highlights.map((h) => (
-                        <span key={h} className="inline-flex items-center gap-1 bg-cyan-50 text-cyan-600 text-xs font-medium px-3 py-1.5 rounded-full">
+                        <span key={h} className="inline-flex items-center gap-1 bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1.5 rounded-full">
                           <FiCheckCircle className="w-3 h-3" />{h}
                         </span>
                       ))}
@@ -185,7 +185,7 @@ export default function MedicalShowcase({ onBack }) {
       <section ref={capRef} className="py-16 md:py-24 bg-white">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-12 transition-all duration-500 ${capVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <p className="text-cyan-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Capabilities</p>
+            <p className="text-cyan-700 font-semibold text-sm uppercase tracking-wider mb-2">Our Capabilities</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">End-to-End Medical Manufacturing</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -201,14 +201,14 @@ export default function MedicalShowcase({ onBack }) {
                   </div>
                   <div>
                     <h3 className="font-bold text-[#0f172a] text-lg leading-tight">{cap.title}</h3>
-                    <p className="text-cyan-500 text-sm font-medium">{cap.subtitle}</p>
+                    <p className="text-cyan-700 text-sm font-medium">{cap.subtitle}</p>
                   </div>
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed mb-4">{cap.description}</p>
                 <ul className="space-y-2">
                   {cap.bulletPoints.map((point, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                      <FiCheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                      <FiCheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}

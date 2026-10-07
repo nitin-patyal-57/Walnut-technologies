@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiSend, FiCheck } from 'react-icons/fi';
 import Modal from './Modal';
+import Button from './ui/Button';
 import { captureLead } from '../hooks/useLeads';
 import { sendQuoteEmail } from '../utils/sendEmail';
 import { useLanguage } from '../context/LanguageContext';
@@ -65,7 +66,7 @@ export default function QuoteModal({ isOpen, onClose }) {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  const inputClass = "w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm";
+  const inputClass = "w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm";
   const labelClass = "block text-xs font-medium text-slate-500 mb-1.5";
 
   return (
@@ -133,13 +134,13 @@ export default function QuoteModal({ isOpen, onClose }) {
           </div>
 
           {error && (
-            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{error}</p>
+            <p role="alert" className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{error}</p>
           )}
 
-          <button
+          <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full"
           >
             {isSubmitting ? (
               <>
@@ -152,12 +153,13 @@ export default function QuoteModal({ isOpen, onClose }) {
                 {t('quote.send')}
               </>
             )}
-          </button>
+          </Button>
         </form>
       ) : (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
+          role="status"
           className="text-center py-8"
         >
           <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">

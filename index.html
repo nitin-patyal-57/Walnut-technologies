@@ -7,15 +7,15 @@
     <link rel="icon" type="image/webp" sizes="16x16" href="/images/brand/favicon-32.webp" />
     <link rel="shortcut icon" href="/images/brand/favicon-32.webp" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:" />
     <meta name="theme-color" content="#06b6d4" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Walnut Tech" />
-    <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.webp" />
-    <meta name="description" content="Walnut Technologies - OEM/ODM manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified, 500K+ units/month. Mohali, Punjab, India." />
+    <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png" />
+    <meta name="description" content="OEM/ODM manufacturer of medical devices, payment systems and custom electronics. ISO 13485 certified, 500K+ units/month. Mohali, Punjab, India." />
     <meta name="keywords" content="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India" />
     <meta name="author" content="Walnut Technologies Pvt. Ltd." />
     <meta name="robots" content="index, follow" />
@@ -26,20 +26,25 @@
     <meta property="og:description" content="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, and custom electronics. ISO 13485 certified." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://walnutmedical.in" />
-    <meta property="og:image" content="https://walnutmedical.in/walnut-logo/Walnut_Technologies_logo_transparent.webp" />
+    <meta property="og:image" content="https://walnutmedical.in/images/brand/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Walnut Technologies" />
     <meta property="og:site_name" content="Walnut Technologies" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Walnut Technologies | Electronics for the World" />
     <meta name="twitter:description" content="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, and custom electronics." />
-    <meta name="twitter:image" content="https://walnutmedical.in/walnut-logo/Walnut_Technologies_logo_transparent.webp" />
+    <meta name="twitter:image" content="https://walnutmedical.in/images/brand/og-cover.png" />
 
-    <!-- Fonts - Non-blocking -->
+    <!-- Fonts - Preloaded, applied without blocking first paint -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" id="manrope-font" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
+    <script src="/font-load.js"></script>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
 
     <!-- Preload critical assets -->
     <link rel="preload" href="/images/brand/Walnut_Technologies_logo_transparent.webp" as="image" type="image/webp" fetchpriority="high">
@@ -54,7 +59,7 @@
       "@type": "Organization",
       "name": "Walnut Technologies Pvt. Ltd.",
       "url": "https://walnutmedical.in",
-      "logo": "https://walnutmedical.in/walnut-logo/Walnut_Technologies_logo_transparent.webp",
+      "logo": "https://walnutmedical.in/images/brand/Walnut_Technologies_logo_transparent.webp",
       "description": "Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, and custom electronics.",
       "foundingDate": "2016",
       "address": {

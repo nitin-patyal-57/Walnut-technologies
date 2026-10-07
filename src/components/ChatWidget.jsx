@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
+import { scrollBehavior } from '../utils/motion';
 
 function findIntent(message) {
   const lower = message.toLowerCase();
@@ -86,7 +87,7 @@ export default function ChatWidget({ onChatStateChange }) {
   ];
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: scrollBehavior() });
   }, [messages]);
 
   useEffect(() => {
@@ -113,7 +114,8 @@ export default function ChatWidget({ onChatStateChange }) {
     setTimeout(() => {
       const intent = findIntent(userMsg);
       if (intent === 'quote') {
-        setMessages((prev) => [...prev, { role: 'bot', content: 'For pricing inquiries, please contact us at contact@walnutmedical.in or call +91 77194 63719. Our team will provide a detailed quote within 24 hours.' }]);
+        setMessages((prev) => [...prev, { role: 'bot', content: t('chat.openingQuote') }]);
+        setTimeout(() => document.dispatchEvent(new Event('open-walnut-quote')), 600);
       } else {
         const response = t(`chat.responses.${intent}`) || t('chat.responses.default');
         setMessages((prev) => [...prev, { role: 'bot', content: response }]);
@@ -159,7 +161,7 @@ export default function ChatWidget({ onChatStateChange }) {
                 </div>
                 <div>
                   <h4 className="text-xs font-semibold text-slate-900">{t('chat.name')}</h4>
-                  <p className="text-xs text-emerald-500">{t('chat.online')}</p>
+                  <p className="text-xs text-emerald-700">{t('chat.online')}</p>
                 </div>
               </div>
             </div>
@@ -206,7 +208,7 @@ export default function ChatWidget({ onChatStateChange }) {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder={t('chat.placeholder')}
-                  className="flex-1 px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-slate-400 transition-colors"
+                  className="flex-1 px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-slate-400 transition-colors"
                 />
                 <button
                   onClick={handleSend}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   FiMapPin, FiMail, FiPhone, FiSend, FiCheck,
   FiArrowRight, FiHome, FiServer, FiHeadphones,
-  FiShield, FiUsers, FiMessageCircle
+  FiShield, FiUsers, FiMessageCircle, FiAlertCircle
 } from 'react-icons/fi';
 import { brand } from '../data/content';
 import SEO from '../components/SEO';
@@ -19,6 +19,7 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false, website: '' });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const timeoutRef = useRef(null);
   const formTimeRef = useRef(Date.now());
 
@@ -65,7 +66,9 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setIsSubmitting(true);
+    setSubmitError('');
     try {
       await sendContactEmail({ ...form, formTime: formTimeRef.current.toString() });
       setSubmitted(true);
@@ -75,7 +78,7 @@ export default function ContactPage() {
         formTimeRef.current = Date.now();
       }, 4000);
     } catch (error) {
-      alert('Failed to send message. Please try again or contact us directly.');
+      setSubmitError(error.message || 'Failed to send message. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -85,7 +88,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Contact Us"
-        description="Get in touch with Walnut Technologies. Located in Mohali, Punjab, India. Contact us for OEM/ODM manufacturing, medical devices, payment systems, and custom electronics inquiries."
+        description="Get in touch with Walnut Technologies in Mohali, Punjab, India for OEM/ODM manufacturing, medical devices, payment systems and custom electronics."
         path="/contact"
         keywords="contact Walnut Technologies, electronics manufacturer contact, OEM inquiry, medical device manufacturer India"
       />
@@ -134,7 +137,7 @@ export default function ContactPage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Picture loading="lazy" decoding="async"
+                <Picture sizes="100vw" loading="lazy" decoding="async"
                   src="/images/backgrounds/contactbackground.webp"
                   alt="Walnut Technologies Manufacturing Facility"
                   className="w-full h-[300px] lg:h-[380px] object-cover object-[right_85%]"
@@ -225,7 +228,7 @@ export default function ContactPage() {
                         required
                         value={form.name}
                         onChange={(e) => setForm({...form, name: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder={t('contact.fullName')}
                         maxLength={100}
                       />
@@ -237,7 +240,7 @@ export default function ContactPage() {
                         type="text"
                         value={form.company}
                         onChange={(e) => setForm({...form, company: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder={t('contact.companyName')}
                         maxLength={100}
                       />
@@ -252,7 +255,7 @@ export default function ContactPage() {
                         required
                         value={form.email}
                         onChange={(e) => setForm({...form, email: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder="you@company.com"
                       />
                     </div>
@@ -263,7 +266,7 @@ export default function ContactPage() {
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({...form, phone: e.target.value})}
-                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                        className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder="+91 98765 43210"
                       />
                     </div>
@@ -293,7 +296,7 @@ export default function ContactPage() {
                       rows={5}
                       value={form.message}
                       onChange={(e) => setForm({...form, message: e.target.value})}
-                      className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                      className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                       placeholder={t('contact.messagePlaceholder')}
                       maxLength={1000}
                     />
@@ -302,11 +305,12 @@ export default function ContactPage() {
                     <input
                       type="checkbox"
                       required
+                      id="contact-privacy"
                       checked={form.privacy}
                       onChange={(e) => setForm({...form, privacy: e.target.checked})}
                       className="mt-1 w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
                     />
-                    <label className="text-xs text-slate-500">
+                    <label htmlFor="contact-privacy" className="text-xs text-slate-500">
                       {t('contact.agreeTo')}{' '}
                       <Link to="/privacy" className="text-blue-600 hover:underline">{t('contact.privacyPolicy')}</Link>
                       {' '}{t('contact.and')}{' '}
@@ -326,6 +330,12 @@ export default function ContactPage() {
                       onChange={(e) => setForm({...form, website: e.target.value})}
                     />
                   </div>
+                  {submitError && (
+                    <div role="alert" className="flex items-start gap-2 text-xs text-red-600 bg-red-50 border border-red-200 rounded-xl px-3 py-2.5">
+                      <FiAlertCircle className="w-4 h-4 shrink-0 mt-px" />
+                      <span>{submitError}</span>
+                    </div>
+                  )}
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -348,6 +358,7 @@ export default function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
+                  role="status"
                   className="text-center py-16 bg-white rounded-2xl border border-slate-200"
                 >
                   <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">

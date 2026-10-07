@@ -43,7 +43,7 @@ export default function MobileBottomNav() {
       <div className="absolute inset-0 bg-white/95 backdrop-blur-xl border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]" />
       
       {/* Nav items */}
-      <nav className="relative flex items-center justify-around px-2 py-1.5 safe-area-bottom" aria-label="Mobile navigation">
+      <nav className="relative flex items-center justify-around px-2 py-1.5 safe-area-bottom safe-area-x" aria-label="Mobile navigation">
         {bottomNavItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.to);
@@ -53,6 +53,7 @@ export default function MobileBottomNav() {
               key={item.label}
               onClick={() => navigate(item.to)}
               aria-label={item.label}
+              aria-current={active ? 'page' : undefined}
               className="flex flex-col items-center gap-0.5 py-1 px-1.5 sm:px-3 rounded-xl transition-all relative flex-1 min-w-0"
             >
               {active && (
@@ -65,12 +66,12 @@ export default function MobileBottomNav() {
               <div className={`p-1.5 rounded-xl transition-all ${
                 active 
                   ? 'bg-gradient-to-br from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/30' 
-                  : 'text-slate-400 hover:text-slate-600'
+                  : 'text-slate-500 hover:text-slate-700'
               }`}>
                 <Icon className="w-5 h-5" />
               </div>
               <span className={`text-[10px] sm:text-xs font-semibold transition-all truncate w-full text-center ${
-                active ? 'text-cyan-600' : 'text-slate-500'
+                active ? 'text-cyan-700' : 'text-slate-500'
               }`}>
                 {item.label}
               </span>

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import {
   FiCalendar, FiArrowRight, FiClock, FiTag,
@@ -55,12 +55,66 @@ const categoryConfig = {
 
 const categories = ['All', 'Certification', 'Expansion', 'Partnership', 'Press', 'Product', 'Milestone'];
 
-function NewsModal({ item, onClose }) {
+function NewsModal({ item, onClose, onSelect }) {
+  const panelRef = useRef(null);
+  const closeRef = useRef(null);
+  const openerRef = useRef(null);
+  const [shared, setShared] = useState(false);
+
+  useEffect(() => {
+    if (!item) return;
+    openerRef.current = document.activeElement;
+    closeRef.current?.focus();
+    document.body.style.overflow = 'hidden';
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (e.key !== 'Tab' || !panelRef.current) return;
+      const focusables = panelRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = 'unset';
+      openerRef.current?.focus?.();
+    };
+  }, [item, onClose]);
+
   if (!item) return null;
   const config = categoryConfig[item.category] || categoryConfig['Certification'];
 
   // Find related news (same category, excluding current)
   const related = news.filter((n) => n.id !== item.id && n.category === item.category).slice(0, 2);
+
+  const handleShare = async () => {
+    const url = `${window.location.origin}${window.location.pathname}#news-${item.id}`;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: item.title, url });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      setShared(true);
+      setTimeout(() => setShared(false), 2000);
+    } catch {
+      setShared(false);
+    }
+  };
 
   return (
     <motion.div
@@ -72,6 +126,10 @@ function NewsModal({ item, onClose }) {
     >
       <div className="min-h-screen flex items-start justify-center p-4 py-8 lg:py-12">
         <motion.div
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="news-modal-title"
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.97 }}
@@ -81,16 +139,20 @@ function NewsModal({ item, onClose }) {
         >
           {/* Hero Image */}
           <div className="relative h-72 md:h-96 overflow-hidden">
-            <Picture loading="lazy" decoding="async"
+            <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
               src={item.image}
               alt={item.title}
+              width="1280"
+              height="720"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
 
             {/* Close button */}
             <button
+              ref={closeRef}
               onClick={onClose}
+              aria-label="Close article"
               className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/25 transition-all"
             >
               <FiX className="w-5 h-5" />
@@ -112,9 +174,9 @@ function NewsModal({ item, onClose }) {
                   <span className="text-xs">{item.readTime}</span>
                 </div>
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+              <h2 id="news-modal-title" className="text-2xl md:text-3xl font-bold text-white leading-tight">
                 {item.title}
-              </h1>
+              </h2>
             </div>
           </div>
 
@@ -131,9 +193,13 @@ function NewsModal({ item, onClose }) {
                   <p className="text-xs text-slate-500">Corporate Communications</p>
                 </div>
               </div>
-              <button className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all">
+              <button
+                onClick={handleShare}
+                aria-label={shared ? 'Link copied to clipboard' : 'Share this article'}
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all"
+              >
                 <FiShare2 className="w-3.5 h-3.5" />
-                Share
+                {shared ? 'Link copied!' : 'Share'}
               </button>
             </div>
 
@@ -150,7 +216,7 @@ function NewsModal({ item, onClose }) {
                 This development marks a significant milestone for Walnut Technologies as the company continues to expand its capabilities across medical devices, payment systems, and custom electronics manufacturing. The achievement reflects our unwavering commitment to quality and innovation.
               </p>
               <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                With over 15 years of experience in electronics manufacturing, Walnut Technologies has established itself as a trusted partner for companies seeking reliable OEM/ODM solutions. Our state-of-the-art facility in Mohali, Punjab features 4 SMT lines, a Class 10K cleanroom, and capacity for 500K+ units per month.
+                With over a decade of experience in electronics manufacturing, Walnut Technologies has established itself as a trusted partner for companies seeking reliable OEM/ODM solutions. Our state-of-the-art facility in Mohali, Punjab features 4 SMT lines, a Class 10K cleanroom, and capacity for 500K+ units per month.
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">
                 This achievement further strengthens our position as a leading Original Design Manufacturer serving 20+ countries worldwide, with certifications including ISO 13485, CE, FCC, and PCI-DSS.
@@ -190,18 +256,31 @@ function NewsModal({ item, onClose }) {
                   {related.map((r) => {
                     const rConfig = categoryConfig[r.category] || categoryConfig['Certification'];
                     return (
-                      <div key={r.id} className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all cursor-pointer group">
+                      <div
+                        key={r.id}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => onSelect && onSelect(r)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            onSelect && onSelect(r);
+                          }
+                        }}
+                        aria-label={`Read ${r.title}`}
+                        className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                      >
                         <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0">
-                          <Picture loading="lazy" decoding="async" src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={r.image} alt={r.title} width="64" height="64" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                         </div>
                         <div>
-                          <span className={`text-[9px] font-bold ${rConfig.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
+                          <span className={`text-[10px] font-bold ${rConfig.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
                             {r.category}
                           </span>
                           <h4 className="text-sm font-semibold text-slate-900 leading-snug mt-1 group-hover:text-blue-600 transition-colors line-clamp-2">
                             {r.title}
                           </h4>
-                          <p className="text-xs text-slate-400 mt-0.5">{r.date}</p>
+                          <p className="text-xs text-slate-500 mt-0.5">{r.date}</p>
                         </div>
                       </div>
                     );
@@ -246,7 +325,7 @@ function FeaturedCard({ item, isInView, onReadMore }) {
       <div className="grid lg:grid-cols-2 h-full">
         {/* Image */}
         <div className="relative h-64 lg:h-full overflow-hidden">
-          <Picture loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -303,7 +382,7 @@ function NewsCard({ item, index, isInView, onReadMore }) {
       <div className="relative bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden h-full flex flex-col">
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
-          <Picture loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -320,12 +399,12 @@ function NewsCard({ item, index, isInView, onReadMore }) {
         {/* Content */}
         <div className="p-5 flex flex-col flex-1">
           <div className="flex items-center gap-3 mb-3">
-            <div className="flex items-center gap-1.5 text-slate-400">
+            <div className="flex items-center gap-1.5 text-slate-500">
               <FiCalendar className="w-3 h-3" />
               <span className="text-xs">{item.date}</span>
             </div>
             <div className="w-1 h-1 rounded-full bg-slate-300" />
-            <div className="flex items-center gap-1.5 text-slate-400">
+            <div className="flex items-center gap-1.5 text-slate-500">
               <FiClock className="w-3 h-3" />
               <span className="text-xs">{item.readTime}</span>
             </div>
@@ -374,7 +453,7 @@ function TimelineCard({ item, index, isInView, onReadMore }) {
           <div className="flex items-stretch">
             {/* Image */}
             <div className="w-32 shrink-0 overflow-hidden hidden sm:block">
-              <Picture loading="lazy" decoding="async"
+              <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -387,7 +466,7 @@ function TimelineCard({ item, index, isInView, onReadMore }) {
                 <span className={`text-[10px] font-bold ${config.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
                   {item.category}
                 </span>
-                <span className="text-[10px] text-slate-400">{item.date}</span>
+                <span className="text-[10px] text-slate-500">{item.date}</span>
               </div>
               <h3 className="text-sm font-bold text-slate-900 leading-snug mb-1.5 group-hover:text-blue-600 transition-colors">
                 {item.title}
@@ -546,7 +625,7 @@ export default function News() {
                   key={v}
                   onClick={() => setView(v)}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all capitalize ${
-                    view === v ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'
+                    view === v ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-600'
                   }`}
                 >
                   {v}
@@ -601,7 +680,7 @@ export default function News() {
                         <div className="bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                           <div className="flex items-stretch">
                             <div className="w-40 shrink-0 overflow-hidden hidden sm:block">
-                              <Picture loading="lazy" decoding="async"
+                              <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                                 src={item.image}
                                 alt={item.title}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -612,9 +691,9 @@ export default function News() {
                                 <span className={`text-[10px] font-bold ${config.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
                                   {item.category}
                                 </span>
-                                <span className="text-xs text-slate-400">{item.date}</span>
+                                <span className="text-xs text-slate-500">{item.date}</span>
                                 <span className="text-slate-300">·</span>
-                                <span className="text-xs text-slate-400">{item.readTime}</span>
+                                <span className="text-xs text-slate-500">{item.readTime}</span>
                               </div>
                               <h3 className="text-sm font-bold text-slate-900 leading-snug mb-1.5 group-hover:text-blue-600 transition-colors">
                                 {item.title}
@@ -624,7 +703,7 @@ export default function News() {
                               </p>
                             </div>
                             <div className="p-5 flex items-center">
-                              <button onClick={() => setSelectedNews(item)} className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
+                              <button onClick={() => setSelectedNews(item)} aria-label={`Read ${item.title}`} className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
                                 <FiArrowUpRight className="w-4 h-4" />
                               </button>
                             </div>
@@ -651,7 +730,7 @@ export default function News() {
               )}
 
               {filteredNews.length === 0 && (
-                <div className="text-center py-16">
+                <div role="status" className="text-center py-16">
                   <p className="text-slate-500">No news found for this category.</p>
                 </div>
               )}
@@ -701,7 +780,7 @@ export default function News() {
       {/* News Detail Modal */}
       <AnimatePresence>
         {selectedNews && (
-          <NewsModal item={selectedNews} onClose={() => setSelectedNews(null)} />
+          <NewsModal item={selectedNews} onClose={() => setSelectedNews(null)} onSelect={setSelectedNews} />
         )}
       </AnimatePresence>
     </div>

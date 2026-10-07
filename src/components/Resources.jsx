@@ -1,12 +1,13 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import {
   FiDownload, FiFileText, FiBarChart2, FiBook,
   FiArrowRight, FiChevronRight, FiCalendar, FiClock,
   FiFilter, FiGrid, FiList, FiExternalLink, FiArrowUpRight,
-  FiX, FiMail, FiCheck, FiSend, FiUser
+  FiX, FiMail, FiCheck, FiSend, FiUser, FiAlertCircle
 } from 'react-icons/fi';
 import { resources } from '../data/content';
+import { sendResourceRequest } from '../utils/sendEmail';
 
 const typeConfig = {
   Whitepaper: {
@@ -50,23 +51,54 @@ function RequestModal({ resource, onClose }) {
   const [form, setForm] = useState({ name: '', email: '', company: '' });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
+  const openedAt = useRef(Date.now());
+  const panelRef = useRef(null);
+  const closeRef = useRef(null);
+
+  useEffect(() => {
+    closeRef.current?.focus();
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'Tab' && panelRef.current) {
+        const focusables = panelRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [onClose]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-
-    // Simulate sending - replace with actual API call
-    await new Promise((r) => setTimeout(r, 1500));
-
-    // In production, you'd send this to your backend
-    const mailtoLink = `mailto:contact@walnutmedical.in?subject=Resource Request: ${encodeURIComponent(resource.title)}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\n\nPlease send me the following resource:\n${resource.title} (${resource.type})`)}`;
-    window.open(mailtoLink, '_blank');
-
-    setSending(false);
-    setSubmitted(true);
-    setTimeout(() => {
-      onClose();
-    }, 2500);
+    setError('');
+    try {
+      await sendResourceRequest({
+        name: form.name,
+        email: form.email,
+        resourceTitle: resource.title,
+        message: `Company: ${form.company || 'Not provided'}\nResource type: ${resource.type}`,
+        formTime: openedAt.current,
+      });
+      setSubmitted(true);
+      setTimeout(onClose, 3000);
+    } catch (err) {
+      setError(err.message || 'Could not send your request. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -78,6 +110,10 @@ function RequestModal({ resource, onClose }) {
       onClick={onClose}
     >
       <motion.div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="resource-modal-title"
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -87,7 +123,9 @@ function RequestModal({ resource, onClose }) {
         {/* Header */}
         <div className="relative bg-gradient-to-r from-slate-900 to-slate-800 p-6">
           <button
+            ref={closeRef}
             onClick={onClose}
+            aria-label="Close dialog"
             className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all"
           >
             <FiX className="w-4 h-4" />
@@ -97,8 +135,8 @@ function RequestModal({ resource, onClose }) {
               <FiDownload className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="text-xs text-white/50 uppercase tracking-wider font-semibold">{resource.type}</p>
-              <h3 className="text-sm font-bold text-white leading-snug">{resource.title}</h3>
+              <p className="text-xs text-white/60 uppercase tracking-wider font-semibold">{resource.type}</p>
+              <h3 id="resource-modal-title" className="text-sm font-bold text-white leading-snug">{resource.title}</h3>
             </div>
           </div>
         </div>
@@ -112,42 +150,59 @@ function RequestModal({ resource, onClose }) {
               </p>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-medium text-slate-600 mb-1.5">Full Name *</label>
+                  <label htmlFor="res-request-name" className="block text-xs font-medium text-slate-600 mb-1.5">Full Name *</label>
                   <div className="relative">
-                    <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                     <input
+                      id="res-request-name"
                       type="text"
                       required
+                      autoComplete="name"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                       placeholder="John Doe"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-600 mb-1.5">Email Address *</label>
+                  <label htmlFor="res-request-email" className="block text-xs font-medium text-slate-600 mb-1.5">Email Address *</label>
                   <div className="relative">
-                    <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                     <input
+                      id="res-request-email"
                       type="email"
                       required
+                      autoComplete="email"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                       placeholder="you@company.com"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-600 mb-1.5">Company Name</label>
+                  <label htmlFor="res-request-company" className="block text-xs font-medium text-slate-600 mb-1.5">Company Name</label>
                   <input
+                    id="res-request-company"
                     type="text"
+                    autoComplete="organization"
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                     placeholder="Acme Corp"
                   />
+                </div>
+                <div
+                  aria-live="polite"
+                  className={error ? 'flex items-start gap-2 text-xs text-red-600 bg-red-50 border border-red-200 rounded-xl px-3 py-2.5' : undefined}
+                >
+                  {error && (
+                    <>
+                      <FiAlertCircle className="w-4 h-4 shrink-0 mt-px" />
+                      <span>{error}</span>
+                    </>
+                  )}
                 </div>
                 <button
                   type="submit"
@@ -167,22 +222,23 @@ function RequestModal({ resource, onClose }) {
                   )}
                 </button>
               </form>
-              <p className="text-[11px] text-slate-400 mt-3 text-center">
-                We'll send the document to your email within 24 hours.
+              <p className="text-[11px] text-slate-500 mt-3 text-center">
+                We'll email the document to you within 24 hours.
               </p>
             </>
           ) : (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
+              role="status"
               className="text-center py-8"
             >
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                 <FiCheck className="w-8 h-8 text-green-600" />
               </div>
               <h4 className="text-lg font-bold text-slate-900 mb-2">Request Sent!</h4>
-              <p className="text-sm text-slate-500">
-                We'll send <strong>{resource.title}</strong> to your email shortly.
+              <p className="text-sm text-slate-600">
+                We've received your request and will email <strong>{resource.title}</strong> to you within 24 hours.
               </p>
             </motion.div>
           )}
@@ -411,7 +467,7 @@ export default function Resources() {
               <button
                 onClick={() => setView('grid')}
                 className={`w-8 h-8 rounded-md flex items-center justify-center transition-all ${
-                  view === 'grid' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'
+                  view === 'grid' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-600'
                 }`}
               >
                 <FiGrid className="w-4 h-4" />
@@ -419,7 +475,7 @@ export default function Resources() {
               <button
                 onClick={() => setView('list')}
                 className={`w-8 h-8 rounded-md flex items-center justify-center transition-all ${
-                  view === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'
+                  view === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-600'
                 }`}
               >
                 <FiList className="w-4 h-4" />
@@ -465,7 +521,7 @@ export default function Resources() {
               )}
 
               {filteredResources.length === 0 && (
-                <div className="text-center py-16">
+                <div role="status" className="text-center py-16">
                   <p className="text-slate-500">No resources found for this category.</p>
                 </div>
               )}

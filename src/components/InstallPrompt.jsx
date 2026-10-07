@@ -56,7 +56,7 @@ export default function InstallPrompt() {
               <FiDownload className="w-5 h-5 text-cyan-600" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-slate-900">Install Walnut Tech</p>
+              <p className="text-sm font-semibold text-slate-900">Install Walnut Technologies</p>
               <p className="text-xs text-slate-500 mt-0.5">Add to home screen for quick access</p>
               <div className="flex gap-2 mt-3">
                 <button
@@ -76,7 +76,7 @@ export default function InstallPrompt() {
             <button
               onClick={handleDismiss}
               aria-label="Dismiss"
-              className="text-slate-400 hover:text-slate-600 transition-colors"
+              className="text-slate-500 hover:text-slate-700 transition-colors"
             >
               <FiX className="w-4 h-4" />
             </button>

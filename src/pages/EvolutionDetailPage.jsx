@@ -87,7 +87,7 @@ const evolutionData = {
     bigStatement: 'From Medical Devices to Global Electronics',
     intro: 'With medical devices and neurorehab firmly established, we expanded into fintech, IoT, and international markets.',
     timeline: [
-      { year: '2019', event: 'Expanded to 150,000 sqft manufacturing facility with 4 SMT lines and 500K+ units/month capacity' },
+      { year: '2019', event: 'Expanded to 150,000 sqft manufacturing facility with 2 SMT lines, scaling up production capacity' },
       { year: '2022', event: 'Entered payment systems with POS terminals and QR soundboxes' },
       { year: '2023', event: 'Expanded to 20+ countries. Achieved ISO 13485, CE, FCC, PCI-DSS certifications' },
     ],
@@ -258,7 +258,7 @@ export default function EvolutionDetailPage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Picture loading="lazy" decoding="async"
+                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src={data.splitContent.image}
                   alt={data.splitContent.title}
                   className="w-full h-80 lg:h-96 object-cover"

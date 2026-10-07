@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
+import CtaSection from './CtaSection';
 
 const expertiseAreas = [
   {
@@ -152,7 +153,7 @@ export default function Expertise() {
             >
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-                  <Picture loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src="/images/expertise/hero-engineer.webp"
                     alt="Engineer working on electronics at Walnut Technologies"
                     className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-cover"
@@ -231,7 +232,7 @@ export default function Expertise() {
                   >
                     {/* Image */}
                     <div className="relative h-44 overflow-hidden">
-                      <Picture
+                      <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                         src={item.image}
                         alt={title}
                         loading="lazy"
@@ -262,6 +263,7 @@ export default function Expertise() {
           </div>
         </div>
       </section>
+      <CtaSection />
     </div>
   );
 }

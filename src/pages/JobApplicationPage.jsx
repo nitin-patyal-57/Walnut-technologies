@@ -7,6 +7,9 @@ import {
   FiLinkedin, FiStar, FiChevronRight, FiUpload, FiAward, FiClock,
   FiAlertCircle
 } from 'react-icons/fi';
+import SEO from '../components/SEO';
+import { sendApplication } from '../utils/sendEmail';
+import { scrollBehavior } from '../utils/motion';
 
 const steps = [
   { id: 1, label: 'Personal', icon: FiUser },
@@ -15,6 +18,15 @@ const steps = [
   { id: 4, label: 'Skills', icon: FiGlobe },
   { id: 5, label: 'Submit', icon: FiSend },
 ];
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(',')[1] || '');
+    reader.onerror = () => reject(new Error('Could not read the resume file'));
+    reader.readAsDataURL(file);
+  });
+}
 
 export default function JobApplicationPage() {
   const [searchParams] = useSearchParams();
@@ -35,8 +47,12 @@ export default function JobApplicationPage() {
   const [submitted, setSubmitted] = useState(false);
   const [dragActive, setDragActive] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const openedAt = useRef(Date.now());
 
-  const MAX_FILE_SIZE = 5 * 1024 * 1024;
+  const MAX_FILE_SIZE = 3 * 1024 * 1024;
+  const RESUME_TYPES = /\.(pdf|doc|docx)$/i;
 
   const validateStep = useCallback((step) => {
     const newErrors = {};
@@ -68,10 +84,16 @@ export default function JobApplicationPage() {
     const { name, value, files } = e.target;
     if (files) {
       const file = files[0];
-      if (file && file.size > MAX_FILE_SIZE) {
-        alert('File size must be less than 5MB');
+      if (!file) return;
+      if (file.size > MAX_FILE_SIZE) {
+        setErrors(prev => ({ ...prev, [name]: 'File size must be less than 3MB' }));
         return;
       }
+      if (name === 'resume' && !RESUME_TYPES.test(file.name)) {
+        setErrors(prev => ({ ...prev, resume: 'Please upload a PDF, DOC, or DOCX file' }));
+        return;
+      }
+      setErrors(prev => ({ ...prev, [name]: undefined }));
       setFormData(prev => ({ ...prev, [name]: file }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
@@ -92,17 +114,62 @@ export default function JobApplicationPage() {
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       const file = e.dataTransfer.files[0];
       if (file.size > MAX_FILE_SIZE) {
-        alert('File size must be less than 5MB');
+        setErrors(prev => ({ ...prev, resume: 'File size must be less than 3MB' }));
         return;
       }
+      if (!RESUME_TYPES.test(file.name)) {
+        setErrors(prev => ({ ...prev, resume: 'Please upload a PDF, DOC, or DOCX file' }));
+        return;
+      }
+      setErrors(prev => ({ ...prev, resume: undefined }));
       setFormData(prev => ({ ...prev, resume: file }));
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (!validateStep(5)) return;
-    setSubmitted(true);
+
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      const resumeContent = await fileToBase64(formData.resume);
+      await sendApplication({
+        name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.currentCompany,
+        jobTitle,
+        message: [
+          `Location: ${formData.location}`,
+          `Experience: ${formData.totalExperience} (relevant: ${formData.relevantExperience})`,
+          `Education: ${formData.education}${formData.university ? ` - ${formData.university}` : ''}${formData.yearOfPassing ? ` (${formData.yearOfPassing})` : ''}`,
+          `Skills: ${formData.skills}`,
+          `Expected salary: ${formData.expectedSalary}`,
+          `Notice period: ${formData.noticePeriod}`,
+          `Current role: ${formData.currentDesignation}${formData.currentCompany ? ` at ${formData.currentCompany}` : ''}`,
+          formData.linkedin ? `LinkedIn: ${formData.linkedin}` : '',
+          formData.portfolio ? `Portfolio: ${formData.portfolio}` : '',
+          `Relocation: ${formData.relocation}`,
+          formData.referralSource ? `Heard via: ${formData.referralSource}` : '',
+          '',
+          `Why join: ${formData.whyJoin}`,
+        ].filter(Boolean).join('\n'),
+        resume: {
+          filename: formData.resume.name,
+          contentType: formData.resume.type,
+          content: resumeContent,
+        },
+        formTime: openedAt.current,
+      });
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: scrollBehavior() });
+    } catch (err) {
+      setSubmitError(err.message || 'Could not submit your application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextStep = () => {
@@ -112,8 +179,8 @@ export default function JobApplicationPage() {
   };
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
-  const inputClass = "w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm placeholder:text-slate-400";
-  const inputErrorClass = "w-full px-4 py-3 rounded-xl bg-red-50 border border-red-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-500/20 outline-none transition-all text-sm placeholder:text-slate-400";
+  const inputClass = "w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm placeholder:text-slate-500";
+  const inputErrorClass = "w-full px-4 py-3 rounded-xl bg-red-50 border border-red-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-500/20 outline-none transition-all text-sm placeholder:text-slate-500";
   const selectClass = "w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm appearance-none bg-no-repeat bg-[right_0.75rem_center] bg-[length:1.5em_1.5em] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')]";
   const selectErrorClass = "w-full px-4 py-3 rounded-xl bg-red-50 border border-red-300 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-500/20 outline-none transition-all text-sm appearance-none bg-no-repeat bg-[right_0.75rem_center] bg-[length:1.5em_1.5em] bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')]";
 
@@ -130,6 +197,12 @@ export default function JobApplicationPage() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 flex items-center justify-center px-4">
+        <SEO
+          title="Application Received"
+          description="Your application has been received by the Walnut Technologies hiring team."
+          path="/apply"
+          noindex
+        />
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="max-w-lg w-full text-center">
           <motion.div
             initial={{ scale: 0 }}
@@ -176,6 +249,12 @@ export default function JobApplicationPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/30">
+      <SEO
+        title="Job Application"
+        description="Apply for a role at Walnut Technologies. Submit your resume and experience to join our electronics engineering team in Mohali, India."
+        path="/apply"
+        noindex
+      />
       {/* Hero Header */}
       <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-blue-900 overflow-hidden pt-20">
         <div className="absolute inset-0">
@@ -585,15 +664,15 @@ export default function JobApplicationPage() {
                         <input type="file" name="resume" onChange={handleChange} required accept=".pdf,.doc,.docx" className="hidden" />
                         {formData.resume ? (
                           <>
-                            <FiCheckCircle className="w-10 h-10 text-emerald-500 mb-2" />
+                            <FiCheckCircle className="w-10 h-10 text-emerald-600 mb-2" />
                             <p className="text-sm font-semibold text-emerald-700">{formData.resume.name}</p>
-                            <p className="text-xs text-emerald-500 mt-1">Click to change file</p>
+                            <p className="text-xs text-emerald-700 mt-1">Click to change file</p>
                           </>
                         ) : (
                           <>
                             <FiUpload className="w-10 h-10 text-slate-300 mb-2" />
                             <p className="text-sm font-semibold text-slate-600">Drop your resume here or click to browse</p>
-                            <p className="text-xs text-slate-500 mt-1">PDF, DOC, or DOCX (Max 5MB)</p>
+                            <p className="text-xs text-slate-500 mt-1">PDF, DOC, or DOCX (Max 3MB)</p>
                           </>
                         )}
                       </label>
@@ -603,13 +682,31 @@ export default function JobApplicationPage() {
                     {/* Submit */}
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
                       <p className="text-sm text-slate-500">By submitting, you agree to our privacy policy.</p>
-                      <button
-                        type="submit"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30"
-                      >
-                        Submit Application
-                        <FiSend className="w-4 h-4" />
-                      </button>
+                      <div className="w-full sm:w-auto flex flex-col items-stretch sm:items-end gap-2">
+                        {submitError && (
+                          <div role="alert" className="flex items-start gap-2 text-xs text-red-600 bg-red-50 border border-red-200 rounded-xl px-3 py-2.5">
+                            <FiAlertCircle className="w-4 h-4 shrink-0 mt-px" />
+                            <span>{submitError}</span>
+                          </div>
+                        )}
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              Submitting...
+                            </>
+                          ) : (
+                            <>
+                              Submit Application
+                              <FiSend className="w-4 h-4" />
+                            </>
+                          )}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

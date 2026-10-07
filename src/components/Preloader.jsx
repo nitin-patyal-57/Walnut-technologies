@@ -87,10 +87,10 @@ export default function Preloader() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center z-10"
             >
-              <h1 className="text-2xl font-bold font-display text-dark-950 mb-1">
+              <div className="text-2xl font-bold font-display text-dark-950 mb-1">
                 {brand.name}
-              </h1>
-              <p className="text-sm text-dark-500 font-medium tracking-wider uppercase">
+              </div>
+              <p className="text-sm text-slate-600 font-medium tracking-wider uppercase">
                 {brand.tagline}
               </p>
             </motion.div>
@@ -110,7 +110,7 @@ export default function Preloader() {
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                 />
               </div>
-              <p className="text-xs text-dark-500 text-center mt-2 font-mono">
+              <p className="text-xs text-slate-600 text-center mt-2 font-mono">
                 {Math.round(progress)}%
               </p>
             </motion.div>

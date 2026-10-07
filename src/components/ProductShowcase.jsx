@@ -145,7 +145,7 @@ export default function ProductShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-24 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture src="/images/backgrounds/fintech-homebackground.webp" alt="Fintech Soundbox" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture sizes="100vw" src="/images/backgrounds/fintech-homebackground.webp" alt="Fintech Soundbox" width="1920" height="600" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 
@@ -160,7 +160,7 @@ export default function ProductShowcase({ onBack }) {
             {soundboxProducts.map((product, index) => (
               <div key={product.id} className={`bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: prodVisible ? `${index * 100}ms` : '0ms' }}>
                 <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 p-6 flex items-center justify-center h-56 overflow-hidden">
-                  <Picture src={product.image} alt={product.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src={product.image} alt={product.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute top-4 right-4">
                     <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">{product.tagline}</span>
                   </div>
@@ -171,10 +171,10 @@ export default function ProductShowcase({ onBack }) {
                   <div className="space-y-3">
                     {product.features.map((feature) => (
                       <div key={feature.label} className="flex items-start gap-3">
-                        <FiCheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <FiCheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
                         <div>
                           <p className="text-sm font-semibold text-[#0f172a]">{feature.label}</p>
-                          <p className="text-xs text-slate-400">{feature.desc}</p>
+                          <p className="text-xs text-slate-500">{feature.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -232,7 +232,7 @@ export default function ProductShowcase({ onBack }) {
                   <ul className="space-y-2 mb-4">
                     {service.bulletPoints.map((point, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                        <FiCheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <FiCheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
                         <span>{point}</span>
                       </li>
                     ))}

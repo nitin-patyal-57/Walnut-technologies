@@ -9,6 +9,7 @@ import {
   FiRefreshCw, FiChevronDown, FiArrowUpRight, FiPhone, FiMail
 } from 'react-icons/fi';
 import { brand } from '../data/content';
+import { scrollBehavior } from '../utils/motion';
 
 const sectionIcons = {
   'check-circle': FiCheckCircle,
@@ -44,6 +45,11 @@ function SectionCard({ section, index, isInView }) {
     >
       <div
         className={`relative bg-white rounded-2xl border ${colors.border} hover:shadow-xl transition-all duration-500 overflow-hidden cursor-pointer`}
+        role="button"
+        tabIndex={0}
+        aria-expanded={expanded}
+        aria-labelledby={`section-title-${index}`}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpanded(!expanded); } }}
         onClick={() => setExpanded(!expanded)}
       >
         {/* Top accent line */}
@@ -63,7 +69,7 @@ function SectionCard({ section, index, isInView }) {
                   <span className={`text-xs font-bold ${colors.text} uppercase tracking-wider block mb-1`}>
                     Section {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="text-lg font-bold text-slate-900">{section.title}</h3>
+                  <h3 id={`section-title-${index}`} className="text-lg font-bold text-slate-900">{section.title}</h3>
                 </div>
                 <motion.div
                   animate={{ rotate: expanded ? 180 : 0 }}
@@ -126,7 +132,7 @@ export default function TermsPage() {
   const scrollToSection = (index) => {
     const el = document.getElementById(`terms-section-${index}`);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
     }
   };
 
@@ -244,7 +250,7 @@ export default function TermsPage() {
                       onClick={() => scrollToSection(i)}
                       className="w-full flex items-center gap-2 px-3 py-2 text-left text-sm text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all group"
                     >
-                      <FiChevronRight className="w-3 h-3 shrink-0 text-slate-400 group-hover:text-indigo-600 transition-colors" />
+                      <FiChevronRight className="w-3 h-3 shrink-0 text-slate-500 group-hover:text-indigo-600 transition-colors" />
                       <span className="truncate min-w-0">{title}</span>
                     </button>
                   ))}

@@ -6,7 +6,7 @@ export default function ResourcesPage() {
     <>
       <SEO
         title="Resources"
-        description="Access Walnut Technologies resources including whitepapers, case studies, technical documentation, and insights on medical devices and electronics manufacturing."
+        description="Access Walnut Technologies resources: whitepapers, case studies, technical documentation and insights on medical devices and electronics manufacturing."
         path="/resources"
         keywords="electronics resources, medical device documentation, manufacturing whitepapers, technical resources"
       />

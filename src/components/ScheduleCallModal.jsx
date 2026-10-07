@@ -23,7 +23,7 @@ export default function ScheduleCallModal({ isOpen, onClose }) {
               <p className="text-xs text-slate-500 mb-3">{t('schedule.phoneDesc')}</p>
               <a
                 href="tel:+917719463719"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-600 hover:text-cyan-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-700 hover:text-cyan-800 transition-colors"
               >
                 +91 77194 63719
                 <FiArrowRight className="w-3 h-3" />
@@ -45,7 +45,7 @@ export default function ScheduleCallModal({ isOpen, onClose }) {
                 href="https://wa.me/917719463719"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-700 hover:text-emerald-800 transition-colors"
               >
                 {t('schedule.startChat')}
                 <FiArrowRight className="w-3 h-3" />

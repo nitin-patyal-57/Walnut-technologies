@@ -11,6 +11,8 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ErrorBoundary from './components/ErrorBoundary';
 import MobileBottomNav from './components/MobileBottomNav';
 import HomePage from './pages/HomePage';
+import SEO from './components/SEO';
+import { scrollBehavior } from './utils/motion';
 
 const ChatWidget = lazy(() => import('./components/ChatWidget'));
 const InstallPrompt = lazy(() => import('./components/InstallPrompt'));
@@ -43,10 +45,10 @@ function ScrollToTop() {
     if (hash) {
       setTimeout(() => {
         const el = document.getElementById(hash.slice(1));
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) el.scrollIntoView({ behavior: scrollBehavior() });
       }, 100);
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: scrollBehavior() });
     }
   }, [pathname, hash]);
   return null;
@@ -64,7 +66,7 @@ function AppContent() {
         onOpenSchedule={() => setScheduleModalOpen(true)}
       />
 
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="focus:outline-none">
         <Suspense fallback={<PageLoader />}>
           <Routes>
           <Route path="/" element={<ErrorBoundary isPageLevel><HomePage onOpenSchedule={() => setScheduleModalOpen(true)} /></ErrorBoundary>} />
@@ -85,12 +87,18 @@ function AppContent() {
           <Route path="/terms" element={<ErrorBoundary isPageLevel><TermsPage /></ErrorBoundary>} />
           <Route           path="*" element={
             <div className="min-h-screen flex items-center justify-center bg-white">
+              <SEO title="Page Not Found" description="The page you're looking for does not exist." path="/404" noindex />
               <div className="text-center px-4">
                 <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-display text-slate-900 mb-4">404</h1>
                 <p className="text-base sm:text-lg text-slate-500 mb-6">Page not found</p>
-                <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 transition-all">
-                  Go Home
-                </Link>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 transition-all">
+                    Go Home
+                  </Link>
+                  <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:border-slate-400 transition-all">
+                    Contact Us
+                  </Link>
+                </div>
               </div>
             </div>
           } />

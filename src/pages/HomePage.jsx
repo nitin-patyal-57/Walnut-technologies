@@ -10,6 +10,7 @@ import Hero from '../components/Hero';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
+import { scrollBehavior } from '../utils/motion';
 
 function JourneySection() {
   const ref = useRef(null);
@@ -59,7 +60,7 @@ function JourneySection() {
               >
                 <div className="relative group">
                   <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] lg:w-[clamp(150px,calc((100vw_-_560px)/5),600px)] lg:h-[clamp(150px,calc((100vw_-_560px)/5),600px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
-                    <Picture 
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.to}
                       width="150"
@@ -98,7 +99,7 @@ function JourneySection() {
               >
                 <div className="relative group">
                   <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] lg:w-[clamp(150px,calc((100vw_-_560px)/5),600px)] lg:h-[clamp(150px,calc((100vw_-_560px)/5),600px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
-                    <Picture 
+                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.to}
                       width="150"
@@ -181,7 +182,7 @@ function JourneySection() {
                           {/* Colored top accent */}
                           <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
                           {/* Year badge */}
-                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
+                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
                             {item.year}
                           </div>
                           {/* Icon */}
@@ -190,7 +191,7 @@ function JourneySection() {
                           </div>
                           {/* Content */}
                           <h3 className="text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
-                          <p className="text-[9px] text-slate-500 leading-snug">{item.desc}</p>
+                          <p className="text-[10px] text-slate-500 leading-snug">{item.desc}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -238,7 +239,7 @@ function JourneySection() {
                           {/* Colored top accent */}
                           <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
                           {/* Year badge */}
-                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
+                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
                             {item.year}
                           </div>
                           {/* Icon */}
@@ -247,11 +248,11 @@ function JourneySection() {
                           </div>
                           {/* Content */}
                           <h3 className="text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
-                          <p className="text-[9px] text-slate-500 leading-snug">{item.desc}</p>
+                          <p className="text-[10px] text-slate-500 leading-snug">{item.desc}</p>
                           {item.badge && (
                             <div className="mt-1 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-full">
-                              <FiCheckCircle className="w-2.5 h-2.5 text-cyan-500" />
-                              <span className="text-[7px] font-bold text-cyan-600">{item.badge}</span>
+                              <FiCheckCircle className="w-2.5 h-2.5 text-cyan-600" />
+                              <span className="text-[10px] font-bold text-cyan-700">{item.badge}</span>
                             </div>
                           )}
                         </div>
@@ -355,7 +356,7 @@ function DivisionsPreview() {
               >
                 {/* Full Image */}
                 <div className="relative aspect-square overflow-hidden bg-slate-50 flex-shrink-0">
-                  <Picture
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
@@ -371,7 +372,7 @@ function DivisionsPreview() {
                       <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
                     </div>
                     <div className="w-full sm:w-40 h-32 sm:h-auto overflow-hidden border-t sm:border-t-0 sm:border-l border-slate-100 flex-shrink-0">
-                      <Picture
+                      <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                         src={sol.sideImage}
                         alt={`${sol.title} - Tilt Bed`}
                         loading="lazy"
@@ -605,7 +606,7 @@ function ClientsCertifications() {
                   className="group flex items-center justify-center p-2 sm:p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
                   <div className={`rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300 ${client.logo.includes('bhartpe') ? 'w-24 h-24 sm:w-36 sm:h-36' : 'w-16 h-16 sm:w-24 sm:h-24'}`}>
-                    <Picture src={client.logo} alt={client.name} width="96" height="96" className={`w-full h-full ${client.logo.includes('bhartpe') ? 'object-cover' : 'object-contain'}`} loading="lazy" />
+                    <Picture sizes="(max-width: 640px) 80px, 160px" src={client.logo} alt={client.name} width="96" height="96" className={`w-full h-full ${client.logo.includes('bhartpe') ? 'object-cover' : 'object-contain'}`} loading="lazy" />
                   </div>
                 </motion.div>
               ))}
@@ -659,7 +660,7 @@ function CTASection() {
                       <FiArrowUpRight className="w-4 h-4" />
                     </Link>
                     <button
-                      onClick={() => document.getElementById('divisions-preview')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => document.getElementById('divisions-preview')?.scrollIntoView({ behavior: scrollBehavior() })}
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md text-slate-700 text-sm font-semibold rounded-xl transition-all duration-300"
                     >
                       View Solutions
@@ -703,7 +704,7 @@ export default function HomePage({ onOpenSchedule }) {
     <div className="relative">
       <SEO
         title="Electronics for the World"
-        description="Walnut Technologies - Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, and custom electronics. ISO 13485 certified, 500K+ units/month capacity in Mohali, Punjab, India."
+        description="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems and custom electronics. ISO 13485 certified, 500K+ units/month in India."
         path="/"
         keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
       />
