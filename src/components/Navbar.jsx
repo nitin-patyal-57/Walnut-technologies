@@ -410,9 +410,6 @@ export default function Navbar({ onOpenSchedule }) {
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {trustSignals.stats.map((stat) => (
                     <div key={stat.label} className="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50/50 border border-blue-100 text-center hover:shadow-md transition-all">
-                      {stat.label === 'Countries Served' && (
-                        <img src="/images/logos/country.png" alt="" width="28" height="28" className="w-7 h-7 object-contain mx-auto mb-1" />
-                      )}
                       <div className="text-2xl font-bold font-display text-slate-900">{stat.value}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{stat.label}</div>
                     </div>
