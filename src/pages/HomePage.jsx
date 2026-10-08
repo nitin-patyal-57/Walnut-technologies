@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FiArrowRight, FiCheckCircle, FiShield, FiArrowUpRight,
+  FiArrowRight, FiCheckCircle, FiArrowUpRight,
   FiActivity, FiCpu, FiTool, FiBatteryCharging,
   FiServer, FiBox, FiSmartphone, FiHeadphones, FiWifi
 } from 'react-icons/fi';
@@ -537,9 +537,7 @@ function ClientsCertifications() {
             {/* Panel Header */}
             <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-md shadow-blue-500/20">
-                  <FiShield className="w-5 h-5 text-white" />
-                </div>
+                <img src="/images/logos/certificate.png" alt="" width="44" height="44" className="w-11 h-11 object-contain shrink-0" />
                 <div>
                   <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.certifications')}</h3>
                   <p className="text-xs text-slate-500 mt-0.5">We adhere to global standards for quality, safety and compliance.</p>
