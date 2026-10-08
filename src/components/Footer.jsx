@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { FiLinkedin, FiInstagram, FiYoutube, FiArrowUp, FiMapPin, FiPhone, FiMail, FiArrowRight } from 'react-icons/fi';
+import { FiArrowUp, FiMapPin, FiPhone, FiMail, FiArrowRight } from 'react-icons/fi';
+import { SiYoutube, SiInstagram } from 'react-icons/si';
+import { FaLinkedinIn } from 'react-icons/fa6';
 import { brand } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
@@ -87,14 +89,14 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {brand.fullName}. All rights reserved.
           </p>
           <div className="flex items-center gap-2.5">
-            <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:text-cyan-700 hover:border-cyan-300 transition-all">
-              <FiLinkedin className="w-3.5 h-3.5" />
+            <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/5 transition-all">
+              <FaLinkedinIn className="w-3.5 h-3.5" />
             </a>
-            <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:text-cyan-700 hover:border-cyan-300 transition-all">
-              <FiYoutube className="w-3.5 h-3.5" />
+            <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-[#FF0000] hover:border-[#FF0000]/40 hover:bg-[#FF0000]/5 transition-all">
+              <SiYoutube className="w-3.5 h-3.5" />
             </a>
-            <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:text-cyan-700 hover:border-cyan-300 transition-all">
-              <FiInstagram className="w-3.5 h-3.5" />
+            <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/5 transition-all">
+              <SiInstagram className="w-3.5 h-3.5" />
             </a>
           </div>
           <div className="flex items-center gap-4 text-[11px] text-slate-500">

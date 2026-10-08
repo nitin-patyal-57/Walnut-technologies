@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX, FiChevronDown, FiMapPin, FiMail, FiPhone, FiMessageSquare } from 'react-icons/fi';
+import { SiYoutube, SiInstagram } from 'react-icons/si';
+import { FaLinkedinIn } from 'react-icons/fa6';
 import { brand, trustSignals } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
@@ -28,9 +30,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { label: 'YouTube', url: 'https://www.youtube.com/@walnutmedical9305', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/youtube.svg' },
-  { label: 'Instagram', url: 'https://www.instagram.com/walnut_medical/', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg' },
-  { label: 'LinkedIn', url: 'https://www.linkedin.com/company/walnut-medical-private-limited', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg' },
+  { label: 'YouTube', url: 'https://www.youtube.com/@walnutmedical9305', icon: SiYoutube, color: 'text-[#FF0000] group-hover:text-[#E60000]' },
+  { label: 'Instagram', url: 'https://www.instagram.com/walnut_medical/', icon: SiInstagram, color: 'text-[#E4405F] group-hover:text-[#C13554]' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/company/walnut-medical-private-limited', icon: FaLinkedinIn, color: 'text-[#0A66C2] group-hover:text-[#004182]' },
 ];
 
 export default function Navbar({ onOpenSchedule }) {
@@ -481,7 +483,7 @@ export default function Navbar({ onOpenSchedule }) {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:bg-slate-100 transition-all group"
                       >
-                        <Picture loading="lazy" decoding="async" sizes="(max-width: 640px) 80px, 160px" src={social.icon} alt={social.label} className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        <social.icon aria-hidden="true" className={`w-5 h-5 transition-all group-hover:scale-110 ${social.color}`} />
                         <span className="text-xs text-slate-600 font-medium">{social.label}</span>
                       </a>
                     ))}

@@ -418,13 +418,16 @@ function HeroStats() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xl"
+          className="bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl shadow-slate-950/40"
         >
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-lg font-bold font-display text-blue-600 mb-0.5">{stat.value}</div>
-                <div className="text-[10px] text-slate-500 font-medium leading-tight">{stat.label}</div>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={`text-center ${index > 0 ? 'md:border-l md:border-white/10' : ''}`}
+              >
+                <div className="text-lg font-bold font-display text-cyan-400 mb-0.5">{stat.value}</div>
+                <div className="text-[10px] text-white/50 font-medium leading-tight">{stat.label}</div>
               </div>
             ))}
           </div>
