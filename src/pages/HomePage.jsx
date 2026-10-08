@@ -625,7 +625,7 @@ function CTASection() {
   const trustItems = [
     { logo: '/images/logos/certificate.png', value: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
     { logo: '/images/logos/country.png', value: '20+ Countries', desc: 'Global supply chain and logistics' },
-    { logo: '/images/logos/rate.jpg', value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
+    { logo: '/images/logos/rate.png', value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
   ];
 
   return (
