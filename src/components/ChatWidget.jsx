@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
-import { scrollBehavior } from '../utils/motion';
 
 function findIntent(message) {
   const lower = message.toLowerCase();
@@ -32,7 +31,7 @@ export default function ChatWidget({ onChatStateChange }) {
   ]);
   const [input, setInput] = useState('');
   const [showQuickReplies, setShowQuickReplies] = useState(true);
-  const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
   const inputRef = useRef(null);
   const chatRef = useRef(null);
   const previousFocusRef = useRef(null);
@@ -86,9 +85,16 @@ export default function ChatWidget({ onChatStateChange }) {
     { key: 'contact', value: 'contact' },
   ];
 
+  const scrollToBottom = useCallback(() => {
+    const el = messagesContainerRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, []);
+
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: scrollBehavior() });
-  }, [messages]);
+    scrollToBottom();
+    const raf = requestAnimationFrame(scrollToBottom);
+    return () => cancelAnimationFrame(raf);
+  }, [messages, showQuickReplies, isOpen, scrollToBottom]);
 
   useEffect(() => {
     if (isOpen) inputRef.current?.focus();
@@ -152,7 +158,7 @@ export default function ChatWidget({ onChatStateChange }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.97 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-32 lg:bottom-20 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[calc(100dvh-9rem)] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-32 lg:bottom-20 right-6 z-50 w-[calc(100vw-2rem)] sm:w-[400px] h-[560px] max-h-[calc(100dvh-8rem)] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden"
           >
             <div className="p-3 border-b border-slate-200 bg-white">
               <div className="flex items-center gap-2.5">
@@ -166,11 +172,11 @@ export default function ChatWidget({ onChatStateChange }) {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-3 space-y-3" aria-live="polite" aria-label="Chat messages">
+            <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3" aria-live="polite" aria-label="Chat messages">
               {messages.map((msg, index) => (
                 <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
-                    className={`max-w-[85%] px-3 py-2 rounded-xl text-xs leading-relaxed whitespace-pre-line ${
+                    className={`max-w-[85%] px-3 py-2 rounded-xl text-sm leading-relaxed whitespace-pre-line ${
                       msg.role === 'user'
                         ? 'bg-slate-900 text-white rounded-br-sm'
                         : 'bg-slate-100 text-slate-700 rounded-bl-sm border border-slate-200'
@@ -180,16 +186,15 @@ export default function ChatWidget({ onChatStateChange }) {
                   </div>
                 </div>
               ))}
-              <div ref={messagesEndRef} />
             </div>
 
             {showQuickReplies && (
-              <div className="px-3 pb-2 flex flex-wrap gap-1">
+              <div className="px-3 sm:px-4 pb-2 flex flex-wrap gap-1.5">
                 {quickReplies.map((qr) => (
                   <button
                     key={qr.value}
                     onClick={() => sendMessage(t(`chat.quickReplies.${qr.key}`))}
-                    className="px-2.5 py-1 text-xs font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all"
+                    className="px-2.5 py-1 text-[13px] font-medium bg-slate-100 text-slate-600 rounded-full border border-slate-200 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all"
                   >
                     {t(`chat.quickReplies.${qr.key}`)}
                   </button>
@@ -197,7 +202,7 @@ export default function ChatWidget({ onChatStateChange }) {
               </div>
             )}
 
-            <div className="p-3 border-t border-slate-200">
+            <div className="p-3 sm:p-4 border-t border-slate-200">
               <div className="flex gap-1.5">
                 <label htmlFor="chat-input" className="sr-only">{t('chat.placeholder')}</label>
                 <input
@@ -208,7 +213,7 @@ export default function ChatWidget({ onChatStateChange }) {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder={t('chat.placeholder')}
-                  className="flex-1 px-3 py-2 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-slate-400 transition-colors"
+                  className="flex-1 px-3 py-2 text-sm bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-slate-400 transition-colors"
                 />
                 <button
                   onClick={handleSend}
