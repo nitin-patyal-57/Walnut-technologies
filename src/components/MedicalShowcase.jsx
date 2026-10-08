@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { FiArrowLeft, FiCheckCircle, FiShield, FiHeart, FiCpu, FiBattery, FiActivity, FiZap, FiTarget, FiThermometer } from 'react-icons/fi';
 import Picture from '../components/Picture';
+import ProductTile from './ProductTile';
 
 const keyFeatures = [
   { icon: FiShield, label: 'ISO 13485 Certified', value: 'International quality management standard for medical devices' },
@@ -24,7 +25,7 @@ const products = [
     subtitle: 'Clinical-grade precision',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings. Features memory storage for multiple readings and easy-to-use interface.',
     highlights: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
-    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/bp-monitor-removebg.webp',
   },
   {
     number: 2,
@@ -40,7 +41,7 @@ const products = [
     subtitle: 'Reliable oxygen therapy',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings with low noise operation.',
     highlights: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise'],
-    image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+    image: '/images/products/Oxygen-Concentrator-5.webp',
   },
   {
     number: 4,
@@ -154,29 +155,20 @@ export default function MedicalShowcase({ onBack }) {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {products.map((product, index) => (
-              <div
+              <ProductTile
                 key={product.number}
-                className={`bg-white border border-slate-100 rounded-2xl p-6 lg:p-8 hover:shadow-xl transition-all duration-300 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-                style={{ transitionDelay: prodVisible ? `${index * 80}ms` : '0ms' }}
-              >
-                <div className="flex items-start gap-5">
-                  <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-[#0f172a] text-lg leading-tight mb-1">{product.title}</h3>
-                    <p className="text-cyan-700 text-sm font-medium mb-2">{product.subtitle}</p>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-3">{product.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.highlights.map((h) => (
-                        <span key={h} className="inline-flex items-center gap-1 bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1.5 rounded-full">
-                          <FiCheckCircle className="w-3 h-3" />{h}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                index={String(product.number).padStart(2, '0')}
+                image={product.image}
+                alt={product.title}
+                title={product.title}
+                subtitle={product.subtitle}
+                description={product.description}
+                features={product.highlights}
+                flip={index % 2 === 1}
+                visible={prodVisible}
+                delay={`${index * 80}ms`}
+                accent="cyan"
+              />
             ))}
           </div>
         </div>

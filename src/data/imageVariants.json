@@ -883,6 +883,19 @@
       768
     ]
   },
+  "images/products/smartlock-product-removebg": {
+    "fallback": "/images/products/smartlock-product-removebg.webp",
+    "fallbackWidth": 1280,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
   "images/products/soundbox-new": {
     "fallback": "/images/products/soundbox-new.webp",
     "fallbackWidth": 1448,

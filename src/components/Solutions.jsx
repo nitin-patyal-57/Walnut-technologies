@@ -135,11 +135,12 @@ function CategoryCard({ division, onSelect, index }) {
       className="cursor-pointer group"
     >
       {/* Image Container */}
-      <div className="relative rounded-2xl bg-slate-100/80 aspect-[4/3] flex items-center justify-center p-6 mb-4 overflow-hidden group-hover:bg-slate-200/60 transition-colors duration-300">
+      <div className="relative rounded-3xl bg-slate-100/80 aspect-[4/3] mb-4 overflow-hidden group-hover:bg-slate-200/60 transition-colors duration-300">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(59,130,246,0.18),transparent_65%)]" />
         <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
           src={division.products[0].image}
           alt={division.products[0].name}
-          className="max-w-[75%] max-h-[75%] object-contain group-hover:scale-110 transition-transform duration-500 ease-out mix-blend-multiply drop-shadow-md"
+          className="relative z-10 w-full h-full object-contain p-5 mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out"
         />
       </div>
       {/* Text */}
@@ -343,21 +344,25 @@ function ProductCard({ product, index }) {
       transition={{ duration: 0.5, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
       className="group"
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white border border-slate-200/60 hover:border-slate-300 transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50">
-        <div className="relative h-48 lg:h-56 bg-slate-100/60 flex items-center justify-center overflow-hidden">
+      <div className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/60 hover:border-slate-300 transition-all duration-500 hover:shadow-xl hover:shadow-blue-100/40">
+        <div className="relative h-48 lg:h-56 overflow-hidden bg-white">
+          <div className={index % 2 === 1 ? 'absolute inset-0 bg-[radial-gradient(circle_at_70%_45%,rgba(59,130,246,0.22),transparent_62%)]' : 'absolute inset-0 bg-[radial-gradient(circle_at_30%_45%,rgba(59,130,246,0.22),transparent_62%)]'} />
+          <span className="absolute top-1 right-4 text-[3rem] lg:text-[3.5rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
+            {String(index + 1).padStart(2, '0')}
+          </span>
           <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={product.image}
             alt={product.title}
-            className="w-32 h-32 lg:w-40 lg:h-40 object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700 ease-out drop-shadow-md"
+            className="relative z-10 w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out"
           />
         </div>
         <div className="p-4">
-          <h3 className="text-sm font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{product.title}</h3>
+          <h3 className="text-base font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{product.title}</h3>
           <p className="text-xs text-slate-500 mb-3 line-clamp-2 leading-relaxed">{product.description}</p>
           <div className="flex flex-wrap gap-1.5">
             {product.features.slice(0, 2).map((f) => (
-              <span key={f} className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-slate-50 text-slate-600 rounded-md border border-slate-200/60">
-                <FiCheckCircle className="w-3 h-3 text-emerald-600" />
+              <span key={f} className="inline-flex items-center gap-1 rounded-full border border-blue-100 bg-blue-50/70 px-2.5 py-1 text-[11px] font-semibold text-blue-700">
+                <FiCheckCircle className="w-3 h-3 shrink-0" />
                 {f}
               </span>
             ))}

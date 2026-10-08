@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { FiArrowLeft, FiCheckCircle, FiWifi, FiCpu, FiCloud, FiLock, FiActivity, FiShield, FiZap, FiTarget, FiSmartphone, FiMapPin } from 'react-icons/fi';
 import Picture from '../components/Picture';
+import ProductTile from './ProductTile';
 
 const keyFeatures = [
   { icon: FiWifi, label: 'BLE/WiFi Connectivity', value: 'Seamless wireless communication for smart connected devices' },
@@ -20,7 +21,7 @@ const products = [
     subtitle: 'Connected access control',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities. Cloud integration for secure management from anywhere.',
     highlights: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
-    image: '/images/products/iot-lock-smart.webp',
+    image: '/images/products/smartlock-product-removebg.webp',
   },
   {
     number: 2,
@@ -134,29 +135,20 @@ export default function IoTShowcase({ onBack }) {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {products.map((product, index) => (
-              <div
+              <ProductTile
                 key={product.number}
-                className={`bg-white border border-slate-100 rounded-2xl p-6 lg:p-8 hover:shadow-xl transition-all duration-300 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-                style={{ transitionDelay: prodVisible ? `${index * 80}ms` : '0ms' }}
-              >
-                <div className="flex items-start gap-5">
-                  <div className="w-24 h-24 lg:w-32 lg:h-32 bg-slate-50 rounded-xl overflow-hidden shrink-0 flex items-center justify-center">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-[#0f172a] text-lg leading-tight mb-1">{product.title}</h3>
-                    <p className="text-cyan-700 text-sm font-medium mb-2">{product.subtitle}</p>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-3">{product.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.highlights.map((h) => (
-                        <span key={h} className="inline-flex items-center gap-1 bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1.5 rounded-full">
-                          <FiCheckCircle className="w-3 h-3" />{h}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                index={String(product.number).padStart(2, '0')}
+                image={product.image}
+                alt={product.title}
+                title={product.title}
+                subtitle={product.subtitle}
+                description={product.description}
+                features={product.highlights}
+                flip={index % 2 === 1}
+                visible={prodVisible}
+                delay={`${index * 80}ms`}
+                accent="cyan"
+              />
             ))}
           </div>
         </div>

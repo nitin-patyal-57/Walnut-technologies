@@ -158,15 +158,19 @@ export default function ProductShowcase({ onBack }) {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {soundboxProducts.map((product, index) => (
-              <div key={product.id} className={`bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: prodVisible ? `${index * 100}ms` : '0ms' }}>
-                <div className="relative bg-gradient-to-br from-slate-50 to-slate-100 p-6 flex items-center justify-center h-56 overflow-hidden">
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src={product.image} alt={product.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">{product.tagline}</span>
+              <div key={product.id} className={`bg-white border border-slate-100 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: prodVisible ? `${index * 100}ms` : '0ms' }}>
+                <div className="relative h-56 overflow-hidden bg-white">
+                  <div className={index % 2 === 1 ? 'absolute inset-0 bg-[radial-gradient(circle_at_70%_45%,rgba(59,130,246,0.22),transparent_62%)]' : 'absolute inset-0 bg-[radial-gradient(circle_at_30%_45%,rgba(59,130,246,0.22),transparent_62%)]'} />
+                  <span className="absolute top-3 right-6 text-[4.5rem] lg:text-[6rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src={product.image} alt={product.name} className="relative z-10 w-full h-full object-contain p-5 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
+                  <div className="absolute left-5 top-5 z-20">
+                    <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">{product.tagline}</span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#0f172a] mb-2">{product.name}</h3>
+                  <h3 className="text-2xl font-bold text-[#0f172a] mb-2">{product.name}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-5">{product.description}</p>
                   <div className="space-y-3">
                     {product.features.map((feature) => (
