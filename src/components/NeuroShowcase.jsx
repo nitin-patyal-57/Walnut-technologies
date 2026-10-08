@@ -163,7 +163,7 @@ export default function NeuroShowcase({ onBack }) {
           <span className="text-sm font-medium">All Divisions</span>
         </button>
         <div className={`transition-opacity duration-500 md:-mt-32 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src="/images/products/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+          <Picture sizes="100vw" src="/images/products/neuro.webp" alt="Neuro Rehab Devices" width="1920" height="1077" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 

@@ -537,7 +537,7 @@ function ClientsCertifications() {
             {/* Panel Header */}
             <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
               <div className="flex items-center gap-3">
-                <img src="/images/logos/certificate.png" alt="" width="44" height="44" className="w-11 h-11 object-contain shrink-0" />
+                <Picture src="/images/logos/certificate.webp" alt="" width="44" height="44" sizes="44px" className="w-11 h-11 object-contain shrink-0" />
                 <div>
                   <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.certifications')}</h3>
                   <p className="text-xs text-slate-500 mt-0.5">We adhere to global standards for quality, safety and compliance.</p>
@@ -583,7 +583,7 @@ function ClientsCertifications() {
             {/* Panel Header */}
             <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
               <div className="flex items-center gap-3">
-                <img src="/images/logos/Clients.png" alt="" width="44" height="44" className="w-11 h-11 object-contain shrink-0" />
+                <Picture src="/images/logos/Clients.webp" alt="" width="44" height="44" sizes="44px" className="w-11 h-11 object-contain shrink-0" />
                 <div>
                   <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.clients')}</h3>
                   <p className="text-xs text-slate-500 mt-0.5">Collaborating with leading organizations across healthcare, finance and government sectors.</p>
@@ -623,9 +623,9 @@ function CTASection() {
   const { t } = useLanguage();
 
   const trustItems = [
-    { logo: '/images/logos/certificate.png', value: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
-    { logo: '/images/logos/country.png', value: '20+ Countries', desc: 'Global supply chain and logistics' },
-    { logo: '/images/logos/rate.png', value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
+    { logo: '/images/logos/certificate.webp', value: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
+    { logo: '/images/logos/country.webp', value: '20+ Countries', desc: 'Global supply chain and logistics' },
+    { logo: '/images/logos/rate.webp', value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
   ];
 
   return (
@@ -678,7 +678,7 @@ function CTASection() {
                       transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
                       className="flex items-center gap-4 bg-white border border-slate-200/80 rounded-2xl p-4 hover:border-blue-200 hover:shadow-md transition-all duration-300"
                     >
-                      <img src={item.logo} alt="" width="48" height="48" className="w-12 h-12 object-contain shrink-0" />
+                      <Picture src={item.logo} alt="" width="48" height="48" sizes="48px" className="w-12 h-12 object-contain shrink-0" />
                       <div>
                         <div className="text-sm font-bold text-slate-900">{item.value}</div>
                         <div className="text-xs text-slate-500">{item.desc}</div>

@@ -21,7 +21,7 @@ const navLinks = [
       { label: 'Medical', to: '/solutions?category=Medical', image: '/images/products/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
       { label: 'Fintech', to: '/solutions?category=Fintech', image: '/images/products/DQR.webp', desc: 'Digital payment solutions' },
       { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/images/products/smartlock-product.webp', desc: 'Connected smart devices' },
-      { label: 'Automotive', to: '/solutions?category=Automotive', image: '/images/backgrounds/cluster-background1.png', desc: 'Smart instrument clusters' },
+      { label: 'Automotive', to: '/solutions?category=Automotive', image: '/images/backgrounds/cluster-background1.webp', desc: 'Smart instrument clusters' },
     ],
   },
   { label: 'Expertise', to: '/expertise' },
@@ -419,7 +419,7 @@ export default function Navbar({ onOpenSchedule }) {
                 {/* Certifications */}
                 <div className="mb-6">
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
-                    <img src="/images/logos/certificate.png" alt="" width="20" height="20" className="w-5 h-5 object-contain" />
+                    <Picture src="/images/logos/certificate.webp" alt="" width="20" height="20" sizes="20px" className="w-5 h-5 object-contain" />
                     Certifications
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -439,21 +439,21 @@ export default function Navbar({ onOpenSchedule }) {
                   </h4>
                   <div className="space-y-3">
                     <a href={`tel:${brand.phone}`} className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all group">
-                      <img src="/images/logos/phone.png" alt="" width="40" height="40" className="w-10 h-10 object-contain shrink-0" />
+                      <Picture src="/images/logos/phone.webp" alt="" width="40" height="40" sizes="40px" className="w-10 h-10 object-contain shrink-0" />
                       <div>
                         <p className="text-xs text-slate-500 font-medium">Phone</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.phone}</p>
                       </div>
                     </a>
                     <a href={`mailto:${brand.email}`} className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all group">
-                      <img src="/images/logos/gmail.png" alt="" width="40" height="40" className="w-10 h-10 object-contain shrink-0" />
+                      <Picture src="/images/logos/gmail.webp" alt="" width="40" height="40" sizes="40px" className="w-10 h-10 object-contain shrink-0" />
                       <div>
                         <p className="text-xs text-slate-500 font-medium">Email</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.email}</p>
                       </div>
                     </a>
                     <div className="flex items-center gap-3 p-3 rounded-xl">
-                      <img src="/images/logos/Location.png" alt="" width="40" height="40" className="w-10 h-10 object-contain shrink-0" />
+                      <Picture src="/images/logos/Location.webp" alt="" width="40" height="40" sizes="40px" className="w-10 h-10 object-contain shrink-0" />
                       <div>
                         <p className="text-xs text-slate-500 font-medium">Address</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.location}</p>

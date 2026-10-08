@@ -227,7 +227,7 @@
     ]
   },
   "images/backgrounds/cluster-background1": {
-    "fallback": "/images/backgrounds/cluster-background1.png",
+    "fallback": "/images/backgrounds/cluster-background1.webp",
     "fallbackWidth": 612,
     "avif": [
       480
@@ -843,11 +843,12 @@
   },
   "images/products/neuro": {
     "fallback": "/images/products/neuro.webp",
-    "fallbackWidth": 1671,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
