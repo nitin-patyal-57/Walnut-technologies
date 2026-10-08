@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
+import { searchKnowledge } from '../data/chatKnowledge';
 
 function findIntent(message) {
   const lower = message.toLowerCase();
@@ -119,7 +120,14 @@ export default function ChatWidget({ onChatStateChange }) {
 
     setTimeout(() => {
       const intent = findIntent(userMsg);
-      if (intent === 'quote') {
+      const kb = searchKnowledge(userMsg);
+      if (kb) {
+        let answer = kb.answer;
+        if (intent === 'quote') {
+          answer += '\n\nFor pricing, tap "Get a Quote" and our team will share a custom quote.';
+        }
+        setMessages((prev) => [...prev, { role: 'bot', content: answer }]);
+      } else if (intent === 'quote') {
         setMessages((prev) => [...prev, { role: 'bot', content: t('chat.openingQuote') }]);
         setTimeout(() => document.dispatchEvent(new Event('open-walnut-quote')), 600);
       } else {
