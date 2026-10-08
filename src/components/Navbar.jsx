@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FiMenu, FiX, FiChevronDown, FiMapPin, FiMail, FiPhone, FiMessageSquare } from 'react-icons/fi';
+import { FiMenu, FiX, FiChevronDown, FiMessageSquare } from 'react-icons/fi';
 import { SiYoutube, SiInstagram } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { brand, trustSignals } from '../data/content';
@@ -410,6 +410,9 @@ export default function Navbar({ onOpenSchedule }) {
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {trustSignals.stats.map((stat) => (
                     <div key={stat.label} className="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50/50 border border-blue-100 text-center hover:shadow-md transition-all">
+                      {stat.label === 'Countries Served' && (
+                        <img src="/images/logos/country.png" alt="" width="28" height="28" className="w-7 h-7 object-contain mx-auto mb-1" />
+                      )}
                       <div className="text-2xl font-bold font-display text-slate-900">{stat.value}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{stat.label}</div>
                     </div>
@@ -419,7 +422,7 @@ export default function Navbar({ onOpenSchedule }) {
                 {/* Certifications */}
                 <div className="mb-6">
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <img src="/images/logos/certificate.png" alt="" width="20" height="20" className="w-5 h-5 object-contain" />
                     Certifications
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -439,27 +442,21 @@ export default function Navbar({ onOpenSchedule }) {
                   </h4>
                   <div className="space-y-3">
                     <a href={`tel:${brand.phone}`} className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all group">
-                      <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <FiPhone className="w-4 h-4" />
-                      </div>
+                      <img src="/images/logos/phone.png" alt="" width="40" height="40" className="w-10 h-10 object-contain shrink-0" />
                       <div>
                         <p className="text-xs text-slate-500 font-medium">Phone</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.phone}</p>
                       </div>
                     </a>
                     <a href={`mailto:${brand.email}`} className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all group">
-                      <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <FiMail className="w-4 h-4" />
-                      </div>
+                      <img src="/images/logos/gmail.png" alt="" width="40" height="40" className="w-10 h-10 object-contain shrink-0" />
                       <div>
                         <p className="text-xs text-slate-500 font-medium">Email</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.email}</p>
                       </div>
                     </a>
                     <div className="flex items-center gap-3 p-3 rounded-xl">
-                      <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-                        <FiMapPin className="w-4 h-4" />
-                      </div>
+                      <img src="/images/logos/Location.png" alt="" width="40" height="40" className="w-10 h-10 object-contain shrink-0" />
                       <div>
                         <p className="text-xs text-slate-500 font-medium">Address</p>
                         <p className="text-sm text-slate-700 font-semibold">{brand.location}</p>

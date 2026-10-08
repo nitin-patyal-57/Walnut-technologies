@@ -2,8 +2,8 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FiArrowRight, FiCheckCircle, FiShield, FiGlobe, FiArrowUpRight,
-  FiTrendingUp, FiUsers, FiActivity, FiCpu, FiTool, FiBatteryCharging,
+  FiArrowRight, FiCheckCircle, FiShield, FiArrowUpRight,
+  FiActivity, FiCpu, FiTool, FiBatteryCharging,
   FiServer, FiBox, FiSmartphone, FiHeadphones, FiWifi
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
@@ -585,9 +585,7 @@ function ClientsCertifications() {
             {/* Panel Header */}
             <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md shadow-blue-600/20">
-                  <FiUsers className="w-5 h-5 text-white" />
-                </div>
+                <img src="/images/logos/Clients.png" alt="" width="44" height="44" className="w-11 h-11 object-contain shrink-0" />
                 <div>
                   <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.clients')}</h3>
                   <p className="text-xs text-slate-500 mt-0.5">Collaborating with leading organizations across healthcare, finance and government sectors.</p>
@@ -627,9 +625,9 @@ function CTASection() {
   const { t } = useLanguage();
 
   const trustItems = [
-    { icon: FiShield, value: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
-    { icon: FiGlobe, value: '20+ Countries', desc: 'Global supply chain and logistics' },
-    { icon: FiTrendingUp, value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
+    { logo: '/images/logos/certificate.png', value: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
+    { logo: '/images/logos/country.png', value: '20+ Countries', desc: 'Global supply chain and logistics' },
+    { logo: '/images/logos/rate.jpg', value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
   ];
 
   return (
@@ -674,7 +672,6 @@ function CTASection() {
 
               <div className="grid gap-3">
                 {trustItems.map((item, index) => {
-                  const Icon = item.icon;
                   return (
                     <motion.div
                       key={item.value}
@@ -683,9 +680,7 @@ function CTASection() {
                       transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
                       className="flex items-center gap-4 bg-white border border-slate-200/80 rounded-2xl p-4 hover:border-blue-200 hover:shadow-md transition-all duration-300"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0">
-                        <Icon className="w-5 h-5 text-blue-600" />
-                      </div>
+                      <img src={item.logo} alt="" width="48" height="48" className="w-12 h-12 object-contain shrink-0" />
                       <div>
                         <div className="text-sm font-bold text-slate-900">{item.value}</div>
                         <div className="text-xs text-slate-500">{item.desc}</div>
