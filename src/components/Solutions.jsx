@@ -293,8 +293,8 @@ function StatsSection() {
 
   const stats = [
     { value: '2016', label: 'Founded' },
-    { value: '400+', label: 'Engineers' },
-    { value: '20+', label: 'Countries' },
+    { value: '600+', label: 'Engineers' },
+    { value: '10+', label: 'Countries' },
     { value: '500K+', label: 'Units/Month' },
     { value: '150K', label: 'sq.ft Facility' },
     { value: '4', label: 'SMT Lines' },

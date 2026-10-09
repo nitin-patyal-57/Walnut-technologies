@@ -219,7 +219,7 @@ function NewsModal({ item, onClose, onSelect }) {
                 With over a decade of experience in electronics manufacturing, Walnut Technologies has established itself as a trusted partner for companies seeking reliable OEM/ODM solutions. Our state-of-the-art facility in Mohali, Punjab features 4 SMT lines, a Class 10K cleanroom, and capacity for 500K+ units per month.
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">
-                This achievement further strengthens our position as a leading Original Design Manufacturer serving 20+ countries worldwide, with certifications including ISO 13485, CE, FCC, and PCI-DSS.
+                This achievement further strengthens our position as a leading Original Design Manufacturer serving 10+ countries worldwide, with certifications including ISO 13485, CE, FCC, and PCI-DSS.
               </p>
             </div>
 

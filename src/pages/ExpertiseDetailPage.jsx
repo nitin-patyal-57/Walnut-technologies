@@ -31,7 +31,7 @@ const expertiseData = {
     stats: [
       { value: '500K+', label: 'Units Manufactured Monthly' },
       { value: '99.8%', label: 'Quality Yield Rate' },
-      { value: '20+', label: 'Countries Supplied' },
+      { value: '10+', label: 'Countries Supplied' },
       { value: '15+', label: 'Years Experience' },
     ],
     certifications: ['ISO 13485', 'FDA QSR', 'CE Marking', 'IEC 60601', 'ISO 9001', 'BIS Certified'],
@@ -459,7 +459,7 @@ export default function ExpertiseDetailPage() {
                 Your Trusted Manufacturing Partner
               </h2>
               <p className="text-slate-500 mb-8 leading-relaxed">
-                We don't just manufacture products — we build partnerships. Our commitment to quality, transparency, and innovation has made us the preferred ODM partner for companies across 20+ countries.
+                We don't just manufacture products — we build partnerships. Our commitment to quality, transparency, and innovation has made us the preferred ODM partner for companies across 10+ countries.
               </p>
               
               <div className="space-y-4">

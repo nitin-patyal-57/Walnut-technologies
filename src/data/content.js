@@ -20,17 +20,17 @@ export const brand = {
 export const about = {
   mission: 'Deliver world-class Original Design Manufacturing for electronics across healthcare, finance, and technology globally.',
   vision: 'Most trusted Original Design Manufacturing partner for mission-critical electronics, ISO 13485 certified, serving 50+ countries by 2030.',
-  story: 'Founded in 2016, Walnut Technologies Pvt. Ltd. has grown from a small electronics workshop into a vertically integrated Original Design Manufacturer serving 20+ countries. With a 150,000 sq.ft state-of-the-art facility in Mohali, Punjab, we combine cutting-edge technology with uncompromising quality standards to deliver mission-critical electronics across healthcare, finance, and industrial sectors.',
+  story: 'Founded in 2016, Walnut Technologies Pvt. Ltd. has grown from a small electronics workshop into a vertically integrated Original Design Manufacturer serving 10+ countries. With a 150,000 sq.ft state-of-the-art facility in Mohali, Punjab, we combine cutting-edge technology with uncompromising quality standards to deliver mission-critical electronics across healthcare, finance, and industrial sectors.',
   values: [
     { title: 'Quality First', description: 'ISO 13485, ISO 9001 certified processes with Class 10K cleanroom facility.' },
-    { title: 'Innovation', description: '400+ engineers pushing boundaries in medical, payment, and custom electronics.' },
-    { title: 'Global Reach', description: 'Serving 20+ countries with end-to-end manufacturing and logistics.' },
+    { title: 'Innovation', description: '600+ engineers pushing boundaries in medical, payment, and custom electronics.' },
+    { title: 'Global Reach', description: 'Serving 10+ countries with end-to-end manufacturing and logistics.' },
     { title: 'Vertical Integration', description: 'From PCB design to final assembly — complete in-house capabilities.' },
   ],
   stats: [
     { label: 'Years of Excellence', value: '10+' },
-    { label: 'Engineers & Technicians', value: '400+' },
-    { label: 'Countries Served', value: '20+' },
+    { label: 'Engineers & Technicians', value: '600+' },
+    { label: 'Countries Served', value: '10+' },
     { label: 'Units Manufactured/Month', value: '500K+' },
     { label: 'Facility Size', value: '150,000 sq.ft' },
     { label: 'SMT Production Lines', value: '4' },
@@ -40,8 +40,8 @@ export const about = {
 export const trustSignals = {
   stats: [
     { label: 'Years of Excellence', value: '10+' },
-    { label: 'Engineers & Technicians', value: '400+' },
-    { label: 'Countries Served', value: '20+' },
+    { label: 'Engineers & Technicians', value: '600+' },
+    { label: 'Countries Served', value: '10+' },
     { label: 'Units Manufactured/Month', value: '500K+' },
   ],
   certifications: [
@@ -681,7 +681,7 @@ export const news = [
     id: 6,
     date: 'April 22, 2025',
     title: 'Walnut Crosses 10 Million Units Manufactured Milestone',
-    description: 'Celebrating a major manufacturing milestone with 10 million devices shipped globally across 20+ countries.',
+    description: 'Celebrating a major manufacturing milestone with 10 million devices shipped globally across 10+ countries.',
     category: 'Milestone',
     image: '/images/process/packaging-and-dispatch.webp',
     readTime: '4 min read',

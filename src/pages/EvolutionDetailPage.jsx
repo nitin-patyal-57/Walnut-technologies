@@ -89,11 +89,11 @@ const evolutionData = {
     timeline: [
       { year: '2019', event: 'Expanded to 150,000 sqft manufacturing facility with 2 SMT lines, scaling up production capacity' },
       { year: '2022', event: 'Entered payment systems with POS terminals and QR soundboxes' },
-      { year: '2023', event: 'Expanded to 20+ countries. Achieved ISO 13485, CE, FCC, PCI-DSS certifications' },
+      { year: '2023', event: 'Expanded to 10+ countries. Achieved ISO 13485, CE, FCC, PCI-DSS certifications' },
     ],
     highlights: [
       { icon: FiShield, title: 'PCI-DSS & EMV Certified', text: 'Achieved PCI-DSS, PCI PTS 5.x, EMV L1/L2, NPCI, and RBI certifications for our payment terminals. These are among the strictest security standards in the global payments industry.', stat: 'PCI' },
-      { icon: FiGlobe, title: '20+ Countries', text: 'Our products operate across 20+ countries spanning India, Southeast Asia, Middle East, Africa, and Europe. Every product ships with full international certifications.', stat: '20+' },
+      { icon: FiGlobe, title: '10+ Countries', text: 'Our products operate across 10+ countries spanning India, Southeast Asia, Middle East, Africa, and Europe. Every product ships with full international certifications.', stat: '10+' },
       { icon: FiPackage, title: '150,000 sqft Facility', text: 'Scaled from 2,000 sqft to a state-of-the-art 150,000 sqft manufacturing facility. Features 4 high-speed SMT lines, Class 10K cleanroom, and automated testing.', stat: '150K' },
       { icon: FiZap, title: 'HDFC Bank Partnership', text: 'Deployed 10,000+ POS terminals for HDFC Bank across India. Our payment devices process INR 100Cr+ daily transactions with 99.8% first-pass yield.', stat: '10K+' },
     ],
@@ -116,8 +116,8 @@ const evolutionData = {
     colorBg: 'bg-blue-50',
     colorText: 'text-blue-600',
     year: '2026',
-    bigStatement: '400+ Engineers. 10M+ Units. Zero Compromises.',
-    intro: 'Today, Walnut Technologies is a vertically integrated Original Design Manufacturer with 400+ engineers, 500+ clients, and 10M+ units manufactured.',
+    bigStatement: '600+ Engineers. 10M+ Units. Zero Compromises.',
+    intro: 'Today, Walnut Technologies is a vertically integrated Original Design Manufacturer with 600+ engineers, 500+ clients, and 10M+ units manufactured.',
     timeline: [
       { year: '2024', event: 'Adopted Industry 4.0 standards. Full traceability, smart manufacturing, and 4th SMT line operational' },
       { year: '2025', event: 'Crossed 10 million units manufactured. Pioneering Industry 5.0 ecosystem' },
@@ -125,7 +125,7 @@ const evolutionData = {
     ],
     highlights: [
       { icon: FiStar, title: '500+ Clients Worldwide', text: 'HDFC Bank, SBI, Apollo Hospitals, Indian Army, Indian Navy, IAF, Sun Pharma, Cipla, Paytm, BharatPe — we serve leading brands across healthcare, defence, banking, and pharmaceuticals.', stat: '500+' },
-      { icon: FiCpu, title: '400+ Engineers', text: 'Our team spans R&D, embedded systems, AI/ML, PCB design (up to 12-layer HDI), mechanical engineering, firmware, cloud IoT, and manufacturing. 200+ products developed.', stat: '400+' },
+      { icon: FiCpu, title: '600+ Engineers', text: 'Our team spans R&D, embedded systems, AI/ML, PCB design (up to 12-layer HDI), mechanical engineering, firmware, cloud IoT, and manufacturing. 200+ products developed.', stat: '600+' },
       { icon: FiAward, title: 'Zero Non-Conformities', text: 'ISO 13485:2024 recertification achieved in March 2026 with zero non-conformities. Quality yield rate: 99.8%. Placement accuracy: 99.95%.', stat: '0' },
       { icon: FiSettings, title: 'Industry 5.0 Vision', text: 'AI-powered diagnostics, Digital Twin manufacturing, IoT-connected devices, and human-centric automation. Vision: 50+ countries by 2030.', stat: '2030' },
     ],

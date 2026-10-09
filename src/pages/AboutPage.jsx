@@ -5,9 +5,9 @@ import { brand, about } from '../data/content';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import {
-  FiArrowRight, FiTarget, FiEye, FiZap, FiShield, FiGlobe,
-  FiHeart, FiAward, FiCpu, FiUsers, FiCheckCircle, FiArrowUpRight,
-  FiTool, FiTrendingUp, FiPackage, FiSettings, FiStar, FiArrowDown
+  FiArrowRight, FiTarget, FiEye, FiZap, FiShield,
+  FiHeart, FiUsers, FiCheckCircle, FiArrowUpRight,
+  FiPackage, FiSettings
 } from 'react-icons/fi';
 import Picture from '../components/Picture';
 
@@ -120,8 +120,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
               { value: '10+', label: 'Years of Excellence' },
-              { value: '400+', label: 'Engineers & Technicians' },
-              { value: '20+', label: 'Countries Served' },
+              { value: '600+', label: 'Engineers & Technicians' },
+                  { value: '10+', label: 'Countries Served' },
               { value: '500K+', label: 'Units Manufactured/Month' },
               { value: '150,000 sq.ft', label: 'Facility Size' },
               { value: '4', label: 'SMT Production Lines' },
@@ -189,7 +189,7 @@ export default function AboutPage() {
                 {[
                   { value: '150K+', label: 'Sq. Ft. Facility' },
                   { value: '500K+', label: 'Units / Month' },
-                  { value: '20+', label: 'Countries Served' },
+              { value: '10+', label: 'Countries Served' },
                 ].map((stat) => (
                   <div key={stat.label} className="p-2 sm:p-4 rounded-xl bg-slate-50 border border-slate-100 text-center">
                     <div className="text-lg sm:text-xl font-black text-blue-600">{stat.value}</div>
@@ -203,68 +203,65 @@ export default function AboutPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          EVOLUTION — Horizontal scroll-style timeline
+          MISSION & VISION
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14 bg-slate-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
-              <div>
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Left — Mission & Vision */}
+            <div>
+              <AnimatedSection>
                 <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
-                  Our Evolution
+                  Our Purpose
                 </span>
-                <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900 leading-tight">
-                  From Healthcare Innovation
+                <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900 mb-6 leading-tight">
+                  Purpose-Driven
                   <br />
-                  <span className="text-blue-600">to Electronics Technology</span>
+                  <span className="text-blue-600">Technology</span>
                 </h2>
-              </div>
-              <Link
-                to="/career"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-all shrink-0"
-              >
-                Explore Our Journey
-                <FiArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </AnimatedSection>
+              </AnimatedSection>
 
-          {/* Timeline cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { num: '01', title: 'Foundation', desc: 'Walnut Medical & Healthcare Technology', image: '/images/about/02_Electronics_Engineer_Lab.webp', color: 'from-blue-600 to-blue-700', slug: 'foundation' },
-              { num: '02', title: 'Innovation', desc: 'Neurorehabilitation & Medical Electronics', image: '/images/about/03_Microchip_PCB.webp', color: 'from-cyan-500 to-cyan-600', slug: 'innovation' },
-              { num: '03', title: 'Expansion', desc: 'Finance, IoT & Electronics', image: '/images/about/05_Global_Technology.webp', color: 'from-blue-500 to-indigo-600', slug: 'expansion' },
-              { num: '04', title: 'Today', desc: 'Engineering & Manufacturing Excellence', image: '/images/about/06_Cleanroom_Manufacturing.webp', color: 'from-indigo-500 to-violet-600', slug: 'today' },
-            ].map((step, i) => (
-              <AnimatedSection key={step.num} delay={i * 0.1}>
-                <Link
-                  to={`/about/evolution/${step.slug}`}
-                  className="group block relative bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 h-full flex flex-col"
-                >
-                  {/* Image */}
-                  <div className="relative h-44 overflow-hidden">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    {/* Number badge */}
-                    <div className={`absolute top-4 left-4 w-10 h-10 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
-                      <span className="text-sm font-black text-white">{step.num}</span>
+              <AnimatedSection delay={0.1}>
+                <div className="relative p-6 bg-white rounded-2xl border border-blue-100 hover:shadow-xl transition-all duration-300 overflow-hidden mb-4">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/2" />
+                  <div className="relative flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
+                      <FiTarget className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-black text-blue-600 uppercase tracking-wider mb-2">Our Mission</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed">{about.mission}</p>
                     </div>
                   </div>
-                  {/* Content */}
-                  <div className="p-5 flex-1">
-                    <h3 className="text-base font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{step.title}</h3>
-                    <p className="text-xs text-slate-500 leading-relaxed">{step.desc}</p>
-                  </div>
-                  {/* Bottom accent */}
-                  <div className={`h-1 w-full bg-gradient-to-r ${step.color}`} />
-                </Link>
+                </div>
               </AnimatedSection>
-            ))}
+
+              <AnimatedSection delay={0.2}>
+                <div className="relative p-6 bg-white rounded-2xl border border-emerald-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full -translate-y-1/2 translate-x-1/2" />
+                  <div className="relative flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
+                      <FiEye className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-black text-emerald-600 uppercase tracking-wider mb-2">Our Vision</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed">{about.vision}</p>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            {/* Right — Image */}
+            <AnimatedSection delay={0.15}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
+                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                  src="/images/about/13_Purpose_Products.webp"
+                  alt="Walnut Technologies Products - Medical Devices, Payment Systems, Electronics"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -307,55 +304,6 @@ export default function AboutPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          ENGINEERING — Dark section with PCB background
-      ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-10 lg:py-14 overflow-hidden">
-        <div className="absolute inset-0">
-          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-            src="/images/about/10_PCB_Closeup.webp"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/95" />
-        </div>
-        <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="max-w-2xl mb-14">
-              <span className="inline-block text-xs font-bold text-blue-400 uppercase tracking-widest mb-3">
-                Engineering With Purpose
-              </span>
-              <h2 className="text-3xl md:text-4xl font-black font-display text-white leading-tight">
-                Technology should not simply work.
-                <br />
-                <span className="text-cyan-400">It should solve something meaningful.</span>
-              </h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { num: '01', icon: FiTarget, title: 'Understand The Problem', desc: 'We start with real-world requirements.' },
-              { num: '02', icon: FiTool, title: 'Engineer The Solution', desc: 'We combine technology, design and engineering expertise.' },
-              { num: '03', icon: FiStar, title: 'Create Long-Term Value', desc: 'We build solutions designed for reliability and scalability.' },
-            ].map((step, i) => (
-              <AnimatedSection key={step.num} delay={i * 0.15}>
-                <div className="relative p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl font-black text-white/10">{step.num}</span>
-                    <div className="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
-                      <step.icon className="w-5 h-5 text-blue-400" />
-                    </div>
-                  </div>
-                  <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-2">{step.title}</h3>
-                  <p className="text-sm text-white/60 leading-relaxed">{step.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════
           OUR PEOPLE — Team section with badges
       ═══════════════════════════════════════════════════════════════ */}
       <section className="py-10 lg:py-14">
@@ -376,7 +324,7 @@ export default function AboutPage() {
               {/* Badges */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {[
-                  { icon: FiSettings, label: 'Engineering', count: '400+' },
+                  { icon: FiSettings, label: 'Engineering', count: '600+' },
                   { icon: FiZap, label: 'Innovation', count: '50+' },
                   { icon: FiShield, label: 'Quality', count: '100%' },
                   { icon: FiPackage, label: 'Manufacturing', count: '500K+' },
@@ -505,117 +453,6 @@ export default function AboutPage() {
                   </div>
                   <span className="text-sm font-bold text-emerald-600">Reliable Product</span>
                 </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════
-          FUTURE — 3 image cards
-      ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-10 lg:py-14">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
-                Where We're Going
-              </span>
-              <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900">
-                Building the Future of Electronics
-              </h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: FiGlobe, title: 'Global', desc: 'Expanding our technology and manufacturing reach across 40+ countries.', image: '/images/about/05_Global_Technology.webp', slug: 'global' },
-              { icon: FiCpu, title: 'Intelligent', desc: 'Building smarter connected products with AI and IoT integration.', image: '/images/about/03_Microchip_PCB.webp', slug: 'intelligent' },
-              { icon: FiTrendingUp, title: 'Scalable', desc: 'Creating solutions ready for real-world deployment at any scale.', image: '/images/about/06_Cleanroom_Manufacturing.webp', slug: 'scalable' },
-            ].map((item, i) => (
-              <AnimatedSection key={item.title} delay={i * 0.1}>
-                <Link
-                  to={`/about/future/${item.slug}`}
-                  className="group block relative rounded-2xl overflow-hidden h-80 cursor-pointer"
-                >
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="w-12 h-12 rounded-xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                      <item.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-black text-white uppercase tracking-wider mb-1">{item.title}</h3>
-                    <p className="text-xs text-white/70 leading-relaxed">{item.desc}</p>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════
-          MISSION & VISION
-      ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-10 lg:py-14 bg-slate-50">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            {/* Left — Mission & Vision */}
-            <div>
-              <AnimatedSection>
-                <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
-                  Our Purpose
-                </span>
-                <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900 mb-6 leading-tight">
-                  Purpose-Driven
-                  <br />
-                  <span className="text-blue-600">Technology</span>
-                </h2>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.1}>
-                <div className="relative p-6 bg-white rounded-2xl border border-blue-100 hover:shadow-xl transition-all duration-300 overflow-hidden mb-4">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <div className="relative flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
-                      <FiTarget className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-black text-blue-600 uppercase tracking-wider mb-2">Our Mission</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{about.mission}</p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.2}>
-                <div className="relative p-6 bg-white rounded-2xl border border-emerald-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <div className="relative flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
-                      <FiEye className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-black text-emerald-600 uppercase tracking-wider mb-2">Our Vision</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{about.vision}</p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
-
-            {/* Right — Image */}
-            <AnimatedSection delay={0.15}>
-              <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
-                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-                  src="/images/about/13_Purpose_Products.webp"
-                  alt="Walnut Technologies Products - Medical Devices, Payment Systems, Electronics"
-                  className="w-full h-auto object-contain"
-                />
               </div>
             </AnimatedSection>
           </div>

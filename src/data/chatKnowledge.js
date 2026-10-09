@@ -121,7 +121,7 @@ KB.push(
     kind: 'capabilities',
     phrases: ['capability', 'capabilities', 'facility', 'facilities', 'cleanroom', 'smt', 'capacity', 'production capacity', 'manufacturing capacity', 'yield', 'yield rate', 'sq ft', 'square feet', 'factory'],
     tokens: new Set(['capability', 'capabilities', 'facility', 'cleanroom', 'smt', 'capacity', 'yield', 'production', 'manufacturing', 'lines', 'engineers', 'units', 'month']),
-    answer: `Our key capabilities:\n- 150,000 sq.ft facility\n- Class 10K cleanroom\n- 4 SMT production lines\n- 500K+ units/month capacity\n- 99.8% yield rate\n- 400+ engineers & technicians\n- ISO 13485 & ISO 9001 certified\n- Serving 20+ countries`,
+    answer: `Our key capabilities:\n- 150,000 sq.ft facility\n- Class 10K cleanroom\n- 4 SMT production lines\n- 500K+ units/month capacity\n- 99.8% yield rate\n- 600+ engineers & technicians\n- ISO 13485 & ISO 9001 certified\n- Serving 10+ countries`,
   },
   {
     kind: 'process',
@@ -163,7 +163,7 @@ KB.push(
     kind: 'global',
     phrases: ['countries', 'global presence', 'how many countries', 'where do you sell'],
     tokens: new Set(['countries', 'global', 'presence', 'worldwide', 'international']),
-    answer: `Global presence:\n- Serving 20+ countries\n- Vision: 50+ countries by 2030\n- Clients across healthcare, defence, banking, and pharma sectors`,
+    answer: `Global presence:\n- Serving 10+ countries\n- Vision: 50+ countries by 2030\n- Clients across healthcare, defence, banking, and pharma sectors`,
   }
 );
 

@@ -374,7 +374,7 @@ function DivisionsPreview() {
                     <div className="w-full sm:w-40 h-32 sm:h-auto overflow-hidden border-t sm:border-t-0 sm:border-l border-slate-100 flex-shrink-0">
                       <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                         src={sol.sideImage}
-                        alt={`${sol.title} - Tilt Bed`}
+                        alt={`${sol.title} - Weebo`}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
@@ -404,8 +404,8 @@ function HeroStats() {
 
   const stats = [
     { value: '10+', label: t('stats.years') },
-    { value: '400+', label: t('stats.engineers') },
-    { value: '20+', label: t('stats.countries') },
+    { value: '600+', label: t('stats.engineers') },
+    { value: '10+', label: t('stats.countries') },
     { value: '500K+', label: t('stats.units') },
     { value: '150,000 sq.ft', label: t('stats.facility') },
     { value: '4', label: t('stats.smt') },
@@ -444,8 +444,8 @@ function StatsSection() {
 
   const stats = [
     { value: '10+', label: t('stats.years') },
-    { value: '400+', label: t('stats.engineers') },
-    { value: '20+', label: t('stats.countries') },
+    { value: '600+', label: t('stats.engineers') },
+    { value: '10+', label: t('stats.countries') },
     { value: '500K+', label: t('stats.units') },
     { value: '150,000 sq.ft', label: t('stats.facility') },
     { value: '4', label: t('stats.smt') },
@@ -624,7 +624,7 @@ function CTASection() {
 
   const trustItems = [
     { logo: '/images/logos/certificate.webp', value: 'ISO 13485 Certified', desc: 'Quality management for medical devices' },
-    { logo: '/images/logos/country.webp', value: '20+ Countries', desc: 'Global supply chain and logistics' },
+    { logo: '/images/logos/country.webp', value: '10+ Countries', desc: 'Global supply chain and logistics' },
     { logo: '/images/logos/rate.webp', value: '99.8% Yield Rate', desc: 'Industry-leading manufacturing precision' },
   ];
 

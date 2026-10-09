@@ -161,11 +161,11 @@ export default function NeuroShowcase({ onBack }) {
               index="02"
               flip
               image="/images/products/tilt-bed.webp"
-              alt="Tilt Bed Therapeutic Positioning System"
+              alt="Weebo Early Rehabilitation Robot"
               badge="Therapeutic System"
               badgeIcon={FiTarget}
-              title="Tilt Bed"
-              subtitle="Motorised Tilt Table with Leg Stepping"
+              title="Weebo"
+              subtitle="Early Rehabilitation Robot with Functional Electrical Stimulation"
               description="A motorised tilt table with an integrated leg-stepping mechanism. The patient lies supine and is strapped in, the table is raised gradually toward vertical while the legs move in a continuous alternating stepping pattern. Working the calf muscle pump maintains venous return, so blood pressure holds and verticalization can start earlier and be tolerated longer — for early mobilization after stroke, traumatic brain injury, spinal cord injury and prolonged ICU stays."
               features={tiltFeatures}
               stats={tiltStats}

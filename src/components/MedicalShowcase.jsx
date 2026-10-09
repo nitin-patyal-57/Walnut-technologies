@@ -58,7 +58,7 @@ const capabilities = [
     number: 1,
     title: 'Product Design & Development',
     subtitle: 'From concept to production',
-    description: 'End-to-end product development from concept ideation to production-ready designs. Our team of 400+ engineers specializes in medical device innovation.',
+    description: 'End-to-end product development from concept ideation to production-ready designs. Our team of 600+ engineers specializes in medical device innovation.',
     bulletPoints: ['Industrial Design & Ergonomics', 'Electronic Circuit Design', 'Firmware Development', 'Prototype Development & Testing'],
   },
   {
