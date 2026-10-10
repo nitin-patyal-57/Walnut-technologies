@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="/images/brand/favicon-32.webp" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https: blob:; connect-src 'self' https://www.google.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:" />
     <meta name="theme-color" content="#06b6d4" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -38,13 +38,9 @@
     <meta name="twitter:description" content="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, and custom electronics." />
     <meta name="twitter:image" content="https://walnutmedical.in/images/brand/og-cover.png" />
 
-    <!-- Fonts - Preloaded, applied without blocking first paint -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="preload" as="style" id="manrope-font" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
-    <script src="/font-load.js"></script>
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
+    <!-- Fonts - Self-hosted Manrope (variable) -->
+    <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/manrope-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Preload critical assets -->
     <link rel="preload" href="/images/brand/Walnut_Technologies_logo_transparent.webp" as="image" type="image/webp" fetchpriority="high">
