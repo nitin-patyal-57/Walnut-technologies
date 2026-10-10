@@ -1,11 +1,12 @@
 {
   "images/about/02_Electronics_Engineer_Lab": {
     "fallback": "/images/about/02_Electronics_Engineer_Lab.webp",
-    "fallbackWidth": 1600,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -29,11 +30,12 @@
   },
   "images/about/04_Engineering_Team": {
     "fallback": "/images/about/04_Engineering_Team.webp",
-    "fallbackWidth": 1600,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -86,11 +88,12 @@
   },
   "images/about/08_Electronics_Manufacturing_Factory": {
     "fallback": "/images/about/08_Electronics_Manufacturing_Factory.webp",
-    "fallbackWidth": 1600,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -100,11 +103,12 @@
   },
   "images/about/09_Team_Collaboration": {
     "fallback": "/images/about/09_Team_Collaboration.webp",
-    "fallbackWidth": 1600,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -430,11 +434,12 @@
   },
   "images/expertise/hero-engineer": {
     "fallback": "/images/expertise/hero-engineer.webp",
-    "fallbackWidth": 1600,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -444,11 +449,12 @@
   },
   "images/expertise/medical-tech": {
     "fallback": "/images/expertise/medical-tech.webp",
-    "fallbackWidth": 1600,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -458,11 +464,12 @@
   },
   "images/expertise/payment-terminal": {
     "fallback": "/images/expertise/payment-terminal.webp",
-    "fallbackWidth": 1600,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -486,7 +493,7 @@
   },
   "images/process/after-sales-support": {
     "fallback": "/images/process/after-sales-support.webp",
-    "fallbackWidth": 2000,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
@@ -496,29 +503,32 @@
     "webp": [
       480,
       768,
-      1280,
-      1920
+      1280
     ]
   },
   "images/process/continuous-improvement": {
     "fallback": "/images/process/continuous-improvement.webp",
-    "fallbackWidth": 830,
+    "fallbackWidth": 1920,
     "avif": [
       480,
-      768
+      768,
+      1280,
+      1920
     ],
     "webp": [
       480,
-      768
+      768,
+      1280
     ]
   },
   "images/process/contract-manufacturing": {
     "fallback": "/images/process/contract-manufacturing.webp",
-    "fallbackWidth": 1835,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -528,11 +538,12 @@
   },
   "images/process/design-and-engineering": {
     "fallback": "/images/process/design-and-engineering.webp",
-    "fallbackWidth": 1536,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -542,23 +553,27 @@
   },
   "images/process/embedded-electronics-and-iot": {
     "fallback": "/images/process/embedded-electronics-and-iot.webp",
-    "fallbackWidth": 1024,
+    "fallbackWidth": 1920,
     "avif": [
       480,
-      768
+      768,
+      1280,
+      1920
     ],
     "webp": [
       480,
-      768
+      768,
+      1280
     ]
   },
   "images/process/idea-and-requirement": {
     "fallback": "/images/process/idea-and-requirement.webp",
-    "fallbackWidth": 1672,
+    "fallbackWidth": 1920,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
@@ -640,26 +655,32 @@
   },
   "images/process/quality-assurance": {
     "fallback": "/images/process/quality-assurance.webp",
-    "fallbackWidth": 1024,
+    "fallbackWidth": 1920,
     "avif": [
       480,
-      768
+      768,
+      1280,
+      1920
     ],
     "webp": [
       480,
-      768
+      768,
+      1280
     ]
   },
   "images/process/research-and-market-analysis": {
     "fallback": "/images/process/research-and-market-analysis.webp",
-    "fallbackWidth": 1200,
+    "fallbackWidth": 1920,
     "avif": [
       480,
-      768
+      768,
+      1280,
+      1920
     ],
     "webp": [
       480,
-      768
+      768,
+      1280
     ]
   },
   "images/process/validation-and-testing": {
