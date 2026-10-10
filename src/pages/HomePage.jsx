@@ -1,10 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FiArrowRight, FiCheckCircle, FiArrowUpRight,
-  FiActivity, FiCpu, FiTool, FiBatteryCharging,
-  FiServer, FiBox, FiSmartphone, FiHeadphones, FiWifi
+  FiArrowRight, FiArrowLeft, FiCheckCircle, FiArrowUpRight, FiStar,
+  FiActivity, FiCpu, FiTool, FiHeart, FiThermometer,
+  FiBox, FiPackage, FiCreditCard, FiShare2, FiMonitor, FiWifi
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
@@ -30,6 +30,36 @@ function JourneySection() {
     { image: '/images/process/after-sales-support.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
   ];
 
+  const milestones = [
+    { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', icon: FiHeart, badgeColor: 'bg-blue-600' },
+    { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', icon: FiActivity, badgeColor: 'bg-emerald-600' },
+    { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', icon: FiTool, badgeColor: 'bg-purple-600' },
+    { year: '2019', title: 'OTC Devices', desc: 'Introduced IR Thermometer, Digital BP Monitor.', icon: FiThermometer, badgeColor: 'bg-amber-600' },
+    { year: '2020', title: 'Scaling Manufacturing', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', icon: FiBox, badgeColor: 'bg-cyan-600' },
+    { year: '2021', title: 'Introducing Walnut Technologies', desc: 'Started non-medical applications, expanding our technology footprint beyond healthcare.', icon: FiCpu, badgeColor: 'bg-indigo-600' },
+    { year: '2022', title: 'Fintech Integration', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', icon: FiCreditCard, badgeColor: 'bg-emerald-600' },
+    { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', icon: FiPackage, badgeColor: 'bg-violet-600' },
+    { year: '2024', title: 'Advanced Manufacturing', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', icon: FiShare2, badgeColor: 'bg-sky-600', special: 'Major Scale Milestone' },
+    { year: '2025', title: 'Electronics Manufacturing', desc: 'Started Smart Instrument Cluster vertical.', icon: FiMonitor, badgeColor: 'bg-rose-600' },
+    { year: '2026', title: 'Smart Cluster', desc: 'Scaling vertical of Consumer Electronics — IoT based.', icon: FiWifi, badgeColor: 'bg-indigo-600' },
+  ];
+
+  const [milestoneIndex, setMilestoneIndex] = useState(0);
+  const prevIndex = (milestoneIndex - 1 + milestones.length) % milestones.length;
+  const nextIndex = (milestoneIndex + 1) % milestones.length;
+  const visibleMilestones = [
+    { item: milestones[prevIndex], idx: prevIndex, position: 0 },
+    { item: milestones[milestoneIndex], idx: milestoneIndex, position: 1 },
+    { item: milestones[nextIndex], idx: nextIndex, position: 2 },
+  ];
+
+  const goPrev = () => setMilestoneIndex((milestoneIndex - 1 + milestones.length) % milestones.length);
+  const goNext = () => setMilestoneIndex((milestoneIndex + 1) % milestones.length);
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowRight') goNext();
+    if (e.key === 'ArrowLeft') goPrev();
+  };
+
   return (
     <section className="relative overflow-hidden" ref={ref}>
       {/* Production Process - Hexagonal Grid */}
@@ -42,10 +72,15 @@ function JourneySection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mb-2"
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight mb-1">
-              Production Process
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-1">
+              <span className="w-6 h-[1.5px] bg-blue-400 rounded-full" />
+              How We Work
+              <span className="w-6 h-[1.5px] bg-blue-400 rounded-full" />
+            </span>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight">
+              End-to-End <span className="text-blue-600">Production Process</span>
             </h2>
-            <div className="w-14 h-0.5 bg-blue-600 mx-auto rounded-full" />
+            <div className="w-14 h-0.5 bg-blue-600 mx-auto rounded-full mt-1.5" />
           </motion.div>
 
           {/* Circle Grid - Row 1 (5 items) */}
@@ -59,10 +94,10 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] lg:w-[clamp(150px,calc((100vw_-_560px)/5),600px)] lg:h-[clamp(150px,calc((100vw_-_560px)/5),600px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_600px)/6),210px)] lg:h-[clamp(130px,calc((100vw_-_600px)/6),210px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
-                      alt={item.to}
+                      alt={item.from}
                       width="150"
                       height="150"
                       loading="lazy"
@@ -74,7 +109,6 @@ function JourneySection() {
                   </div>
                   <div className="text-center mt-1">
                     <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
@@ -98,10 +132,10 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[150px] md:h-[150px] lg:w-[clamp(150px,calc((100vw_-_560px)/5),600px)] lg:h-[clamp(150px,calc((100vw_-_560px)/5),600px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_600px)/6),210px)] lg:h-[clamp(130px,calc((100vw_-_600px)/6),210px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
-                      alt={item.to}
+                      alt={item.from}
                       width="150"
                       height="150"
                       loading="lazy"
@@ -113,7 +147,6 @@ function JourneySection() {
                   </div>
                   <div className="text-center mt-1">
                     <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900 leading-tight">{item.from}</p>
-                    <p className="text-[10px] sm:text-xs md:text-xs text-blue-600 font-semibold">{item.to}</p>
                   </div>
                 </div>
                 {i < 4 && (
@@ -134,7 +167,7 @@ function JourneySection() {
       </div>
 
       {/* Journey Section */}
-      <div className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50/30 py-5 md:py-7 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50/30 py-3 md:py-4 overflow-hidden">
         {/* Decorative background blurs */}
         <div className="absolute top-0 left-1/4 w-48 h-48 bg-blue-100/40 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-cyan-100/40 rounded-full blur-3xl" />
@@ -144,125 +177,126 @@ function JourneySection() {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.5 }}
-            className="text-center mb-4 md:mb-6"
+            className="text-center mb-2 md:mb-3"
           >
             <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-1">
               <span className="w-6 h-[1.5px] bg-blue-400 rounded-full" />
               Our Journey
               <span className="w-6 h-[1.5px] bg-blue-400 rounded-full" />
             </span>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-black font-display text-slate-900 leading-tight">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-black font-display text-slate-900 leading-tight">
               From Walnut Medical to <span className="text-blue-600">Walnut Technologies</span>
             </h2>
           </motion.div>
 
-          {/* Row 1: 2016-2020 */}
-          <div className="relative mb-2 md:mb-3 -mx-3 sm:-mx-5 md:mx-0">
-            <div className="overflow-x-auto md:overflow-visible overscroll-x-contain snap-x snap-mandatory scroll-pl-3 sm:scroll-pl-5 px-3 sm:px-5 md:px-0 py-2 -my-2 scrollbar-hide">
-              <div className="relative min-w-max md:min-w-0">
-                {/* Horizontal connector line */}
-                <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-violet-200 to-cyan-200 -translate-y-1/2 z-0" />
-                <div className="flex items-stretch gap-2 md:gap-2.5 relative z-10">
-                  {[
-                    { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', icon: FiActivity, color: 'blue', gradient: 'from-blue-500 to-blue-600', glow: 'shadow-blue-200' },
-                    { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', icon: FiActivity, color: 'emerald', gradient: 'from-emerald-500 to-emerald-600', glow: 'shadow-emerald-200' },
-                    { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', icon: FiTool, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
-                    { year: '2019', title: 'OTC Devices', desc: 'Introduced IR Thermometer, Digital BP Monitor.', icon: FiBatteryCharging, color: 'orange', gradient: 'from-orange-400 to-orange-500', glow: 'shadow-orange-200' },
-                    { year: '2020', title: 'Scaling Manufacturing', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', icon: FiBox, color: 'cyan', gradient: 'from-cyan-400 to-cyan-500', glow: 'shadow-cyan-200' },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={item.year}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.3, delay: 0.6 + i * 0.06 }}
-                      className="shrink-0 w-[60vw] max-w-[240px] snap-center md:w-auto md:max-w-none md:flex-1 flex items-center"
-                    >
-                      <div className="relative flex-1 group">
-                        <div className={`bg-white rounded-xl border border-slate-100 hover:border-${item.color}-200 hover:shadow-lg ${item.glow} hover:shadow-xl transition-all duration-300 p-3 h-full flex flex-col items-center text-center group-hover:-translate-y-1`}>
-                          {/* Colored top accent */}
-                          <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
-                          {/* Year badge */}
-                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
-                            {item.year}
-                          </div>
-                          {/* Icon */}
-                          <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-1.5 shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                            <item.icon className="w-[18px] h-[18px] text-white" />
-                          </div>
-                          {/* Content */}
-                          <h3 className="text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
-                          <p className="text-[10px] text-slate-500 leading-snug">{item.desc}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Milestone Carousel */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.6 }}
+            className="relative w-full max-w-5xl mx-auto flex items-center justify-center"
+            tabIndex={0}
+            onKeyDown={handleKeyDown}
+            role="region"
+            aria-label="Company journey carousel"
+          >
+            {/* Previous Button */}
+            <button
+              onClick={goPrev}
+              aria-label="Previous milestone"
+              className="absolute -left-2 sm:-left-8 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <FiArrowLeft className="text-sm" />
+            </button>
 
-          {/* Connecting arrow */}
-          <div className="hidden md:flex justify-end px-8 mb-2 relative z-10">
-            <div className="flex items-center">
-              <div className="w-6 h-[2px] bg-gradient-to-r from-cyan-300 to-blue-300" />
-              <div className="w-[2px] h-3 bg-gradient-to-b from-cyan-300 to-blue-300" />
-              <div className="w-0 h-0 border-t-[4px] border-t-blue-300 border-l-[4px] border-l-transparent border-b-[4px] border-b-transparent" />
-            </div>
-          </div>
-
-          {/* Row 2: 2021-2026 */}
-          <div className="relative -mx-3 sm:-mx-5 md:mx-0">
-            <div className="overflow-x-auto md:overflow-visible overscroll-x-contain snap-x snap-mandatory scroll-pl-3 sm:scroll-pl-5 px-3 sm:px-5 md:px-0 py-2 -my-2 scrollbar-hide">
-              <div className="relative min-w-max md:min-w-0">
-                {/* Horizontal connector line */}
-                <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-200 via-rose-200 to-violet-200 -translate-y-1/2 z-0" />
-                <div className="flex items-stretch gap-2 md:gap-2.5 relative z-10">
-                  {[
-                    { year: '2021', title: 'Introducing Walnut Technologies', desc: 'Started non-medical applications, expanding our technology footprint beyond healthcare.', icon: FiCpu, color: 'blue', gradient: 'from-blue-500 to-blue-600', glow: 'shadow-blue-200' },
-                    { year: '2022', title: 'Fintech Integration', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', icon: FiServer, color: 'emerald', gradient: 'from-emerald-500 to-emerald-600', glow: 'shadow-emerald-200' },
-                    { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', icon: FiBox, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
-                    { year: '2024', title: 'Advanced Manufacturing', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', icon: FiSmartphone, color: 'cyan', gradient: 'from-cyan-400 to-cyan-500', glow: 'shadow-cyan-200', badge: 'Major Scale Milestone' },
-                    { year: '2025', title: 'Electronics Manufacturing', desc: 'Started Smart Instrument Cluster vertical.', icon: FiCpu, color: 'rose', gradient: 'from-rose-400 to-rose-500', glow: 'shadow-rose-200' },
-                    { year: '2026', title: 'Smart Cluster', desc: 'Scaling vertical of Consumer Electronics — IoT based.', icon: FiWifi, color: 'violet', gradient: 'from-violet-500 to-violet-600', glow: 'shadow-violet-200' },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={item.year}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.3, delay: 0.8 + i * 0.06 }}
-                      className="shrink-0 w-[60vw] max-w-[240px] snap-center md:w-auto md:max-w-none md:flex-1 flex items-center"
+            {/* Cards */}
+            <div className="w-full overflow-hidden py-2 px-2">
+              <motion.div
+                key={milestoneIndex}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="flex items-center justify-center gap-4 sm:gap-6"
+              >
+                {visibleMilestones.map(({ item, idx, position }) => {
+                  const isCenter = position === 1;
+                  return (
+                    <div
+                      key={idx}
+                      onClick={position === 0 ? goPrev : position === 2 ? goNext : undefined}
+                      className={`transition-all duration-300 rounded-3xl p-4 sm:p-5 flex flex-col justify-between border ${
+                        isCenter
+                          ? 'w-full sm:w-[400px] bg-white border-blue-200 shadow-[0_30px_60px_-12px_rgba(37,99,235,0.18),0_0_2px_2px_rgba(37,99,235,0.12)] z-10 opacity-100'
+                          : 'w-[260px] sm:w-[300px] bg-white/90 border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(0,0,0,0.04)] scale-95 opacity-60 hover:opacity-90 hidden md:flex cursor-pointer'
+                      }`}
                     >
-                      <div className="relative flex-1 group">
-                        <div className={`bg-white rounded-xl border hover:shadow-lg ${item.glow} hover:shadow-xl transition-all duration-300 p-3 h-full flex flex-col items-center text-center group-hover:-translate-y-1 ${
-                          item.badge ? `border-${item.color}-200 shadow-md` : 'border-slate-100'
-                        }`}>
-                          {/* Colored top accent */}
-                          <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[3px] rounded-b-full bg-gradient-to-r ${item.gradient}`} />
-                          {/* Year badge */}
-                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black text-white bg-gradient-to-r ${item.gradient} shadow-md mb-1.5 mt-1`}>
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className={`px-3.5 py-1 text-xs font-extrabold text-white rounded-full shadow-sm ${item.badgeColor}`}>
                             {item.year}
-                          </div>
-                          {/* Icon */}
-                          <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-1.5 shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                            <item.icon className="w-[18px] h-[18px] text-white" />
-                          </div>
-                          {/* Content */}
-                          <h3 className="text-xs font-bold text-slate-900 leading-tight mb-0.5">{item.title}</h3>
-                          <p className="text-[10px] text-slate-500 leading-snug">{item.desc}</p>
-                          {item.badge && (
-                            <div className="mt-1 inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-full">
-                              <FiCheckCircle className="w-2.5 h-2.5 text-cyan-600" />
-                              <span className="text-[10px] font-bold text-cyan-700">{item.badge}</span>
-                            </div>
+                          </span>
+                          {item.special && isCenter && (
+                            <span className="px-2.5 py-0.5 text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-full flex items-center">
+                              <FiStar className="mr-1" /> {item.special}
+                            </span>
                           )}
                         </div>
+                        <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-blue-600 text-lg mb-3 shadow-inner">
+                          <item.icon />
+                        </div>
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 tracking-tight">{item.title}</h3>
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                       </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+                      <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400">
+                        <span>Milestone #{idx + 1}</span>
+                        <span className="text-blue-600">{isCenter ? 'Active View' : 'Click to View'}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </motion.div>
             </div>
-          </div>
+
+            {/* Next Button */}
+            <button
+              onClick={goNext}
+              aria-label="Next milestone"
+              className="absolute -right-2 sm:-right-8 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <FiArrowRight className="text-sm" />
+            </button>
+          </motion.div>
+
+          {/* Timeline Footer */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.7 }}
+            className="mt-1 max-w-4xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-sm px-4 sm:px-6 py-2"
+          >
+            <div className="flex items-center justify-between w-full mb-1.5 px-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Journey Timeline</span>
+              <span className="text-[11px] font-bold text-blue-600 bg-blue-50 px-3 py-0.5 rounded-full border border-blue-100">
+                Milestone {milestoneIndex + 1} of {milestones.length}
+              </span>
+            </div>
+            <div className="flex items-center justify-center gap-2 overflow-x-auto w-full py-0.5 scrollbar-hide">
+              {milestones.map((m, idx) => (
+                <button
+                  key={m.year}
+                  onClick={() => setMilestoneIndex(idx)}
+                  aria-label={`Go to milestone ${m.year}`}
+                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all shrink-0 ${
+                    idx === milestoneIndex
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30 scale-105'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 border border-slate-200'
+                  }`}
+                >
+                  {m.year}
+                </button>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -321,7 +355,7 @@ function DivisionsPreview() {
   ];
 
   return (
-    <section id="divisions-preview" className="relative pt-2 pb-10 md:pb-16 bg-white" ref={ref}>
+    <section id="divisions-preview" className="relative pt-1 pb-6 md:pb-8 bg-white" ref={ref}>
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -329,10 +363,10 @@ function DivisionsPreview() {
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-10 text-center"
+          className="mb-5 md:mb-6 text-center"
         >
           <span className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-2 block">Solutions</span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display leading-tight tracking-tight mb-3">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-display leading-tight tracking-tight mb-2">
             <span className="text-slate-900">Technology That Powers </span>
             <span className="text-blue-600">Every Connection</span>
           </h2>
@@ -342,7 +376,7 @@ function DivisionsPreview() {
         </motion.div>
 
         {/* Solutions Grid - Full Images with Details Below */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 items-stretch">
           {solutions.map((sol, i) => (
             <motion.div
               key={sol.num}
@@ -355,7 +389,7 @@ function DivisionsPreview() {
                 className="group block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 h-full flex flex-col"
               >
                 {/* Full Image */}
-                <div className="relative aspect-square overflow-hidden bg-slate-50 flex-shrink-0">
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-50 flex-shrink-0">
                   <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                     src={sol.image}
                     alt={sol.title}
@@ -366,7 +400,7 @@ function DivisionsPreview() {
 
                 {sol.sideImage ? (
                   <div className="flex flex-col sm:flex-row">
-                    <div className="p-4 border-t border-slate-100 flex-1">
+                  <div className="p-3 border-t border-slate-100 flex-1">
                       <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">{sol.category}</span>
                       <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{sol.title}</h4>
                       <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
@@ -432,42 +466,6 @@ function HeroStats() {
             ))}
           </div>
         </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function StatsSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const { t } = useLanguage();
-
-  const stats = [
-    { value: '10+', label: t('stats.years') },
-    { value: '600+', label: t('stats.engineers') },
-    { value: '10+', label: t('stats.countries') },
-    { value: '500K+', label: t('stats.units') },
-    { value: '150,000 sq.ft', label: t('stats.facility') },
-    { value: '4', label: t('stats.smt') },
-  ];
-
-  return (
-    <section className="relative mt-6 z-20">
-      <div ref={ref} className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }}
-              className="bg-white rounded-lg p-3 text-center shadow-lg border border-slate-100"
-            >
-              <div className="text-lg font-bold font-display text-blue-600 mb-0.5">{stat.value}</div>
-              <div className="text-xs text-slate-500 font-medium leading-tight">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -708,7 +706,6 @@ export default function HomePage({ onOpenSchedule }) {
       <HeroStats />
       <DivisionsPreview />
       <JourneySection />
-      <StatsSection />
       <ClientsCertifications />
       <CTASection />
     </div>
