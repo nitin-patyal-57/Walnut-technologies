@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -45,6 +45,7 @@ function JourneySection() {
   ];
 
   const [milestoneIndex, setMilestoneIndex] = useState(0);
+  const pillsRef = useRef(null);
   const prevIndex = (milestoneIndex - 1 + milestones.length) % milestones.length;
   const nextIndex = (milestoneIndex + 1) % milestones.length;
   const visibleMilestones = [
@@ -59,6 +60,14 @@ function JourneySection() {
     if (e.key === 'ArrowRight') goNext();
     if (e.key === 'ArrowLeft') goPrev();
   };
+
+  useEffect(() => {
+    const track = pillsRef.current;
+    const btn = track?.children[milestoneIndex];
+    if (!track || !btn) return;
+    const target = btn.offsetLeft - (track.clientWidth - btn.clientWidth) / 2;
+    track.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+  }, [milestoneIndex]);
 
   return (
     <section className="relative overflow-hidden" ref={ref}>
@@ -227,7 +236,7 @@ function JourneySection() {
                       className={`transition-all duration-300 rounded-3xl p-4 sm:p-5 flex flex-col justify-between border ${
                         isCenter
                           ? 'w-full sm:w-[400px] bg-white border-blue-200 shadow-[0_30px_60px_-12px_rgba(37,99,235,0.18),0_0_2px_2px_rgba(37,99,235,0.12)] z-10 opacity-100'
-                          : 'w-[260px] sm:w-[300px] bg-white/90 border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(0,0,0,0.04)] scale-95 opacity-60 hover:opacity-90 hidden md:flex cursor-pointer'
+                          : 'w-[240px] xl:w-[280px] bg-white/90 border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(0,0,0,0.04)] scale-95 opacity-60 hover:opacity-90 hidden lg:flex cursor-pointer'
                       }`}
                     >
                       <div>
@@ -280,7 +289,7 @@ function JourneySection() {
                 Milestone {milestoneIndex + 1} of {milestones.length}
               </span>
             </div>
-            <div className="flex items-center justify-center gap-2 overflow-x-auto w-full py-0.5 scrollbar-hide">
+            <div ref={pillsRef} className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto w-full py-0.5 scrollbar-hide">
               {milestones.map((m, idx) => (
                 <button
                   key={m.year}
