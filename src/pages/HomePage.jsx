@@ -103,7 +103,7 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_600px)/6),210px)] lg:h-[clamp(130px,calc((100vw_-_600px)/6),210px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.from}
@@ -112,17 +112,17 @@ function JourneySection() {
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
+                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[10px] sm:text-xs md:text-xs lg:text-sm font-bold text-slate-900 leading-tight">{item.from}</p>
                   </div>
                 </div>
                 {i < 4 && (
-                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 -mt-3 md:-mt-4">
-                    <div className="w-2 sm:w-3 md:w-6 h-[1.5px] bg-blue-400" />
+                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 lg:mx-3 -mt-3 md:-mt-4">
+                    <div className="w-2 sm:w-3 md:w-6 lg:w-8 h-[1.5px] bg-blue-400" />
                     <div className="w-0 h-0 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent border-l-[3px] border-l-blue-400 md:border-t-[3px] md:border-b-[3px] md:border-l-[5px]" />
                   </div>
                 )}
@@ -141,7 +141,7 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_600px)/6),210px)] lg:h-[clamp(130px,calc((100vw_-_600px)/6),210px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.from}
@@ -150,17 +150,17 @@ function JourneySection() {
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
+                    <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[10px] sm:text-xs md:text-xs font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[10px] sm:text-xs md:text-xs lg:text-sm font-bold text-slate-900 leading-tight">{item.from}</p>
                   </div>
                 </div>
                 {i < 4 && (
-                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 -mt-3 md:-mt-4">
-                    <div className="w-2 sm:w-3 md:w-6 h-[1.5px] bg-blue-400" />
+                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 lg:mx-3 -mt-3 md:-mt-4">
+                    <div className="w-2 sm:w-3 md:w-6 lg:w-8 h-[1.5px] bg-blue-400" />
                     <div className="w-0 h-0 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent border-l-[3px] border-l-blue-400 md:border-t-[3px] md:border-b-[3px] md:border-l-[5px]" />
                   </div>
                 )}
@@ -203,7 +203,7 @@ function JourneySection() {
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.6 }}
-            className="relative w-full max-w-5xl mx-auto flex items-center justify-center"
+            className="relative w-full max-w-[1400px] mx-auto flex items-center justify-center"
             tabIndex={0}
             onKeyDown={handleKeyDown}
             role="region"
@@ -213,7 +213,7 @@ function JourneySection() {
             <button
               onClick={goPrev}
               aria-label="Previous milestone"
-              className="absolute -left-2 sm:-left-8 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="absolute -left-2 sm:-left-5 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               <FiArrowLeft className="text-sm" />
             </button>
@@ -225,7 +225,7 @@ function JourneySection() {
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="flex items-center justify-center gap-4 sm:gap-6"
+                className="flex items-center justify-center gap-4 sm:gap-6 xl:gap-8"
               >
                 {visibleMilestones.map(({ item, idx, position }) => {
                   const isCenter = position === 1;
@@ -235,8 +235,8 @@ function JourneySection() {
                       onClick={position === 0 ? goPrev : position === 2 ? goNext : undefined}
                       className={`transition-all duration-300 rounded-3xl p-4 sm:p-5 flex flex-col justify-between border ${
                         isCenter
-                          ? 'w-full sm:w-[400px] bg-white border-blue-200 shadow-[0_30px_60px_-12px_rgba(37,99,235,0.18),0_0_2px_2px_rgba(37,99,235,0.12)] z-10 opacity-100'
-                          : 'w-[240px] xl:w-[280px] bg-white/90 border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(0,0,0,0.04)] scale-95 opacity-60 hover:opacity-90 hidden lg:flex cursor-pointer'
+                          ? 'w-full sm:w-[400px] xl:w-[460px] 2xl:w-[520px] bg-white border-blue-200 shadow-[0_30px_60px_-12px_rgba(37,99,235,0.18),0_0_2px_2px_rgba(37,99,235,0.12)] z-10 opacity-100'
+                          : 'w-[240px] xl:w-[300px] 2xl:w-[360px] bg-white/90 border-slate-200 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(0,0,0,0.04)] scale-95 opacity-60 hover:opacity-90 hidden lg:flex cursor-pointer'
                       }`}
                     >
                       <div>
@@ -270,7 +270,7 @@ function JourneySection() {
             <button
               onClick={goNext}
               aria-label="Next milestone"
-              className="absolute -right-2 sm:-right-8 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="absolute -right-2 sm:-right-5 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               <FiArrowRight className="text-sm" />
             </button>
@@ -281,7 +281,7 @@ function JourneySection() {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.7 }}
-            className="mt-1 max-w-4xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-sm px-4 sm:px-6 py-2"
+            className="mt-1 max-w-6xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-sm px-4 sm:px-6 py-2"
           >
             <div className="flex items-center justify-between w-full mb-1.5 px-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Journey Timeline</span>
