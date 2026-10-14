@@ -503,6 +503,18 @@
       768
     ]
   },
+  "images/process/Modern Electronics Assembly Line": {
+    "fallback": "/images/process/Modern Electronics Assembly Line.png",
+    "fallbackWidth": 1254,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
   "images/process/QA": {
     "fallback": "/images/process/QA.webp",
     "fallbackWidth": 2560,
@@ -553,6 +565,20 @@
     "webp": [
       480,
       768
+    ]
+  },
+  "images/process/contract manufacturing": {
+    "fallback": "/images/process/contract manufacturing.jpg",
+    "fallbackWidth": 1835,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
     ]
   },
   "images/process/contract-manufacturing": {
