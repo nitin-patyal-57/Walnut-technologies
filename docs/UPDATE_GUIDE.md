@@ -3,8 +3,15 @@
 Operational guide for anyone who needs to change content, images, or push updates
 to production. For local setup and code structure, see [`README.md`](../README.md).
 
-**Golden rule:** text/data lives in `src/data/*.js`, layout lives in components.
-Prefer editing data files over markup when only copy changes.
+**Golden rule:** text/data lives in `src/data/`, layout lives in components.
+Prefer editing data over markup when only copy changes.
+
+**Admin panel:** company details, divisions, products, process, expertise, clients,
+resources, news and chat greetings are edited in the **Walnut Admin** panel
+(`admin.walnutmedical.in`, separate `walnut-admin` repo) → *Publish*, which rebuilds
+the site. The build pulls them into `src/data/content.json` (see
+`scripts/fetch-content.mjs`), so **don't hand-edit `content.json` in production** —
+the next publish overwrites it. Form submissions also land in the admin's Leads inbox.
 
 ---
 
@@ -12,10 +19,10 @@ Prefer editing data files over markup when only copy changes.
 
 | I want to change... | Edit this |
 |---|---|
-| Company name, tagline, contact details, trust signals | `src/data/content.js` → `brand`, `about`, `trustSignals` |
-| Divisions (Medical, IoT, Fintech...), their products/images | `src/data/content.js` → `divisions` |
-| Product cards on Solutions page | `src/data/content.js` → `products` |
-| Process steps, expertise areas, resources, news items | `src/data/content.js` → `process`, `expertise`, `resources`, `news` |
+| Company name, tagline, contact details, trust signals | Admin → Website Content → Company Details / About Us / Trust Signals |
+| Divisions (Medical, IoT, Fintech...), their products/images | Admin → Divisions |
+| Product cards on Solutions page | Admin → Products |
+| Process steps, expertise areas, resources, news items | Admin → Production Process / Expertise / Resources / News |
 | Homepage sections (hero, stats, showcase copy) | `src/pages/HomePage.jsx`, `src/components/Hero.jsx`, `ProductShowcase.jsx` |
 | Medical / IoT / Automotive / Neuro division pages | `src/components/MedicalShowcase.jsx`, `IoTShowcase.jsx`, `AutomotiveShowcase.jsx`, `NeuroShowcase.jsx` (each has a `products` array) |
 | Menu, footer links, WhatsApp button | `src/components/Navbar.jsx`, `Footer.jsx` |
@@ -72,6 +79,11 @@ Set in **Vercel → Project → Settings → Environment Variables** (never comm
 | `RESEND_API_KEY` | Yes | Resend API key — forms fail without it |
 | `CONTACT_TO_EMAIL` | No | Where submissions are delivered (default in code) |
 | `CONTACT_FROM_EMAIL` | No | Verified sender address |
+| `CMS_API_URL` | Yes (prod) | Admin panel URL, e.g. `https://admin.walnutmedical.in`. Build pulls content from it; forms push leads to it. Unset locally = use committed `content.json`. |
+| `LEADS_INGEST_KEY` | Yes (prod) | Shared secret, must equal the admin server's `LEADS_INGEST_KEY` |
+
+Each submission is emailed **and** saved to the admin inbox in parallel; the visitor
+sees success if either works.
 
 For local testing, export them in the shell **before** `npm run dev`
 (`.env.local` is git-ignored for keeping keys out of the repo, but note this project
@@ -156,7 +168,7 @@ git push origin update/homepage-copy   # 4. open a PR on GitHub
 **Add a product to the Medical division** → `MedicalShowcase.jsx` → `products` array
 (add `title`, `description`, `highlights`, `image`), then add the image per §2.
 
-**Add a news article** → `src/data/content.js` → `news`
+**Add a news article** → Admin → Website Content → News → *Add item* → Save → Publish
 
 **Change the logo / favicon** → `public/images/brand/` + favicon files in `public/`
 (`favicon.ico`, `apple-touch-icon.png`, `android-chrome-*.png`)

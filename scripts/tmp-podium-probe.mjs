@@ -7,7 +7,7 @@ import sharp from 'sharp';
 
 const FILES = [
   ['neuro', 'public/images/products/neuro_rehab_device-home.webp'],
-  ['bp', 'public/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp'],
+  ['bp', 'public/images/products/bp-home.webp'],
   ['box', 'public/images/products/boxsound-home.webp'],
   ['cluster', 'public/images/products/cluster1-home.webp'],
   ['lock', 'public/images/products/iot-lock-smart-home.webp'],
