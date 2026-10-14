@@ -570,6 +570,20 @@
       1280
     ]
   },
+  "images/process/design": {
+    "fallback": "/images/process/design.jpeg",
+    "fallbackWidth": 1600,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
   "images/process/design-and-engineering": {
     "fallback": "/images/process/design-and-engineering.webp",
     "fallbackWidth": 1000,
