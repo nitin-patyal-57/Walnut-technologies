@@ -493,32 +493,26 @@
   },
   "images/process/after-sales-support": {
     "fallback": "/images/process/after-sales-support.webp",
-    "fallbackWidth": 1920,
+    "fallbackWidth": 1000,
     "avif": [
       480,
-      768,
-      1280,
-      1920
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
     ]
   },
   "images/process/continuous-improvement": {
     "fallback": "/images/process/continuous-improvement.webp",
-    "fallbackWidth": 1920,
+    "fallbackWidth": 1000,
     "avif": [
       480,
-      768,
-      1280,
-      1920
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
     ]
   },
   "images/process/contract-manufacturing": {
@@ -538,17 +532,14 @@
   },
   "images/process/design-and-engineering": {
     "fallback": "/images/process/design-and-engineering.webp",
-    "fallbackWidth": 1920,
+    "fallbackWidth": 1000,
     "avif": [
       480,
-      768,
-      1280,
-      1920
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
     ]
   },
   "images/process/embedded-electronics-and-iot": {
@@ -568,17 +559,14 @@
   },
   "images/process/idea-and-requirement": {
     "fallback": "/images/process/idea-and-requirement.webp",
-    "fallbackWidth": 1920,
+    "fallbackWidth": 1000,
     "avif": [
       480,
-      768,
-      1280,
-      1920
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
     ]
   },
   "images/process/iot-software-development": {
@@ -619,21 +607,19 @@
   },
   "images/process/manufacturing-engineering-and-mold-design": {
     "fallback": "/images/process/manufacturing-engineering-and-mold-design.webp",
-    "fallbackWidth": 1536,
+    "fallbackWidth": 1000,
     "avif": [
       480,
-      768,
-      1280
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
     ]
   },
   "images/process/packaging-and-dispatch": {
     "fallback": "/images/process/packaging-and-dispatch.webp",
-    "fallbackWidth": 800,
+    "fallbackWidth": 1000,
     "avif": [
       480,
       768
@@ -645,57 +631,55 @@
   },
   "images/process/prototype-development": {
     "fallback": "/images/process/prototype-development.webp",
-    "fallbackWidth": 765,
+    "fallbackWidth": 1000,
     "avif": [
-      480
+      480,
+      768
     ],
     "webp": [
-      480
+      480,
+      768
     ]
   },
   "images/process/quality-assurance": {
     "fallback": "/images/process/quality-assurance.webp",
-    "fallbackWidth": 1920,
+    "fallbackWidth": 1000,
     "avif": [
       480,
-      768,
-      1280,
-      1920
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
     ]
   },
   "images/process/research-and-market-analysis": {
     "fallback": "/images/process/research-and-market-analysis.webp",
-    "fallbackWidth": 1920,
+    "fallbackWidth": 1000,
     "avif": [
       480,
-      768,
-      1280,
-      1920
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
     ]
   },
   "images/process/validation-and-testing": {
     "fallback": "/images/process/validation-and-testing.webp",
-    "fallbackWidth": 710,
+    "fallbackWidth": 1000,
     "avif": [
-      480
+      480,
+      768
     ],
     "webp": [
-      480
+      480,
+      768
     ]
   },
   "images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1": {
     "fallback": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
-    "fallbackWidth": 1254,
+    "fallbackWidth": 1200,
     "avif": [
       480,
       768
@@ -755,9 +739,9 @@
       1920
     ]
   },
-  "images/products/boxsound": {
-    "fallback": "/images/products/boxsound.webp",
-    "fallbackWidth": 1536,
+  "images/products/blood home": {
+    "fallback": "/images/products/blood home.png",
+    "fallbackWidth": 1448,
     "avif": [
       480,
       768,
@@ -767,6 +751,54 @@
       480,
       768,
       1280
+    ]
+  },
+  "images/products/boxsound": {
+    "fallback": "/images/products/boxsound.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/boxsound home": {
+    "fallback": "/images/products/boxsound home.jpg",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/boxsound-home": {
+    "fallback": "/images/products/boxsound-home.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/bp-home": {
+    "fallback": "/images/products/bp-home.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
     ]
   },
   "images/products/ces-repose": {
@@ -795,16 +827,38 @@
   },
   "images/products/cluster1": {
     "fallback": "/images/products/cluster1.webp",
-    "fallbackWidth": 1536,
+    "fallbackWidth": 1200,
     "avif": [
       480,
-      768,
-      1280
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
+    ]
+  },
+  "images/products/cluster1 home": {
+    "fallback": "/images/products/cluster1 home.jpg",
+    "fallbackWidth": 768,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/cluster1-home": {
+    "fallback": "/images/products/cluster1-home.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
     ]
   },
   "images/products/gps-gateway": {
@@ -824,16 +878,38 @@
   },
   "images/products/iot-lock-smart": {
     "fallback": "/images/products/iot-lock-smart.webp",
-    "fallbackWidth": 1535,
+    "fallbackWidth": 1200,
     "avif": [
       480,
-      768,
-      1280
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
+    ]
+  },
+  "images/products/iot-lock-smart home": {
+    "fallback": "/images/products/iot-lock-smart home.jpg",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/iot-lock-smart-home": {
+    "fallback": "/images/products/iot-lock-smart-home.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
     ]
   },
   "images/products/iot-smaart-lock": {
@@ -879,16 +955,38 @@
   },
   "images/products/neuro_rehab_device": {
     "fallback": "/images/products/neuro_rehab_device.webp",
-    "fallbackWidth": 1448,
+    "fallbackWidth": 1200,
     "avif": [
       480,
-      768,
-      1280
+      768
     ],
     "webp": [
       480,
-      768,
-      1280
+      768
+    ]
+  },
+  "images/products/neuro_rehab_device home ": {
+    "fallback": "/images/products/neuro_rehab_device home .jpg",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
+  "images/products/neuro_rehab_device-home": {
+    "fallback": "/images/products/neuro_rehab_device-home.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
     ]
   },
   "images/products/smartlock-product": {

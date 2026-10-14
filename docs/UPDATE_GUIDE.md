@@ -42,6 +42,11 @@ Prefer editing data files over markup when only copy changes.
 Notes:
 - Images **< 600px wide** get no variants; they still work (single file fallback).
 - `imageVariants.json` is generated — never edit it by hand.
+- **Production-process circles** (homepage "End-to-End Production Process") are
+  1000×1000 square crops with a shared blue grade so the ten shots read as one
+  set — Pexels photo IDs + grading live in `scripts/tmp-apply.mjs`; re-run it
+  then `npm run images`. Preview a section render with
+  `node scripts/tmp-shoot-proc.mjs`.
 - Background-removed product shots follow the `*-removebg.webp` convention
   (white cut out to transparency, `mix-blend-multiply` in tiles).
 - Sanity checks: `npm run verify-images`, `node scripts/check-responsive.mjs`

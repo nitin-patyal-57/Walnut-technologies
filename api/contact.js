@@ -1,5 +1,7 @@
 // Contact / quote / resource / application submissions -> Resend email API
-// Requires env vars on Vercel: RESEND_API_KEY, optionally CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
+// and the Walnut Admin leads inbox (both in parallel; either succeeding is enough).
+// Env vars on Vercel: RESEND_API_KEY, optionally CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL;
+// CMS_API_URL + LEADS_INGEST_KEY to store leads in the admin panel.
 
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
@@ -51,6 +53,7 @@ const ALLOWED_ORIGINS = [
   'https://walnutmedical.in',
   'https://www.walnutmedical.in',
   'http://localhost:3000',
+  'http://localhost:3001',
   'http://localhost:5173',
 ];
 
@@ -105,6 +108,29 @@ async function sendViaResend({ subject, text, replyTo, attachment }) {
     throw err;
   }
 
+  return true;
+}
+
+// Server-to-server push into the admin panel's leads inbox.
+async function storeInAdmin(lead) {
+  const base = (process.env.CMS_API_URL || '').replace(/\/$/, '');
+  const key = process.env.LEADS_INGEST_KEY;
+  if (!base || !key) {
+    const err = new Error('Admin leads inbox is not configured');
+    err.code = 'NOT_CONFIGURED';
+    throw err;
+  }
+
+  const response = await fetch(`${base}/api/public/leads`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-ingest-key': key },
+    body: JSON.stringify(lead),
+    signal: AbortSignal.timeout(8000),
+  });
+  if (!response.ok) {
+    const detail = await response.text().catch(() => '');
+    throw new Error(`Admin rejected lead (${response.status}): ${detail.slice(0, 200)}`);
+  }
   return true;
 }
 
@@ -257,12 +283,28 @@ export default async function handler(req, res) {
     lines.push('');
     lines.push(`Submitted: ${new Date().toISOString()} from IP ${clientIp}`);
 
-    await sendViaResend({
-      subject: emailSubject,
-      text: lines.join('\n'),
-      replyTo: sanitized.email,
-      attachment,
-    });
+    const [stored, emailed] = await Promise.allSettled([
+      storeInAdmin({
+        type: submissionType,
+        ...sanitized,
+        ip: clientIp,
+        resume: attachment ? { filename: attachment.filename, content: attachment.content } : null,
+      }),
+      sendViaResend({
+        subject: emailSubject,
+        text: lines.join('\n'),
+        replyTo: sanitized.email,
+        attachment,
+      }),
+    ]);
+
+    if (stored.status === 'rejected' && stored.reason?.code !== 'NOT_CONFIGURED') {
+      console.error('Lead not stored in admin:', stored.reason?.message);
+    }
+    // Only fail the visitor if neither channel received the submission.
+    if (stored.status === 'rejected' && emailed.status === 'rejected') {
+      throw emailed.reason;
+    }
 
     return res.status(200).json({
       success: true,

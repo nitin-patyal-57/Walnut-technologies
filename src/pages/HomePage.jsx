@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   FiArrowRight, FiArrowLeft, FiCheckCircle, FiArrowUpRight, FiStar,
+  FiAward, FiShield, FiZap,
   FiActivity, FiCpu, FiTool, FiHeart, FiThermometer,
   FiBox, FiPackage, FiCreditCard, FiShare2, FiMonitor, FiWifi
 } from 'react-icons/fi';
@@ -17,6 +18,8 @@ function JourneySection() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const { t } = useLanguage();
 
+  // Production process photos: square-cropped + colour-graded for a consistent
+  // blue Indian-manufacturing look. Source photo IDs live in scripts/tmp-apply.mjs.
   const processImages = [
     { image: '/images/process/idea-and-requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
     { image: '/images/process/research-and-market-analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },
@@ -26,8 +29,8 @@ function JourneySection() {
     { image: '/images/process/prototype-development.webp', num: '06', from: 'MOLDING', to: 'QA' },
     { image: '/images/process/quality-assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
     { image: '/images/process/packaging-and-dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
-    { image: '/images/process/continuous-improvement.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
-    { image: '/images/process/after-sales-support.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
+    { image: '/images/process/after-sales-support.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
+    { image: '/images/process/continuous-improvement.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
   ];
 
   const milestones = [
@@ -323,26 +326,23 @@ function DivisionsPreview() {
       title: 'Walk Lab',
       category: t('divisions.robotics'),
       desc: 'Advanced Rehabilitation & Gait Training Systems',
-      image: '/images/products/neuro_rehab_device.webp',
+      image: '/images/products/neuro_rehab_device-home.webp',
       link: '/solutions?category=Neuro Rehab Devices',
-      zoom: true,
-      imgClass: 'object-[center_25%]',
     },
     {
       num: '02',
       title: 'Digital Blood Pressure',
       category: t('divisions.medical'),
       desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
-      image: '/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp',
+      image: '/images/products/bp-home.webp',
       link: '/solutions?category=Medical',
-      zoom: true,
     },
     {
       num: '03',
       title: 'Single Sim Model',
       category: t('divisions.fintech'),
       desc: 'NPCI, RBI, PCI DSS Certified',
-      image: '/images/products/boxsound.webp',
+      image: '/images/products/boxsound-home.webp',
       link: '/solutions?category=Fintech',
     },
     {
@@ -350,7 +350,7 @@ function DivisionsPreview() {
       title: 'Cluster',
       category: t('divisions.automotive'),
       desc: 'Industrial & Automotive Electronics',
-      image: '/images/products/cluster1.webp',
+      image: '/images/products/cluster1-home.webp',
       link: '/solutions?category=Automotive',
     },
     {
@@ -358,7 +358,7 @@ function DivisionsPreview() {
       title: 'IoT Smart Lock',
       category: t('divisions.iot'),
       desc: 'Connected Smart Devices & IoT Solutions',
-      image: '/images/products/iot-lock-smart.webp',
+      image: '/images/products/iot-lock-smart-home.webp',
       link: '/solutions?category=IoT',
     },
   ];
@@ -403,7 +403,7 @@ function DivisionsPreview() {
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className={`w-full h-full object-cover ${sol.imgClass || 'object-center'} transition-transform duration-700 ${sol.zoom ? 'scale-[1.07] group-hover:scale-[1.14]' : 'group-hover:scale-110'}`}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
 

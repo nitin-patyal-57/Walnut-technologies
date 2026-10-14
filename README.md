@@ -57,7 +57,7 @@ Prerequisites: **Node 18+** (Node 22 recommended) and **Git**.
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
+npm run dev        # http://localhost:3001
 ```
 
 The dev server also runs the form API locally (custom Vite plugin in
@@ -68,7 +68,7 @@ exported in your shell.
 
 | Script | What it does |
 |---|---|
-| `npm run dev` | Dev server on port 3000 (with local `/api/contact`) |
+| `npm run dev` | Dev server on port 3001 (with local `/api/contact`) |
 | `npm run build` | Production build to `dist/` |
 | `npm run preview` | Serve the built `dist/` locally (port 4173) |
 | `npm run images` | Image pipeline: optimize + responsive variants + manifest |

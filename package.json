@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/fetch-content.mjs && vite build",
+    "fetch-content": "node scripts/fetch-content.mjs",
     "preview": "vite preview",
     "optimize-images": "node scripts/optimize-images.mjs",
     "images": "node scripts/optimize-images.mjs && node scripts/responsive-images.mjs",

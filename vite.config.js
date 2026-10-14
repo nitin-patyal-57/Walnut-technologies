@@ -47,7 +47,7 @@ export default defineConfig({
   plugins: [react(), localApi()],
   server: {
     host: true,
-    port: 3000,
+    port: 3001,
     allowedHosts: ['fancy-entrench-stoke.ngrok-free.dev', '.ngrok-free.dev'],
   },
   build: {

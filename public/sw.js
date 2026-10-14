@@ -1,4 +1,4 @@
-const CACHE_NAME = 'walnut-v9';
+const CACHE_NAME = 'walnut-v10';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -23,29 +23,40 @@ self.addEventListener('activate', (event) => {
           .filter((name) => name !== CACHE_NAME)
           .map((name) => caches.delete(name))
       );
-    })
+    }).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
+// Network-first with cache fallback: always show the newest copy when online,
+// keep a copy for offline. Only hashed bundle filenames are safe to serve
+// cache-first, because their URL changes on every deploy.
+const networkFirst = (request, cacheName = CACHE_NAME) =>
+  fetch(request)
+    .then((response) => {
+      if (response && response.status === 200 && response.type === 'basic') {
+        const copy = response.clone();
+        caches.open(cacheName).then((cache) => cache.put(request, copy));
+      }
+      return response;
+    })
+    .catch(() => caches.match(request).then((cached) => cached || Response.error()));
+
 self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
+  const { request } = event;
+  if (request.method !== 'GET') return;
 
-  const url = new URL(event.request.url);
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
 
-  // Cache-first strategy for static assets
-  if (url.pathname.includes('/assets/') || url.pathname.includes('/images/brand/')) {
+  // Hashed build output — URL changes per deploy, so cache-first is safe.
+  if (url.pathname.startsWith('/assets/')) {
     event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(event.request).then((response) => {
+      caches.match(request).then((cached) => {
+        if (cached) return cached;
+        return fetch(request).then((response) => {
           if (response && response.status === 200) {
-            const responseToCache = response.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
           }
           return response;
         });
@@ -54,29 +65,17 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network-first strategy for HTML pages
-  if (event.request.mode === 'navigate') {
+  // Pages: network-first so a new deploy is picked up immediately.
+  if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request).catch(() => {
-        return caches.match('/index.html');
-      })
+      fetch(request)
+        .then((response) => response)
+        .catch(() => caches.match('/index.html'))
     );
     return;
   }
 
-  // Stale-while-revalidate for other resources
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      const fetchPromise = fetch(event.request).then((response) => {
-        if (response && response.status === 200) {
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-        return response;
-      });
-      return cachedResponse || fetchPromise;
-    })
-  );
+  // Images (incl. responsive variants), fonts, JSON data: network-first so an
+  // updated file shows on the very next reload instead of a stale cached one.
+  event.respondWith(networkFirst(request));
 });
