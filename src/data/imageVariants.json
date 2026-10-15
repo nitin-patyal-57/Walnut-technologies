@@ -779,6 +779,20 @@
       480
     ]
   },
+  "images/products/Futuristic Rugged Security Lock Showcase": {
+    "fallback": "/images/products/Futuristic Rugged Security Lock Showcase.png",
+    "fallbackWidth": 1448,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
   "images/products/RTOS": {
     "fallback": "/images/products/RTOS.webp",
     "fallbackWidth": 666,
