@@ -1,0 +1,947 @@
+{
+  "brand": {
+    "name": "Walnut Technologies",
+    "fullName": "Walnut Technologies Pvt. Ltd.",
+    "tagline": "Electronics for the World",
+    "subtitle": "Vertically integrated Original Design Manufacturer delivering medical devices, payment systems, and custom electronics with international certifications.",
+    "location": "Plot No. 132, JLPL Industrial Park, Sector 82, Mohali, Punjab - 160055, India",
+    "description": "Your trusted Original Design Manufacturing partner for medical devices, payment systems, and custom electronics. ISO 13485 certified.",
+    "phone": "+91 77194 63719",
+    "email": "contact@walnutmedical.in",
+    "domain": "walnutmedical.in",
+    "gstn": "03AABCW7814L1Z6",
+    "founded": "2016",
+    "social": {
+      "instagram": "https://www.instagram.com/walnut_medical/",
+      "linkedin": "https://www.linkedin.com/company/walnut-medical-private-limited",
+      "youtube": "https://www.youtube.com/@walnutmedical9305"
+    }
+  },
+  "about": {
+    "mission": "Deliver world-class Original Design Manufacturing for electronics across healthcare, finance, and technology globally.",
+    "vision": "Most trusted Original Design Manufacturing partner for mission-critical electronics, ISO 13485 certified, serving 50+ countries by 2030.",
+    "story": "Founded in 2016, Walnut Technologies Pvt. Ltd. has grown from a small electronics workshop into a vertically integrated Original Design Manufacturer serving 10+ countries. With a 150,000 sq.ft state-of-the-art facility in Mohali, Punjab, we combine cutting-edge technology with uncompromising quality standards to deliver mission-critical electronics across healthcare, finance, and industrial sectors.",
+    "values": [
+      {
+        "title": "Quality First",
+        "description": "ISO 13485, ISO 9001 certified processes with Class 10K cleanroom facility."
+      },
+      {
+        "title": "Innovation",
+        "description": "600+ engineers pushing boundaries in medical, payment, and custom electronics."
+      },
+      {
+        "title": "Global Reach",
+        "description": "Serving 10+ countries with end-to-end manufacturing and logistics."
+      },
+      {
+        "title": "Vertical Integration",
+        "description": "From PCB design to final assembly — complete in-house capabilities."
+      }
+    ],
+    "stats": [
+      {
+        "label": "Years of Excellence",
+        "value": "10+"
+      },
+      {
+        "label": "Engineers & Technicians",
+        "value": "600+"
+      },
+      {
+        "label": "Countries Served",
+        "value": "10+"
+      },
+      {
+        "label": "Units Manufactured/Month",
+        "value": "500K+"
+      },
+      {
+        "label": "Facility Size",
+        "value": "150,000 sq.ft"
+      },
+      {
+        "label": "SMT Production Lines",
+        "value": "4"
+      }
+    ]
+  },
+  "trustSignals": {
+    "stats": [
+      {
+        "label": "Years of Excellence",
+        "value": "10+"
+      },
+      {
+        "label": "Engineers & Technicians",
+        "value": "600+"
+      },
+      {
+        "label": "Countries Served",
+        "value": "10+"
+      },
+      {
+        "label": "Units Manufactured/Month",
+        "value": "500K+"
+      }
+    ],
+    "certifications": [
+      "ISO 13485 Certified",
+      "Class 10K Cleanroom",
+      "CE, FCC, PCI-DSS",
+      "IEC 60601",
+      "BIS Certified",
+      "150,000 sq.ft Facility"
+    ]
+  },
+  "divisions": [
+    {
+      "id": "neuro",
+      "title": "Neuro Rehab Devices",
+      "subtitle": "Advanced Rehabilitation & Gait Training Systems",
+      "description": "Cutting-edge neuro rehabilitation solutions for recovery and gait training with AI-assisted therapy and real-time monitoring.",
+      "icon": "robot",
+      "color": "from-emerald-500 to-teal-600",
+      "features": [
+        "AI-Assisted Therapy",
+        "Patient Dashboard",
+        "Tele-Rehab Ready",
+        "Real-time Monitoring"
+      ],
+      "products": [
+        {
+          "name": "Walk Lab",
+          "image": "/images/products/walklab-product.webp"
+        }
+      ]
+    },
+    {
+      "id": "medical",
+      "title": "Medical",
+      "subtitle": "ISO 13485, Class 10K Cleanroom, FDA Compliant",
+      "description": "Precision medical devices for diagnostics and patient care. Manufactured with international quality standards and regulatory compliance.",
+      "icon": "medkit",
+      "color": "from-cyan-500 to-blue-600",
+      "features": [
+        "FDA Compliant",
+        "Class 10K Cleanroom",
+        "ISO 13485",
+        "IEC 60601"
+      ],
+      "products": [
+        {
+          "name": "Digital Blood Pressure",
+          "image": "/images/products/bp-monitor-removebg.webp"
+        },
+        {
+          "name": "IR Thermometer",
+          "image": "/images/products/TDCS.webp"
+        },
+        {
+          "name": "Oxygen Concentrator",
+          "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp"
+        },
+        {
+          "name": "Walnut Compressor Nebulizer",
+          "image": "/images/products/ces-repose.webp"
+        }
+      ]
+    },
+    {
+      "id": "fintech",
+      "title": "Fintech",
+      "subtitle": "NPCI, RBI, PCI DSS Certified",
+      "description": "Secure and reliable payment terminal manufacturing with end-to-end compliance for modern financial ecosystems.",
+      "icon": "card",
+      "color": "from-violet-500 to-purple-600",
+      "features": [
+        "PCI-DSS Certified",
+        "NPCI Compliant",
+        "RBI Guidelines",
+        "EMV L1/L2"
+      ],
+      "products": [
+        {
+          "name": "Single Sim Model",
+          "image": "/images/products/soundbox-removebg.webp"
+        },
+        {
+          "name": "Double Sim Model",
+          "image": "/images/products/soundbox-new.webp"
+        },
+        {
+          "name": "With Display Model",
+          "image": "/images/products/soundbox-new.webp"
+        },
+        {
+          "name": "Common Model",
+          "image": "/images/products/soundbox-new.webp"
+        },
+        {
+          "name": "DQR: Double Display",
+          "image": "/images/products/soundbox-new.webp"
+        },
+        {
+          "name": "All in One",
+          "image": "/images/products/soundbox-new.webp"
+        },
+        {
+          "name": "RTOS - All In One",
+          "image": "/images/products/RTOS.webp"
+        },
+        {
+          "name": "DQR - Digital QR",
+          "image": "/images/products/DQR.webp"
+        },
+        {
+          "name": "LDQR - Large Display QR",
+          "image": "/images/products/LDQR.webp"
+        }
+      ]
+    },
+    {
+      "id": "automotive",
+      "title": "Automotive",
+      "subtitle": "Industrial & Automotive Electronics",
+      "description": "Robust automotive electronics including cluster displays and harvester systems built for demanding environments.",
+      "icon": "car",
+      "color": "from-amber-500 to-orange-600",
+      "features": [
+        "Durable Design",
+        "Industrial Grade",
+        "Quality Tested",
+        "Custom Solutions"
+      ],
+      "products": [
+        {
+          "name": "Cluster",
+          "image": "/images/products/cluster-removebg.webp"
+        }
+      ]
+    },
+    {
+      "id": "iot",
+      "title": "IoT",
+      "subtitle": "Connected Smart Devices & IoT Solutions",
+      "description": "End-to-end IoT solutions with cloud connectivity, edge computing, and real-time monitoring for smart devices.",
+      "icon": "wifi",
+      "color": "from-cyan-500 to-teal-600",
+      "features": [
+        "BLE/WiFi Connected",
+        "Cloud Integration",
+        "Edge Computing",
+        "Real-time Monitoring"
+      ],
+      "products": [
+        {
+          "name": "IoT Smart Lock",
+          "image": "/images/products/smartlock-product.webp"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "walklab",
+      "category": "Neuro Rehab Devices",
+      "title": "WalkLab Gait Training System",
+      "description": "Advanced rehabilitation robot for gait training and motor recovery. AI-assisted therapy with real-time patient monitoring and tele-rehab capabilities.",
+      "image": "/images/products/neuro.webp",
+      "features": [
+        "Rehabilitation Robot",
+        "AI-Assisted Therapy",
+        "Patient Dashboard",
+        "Tele-Rehab Ready"
+      ]
+    },
+    {
+      "id": "bp-monitor",
+      "category": "Medical",
+      "title": "Digital Blood Pressure Monitor",
+      "description": "Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings.",
+      "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+      "features": [
+        "Clinical Grade",
+        "Digital Display",
+        "Memory Storage",
+        "FDA Cleared"
+      ]
+    },
+    {
+      "id": "thermometer",
+      "category": "Medical",
+      "title": "IR Thermometer",
+      "description": "Fast, hygienic temperature measurement with infrared technology. Ideal for clinical screening and home use.",
+      "image": "/images/products/TDCS.webp",
+      "features": [
+        "Non-Contact",
+        "Instant Reading",
+        "Hygienic",
+        "Battery Operated"
+      ]
+    },
+    {
+      "id": "oxygen-concentrator",
+      "category": "Medical",
+      "title": "Oxygen Concentrator",
+      "description": "Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings.",
+      "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+      "features": [
+        "5L & 10L Flow",
+        "Single/Dual Flow",
+        "ISO 13485",
+        "Low Noise Operation"
+      ]
+    },
+    {
+      "id": "nebulizer",
+      "category": "Medical",
+      "title": "Walnut Compressor Nebulizer",
+      "description": "Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings.",
+      "image": "/images/products/ces-repose.webp",
+      "features": [
+        "Efficient Nebulization",
+        "Low Noise",
+        "Compact Design",
+        "Medical Grade"
+      ]
+    },
+    {
+      "id": "single-sim",
+      "category": "Fintech",
+      "title": "Single SIM Model",
+      "description": "Reliable single SIM payment terminal with essential features for small to medium businesses. Easy deployment and management.",
+      "image": "/images/products/soundbox-new.webp",
+      "features": [
+        "Single SIM",
+        "4G Connectivity",
+        "Compact Design",
+        "Long Battery"
+      ]
+    },
+    {
+      "id": "double-sim",
+      "category": "Fintech",
+      "title": "Double SIM Model",
+      "description": "Dual SIM payment terminal ensuring uninterrupted connectivity with network failover capability for critical transactions.",
+      "image": "/images/products/soundbox-new.webp",
+      "features": [
+        "Dual SIM",
+        "Network Failover",
+        "4G/3G",
+        "Secure Payments"
+      ]
+    },
+    {
+      "id": "with-display",
+      "category": "Fintech",
+      "title": "With Display Model",
+      "description": "Payment terminal with built-in display for enhanced user interaction, transaction visualization, and digital receipts.",
+      "image": "/images/products/soundbox-new.webp",
+      "features": [
+        "LCD Display",
+        "Touch Interface",
+        "Digital Receipts",
+        "User Friendly"
+      ]
+    },
+    {
+      "id": "common-model",
+      "category": "Fintech",
+      "title": "Common Model",
+      "description": "Versatile payment terminal suitable for universal deployment across various business environments and payment scenarios.",
+      "image": "/images/products/soundbox-new.webp",
+      "features": [
+        "Universal Design",
+        "Multi-Payment",
+        "Easy Setup",
+        "Reliable"
+      ]
+    },
+    {
+      "id": "dqr-double-display",
+      "category": "Fintech",
+      "title": "DQR: Double Display",
+      "description": "Advanced payment terminal with dual display configuration for merchant and customer facing interfaces simultaneously.",
+      "image": "/images/products/soundbox-new.webp",
+      "features": [
+        "Dual Display",
+        "Merchant + Customer",
+        "Enhanced UX",
+        "Secure"
+      ]
+    },
+    {
+      "id": "all-in-one",
+      "category": "Fintech",
+      "title": "All in One",
+      "description": "Comprehensive payment solution combining multiple payment methods and features in a single integrated terminal device.",
+      "image": "/images/products/soundbox-new.webp",
+      "features": [
+        "Multiple Payments",
+        "QR + Card",
+        "Audio Confirm",
+        "All-in-One"
+      ]
+    },
+    {
+      "id": "rtos",
+      "category": "Fintech",
+      "title": "RTOS - All In One",
+      "description": "All-in-one RTOS-based soundbox with multiple display configurations. Features 3.47\" LCD display, 2.8\" LCD display, and Segment display options with 2.4\" merchant-side display. Equipped with QR generation and built-in keyboard for seamless payment operations.",
+      "image": "/images/products/RTOS.webp",
+      "features": [
+        "3.47\" LCD Display",
+        "2.8\" LCD Display",
+        "Segment Display",
+        "2.4\" Merchant Display",
+        "QR Generation",
+        "Built-in Keyboard"
+      ]
+    },
+    {
+      "id": "dqr",
+      "category": "Fintech",
+      "title": "DQR - Digital QR",
+      "description": "Digital QR soundbox with LCD display for clear transaction visibility. Compact and efficient design for modern payment acceptance with high-contrast digital display.",
+      "image": "/images/products/DQR.webp",
+      "features": [
+        "Digital QR Display",
+        "LCD Screen",
+        "Compact Design",
+        "Clear Audio",
+        "Fast Processing",
+        "Easy Deployment"
+      ]
+    },
+    {
+      "id": "ldqr",
+      "category": "Fintech",
+      "title": "LDQR - Large Display QR",
+      "description": "Premium soundbox featuring a 10-inch touchscreen customer display and 2.4-inch merchant display with keyboard for generating custom QR codes. Supports NFC Tap and Pay for contactless payments.",
+      "image": "/images/products/LDQR.webp",
+      "features": [
+        "10\" Touch Screen",
+        "2.4\" Merchant Display",
+        "Built-in Keyboard",
+        "Custom QR Generation",
+        "NFC Tap and Pay",
+        "Contactless Payments"
+      ]
+    },
+    {
+      "id": "cluster",
+      "category": "Automotive",
+      "title": "Cluster",
+      "description": "Automotive cluster display systems with advanced instrumentation for real-time vehicle data visualization and driver information.",
+      "image": "/images/products/cluster1.webp",
+      "features": [
+        "Digital Cluster",
+        "Real-time Data",
+        "High Resolution",
+        "Durable"
+      ]
+    },
+    {
+      "id": "iot-smart-lock",
+      "category": "IoT",
+      "title": "IoT Smart Lock",
+      "description": "Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities.",
+      "image": "/images/products/iot-lock-smart.webp",
+      "features": [
+        "BLE/WiFi Connected",
+        "Remote Access",
+        "Real-time Monitoring",
+        "Cloud Integration"
+      ]
+    }
+  ],
+  "expertise": [
+    {
+      "title": "Medical Electronics",
+      "description": "Life-critical medical device design and manufacturing with full regulatory compliance.",
+      "icon": "heart",
+      "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+      "areas": [
+        "Patient Monitoring",
+        "Diagnostics",
+        "Neuro Rehab",
+        "Therapeutic Devices",
+        "Oxygen Concentrators"
+      ]
+    },
+    {
+      "title": "Embedded Systems & IoT",
+      "description": "Firmware, RTOS, and cloud-connected embedded solutions for smart devices.",
+      "icon": "cpu",
+      "image": "/images/products/iot-lock-smart.webp",
+      "areas": [
+        "ARM/MCU",
+        "RTOS/Linux",
+        "BLE/WiFi",
+        "Cloud IoT",
+        "Edge Computing"
+      ]
+    },
+    {
+      "title": "PCB Design & Fabrication",
+      "description": "Multi-layer, HDI, and flex PCB design optimized for high-volume manufacturing.",
+      "icon": "board",
+      "image": "/images/process/design-and-engineering.webp",
+      "areas": [
+        "Up to 12 Layers",
+        "HDI Technology",
+        "Flex/Rigid-Flex",
+        "Signal Integrity"
+      ]
+    },
+    {
+      "title": "Manufacturing & Assembly",
+      "description": "4 advanced SMT lines with 500K+ units per month capacity and 99.8% yield.",
+      "icon": "gear",
+      "image": "/images/products/TDCS.webp",
+      "areas": [
+        "SMT Assembly",
+        "Box Build",
+        "Conformal Coating",
+        "In-Circuit Testing"
+      ]
+    },
+    {
+      "title": "Quality & Compliance",
+      "description": "ISO 13485 certified quality management with Class 10K cleanroom facility.",
+      "icon": "check",
+      "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+      "areas": [
+        "ISO 13485",
+        "ISO 9001",
+        "FDA QSR",
+        "CE Marking",
+        "IEC 60601"
+      ]
+    },
+    {
+      "title": "Payment Hardware Security",
+      "description": "PCI PTS, EMVCo, and NPCI certified payment terminal design and manufacturing.",
+      "icon": "shield",
+      "image": "/images/products/soundbox-new.webp",
+      "areas": [
+        "PCI PTS 5.x",
+        "EMV L1/L2",
+        "Secure Element",
+        "Tamper Detection"
+      ]
+    },
+    {
+      "title": "Software & Firmware",
+      "description": "Full-stack firmware development, device drivers, and companion applications.",
+      "icon": "code",
+      "image": "/images/products/soundbox-new.webp",
+      "areas": [
+        "Bare Metal",
+        "Embedded Linux",
+        "Android BSP",
+        "Mobile Apps"
+      ]
+    },
+    {
+      "title": "Supply Chain & Logistics",
+      "description": "End-to-end supply chain management with global component sourcing and delivery.",
+      "icon": "globe",
+      "image": "/images/products/soundbox-new.webp",
+      "areas": [
+        "Global Sourcing",
+        "Inventory Mgmt",
+        "Customs Clearance",
+        "Door-to-Door"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Idea & Requirement",
+      "subtitle": "Clear Direction",
+      "details": [
+        "Understand Vision",
+        "Identify Needs",
+        "Feasibility Study",
+        "Project Planning"
+      ],
+      "icon": "lightbulb",
+      "color": "from-blue-500 to-cyan-500"
+    },
+    {
+      "step": 2,
+      "title": "Research & Market Analysis",
+      "subtitle": "Right Opportunity",
+      "details": [
+        "Market Research",
+        "Competitor Analysis",
+        "Technology Study",
+        "Concept Validation"
+      ],
+      "icon": "search",
+      "color": "from-cyan-500 to-teal-500"
+    },
+    {
+      "step": 3,
+      "title": "Design & Engineering",
+      "subtitle": "Optimized Design",
+      "details": [
+        "Industrial Design",
+        "Mechanical Design",
+        "Electronics Design",
+        "PCB Design",
+        "DFMA / DFA"
+      ],
+      "icon": "design",
+      "color": "from-teal-500 to-green-500"
+    },
+    {
+      "step": 4,
+      "title": "Prototype Development",
+      "subtitle": "Working Prototype",
+      "details": [
+        "Prototype Build",
+        "3D Printing",
+        "Functional Testing",
+        "Engineering Samples"
+      ],
+      "icon": "prototype",
+      "color": "from-green-500 to-emerald-500"
+    },
+    {
+      "step": 5,
+      "title": "Validation & Testing",
+      "subtitle": "Validated Performance",
+      "details": [
+        "EVT / DVT / PVT",
+        "Performance Testing",
+        "Reliability Testing",
+        "Environmental Testing",
+        "Compliance Testing"
+      ],
+      "icon": "testing",
+      "color": "from-emerald-500 to-lime-500"
+    },
+    {
+      "step": 6,
+      "title": "Manufacturing Engineering",
+      "subtitle": "Production Ready",
+      "details": [
+        "Process Development",
+        "Line Layout Planning",
+        "SOP & Work Instruction",
+        "Fixture & Tooling",
+        "NPI & Documentation",
+        "SMT & PCB Assembly",
+        "Mechanical Assembly",
+        "Sub & Final Assembly",
+        "Software / Firmware Loading",
+        "Product Integration",
+        "Functional Testing",
+        "Serial Numbering"
+      ],
+      "icon": "manufacturing",
+      "color": "from-lime-500 to-orange-500"
+    },
+    {
+      "step": 7,
+      "title": "Quality Assurance",
+      "subtitle": "Zero Defect Mindset",
+      "details": [
+        "Incoming Inspection",
+        "In-Process Inspection",
+        "Final Quality Check",
+        "Reliability Audit",
+        "Traceability"
+      ],
+      "icon": "quality",
+      "color": "from-red-500 to-rose-500"
+    },
+    {
+      "step": 8,
+      "title": "Packaging & Dispatch",
+      "subtitle": "Safe & On-time Delivery",
+      "details": [
+        "Product Packaging",
+        "Labeling & Barcode",
+        "Final Inspection",
+        "Safe Packing",
+        "Dispatch"
+      ],
+      "icon": "packaging",
+      "color": "from-rose-500 to-pink-500"
+    },
+    {
+      "step": 9,
+      "title": "After Sales Support",
+      "subtitle": "Reliable Support",
+      "details": [
+        "Technical Support",
+        "Warranty Service",
+        "Spare Parts Support",
+        "Product Training"
+      ],
+      "icon": "support",
+      "color": "from-pink-500 to-purple-500"
+    },
+    {
+      "step": 10,
+      "title": "Continuous Improvement",
+      "subtitle": "Better Every Day",
+      "details": [
+        "Customer Feedback",
+        "Data Analysis",
+        "Process Improvement",
+        "Innovation & R&D"
+      ],
+      "icon": "improvement",
+      "color": "from-purple-500 to-indigo-500"
+    }
+  ],
+  "industryFourTechnologies": [
+    {
+      "title": "IoT & Connectivity",
+      "description": "Real-time data from machines and devices",
+      "icon": "iot"
+    },
+    {
+      "title": "MES & Digital Workflow",
+      "description": "End-to-end visibility and smart production control",
+      "icon": "mes"
+    },
+    {
+      "title": "AI & Analytics",
+      "description": "Predictive insights for quality, maintenance & efficiency",
+      "icon": "ai"
+    },
+    {
+      "title": "Digital Twin",
+      "description": "Virtual simulation for better planning and validation",
+      "icon": "twin"
+    },
+    {
+      "title": "Cloud Platform",
+      "description": "Secure data storage, anytime, anywhere access",
+      "icon": "cloud"
+    },
+    {
+      "title": "Automation & Robotics",
+      "description": "Smart automation for precision, speed & consistency",
+      "icon": "robot"
+    }
+  ],
+  "impactBenefits": [
+    {
+      "title": "High Quality",
+      "description": "Reliable products with zero compromise",
+      "icon": "quality-badge"
+    },
+    {
+      "title": "Faster Time to Market",
+      "description": "Agile processes for quick turnaround",
+      "icon": "speed"
+    },
+    {
+      "title": "Cost Optimization",
+      "description": "Efficient operations lower total cost",
+      "icon": "cost"
+    },
+    {
+      "title": "Sustainable Solutions",
+      "description": "Environment conscious & responsible",
+      "icon": "sustainable"
+    },
+    {
+      "title": "Data Security & Traceability",
+      "description": "100% traceability from component to customer",
+      "icon": "security"
+    },
+    {
+      "title": "Customer Satisfaction",
+      "description": "Built for performance. Designed for trust.",
+      "icon": "customer"
+    }
+  ],
+  "clientSectors": [
+    {
+      "sector": "Healthcare",
+      "description": "Hospitals, clinics, and medical device companies",
+      "clients": [
+        "Apollo Hospitals",
+        "Fortis",
+        "Manipal",
+        "Medanta"
+      ],
+      "icon": "hospital",
+      "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+      "gradient": "from-emerald-500 to-teal-600"
+    },
+    {
+      "sector": "Defence & Aerospace",
+      "description": "Mission-critical electronics for defence applications",
+      "clients": [
+        "Indian Army",
+        "Indian Navy",
+        "IAF",
+        "AFMS"
+      ],
+      "icon": "shield",
+      "image": "/images/products/ces-repose.webp",
+      "gradient": "from-red-500 to-rose-600"
+    },
+    {
+      "sector": "Banking & Payments",
+      "description": "POS terminals, soundboxes, and payment devices",
+      "clients": [
+        "HDFC Bank",
+        "SBI",
+        "Paytm",
+        "BharatPe"
+      ],
+      "icon": "gov",
+      "image": "/images/products/soundbox-new.webp",
+      "gradient": "from-blue-500 to-indigo-600"
+    },
+    {
+      "sector": "Pharmaceutical",
+      "description": "Manufacturing equipment and monitoring systems",
+      "clients": [
+        "Sun Pharma",
+        "Cipla",
+        "Ipca Labs"
+      ],
+      "icon": "pharma",
+      "image": "/images/products/neuro_rehab_device.webp",
+      "gradient": "from-green-500 to-emerald-600"
+    },
+    {
+      "sector": "Energy & Utilities",
+      "description": "Smart metering, grid monitoring, and industrial controls",
+      "clients": [],
+      "icon": "energy",
+      "image": "/images/products/iot-lock-smart.webp",
+      "gradient": "from-yellow-500 to-amber-600"
+    },
+    {
+      "sector": "Industrial & Automotive",
+      "description": "Industrial electronics, sensors, and automotive components",
+      "clients": [],
+      "icon": "industry",
+      "image": "/images/products/TDCS.webp",
+      "gradient": "from-slate-500 to-gray-600"
+    }
+  ],
+  "resources": [
+    {
+      "id": "whitepaper-1",
+      "title": "ISO 13485 Compliance in Medical Device Manufacturing",
+      "type": "Whitepaper",
+      "description": "A comprehensive guide to achieving and maintaining ISO 13485 certification for medical device manufacturers. Covers quality management systems, risk-based thinking, and regulatory requirements.",
+      "icon": "whitepaper",
+      "color": "from-blue-600 to-cyan-500"
+    },
+    {
+      "id": "case-study-1",
+      "title": "WalkLab Robotic Gait Training: From Prototype to Clinical Deployment",
+      "type": "Case Study",
+      "description": "How Walnut Technologies developed and scaled the WalkLab Robotic Gait Training system from concept to FDA-approved neuro rehabilitation device with AI-assisted therapy.",
+      "icon": "casestudy",
+      "color": "from-purple-600 to-pink-500"
+    },
+    {
+      "id": "brochure-1",
+      "title": "Walnut Technologies Company Overview 2026",
+      "type": "Brochure",
+      "description": "Complete overview of our 150,000 sq.ft manufacturing facility, 4 SMT lines, Class 10K cleanroom, and end-to-end OEM/ODM capabilities across medical, fintech, and IoT divisions.",
+      "icon": "brochure",
+      "color": "from-amber-500 to-orange-600"
+    },
+    {
+      "id": "whitepaper-2",
+      "title": "PCI-DSS & EMV Certification for Payment Terminal Manufacturing",
+      "type": "Whitepaper",
+      "description": "Technical deep-dive into PCI-DSS compliance, EMV L1/L2 certification, and NPCI/RBI requirements for secure payment hardware development in India.",
+      "icon": "whitepaper",
+      "color": "from-emerald-600 to-teal-500"
+    },
+    {
+      "id": "case-study-2",
+      "title": "HDFC Bank POS Terminal Deployment: 10,000+ Units Across India",
+      "type": "Case Study",
+      "description": "Large-scale manufacturing and deployment of PCI-DSS certified POS payment terminals for HDFC Bank, covering design, production, certification, and nationwide logistics.",
+      "icon": "casestudy",
+      "color": "from-rose-600 to-red-500"
+    },
+    {
+      "id": "brochure-2",
+      "title": "Neuro Rehabilitation Devices Product Catalog",
+      "type": "Brochure",
+      "description": "Detailed catalog of WalkLab Gait Training, Walkex FES, rTMS MedStim, TDCS Mind Acquity, and CES Repose devices with specifications, clinical applications, and certifications.",
+      "icon": "brochure",
+      "color": "from-cyan-600 to-blue-500"
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "date": "March 15, 2026",
+      "title": "Walnut Technologies Achieves ISO 13485:2024 Recertification",
+      "description": "Successfully completed recertification audit with zero non-conformities, reaffirming our commitment to quality management systems for medical device manufacturing.",
+      "category": "Certification",
+      "image": "/images/process/quality-assurance.webp",
+      "readTime": "3 min read"
+    },
+    {
+      "id": 2,
+      "date": "January 20, 2026",
+      "title": "Expanded Manufacturing Capacity: 4th SMT Line Operational",
+      "description": "New SMT line increases monthly production capacity to 500K+ units, supporting growing demand across medical, fintech, and IoT divisions.",
+      "category": "Expansion",
+      "image": "/images/process/contract-manufacturing.webp",
+      "readTime": "4 min read"
+    },
+    {
+      "id": 3,
+      "date": "November 5, 2025",
+      "title": "Partnership with Leading Neuro-Rehabilitation Research Institute",
+      "description": "Strategic collaboration to develop next-generation AI-assisted therapy devices including WalkLab and Walkex FES systems.",
+      "category": "Partnership",
+      "image": "/images/products/neuro_rehab_device.webp",
+      "readTime": "5 min read"
+    },
+    {
+      "id": 4,
+      "date": "September 12, 2025",
+      "title": "Featured in Electronics Manufacturing Today",
+      "description": "Cover story highlighting India's role in global electronics manufacturing and Walnut Technologies' growth journey from startup to industry leader.",
+      "category": "Press",
+      "image": "/images/backgrounds/aboutbackground.webp",
+      "readTime": "6 min read"
+    },
+    {
+      "id": 5,
+      "date": "July 8, 2025",
+      "title": "New Payment Terminal Receives PCI PTS 5.x Certification",
+      "description": "Latest payment terminal platform achieves highest security certification standard, enabling deployment across banking and retail sectors.",
+      "category": "Product",
+      "image": "/images/products/soundbox-new.webp",
+      "readTime": "3 min read"
+    },
+    {
+      "id": 6,
+      "date": "April 22, 2025",
+      "title": "Walnut Crosses 10 Million Units Manufactured Milestone",
+      "description": "Celebrating a major manufacturing milestone with 10 million devices shipped globally across 10+ countries.",
+      "category": "Milestone",
+      "image": "/images/process/packaging-and-dispatch.webp",
+      "readTime": "4 min read"
+    }
+  ],
+  "chatbot": {
+    "greeting": "Hi there! Welcome to Walnut Technologies. I'm your virtual assistant. How can I help you today?",
+    "leadCapture": "By the way, would you like our team to reach out to you? I just need your name and email."
+  }
+}

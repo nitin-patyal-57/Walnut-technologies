@@ -12,7 +12,11 @@
     "Safari >= 14"
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -k -n site,api,admin -c green,blue,magenta \"npm:dev:site\" \"npm:dev:admin-api\" \"npm:dev:admin-ui\"",
+    "dev:site": "vite",
+    "dev:admin-api": "npm --prefix walnut-admin/server run dev",
+    "dev:admin-ui": "npm --prefix walnut-admin/client run dev",
+    "admin": "npm --prefix walnut-admin run dev",
     "build": "node scripts/fetch-content.mjs && vite build",
     "fetch-content": "node scripts/fetch-content.mjs",
     "preview": "vite preview",
@@ -31,6 +35,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.0",
     "autoprefixer": "^10.4.19",
+    "concurrently": "^9.1.2",
     "postcss": "^8.4.38",
     "puppeteer-core": "^25.12.0",
     "sharp": "^0.35.4",

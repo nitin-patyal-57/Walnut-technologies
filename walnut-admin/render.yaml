@@ -1,0 +1,38 @@
+# Render Blueprint — one web service hosts the API and the React admin.
+# In Render: New → Blueprint → pick this repo. Secrets marked sync:false are
+# entered in the dashboard (never committed).
+services:
+  - type: web
+    name: walnut-admin
+    runtime: node
+    region: singapore
+    plan: starter # always-on; the free plan sleeps and slows down website builds
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22.20.0
+      - key: APP_URL
+        value: https://admin.walnutmedical.in
+      - key: ALLOWED_EMAIL_DOMAINS
+        value: walnutmedical.in
+      - key: MAIL_FROM
+        value: Walnut Admin <noreply@walnutmedical.in>
+      - key: PUBLIC_CORS_ORIGINS
+        value: https://walnutmedical.in,https://www.walnutmedical.in
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: LEADS_INGEST_KEY
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: ENCRYPTION_KEY
+        sync: false # 32 bytes base64 — see README; never change it after go-live
+      - key: RESEND_API_KEY
+        sync: false
+      - key: VERCEL_DEPLOY_HOOK_URL
+        sync: false

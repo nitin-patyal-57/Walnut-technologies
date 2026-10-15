@@ -49,6 +49,18 @@ export default defineConfig({
     host: true,
     port: 3001,
     allowedHosts: ['fancy-entrench-stoke.ngrok-free.dev', '.ngrok-free.dev'],
+    // One origin in local dev, exactly like production: open this server for
+    // the site and /admin for the panel. Order matters — the API path is
+    // matched before the admin UI fallback, and the UI needs websockets so
+    // the admin's HMR keeps working through the proxy.
+    proxy: {
+      '/admin/api': {
+        target: 'http://localhost:4000',
+        rewrite: (path) => path.replace(/^\/admin/, ''),
+      },
+      '/media': 'http://localhost:4000',
+      '/admin': { target: 'http://localhost:5174', ws: true },
+    },
   },
   build: {
     rollupOptions: {
