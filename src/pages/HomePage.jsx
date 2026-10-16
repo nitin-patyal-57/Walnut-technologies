@@ -504,11 +504,13 @@ function ClientsCertifications() {
     { name: t('clients.client6'), logo: '/images/clients/indian-army.webp' },
   ];
 
-  // Split 'Clients & Certifications' on the ampersand so both halves stay translated.
+  // Split 'Clients & Certifications' on the ampersand so both halves stay
+  // translated. The accent keeps the '&' — slicing it out and rendering the
+  // two halves either side of a space dropped it from the heading entirely.
   const rawTitle = t('clients.title');
   const amp = rawTitle.indexOf('&');
   const headingLead = amp === -1 ? rawTitle : rawTitle.slice(0, amp).trim();
-  const headingAccent = amp === -1 ? '' : rawTitle.slice(amp + 1).trim();
+  const headingAccent = amp === -1 ? '' : rawTitle.slice(amp).trim();
 
   return (
     <section className="relative py-12 md:py-16 overflow-hidden bg-white">
@@ -606,28 +608,36 @@ function ClientsCertifications() {
               </span>
               <span className="h-px flex-1 bg-[#E3EDF8]" />
             </div>
-            <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3">
-              {clients.map((client, index) => (
-                <motion.div
-                  key={client.name}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.45, delay: 0.45 + index * 0.06 }}
-                  className="group flex h-16 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:h-20"
-                >
-                  <Picture
-                    src={client.logo}
-                    alt={client.name}
-                    sizes="(max-width: 640px) 30vw, 150px"
-                    loading="lazy"
-                    className={`max-w-full object-contain opacity-85 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 ${
-                      client.logo.includes('bhartpe')
-                        ? 'max-h-16 sm:max-h-20'
-                        : 'max-h-10 sm:max-h-12'
-                    }`}
-                  />
-                </motion.div>
-              ))}
+            {/* Continuous right-to-left marquee. The row is rendered twice and
+                shifted by exactly -50%, so it loops with no seam. Spacing is a
+                margin on each tile rather than a flex gap — a gap would leave
+                the two halves half a gutter out of step and visibly jump. */}
+            <div className="marquee-group relative mt-3 overflow-hidden">
+              <div
+                className={`marquee-mask flex w-max items-center ${
+                  reduceMotion ? '' : 'animate-marquee-left'
+                }`}
+              >
+                {[...clients, ...clients].map((client, index) => (
+                  <div
+                    key={`${client.name}-${index}`}
+                    aria-hidden={index >= clients.length}
+                    className="group mr-2 flex h-16 w-[124px] shrink-0 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:mr-3 sm:h-20 sm:w-[156px]"
+                  >
+                    <Picture
+                      src={client.logo}
+                      alt={client.name}
+                      sizes="156px"
+                      loading="lazy"
+                      className={`max-w-full object-contain opacity-85 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 ${
+                        client.logo.includes('bhartpe')
+                          ? 'max-h-16 sm:max-h-20'
+                          : 'max-h-10 sm:max-h-12'
+                      }`}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

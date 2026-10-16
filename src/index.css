@@ -502,6 +502,12 @@ picture {
   animation-play-state: paused;
 }
 
+/* Soft-fade the ends of a marquee so logos dissolve instead of clipping. */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+
 /* Respect the user's reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   html {
