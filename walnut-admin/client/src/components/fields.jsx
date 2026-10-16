@@ -4,7 +4,7 @@ import MediaPicker from './MediaPicker';
 import { Button, cx } from './ui';
 
 // Where website-relative image paths (/images/...) are previewed from.
-export const WEBSITE_URL = (import.meta.env.VITE_WEBSITE_URL || 'https://walnutmedical.in').replace(/\/$/, '');
+export const WEBSITE_URL = (import.meta.env.VITE_WEBSITE_URL || 'https://walnut-technologies.vercel.app').replace(/\/$/, '');
 export const previewSrc = (src) => (src?.startsWith('/') ? WEBSITE_URL + src : src);
 
 // Empty value for a field definition (used when adding list items).

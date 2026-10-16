@@ -191,8 +191,8 @@ export default function CareerPage() {
               "hiringOrganization": {
                 "@type": "Organization",
                 "name": "Walnut Technologies Pvt. Ltd.",
-                "sameAs": "https://walnutmedical.in",
-                "logo": "https://walnutmedical.in/images/brand/Walnut_Technologies_logo_transparent.webp"
+                "sameAs": "https://walnut-technologies.vercel.app",
+                "logo": "https://walnut-technologies.vercel.app/images/brand/Walnut_Technologies_logo_transparent.webp"
               },
               "jobLocation": {
                 "@type": "Place",

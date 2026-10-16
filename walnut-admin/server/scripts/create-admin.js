@@ -1,5 +1,5 @@
 // Creates the first Super Admin and prints a one-time link to set the password.
-//   npm run create-admin -- --email you@walnutmedical.in --name "Your Name"
+//   npm run create-admin -- --email you@tech.in --name "Your Name"
 // (or set SEED_ADMIN_EMAIL / SEED_ADMIN_NAME in .env)
 import { config } from '../src/config.js';
 import { randomToken, sha256 } from '../src/lib/crypto.js';
@@ -16,7 +16,7 @@ const email = (arg('email') || process.env.SEED_ADMIN_EMAIL || '').trim().toLowe
 const name = (arg('name') || process.env.SEED_ADMIN_NAME || '').trim();
 
 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || name.length < 2) {
-  console.error('Usage: npm run create-admin -- --email you@walnutmedical.in --name "Your Name"');
+  console.error('Usage: npm run create-admin -- --email you@tech.in --name "Your Name"');
   process.exit(1);
 }
 

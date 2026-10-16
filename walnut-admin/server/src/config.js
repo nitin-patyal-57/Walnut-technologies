@@ -52,7 +52,7 @@ export const config = {
   resendApiKey: env.RESEND_API_KEY || '',
   mailFrom: env.MAIL_FROM || 'Walnut Admin <onboarding@resend.dev>',
   deployHookUrl: env.VERCEL_DEPLOY_HOOK_URL || '',
-  publicCorsOrigins: list(env.PUBLIC_CORS_ORIGINS || 'https://walnutmedical.in,https://www.walnutmedical.in,http://localhost:3000,http://localhost:5173'),
+  publicCorsOrigins: list(env.PUBLIC_CORS_ORIGINS || 'https://walnut-technologies.vercel.app,https://www.walnut-technologies.vercel.app,http://localhost:3001,http://localhost:5173,http://localhost:3000'),
 
   // Security policy
   accessTokenTtlSec: 15 * 60,

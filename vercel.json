@@ -30,7 +30,7 @@
     "admin_api": {
       "root": "walnut-admin/server/",
       "framework": "express",
-      "entrypoint": "src/index.js:app"
+      "entrypoint": "src/index.js"
     }
   },
   "rewrites": [

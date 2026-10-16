@@ -1,7 +1,7 @@
 // Pulls published content from the Walnut Admin panel into src/data/content.json
 // before every build. Runs as part of `npm run build`.
 //
-//   CMS_API_URL=https://admin.walnutmedical.in  → fetch (build fails if unreachable,
+//   CMS_API_URL=https://walnut-technologies.vercel.app/admin  → fetch (build fails if unreachable,
 //                                                  so a broken fetch never ships stale content
 //                                                  as if it were a publish; the live site stays as is)
 //   CMS_API_URL unset (local dev)                → skip, keep the committed content.json

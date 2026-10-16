@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://walnutmedical.in/sitemap.xml
+Sitemap: https://walnut-technologies.vercel.app/sitemap.xml
 
 # Disallow admin pages
 Disallow: /admin

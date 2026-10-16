@@ -28,7 +28,7 @@ export function ContentIndex() {
     <>
       <PageHeader
         title="Website Content"
-        description="Edit text, lists and images used on walnutmedical.in. Changes are saved as drafts until you publish."
+        description="Edit text, lists and images used on walnut-technologies.vercel.app. Changes are saved as drafts until you publish."
         actions={changed > 0 && <Link to="/publish" className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-ink hover:opacity-90">Publish {changed} change{changed > 1 ? 's' : ''}</Link>}
       />
       <div className="space-y-8">

@@ -1,6 +1,6 @@
 // Break-glass: clears two-factor for one account, unlocks it and signs it out
 // everywhere. Use only when no other Super Admin can do it from the UI.
-//   npm run reset-mfa -- --email someone@walnutmedical.in
+//   npm run reset-mfa -- --email someone@tech.in
 import { connectDb, disconnectDb } from '../src/db.js';
 import { AuditLog } from '../src/models/AuditLog.js';
 import { Session } from '../src/models/Session.js';
@@ -9,7 +9,7 @@ import { User } from '../src/models/User.js';
 const i = process.argv.indexOf('--email');
 const email = (i > -1 ? process.argv[i + 1] : '').trim().toLowerCase();
 if (!email) {
-  console.error('Usage: npm run reset-mfa -- --email someone@walnutmedical.in');
+  console.error('Usage: npm run reset-mfa -- --email someone@tech.in');
   process.exit(1);
 }
 

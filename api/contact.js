@@ -50,8 +50,8 @@ function getClientIp(req) {
 }
 
 const ALLOWED_ORIGINS = [
-  'https://walnutmedical.in',
-  'https://www.walnutmedical.in',
+  'https://walnut-technologies.vercel.app',
+  'https://www.walnut-technologies.vercel.app',
   'http://localhost:3000',
   'http://localhost:3001',
   'http://localhost:5173',
