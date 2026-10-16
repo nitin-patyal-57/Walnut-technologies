@@ -25,7 +25,12 @@
     },
     "admin_ui": {
       "root": "walnut-admin/client/",
-      "framework": "vite"
+      "framework": "vite",
+      "rewrites": [
+        { "source": "/admin/(.*)", "destination": "/$1" },
+        { "source": "/admin", "destination": "/index.html" },
+        { "source": "/(.*)", "destination": "/index.html" }
+      ]
     },
     "admin_api": {
       "root": "walnut-admin/server/",
@@ -37,6 +42,8 @@
     { "source": "/admin/api/(.*)", "destination": { "service": "admin_api" } },
     { "source": "/media/(.*)", "destination": { "service": "admin_api" } },
     { "source": "/healthz", "destination": { "service": "admin_api" } },
+    { "source": "/api/contact", "destination": { "service": "admin_api" } },
+    { "source": "/admin", "destination": { "service": "admin_ui" } },
     { "source": "/admin/(.*)", "destination": { "service": "admin_ui" } },
     { "source": "/(.*)", "destination": { "service": "website" } }
   ],

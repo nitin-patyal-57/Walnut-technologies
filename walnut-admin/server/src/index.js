@@ -4,10 +4,12 @@ import { connectDb, disconnectDb } from './db.js';
 
 await connectDb();
 
-// Vercel invokes the exported `app` directly (vercel.json →
-// services.admin_api.entrypoint "src/index.js:app"), so it is built at import
-// time. Locally we listen on a port instead — serverless has no listener.
+// Built at import time: serverless has no listener, and Vercel's Services
+// builder dispatches the DEFAULT export of the entrypoint. Exporting only a
+// named `app` makes it die at runtime with "Invalid export found in module …
+// The default export must be a function or server."
 export const app = createApp();
+export default app;
 
 if (!process.env.VERCEL) {
   const server = app.listen(config.port, () => {

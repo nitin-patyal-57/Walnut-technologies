@@ -16,6 +16,8 @@ import leadRoutes from './routes/leads.js';
 import mediaRoutes from './routes/media.js';
 import { mediaFiles, publicApi } from './routes/public.js';
 import userRoutes from './routes/users.js';
+// Website contact form. Lives at the repo root next to the site it serves.
+import contactSubmission from '../../../api/contact.js';
 
 export function createApp() {
   const app = express();
@@ -56,6 +58,15 @@ export function createApp() {
   // Public surface used by the website.
   app.use('/media', mediaFiles);
   app.use(apiPrefixes.map((p) => `${p}/public`), publicApi);
+
+  // The contact form handler expects Vercel's res.status/res.json helpers and
+  // a parsed req.body. The Services runtime hands raw handlers neither (the
+  // Vite dev server shims all three), so it runs through Express instead.
+  app.use(
+    apiPrefixes.map((p) => `${p}/contact`),
+    express.json({ limit: '8mb' }),
+    contactSubmission,
+  );
 
   // Admin API.
   const api = express.Router();
