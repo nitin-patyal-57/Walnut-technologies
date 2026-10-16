@@ -233,6 +233,85 @@ export const COLLECTIONS = [
     ],
   },
 
+  // ── Site structure ──
+  {
+    key: 'pages',
+    label: 'Pages',
+    group: 'Site Structure',
+    kind: 'list',
+    itemLabel: 'title',
+    description:
+      'Standalone pages you create yourself. Each one is published at /p/<slug> and can be added to the header menu. Changes here need a Publish before the page goes live.',
+    fields: [
+      {
+        name: 'slug', label: 'URL slug', type: 'text', required: true, slug: true, reserved: true, max: 60,
+        help: 'Lowercase letters, numbers and dashes only. The page will live at /p/this-slug. Cannot reuse a name the site already uses (about, contact, career…).',
+      },
+      { name: 'title', label: 'Page title (H1)', type: 'text', required: true, max: 120 },
+      { name: 'subtitle', label: 'Subtitle', type: 'textarea', max: 300 },
+      {
+        name: 'showInNav', label: 'Show in the header menu', type: 'select', required: true,
+        options: ['yes', 'no'], help: 'Pick "no" to keep the page live but out of the menu (e.g. a link you send by email).',
+      },
+      { name: 'navLabel', label: 'Menu label', type: 'text', max: 40, when: { field: 'showInNav', equals: 'yes' }, help: 'The word shown in the header menu.' },
+      { name: 'navOrder', label: 'Menu order', type: 'number', max: 100, when: { field: 'showInNav', equals: 'yes' }, help: 'Lower numbers appear first. Existing menu items come before yours.' },
+      { name: 'heroImage', label: 'Hero image', type: 'image' },
+      { name: 'ctaLabel', label: 'Hero button label', type: 'text', max: 40 },
+      { name: 'ctaLink', label: 'Hero button link', type: 'text', max: 200, help: 'A site path like /contact or a full https:// URL.' },
+      {
+        name: 'seoTitle', label: 'Browser tab title', type: 'text', max: 70,
+        help: 'Shown in the browser tab and search results. Leave blank to use the page title.',
+      },
+      { name: 'seoDescription', label: 'Search description', type: 'textarea', max: 180, help: 'The grey text Google shows under your link.' },
+      {
+        name: 'blocks', label: 'Page content', type: 'list', itemLabel: 'type',
+        help: 'Add sections in order — they appear top to bottom on the page.',
+        fields: [
+          {
+            name: 'type', label: 'Block type', type: 'select', required: true,
+            options: ['heading', 'text', 'image', 'cards', 'stats', 'faq', 'cta'],
+          },
+          { name: 'tone', label: 'Background', type: 'select', options: ['light', 'muted', 'dark', 'brand'], help: 'Section background colour.' },
+          { name: 'heading', label: 'Heading', type: 'text', max: 140, when: { field: 'type', equals: ['heading', 'text', 'image', 'cards', 'stats', 'faq', 'cta'] } },
+          {
+            name: 'text', label: 'Text', type: 'textarea', max: 4000,
+            when: { field: 'type', equals: ['heading', 'text', 'image', 'cta'] },
+            help: 'Leave a blank line between paragraphs.',
+          },
+          { name: 'image', label: 'Image', type: 'image', when: { field: 'type', equals: 'image' } },
+          {
+            name: 'columns', label: 'Columns', type: 'select', options: ['2', '3', '4'],
+            when: { field: 'type', equals: 'cards' },
+          },
+          {
+            name: 'cards', label: 'Cards', type: 'list', itemLabel: 'title', when: { field: 'type', equals: 'cards' },
+            fields: [
+              { name: 'title', label: 'Title', type: 'text', required: true, max: 100 },
+              { name: 'description', label: 'Description', type: 'textarea', max: 400 },
+              { name: 'icon', label: 'Icon name', type: 'text', max: 40, help: 'Optional. Ask a developer for available icon names.' },
+            ],
+          },
+          {
+            name: 'stats', label: 'Numbers', type: 'list', itemLabel: 'value', when: { field: 'type', equals: 'stats' },
+            fields: [
+              { name: 'value', label: 'Value', type: 'text', required: true, max: 40, help: 'e.g. "50+"' },
+              { name: 'label', label: 'Label', type: 'text', required: true, max: 80, help: 'e.g. "Countries served"' },
+            ],
+          },
+          {
+            name: 'items', label: 'Questions & answers', type: 'list', itemLabel: 'question', when: { field: 'type', equals: 'faq' },
+            fields: [
+              { name: 'question', label: 'Question', type: 'text', required: true, max: 200 },
+              { name: 'answer', label: 'Answer', type: 'textarea', required: true, max: 1200 },
+            ],
+          },
+          { name: 'ctaLabel', label: 'Button label', type: 'text', max: 40, when: { field: 'type', equals: 'cta' } },
+          { name: 'ctaLink', label: 'Button link', type: 'text', max: 200, when: { field: 'type', equals: 'cta' } },
+        ],
+      },
+    ],
+  },
+
   // ── Chat ──
   {
     key: 'chatbot',
@@ -292,6 +371,13 @@ function objectSchema(fields) {
   return z.object(Object.fromEntries(fields.map((f) => [f.name, fieldSchema(f)]))).strip();
 }
 
+// Paths the website already owns — a custom page may never claim these.
+const RESERVED_SLUGS = new Set([
+  'admin', 'api', 'media', 'healthz', 'p', 'images', 'assets', 'favicon.ico',
+  'about', 'solutions', 'process', 'expertise', 'clients', 'resources', 'news',
+  'contact', 'career', 'apply', 'privacy', 'terms',
+]);
+
 export function validateCollection(def, value) {
   const schema = def.kind === 'list'
     ? z.array(objectSchema(def.fields)).max(500)
@@ -309,6 +395,15 @@ export function validateCollection(def, value) {
         if (v === undefined || v === '') continue;
         if (seen.has(v)) return { error: `Duplicate ${slugField.label}: "${v}"` };
         seen.add(v);
+      }
+    }
+    // Slugs marked `reserved` must not shadow a route the site already owns.
+    for (const slugField of def.fields.filter((f) => f.reserved)) {
+      for (const item of result.data) {
+        const v = item[slugField.name];
+        if (v && RESERVED_SLUGS.has(v)) {
+          return { error: `"${v}" is already used by the website. Choose a different ${slugField.label}.` };
+        }
       }
     }
   }

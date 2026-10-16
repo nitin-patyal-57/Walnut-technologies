@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX, FiChevronDown, FiMessageSquare } from 'react-icons/fi';
 import { SiYoutube, SiInstagram } from 'react-icons/si';
 import { FaLinkedinIn } from 'react-icons/fa6';
-import { brand, trustSignals } from '../data/content';
+import { brand, trustSignals, pages } from '../data/content';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
 import QuoteModal from './QuoteModal';
@@ -28,6 +28,17 @@ const navLinks = [
   { label: 'Career', to: '/career' },
   { label: 'Contact', to: '/contact' },
 ];
+
+// Pages created in the admin panel are appended to the built-in menu. Only the
+// ones flagged "Show in the header menu" appear, in their chosen order, after
+// the items above.
+export function navMenu() {
+  const custom = (Array.isArray(pages) ? pages : [])
+    .filter((p) => p && p.showInNav === 'yes')
+    .sort((a, b) => (a.navOrder ?? 0) - (b.navOrder ?? 0))
+    .map((p) => ({ label: p.navLabel || p.title, to: `/p/${p.slug}`, custom: true }));
+  return [...navLinks, ...custom];
+}
 
 const socialLinks = [
   { label: 'YouTube', url: 'https://www.youtube.com/@walnutmedical9305', icon: SiYoutube, color: 'text-[#FF0000] group-hover:text-[#E60000]' },
@@ -183,7 +194,7 @@ export default function Navbar({ onOpenSchedule }) {
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-3">
-              {navLinks.map((link) => (
+              {navMenu().map((link) => (
                 <div
                   key={link.label}
                   className="relative pb-2"
@@ -309,7 +320,7 @@ export default function Navbar({ onOpenSchedule }) {
               className="lg:hidden bg-white border-t border-slate-200 overflow-hidden"
             >
               <div id="mobile-menu" className="px-4 py-3 space-y-0.5">
-                {navLinks.map((link) => (
+                {navMenu().map((link) => (
                   <div key={link.label}>
                     <Link
                       to={link.to}

@@ -107,6 +107,7 @@ const enTranslations = {
     certifications: 'Certifications',
     clients: 'Our Clients',
     trusted: 'Trusted Partner',
+    explore: 'Explore Our Clients',
     qms: 'Quality management for medical devices',
     cleanroom: 'Controlled manufacturing environment',
     standards: 'European, US & payment security standards',
@@ -362,6 +363,14 @@ const enTranslations = {
     sent: 'Quote Request Sent!',
     sentDesc: 'Thank you for your interest. Our team will review your request and respond within 24 hours.',
     productOptions: ['Medical Device', 'Payment Terminal', 'IoT Device', 'Custom OEM/ODM', 'Other'],
+    errors: {
+      name: 'Please enter your name',
+      email: 'Please enter your email address',
+      emailInvalid: 'Please enter a valid email address',
+      product: 'Please select a product type',
+      message: 'Please describe your project requirements',
+      generic: 'Failed to submit quote request. Please try again.',
+    },
   },
   schedule: {
     title: 'Schedule a Call',

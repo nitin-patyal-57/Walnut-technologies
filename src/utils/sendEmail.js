@@ -1,26 +1,35 @@
 const API_BASE = '/api';
 
 async function submitForm(endpoint, data) {
+  let response;
   try {
-    const response = await fetch(`${API_BASE}/${endpoint}`, {
+    response = await fetch(`${API_BASE}/${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-      throw new Error(result.error || 'Failed to submit form');
-    }
-
-    return result;
-  } catch (error) {
-    console.error('Form submission error:', error);
-    throw error;
+  } catch {
+    // fetch() only rejects when no response arrives at all (server down, no
+    // network). Surface that in plain words instead of "Failed to fetch".
+    throw new Error('Cannot reach the server. Please check your connection and try again.');
   }
+
+  let result;
+  try {
+    result = await response.json();
+  } catch {
+    // Non-JSON body (e.g. an HTML error page) — fall back below.
+    result = {};
+  }
+
+  if (!response.ok) {
+    // Prefer the server's own message, e.g. "Message is required".
+    throw new Error(result.error || 'Failed to submit form');
+  }
+
+  return result;
 }
 
 export async function sendQuoteEmail(form) {

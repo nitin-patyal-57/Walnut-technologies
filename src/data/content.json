@@ -943,5 +943,6 @@
   "chatbot": {
     "greeting": "Hi there! Welcome to Walnut Technologies. I'm your virtual assistant. How can I help you today?",
     "leadCapture": "By the way, would you like our team to reach out to you? I just need your name and email."
-  }
+  },
+  "pages": []
 }

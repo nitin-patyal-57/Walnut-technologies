@@ -23,7 +23,18 @@ function localApi() {
           req.body = undefined
         }
 
-        const { handler } = await load()
+        const mod = await load()
+        // Vercel handlers are a *default* export (api/contact.js) but some are
+        // named `handler`. Destructuring the named one made this undefined and
+        // crashed the whole dev server the moment a form was submitted.
+        const handler = mod?.default || mod?.handler
+        if (typeof handler !== 'function') {
+          res.statusCode = 500
+          res.setHeader('Content-Type', 'application/json')
+          res.end(JSON.stringify({ error: 'Local API handler not found' }))
+          return
+        }
+
         const statusCode = { code: 200 }
         res.status = (code) => { statusCode.code = code; return res }
         res.json = (data) => {
@@ -37,7 +48,17 @@ function localApi() {
           if (!res.headersSent) res.statusCode = statusCode.code
           return originalEnd(...args)
         }
-        await handler(req, res)
+        try {
+          await handler(req, res)
+        } catch (err) {
+          // A throw inside the handler must never take the dev server down.
+          console.error('[local-api]', err)
+          if (!res.headersSent) {
+            res.statusCode = 500
+            res.setHeader('Content-Type', 'application/json')
+            res.end(JSON.stringify({ error: err?.message || 'Local API error' }))
+          }
+        }
       })
     },
   }

@@ -34,6 +34,8 @@ const CareerPage = lazy(() => import('./pages/CareerPage'));
 const JobApplicationPage = lazy(() => import('./pages/JobApplicationPage'));
 const EvolutionDetailPage = lazy(() => import('./pages/EvolutionDetailPage'));
 const FutureDetailPage = lazy(() => import('./pages/FutureDetailPage'));
+const DynamicPage = lazy(() => import('./pages/DynamicPage'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
   return <PageSkeleton />;
@@ -85,23 +87,10 @@ function AppContent() {
           <Route path="/apply" element={<ErrorBoundary isPageLevel><JobApplicationPage /></ErrorBoundary>} />
           <Route path="/privacy" element={<ErrorBoundary isPageLevel><PrivacyPage /></ErrorBoundary>} />
           <Route path="/terms" element={<ErrorBoundary isPageLevel><TermsPage /></ErrorBoundary>} />
-          <Route           path="*" element={
-            <div className="min-h-screen flex items-center justify-center bg-white">
-              <SEO title="Page Not Found" description="The page you're looking for does not exist." path="/404" noindex />
-              <div className="text-center px-4">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-display text-slate-900 mb-4">404</h1>
-                <p className="text-base sm:text-lg text-slate-500 mb-6">Page not found</p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-slate-800 transition-all">
-                    Go Home
-                  </Link>
-                  <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:border-slate-400 transition-all">
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-            </div>
-          } />
+          {/* Pages created in the admin panel. /p/ is reserved for them, so
+              these can never shadow a real route above. */}
+          <Route path="/p/:slug" element={<ErrorBoundary isPageLevel><DynamicPage /></ErrorBoundary>} />
+          <Route path="*" element={<ErrorBoundary isPageLevel><NotFound /></ErrorBoundary>} />
         </Routes>
       </Suspense>
       </main>

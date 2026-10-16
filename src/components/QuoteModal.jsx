@@ -22,19 +22,44 @@ export default function QuoteModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
   const formTimeRef = useRef(Date.now());
 
   useEffect(() => {
     if (isOpen) {
       formTimeRef.current = Date.now();
       setError('');
+      setFieldErrors({});
     }
   }, [isOpen]);
 
-  const productOptions = t('quote.productOptions');
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Mirrors the server rules in api/contact.js so the user is told which
+  // field is wrong before anything goes over the network.
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) errs.name = t('quote.errors.name');
+    if (!form.email.trim()) errs.email = t('quote.errors.email');
+    else if (!EMAIL_RE.test(form.email.trim())) errs.email = t('quote.errors.emailInvalid');
+    if (!form.product) errs.product = t('quote.errors.product');
+    if (!form.message.trim()) errs.message = t('quote.errors.message');
+    return errs;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
+    const errs = validate();
+    setFieldErrors(errs);
+    const missing = Object.keys(errs);
+    if (missing.length) {
+      // Move focus to the first field that needs attention.
+      document.getElementById(`quote-${missing[0]}`)?.focus();
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       captureLead({
@@ -55,8 +80,11 @@ export default function QuoteModal({ isOpen, onClose }) {
         setForm({ name: '', email: '', phone: '', company: '', product: '', quantity: '', message: '', website: '' });
         formTimeRef.current = Date.now();
       }, 2000);
-    } catch (error) {
-      setError('Failed to submit quote request. Please try again.');
+    } catch (err) {
+      // Show what the server actually said ("Message is required", a length
+      // cap, a rate limit) rather than a generic apology.
+      const serverMsg = err?.message;
+      setError(serverMsg && serverMsg !== 'Failed to submit form' ? serverMsg : t('quote.errors.generic'));
     } finally {
       setIsSubmitting(false);
     }
@@ -64,7 +92,17 @@ export default function QuoteModal({ isOpen, onClose }) {
 
   const updateField = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+    // Clear the inline error as soon as the user starts fixing it.
+    setFieldErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
   };
+
+  const errClass = (field) => (fieldErrors[field] ? ' border-red-400 focus:ring-red-500 focus:border-red-500' : '');
+  const fieldError = (field) =>
+    fieldErrors[field] ? (
+      <p role="alert" className="text-xs text-red-600 mt-1">{fieldErrors[field]}</p>
+    ) : null;
+
+  const productOptions = t('quote.productOptions');
 
   const inputClass = "w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm";
   const labelClass = "block text-xs font-medium text-slate-500 mb-1.5";
@@ -72,7 +110,7 @@ export default function QuoteModal({ isOpen, onClose }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={t('quote.title')} size="max-w-lg">
       {!submitted ? (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <p className="text-sm text-slate-500 mb-4">
             {t('quote.instruction')}
           </p>
@@ -80,11 +118,13 @@ export default function QuoteModal({ isOpen, onClose }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="quote-name" className={labelClass}>{t('quote.name')} *</label>
-              <input id="quote-name" type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass} placeholder={t('quote.name')} maxLength={100} />
+              <input id="quote-name" type="text" required value={form.name} onChange={(e) => updateField('name', e.target.value)} className={inputClass + errClass('name')} placeholder={t('quote.name')} maxLength={100} aria-invalid={!!fieldErrors.name} />
+              {fieldError('name')}
             </div>
             <div>
               <label htmlFor="quote-email" className={labelClass}>{t('quote.email')} *</label>
-              <input id="quote-email" type="email" required value={form.email} onChange={(e) => updateField('email', e.target.value)} className={inputClass} placeholder="your@email.com" />
+              <input id="quote-email" type="email" required value={form.email} onChange={(e) => updateField('email', e.target.value)} className={inputClass + errClass('email')} placeholder="your@email.com" aria-invalid={!!fieldErrors.email} />
+              {fieldError('email')}
             </div>
           </div>
 
@@ -101,12 +141,13 @@ export default function QuoteModal({ isOpen, onClose }) {
 
           <div>
             <label htmlFor="quote-product" className={labelClass}>{t('quote.productType')} *</label>
-            <select id="quote-product" required value={form.product} onChange={(e) => updateField('product', e.target.value)} className={inputClass}>
+            <select id="quote-product" required value={form.product} onChange={(e) => updateField('product', e.target.value)} className={inputClass + errClass('product')} aria-invalid={!!fieldErrors.product}>
               <option value="">{t('quote.selectProduct')}</option>
               {Array.isArray(productOptions) && productOptions.map((opt) => (
                 <option key={opt} value={opt}>{opt}</option>
               ))}
             </select>
+            {fieldError('product')}
           </div>
 
           <div>
@@ -115,8 +156,9 @@ export default function QuoteModal({ isOpen, onClose }) {
           </div>
 
           <div>
-            <label htmlFor="quote-message" className={labelClass}>{t('quote.message')}</label>
-            <textarea id="quote-message" value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none"} placeholder={t('contact.messagePlaceholder')} maxLength={1000} />
+            <label htmlFor="quote-message" className={labelClass}>{t('quote.message')} *</label>
+            <textarea id="quote-message" required value={form.message} onChange={(e) => updateField('message', e.target.value)} rows={3} className={inputClass + " resize-none" + errClass('message')} placeholder={t('contact.messagePlaceholder')} maxLength={1000} aria-invalid={!!fieldErrors.message} />
+            {fieldError('message')}
           </div>
 
           {/* Honeypot - hidden from humans, bots will fill this */}

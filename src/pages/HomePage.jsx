@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   FiArrowRight, FiArrowLeft, FiCheckCircle, FiArrowUpRight, FiStar,
@@ -483,14 +483,16 @@ function HeroStats() {
 function ClientsCertifications() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const reduceMotion = useReducedMotion();
   const { t } = useLanguage();
 
+  // `code` is the short form shown inside the stamp; `title`/`description` sit under it.
   const certifications = [
-    { title: 'ISO 13485', description: t('clients.qms') },
-    { title: 'Class 10K Cleanroom', description: t('clients.cleanroom') },
-    { title: 'CE, FCC, PCI-DSS', description: t('clients.standards') },
-    { title: 'IEC 60601', description: t('clients.safety') },
-    { title: 'BIS Certified', description: t('clients.indian') },
+    { code: 'ISO', title: 'ISO 13485', description: t('clients.qms') },
+    { code: '10K', title: 'Class 10K Cleanroom', description: t('clients.cleanroom') },
+    { code: 'CE', title: 'CE, FCC, PCI-DSS', description: t('clients.standards') },
+    { code: 'IEC', title: 'IEC 60601', description: t('clients.safety') },
+    { code: 'BIS', title: 'BIS Certified', description: t('clients.indian') },
   ];
 
   const clients = [
@@ -502,123 +504,133 @@ function ClientsCertifications() {
     { name: t('clients.client6'), logo: '/images/clients/indian-army.webp' },
   ];
 
-  return (
-    <section className="relative py-12 md:py-16 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-50/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-50/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+  // Split 'Clients & Certifications' on the ampersand so both halves stay translated.
+  const rawTitle = t('clients.title');
+  const amp = rawTitle.indexOf('&');
+  const headingLead = amp === -1 ? rawTitle : rawTitle.slice(0, amp).trim();
+  const headingAccent = amp === -1 ? '' : rawTitle.slice(amp + 1).trim();
 
+  return (
+    <section className="relative py-12 md:py-16 overflow-hidden bg-white">
       <div ref={ref} className="relative mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="relative rounded-3xl border border-[#E3EDF8] bg-white p-5 sm:p-7 shadow-[0_4px_40px_rgba(9,36,77,0.06)]"
         >
-          <div className="inline-flex items-center gap-3 mb-4">
-            <span className="w-8 h-px bg-blue-300" />
-            <span className="text-xs font-semibold tracking-[0.2em] text-blue-600 uppercase">
-              {t('clients.trusted')}
-            </span>
-            <span className="w-8 h-px bg-blue-300" />
-          </div>
-          <h2 className="text-2xl md:text-3xl font-bold font-display text-[#09244D] mb-3">
-            Clients &{' '}
-            <span className="text-blue-600">Certifications</span>
-          </h2>
-          <p className="text-sm text-slate-500 max-w-2xl mx-auto">
-            {t('clients.subtitle')}
-          </p>
-        </motion.div>
+          {/* Certificate framing: inner rule + four corner brackets */}
+          <div className="pointer-events-none absolute inset-[7px] rounded-[18px] border border-[#EEF5FD]" />
+          <div className="pointer-events-none absolute left-3 top-3 h-4 w-4 border-l-2 border-t-2 border-blue-300/70" />
+          <div className="pointer-events-none absolute right-3 top-3 h-4 w-4 border-r-2 border-t-2 border-blue-300/70" />
+          <div className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 border-b-2 border-l-2 border-blue-300/70" />
+          <div className="pointer-events-none absolute bottom-3 right-3 h-4 w-4 border-b-2 border-r-2 border-blue-300/70" />
 
-        {/* Two Panel Layout */}
-        <div className="grid lg:grid-cols-2 gap-6">
-          {/* LEFT PANEL — Certifications */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative bg-white rounded-2xl border border-[#E3EDF8] shadow-[0_2px_20px_rgba(0,0,0,0.04)] overflow-hidden"
-          >
-            {/* Panel Header */}
-            <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
-              <div className="flex items-center gap-3">
-                <Picture src="/images/logos/certificate.webp" alt="" width="44" height="44" sizes="44px" className="w-11 h-11 object-contain shrink-0" />
-                <div>
-                  <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.certifications')}</h3>
-                  <p className="text-xs text-slate-500 mt-0.5">We adhere to global standards for quality, safety and compliance.</p>
-                </div>
+          <div className="relative grid items-center gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.55fr)] lg:gap-10">
+            {/* LEFT — the statement */}
+            <div>
+              <div className="mb-3 flex items-center gap-3">
+                <span className="h-px w-8 bg-blue-300" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+                  {t('clients.trusted')}
+                </span>
               </div>
-                <span className="px-2.5 py-1 text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
-                Quality & Compliance
-              </span>
+              <h2 className="text-3xl md:text-4xl font-bold font-display leading-[1.1] text-[#09244D]">
+                {headingLead} <span className="text-blue-600">{headingAccent}</span>
+              </h2>
+              <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-500">{t('clients.subtitle')}</p>
+              <Link
+                to="/clients"
+                className="mt-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/60 px-4 py-2 text-xs font-semibold text-blue-600 transition-colors duration-300 hover:border-blue-200 hover:bg-blue-50"
+              >
+                {t('clients.explore')}
+                <FiArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </div>
 
-            {/* Certification Cards */}
-            <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* RIGHT — certification stamps */}
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-x-5">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.06 }}
-                  className="group flex items-center gap-3 p-3 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
+                  initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+                  animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.15 + index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                  className="group w-36 text-center sm:w-40"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center shrink-0 group-hover:from-blue-500 group-hover:to-cyan-500 transition-all duration-300">
-                    <FiCheckCircle className="w-4 h-4 text-blue-500 group-hover:text-white transition-colors duration-300" />
+                  <div className="relative mx-auto h-24 w-24 transition-transform duration-300 group-hover:-translate-y-1 sm:h-28 sm:w-28">
+                    {/* stamp disc */}
+                    <div className="absolute inset-0 rounded-full border border-blue-200 bg-gradient-to-br from-white via-white to-[#EAF3FF] shadow-[0_3px_14px_rgba(37,99,235,0.12)] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-[0_8px_22px_rgba(37,99,235,0.20)]" />
+                    {/* inner rule */}
+                    <div className="absolute inset-[15%] rounded-full border border-blue-100" />
+                    {/* perforated ring */}
+                    <motion.div
+                      className="absolute inset-[6%]"
+                      animate={reduceMotion ? { rotate: 0 } : { rotate: 360 }}
+                      transition={reduceMotion ? undefined : { duration: 24, repeat: Infinity, ease: 'linear' }}
+                    >
+                      <svg viewBox="0 0 100 100" className="h-full w-full" aria-hidden="true">
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="47"
+                          fill="none"
+                          stroke="#60A5FA"
+                          strokeWidth="2.2"
+                          strokeDasharray="1.4 7"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </motion.div>
+                    {/* centre */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <span className="font-display text-lg font-bold text-[#09244D] sm:text-xl">{cert.code}</span>
+                      <span className="mt-1 h-px w-8 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-xs font-bold text-[#09244D] leading-tight">{cert.title}</h4>
-                    <p className="text-xs text-slate-500 leading-snug mt-0.5">{cert.description}</p>
-                  </div>
-                  <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <FiArrowRight className="w-3 h-3 text-slate-500" />
-                  </div>
+
+                  <h3 className="mt-3 text-[13px] font-bold font-display text-[#09244D] transition-colors duration-300 group-hover:text-blue-600">
+                    {cert.title}
+                  </h3>
+                  <p className="mt-1 text-[11px] leading-snug text-slate-500">{cert.description}</p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* RIGHT PANEL — Our Clients */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative bg-white rounded-2xl border border-[#E3EDF8] shadow-[0_2px_20px_rgba(0,0,0,0.04)] overflow-hidden"
-          >
-            {/* Panel Header */}
-            <div className="p-5 pb-4 flex flex-wrap items-start justify-between gap-2">
-              <div className="flex items-center gap-3">
-                <Picture src="/images/logos/Clients.webp" alt="" width="44" height="44" sizes="44px" className="w-11 h-11 object-contain shrink-0" />
-                <div>
-                  <h3 className="text-base font-bold font-display text-[#09244D]">{t('clients.clients')}</h3>
-                  <p className="text-xs text-slate-500 mt-0.5">Collaborating with leading organizations across healthcare, finance and government sectors.</p>
-                </div>
-              </div>
-                <span className="px-2.5 py-1 text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full whitespace-nowrap">
-                Global Reach
+          {/* BOTTOM — client logo wall */}
+          <div className="relative mt-6 rounded-2xl border border-[#E3EDF8] bg-white px-4 py-4 sm:px-5">
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+                {t('clients.clients')}
               </span>
+              <span className="h-px flex-1 bg-[#E3EDF8]" />
             </div>
-
-            {/* Client Logos */}
-            <div className="px-5 pb-5 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3">
               {clients.map((client, index) => (
                 <motion.div
                   key={client.name}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
-                  className="group flex items-center justify-center p-2 sm:p-4 rounded-xl bg-[#F8FAFC] border border-[#E3EDF8] hover:bg-white hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer"
+                  transition={{ duration: 0.45, delay: 0.45 + index * 0.06 }}
+                  className="group flex h-16 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:h-20"
                 >
-                  <div className={`rounded-lg flex items-center justify-center overflow-hidden group-hover:border-blue-200 transition-colors duration-300 ${client.logo.includes('bhartpe') ? 'w-24 h-24 sm:w-36 sm:h-36' : 'w-16 h-16 sm:w-24 sm:h-24'}`}>
-                    <Picture sizes="(max-width: 640px) 80px, 160px" src={client.logo} alt={client.name} width="96" height="96" className={`w-full h-full ${client.logo.includes('bhartpe') ? 'object-cover' : 'object-contain'}`} loading="lazy" />
-                  </div>
+                  <Picture
+                    src={client.logo}
+                    alt={client.name}
+                    sizes="(max-width: 640px) 30vw, 150px"
+                    loading="lazy"
+                    className={`max-w-full object-contain opacity-85 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 ${
+                      client.logo.includes('bhartpe')
+                        ? 'max-h-16 sm:max-h-20'
+                        : 'max-h-10 sm:max-h-12'
+                    }`}
+                  />
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

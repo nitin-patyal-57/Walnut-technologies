@@ -44,6 +44,12 @@ try {
   if (missing.length) throw new Error(`response is missing sections: ${missing.join(', ')}`);
   if (!content.brand?.name) throw new Error('brand.name is empty — refusing to publish blank content');
 
+  // `pages` was added after the first release. An admin API that predates it
+  // legitimately has none, so default to an empty list rather than failing the
+  // build — that also avoids a deploy-ordering race where the site builds
+  // against an API that has not been redeployed yet.
+  if (!Array.isArray(content.pages)) content.pages = [];
+
   fs.writeFileSync(target, JSON.stringify(content, null, 2) + '\n');
   console.log(`[content] wrote ${path.relative(root, target)} (published ${generatedAt})`);
 } catch (err) {

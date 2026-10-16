@@ -114,9 +114,17 @@ function ImageInput({ id, value, onChange }) {
 }
 
 // ─── Generic field renderer ───────────────────────────────────────────
-export function FieldInput({ field, value, onChange, idPrefix, readOnly }) {
+export function FieldInput({ field, value, onChange, idPrefix, readOnly, data }) {
   const id = `${idPrefix}-${field.name}`;
   const common = { id, disabled: readOnly };
+
+  // `when` hides a field until its controlling field has the right value, so a
+  // block editor only shows the inputs that apply to the chosen block type.
+  if (field.when && data) {
+    const current = data[field.when.field];
+    const wanted = Array.isArray(field.when.equals) ? field.when.equals : [field.when.equals];
+    if (!wanted.includes(current)) return null;
+  }
 
   let input;
   switch (field.type) {
@@ -188,7 +196,7 @@ export function FieldGroup({ fields, value, onChange, idPrefix, readOnly }) {
   return (
     <div className="grid gap-4">
       {fields.map((f) => (
-        <FieldInput key={f.name} field={f} value={value?.[f.name]} onChange={(v) => onChange({ ...value, [f.name]: v })} idPrefix={idPrefix} readOnly={readOnly} />
+        <FieldInput key={f.name} field={f} data={value} value={value?.[f.name]} onChange={(v) => onChange({ ...value, [f.name]: v })} idPrefix={idPrefix} readOnly={readOnly} />
       ))}
     </div>
   );

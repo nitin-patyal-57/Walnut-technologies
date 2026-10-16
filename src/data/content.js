@@ -16,3 +16,4 @@ export const clientSectors = data.clientSectors;
 export const resources = data.resources;
 export const news = data.news;
 export const chatbot = data.chatbot;
+export const pages = Array.isArray(data.pages) ? data.pages : [];
