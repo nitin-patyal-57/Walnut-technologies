@@ -597,28 +597,13 @@
       768
     ]
   },
-  "images/process/contract manufacturing": {
-    "fallback": "/images/process/contract manufacturing.jpg",
+  "images/process/contract-manufacturing": {
+    "fallback": "/images/process/contract-manufacturing.webp",
     "fallbackWidth": 1835,
     "avif": [
       480,
       768,
       1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/process/contract-manufacturing": {
-    "fallback": "/images/process/contract-manufacturing.webp",
-    "fallbackWidth": 1920,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
     ],
     "webp": [
       480,
