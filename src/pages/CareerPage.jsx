@@ -72,7 +72,7 @@ export default function CareerPage() {
     { name: t('careerExtended.teams.software'), icon: FiCode, image: '/images/process/iot-software-development.webp' },
     { name: t('careerExtended.teams.electronics'), icon: FiMonitor, image: '/images/process/it-electronics.webp' },
     { name: t('careerExtended.teams.embedded'), icon: FiCpu, image: '/images/process/embedded-electronics-and-iot.webp' },
-    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/images/process/manufacturing-engineering-and-mold-design.webp' },
+    { name: t('careerExtended.teams.mechanical'), icon: FiSettings, image: '/images/process/research-and-market-analysis.webp' },
     { name: t('careerExtended.teams.manufacturing'), icon: FiTool, image: '/images/process/contract-manufacturing.webp' },
     { name: t('careerExtended.teams.quality'), icon: FiCheckSquare, image: '/images/process/quality-assurance.webp' },
     { name: t('careerExtended.teams.business'), icon: FiBriefcase, image: '/images/process/ip-oriented-product.webp' },
