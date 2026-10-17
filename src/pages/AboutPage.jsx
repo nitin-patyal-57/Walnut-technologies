@@ -363,7 +363,7 @@ export default function AboutPage() {
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-                      src="/images/about/09_Team_Collaboration.webp"
+                      src="/images/about/team-collab.webp"
                       alt="Team Collaboration"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />

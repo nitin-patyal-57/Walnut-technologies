@@ -216,7 +216,7 @@ export default function CareerPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Picture sizes="100vw"
-                  src="/images/backgrounds/career-background.webp"
+                  src="/images/backgrounds/career.webp"
                   alt="Walnut Technologies Team"
                   className="w-full h-[300px] md:h-[400px] object-cover"
                   loading="eager"

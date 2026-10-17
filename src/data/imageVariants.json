@@ -187,6 +187,21 @@
       1280
     ]
   },
+  "images/about/team-collab": {
+    "fallback": "/images/about/team-collab.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
   "images/backgrounds/aboutbackground": {
     "fallback": "/images/backgrounds/aboutbackground.webp",
     "fallbackWidth": 1536,
@@ -194,6 +209,21 @@
       480,
       768,
       1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/career": {
+    "fallback": "/images/backgrounds/career.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280,
+      1920
     ],
     "webp": [
       480,
