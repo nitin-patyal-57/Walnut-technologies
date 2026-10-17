@@ -943,5 +943,226 @@
   "chatbot": {
     "greeting": "Hi there! Welcome to Walnut Technologies. I'm your virtual assistant. How can I help you today?",
     "leadCapture": "By the way, would you like our team to reach out to you? I just need your name and email."
-  }
+  },
+  "pages": [],
+  "clientLogos": [
+    {
+      "name": "HDFC Bank",
+      "logo": "/images/clients/hdfc.webp"
+    },
+    {
+      "name": "State Bank of India",
+      "logo": "/images/clients/sbi.webp"
+    },
+    {
+      "name": "Paytm",
+      "logo": "/images/clients/paytm-logo.webp"
+    },
+    {
+      "name": "BharatPe",
+      "logo": "/images/clients/bhartpe.webp"
+    },
+    {
+      "name": "Apollo Hospitals",
+      "logo": "/images/clients/apollo.webp"
+    },
+    {
+      "name": "Indian Army",
+      "logo": "/images/clients/indian-army.webp"
+    }
+  ],
+  "certifications": [
+    {
+      "code": "ISO",
+      "title": "ISO 13485",
+      "description": "Quality management for medical devices"
+    },
+    {
+      "code": "10K",
+      "title": "Class 10K Cleanroom",
+      "description": "Controlled manufacturing environment"
+    },
+    {
+      "code": "CE",
+      "title": "CE, FCC, PCI-DSS",
+      "description": "European, US & payment security standards"
+    },
+    {
+      "code": "IEC",
+      "title": "IEC 60601",
+      "description": "Medical electrical equipment safety"
+    },
+    {
+      "code": "BIS",
+      "title": "BIS Certified",
+      "description": "Bureau of Indian Standards compliance"
+    }
+  ],
+  "journey": [
+    {
+      "year": "2016",
+      "title": "The Beginning",
+      "description": "Started Walnut Medical with a vision to make quality healthcare more accessible.",
+      "badgeColor": "bg-blue-600"
+    },
+    {
+      "year": "2017",
+      "title": "Neurorehab Expansion",
+      "description": "Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.",
+      "badgeColor": "bg-emerald-600"
+    },
+    {
+      "year": "2018",
+      "title": "R&D and Innovation",
+      "description": "Began Development Lab — Lower Limb GAIT Training Rehabilitation System.",
+      "badgeColor": "bg-purple-600"
+    },
+    {
+      "year": "2019",
+      "title": "OTC Devices",
+      "description": "Introduced IR Thermometer, Digital BP Monitor.",
+      "badgeColor": "bg-amber-600"
+    },
+    {
+      "year": "2020",
+      "title": "Scaling Manufacturing",
+      "description": "Scaled Nebulizer, Oxygen Concentrator manufacturing.",
+      "badgeColor": "bg-cyan-600"
+    },
+    {
+      "year": "2021",
+      "title": "Introducing Walnut Technologies",
+      "description": "Started non-medical applications, expanding our technology footprint beyond healthcare.",
+      "badgeColor": "bg-indigo-600"
+    },
+    {
+      "year": "2022",
+      "title": "Fintech Integration",
+      "description": "Started Development of POS and Soundboxes for seamless Digital Transactions.",
+      "badgeColor": "bg-emerald-600"
+    },
+    {
+      "year": "2023",
+      "title": "Mass Manufacturing",
+      "description": "Started mass-manufacturing of Soundbox to meet growing demand.",
+      "badgeColor": "bg-violet-600"
+    },
+    {
+      "year": "2024",
+      "title": "Advanced Manufacturing",
+      "description": "Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.",
+      "badgeColor": "bg-sky-600",
+      "special": "Major Scale Milestone"
+    },
+    {
+      "year": "2025",
+      "title": "Electronics Manufacturing",
+      "description": "Started Smart Instrument Cluster vertical.",
+      "badgeColor": "bg-rose-600"
+    },
+    {
+      "year": "2026",
+      "title": "Smart Cluster",
+      "description": "Scaling vertical of Consumer Electronics — IoT based.",
+      "badgeColor": "bg-indigo-600"
+    }
+  ],
+  "careers": [
+    {
+      "title": "Software Engineer",
+      "department": "Software",
+      "location": "Mohali",
+      "experience": "2-4 years",
+      "type": "Full-time",
+      "salary": "₹8-16 LPA",
+      "description": "Build scalable software solutions that connect products, users and intelligent devices.",
+      "tags": [
+        "React",
+        "Node.js",
+        "Python"
+      ],
+      "status": "Open",
+      "closesOn": ""
+    },
+    {
+      "title": "Embedded Systems Engineer",
+      "department": "R&D",
+      "location": "Mohali",
+      "experience": "3-5 years",
+      "type": "Full-time",
+      "salary": "₹10-18 LPA",
+      "description": "Develop firmware and embedded solutions for next-generation connected products.",
+      "tags": [
+        "STM32",
+        "FreeRTOS",
+        "C"
+      ],
+      "status": "Open",
+      "closesOn": ""
+    },
+    {
+      "title": "PCB Design Engineer",
+      "department": "R&D",
+      "location": "Mohali",
+      "experience": "2-5 years",
+      "type": "Full-time",
+      "salary": "₹8-16 LPA",
+      "description": "Design and develop high-performance PCBs from concept to production.",
+      "tags": [
+        "Altium",
+        "KiCad",
+        "DFM"
+      ],
+      "status": "Open",
+      "closesOn": ""
+    },
+    {
+      "title": "Mechanical Design Engineer",
+      "department": "Mechanical",
+      "location": "Mohali",
+      "experience": "3-6 years",
+      "type": "Full-time",
+      "salary": "₹9-17 LPA",
+      "description": "Design precision mechanical systems for medical, automotive and electronic products.",
+      "tags": [
+        "SolidWorks",
+        "GD&T",
+        "FEA"
+      ],
+      "status": "Open",
+      "closesOn": ""
+    },
+    {
+      "title": "Production Engineer",
+      "department": "Manufacturing",
+      "location": "Mohali",
+      "experience": "3-5 years",
+      "type": "Full-time",
+      "salary": "₹7-14 LPA",
+      "description": "Drive efficient production, quality and continuous improvement across operations.",
+      "tags": [
+        "Lean",
+        "5S",
+        "SMT"
+      ],
+      "status": "Open",
+      "closesOn": ""
+    },
+    {
+      "title": "Quality Engineer",
+      "department": "Quality",
+      "location": "Mohali",
+      "experience": "2-5 years",
+      "type": "Full-time",
+      "salary": "₹6-13 LPA",
+      "description": "Ensure the highest standards of quality across developed and manufactured products.",
+      "tags": [
+        "ISO 13485",
+        "Audits",
+        "CAPA"
+      ],
+      "status": "Open",
+      "closesOn": ""
+    }
+  ]
 }

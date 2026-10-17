@@ -12,6 +12,7 @@ import {
 } from 'react-icons/fi';
 import Picture from '../components/Picture';
 import CtaSection from '../components/CtaSection';
+import { careers } from '../data/content';
 
 function AnimatedSection({ children, className = '', delay = 0 }) {
   const ref = useRef(null);
@@ -39,84 +40,23 @@ export default function CareerPage() {
   const [activeExperience, setActiveExperience] = useState('All Experience');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const departments = [t('careerExtended.departments.all'), t('careerExtended.departments.rnd'), t('careerExtended.departments.software'), t('careerExtended.departments.manufacturing'), t('careerExtended.departments.quality'), t('careerExtended.departments.mechanical')];
-  const locations = [t('careerExtended.locations.all'), t('careerExtended.locations.mohali')];
-  const experiences = [t('careerExtended.experiences.all'), t('careerExtended.experiences.fresher'), t('careerExtended.experiences.oneToThree'), t('careerExtended.experiences.threeToFive'), t('careerExtended.experiences.fivePlus')];
+  // Job openings are maintained in the admin panel (Careers > Job Openings).
+  // Only jobs marked "Open" are listed, and a job hides itself automatically
+  // once its closing date passes. Icons are not editable - they cycle by
+  // position.
+  const JOB_ICONS = [FiCode, FiCpu, FiLayers, FiSettings, FiTool, FiCheckSquare];
+  const today = new Date().toISOString().slice(0, 10);
+  const jobOpenings = careers
+    .filter((job) => (job.status || 'Open') === 'Open' && (!job.closesOn || job.closesOn >= today))
+    .map((job, i) => ({ ...job, icon: JOB_ICONS[i % JOB_ICONS.length] }));
 
-  const jobOpenings = [
-    {
-      key: 'softwareEngineer',
-      title: t('careerExtended.jobs.softwareEngineer.title'),
-      department: t('careerExtended.departments.software'),
-      location: t('careerExtended.locations.mohali'),
-      type: 'Full-time',
-      experience: '2-4 years',
-      salary: '₹8-16 LPA',
-      description: t('careerExtended.jobs.softwareEngineer.description'),
-      tags: ['React', 'Node.js', 'Python'],
-      icon: FiCode,
-    },
-    {
-      key: 'embeddedEngineer',
-      title: t('careerExtended.jobs.embeddedEngineer.title'),
-      department: t('careerExtended.departments.rnd'),
-      location: t('careerExtended.locations.mohali'),
-      type: 'Full-time',
-      experience: '3-5 years',
-      salary: '₹10-18 LPA',
-      description: t('careerExtended.jobs.embeddedEngineer.description'),
-      tags: ['STM32', 'FreeRTOS', 'C'],
-      icon: FiCpu,
-    },
-    {
-      key: 'pcbDesignEngineer',
-      title: t('careerExtended.jobs.pcbDesignEngineer.title'),
-      department: t('careerExtended.departments.rnd'),
-      location: t('careerExtended.locations.mohali'),
-      type: 'Full-time',
-      experience: '2-5 years',
-      salary: '₹8-16 LPA',
-      description: t('careerExtended.jobs.pcbDesignEngineer.description'),
-      tags: ['Altium', 'KiCad', 'DFM'],
-      icon: FiLayers,
-    },
-    {
-      key: 'mechanicalDesignEngineer',
-      title: t('careerExtended.jobs.mechanicalDesignEngineer.title'),
-      department: t('careerExtended.departments.mechanical'),
-      location: t('careerExtended.locations.mohali'),
-      type: 'Full-time',
-      experience: '3-6 years',
-      salary: '₹9-17 LPA',
-      description: t('careerExtended.jobs.mechanicalDesignEngineer.description'),
-      tags: ['SolidWorks', 'GD&T', 'FEA'],
-      icon: FiSettings,
-    },
-    {
-      key: 'productionEngineer',
-      title: t('careerExtended.jobs.productionEngineer.title'),
-      department: t('careerExtended.departments.manufacturing'),
-      location: t('careerExtended.locations.mohali'),
-      type: 'Full-time',
-      experience: '3-5 years',
-      salary: '₹7-14 LPA',
-      description: t('careerExtended.jobs.productionEngineer.description'),
-      tags: ['Lean', '5S', 'SMT'],
-      icon: FiTool,
-    },
-    {
-      key: 'qualityEngineer',
-      title: t('careerExtended.jobs.qualityEngineer.title'),
-      department: t('careerExtended.departments.quality'),
-      location: t('careerExtended.locations.mohali'),
-      type: 'Full-time',
-      experience: '2-5 years',
-      salary: '₹6-13 LPA',
-      description: t('careerExtended.jobs.qualityEngineer.description'),
-      tags: ['ISO 13485', 'Audits', 'CAPA'],
-      icon: FiCheckSquare,
-    },
-  ];
+  // The filter lists are derived from the openings themselves, so a
+  // department or location added in the admin becomes filterable with no
+  // code change.
+  const uniq = (xs) => [...new Set(xs.filter(Boolean))];
+  const departments = [t('careerExtended.departments.all'), ...uniq(jobOpenings.map((j) => j.department))];
+  const locations = [t('careerExtended.locations.all'), ...uniq(jobOpenings.map((j) => j.location))];
+  const experiences = [t('careerExtended.experiences.all'), ...uniq(jobOpenings.map((j) => j.experience))];
 
   const benefits = [
     { icon: FiZap, title: t('careerExtended.benefits.realWorldImpact.title'), desc: t('careerExtended.benefits.realWorldImpact.desc') },

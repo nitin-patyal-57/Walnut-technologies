@@ -44,14 +44,29 @@ try {
   if (missing.length) throw new Error(`response is missing sections: ${missing.join(', ')}`);
   if (!content.brand?.name) throw new Error('brand.name is empty — refusing to publish blank content');
 
-  // `pages` was added after the first release. An admin API that predates it
-  // legitimately has none, so default to an empty list rather than failing the
-  // build — that also avoids a deploy-ordering race where the site builds
-  // against an API that has not been redeployed yet.
-  if (!Array.isArray(content.pages)) content.pages = [];
+  // Collections added after the first release (pages, then clientLogos,
+  // certifications, journey and careers) may be absent when the site builds
+  // against an admin API that predates them - which also happens during the
+  // deploy window, since the API and the site deploy as separate projects.
+  // Rather than failing the build or publishing empty sections, keep whatever
+  // the committed content.json already holds for keys the API does not know.
+  let committed = {};
+  try {
+    committed = JSON.parse(fs.readFileSync(target, 'utf8'));
+  } catch {
+    // No committed file to fall back to (fresh checkout of a deleted file).
+  }
+  const kept = [];
+  for (const [key, value] of Object.entries(committed)) {
+    if (!(key in content)) {
+      content[key] = value;
+      kept.push(key);
+    }
+  }
 
   fs.writeFileSync(target, JSON.stringify(content, null, 2) + '\n');
   console.log(`[content] wrote ${path.relative(root, target)} (published ${generatedAt})`);
+  if (kept.length) console.log(`[content] API predates: kept committed ${kept.join(', ')}`);
 } catch (err) {
   console.error(`[content] could not load content from ${base}: ${err.message}`);
   process.exit(1);

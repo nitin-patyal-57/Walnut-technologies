@@ -11,6 +11,7 @@ import Hero from '../components/Hero';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
+import { journey, clientLogos, certifications as certificationList } from '../data/content';
 import { scrollBehavior } from '../utils/motion';
 
 function JourneySection() {
@@ -33,19 +34,18 @@ function JourneySection() {
     { image: '/images/process/continuous-improvement.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
   ];
 
-  const milestones = [
-    { year: '2016', title: 'The Beginning', desc: 'Started Walnut Medical with a vision to make quality healthcare more accessible.', icon: FiHeart, badgeColor: 'bg-blue-600' },
-    { year: '2017', title: 'Neurorehab Expansion', desc: 'Launched Walkex Functional Treatment for Foot Drop and Stroke & Paralysis recovery.', icon: FiActivity, badgeColor: 'bg-emerald-600' },
-    { year: '2018', title: 'R&D and Innovation', desc: 'Began Development Lab — Lower Limb GAIT Training Rehabilitation System.', icon: FiTool, badgeColor: 'bg-purple-600' },
-    { year: '2019', title: 'OTC Devices', desc: 'Introduced IR Thermometer, Digital BP Monitor.', icon: FiThermometer, badgeColor: 'bg-amber-600' },
-    { year: '2020', title: 'Scaling Manufacturing', desc: 'Scaled Nebulizer, Oxygen Concentrator manufacturing.', icon: FiBox, badgeColor: 'bg-cyan-600' },
-    { year: '2021', title: 'Introducing Walnut Technologies', desc: 'Started non-medical applications, expanding our technology footprint beyond healthcare.', icon: FiCpu, badgeColor: 'bg-indigo-600' },
-    { year: '2022', title: 'Fintech Integration', desc: 'Started Development of POS and Soundboxes for seamless Digital Transactions.', icon: FiCreditCard, badgeColor: 'bg-emerald-600' },
-    { year: '2023', title: 'Mass Manufacturing', desc: 'Started mass-manufacturing of Soundbox to meet growing demand.', icon: FiPackage, badgeColor: 'bg-violet-600' },
-    { year: '2024', title: 'Advanced Manufacturing', desc: 'Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.', icon: FiShare2, badgeColor: 'bg-sky-600', special: 'Major Scale Milestone' },
-    { year: '2025', title: 'Electronics Manufacturing', desc: 'Started Smart Instrument Cluster vertical.', icon: FiMonitor, badgeColor: 'bg-rose-600' },
-    { year: '2026', title: 'Smart Cluster', desc: 'Scaling vertical of Consumer Electronics — IoT based.', icon: FiWifi, badgeColor: 'bg-indigo-600' },
+  // Milestones come from the admin panel (Company > Our Journey), so adding
+  // next year is done there without a code change. Icons are not editable -
+  // they cycle through this list by position.
+  const MILESTONE_ICONS = [
+    FiHeart, FiActivity, FiTool, FiThermometer, FiBox, FiCpu,
+    FiCreditCard, FiPackage, FiShare2, FiMonitor, FiWifi,
   ];
+  const milestones = journey.map((m, i) => ({
+    ...m,
+    desc: m.description,
+    icon: MILESTONE_ICONS[i % MILESTONE_ICONS.length],
+  }));
 
   const [milestoneIndex, setMilestoneIndex] = useState(0);
   const pillsRef = useRef(null);
@@ -71,6 +71,10 @@ function JourneySection() {
     const target = btn.offsetLeft - (track.clientWidth - btn.clientWidth) / 2;
     track.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
   }, [milestoneIndex]);
+
+  // An emptied list in the admin hides the section rather than crashing on
+  // milestones[0] below.
+  if (!milestones.length) return null;
 
   return (
     <section className="relative overflow-hidden" ref={ref}>
@@ -486,23 +490,12 @@ function ClientsCertifications() {
   const reduceMotion = useReducedMotion();
   const { t } = useLanguage();
 
-  // `code` is the short form shown inside the stamp; `title`/`description` sit under it.
-  const certifications = [
-    { code: 'ISO', title: 'ISO 13485', description: t('clients.qms') },
-    { code: '10K', title: 'Class 10K Cleanroom', description: t('clients.cleanroom') },
-    { code: 'CE', title: 'CE, FCC, PCI-DSS', description: t('clients.standards') },
-    { code: 'IEC', title: 'IEC 60601', description: t('clients.safety') },
-    { code: 'BIS', title: 'BIS Certified', description: t('clients.indian') },
-  ];
-
-  const clients = [
-    { name: t('clients.client1'), logo: '/images/clients/hdfc.webp' },
-    { name: t('clients.client2'), logo: '/images/clients/sbi.webp' },
-    { name: t('clients.client3'), logo: '/images/clients/paytm-logo.webp' },
-    { name: t('clients.client4'), logo: '/images/clients/bhartpe.webp' },
-    { name: t('clients.client5'), logo: '/images/clients/apollo.webp' },
-    { name: t('clients.client6'), logo: '/images/clients/indian-army.webp' },
-  ];
+  // Certifications and client logos are maintained in the admin panel
+  // (Clients & Resources), so both rows update without a code change. In the
+  // stamp, `code` is the short form inside the circle; `title`/`description`
+  // sit under it.
+  const certifications = certificationList;
+  const clients = clientLogos;
 
   // Split 'Clients & Certifications' on the ampersand so both halves stay
   // translated. The accent keeps the '&' — slicing it out and rendering the
@@ -553,7 +546,7 @@ function ClientsCertifications() {
             {/* RIGHT — certification stamps. One row at lg: five tiles must fit
                 the right column, otherwise the wrap to 3+2 doubles this block's
                 height and pushes the logo wall off a single screen. */}
-            <div className="flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-x-3 lg:flex-nowrap lg:gap-x-3">
+            <div className={`flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-x-3 lg:flex-nowrap lg:gap-x-3 ${certifications.length ? '' : 'hidden'}`}>
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.title}
@@ -603,7 +596,7 @@ function ClientsCertifications() {
           </div>
 
           {/* BOTTOM — client logo wall */}
-          <div className="relative mt-5 rounded-2xl border border-[#E3EDF8] bg-white px-4 py-3 sm:px-5">
+          <div className={`relative mt-5 rounded-2xl border border-[#E3EDF8] bg-white px-4 py-3 sm:px-5 ${clients.length ? '' : 'hidden'}`}>
             <div className="flex items-center gap-3">
               <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
                 {t('clients.clients')}

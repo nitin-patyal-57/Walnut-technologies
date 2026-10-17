@@ -75,6 +75,26 @@ export const COLLECTIONS = [
       { name: 'certifications', label: 'Certifications', type: 'tags', max: 60 },
     ],
   },
+  {
+    key: 'journey',
+    label: 'Our Journey',
+    group: 'Company',
+    kind: 'list',
+    itemLabel: 'title',
+    description: 'Milestones on the homepage journey carousel, oldest first. Add a year here to extend the timeline - no code change needed.',
+    fields: [
+      { name: 'year', label: 'Year', type: 'text', required: true, max: 4, help: 'Four digits, e.g. 2027' },
+      { name: 'title', label: 'Title', type: 'text', required: true, max: 60 },
+      { name: 'description', label: 'Description', type: 'textarea', max: 220 },
+      {
+        name: 'badgeColor', label: 'Badge colour', type: 'select',
+        options: ['bg-blue-600', 'bg-emerald-600', 'bg-purple-600', 'bg-amber-600', 'bg-cyan-600',
+          'bg-indigo-600', 'bg-violet-600', 'bg-sky-600', 'bg-rose-600', 'bg-red-600', 'bg-teal-600'],
+        help: 'Colour of the year badge',
+      },
+      { name: 'special', label: 'Highlight label', type: 'text', max: 40, help: 'Optional, shown as a ribbon - e.g. "Major Scale Milestone"' },
+    ],
+  },
 
   // ── Products ──
   {
@@ -197,6 +217,31 @@ export const COLLECTIONS = [
     ],
   },
   {
+    key: 'clientLogos',
+    label: 'Client Logos',
+    group: 'Clients & Resources',
+    kind: 'list',
+    itemLabel: 'name',
+    description: 'Logos scrolling across the homepage client wall, in this order. Upload the artwork; it is stored as WebP automatically.',
+    fields: [
+      { name: 'name', label: 'Client name', type: 'text', required: true, max: 60, help: 'Used as the image alt text' },
+      { name: 'logo', label: 'Logo', type: 'image', required: true, help: 'Transparent PNG/SVG works best - wide marks fit the tile' },
+    ],
+  },
+  {
+    key: 'certifications',
+    label: 'Certifications',
+    group: 'Clients & Resources',
+    kind: 'list',
+    itemLabel: 'title',
+    description: 'The certification stamps on the homepage, in this order.',
+    fields: [
+      { name: 'code', label: 'Stamp code', type: 'text', required: true, max: 4, help: 'Short form inside the circle, e.g. ISO, CE, BIS' },
+      { name: 'title', label: 'Title', type: 'text', required: true, max: 26, help: 'Under the stamp, e.g. "ISO 13485"' },
+      { name: 'description', label: 'Description', type: 'text', max: 70, help: 'Small print under the title' },
+    ],
+  },
+  {
     key: 'resources',
     label: 'Resources',
     group: 'Clients & Resources',
@@ -230,6 +275,35 @@ export const COLLECTIONS = [
       },
       { name: 'image', label: 'Image', type: 'image' },
       { name: 'readTime', label: 'Read time', type: 'text', max: 20, help: 'e.g. "3 min read"' },
+    ],
+  },
+
+  // ── Careers ──
+  {
+    key: 'careers',
+    label: 'Job Openings',
+    group: 'Careers',
+    kind: 'list',
+    itemLabel: 'title',
+    description: 'Openings listed on the Career page. Only jobs set to "Open" are shown, and a job hides itself automatically once its closing date passes.',
+    fields: [
+      { name: 'title', label: 'Job title', type: 'text', required: true, max: 80 },
+      { name: 'department', label: 'Department', type: 'text', required: true, max: 40, help: 'Becomes a filter on the Career page' },
+      { name: 'location', label: 'Location', type: 'text', required: true, max: 40 },
+      { name: 'experience', label: 'Experience', type: 'text', max: 30, help: 'e.g. "2-4 years" or "Fresher"' },
+      {
+        name: 'type', label: 'Employment type', type: 'select', required: true,
+        options: ['Full-time', 'Part-time', 'Contract', 'Internship'],
+      },
+      { name: 'salary', label: 'Salary range', type: 'text', max: 30, help: 'e.g. "₹8-16 LPA". Leave blank to hide it' },
+      { name: 'description', label: 'Description', type: 'textarea', required: true, max: 700 },
+      { name: 'tags', label: 'Skill tags', type: 'tags', max: 30, help: 'e.g. React, STM32, C' },
+      {
+        name: 'status', label: 'Hiring status', type: 'select', required: true,
+        options: ['Open', 'Closed'],
+        help: '"Closed" hides the job from the site without deleting it',
+      },
+      { name: 'closesOn', label: 'Closing date', type: 'text', max: 10, help: 'YYYY-MM-DD - the job stops showing after this day. Leave blank for open-ended' },
     ],
   },
 
