@@ -1112,6 +1112,12 @@
       768
     ]
   },
+  "images/products/repose": {
+    "fallback": "/images/products/repose.webp",
+    "fallbackWidth": 433,
+    "avif": [],
+    "webp": []
+  },
   "images/products/smartlock-product": {
     "fallback": "/images/products/smartlock-product.webp",
     "fallbackWidth": 1280,

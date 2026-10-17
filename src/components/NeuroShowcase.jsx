@@ -71,6 +71,45 @@ const tiltStats = [
   { value: '20–39', label: 'Steps/min · 3 cadences' },
 ];
 
+const tdcsFeatures = [
+  'Constant-Current Stimulation',
+  'Clinician-Set Protocols',
+  'Adjustable Intensity & Timing',
+  'Portable Handheld Unit',
+];
+
+const reposeFeatures = [
+  'Six Stimulation Modes',
+  'Adjustable Intensity Steps',
+  'Built-in Session Timer',
+  'Portable Bedside Use',
+];
+
+const medstimFeatures = [
+  'Multi-Channel Output',
+  'Console-Guided Protocols',
+  'Muscle Re-education',
+  'Cart-Mounted Clinic Design',
+];
+
+const tdcsStats = [
+  { value: '2 mA', label: 'Max constant current' },
+  { value: '10–40 min', label: 'Session range' },
+  { value: 'LCD', label: 'Live session display' },
+];
+
+const reposeStats = [
+  { value: 'M1–M6', label: 'Stimulation modes' },
+  { value: '10–30 min', label: 'Session timer' },
+  { value: '01–30', label: 'Intensity steps' },
+];
+
+const medstimStats = [
+  { value: 'Multi-channel', label: 'Stimulation outputs' },
+  { value: 'Console-guided', label: 'Therapist protocols' },
+  { value: 'Cart-mounted', label: 'Clinic design' },
+];
+
 function useAnimateOnScroll() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -139,7 +178,7 @@ export default function NeuroShowcase({ onBack }) {
           <div className={`text-center mb-14 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Our Products</h2>
-            <p className="text-slate-500 text-sm mt-3 max-w-lg mx-auto">Two powerful systems working together to deliver complete neuro rehabilitation — from gait retraining to therapeutic positioning.</p>
+            <p className="text-slate-500 text-sm mt-3 max-w-lg mx-auto">Five specialised systems working together to deliver complete neuro rehabilitation — from gait retraining and early mobilisation to brain and muscle stimulation.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -171,6 +210,50 @@ export default function NeuroShowcase({ onBack }) {
               stats={tiltStats}
               visible={prodVisible}
               delay="150ms"
+            />
+
+            <ProductTile
+              index="03"
+              image="/images/products/TDCS.webp"
+              alt="tDCS Transcranial Direct Current Stimulation System"
+              badge="Neuromodulation"
+              badgeIcon={FiZap}
+              title="tDCS"
+              subtitle="Transcranial Direct Current Stimulation System"
+              description="A handheld transcranial direct current stimulator that delivers a constant, low-intensity current through scalp electrodes to modulate cortical excitability and support neuroplasticity. Used as an adjunct to therapy in stroke rehabilitation and other neurological conditions — the clinician sets the protocol while the unit's display tracks intensity and session time throughout treatment."
+              features={tdcsFeatures}
+              stats={tdcsStats}
+              visible={prodVisible}
+            />
+
+            <ProductTile
+              index="04"
+              flip
+              image="/images/products/repose.webp"
+              alt="Repose Mobility Control Electrostimulation Stimulator"
+              badge="Electrostimulation"
+              badgeIcon={FiActivity}
+              title="Repose"
+              subtitle="Mobility Control Electrostimulation Stimulator"
+              description="A portable mobility control electrostimulator. Electrodes placed on the muscles deliver programmed stimulation patterns that produce controlled contractions — helping maintain muscle mass, assist venous return and support mobility in patients on prolonged bed rest or with impaired limb movement. Six modes, adjustable intensity steps and a built-in session timer keep bedside protocols simple and repeatable."
+              features={reposeFeatures}
+              stats={reposeStats}
+              visible={prodVisible}
+              delay="150ms"
+            />
+
+            <ProductTile
+              index="05"
+              image="/images/products/medstim-neuro-devices.webp"
+              alt="MedStim Neuromuscular Electrical Stimulation System"
+              badge="Muscle Stimulation"
+              badgeIcon={FiHeart}
+              title="MedStim"
+              subtitle="Neuromuscular Electrical Stimulation System"
+              description="A cart-based neuromuscular electrical stimulation system for clinic use. The console drives multi-channel stimulation through electrode leads while guiding the therapist through protocol screens — suited to muscle re-education, strength maintenance and functional recovery across neurology and rehabilitation departments."
+              features={medstimFeatures}
+              stats={medstimStats}
+              visible={prodVisible}
             />
           </div>
 
