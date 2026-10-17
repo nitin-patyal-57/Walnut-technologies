@@ -513,13 +513,13 @@ function ClientsCertifications() {
   const headingAccent = amp === -1 ? '' : rawTitle.slice(amp).trim();
 
   return (
-    <section className="relative py-12 md:py-16 overflow-hidden bg-white">
+    <section className="relative py-7 md:py-9 overflow-hidden bg-white">
       <div ref={ref} className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="relative rounded-3xl border border-[#E3EDF8] bg-white p-5 sm:p-7 shadow-[0_4px_40px_rgba(9,36,77,0.06)]"
+          className="relative rounded-3xl border border-[#E3EDF8] bg-white p-4 sm:p-5 shadow-[0_4px_40px_rgba(9,36,77,0.06)]"
         >
           {/* Certificate framing: inner rule + four corner brackets */}
           <div className="pointer-events-none absolute inset-[7px] rounded-[18px] border border-[#EEF5FD]" />
@@ -528,39 +528,41 @@ function ClientsCertifications() {
           <div className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 border-b-2 border-l-2 border-blue-300/70" />
           <div className="pointer-events-none absolute bottom-3 right-3 h-4 w-4 border-b-2 border-r-2 border-blue-300/70" />
 
-          <div className="relative grid items-center gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.55fr)] lg:gap-10">
+          <div className="relative grid items-center gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.55fr)] lg:gap-8">
             {/* LEFT — the statement */}
             <div>
-              <div className="mb-3 flex items-center gap-3">
+              <div className="mb-2 flex items-center gap-3">
                 <span className="h-px w-8 bg-blue-300" />
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-600">
                   {t('clients.trusted')}
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold font-display leading-[1.1] text-[#09244D]">
+              <h2 className="text-2xl md:text-[30px] font-bold font-display leading-[1.1] text-[#09244D]">
                 {headingLead} <span className="text-blue-600">{headingAccent}</span>
               </h2>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-500">{t('clients.subtitle')}</p>
+              <p className="mt-2 max-w-md text-[13px] leading-relaxed text-slate-500">{t('clients.subtitle')}</p>
               <Link
                 to="/clients"
-                className="mt-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/60 px-4 py-2 text-xs font-semibold text-blue-600 transition-colors duration-300 hover:border-blue-200 hover:bg-blue-50"
+                className="mt-3.5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/60 px-3.5 py-1.5 text-xs font-semibold text-blue-600 transition-colors duration-300 hover:border-blue-200 hover:bg-blue-50"
               >
                 {t('clients.explore')}
                 <FiArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
 
-            {/* RIGHT — certification stamps */}
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-x-5">
+            {/* RIGHT — certification stamps. One row at lg: five tiles must fit
+                the right column, otherwise the wrap to 3+2 doubles this block's
+                height and pushes the logo wall off a single screen. */}
+            <div className="flex flex-wrap justify-center gap-x-2 gap-y-4 sm:gap-x-3 lg:flex-nowrap lg:gap-x-3">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.title}
                   initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
                   animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.15 + index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-                  className="group w-36 text-center sm:w-40"
+                  className="group w-[92px] shrink-0 text-center sm:w-[104px] lg:w-[110px]"
                 >
-                  <div className="relative mx-auto h-24 w-24 transition-transform duration-300 group-hover:-translate-y-1 sm:h-28 sm:w-28">
+                  <div className="relative mx-auto h-16 w-16 transition-transform duration-300 group-hover:-translate-y-1 sm:h-[76px] sm:w-[76px] lg:h-20 lg:w-20">
                     {/* stamp disc */}
                     <div className="absolute inset-0 rounded-full border border-blue-200 bg-gradient-to-br from-white via-white to-[#EAF3FF] shadow-[0_3px_14px_rgba(37,99,235,0.12)] transition-all duration-300 group-hover:border-blue-300 group-hover:shadow-[0_8px_22px_rgba(37,99,235,0.20)]" />
                     {/* inner rule */}
@@ -586,22 +588,22 @@ function ClientsCertifications() {
                     </motion.div>
                     {/* centre */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="font-display text-lg font-bold text-[#09244D] sm:text-xl">{cert.code}</span>
+                      <span className="font-display text-base font-bold text-[#09244D] sm:text-lg">{cert.code}</span>
                       <span className="mt-1 h-px w-8 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
                     </div>
                   </div>
 
-                  <h3 className="mt-3 text-[13px] font-bold font-display text-[#09244D] transition-colors duration-300 group-hover:text-blue-600">
+                  <h3 className="mt-2 text-[12px] font-bold font-display leading-tight text-[#09244D] transition-colors duration-300 group-hover:text-blue-600">
                     {cert.title}
                   </h3>
-                  <p className="mt-1 text-[11px] leading-snug text-slate-500">{cert.description}</p>
+                  <p className="mt-0.5 text-[10px] leading-snug text-slate-500">{cert.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
 
           {/* BOTTOM — client logo wall */}
-          <div className="relative mt-6 rounded-2xl border border-[#E3EDF8] bg-white px-4 py-4 sm:px-5">
+          <div className="relative mt-5 rounded-2xl border border-[#E3EDF8] bg-white px-4 py-3 sm:px-5">
             <div className="flex items-center gap-3">
               <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
                 {t('clients.clients')}
@@ -622,17 +624,17 @@ function ClientsCertifications() {
                   <div
                     key={`${client.name}-${index}`}
                     aria-hidden={index >= clients.length}
-                    className="group mr-2 flex h-16 w-[124px] shrink-0 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:mr-3 sm:h-20 sm:w-[156px]"
+                    className="group mr-2 flex h-14 w-[124px] shrink-0 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:mr-3 sm:h-16 sm:w-[148px]"
                   >
                     <Picture
                       src={client.logo}
                       alt={client.name}
-                      sizes="156px"
+                      sizes="148px"
                       loading="lazy"
                       className={`max-w-full object-contain opacity-85 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 ${
                         client.logo.includes('bhartpe')
-                          ? 'max-h-16 sm:max-h-20'
-                          : 'max-h-10 sm:max-h-12'
+                          ? 'max-h-14 sm:max-h-16'
+                          : 'max-h-9 sm:max-h-10'
                       }`}
                     />
                   </div>
