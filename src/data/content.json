@@ -135,15 +135,15 @@
         },
         {
           "name": "IR Thermometer",
-          "image": "/images/products/TDCS.webp"
+          "image": "/images/products/Thermometer.webp"
         },
         {
           "name": "Oxygen Concentrator",
-          "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp"
+          "image": "/images/products/Oxygen-Concentrator-5.webp"
         },
         {
           "name": "Walnut Compressor Nebulizer",
-          "image": "/images/products/ces-repose.webp"
+          "image": "/images/products/Nebulizer.webp"
         }
       ]
     },
@@ -259,7 +259,7 @@
       "category": "Medical",
       "title": "Digital Blood Pressure Monitor",
       "description": "Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings.",
-      "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+      "image": "/images/products/bp-monitor-removebg.webp",
       "features": [
         "Clinical Grade",
         "Digital Display",
@@ -272,7 +272,7 @@
       "category": "Medical",
       "title": "IR Thermometer",
       "description": "Fast, hygienic temperature measurement with infrared technology. Ideal for clinical screening and home use.",
-      "image": "/images/products/TDCS.webp",
+      "image": "/images/products/Thermometer.webp",
       "features": [
         "Non-Contact",
         "Instant Reading",
@@ -285,7 +285,7 @@
       "category": "Medical",
       "title": "Oxygen Concentrator",
       "description": "Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings.",
-      "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
+      "image": "/images/products/Oxygen-Concentrator-5.webp",
       "features": [
         "5L & 10L Flow",
         "Single/Dual Flow",
@@ -298,7 +298,7 @@
       "category": "Medical",
       "title": "Walnut Compressor Nebulizer",
       "description": "Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings.",
-      "image": "/images/products/ces-repose.webp",
+      "image": "/images/products/Nebulizer.webp",
       "features": [
         "Efficient Nebulization",
         "Low Noise",

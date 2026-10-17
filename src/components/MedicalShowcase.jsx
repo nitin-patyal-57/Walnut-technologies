@@ -33,7 +33,7 @@ const products = [
     subtitle: 'Non-contact temperature measurement',
     description: 'Fast, hygienic temperature measurement with infrared technology. Ideal for clinical screening and home use. Instant readings without physical contact for maximum hygiene.',
     highlights: ['Non-Contact', 'Instant Reading', 'Hygienic', 'Battery Operated'],
-    image: '/images/products/TDCS.webp',
+    image: '/images/products/Thermometer.webp',
   },
   {
     number: 3,
@@ -49,7 +49,7 @@ const products = [
     subtitle: 'Respiratory therapy solutions',
     description: 'Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings. Delivers medication directly to the lungs.',
     highlights: ['Efficient Nebulization', 'Low Noise', 'Compact Design', 'Medical Grade'],
-    image: '/images/products/ces-repose.webp',
+    image: '/images/products/Nebulizer.webp',
   },
 ];
 

@@ -808,6 +808,18 @@
       1280
     ]
   },
+  "images/products/Nebulizer": {
+    "fallback": "/images/products/Nebulizer.webp",
+    "fallbackWidth": 1080,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
+    ]
+  },
   "images/products/RTOS": {
     "fallback": "/images/products/RTOS.webp",
     "fallbackWidth": 666,
@@ -830,6 +842,18 @@
       480,
       768,
       1280
+    ]
+  },
+  "images/products/Thermometer": {
+    "fallback": "/images/products/Thermometer.webp",
+    "fallbackWidth": 1080,
+    "avif": [
+      480,
+      768
+    ],
+    "webp": [
+      480,
+      768
     ]
   },
   "images/products/bharatpay-m": {
