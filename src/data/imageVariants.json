@@ -1037,15 +1037,9 @@
   },
   "images/products/medstim-neuro-devices": {
     "fallback": "/images/products/medstim-neuro-devices.webp",
-    "fallbackWidth": 847,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
+    "fallbackWidth": 150,
+    "avif": [],
+    "webp": []
   },
   "images/products/neuro": {
     "fallback": "/images/products/neuro.webp",
