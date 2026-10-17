@@ -1062,6 +1062,20 @@
       1280
     ]
   },
+  "images/products/neuro-rehab-display": {
+    "fallback": "/images/products/neuro-rehab-display.webp",
+    "fallbackWidth": 1920,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
   "images/products/neuro_rehab_device": {
     "fallback": "/images/products/neuro_rehab_device.webp",
     "fallbackWidth": 1200,
