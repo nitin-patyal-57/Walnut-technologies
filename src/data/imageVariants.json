@@ -524,7 +524,7 @@
     ]
   },
   "images/process/IoT Software Development": {
-    "fallback": "/images/process/IoT Software Development.jpg",
+    "fallback": "/images/process/IoT Software Development.webp",
     "fallbackWidth": 800,
     "avif": [
       480,
@@ -536,7 +536,7 @@
     ]
   },
   "images/process/Modern Electronics Assembly Line": {
-    "fallback": "/images/process/Modern Electronics Assembly Line.png",
+    "fallback": "/images/process/Modern Electronics Assembly Line.webp",
     "fallbackWidth": 1254,
     "avif": [
       480,
@@ -614,7 +614,7 @@
     ]
   },
   "images/process/design": {
-    "fallback": "/images/process/design.jpeg",
+    "fallback": "/images/process/design.webp",
     "fallbackWidth": 1600,
     "avif": [
       480,
@@ -797,7 +797,7 @@
     ]
   },
   "images/products/Futuristic Rugged Security Lock Showcase": {
-    "fallback": "/images/products/Futuristic Rugged Security Lock Showcase.png",
+    "fallback": "/images/products/Futuristic Rugged Security Lock Showcase.webp",
     "fallbackWidth": 1448,
     "avif": [
       480,
@@ -875,7 +875,7 @@
     ]
   },
   "images/products/blood home": {
-    "fallback": "/images/products/blood home.png",
+    "fallback": "/images/products/blood home.webp",
     "fallbackWidth": 1448,
     "avif": [
       480,
@@ -901,7 +901,7 @@
     ]
   },
   "images/products/boxsound home": {
-    "fallback": "/images/products/boxsound home.jpg",
+    "fallback": "/images/products/boxsound home.webp",
     "fallbackWidth": 1200,
     "avif": [
       480,
@@ -973,15 +973,14 @@
     ]
   },
   "images/products/cluster1 home": {
-    "fallback": "/images/products/cluster1 home.jpg",
+    "fallback": "/images/products/cluster1 home.webp",
     "fallbackWidth": 768,
     "avif": [
       480,
       768
     ],
     "webp": [
-      480,
-      768
+      480
     ]
   },
   "images/products/cluster1-home": {
@@ -1024,7 +1023,7 @@
     ]
   },
   "images/products/iot-lock-smart home": {
-    "fallback": "/images/products/iot-lock-smart home.jpg",
+    "fallback": "/images/products/iot-lock-smart home.webp",
     "fallbackWidth": 1200,
     "avif": [
       480,
@@ -1116,7 +1115,7 @@
     ]
   },
   "images/products/neuro_rehab_device home ": {
-    "fallback": "/images/products/neuro_rehab_device home .jpg",
+    "fallback": "/images/products/neuro_rehab_device home .webp",
     "fallbackWidth": 1200,
     "avif": [
       480,
