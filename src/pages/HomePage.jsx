@@ -20,7 +20,7 @@ function JourneySection() {
   const { t } = useLanguage();
 
   // Production process photos: square-cropped + colour-graded for a consistent
-  // blue Indian-manufacturing look. Source photo IDs live in scripts/tmp-apply.mjs.
+  // blue Indian-manufacturing look. Files live in public/images/process/.
   const processImages = [
     { image: '/images/process/idea-and-requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
     { image: '/images/process/research-and-market-analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },

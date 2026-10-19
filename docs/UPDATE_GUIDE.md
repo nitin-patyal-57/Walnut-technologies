@@ -51,9 +51,8 @@ Notes:
 - `imageVariants.json` is generated — never edit it by hand.
 - **Production-process circles** (homepage "End-to-End Production Process") are
   1000×1000 square crops with a shared blue grade so the ten shots read as one
-  set — Pexels photo IDs + grading live in `scripts/tmp-apply.mjs`; re-run it
-  then `npm run images`. Preview a section render with
-  `node scripts/tmp-shoot-proc.mjs`.
+  set. They live in `public/images/process/` — drop in a matching 1000×1000 crop
+  under the same name, then `npm run images`.
 - Background-removed product shots follow the `*-removebg.webp` convention
   (white cut out to transparency, `mix-blend-multiply` in tiles).
 - Sanity checks: `npm run verify-images`, `node scripts/check-responsive.mjs`

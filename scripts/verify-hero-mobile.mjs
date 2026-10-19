@@ -1,5 +1,7 @@
 import { spawn } from 'node:child_process';
 import { setTimeout as sleep } from 'node:timers/promises';
+import os from 'node:os';
+import path from 'node:path';
 import puppeteer from 'puppeteer-core';
 
 const PORT = 4179;
@@ -57,7 +59,7 @@ for (const href of CATEGORIES) {
   });
   const name = (href.split('=').pop() || 'x').replace(/%20/g, '_');
   console.log(name, JSON.stringify(r));
-  await page.screenshot({ path: `C:/Users/Abcom/AppData/Local/Temp/opencode/fix-${name}.png` });
+  await page.screenshot({ path: path.join(os.tmpdir(), `fix-${name}.png`) });
 }
 
 await browser.close();

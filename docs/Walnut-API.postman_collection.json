@@ -1547,7 +1547,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Priya Sharma\",\n  \"email\": \"priya@walnutmedical.in\",\n  \"role\": \"editor\"\n}",
+              "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"editor@example.com\",\n  \"role\": \"editor\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
