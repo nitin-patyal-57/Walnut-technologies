@@ -23,7 +23,6 @@ const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
 const ProcessPage = lazy(() => import('./pages/ProcessPage'));
 const ExpertisePage = lazy(() => import('./pages/ExpertisePage'));
 const ExpertiseDetailPage = lazy(() => import('./pages/ExpertiseDetailPage'));
-const ClientsPage = lazy(() => import('./pages/ClientsPage'));
 const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -79,7 +78,6 @@ function AppContent() {
           <Route path="/process" element={<ErrorBoundary isPageLevel><ProcessPage /></ErrorBoundary>} />
           <Route path="/expertise" element={<ErrorBoundary isPageLevel><ExpertisePage /></ErrorBoundary>} />
           <Route path="/expertise/:slug" element={<ErrorBoundary isPageLevel><ExpertiseDetailPage /></ErrorBoundary>} />
-          <Route path="/clients" element={<ErrorBoundary isPageLevel><ClientsPage /></ErrorBoundary>} />
           <Route path="/resources" element={<ErrorBoundary isPageLevel><ResourcesPage /></ErrorBoundary>} />
           <Route path="/news" element={<ErrorBoundary isPageLevel><NewsPage /></ErrorBoundary>} />
           <Route path="/contact" element={<ErrorBoundary isPageLevel><ContactPage /></ErrorBoundary>} />

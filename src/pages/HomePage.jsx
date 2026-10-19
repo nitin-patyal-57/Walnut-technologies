@@ -534,13 +534,14 @@ function ClientsCertifications() {
                 {headingLead} <span className="text-blue-600">{headingAccent}</span>
               </h2>
               <p className="mt-2 max-w-md text-[13px] leading-relaxed text-slate-500">{t('clients.subtitle')}</p>
-              <Link
-                to="/clients"
+              <button
+                type="button"
+                onClick={() => document.getElementById('our-clients')?.scrollIntoView({ behavior: scrollBehavior(), block: 'center' })}
                 className="mt-3.5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/60 px-3.5 py-1.5 text-xs font-semibold text-blue-600 transition-colors duration-300 hover:border-blue-200 hover:bg-blue-50"
               >
                 {t('clients.explore')}
                 <FiArrowRight className="h-3.5 w-3.5" />
-              </Link>
+              </button>
             </div>
 
             {/* RIGHT — certification stamps. One row at lg: five tiles must fit
@@ -596,7 +597,7 @@ function ClientsCertifications() {
           </div>
 
           {/* BOTTOM — client logo wall */}
-          <div className={`relative mt-5 rounded-2xl border border-[#E3EDF8] bg-white px-4 py-3 sm:px-5 ${clients.length ? '' : 'hidden'}`}>
+          <div id="our-clients" className={`relative mt-5 rounded-2xl border border-[#E3EDF8] bg-white px-4 py-3 sm:px-5 ${clients.length ? '' : 'hidden'}`}>
             <div className="flex items-center gap-3">
               <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-400">
                 {t('clients.clients')}
