@@ -617,17 +617,17 @@ function ClientsCertifications() {
                   <div
                     key={`${client.name}-${index}`}
                     aria-hidden={index >= clients.length}
-                    className="group mr-2 flex h-14 w-[124px] shrink-0 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:mr-3 sm:h-16 sm:w-[148px]"
+                    className="group mr-2 flex h-14 w-[136px] shrink-0 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:mr-3 sm:h-16 sm:w-[164px]"
                   >
                     <Picture
                       src={client.logo}
                       alt={client.name}
-                      sizes="148px"
+                      sizes="164px"
                       loading="lazy"
                       className={`max-w-full object-contain opacity-85 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 ${
                         client.logo.includes('bhartpe')
                           ? 'max-h-14 sm:max-h-16'
-                          : 'max-h-9 sm:max-h-10'
+                          : 'max-h-10 sm:max-h-12'
                       }`}
                     />
                   </div>
