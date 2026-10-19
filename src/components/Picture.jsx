@@ -1,4 +1,5 @@
 import variants from '../data/imageVariants.json';
+import { VARIANT_VERSION } from '../data/imageVariantVersion';
 
 const stripQuery = (s) => s.split('?')[0];
 
@@ -19,7 +20,7 @@ export default function Picture({ src, alt = '', sizes = '100vw', ...props }) {
   const slash = clean.lastIndexOf('/');
   const dir = clean.slice(0, slash + 1);
   const name = clean.slice(slash + 1).replace(/\.[a-z0-9]+$/i, '');
-  const at = (w, format) => `${dir}${name}-${w}.${format}`;
+  const at = (w, format) => `${dir}${name}-${w}.${format}?v=${VARIANT_VERSION}`;
 
   const avifSet = entry.avif.map((w) => `${at(w, 'avif')} ${w}w`).join(', ');
   const webpPairs = entry.webp.map((w) => `${at(w, 'webp')} ${w}w`);

@@ -10,8 +10,12 @@ const MANIFEST = path.join(ROOT, 'src', 'data', 'imageVariants.json');
 
 const WIDTHS = [480, 768, 1280, 1920];
 const MIN_WIDTH = 600;
-const AVIF = { quality: 55, effort: 4 };
-const WEBP = { quality: 78, effort: 5 };
+// Quality settings. AVIF at q55/4:2:0 was visibly soft across the whole site,
+// so both formats now encode at higher quality with full-range chroma (4:4:4)
+// to keep logo and text edges crisp. Originals in public/ are never modified —
+// these only govern the generated -{width}.{avif,webp} variants.
+const AVIF = { quality: 72, effort: 5, chromaSubsampling: '4:4:4' };
+const WEBP = { quality: 88, effort: 6, chromaSubsampling: '4:4:4' };
 
 const SKIP = (rel) =>
   rel.startsWith('images/brand/') ||
@@ -105,7 +109,12 @@ await writeFile(MANIFEST, JSON.stringify(sorted, null, 2) + '\n');
 const HERO_KEY = 'images/backgrounds/home-background';
 const hero = sorted[HERO_KEY];
 if (hero && hero.avif.length) {
-  const srcset = hero.avif.map((w) => `/images/backgrounds/home-background-${w}.avif ${w}w`).join(', ');
+  const { VARIANT_VERSION } = await import(
+    new URL('../src/data/imageVariantVersion.js', import.meta.url).href
+  );
+  const srcset = hero.avif
+    .map((w) => `/images/backgrounds/home-background-${w}.avif?v=${VARIANT_VERSION} ${w}w`)
+    .join(', ');
   const preload = `(function () {
   var p = location.pathname;
   if (p !== '/' && p !== '/index.html' && p !== '') return;
