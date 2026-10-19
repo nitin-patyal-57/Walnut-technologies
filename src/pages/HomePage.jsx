@@ -337,7 +337,7 @@ function DivisionsPreview() {
       num: '02',
       title: 'Digital Blood Pressure',
       category: t('divisions.medical'),
-      desc: 'ISO 13485, Class 10K Cleanroom, FDA Compliant',
+      desc: 'ISO 13485, Class 10K Cleanroom, Made in India',
       image: '/images/products/bp-home.webp',
       link: '/solutions?category=Medical',
     },

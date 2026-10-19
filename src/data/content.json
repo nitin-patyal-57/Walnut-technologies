@@ -118,12 +118,12 @@
     {
       "id": "medical",
       "title": "Medical",
-      "subtitle": "ISO 13485, Class 10K Cleanroom, FDA Compliant",
+      "subtitle": "ISO 13485, Class 10K Cleanroom, Made in India",
       "description": "Precision medical devices for diagnostics and patient care. Manufactured with international quality standards and regulatory compliance.",
       "icon": "medkit",
       "color": "from-cyan-500 to-blue-600",
       "features": [
-        "FDA Compliant",
+        "Made in India",
         "Class 10K Cleanroom",
         "ISO 13485",
         "IEC 60601"
@@ -264,7 +264,7 @@
         "Clinical Grade",
         "Digital Display",
         "Memory Storage",
-        "FDA Cleared"
+        "NABL Certified"
       ]
     },
     {
@@ -515,7 +515,6 @@
       "areas": [
         "ISO 13485",
         "ISO 9001",
-        "FDA QSR",
         "CE Marking",
         "IEC 60601"
       ]
@@ -847,7 +846,7 @@
       "id": "case-study-1",
       "title": "WalkLab Robotic Gait Training: From Prototype to Clinical Deployment",
       "type": "Case Study",
-      "description": "How Walnut Technologies developed and scaled the WalkLab Robotic Gait Training system from concept to FDA-approved neuro rehabilitation device with AI-assisted therapy.",
+      "description": "How Walnut Technologies developed and scaled the WalkLab Robotic Gait Training system from concept to a commercial neuro rehabilitation device with AI-assisted therapy.",
       "icon": "casestudy",
       "color": "from-purple-600 to-pink-500"
     },

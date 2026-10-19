@@ -93,15 +93,15 @@ const medstimFeatures = [
 ];
 
 const tdcsStats = [
-  { value: '2 mA', label: 'Max constant current' },
-  { value: '10–40 min', label: 'Session range' },
-  { value: 'LCD', label: 'Live session display' },
+  { value: '4 mA', label: 'Max constant current' },
+  { value: '±0.004 mA', label: 'Current precision' },
+  { value: '12 hrs', label: 'Battery life' },
 ];
 
 const reposeStats = [
-  { value: 'M1–M6', label: 'Stimulation modes' },
-  { value: '10–30 min', label: 'Session timer' },
-  { value: '01–30', label: 'Intensity steps' },
+  { value: '0–1 mA', label: 'Amplitude range' },
+  { value: '3–100 Hz', label: 'Frequency range' },
+  { value: '1–5 ms', label: 'Pulse duration' },
 ];
 
 const medstimStats = [

@@ -29,7 +29,7 @@ const evolutionData = {
     ],
     highlights: [
       { icon: FiTarget, title: 'The Problem We Saw', text: 'Indian hospitals were dependent on expensive imported medical devices. Quality healthcare technology was out of reach for most of the population. We set out to change that.', stat: '' },
-      { icon: FiZap, title: 'First Breakthrough', text: 'Within 18 months, our team delivered the first FDA-compliant prototype of a digital blood pressure monitor. It met international quality standards while being priced for the Indian market.', stat: '18mo' },
+      { icon: FiZap, title: 'First Breakthrough', text: 'Within 18 months, our team delivered the first Korotkoff-sensing prototype of a digital blood pressure monitor. It met international quality standards while being priced for the Indian market.', stat: '18mo' },
       { icon: FiShield, title: 'ISO 13485 Certified', text: 'Achieved ISO 13485:2016 certification for medical device quality management — a critical milestone that opened doors to domestic and international markets.', stat: 'ISO' },
       { icon: FiHeart, title: 'First Hospital Partners', text: 'Partnered with leading hospitals in Delhi NCR for clinical trials. Delivered our first 500 units of patient monitoring systems, proving our manufacturing capability.', stat: '500+' },
     ],

@@ -15,7 +15,7 @@ const expertiseData = {
     whyChooseUs: [
       'ISO 13485:2016 Certified Quality Management System',
       'Class 10K Cleanroom Facility for Sterile Assembly',
-      'FDA QSR Compliant Manufacturing Processes',
+      'In-House Design, Manufacturing, Testing & Certification',
       'IEC 60601 Electrical Safety Testing',
       'Complete Traceability from Component to Finished Product',
       'Zero Defect Manufacturing Philosophy',
@@ -34,7 +34,7 @@ const expertiseData = {
       { value: '10+', label: 'Countries Supplied' },
       { value: '15+', label: 'Years Experience' },
     ],
-    certifications: ['ISO 13485', 'FDA QSR', 'CE Marking', 'IEC 60601', 'ISO 9001', 'BIS Certified'],
+    certifications: ['ISO 13485', 'CE Marking', 'IEC 60601', 'ISO 9001', 'BIS Certified'],
     process: [
       'Design for Manufacturing (DFM) Review',
       'Component Sourcing & Incoming Inspection',

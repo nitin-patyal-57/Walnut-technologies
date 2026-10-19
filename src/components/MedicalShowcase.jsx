@@ -5,7 +5,7 @@ import ProductTile from './ProductTile';
 
 const keyFeatures = [
   { icon: FiShield, label: 'ISO 13485 Certified', value: 'International quality management standard for medical devices' },
-  { icon: FiHeart, label: 'FDA Compliant', value: 'Meets US FDA regulatory requirements for medical devices' },
+  { icon: FiHeart, label: 'Patented Technology', value: 'Korotkoff sensing with an inbuilt digital stethoscope' },
   { icon: FiCpu, label: 'Class 10K Cleanroom', value: 'Controlled manufacturing environment for sterile products' },
   { icon: FiActivity, label: 'IEC 60601 Certified', value: 'Safety and performance standards for medical electrical equipment' },
   { icon: FiZap, label: 'Precision Engineering', value: 'High-accuracy sensors and components for clinical diagnostics' },
@@ -13,7 +13,7 @@ const keyFeatures = [
   { icon: FiBattery, label: 'Long Battery Life', value: 'Extended operation for portable medical devices' },
   { icon: FiThermometer, label: 'Clinical Grade Accuracy', value: 'Medical-grade precision for reliable patient readings' },
   { icon: FiCpu, label: 'Digital Display', value: 'Clear, easy-to-read displays for accurate data visualization' },
-  { icon: FiShield, label: 'Regulatory Compliance', value: 'CE, FDA, ISO certifications for global market access' },
+  { icon: FiShield, label: 'Made in India', value: 'Design, manufacturing, testing and certification done in India' },
   { icon: FiHeart, label: 'Home & Clinical Use', value: 'Versatile devices for both healthcare facilities and home care' },
   { icon: FiZap, label: 'Low Noise Operation', value: 'Quiet performance for patient comfort during treatment' },
 ];
@@ -24,7 +24,7 @@ const products = [
     title: 'Digital Blood Pressure Monitor',
     subtitle: 'Clinical-grade precision',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings. Features memory storage for multiple readings and easy-to-use interface.',
-    highlights: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'FDA Cleared'],
+    highlights: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'NABL Certified'],
     image: '/images/products/bp-monitor-removebg.webp',
   },
   {

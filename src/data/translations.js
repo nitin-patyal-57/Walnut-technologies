@@ -38,7 +38,7 @@ const enTranslations = {
     iot: 'IoT Solutions',
     iotFeatures: ['End-to-End Connectivity', 'Edge Computing', 'Cloud Integration'],
     robotics: 'Neuro Rehab Devices',
-    roboticsFeatures: ['FDA Approved', 'IEC 60601 Compliant', 'Advanced Rehab Tech'],
+    roboticsFeatures: ['Robotic Gait Training', 'IEC 60601 Compliant', 'Advanced Rehab Tech'],
     automotive: 'Automotive Electronics',
     automotiveFeatures: ['IATF 16949 Compliant', 'High Reliability', 'AEC-Q100 Qualified'],
     custom: 'Custom Solutions',
