@@ -113,8 +113,12 @@ export default function MedicalShowcase({ onBack }) {
           <FiArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">All Divisions</span>
         </button>
-        <div className={`transition-opacity duration-500 md:-mt-24 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture sizes="100vw" src="/images/backgrounds/medical-background.webp" alt="Medical Devices" width="1920" height="600" className="w-full h-auto" loading="lazy" />
+        {/* Vertical position of the banner relative to the fixed navbar.
+            Originally `md:-mt-24` (pulled 96px up, tucked well under the navbar).
+            Now `md:-mt-2` — a ~24px lift, just grazing the navbar. Nudge the
+            rem value to fine-tune: negative = further up, positive = down. */}
+        <div className={`transition-opacity duration-500 md:-mt-2 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <Picture sizes="100vw" src="/images/backgrounds/medical-background.webp" alt="Medical Devices" width="2171" height="724" className="w-full h-auto" loading="lazy" />
         </div>
       </section>
 

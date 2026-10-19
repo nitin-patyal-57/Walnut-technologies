@@ -23,9 +23,14 @@ export default function Picture({ src, alt = '', sizes = '100vw', ...props }) {
   const at = (w, format) => `${dir}${name}-${w}.${format}?v=${VARIANT_VERSION}`;
 
   const avifSet = entry.avif.map((w) => `${at(w, 'avif')} ${w}w`).join(', ');
+  // The original file doubles as the largest WebP candidate and as the plain
+  // <img> fallback. It needs the same ?v= token as the variants — without it a
+  // returning visitor keeps rendering the old bytes from their 7-day cache, so
+  // re-encoded originals appear not to update.
+  const originalUrl = `${clean}?v=${VARIANT_VERSION}`;
   const webpPairs = entry.webp.map((w) => `${at(w, 'webp')} ${w}w`);
   if (!entry.webp.includes(entry.fallbackWidth)) {
-    webpPairs.push(`${clean} ${entry.fallbackWidth}w`);
+    webpPairs.push(`${originalUrl} ${entry.fallbackWidth}w`);
   }
   const webpSet = webpPairs.join(', ');
 
@@ -33,7 +38,7 @@ export default function Picture({ src, alt = '', sizes = '100vw', ...props }) {
     <picture>
       <source type="image/avif" srcSet={avifSet} sizes={sizes} />
       <source type="image/webp" srcSet={webpSet} sizes={sizes} />
-      <img src={src} alt={alt} sizes={sizes} srcSet={webpSet} {...props} />
+      <img src={originalUrl} alt={alt} sizes={sizes} srcSet={webpSet} {...props} />
     </picture>
   );
 }

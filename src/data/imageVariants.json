@@ -346,16 +346,18 @@
   },
   "images/backgrounds/medical-background": {
     "fallback": "/images/backgrounds/medical-background.webp",
-    "fallbackWidth": 1670,
+    "fallbackWidth": 2171,
     "avif": [
       480,
       768,
-      1280
+      1280,
+      1920
     ],
     "webp": [
       480,
       768,
-      1280
+      1280,
+      1920
     ]
   },
   "images/clients/bhartpe": {
