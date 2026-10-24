@@ -14,7 +14,7 @@ const expertiseData = {
     intro: 'In healthcare, there is no margin for error. Walnut Technologies delivers ISO 13485 certified medical electronics that hospitals, clinics, and med-tech companies trust with patient lives. From concept to production, we manufacture devices that meet the most stringent global regulatory standards.',
     whyChooseUs: [
       'ISO 13485:2016 Certified Quality Management System',
-      'Class 10K Cleanroom Facility for Sterile Assembly',
+      'Controlled Environment Facility for Precision Assembly',
       'In-House Design, Manufacturing, Testing & Certification',
       'IEC 60601 Electrical Safety Testing',
       'Complete Traceability from Component to Finished Product',
@@ -264,7 +264,7 @@ const expertiseData = {
       '500K+ Units Monthly Capacity',
       '150,000 Sq.Ft Manufacturing Facility',
       'Vertical Integration: PCB to Final Assembly',
-      'Class 10K Cleanroom for Sensitive Products',
+      'Controlled Environment for Sensitive Products',
       'Automated Optical Inspection (AOI)',
     ],
     capabilities: [
