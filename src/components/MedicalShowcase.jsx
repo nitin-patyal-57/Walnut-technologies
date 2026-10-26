@@ -66,7 +66,7 @@ const capabilities = [
     title: 'Regulatory & Certification',
     subtitle: 'Global compliance',
     description: 'Navigate complex regulatory landscapes with our expertise. We ensure your medical devices meet international standards for global market access.',
-    bulletPoints: ['FDA 510(k) Preparation', 'CE Marking & MDR Compliance', 'ISO 13485 Quality Management', 'IEC 60601 Safety Testing'],
+    bulletPoints: ['Regulatory Pathway Planning', 'CE Marking & MDR Compliance', 'ISO 13485 Quality Management', 'IEC 60601 Safety Testing'],
   },
   {
     number: 3,
