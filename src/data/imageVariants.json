@@ -190,7 +190,7 @@
   },
   "images/about/who-we-are": {
     "fallback": "/images/about/who-we-are.webp",
-    "fallbackWidth": 1516,
+    "fallbackWidth": 1532,
     "avif": [
       480,
       768,
