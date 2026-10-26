@@ -109,7 +109,7 @@ const enTranslations = {
     trusted: 'Trusted Partner',
     explore: 'Explore Our Clients',
     qms: 'Quality management for medical devices',
-    cleanroom: 'Controlled manufacturing environment',
+    controlledEnv: 'Controlled manufacturing environment',
     standards: 'European, US & payment security standards',
     safety: 'Medical electrical equipment safety',
     indian: 'Bureau of Indian Standards compliance',
