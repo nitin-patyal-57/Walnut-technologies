@@ -6,7 +6,7 @@ import ProductTile from './ProductTile';
 const keyFeatures = [
   { icon: FiShield, label: 'ISO 13485 Certified', value: 'International quality management standard for medical devices' },
   { icon: FiHeart, label: 'Patented Technology', value: 'Korotkoff sensing with an inbuilt digital stethoscope' },
-  { icon: FiCpu, label: 'Class 10K Cleanroom', value: 'Controlled manufacturing environment for sterile products' },
+  { icon: FiCpu, label: 'Advanced Manufacturing', value: 'Controlled manufacturing environment for precision products' },
   { icon: FiActivity, label: 'IEC 60601 Certified', value: 'Safety and performance standards for medical electrical equipment' },
   { icon: FiZap, label: 'Precision Engineering', value: 'High-accuracy sensors and components for clinical diagnostics' },
   { icon: FiTarget, label: 'Patient Safety Focus', value: 'Designed with patient safety as the core priority' },
@@ -72,8 +72,8 @@ const capabilities = [
     number: 3,
     title: 'Manufacturing & Assembly',
     subtitle: 'Precision manufacturing',
-    description: 'State-of-the-art manufacturing facilities with Class 10K cleanroom environment. From PCB assembly to final product packaging.',
-    bulletPoints: ['SMT & Through-Hole Assembly', 'Class 10K Cleanroom Production', 'Automated Testing & QA', 'Scalable Production Capacity'],
+    description: 'State-of-the-art manufacturing facilities with controlled environment production. From PCB assembly to final product packaging.',
+    bulletPoints: ['SMT & Through-Hole Assembly', 'Controlled Environment Production', 'Automated Testing & QA', 'Scalable Production Capacity'],
   },
   {
     number: 4,

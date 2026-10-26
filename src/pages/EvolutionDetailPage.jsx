@@ -94,7 +94,7 @@ const evolutionData = {
     highlights: [
       { icon: FiShield, title: 'PCI-DSS & EMV Certified', text: 'Achieved PCI-DSS, PCI PTS 5.x, EMV L1/L2, NPCI, and RBI certifications for our payment terminals. These are among the strictest security standards in the global payments industry.', stat: 'PCI' },
       { icon: FiGlobe, title: '10+ Countries', text: 'Our products operate across 10+ countries spanning India, Southeast Asia, Middle East, Africa, and Europe. Every product ships with full international certifications.', stat: '10+' },
-      { icon: FiPackage, title: '150,000 sqft Facility', text: 'Scaled from 2,000 sqft to a state-of-the-art 150,000 sqft manufacturing facility. Features 4 high-speed SMT lines, Class 10K cleanroom, and automated testing.', stat: '150K' },
+      { icon: FiPackage, title: '150,000 sqft Facility', text: 'Scaled from 2,000 sqft to a state-of-the-art 150,000 sqft manufacturing facility. Features 4 high-speed SMT lines and automated testing.', stat: '150K' },
       { icon: FiZap, title: 'HDFC Bank Partnership', text: 'Deployed 10,000+ POS terminals for HDFC Bank across India. Our payment devices process INR 100Cr+ daily transactions with 99.8% first-pass yield.', stat: '10K+' },
     ],
     splitContent: {
@@ -110,7 +110,7 @@ const evolutionData = {
     num: '04',
     title: 'Today',
     subtitle: 'Engineering & Manufacturing Excellence',
-    heroImage: '/images/about/06_Cleanroom_Manufacturing.webp',
+    heroImage: '/images/about/08_Electronics_Manufacturing_Factory.webp',
     color: 'from-blue-600 to-blue-700',
     colorSolid: '#2563eb',
     colorBg: 'bg-blue-50',
@@ -132,7 +132,7 @@ const evolutionData = {
     splitContent: {
       title: 'What Makes Us Different',
       text: 'We are not just a manufacturer — we are an Original Design Manufacturer. That means we design, engineer, and build products from concept to mass production. Our clients don\'t just buy our manufacturing capacity — they buy our engineering expertise, our quality systems, and our ability to solve complex problems.',
-      image: '/images/about/06_Cleanroom_Manufacturing.webp',
+      image: '/images/about/04_Engineering_Team.webp',
     },
     nextSlug: 'foundation',
     nextTitle: 'Foundation',

@@ -41,7 +41,7 @@ const expertiseData = {
       'SMT Assembly & Through-Hole Manufacturing',
       'Conformal Coating & Potting',
       'Functional Testing & Calibration',
-      'Cleanroom Assembly & Packaging',
+      'Controlled Environment Assembly & Packaging',
       'Final Quality Audit & Release',
     ],
     cta: 'Partner with us to bring life-saving medical devices to market faster, with the quality and compliance your patients deserve.',

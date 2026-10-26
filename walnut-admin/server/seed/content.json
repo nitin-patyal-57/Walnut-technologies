@@ -24,7 +24,7 @@
     "values": [
       {
         "title": "Quality First",
-        "description": "ISO 13485, ISO 9001 certified processes with Class 10K cleanroom facility."
+        "description": "ISO 13485, ISO 9001 certified processes with quality management facilities."
       },
       {
         "title": "Innovation",
@@ -87,7 +87,6 @@
     ],
     "certifications": [
       "ISO 13485 Certified",
-      "Class 10K Cleanroom",
       "CE, FCC, PCI-DSS",
       "IEC 60601",
       "BIS Certified",
@@ -118,13 +117,13 @@
     {
       "id": "medical",
       "title": "Medical",
-      "subtitle": "ISO 13485, Class 10K Cleanroom, FDA Compliant",
+      "subtitle": "ISO 13485, Controlled Environment, FDA Compliant",
       "description": "Precision medical devices for diagnostics and patient care. Manufactured with international quality standards and regulatory compliance.",
       "icon": "medkit",
       "color": "from-cyan-500 to-blue-600",
       "features": [
         "FDA Compliant",
-        "Class 10K Cleanroom",
+        "Controlled Environment",
         "ISO 13485",
         "IEC 60601"
       ],
@@ -509,7 +508,7 @@
     },
     {
       "title": "Quality & Compliance",
-      "description": "ISO 13485 certified quality management with Class 10K cleanroom facility.",
+      "description": "ISO 13485 certified quality management with quality management facilities.",
       "icon": "check",
       "image": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
       "areas": [
@@ -855,7 +854,7 @@
       "id": "brochure-1",
       "title": "Walnut Technologies Company Overview 2026",
       "type": "Brochure",
-      "description": "Complete overview of our 150,000 sq.ft manufacturing facility, 4 SMT lines, Class 10K cleanroom, and end-to-end OEM/ODM capabilities across medical, fintech, and IoT divisions.",
+      "description": "Complete overview of our 150,000 sq.ft manufacturing facility, 4 SMT lines, controlled environment, and end-to-end OEM/ODM capabilities across medical, fintech, and IoT divisions.",
       "icon": "brochure",
       "color": "from-amber-500 to-orange-600"
     },
@@ -976,11 +975,6 @@
       "code": "ISO",
       "title": "ISO 13485",
       "description": "Quality management for medical devices"
-    },
-    {
-      "code": "10K",
-      "title": "Class 10K Cleanroom",
-      "description": "Controlled manufacturing environment"
     },
     {
       "code": "CE",

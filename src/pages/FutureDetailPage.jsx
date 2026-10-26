@@ -77,7 +77,7 @@ const futureData = {
   scalable: {
     title: 'Scalable',
     subtitle: 'Solutions Ready for Real-World Deployment at Any Scale',
-    heroImage: '/images/about/06_Cleanroom_Manufacturing.webp',
+    heroImage: '/images/about/08_Electronics_Manufacturing_Factory.webp',
     color: 'from-blue-600 to-blue-700',
     colorSolid: '#2563eb',
     colorBg: 'bg-blue-50',
@@ -92,15 +92,15 @@ const futureData = {
       { year: '2026', event: 'All 4 SMT lines at full scale. Placement accuracy 99.95%, yield rate 99.8%' },
     ],
     features: [
-      { icon: FiSettings, title: '150,000 sqft Facility', text: 'Class 10K cleanroom, 4 high-speed SMT lines, automated optical inspection, X-ray testing, and dedicated R&D labs in Mohali, Punjab.', stat: '150K' },
+      { icon: FiSettings, title: '150,000 sqft Facility', text: '4 high-speed SMT lines, automated optical inspection, X-ray testing, and dedicated R&D labs in Mohali, Punjab.', stat: '150K' },
       { icon: FiZap, title: '500K+ Units/Month', text: '4 SMT lines handle up to 0201 components with 99.95% placement accuracy. 12-layer HDI PCBs, fine-pitch BGA, complex assemblies.', stat: '500K+' },
       { icon: FiStar, title: 'Vertical Integration', text: 'PCB design, SMT assembly, mechanical fabrication, firmware, plastic molding, testing — everything in-house. 24-48 hour prototyping.', stat: '24hr' },
       { icon: FiCheckCircle, title: 'Quality at Scale', text: 'ISO 13485, ISO 9001, IPC-A-610, J-STD-001 certified. Automated testing at every stage. Zero non-conformities in 2024 recertification.', stat: '99.8%' },
     ],
     splitContent: {
       title: 'Built for Scale',
-      text: 'Our 150,000 sqft facility in Mohali is designed for volume without compromising quality. 4 high-speed SMT lines, Class 10K cleanroom, automated testing — we can scale from 100 units to 100,000 units without skipping a beat. 99.8% first-pass yield is not a number we achieved by accident.',
-      image: '/images/about/06_Cleanroom_Manufacturing.webp',
+      text: 'Our 150,000 sqft facility in Mohali is designed for volume without compromising quality. 4 high-speed SMT lines and automated testing — we can scale from 100 units to 100,000 units without skipping a beat. 99.8% first-pass yield is not a number we achieved by accident.',
+      image: '/images/about/07_PCB_Testing.webp',
     },
     nextSlug: 'global',
     nextTitle: 'Global',
