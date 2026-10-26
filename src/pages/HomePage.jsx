@@ -27,7 +27,7 @@ function JourneySection() {
     { image: '/images/process/design-and-engineering.webp', num: '03', from: 'DESIGN', to: 'MANUFACTURING' },
     { image: '/images/process/manufacturing-engineering-and-mold-design.webp', num: '04', from: 'MANUFACTURING', to: 'TESTING' },
     { image: '/images/process/validation-and-testing.webp', num: '05', from: 'TESTING', to: 'MOLDING' },
-    { image: '/images/process/prototype-development.webp', num: '06', from: 'MOLDING', to: 'QA' },
+    { image: '/images/process/molding-process.webp', num: '06', from: 'MOLDING', to: 'QA' },
     { image: '/images/process/quality-assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
     { image: '/images/process/packaging-and-dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
     { image: '/images/process/after-sales-support.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },

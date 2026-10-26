@@ -58,20 +58,6 @@
       1280
     ]
   },
-  "images/about/06_Cleanroom_Manufacturing": {
-    "fallback": "/images/about/06_Cleanroom_Manufacturing.webp",
-    "fallbackWidth": 1600,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
   "images/about/07_PCB_Testing": {
     "fallback": "/images/about/07_PCB_Testing.webp",
     "fallbackWidth": 1600,
@@ -714,8 +700,8 @@
       768
     ]
   },
-  "images/process/packaging-and-dispatch": {
-    "fallback": "/images/process/packaging-and-dispatch.webp",
+  "images/process/molding-process": {
+    "fallback": "/images/process/molding-process.webp",
     "fallbackWidth": 1000,
     "avif": [
       480,
@@ -726,8 +712,8 @@
       768
     ]
   },
-  "images/process/prototype-development": {
-    "fallback": "/images/process/prototype-development.webp",
+  "images/process/packaging-and-dispatch": {
+    "fallback": "/images/process/packaging-and-dispatch.webp",
     "fallbackWidth": 1000,
     "avif": [
       480,
