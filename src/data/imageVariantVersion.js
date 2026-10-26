@@ -9,4 +9,4 @@
 // a bump makes the new files load right away for every visitor.
 //
 // Bump this whenever you re-run `npm run images` with changed encode settings.
-export const VARIANT_VERSION = '3';
+export const VARIANT_VERSION = '4';
