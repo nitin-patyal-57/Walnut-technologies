@@ -87,35 +87,6 @@
       1280
     ]
   },
-  "images/about/09_Team_Collaboration": {
-    "fallback": "/images/about/09_Team_Collaboration.webp",
-    "fallbackWidth": 1920,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/about/10_PCB_Closeup": {
-    "fallback": "/images/about/10_PCB_Closeup.webp",
-    "fallbackWidth": 1600,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
   "images/about/11_Modern_Conference_Room": {
     "fallback": "/images/about/11_Modern_Conference_Room.webp",
     "fallbackWidth": 1920,
@@ -218,21 +189,6 @@
   },
   "images/backgrounds/career": {
     "fallback": "/images/backgrounds/career.webp",
-    "fallbackWidth": 1920,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/backgrounds/career-background": {
-    "fallback": "/images/backgrounds/career-background.webp",
     "fallbackWidth": 1920,
     "avif": [
       480,
@@ -523,58 +479,6 @@
       1280
     ]
   },
-  "images/process/IoT Software Development": {
-    "fallback": "/images/process/IoT Software Development.webp",
-    "fallbackWidth": 800,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/process/Modern Electronics Assembly Line": {
-    "fallback": "/images/process/Modern Electronics Assembly Line.webp",
-    "fallbackWidth": 1254,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/process/QA": {
-    "fallback": "/images/process/QA.webp",
-    "fallbackWidth": 2560,
-    "avif": [
-      480,
-      768,
-      1280,
-      1920
-    ],
-    "webp": [
-      480,
-      768,
-      1280,
-      1920
-    ]
-  },
-  "images/process/Testing": {
-    "fallback": "/images/process/Testing.webp",
-    "fallbackWidth": 800,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
   "images/process/after-sales-support": {
     "fallback": "/images/process/after-sales-support.webp",
     "fallbackWidth": 1000,
@@ -602,20 +506,6 @@
   "images/process/contract-manufacturing": {
     "fallback": "/images/process/contract-manufacturing.webp",
     "fallbackWidth": 1835,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/process/design": {
-    "fallback": "/images/process/design.webp",
-    "fallbackWidth": 1600,
     "avif": [
       480,
       768,
@@ -796,20 +686,6 @@
       480
     ]
   },
-  "images/products/Futuristic Rugged Security Lock Showcase": {
-    "fallback": "/images/products/Futuristic Rugged Security Lock Showcase.webp",
-    "fallbackWidth": 1448,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
   "images/products/Nebulizer": {
     "fallback": "/images/products/Nebulizer.webp",
     "fallbackWidth": 1080,
@@ -874,44 +750,6 @@
       1920
     ]
   },
-  "images/products/blood home": {
-    "fallback": "/images/products/blood home.webp",
-    "fallbackWidth": 1448,
-    "avif": [
-      480,
-      768,
-      1280
-    ],
-    "webp": [
-      480,
-      768,
-      1280
-    ]
-  },
-  "images/products/boxsound": {
-    "fallback": "/images/products/boxsound.webp",
-    "fallbackWidth": 1200,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/products/boxsound home": {
-    "fallback": "/images/products/boxsound home.webp",
-    "fallbackWidth": 1200,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
   "images/products/boxsound-home": {
     "fallback": "/images/products/boxsound-home.webp",
     "fallbackWidth": 1200,
@@ -972,17 +810,6 @@
       768
     ]
   },
-  "images/products/cluster1 home": {
-    "fallback": "/images/products/cluster1 home.webp",
-    "fallbackWidth": 768,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480
-    ]
-  },
   "images/products/cluster1-home": {
     "fallback": "/images/products/cluster1-home.webp",
     "fallbackWidth": 1200,
@@ -1012,18 +839,6 @@
   },
   "images/products/iot-lock-smart": {
     "fallback": "/images/products/iot-lock-smart.webp",
-    "fallbackWidth": 1200,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/products/iot-lock-smart home": {
-    "fallback": "/images/products/iot-lock-smart home.webp",
     "fallbackWidth": 1200,
     "avif": [
       480,
@@ -1104,18 +919,6 @@
   },
   "images/products/neuro_rehab_device": {
     "fallback": "/images/products/neuro_rehab_device.webp",
-    "fallbackWidth": 1200,
-    "avif": [
-      480,
-      768
-    ],
-    "webp": [
-      480,
-      768
-    ]
-  },
-  "images/products/neuro_rehab_device home ": {
-    "fallback": "/images/products/neuro_rehab_device home .webp",
     "fallbackWidth": 1200,
     "avif": [
       480,
