@@ -188,6 +188,20 @@
       1280
     ]
   },
+  "images/about/who-we-are": {
+    "fallback": "/images/about/who-we-are.webp",
+    "fallbackWidth": 1516,
+    "avif": [
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      480,
+      768,
+      1280
+    ]
+  },
   "images/backgrounds/aboutbackground": {
     "fallback": "/images/backgrounds/aboutbackground.webp",
     "fallbackWidth": 1536,

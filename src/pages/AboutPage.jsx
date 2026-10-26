@@ -148,16 +148,9 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                   <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-                    src="/images/about/08_Electronics_Manufacturing_Factory.webp"
-                    alt="Manufacturing Facility"
-                    className="w-full h-[320px] object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-8 -right-2 sm:-right-6 lg:-right-10 z-20 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-                    src="/images/about/04_Engineering_Team.webp"
-                    alt="Engineering Team"
-                    className="w-full h-full object-cover"
+                    src="/images/about/who-we-are.webp"
+                    alt="Walnut Technologies — SMT assembly line, microscope inspection and CAD design review"
+                    className="w-full h-auto"
                   />
                 </div>
                 {/* Decorative dot */}
