@@ -1,5 +1,5 @@
 import sharp from 'sharp';
-import { readdir, writeFile, stat, unlink, mkdir } from 'node:fs/promises';
+import { readdir, writeFile, stat, unlink, mkdir, readFile } from 'node:fs/promises';
 import { statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -128,6 +128,17 @@ if (hero && hero.avif.length) {
 })();
 `;
   await writeFile(path.join(PUBLIC, 'preload.js'), preload);
+  const indexPath = path.join(ROOT, 'index.html');
+  const indexHtml = await readFile(indexPath, 'utf8');
+  const preloadScriptSrc = /(<script\s+src="\/preload\.js)(?:\?v=\d+)?(")/;
+  if (!preloadScriptSrc.test(indexHtml)) {
+    throw new Error('Could not find preload.js script reference in index.html');
+  }
+  const versionedIndexHtml = indexHtml.replace(
+    preloadScriptSrc,
+    (_, prefix, quote) => `${prefix}?v=${VARIANT_VERSION}${quote}`
+  );
+  await writeFile(indexPath, versionedIndexHtml);
   console.log(`wrote public/preload.js (avif srcset: ${srcset})`);
 }
 
