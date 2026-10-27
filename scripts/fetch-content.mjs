@@ -64,6 +64,22 @@ try {
     }
   }
 
+  if (Array.isArray(content.journey) && Array.isArray(committed.journey)) {
+    const committedMilestones = new Map(
+      committed.journey.filter((milestone) => milestone.year).map((milestone) => [milestone.year, milestone]),
+    );
+    let restoredImages = 0;
+    content.journey = content.journey.map((milestone) => {
+      const committedMilestone = committedMilestones.get(milestone.year);
+      if (!milestone.image && committedMilestone?.image) {
+        restoredImages++;
+        return { ...milestone, image: committedMilestone.image };
+      }
+      return milestone;
+    });
+    if (restoredImages) console.log(`[content] kept committed journey images for ${restoredImages} milestones`);
+  }
+
   fs.writeFileSync(target, JSON.stringify(content, null, 2) + '\n');
   console.log(`[content] wrote ${path.relative(root, target)} (published ${generatedAt})`);
   if (kept.length) console.log(`[content] API predates: kept committed ${kept.join(', ')}`);
