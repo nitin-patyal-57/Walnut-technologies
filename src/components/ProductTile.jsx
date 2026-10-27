@@ -12,31 +12,38 @@ const ACCENTS = {
   },
 };
 
-export default function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue' }) {
+export default function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain' }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
+  const imageClasses = imageFit === 'cover'
+    ? 'relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out'
+    : 'relative z-10 w-full h-full object-contain p-5 lg:p-7 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out';
   return (
     <article
       className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: visible ? delay : '0ms' }}
     >
       <div className="relative h-56 sm:h-72 lg:h-80 overflow-hidden bg-white">
-        <div
-          className={
-            flip
-              ? 'absolute inset-0 bg-[radial-gradient(circle_at_70%_45%,rgba(59,130,246,0.22),transparent_62%)]'
-              : 'absolute inset-0 bg-[radial-gradient(circle_at_30%_45%,rgba(59,130,246,0.22),transparent_62%)]'
-          }
-        />
-        <span className="absolute top-3 right-6 text-[5.5rem] lg:text-[7rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
-          {index}
-        </span>
+        {imageFit !== 'cover' && (
+          <>
+            <div
+              className={
+                flip
+                  ? 'absolute inset-0 bg-[radial-gradient(circle_at_70%_45%,rgba(59,130,246,0.22),transparent_62%)]'
+                  : 'absolute inset-0 bg-[radial-gradient(circle_at_30%_45%,rgba(59,130,246,0.22),transparent_62%)]'
+              }
+            />
+            <span className="absolute top-3 right-6 text-[5.5rem] lg:text-[7rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
+              {index}
+            </span>
+          </>
+        )}
         <Picture
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
           loading="lazy"
           decoding="async"
           src={image}
           alt={alt}
-          className="relative z-10 w-full h-full object-contain p-5 lg:p-7 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out"
+          className={imageClasses}
         />
         {badge && (
           <div className="absolute left-5 top-5 z-20">

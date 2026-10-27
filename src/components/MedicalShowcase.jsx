@@ -172,6 +172,7 @@ export default function MedicalShowcase({ onBack }) {
                 visible={prodVisible}
                 delay={`${index * 80}ms`}
                 accent="cyan"
+                imageFit="cover"
               />
             ))}
           </div>
