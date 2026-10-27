@@ -19,7 +19,7 @@ const products = [
     subtitle: 'Advanced instrumentation',
     description: 'Next-generation automotive cluster displays with high-resolution screens, real-time vehicle data visualization, and customizable driver interfaces. Built for durability and clarity.',
     highlights: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
-    image: '/images/products/cluster-removebg.webp',
+    image: '/images/journey/cluster-tractor.jpg',
   },
 ];
 
@@ -82,8 +82,8 @@ export default function AutomotiveShowcase({ onBack }) {
           <FiArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">All Divisions</span>
         </button>
-        <div className={`transition-opacity duration-500 md:-mt-48 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture sizes="100vw" src="/images/backgrounds/cluster-background.webp" alt="Automotive Cluster Display" width="1920" height="600" className="w-full h-auto scale-100" loading="lazy" />
+        <div className={`h-[min(90vh,900px)] min-h-[340px] overflow-hidden transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <Picture sizes="100vw" src="/images/backgrounds/cluster-back.webp" alt="Walnut automotive digital cluster display" width="1448" height="1086" className="w-full h-full object-contain scale-[1.8]" loading="lazy" />
         </div>
       </section>
 
@@ -136,6 +136,8 @@ export default function AutomotiveShowcase({ onBack }) {
                 flip={index % 2 === 1}
                 visible={prodVisible}
                 delay={`${index * 80}ms`}
+                imageFit="cover"
+                compact
               />
             ))}
           </div>

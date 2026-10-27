@@ -17,19 +17,30 @@ const keyFeatures = [
 const products = [
   {
     number: 1,
+    title: 'GPS Tracker',
+    subtitle: 'Real-time fleet visibility',
+    description: 'Rugged 4G GPS tracking for vehicles and mobile assets, with precise positioning, geo-fencing, route history, ignition monitoring and remote firmware updates.',
+    highlights: ['4G LTE CAT-1', '<2.5 m Accuracy', 'Smart Geo-fencing', 'FOTA & SOS Support'],
+    image: '/images/iot/gps-tracker-portfolio.webp',
+    imageFit: 'cover',
+  },
+  {
+    number: 2,
+    title: 'GPS Gateway',
+    subtitle: 'Multi-sensor asset telemetry',
+    description: 'Connected GPS gateway for industrial and logistics applications, combining real-time location with security, fuel, temperature and humidity sensor monitoring.',
+    highlights: ['GPS & Bluetooth', 'Multi-sensor Monitoring', 'Live Telemetry', 'Secure Cloud Connection'],
+    image: '/images/iot/gps-gateway-portfolio.webp',
+    imageFit: 'cover',
+  },
+  {
+    number: 3,
     title: 'IoT Smart Lock',
     subtitle: 'Connected access control',
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities. Cloud integration for secure management from anywhere.',
     highlights: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
     image: '/images/products/smartlock-product-removebg.webp',
-  },
-  {
-    number: 2,
-    title: 'GPS Gateway',
-    subtitle: 'Asset tracking & telemetry',
-    description: 'Reliable GPS gateway for industrial and logistics applications. Real-time tracking, telemetry reporting, and fleet management with secure cloud connectivity.',
-    highlights: ['GPS Tracking', 'Real-time Telemetry', 'Fleet Management', 'Cloud Connected'],
-    image: '/images/products/gps-gateway.webp',
+    imageFit: 'contain',
   },
 ];
 
@@ -133,7 +144,7 @@ export default function IoTShowcase({ onBack }) {
             <p className="text-cyan-700 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">IoT Product Portfolio</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {products.map((product, index) => (
               <ProductTile
                 key={product.number}
@@ -148,6 +159,8 @@ export default function IoTShowcase({ onBack }) {
                 visible={prodVisible}
                 delay={`${index * 80}ms`}
                 accent="cyan"
+                imageFit={product.imageFit}
+                compact
               />
             ))}
           </div>

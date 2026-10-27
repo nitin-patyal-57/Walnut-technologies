@@ -12,8 +12,9 @@ const ACCENTS = {
   },
 };
 
-export default function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain' }) {
+export default function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', compact = false }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
+  const imageHeight = compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
   const imageClasses = imageFit === 'cover'
     ? 'relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out'
     : 'relative z-10 w-full h-full object-contain p-5 lg:p-7 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out';
@@ -22,7 +23,7 @@ export default function ProductTile({ index, image, alt, badge, badgeIcon: Badge
       className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: visible ? delay : '0ms' }}
     >
-      <div className="relative h-56 sm:h-72 lg:h-80 overflow-hidden bg-white">
+      <div className={`relative ${imageHeight} overflow-hidden bg-white`}>
         {imageFit !== 'cover' && (
           <>
             <div
