@@ -25,7 +25,7 @@ const products = [
     subtitle: 'Clinical-grade precision',
     description: 'Precision blood pressure monitoring device with advanced cuff technology and digital display for accurate clinical readings. Features memory storage for multiple readings and easy-to-use interface.',
     highlights: ['Clinical Grade', 'Digital Display', 'Memory Storage', 'NABL Certified'],
-    image: '/images/products/bp-monitor-removebg.webp',
+    image: '/images/medical/bp final.png',
   },
   {
     number: 2,
@@ -33,7 +33,7 @@ const products = [
     subtitle: 'Non-contact temperature measurement',
     description: 'Fast, hygienic temperature measurement with infrared technology. Ideal for clinical screening and home use. Instant readings without physical contact for maximum hygiene.',
     highlights: ['Non-Contact', 'Instant Reading', 'Hygienic', 'Battery Operated'],
-    image: '/images/products/Thermometer.webp',
+    image: '/images/medical/Thermometer final.png',
   },
   {
     number: 3,
@@ -41,7 +41,7 @@ const products = [
     subtitle: 'Reliable oxygen therapy',
     description: 'Reliable oxygen concentrators available in 5L and 10L configurations with single and dual flow options. Designed for clinical and homecare settings with low noise operation.',
     highlights: ['5L & 10L Flow', 'Single/Dual Flow', 'ISO 13485', 'Low Noise'],
-    image: '/images/products/Oxygen-Concentrator-5.webp',
+    image: '/images/medical/Oxygen Concentrator final.png',
   },
   {
     number: 4,
@@ -49,7 +49,7 @@ const products = [
     subtitle: 'Respiratory therapy solutions',
     description: 'Efficient compressor nebulizer for respiratory therapy. Compact design with reliable performance for clinical and home settings. Delivers medication directly to the lungs.',
     highlights: ['Efficient Nebulization', 'Low Noise', 'Compact Design', 'Medical Grade'],
-    image: '/images/products/Nebulizer.webp',
+    image: '/images/medical/Compressor Nebulizer final.png',
   },
 ];
 

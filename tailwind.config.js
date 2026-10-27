@@ -5,6 +5,22 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  // Journey year-pill colors are chosen in the admin panel and arrive via
+  // content.json, so Tailwind can't discover them by scanning src/. Keep every
+  // selectable color in the CSS or the pills render white-on-white.
+  safelist: [
+    'bg-blue-600',
+    'bg-emerald-600',
+    'bg-purple-600',
+    'bg-amber-600',
+    'bg-cyan-600',
+    'bg-indigo-600',
+    'bg-violet-600',
+    'bg-sky-600',
+    'bg-rose-600',
+    'bg-red-600',
+    'bg-teal-600',
+  ],
   theme: {
     extend: {
       colors: {

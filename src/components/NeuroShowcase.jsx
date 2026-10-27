@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
-import { FiArrowLeft, FiCheckCircle, FiCpu, FiActivity, FiHeart, FiWifi, FiMonitor, FiZap, FiTarget, FiShield } from 'react-icons/fi';
+import { FiArrowLeft, FiCheckCircle, FiCpu, FiActivity, FiHeart, FiWifi, FiMonitor, FiZap, FiTarget, FiShield, FiRadio } from 'react-icons/fi';
 import Picture from '../components/Picture';
 import ProductTile from './ProductTile';
 
@@ -110,6 +110,19 @@ const medstimStats = [
   { value: 'Cart-mounted', label: 'Clinic design' },
 ];
 
+const walkexFeatures = [
+  'EMG-Triggered Stimulation',
+  '2 Independent Channels',
+  'Upper & Lower Limb Modes',
+  'Rechargeable Li-ion Power',
+];
+
+const walkexStats = [
+  { value: '60 g', label: 'Controller weight' },
+  { value: '10–120 pps', label: 'Pulse rate range' },
+  { value: '300–700 µs', label: 'Pulse width' },
+];
+
 function useAnimateOnScroll() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -178,13 +191,13 @@ export default function NeuroShowcase({ onBack }) {
           <div className={`text-center mb-14 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Our Products</h2>
-            <p className="text-slate-500 text-sm mt-3 max-w-lg mx-auto">Five specialised systems working together to deliver complete neuro rehabilitation — from gait retraining and early mobilisation to brain and muscle stimulation.</p>
+            <p className="text-slate-500 text-sm mt-3 max-w-lg mx-auto">Six specialised systems working together to deliver complete neuro rehabilitation — from gait retraining and early mobilisation to brain, muscle and functional electrical stimulation.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <ProductTile
               index="01"
-              image="/images/products/walklab-product.webp"
+              image="/images/neuro/walklab-journey.jpg"
               alt="WalkLab Gait Training System"
               badge="Flagship Product"
               badgeIcon={FiCpu}
@@ -199,7 +212,7 @@ export default function NeuroShowcase({ onBack }) {
             <ProductTile
               index="02"
               flip
-              image="/images/products/tilt-bed.webp"
+              image="/images/neuro/weebo presentation.png"
               alt="Weebo Early Rehabilitation Robot"
               badge="Therapeutic System"
               badgeIcon={FiTarget}
@@ -254,6 +267,22 @@ export default function NeuroShowcase({ onBack }) {
               features={medstimFeatures}
               stats={medstimStats}
               visible={prodVisible}
+            />
+
+            <ProductTile
+              index="06"
+              flip
+              image="/images/neuro/walkex.jpg"
+              alt="Walkex Functional Electrical Stimulation System"
+              badge="FES Therapy"
+              badgeIcon={FiRadio}
+              title="Walkex"
+              subtitle="Functional Electrical Stimulation System"
+              description="Functional electrical stimulation for foot drop and mobility recovery after stroke, paralysis and spinal cord injury. Two channels deliver adjustable asymmetrical biphasic pulses, triggered by the patient's own EMG signal or run in preset patterns — upper-limb modes for arm extension and wrist open/close, lower-limb modes timed to heel off and heel strike — so the foot clears the ground while walking. The 10-minute session timer switches off automatically, with a 3-minute idle auto-shutdown."
+              features={walkexFeatures}
+              stats={walkexStats}
+              visible={prodVisible}
+              delay="150ms"
             />
           </div>
 

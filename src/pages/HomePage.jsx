@@ -248,7 +248,7 @@ function JourneySection() {
                     >
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                          <span className={`px-3.5 py-1 text-xs font-extrabold text-white rounded-full shadow-sm ${item.badgeColor}`}>
+                          <span className={`px-3.5 py-1 text-xs font-extrabold text-white rounded-full shadow-sm ${item.badgeColor || 'bg-blue-600'}`}>
                             {item.year}
                           </span>
                           {item.special && isCenter && (
@@ -257,9 +257,22 @@ function JourneySection() {
                             </span>
                           )}
                         </div>
-                        <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-blue-600 text-lg mb-3 shadow-inner">
-                          <item.icon />
-                        </div>
+                        {item.image ? (
+                          <div className="w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100 mb-3 border border-slate-100">
+                            <Picture
+                              sizes="(max-width: 1024px) 90vw, 520px"
+                              src={item.image}
+                              alt={`${item.title} ${item.year}`}
+                              loading="lazy"
+                              decoding="async"
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-blue-600 text-lg mb-3 shadow-inner">
+                            <item.icon />
+                          </div>
+                        )}
                         <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 tracking-tight">{item.title}</h3>
                         <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                       </div>

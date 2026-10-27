@@ -146,12 +146,11 @@
   },
   "images/about/team-collab": {
     "fallback": "/images/about/team-collab.webp",
-    "fallbackWidth": 1920,
+    "fallbackWidth": 1448,
     "avif": [
       480,
       768,
-      1280,
-      1920
+      1280
     ],
     "webp": [
       480,

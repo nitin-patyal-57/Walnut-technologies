@@ -93,6 +93,10 @@ export const COLLECTIONS = [
         help: 'Colour of the year badge',
       },
       { name: 'special', label: 'Highlight label', type: 'text', max: 40, help: 'Optional, shown as a ribbon - e.g. "Major Scale Milestone"' },
+      {
+        name: 'image', label: 'Image', type: 'image',
+        help: 'Optional photo shown at the top of the milestone card, e.g. /images/journey/walklab-journey.jpg',
+      },
     ],
   },
 
@@ -247,7 +251,7 @@ export const COLLECTIONS = [
     group: 'Clients & Resources',
     kind: 'list',
     itemLabel: 'title',
-    description: 'Whitepapers, case studies and brochures visitors can request.',
+    description: 'Whitepapers, case studies and brochures. Entries with a PDF file open it directly; the rest are requested by email.',
     fields: [
       { name: 'id', label: 'ID', type: 'text', required: true, max: 60, slug: true },
       { name: 'title', label: 'Title', type: 'text', required: true, max: 200 },
@@ -255,6 +259,10 @@ export const COLLECTIONS = [
       { name: 'description', label: 'Description', type: 'textarea', max: 1000 },
       { name: 'icon', label: 'Icon', type: 'select', options: ['whitepaper', 'casestudy', 'brochure'] },
       { name: 'color', label: 'Colour', type: 'gradient', max: 80, help: GRADIENT_HELP },
+      {
+        name: 'file', label: 'PDF file', type: 'text', max: 300,
+        help: 'e.g. /brochures/name.pdf (file must exist in the website public/brochures folder). When set, the card opens the PDF instead of the email request form.',
+      },
     ],
   },
   {
