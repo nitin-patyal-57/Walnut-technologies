@@ -252,6 +252,8 @@ const enTranslations = {
     apply: 'Apply Now',
   },
   process: {
+    title: 'Our Process',
+    subtitle: 'A 10-step journey from concept through manufacturing, delivery, and ongoing support.',
     steps: [
       { title: 'Discovery', description: 'Understanding your requirements and goals.' },
       { title: 'Design', description: 'Creating detailed engineering designs.' },
