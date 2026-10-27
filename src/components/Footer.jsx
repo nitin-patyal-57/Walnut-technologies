@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className="py-3 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-slate-500">
-            &copy; {new Date().getFullYear()} {brand.fullName}. All rights reserved.
+            &copy; {new Date().getFullYear()} {brand.name}&trade;. All rights reserved.
           </p>
           <div className="flex items-center gap-2.5">
             <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/5 transition-all">
