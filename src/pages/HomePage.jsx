@@ -216,23 +216,28 @@ function JourneySection() {
             role="region"
             aria-label="Company journey carousel"
           >
-            {/* Previous Button */}
+            {/* Previous Button - top-1/2 pins it to the container's vertical
+                centre so it can never ride up/down with a taller/shorter card. */}
             <button
               onClick={goPrev}
               aria-label="Previous milestone"
-              className="absolute -left-2 sm:-left-5 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="absolute -left-2 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               <FiArrowLeft className="text-sm" />
             </button>
 
-            {/* Cards */}
+            {/* Cards. The min-h below keeps the carousel box the same height
+                for every milestone (descriptions differ in length, which used
+                to make the whole block - and the arrow buttons - jump on each
+                click). It's min- not fixed-height: an unusually long
+                description still grows the card instead of clipping. */}
             <div className="w-full overflow-hidden py-2 px-2">
               <motion.div
                 key={milestoneIndex}
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="flex items-center justify-center gap-4 sm:gap-6 xl:gap-8"
+                className="flex items-center justify-center gap-4 sm:gap-6 xl:gap-8 min-h-[370px] sm:min-h-[425px] xl:min-h-[455px] 2xl:min-h-[495px]"
               >
                 {visibleMilestones.map(({ item, idx, position }) => {
                   const isCenter = position === 1;
@@ -286,11 +291,11 @@ function JourneySection() {
               </motion.div>
             </div>
 
-            {/* Next Button */}
+            {/* Next Button - same fixed vertical anchor as the Previous button */}
             <button
               onClick={goNext}
               aria-label="Next milestone"
-              className="absolute -right-2 sm:-right-5 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="absolute -right-2 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white border border-slate-200 text-slate-700 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:text-blue-600 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               <FiArrowRight className="text-sm" />
             </button>
