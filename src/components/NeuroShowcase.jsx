@@ -198,6 +198,7 @@ export default function NeuroShowcase({ onBack }) {
             <ProductTile
               index="01"
               image="/images/neuro/walklab-journey.jpg"
+              imageFit="photo"
               alt="WalkLab Gait Training System"
               badge="Flagship Product"
               badgeIcon={FiCpu}
@@ -213,6 +214,7 @@ export default function NeuroShowcase({ onBack }) {
               index="02"
               flip
               image="/images/neuro/weebo presentation.png"
+              imageFit="photo"
               alt="Weebo Early Rehabilitation Robot"
               badge="Therapeutic System"
               badgeIcon={FiTarget}
