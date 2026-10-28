@@ -28,32 +28,37 @@ export default function ContactPage() {
     return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
   }, []);
 
+  // Contact details come from the admin panel (Company Details > brand):
+  // name/location/phone/email. Edit there and Publish — nothing here needs
+  // changing. The map embed uses the same address via a plain ?q= URL.
+  const mapsLink = `https://www.google.com/maps?q=${encodeURIComponent(brand.location)}`;
+  const telHref = `tel:${(brand.phone || '').replace(/[^+\d]/g, '')}`;
   const contactCards = [
     {
       icon: FiHome,
       title: t('contact.headOffice'),
-      lines: ['Walnut Technologies Pvt. Ltd.', '132 JLPL Industrial Park', 'Sector 82, Mohali Punjab 160055'],
-      link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
+      lines: [brand.fullName || brand.name, brand.location],
+      link: mapsLink,
       linkText: t('contact.getDirections'),
     },
     {
       icon: FiServer,
       title: t('contact.manufacturing'),
-      lines: ['150,000+ Sq. Ft. Facility', 'Phase 5, Industrial Area,', 'Mohali, Punjab 160055, India'],
-      link: 'https://maps.google.com/?q=JLPL+Industrial+Park+Sector+82+Mohali',
+      lines: ['150,000+ Sq. Ft. Facility', brand.location],
+      link: mapsLink,
       linkText: t('contact.getDirections'),
     },
     {
       icon: FiMail,
       title: t('contact.emailUs'),
-      link: 'mailto:contact@walnutmedical.in',
-      linkText: 'contact@walnutmedical.in',
+      link: `mailto:${brand.email}`,
+      linkText: brand.email,
     },
     {
       icon: FiPhone,
       title: t('contact.callUs'),
-      link: 'tel:+917719463719',
-      linkText: '+91 77194 63719',
+      link: telHref,
+      linkText: brand.phone,
     },
   ];
 
@@ -382,7 +387,7 @@ export default function ContactPage() {
               <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
                 <iframe
                   title="Walnut Technologies Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.823456789!2d76.68999999999999!3d30.709999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0b3d3d3d3d%3A0x1234567890abcdef!2sJLPL%20Industrial%20Park%2C%20Sector%2082%2C%20Mohali%2C%20Punjab%20160055!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(brand.location)}&output=embed`}
                   width="100%"
                   height="250"
                   style={{ border: 0 }}

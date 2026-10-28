@@ -1,3 +1,8 @@
+// Contact details in this file interpolate from the admin panel's brand data
+// (Company Details section) so a published address/phone/email change updates
+// the chatbot answers and legal pages too — not just the contact page.
+import { brand } from './content';
+
 export const languages = [
   { code: 'en', name: 'English', label: 'EN', flag: '🌐' },
 ];
@@ -340,8 +345,8 @@ const enTranslations = {
       automotive: 'Our automotive division provides:\n- Cluster Displays\n- Harvester Electronics\n\nIndustrial grade, durable designs for demanding environments.',
       process: 'Our 6-step manufacturing process:\n1. Consultation\n2. Design & Engineering\n3. PCB Fabrication\n4. Production\n5. Certification & Testing\n6. Delivery & Support\n\nWant to discuss your project?',
       capabilities: 'Our key capabilities:\n- 150,000 sq.ft facility\n- ISO 13485 & ISO 9001 Certified\n- CE, FCC, PCI-DSS compliance\n- 600+ Engineers\n- 500K+ Units/Month',
-      quote: 'We\'d love to provide a custom quote! Pricing depends on product type, volume, certifications, and timeline.\n\nClick **Request a Quote** or call us at +91 77194 63719.',
-      contact: 'Contact us:\n- Phone: +91 77194 63719\n- Email: contact@walnutmedical.in\n- Address: Plot No. 132, JLPL Industrial Park, Sector 82, Mohali, Punjab\n\nMon-Sat, 9 AM - 6 PM IST',
+      quote: `We'd love to provide a custom quote! Pricing depends on product type, volume, certifications, and timeline.\n\nClick **Request a Quote** or call us at ${brand.phone}.`,
+      contact: `Contact us:\n- Phone: ${brand.phone}\n- Email: ${brand.email}\n- Address: ${brand.location}\n\nMon-Sat, 9 AM - 6 PM IST`,
       default: 'You can ask me about:\n- Our products & divisions\n- Manufacturing capabilities\n- Pricing & quotes\n- Process & timeline\n- Contact information',
       openingQuote: 'Opening the quote form for you...',
     },
@@ -633,11 +638,11 @@ const enTranslations = {
       {
         title: 'Contact Us',
         icon: 'mail',
-        content: 'If you have questions about this Privacy Policy, please contact us at privacy@walnutmedical.in.',
+        content: `If you have questions about this Privacy Policy, please contact us at ${brand.email}.`,
         details: [
-          'Email: privacy@walnutmedical.in',
-          'Phone: +91 77194 63719',
-          'Address: Plot No. 132, JLPL Industrial Park, Sector 82, Mohali, Punjab - 160055',
+          `Email: ${brand.email}`,
+          `Phone: ${brand.phone}`,
+          `Address: ${brand.location}`,
           'We will respond to your inquiry within 30 days',
         ],
       },
