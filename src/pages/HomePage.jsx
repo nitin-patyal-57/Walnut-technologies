@@ -457,6 +457,50 @@ function DivisionsPreview() {
   );
 }
 
+// Parses a stat string like '150,000 sq.ft' or '500K+' into the number to
+// count up to and the suffix that must stay on screen (' sq.ft', 'K+').
+function parseStat(value) {
+  const match = String(value).match(/^([\d.,]+)(.*)$/);
+  if (!match) return null;
+  const num = parseFloat(match[1].replace(/,/g, ''));
+  return Number.isFinite(num) ? { num, suffix: match[2] } : null;
+}
+
+// Counts from 1 up to `target` once `active` flips true. Ease-out cubic so
+// the final digits settle slowly (the part people actually read).
+// Honors prefers-reduced-motion: the target value shows immediately.
+function useCountUp(target, active, duration = 1600) {
+  const reduceMotion = useReducedMotion();
+  const [value, setValue] = useState(1);
+
+  useEffect(() => {
+    if (!active) return undefined;
+    if (reduceMotion) {
+      setValue(target);
+      return undefined;
+    }
+    let raf;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setValue(Math.max(1, Math.round(target * eased)));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [active, target, duration, reduceMotion]);
+
+  return value;
+}
+
+function StatValue({ stat, active }) {
+  const parsed = parseStat(stat.value);
+  const count = useCountUp(parsed ? parsed.num : 0, active);
+  if (!parsed) return stat.value;
+  return `${count.toLocaleString('en-US')}${parsed.suffix}`;
+}
+
 function HeroStats() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
@@ -486,7 +530,9 @@ function HeroStats() {
                 key={stat.label}
                 className={`text-center ${index > 0 ? 'md:border-l md:border-white/10' : ''}`}
               >
-                <div className="text-lg font-bold font-display text-cyan-400 mb-0.5">{stat.value}</div>
+                <div className="text-lg font-bold font-display text-cyan-400 mb-0.5">
+                  <StatValue stat={stat} active={isInView} />
+                </div>
                 <div className="text-[10px] text-white/50 font-medium leading-tight">{stat.label}</div>
               </div>
             ))}
