@@ -843,6 +843,15 @@
   ],
   "resources": [
     {
+      "id": "brochure-company-presentation",
+      "title": "Walnut Company Presentation 2026",
+      "type": "Brochure",
+      "description": "The complete company presentation — who we are, vision and mission, the 2016–2026 journey, our 150,000 sq.ft Mohali facility and SMT lines, the end-to-end production process, all five product families (medical, neuro-rehab, fintech soundbox ecosystem, automotive clusters and IoT/GPS tracking) with key specs, the industries we serve and how to reach us. 22 pages.",
+      "icon": "brochure",
+      "color": "from-blue-700 to-indigo-600",
+      "file": "/brochures/walnut-company-presentation.pdf"
+    },
+    {
       "id": "brochure-neuro-solutions",
       "title": "Walnut Medical Neuro Rehab Solutions Catalogue",
       "type": "Brochure",
