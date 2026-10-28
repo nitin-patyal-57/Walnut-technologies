@@ -51,6 +51,9 @@ export const config = {
   allowedEmailDomains: list(env.ALLOWED_EMAIL_DOMAINS ?? 'walnutmedical.in').map((d) => d.toLowerCase()),
   resendApiKey: env.RESEND_API_KEY || '',
   mailFrom: env.MAIL_FROM || 'Walnut Admin <onboarding@resend.dev>',
+  // Every new lead is emailed here (contact form, quotes, resource requests,
+  // job applications). Defaults to the address published on the website.
+  leadNotifyEmail: env.LEAD_NOTIFY_EMAIL || 'contact@walnutmedical.in',
   deployHookUrl: env.VERCEL_DEPLOY_HOOK_URL || '',
   publicCorsOrigins: list(env.PUBLIC_CORS_ORIGINS || 'https://walnut-technologies.vercel.app,https://www.walnut-technologies.vercel.app,http://localhost:3001,http://localhost:5173,http://localhost:3000'),
 

@@ -56,3 +56,32 @@ export function resetEmail({ name, link }) {
     ].join('\n'),
   };
 }
+
+const LEAD_LABELS = {
+  contact: 'Contact form',
+  quote: 'Quote request',
+  resource: 'Document request',
+  application: 'Job application',
+};
+
+// New-lead notification sent to the company inbox. Plain text on purpose:
+// sendMail() only carries text, and the lead is already stored in the admin
+// panel — this is a ping, not the record.
+export function leadEmail(lead) {
+  const lines = [
+    `New ${LEAD_LABELS[lead.type] || lead.type} via walnut-technologies.vercel.app`,
+    '',
+    `Name:     ${lead.name}`,
+    `Email:    ${lead.email}`,
+  ];
+  if (lead.phone) lines.push(`Phone:    ${lead.phone}`);
+  if (lead.company) lines.push(`Company:  ${lead.company}`);
+  if (lead.jobTitle) lines.push(`Role:     ${lead.jobTitle}`);
+  if (lead.quantity) lines.push(`Quantity: ${lead.quantity}`);
+  if (lead.resourceTitle) lines.push(`Document: ${lead.resourceTitle}`);
+  if (lead.subject) lines.push(`Subject:  ${lead.subject}`);
+  if (lead.message) lines.push('', 'Message:', ...lead.message.split('\n').map((l) => `  ${l}`));
+  if (lead.resume?.filename) lines.push('', `Resume:   ${lead.resume.filename}`);
+  lines.push('', 'View and manage this lead in the admin panel → Leads.');
+  return { subject: `New ${LEAD_LABELS[lead.type] || 'website'} lead — ${lead.name}`, text: lines.join('\n') };
+}

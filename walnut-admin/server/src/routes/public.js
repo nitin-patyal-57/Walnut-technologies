@@ -5,6 +5,7 @@ import { config } from '../config.js';
 import { safeEqual } from '../lib/crypto.js';
 import { saveBuffer, streamFile } from '../lib/gridfs.js';
 import { forbidden, notFound, parse } from '../lib/http.js';
+import { leadEmail, sendMail } from '../lib/mailer.js';
 import { publishedSnapshot } from '../lib/content.js';
 import { LEAD_TYPES, Lead } from '../models/Lead.js';
 import { Media } from '../models/Media.js';
@@ -64,6 +65,11 @@ publicApi.post('/leads', ingestLimiter, express.json({ limit: '6mb' }), async (r
   }
 
   const lead = await Lead.create({ ...data, resume: resumeRef });
+
+  // Ping the company inbox. Fire-and-forget: the lead is already stored, and
+  // sendMail() never throws — a Resend outage must not fail the visitor's form.
+  sendMail({ to: config.leadNotifyEmail, ...leadEmail(lead) });
+
   res.status(201).json({ ok: true, id: lead._id });
 });
 

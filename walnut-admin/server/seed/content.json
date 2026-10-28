@@ -1040,7 +1040,7 @@
       "title": "The Beginning",
       "description": "Started Walnut Medical with a vision to make quality healthcare more accessible.",
       "badgeColor": "bg-blue-600",
-      "image": "/images/journey/journey 2016.png"
+      "image": "/images/journey/journey-2016.png"
     },
     {
       "year": "2017",
@@ -1054,42 +1054,42 @@
       "title": "R&D and Innovation",
       "description": "Began Development Lab — Lower Limb GAIT Training Rehabilitation System.",
       "badgeColor": "bg-purple-600",
-      "image": "/images/journey/R&D journey.png"
+      "image": "/images/journey/rnd-journey.png"
     },
     {
       "year": "2019",
       "title": "OTC Devices",
       "description": "Introduced IR Thermometer, Digital BP Monitor.",
       "badgeColor": "bg-amber-600",
-      "image": "/images/journey/bp presentation.png"
+      "image": "/images/journey/bp-presentation.png"
     },
     {
       "year": "2020",
       "title": "Scaling Manufacturing",
       "description": "Scaled Nebulizer, Oxygen Concentrator manufacturing.",
       "badgeColor": "bg-cyan-600",
-      "image": "/images/journey/mass manufacutring journey.png"
+      "image": "/images/journey/mass-manufacturing-journey.png"
     },
     {
       "year": "2021",
       "title": "Introducing Walnut Technologies",
       "description": "Started non-medical applications, expanding our technology footprint beyond healthcare.",
       "badgeColor": "bg-indigo-600",
-      "image": "/images/journey/intro WT.png"
+      "image": "/images/journey/intro-wt.png"
     },
     {
       "year": "2022",
       "title": "Fintech Integration",
       "description": "Started Development of POS and Soundboxes for seamless Digital Transactions.",
       "badgeColor": "bg-emerald-600",
-      "image": "/images/journey/soundbox presentation.png"
+      "image": "/images/journey/soundbox-presentation.png"
     },
     {
       "year": "2023",
       "title": "Mass Manufacturing",
       "description": "Started mass-manufacturing of Soundbox to meet growing demand.",
       "badgeColor": "bg-violet-600",
-      "image": "/images/journey/mass production 1.png"
+      "image": "/images/journey/mass-production.png"
     },
     {
       "year": "2024",
@@ -1097,7 +1097,7 @@
       "description": "Launched End-to-End Software Eco-System for Payment Confirmation including MQTT broker and device firmware.",
       "badgeColor": "bg-sky-600",
       "special": "Major Scale Milestone",
-      "image": "/images/journey/advance production.png"
+      "image": "/images/journey/advance-production.png"
     },
     {
       "year": "2025",
@@ -1111,7 +1111,7 @@
       "title": "Smart Cluster",
       "description": "Scaling vertical of Consumer Electronics — IoT based.",
       "badgeColor": "bg-indigo-600",
-      "image": "/images/journey/gps tracker presentation.png"
+      "image": "/images/journey/gps-tracker-presentation.png"
     }
   ],
   "careers": [
