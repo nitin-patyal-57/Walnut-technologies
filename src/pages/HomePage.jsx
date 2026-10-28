@@ -11,7 +11,7 @@ import Hero from '../components/Hero';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
-import { journey, clientLogos, certifications as certificationList } from '../data/content';
+import { journey, clientLogos, certifications as certificationList, trustSignals } from '../data/content';
 import { scrollBehavior } from '../utils/motion';
 
 function JourneySection() {
@@ -501,19 +501,24 @@ function StatValue({ stat, active }) {
   return `${count.toLocaleString('en-US')}${parsed.suffix}`;
 }
 
+// Stats come from the admin panel (Trust Signals section) — the same list the
+// navbar dropdown shows. Edit them there and Publish; no code change needed.
+// The grid class must be a static string for Tailwind's scanner, hence the map.
+const STAT_COLS = {
+  3: 'md:grid-cols-3',
+  4: 'md:grid-cols-4',
+  5: 'md:grid-cols-5',
+  6: 'md:grid-cols-6',
+  7: 'md:grid-cols-7',
+  8: 'md:grid-cols-8',
+};
+
 function HeroStats() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const { t } = useLanguage();
 
-  const stats = [
-    { value: '10+', label: t('stats.years') },
-    { value: '600+', label: t('stats.engineers') },
-    { value: '10+', label: t('stats.countries') },
-    { value: '500K+', label: t('stats.units') },
-    { value: '150,000 sq.ft', label: t('stats.facility') },
-    { value: '4', label: t('stats.smt') },
-  ];
+  const stats = trustSignals.stats || [];
+  if (!stats.length) return null;
 
   return (
     <section className="relative -mt-12 z-30">
@@ -524,7 +529,7 @@ function HeroStats() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl shadow-slate-950/40"
         >
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+          <div className={`grid grid-cols-3 ${STAT_COLS[Math.min(stats.length, 8)] || 'md:grid-cols-6'} gap-3 md:gap-4`}>
             {stats.map((stat, index) => (
               <div
                 key={stat.label}

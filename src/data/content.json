@@ -83,6 +83,14 @@
       {
         "label": "Units Manufactured/Month",
         "value": "500K+"
+      },
+      {
+        "label": "Facility Size",
+        "value": "150,000 sq.ft"
+      },
+      {
+        "label": "SMT Production Lines",
+        "value": "4"
       }
     ],
     "certifications": [
