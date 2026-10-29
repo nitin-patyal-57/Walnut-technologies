@@ -221,9 +221,26 @@ export default function AboutPage() {
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
                       <FiTarget className="w-5 h-5 text-white" />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <h3 className="text-sm font-black text-blue-600 uppercase tracking-wider mb-2">Our Mission</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{about.mission}</p>
+                      {about.missionPillars?.length ? (
+                        /* Mission pillars from the admin panel (About Us > Mission
+                           pillars): a 2x2 grid of titled commitments. Falls back
+                           to the plain Mission paragraph when the list is empty. */
+                        <div className="grid grid-cols-1 sm:grid-cols-2">
+                          {about.missionPillars.map((pillar, i) => (
+                            <div
+                              key={pillar.title}
+                              className={`py-2 ${i % 2 === 0 ? 'sm:pr-4 sm:border-r border-slate-200' : 'sm:pl-4'} ${i >= 2 ? 'border-t border-slate-200' : ''}`}
+                            >
+                              <p className="text-sm font-bold text-slate-900 leading-snug">{pillar.title}</p>
+                              <p className="text-sm text-slate-600 leading-snug mt-0.5">{pillar.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-sm text-slate-600 leading-relaxed">{about.mission}</p>
+                      )}
                     </div>
                   </div>
                 </div>

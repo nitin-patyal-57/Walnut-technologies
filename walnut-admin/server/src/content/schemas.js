@@ -53,6 +53,14 @@ export const COLLECTIONS = [
     description: 'Mission, vision, story, values and stats on the About page.',
     fields: [
       { name: 'mission', label: 'Mission', type: 'textarea', max: 500 },
+      {
+        name: 'missionPillars', label: 'Mission pillars', type: 'list', itemLabel: 'title',
+        help: 'Shown as a grid inside the Mission card on the About page. When empty, the Mission text above is shown instead.',
+        fields: [
+          { name: 'title', label: 'Title', type: 'text', required: true, max: 60 },
+          { name: 'description', label: 'Description', type: 'textarea', max: 200 },
+        ],
+      },
       { name: 'vision', label: 'Vision', type: 'textarea', max: 500 },
       { name: 'story', label: 'Our story', type: 'textarea', max: 3000 },
       {
