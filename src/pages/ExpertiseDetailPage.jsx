@@ -173,7 +173,10 @@ const expertiseData = {
   'it-electronics': {
     title: 'IT Electronics',
     subtitle: 'Powering Digital Infrastructure',
-    heroImage: '/images/process/it-electronics.webp',
+    // Same photo as the IT Electronics card on the expertise listing page,
+    // so the card -> detail click feels consistent (the old image was a
+    // casual snapshot that clashed with the dark hero).
+    heroImage: '/images/expertise/circuit-blue.webp',
     tagline: 'Reliable Hardware for Uninterrupted Digital Operations',
     intro: 'The backbone of modern business runs on reliable IT electronics. Walnut Technologies manufactures high-performance computing hardware, networking equipment, and data center solutions that keep enterprises connected and running. Our products are built for 24/7 operation in mission-critical environments.',
     whyChooseUs: [
