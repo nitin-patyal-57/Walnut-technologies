@@ -25,9 +25,9 @@ export default function Footer() {
     ],
     [t('footer.company')]: [
       { label: t('footer.aboutUs'), to: '/about' },
-      { label: t('footer.process'), to: '/process' },
+      { label: t('footer.career'), to: '/career' },
       { label: t('footer.expertise'), to: '/expertise' },
-      { label: t('footer.news'), to: '/news' },
+      { label: t('footer.products'), to: '/solutions' },
     ],
     [t('footer.resources')]: [
       { label: t('footer.whitepapers'), to: '/resources' },
