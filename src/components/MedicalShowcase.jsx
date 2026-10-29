@@ -173,6 +173,7 @@ export default function MedicalShowcase({ onBack }) {
                 delay={`${index * 80}ms`}
                 accent="cyan"
                 imageFit="cover"
+                compact
               />
             ))}
           </div>
