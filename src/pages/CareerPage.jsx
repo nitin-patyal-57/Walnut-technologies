@@ -162,7 +162,7 @@ export default function CareerPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-50">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-14 md:pb-14">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-20 md:pb-14 lg:pt-24">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div ref={ref}>
               <motion.p
