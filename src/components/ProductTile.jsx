@@ -14,11 +14,11 @@ const ACCENTS = {
 
 export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', imagePosition = 'center', compact = false, dense = false }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
-  const isPhoto = imageFit === 'photo';
+  const isPhoto = imageFit === 'photo' || imageFit === 'photo-contain';
   const imageHeight = dense
     ? 'aspect-[4/3]'
     : compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
-  const imageClasses = 'relative z-10 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out';
+  const imageClasses = `relative z-10 w-full h-full ${imageFit === 'photo-contain' ? 'object-contain' : 'object-cover'} object-center ${imageFit === 'photo-contain' ? '' : 'group-hover:scale-105'} transition-transform duration-700 ease-out`;
   return (
     <article
       className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}

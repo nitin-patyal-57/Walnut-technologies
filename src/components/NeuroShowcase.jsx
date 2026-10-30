@@ -198,7 +198,7 @@ export default function NeuroShowcase({ onBack }) {
             <ProductTile
 
               image="/images/neuro/walklab-journey.jpg"
-              imageFit="photo"
+              imageFit="photo-contain"
               alt="WalkLab Gait Training System"
               badge="Flagship Product"
               badgeIcon={FiCpu}
