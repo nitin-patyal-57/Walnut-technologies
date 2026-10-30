@@ -40,7 +40,7 @@ const products = [
     description: 'Connected smart lock solution with BLE/WiFi connectivity, remote access control, and real-time monitoring capabilities. Cloud integration for secure management from anywhere.',
     highlights: ['BLE/WiFi Connected', 'Remote Access', 'Real-time Monitoring', 'Cloud Integration'],
     image: '/images/products/smartlock-product-removebg.webp',
-    imageFit: 'contain',
+    imageFit: 'photo-contain',
   },
 ];
 
