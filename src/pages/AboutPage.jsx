@@ -6,7 +6,7 @@ import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import {
   FiArrowRight, FiTarget, FiEye, FiZap, FiShield,
-  FiHeart, FiUsers, FiCheckCircle, FiArrowUpRight,
+  FiCheckCircle, FiArrowUpRight,
   FiPackage, FiSettings
 } from 'react-icons/fi';
 import Picture from '../components/Picture';
@@ -272,43 +272,6 @@ export default function AboutPage() {
                 />
               </div>
             </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════
-          PRINCIPLES — 4 cards with icons
-      ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-10 lg:py-14">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
-                What Drives Us
-              </span>
-              <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900">
-                Built Around Four Principles
-              </h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: FiZap, title: 'Innovation', desc: 'We continuously explore new technologies and better ways to solve problems.', color: 'from-blue-500 to-blue-600' },
-              { icon: FiShield, title: 'Reliability', desc: 'We design products with performance, quality and long-term use in mind.', color: 'from-cyan-500 to-cyan-600' },
-              { icon: FiHeart, title: 'Responsibility', desc: 'We take ownership throughout the product lifecycle.', color: 'from-indigo-500 to-indigo-600' },
-              { icon: FiUsers, title: 'Partnership', desc: 'We work closely with customers to turn requirements into real-world solutions.', color: 'from-violet-500 to-violet-600' },
-            ].map((p, i) => (
-              <AnimatedSection key={p.title} delay={i * 0.1}>
-                <div className="group relative bg-white p-6 rounded-2xl border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 h-full">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <p.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider mb-2">{p.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{p.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
           </div>
         </div>
       </section>

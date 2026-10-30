@@ -1,6 +1,44 @@
 import { useRef, useEffect, useState } from 'react';
-import { FiArrowLeft, FiCheckCircle, FiShield, FiCpu, FiWifi, FiBattery, FiRadio, FiHardDrive, FiMonitor, FiSettings } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiCheckCircle, FiShield, FiCpu, FiWifi, FiBattery, FiRadio, FiHardDrive, FiMonitor, FiSettings } from 'react-icons/fi';
 import Picture from '../components/Picture';
+
+const brandedSoundboxes = [
+  { image: '/images/products/RTOS.webp', name: 'RTOS' },
+  { image: '/images/products/DQR.webp', name: 'DQR' },
+  { image: '/images/products/LDQR.webp', name: 'LDQR' },
+  {
+    image: '/images/fintech%20soudbox/sbi_payments_qr_4k_white_transparent.png',
+    name: 'SBI Payments',
+    details: ['Common soundbox', '2000 mAh battery', 'QR sticker', '4G SIM network', '4 switch types', 'Speaker'],
+  },
+  {
+    image: '/images/fintech%20soudbox/paytm_qr_4k_white_transparent.png',
+    name: 'Paytm',
+    details: ['2600 mAh battery', 'QR scanner', '57 mm speaker', 'Single or dual SIM', '4G/2G connectivity', 'Removable battery', 'QR standee'],
+  },
+  {
+    image: '/images/fintech%20soudbox/mswipe_qr_4k_white_transparent.png',
+    name: 'Mswipe',
+    details: ['2000 mAh battery', 'QR', '57 mm speaker', 'Merchant segment display', 'Single SIM', '4G/2G connectivity', '4 button types', 'Non-removable battery'],
+  },
+  {
+    image: '/images/fintech%20soudbox/hdfc_payzapp_qr_4k_white_transparent.png',
+    name: 'HDFC PayZapp',
+    details: ['2000 mAh battery', 'QR code standee', '40 mm Miller speaker', 'Dual SIM available', '4G/2G connectivity'],
+  },
+  {
+    image: '/images/fintech%20soudbox/bharatpe_qr_4k_white_transparent.png',
+    name: 'BharatPe',
+    details: ['Non-removable button', '2000 mAh battery', 'QR sticker', '57 mm loud speaker', '4G/2G connectivity', '5 switch types'],
+  },
+  {
+    image: '/images/fintech%20soudbox/airtel_payments_bank_qr_4k_white_transparent.png',
+    name: 'Airtel Payments Bank',
+    details: ['Common soundbox', '2000 mAh battery', 'QR sticker', '4G SIM network', '4 switch types', 'Speaker'],
+  },
+];
+
+const commonSoundboxDetails = ['USB-C charging port', 'LED charging indicator', 'Reset button'];
 
 const soundboxProducts = [
   {
@@ -105,18 +143,6 @@ const services = [
   },
 ];
 
-const deviceMetrics = [
-  { label: 'Storage Usage', value: '99% (6 GB used)', bar: 99, color: 'bg-red-500' },
-  { label: 'Memory Usage', value: '5% (50 MB used)', bar: 5, color: 'bg-emerald-500' },
-  { label: 'CPU Usage', value: '10%', bar: 10, color: 'bg-blue-500' },
-  { label: 'Battery Usage', value: '35% remaining', bar: 35, color: 'bg-amber-500' },
-  { label: 'IP Address', value: '192.168.1.10', bar: null },
-  { label: 'Network Strength', value: 'Strong Signal', bar: null },
-  { label: 'IMEI', value: '490154203237518', bar: null },
-  { label: 'Operator Name', value: 'Telecom', bar: null },
-  { label: 'Device Location', value: '34.0522 N, 118.2437 W', bar: null },
-];
-
 function useAnimateOnScroll() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -133,9 +159,16 @@ function useAnimateOnScroll() {
 export default function ProductShowcase({ onBack }) {
   const [heroRef, heroVisible] = useAnimateOnScroll();
   const [prodRef, prodVisible] = useAnimateOnScroll();
+  const brandedSoundboxesRef = useRef(null);
   const [featRef, featVisible] = useAnimateOnScroll();
   const [svcRef, svcVisible] = useAnimateOnScroll();
   const [tmsRef, tmsVisible] = useAnimateOnScroll();
+
+  const scrollBrandedSoundboxes = (direction) => {
+    const track = brandedSoundboxesRef.current;
+    if (!track) return;
+    track.scrollBy({ left: direction * track.clientWidth * 0.8, behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -149,43 +182,80 @@ export default function ProductShowcase({ onBack }) {
         </div>
       </section>
 
-      <section ref={prodRef} className="py-16 md:py-24 bg-slate-50">
+      <section ref={prodRef} className="py-5 md:py-7 bg-slate-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-14 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Soundbox Models</h2>
-            <p className="mt-3 text-slate-500 max-w-2xl mx-auto">Explore our range of payment soundboxes designed for every business need — from compact QR displays to premium touchscreen terminals.</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {soundboxProducts.map((product, index) => (
-              <div key={product.id} className={`bg-white border border-slate-100 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: prodVisible ? `${index * 100}ms` : '0ms' }}>
-                <div className="relative h-56 overflow-hidden bg-white">
-                  <div className={index % 2 === 1 ? 'absolute inset-0 bg-[radial-gradient(circle_at_70%_45%,rgba(59,130,246,0.22),transparent_62%)]' : 'absolute inset-0 bg-[radial-gradient(circle_at_30%_45%,rgba(59,130,246,0.22),transparent_62%)]'} />
-                  <span className="absolute top-3 right-6 text-[4.5rem] lg:text-[6rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src={product.image} alt={product.name} className="relative z-10 w-full h-full object-contain p-5 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
-                  <div className="absolute left-5 top-5 z-20">
-                    <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">{product.tagline}</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-[#0f172a] mb-2">{product.name}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{product.description}</p>
-                  <div className="space-y-3">
-                    {product.features.map((feature) => (
-                      <div key={feature.label} className="flex items-start gap-3">
-                        <FiCheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
-                        <div>
-                          <p className="text-sm font-semibold text-[#0f172a]">{feature.label}</p>
-                          <p className="text-xs text-slate-500">{feature.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          <div className={`mb-3 transition-all duration-500 ${prodVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-blue-500 font-semibold text-xs uppercase tracking-wider mb-1">Our Products</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#0f172a]">Soundbox Models</h2>
               </div>
-            ))}
+              <div className="flex shrink-0 gap-2">
+                <button
+                  type="button"
+                  onClick={() => scrollBrandedSoundboxes(-1)}
+                  aria-label="Scroll to previous soundboxes"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                >
+                  <FiArrowLeft aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollBrandedSoundboxes(1)}
+                  aria-label="Scroll to next soundboxes"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                >
+                  <FiArrowRight aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="mb-2">
+            <div
+              ref={brandedSoundboxesRef}
+              className="scrollbar-hide flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-3"
+              role="region"
+              aria-label="Soundbox product images"
+              tabIndex={0}
+            >
+              {brandedSoundboxes.map((product) => {
+                const model = soundboxProducts.find((item) => item.name === product.name);
+                const details = product.details
+                  || model?.features.slice(0, 3).map((feature) => feature.label)
+                  || [];
+                return (
+                  <article
+                    key={product.image}
+                    className="w-[82%] shrink-0 snap-start overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm sm:w-[48%] lg:w-[calc((100%-2.5rem)/3)]"
+                  >
+                    <div className="relative flex h-[150px] items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50 sm:h-[160px] lg:h-[180px]">
+                      <Picture
+                        src={product.image}
+                        alt={`${product.name} soundbox`}
+                        sizes="(max-width: 640px) 82vw, (max-width: 1024px) 48vw, 460px"
+                        loading="lazy"
+                        decoding="async"
+                        className={`relative z-10 h-full w-full object-contain p-3 ${model ? 'scale-110' : ''}`}
+                      />
+                    </div>
+                    <div className="p-3">
+                      <h3 className="mb-1 text-lg font-bold text-slate-900">{product.name}</h3>
+                      {model && (
+                        <p className="mb-2 line-clamp-2 text-[13px] leading-relaxed text-slate-600">{model.description}</p>
+                      )}
+                      <ul className="grid grid-cols-2 gap-1.5">
+                        {[...details, ...commonSoundboxDetails].map((detail) => (
+                          <li key={detail} className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium leading-tight text-blue-700">
+                            <FiCheckCircle className="h-3 w-3 shrink-0 text-blue-600" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -257,31 +327,37 @@ export default function ProductShowcase({ onBack }) {
         </div>
       </section>
 
-      <section ref={tmsRef} className="py-16 md:py-24 bg-white">
+      <section ref={tmsRef} className="bg-white py-12 md:py-16">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-12 transition-all duration-500 ${tmsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-2">Terminal Management</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Device and Network Details</h2>
+          <div className={`mb-8 text-center transition-all duration-500 ${tmsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-blue-500">Terminal Management</p>
+            <h2 className="text-3xl font-bold text-[#0f172a] md:text-4xl">Manage Soundboxes from Anywhere</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+              Monitor device status, network health and fleet activity from one centralized dashboard.
+            </p>
           </div>
-          <div className={`max-w-3xl mx-auto bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ${tmsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            <div className="bg-[#0f172a] px-6 py-4">
-              <h3 className="text-white font-semibold text-lg">Device Status</h3>
-              <p className="text-slate-500 text-sm">IMEI: 490154203237518</p>
+          <div className={`mx-auto max-w-6xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_24px_70px_-28px_rgba(15,23,42,0.35)] transition-all duration-500 ${tmsVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+            <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50 px-4 py-3 sm:px-6">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                <span className="ml-2 text-xs font-semibold text-slate-600 sm:text-sm">Terminal Management System</span>
+              </div>
+              <span className="hidden items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 sm:inline-flex">
+                <FiMonitor className="h-3.5 w-3.5" />
+                Device dashboard
+              </span>
             </div>
-            <div className="divide-y divide-slate-100">
-              {deviceMetrics.map((metric) => (
-                <div key={metric.label} className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0">
-                  <span className="text-slate-500 text-sm font-medium">{metric.label}</span>
-                  <div className="flex items-center gap-4">
-                    {metric.bar !== null && (
-                      <div className="w-28 h-2.5 bg-slate-100 rounded-full overflow-hidden hidden sm:block">
-                        <div className={`h-full ${metric.color} rounded-full transition-all duration-1000`} style={{ width: tmsVisible ? `${metric.bar}%` : '0%' }} />
-                      </div>
-                    )}
-                    <span className="text-[#0f172a] font-semibold text-sm min-w-[120px] text-right">{metric.value}</span>
-                  </div>
-                </div>
-              ))}
+            <div className="bg-[#eaf4fc] p-2 sm:p-4">
+              <Picture
+                src="/images/fintech%20soudbox/TMS%20soudbox.png"
+                alt="Terminal Management System dashboard showing soundbox device, network, battery and performance details"
+                sizes="(max-width: 1280px) 100vw, 1152px"
+                loading="lazy"
+                decoding="async"
+                className="block h-auto w-full rounded-lg"
+              />
             </div>
           </div>
         </div>

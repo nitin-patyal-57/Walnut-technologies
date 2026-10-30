@@ -14,6 +14,12 @@ import Picture from '../components/Picture';
 import { journey, clientLogos, certifications as certificationList, trustSignals } from '../data/content';
 import { scrollBehavior } from '../utils/motion';
 
+// Keep these requested image swaps visible even while the published CMS snapshot is stale.
+const JOURNEY_IMAGE_OVERRIDES = {
+  2016: '/images/journey/2016%20journey.png',
+  2020: '/images/journey/journey%20mass%20production.png',
+};
+
 function JourneySection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
@@ -22,16 +28,16 @@ function JourneySection() {
   // Production process photos: square-cropped + colour-graded for a consistent
   // blue Indian-manufacturing look. Files live in public/images/process/.
   const processImages = [
-    { image: '/images/process/idea-and-requirement.webp', num: '01', from: 'IDEA', to: 'RESEARCH' },
-    { image: '/images/process/research-and-market-analysis.webp', num: '02', from: 'RESEARCH', to: 'DESIGN' },
-    { image: '/images/process/design-and-engineering.webp', num: '03', from: 'DESIGN', to: 'MANUFACTURING' },
-    { image: '/images/process/manufacturing-engineering-and-mold-design.webp', num: '04', from: 'MANUFACTURING', to: 'TESTING' },
-    { image: '/images/process/validation-and-testing.webp', num: '05', from: 'TESTING', to: 'MOLDING' },
-    { image: '/images/process/molding-process.webp', num: '06', from: 'MOLDING', to: 'QA' },
-    { image: '/images/process/quality-assurance.webp', num: '07', from: 'QA', to: 'PACKAGING' },
-    { image: '/images/process/packaging-and-dispatch.webp', num: '08', from: 'PACKAGING', to: 'SUPPORT' },
-    { image: '/images/process/after-sales-support.webp', num: '09', from: 'SUPPORT', to: 'IMPROVEMENT' },
-    { image: '/images/process/continuous-improvement.webp', num: '10', from: 'IMPROVEMENT', to: 'SUPPORT' },
+    { image: '/images/process/idea-and-requirement.webp', num: '01', from: 'IDEA' },
+    { image: '/images/process/research-and-market-analysis.webp', num: '02', from: 'RESEARCH' },
+    { image: '/images/process/design-and-engineering.webp', num: '03', from: 'DESIGN' },
+    { image: '/images/process/molding-process.webp', num: '04', from: 'MOLDING' },
+    { image: '/images/process/manufacturing-engineering-and-mold-design.webp', num: '05', from: 'MANUFACTURING' },
+    { image: '/images/process/validation-and-testing.webp', num: '06', from: 'TESTING' },
+    { image: '/images/process/quality-assurance.webp', num: '07', from: 'QA' },
+    { image: '/images/process/packaging-and-dispatch.webp', num: '08', from: 'PACKAGING' },
+    { image: '/images/process/after-sales-support.webp', num: '09', from: 'SUPPORT' },
+    { image: '/images/process/continuous-improvement.webp', num: '10', from: 'IMPROVEMENT' },
   ];
 
   // Milestones come from the admin panel (Company > Our Journey), so adding
@@ -43,6 +49,7 @@ function JourneySection() {
   ];
   const milestones = journey.map((m, i) => ({
     ...m,
+    image: JOURNEY_IMAGE_OVERRIDES[m.year] ?? m.image,
     desc: m.description,
     icon: MILESTONE_ICONS[i % MILESTONE_ICONS.length],
   }));
