@@ -12,10 +12,12 @@ const ACCENTS = {
   },
 };
 
-export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', imagePosition = 'center', compact = false }) {
+export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', imagePosition = 'center', compact = false, dense = false }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
   const isPhoto = imageFit === 'photo';
-  const imageHeight = compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
+  const imageHeight = dense
+    ? 'h-44 sm:h-48 lg:h-52'
+    : compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
   const imageClasses = 'relative z-10 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out';
   return (
     <article
@@ -52,16 +54,16 @@ export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, t
         )}
       </div>
 
-      <div className="p-6 lg:p-8">
-        <h3 className="text-2xl lg:text-[1.75rem] font-bold text-[#0f172a] mb-1.5 leading-tight">{title}</h3>
+      <div className={dense ? 'p-4 lg:p-5' : 'p-6 lg:p-8'}>
+        <h3 className={`${dense ? 'text-lg lg:text-xl' : 'text-2xl lg:text-[1.75rem]'} font-bold text-[#0f172a] mb-1.5 leading-tight`}>{title}</h3>
         <p className={`font-semibold text-sm mb-3 ${a.subtitle}`}>{subtitle}</p>
-        <p className="text-slate-600 text-sm leading-relaxed mb-5">{description}</p>
+        <p className={`text-slate-600 leading-relaxed mb-5 ${dense ? 'text-xs' : 'text-sm'}`}>{description}</p>
         {features.length > 0 && (
-          <div className="flex flex-wrap gap-2">
+          <div className={`flex flex-wrap ${dense ? 'gap-1.5' : 'gap-2'}`}>
             {features.map((f) => (
               <span
                 key={f}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-colors ${a.chip}`}
+                className={`inline-flex items-center gap-1.5 rounded-full border font-semibold transition-colors ${dense ? 'px-2 py-1 text-[10px]' : 'px-3 py-1.5 text-[11px]'} ${a.chip}`}
               >
                 <FiCheckCircle className="w-3.5 h-3.5 shrink-0" />
                 {f}

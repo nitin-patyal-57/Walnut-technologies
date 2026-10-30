@@ -157,7 +157,7 @@ export default function MedicalShowcase({ onBack }) {
             <p className="text-cyan-700 font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a]">Medical Device Portfolio</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {products.map((product, index) => (
               <ProductTile
                 key={product.number}
@@ -172,7 +172,7 @@ export default function MedicalShowcase({ onBack }) {
                 delay={`${index * 80}ms`}
                 accent="cyan"
                 imageFit="photo"
-                imagePosition="center 10%"
+                dense
                 compact
               />
             ))}
