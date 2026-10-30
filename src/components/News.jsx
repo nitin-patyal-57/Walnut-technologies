@@ -144,7 +144,7 @@ function NewsModal({ item, onClose, onSelect }) {
               alt={item.title}
               width="1280"
               height="720"
-              className="w-full h-full object-contain object-center"
+              className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
 
@@ -271,7 +271,7 @@ function NewsModal({ item, onClose, onSelect }) {
                         className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                       >
                         <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-slate-50">
-                          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={r.image} alt={r.title} width="64" height="64" className="w-full h-full object-contain object-center" />
+                          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={r.image} alt={r.title} width="64" height="64" className="w-full h-full object-cover object-center" />
                         </div>
                         <div>
                           <span className={`text-[10px] font-bold ${rConfig.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
@@ -328,7 +328,7 @@ function FeaturedCard({ item, isInView, onReadMore }) {
           <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
-            className="w-full h-full object-contain object-center"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/20 to-transparent" />
           <div className="absolute top-4 left-4">
@@ -385,7 +385,7 @@ function NewsCard({ item, index, isInView, onReadMore }) {
           <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
-            className="w-full h-full object-contain object-center"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
           {/* Category badge */}
@@ -456,7 +456,7 @@ function TimelineCard({ item, index, isInView, onReadMore }) {
               <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-contain object-center"
+                className="w-full h-full object-cover object-center"
               />
             </div>
 
@@ -683,7 +683,7 @@ export default function News() {
                               <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-full object-contain object-center"
+                                className="w-full h-full object-cover object-center"
                               />
                             </div>
                             <div className="p-5 flex-1">

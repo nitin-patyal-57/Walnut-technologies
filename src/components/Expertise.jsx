@@ -156,7 +156,7 @@ export default function Expertise() {
                   <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src="/images/expertise/hero-engineer.webp"
                     alt="Engineer working on electronics at Walnut Technologies"
-                    className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-contain object-center"
+                    className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-cover object-center"
                   />
                 </div>
                 {/* Decorative dot */}
@@ -236,7 +236,7 @@ export default function Expertise() {
                         src={item.image}
                         alt={title}
                         loading="lazy"
-                        className="w-full h-full object-contain object-center"
+                        className="w-full h-full object-cover object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                       <div className={`absolute top-4 left-4 w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg`}>

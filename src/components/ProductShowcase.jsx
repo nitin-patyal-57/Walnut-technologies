@@ -235,7 +235,7 @@ export default function ProductShowcase({ onBack }) {
                         sizes="(max-width: 640px) 82vw, (max-width: 1024px) 48vw, 460px"
                         loading="lazy"
                         decoding="async"
-                        className={`relative z-10 h-full w-full object-contain p-3 ${model ? 'scale-110' : ''}`}
+                        className="relative z-10 h-full w-full object-cover object-center"
                       />
                     </div>
                     <div className="p-3">

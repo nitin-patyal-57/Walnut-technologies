@@ -310,7 +310,7 @@ export default function CareerPage() {
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                       src={team.image}
                       alt={team.name}
-                      className="w-full h-full object-contain object-center"
+                      className="w-full h-full object-cover object-center"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />

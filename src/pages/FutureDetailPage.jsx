@@ -228,7 +228,7 @@ export default function FutureDetailPage() {
                 <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src={data.splitContent.image}
                   alt={data.splitContent.title}
-                  className="w-full h-80 lg:h-96 object-contain object-center"
+                  className="w-full h-80 lg:h-96 object-cover object-center"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-tr ${data.color} opacity-10`} />
               </div>

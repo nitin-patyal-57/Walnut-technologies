@@ -415,7 +415,7 @@ export default function ExpertiseDetailPage() {
                 <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src={data.heroImage}
                   alt={data.title}
-                  className="w-full h-[350px] md:h-[450px] object-contain object-center"
+                  className="w-full h-[350px] md:h-[450px] object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
               </div>

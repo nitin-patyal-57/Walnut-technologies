@@ -140,7 +140,7 @@ function CategoryCard({ division, onSelect, index }) {
         <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
           src={division.products[0].image}
           alt={division.products[0].name}
-          className="relative z-10 w-full h-full object-contain p-5 mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out"
+          className="relative z-10 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out"
         />
       </div>
       {/* Text */}
@@ -353,7 +353,7 @@ function ProductCard({ product, index }) {
           <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={product.image}
             alt={product.title}
-            className="relative z-10 w-full h-full object-contain p-4 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out"
+            className="relative z-10 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
           />
         </div>
         <div className="p-4">
@@ -492,7 +492,7 @@ export default function Solutions() {
                           src={division.products[0]?.image}
                           alt={division.title}
                           loading="lazy"
-                          className="w-full h-full object-contain object-center"
+                          className="w-full h-full object-cover object-center"
                         />
                       </div>
 

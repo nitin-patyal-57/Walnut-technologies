@@ -14,35 +14,15 @@ const ACCENTS = {
 
 export default function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', compact = false }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
-  // 'photo' is for real photographs (not white-background product renders).
-  // The photo is shown FULL and uncropped (object-contain, like the default),
-  // and a blurred copy of the same photo fills the box edge-to-edge behind it,
-  // so there are no empty letterbox gaps. The index number renders on top
-  // (white + shadow) because the photo is opaque. Same box, same number
-  // position - only the image treatment differs.
   const isPhoto = imageFit === 'photo';
   const imageHeight = compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
-  const imageClasses = isPhoto
-    ? 'relative z-10 w-full h-full object-contain object-center p-4 sm:p-5 lg:p-6'
-    : imageFit === 'cover'
-      ? 'relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out'
-      : 'relative z-10 w-full h-full object-contain p-5 lg:p-7 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out';
+  const imageClasses = 'relative z-10 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out';
   return (
     <article
       className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: visible ? delay : '0ms' }}
     >
       <div className={`relative ${imageHeight} overflow-hidden bg-white`}>
-        {isPhoto && (
-          /* Blurred full-bleed copy of the same photo: fills the leftover
-             space around the uncropped image so the tile has no empty gaps. */
-          <img
-            src={image}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 z-0 w-full h-full object-cover blur-2xl scale-110 opacity-80"
-          />
-        )}
         {!isPhoto && imageFit !== 'cover' && (
           <>
             <div
@@ -66,9 +46,7 @@ export default function ProductTile({ index, image, alt, badge, badgeIcon: Badge
           className={imageClasses}
         />
         {isPhoto && (
-          /* Photo mode: index number on top of the (opaque) photo - same
-             position/size as the contained variant, but white with a soft
-             shadow so it stays legible over any image. */
+          /* Keep the index legible over the filled photo. */
           <span className="absolute top-3 right-6 z-20 text-[5.5rem] lg:text-[7rem] font-black text-white leading-none select-none pointer-events-none drop-shadow-[0_4px_14px_rgba(15,23,42,0.55)]">
             {index}
           </span>

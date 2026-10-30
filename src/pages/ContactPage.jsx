@@ -145,7 +145,7 @@ export default function ContactPage() {
                 <Picture sizes="100vw" loading="lazy" decoding="async"
                   src="/images/backgrounds/contactbackground.webp"
                   alt="Walnut Technologies Manufacturing Facility"
-                  className="w-full h-[300px] lg:h-[380px] object-contain object-center"
+                  className="w-full h-[300px] lg:h-[380px] object-cover object-center"
                 />
               </div>
               {/* Expert Card */}

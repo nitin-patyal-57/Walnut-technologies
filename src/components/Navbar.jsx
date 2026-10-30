@@ -252,7 +252,7 @@ export default function Navbar({ onOpenSchedule }) {
                               onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
                             >
                               <div className="h-36 overflow-hidden bg-slate-100">
-                                <Picture loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src={item.image} alt={item.label} className="w-full h-full object-contain object-center" />
+                                <Picture loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src={item.image} alt={item.label} className="w-full h-full object-cover object-center" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                               </div>
                               <div className="absolute bottom-0 left-0 right-0 p-4">

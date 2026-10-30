@@ -124,7 +124,7 @@ function JourneySection() {
                       width="150"
                       height="150"
                       loading="lazy"
-                      className="w-full h-full object-contain object-center"
+                      className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
@@ -162,7 +162,7 @@ function JourneySection() {
                       width="150"
                       height="150"
                       loading="lazy"
-                      className="w-full h-full object-contain object-center"
+                      className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
@@ -277,7 +277,7 @@ function JourneySection() {
                               alt={`${item.title} ${item.year}`}
                               loading="lazy"
                               decoding="async"
-                              className="w-full h-full object-contain object-center"
+                              className="w-full h-full object-cover object-center"
                             />
                           </div>
                         ) : (
@@ -432,7 +432,7 @@ function DivisionsPreview() {
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className="w-full h-full object-contain object-center"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
 
@@ -448,7 +448,7 @@ function DivisionsPreview() {
                         src={sol.sideImage}
                         alt={`${sol.title} - Weebo`}
                         loading="lazy"
-                        className="w-full h-full object-contain object-center"
+                        className="w-full h-full object-cover object-center"
                       />
                     </div>
                   </div>

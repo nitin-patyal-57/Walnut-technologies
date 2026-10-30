@@ -93,7 +93,7 @@ function ProcessSteps() {
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src={stepImages[index]}
                       alt={step.title}
-                      className="w-full h-full object-contain object-center"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <div className={`absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
@@ -138,7 +138,7 @@ function ProcessSteps() {
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src={stepImages[index + 5]}
                       alt={step.title}
-                      className="w-full h-full object-contain object-center"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <div className={`absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-md`}>
