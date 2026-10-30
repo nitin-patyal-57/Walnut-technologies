@@ -8,7 +8,7 @@ function keyOf(src) {
   return stripQuery(src).slice(1).replace(/\.[a-z0-9]+$/i, '');
 }
 
-export default function Picture({ src, alt = '', sizes = '100vw', ...props }) {
+export default function Picture({ src, alt = '', sizes = '100vw', preferWebp = false, ...props }) {
   const key = keyOf(src);
   const entry = key ? variants[key] : null;
 
@@ -36,7 +36,7 @@ export default function Picture({ src, alt = '', sizes = '100vw', ...props }) {
 
   return (
     <picture>
-      <source type="image/avif" srcSet={avifSet} sizes={sizes} />
+      {!preferWebp && <source type="image/avif" srcSet={avifSet} sizes={sizes} />}
       <source type="image/webp" srcSet={webpSet} sizes={sizes} />
       <img src={originalUrl} alt={alt} sizes={sizes} srcSet={webpSet} {...props} />
     </picture>

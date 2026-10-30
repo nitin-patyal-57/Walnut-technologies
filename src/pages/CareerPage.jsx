@@ -215,7 +215,7 @@ export default function CareerPage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Picture sizes="100vw"
+                <Picture sizes="(max-width: 1023px) 100vw, 50vw"
                   src="/images/backgrounds/career.webp"
                   alt="Walnut Technologies Team"
                   className="w-full h-[300px] md:h-[400px] object-cover"
@@ -280,8 +280,10 @@ export default function CareerPage() {
                 <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 60vw"
                   src={cultureImages[0].src}
                   alt={cultureImages[0].alt}
+                  preferWebp
                   className="block h-auto w-full object-contain"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </AnimatedSection>
