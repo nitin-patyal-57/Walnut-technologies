@@ -277,10 +277,10 @@ export default function CareerPage() {
 
             <AnimatedSection delay={0.2} className="lg:col-span-3">
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 60vw"
                   src={cultureImages[0].src}
                   alt={cultureImages[0].alt}
-                  className="w-full h-[250px] md:h-[350px] object-cover"
+                  className="block h-auto w-full object-contain"
                   loading="lazy"
                 />
               </div>
