@@ -230,6 +230,7 @@ export default function NeuroShowcase({ onBack }) {
             <ProductTile
 
               image="/images/products/TDCS.webp"
+              imageFit="photo-contain"
               alt="tDCS Transcranial Direct Current Stimulation System"
               badge="Neuromodulation"
               badgeIcon={FiZap}
@@ -245,6 +246,7 @@ export default function NeuroShowcase({ onBack }) {
 
               flip
               image="/images/products/repose.webp"
+              imageFit="photo-contain"
               alt="Repose Mobility Control Electrostimulation Stimulator"
               badge="Electrostimulation"
               badgeIcon={FiActivity}
@@ -260,6 +262,7 @@ export default function NeuroShowcase({ onBack }) {
             <ProductTile
 
               image="/images/products/medstim-neuro-devices-zoom.webp"
+              imageFit="photo-contain"
               alt="MedStim Neuromuscular Electrical Stimulation System"
               badge="Muscle Stimulation"
               badgeIcon={FiHeart}
@@ -275,6 +278,7 @@ export default function NeuroShowcase({ onBack }) {
 
               flip
               image="/images/neuro/walkex.jpg"
+              imageFit="photo-contain"
               alt="Walkex Functional Electrical Stimulation System"
               badge="FES Therapy"
               badgeIcon={FiRadio}
