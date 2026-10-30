@@ -16,7 +16,7 @@ export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, t
   const a = ACCENTS[accent] || ACCENTS.blue;
   const isPhoto = imageFit === 'photo';
   const imageHeight = dense
-    ? 'h-44 sm:h-48 lg:h-52'
+    ? 'aspect-[4/3]'
     : compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
   const imageClasses = 'relative z-10 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out';
   return (
