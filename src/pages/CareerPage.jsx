@@ -214,11 +214,11 @@ export default function CareerPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative flex items-center justify-center rounded-2xl overflow-hidden shadow-2xl">
                 <Picture sizes="(max-width: 1023px) 100vw, 50vw"
                   src="/images/backgrounds/career.webp"
                   alt="Walnut Technologies Team"
-                  className="w-full h-[300px] md:h-[400px] object-cover"
+                  className="block h-auto w-full object-contain object-center"
                   loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
