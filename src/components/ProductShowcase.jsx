@@ -228,14 +228,14 @@ export default function ProductShowcase({ onBack }) {
                     key={product.image}
                     className="w-[82%] shrink-0 snap-start overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm sm:w-[48%] lg:w-[calc((100%-2.5rem)/3)]"
                   >
-                    <div className="relative flex h-[150px] items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50 sm:h-[160px] lg:h-[180px]">
+                    <div className="relative flex h-[260px] items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50 p-3 sm:h-[300px] lg:h-[340px]">
                       <Picture
                         src={product.image}
                         alt={`${product.name} soundbox`}
                         sizes="(max-width: 640px) 82vw, (max-width: 1024px) 48vw, 460px"
                         loading="lazy"
                         decoding="async"
-                        className="relative z-10 h-full w-full object-cover object-center"
+                        className="relative z-10 h-full w-full object-contain object-center"
                       />
                     </div>
                     <div className="p-3">
