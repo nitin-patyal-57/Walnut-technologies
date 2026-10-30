@@ -126,7 +126,6 @@ export default function AutomotiveShowcase({ onBack }) {
             {products.map((product, index) => (
               <ProductTile
                 key={product.number}
-                index={String(product.number).padStart(2, '0')}
                 image={product.image}
                 alt={product.title}
                 title={product.title}

@@ -12,7 +12,7 @@ const ACCENTS = {
   },
 };
 
-export default function ProductTile({ index, image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', compact = false }) {
+export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', compact = false }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
   const isPhoto = imageFit === 'photo';
   const imageHeight = compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
@@ -32,9 +32,6 @@ export default function ProductTile({ index, image, alt, badge, badgeIcon: Badge
                   : 'absolute inset-0 bg-[radial-gradient(circle_at_30%_45%,rgba(59,130,246,0.22),transparent_62%)]'
               }
             />
-            <span className="absolute top-3 right-6 text-[5.5rem] lg:text-[7rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
-              {index}
-            </span>
           </>
         )}
         <Picture
@@ -45,12 +42,6 @@ export default function ProductTile({ index, image, alt, badge, badgeIcon: Badge
           alt={alt}
           className={imageClasses}
         />
-        {isPhoto && (
-          /* Keep the index legible over the filled photo. */
-          <span className="absolute top-3 right-6 z-20 text-[5.5rem] lg:text-[7rem] font-black text-white leading-none select-none pointer-events-none drop-shadow-[0_4px_14px_rgba(15,23,42,0.55)]">
-            {index}
-          </span>
-        )}
         {badge && (
           <div className="absolute left-5 top-5 z-20">
             <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm text-blue-600 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">

@@ -196,7 +196,7 @@ export default function NeuroShowcase({ onBack }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <ProductTile
-              index="01"
+
               image="/images/neuro/walklab-journey.jpg"
               imageFit="photo"
               alt="WalkLab Gait Training System"
@@ -211,7 +211,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-              index="02"
+
               flip
               image="/images/neuro/weebo presentation.png"
               imageFit="photo"
@@ -228,7 +228,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-              index="03"
+
               image="/images/products/TDCS.webp"
               alt="tDCS Transcranial Direct Current Stimulation System"
               badge="Neuromodulation"
@@ -242,7 +242,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-              index="04"
+
               flip
               image="/images/products/repose.webp"
               alt="Repose Mobility Control Electrostimulation Stimulator"
@@ -258,7 +258,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-              index="05"
+
               image="/images/products/medstim-neuro-devices-zoom.webp"
               alt="MedStim Neuromuscular Electrical Stimulation System"
               badge="Muscle Stimulation"
@@ -272,7 +272,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-              index="06"
+
               flip
               image="/images/neuro/walkex.jpg"
               alt="Walkex Functional Electrical Stimulation System"
