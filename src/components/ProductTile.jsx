@@ -23,7 +23,7 @@ export default function ProductTile({ index, image, alt, badge, badgeIcon: Badge
   const isPhoto = imageFit === 'photo';
   const imageHeight = compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
   const imageClasses = isPhoto
-    ? 'relative z-10 w-full h-full object-contain p-4 sm:p-5 lg:p-6 group-hover:scale-105 transition-transform duration-700 ease-out'
+    ? 'relative z-10 w-full h-full object-contain object-center p-4 sm:p-5 lg:p-6'
     : imageFit === 'cover'
       ? 'relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out'
       : 'relative z-10 w-full h-full object-contain p-5 lg:p-7 mix-blend-multiply group-hover:scale-105 transition-transform duration-700 ease-out';

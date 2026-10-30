@@ -411,11 +411,11 @@ export default function ExpertiseDetailPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800">
                 <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src={data.heroImage}
                   alt={data.title}
-                  className="w-full h-[350px] md:h-[450px] object-cover"
+                  className="w-full h-[350px] md:h-[450px] object-contain object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
               </div>

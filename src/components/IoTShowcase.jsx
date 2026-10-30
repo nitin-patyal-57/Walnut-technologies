@@ -22,7 +22,7 @@ const products = [
     description: 'Rugged 4G GPS tracking for vehicles and mobile assets, with precise positioning, geo-fencing, route history, ignition monitoring and remote firmware updates.',
     highlights: ['4G LTE CAT-1', '<2.5 m Accuracy', 'Smart Geo-fencing', 'FOTA & SOS Support'],
     image: '/images/iot/gps-tracker-portfolio.webp',
-    imageFit: 'cover',
+    imageFit: 'photo',
   },
   {
     number: 2,
@@ -31,7 +31,7 @@ const products = [
     description: 'Connected GPS gateway for industrial and logistics applications, combining real-time location with security, fuel, temperature and humidity sensor monitoring.',
     highlights: ['GPS & Bluetooth', 'Multi-sensor Monitoring', 'Live Telemetry', 'Secure Cloud Connection'],
     image: '/images/iot/gps-gateway-portfolio.webp',
-    imageFit: 'cover',
+    imageFit: 'photo',
   },
   {
     number: 3,

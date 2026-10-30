@@ -492,7 +492,7 @@ export default function Solutions() {
                           src={division.products[0]?.image}
                           alt={division.title}
                           loading="lazy"
-                          className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                          className="w-full h-full object-contain object-center"
                         />
                       </div>
 

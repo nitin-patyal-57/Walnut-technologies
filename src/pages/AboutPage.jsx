@@ -327,34 +327,34 @@ export default function AboutPage() {
             <AnimatedSection delay={0.2} className="lg:col-span-7 order-1 lg:order-2">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="rounded-2xl overflow-hidden shadow-lg h-48">
+                  <div className="rounded-2xl overflow-hidden shadow-lg h-48 bg-slate-50">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/04_Engineering_Team.webp"
                       alt="Engineering Team"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center"
                     />
                   </div>
-                  <div className="rounded-2xl overflow-hidden shadow-lg h-64">
+                  <div className="rounded-2xl overflow-hidden shadow-lg h-64 bg-slate-50">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/team-collab.webp"
                       alt="Team Collaboration"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center"
                     />
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
-                  <div className="rounded-2xl overflow-hidden shadow-lg h-64">
+                  <div className="rounded-2xl overflow-hidden shadow-lg h-64 bg-slate-50">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/11_Modern_Conference_Room.webp"
                       alt="Conference Room"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center"
                     />
                   </div>
-                  <div className="rounded-2xl overflow-hidden shadow-lg h-48">
+                  <div className="rounded-2xl overflow-hidden shadow-lg h-48 bg-slate-50">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                       src="/images/about/12_Business_Partnership.webp"
                       alt="Business Partnership"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center"
                     />
                   </div>
                 </div>
@@ -373,11 +373,11 @@ export default function AboutPage() {
             {/* Image */}
             <AnimatedSection>
               <div className="relative">
-                <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-50">
                   <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src="/images/about/07_PCB_Testing.webp"
                     alt="Quality Testing"
-                    className="w-full h-[400px] object-cover"
+                    className="w-full h-[400px] object-contain object-center"
                   />
                 </div>
                 {/* Floating badge */}

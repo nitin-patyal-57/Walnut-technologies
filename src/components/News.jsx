@@ -138,13 +138,13 @@ function NewsModal({ item, onClose, onSelect }) {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Hero Image */}
-          <div className="relative h-72 md:h-96 overflow-hidden">
+          <div className="relative h-72 md:h-96 overflow-hidden bg-slate-100">
             <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
               src={item.image}
               alt={item.title}
               width="1280"
               height="720"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
 
@@ -270,8 +270,8 @@ function NewsModal({ item, onClose, onSelect }) {
                         aria-label={`Read ${r.title}`}
                         className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                       >
-                        <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0">
-                          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={r.image} alt={r.title} width="64" height="64" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-slate-50">
+                          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={r.image} alt={r.title} width="64" height="64" className="w-full h-full object-contain object-center" />
                         </div>
                         <div>
                           <span className={`text-[10px] font-bold ${rConfig.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
@@ -324,11 +324,11 @@ function FeaturedCard({ item, isInView, onReadMore }) {
     >
       <div className="grid lg:grid-cols-2 h-full">
         {/* Image */}
-        <div className="relative h-64 lg:h-full overflow-hidden">
+        <div className="relative h-64 lg:h-full overflow-hidden bg-slate-100">
           <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-contain object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/20 to-transparent" />
           <div className="absolute top-4 left-4">
@@ -381,11 +381,11 @@ function NewsCard({ item, index, isInView, onReadMore }) {
     >
       <div className="relative bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden h-full flex flex-col">
         {/* Image */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-48 overflow-hidden bg-slate-100">
           <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-contain object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
           {/* Category badge */}
@@ -452,11 +452,11 @@ function TimelineCard({ item, index, isInView, onReadMore }) {
         <div className="bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
           <div className="flex items-stretch">
             {/* Image */}
-            <div className="w-32 shrink-0 overflow-hidden hidden sm:block">
+            <div className="w-32 shrink-0 overflow-hidden hidden sm:block bg-slate-50">
               <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-contain object-center"
               />
             </div>
 
@@ -679,11 +679,11 @@ export default function News() {
                       >
                         <div className="bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                           <div className="flex items-stretch">
-                            <div className="w-40 shrink-0 overflow-hidden hidden sm:block">
+                            <div className="w-40 shrink-0 overflow-hidden hidden sm:block bg-slate-50">
                               <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="w-full h-full object-contain object-center"
                               />
                             </div>
                             <div className="p-5 flex-1">

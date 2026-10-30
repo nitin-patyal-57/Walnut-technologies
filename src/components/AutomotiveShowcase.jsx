@@ -136,7 +136,7 @@ export default function AutomotiveShowcase({ onBack }) {
                 flip={index % 2 === 1}
                 visible={prodVisible}
                 delay={`${index * 80}ms`}
-                imageFit="cover"
+                imageFit="photo"
                 compact
               />
             ))}

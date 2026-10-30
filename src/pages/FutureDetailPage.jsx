@@ -224,11 +224,11 @@ export default function FutureDetailPage() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-50">
                 <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                   src={data.splitContent.image}
                   alt={data.splitContent.title}
-                  className="w-full h-80 lg:h-96 object-cover"
+                  className="w-full h-80 lg:h-96 object-contain object-center"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-tr ${data.color} opacity-10`} />
               </div>

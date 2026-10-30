@@ -152,11 +152,11 @@ export default function Expertise() {
               className="lg:col-span-6"
             >
               <div className="relative">
-                <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-slate-50">
                   <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
                     src="/images/expertise/hero-engineer.webp"
                     alt="Engineer working on electronics at Walnut Technologies"
-                    className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-cover"
+                    className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-contain object-center"
                   />
                 </div>
                 {/* Decorative dot */}
@@ -231,12 +231,12 @@ export default function Expertise() {
                     className="group block relative bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-blue-200 hover:shadow-xl transition-all duration-500 h-full flex flex-col"
                   >
                     {/* Image */}
-                    <div className="relative h-44 overflow-hidden">
+                    <div className="relative h-44 overflow-hidden bg-slate-50">
                       <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                         src={item.image}
                         alt={title}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-contain object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                       <div className={`absolute top-4 left-4 w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg`}>

@@ -141,11 +141,11 @@ export default function ContactPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-50">
                 <Picture sizes="100vw" loading="lazy" decoding="async"
                   src="/images/backgrounds/contactbackground.webp"
                   alt="Walnut Technologies Manufacturing Facility"
-                  className="w-full h-[300px] lg:h-[380px] object-cover object-[right_85%]"
+                  className="w-full h-[300px] lg:h-[380px] object-contain object-center"
                 />
               </div>
               {/* Expert Card */}

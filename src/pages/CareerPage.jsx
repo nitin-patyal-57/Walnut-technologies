@@ -306,11 +306,11 @@ export default function CareerPage() {
             {teams.map((team, i) => (
               <AnimatedSection key={team.name} delay={i * 0.04}>
                 <div className="group text-center">
-                  <div className="w-full aspect-square rounded-lg overflow-hidden mb-2 relative">
+                  <div className="w-full aspect-square rounded-lg overflow-hidden mb-2 relative bg-slate-50">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
                       src={team.image}
                       alt={team.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />

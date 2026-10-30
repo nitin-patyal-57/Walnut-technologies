@@ -117,14 +117,14 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.from}
                       width="150"
                       height="150"
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center"
                     />
                     <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
@@ -155,14 +155,14 @@ function JourneySection() {
                 className="flex items-center shrink-0"
               >
                 <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.from}
                       width="150"
                       height="150"
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain object-center"
                     />
                     <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
                       {item.num}
@@ -277,7 +277,7 @@ function JourneySection() {
                               alt={`${item.title} ${item.year}`}
                               loading="lazy"
                               decoding="async"
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-contain object-center"
                             />
                           </div>
                         ) : (
@@ -432,7 +432,7 @@ function DivisionsPreview() {
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain object-center"
                   />
                 </div>
 
@@ -448,7 +448,7 @@ function DivisionsPreview() {
                         src={sol.sideImage}
                         alt={`${sol.title} - Weebo`}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-contain object-center"
                       />
                     </div>
                   </div>
