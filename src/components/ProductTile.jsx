@@ -12,7 +12,7 @@ const ACCENTS = {
   },
 };
 
-export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', compact = false }) {
+export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', imagePosition = 'center', compact = false }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
   const isPhoto = imageFit === 'photo';
   const imageHeight = compact ? 'h-48 sm:h-56 lg:h-64' : 'h-56 sm:h-72 lg:h-80';
@@ -22,7 +22,7 @@ export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, t
       className={`relative rounded-3xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-100/40 transition-all duration-700 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: visible ? delay : '0ms' }}
     >
-      <div className={`relative ${imageHeight} overflow-hidden bg-white`}>
+      <div className={`relative ${imageHeight} overflow-hidden bg-slate-100`}>
         {!isPhoto && imageFit !== 'cover' && (
           <>
             <div
@@ -41,6 +41,7 @@ export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, t
           src={image}
           alt={alt}
           className={imageClasses}
+          style={{ objectPosition: imagePosition }}
         />
         {badge && (
           <div className="absolute left-5 top-5 z-20">
