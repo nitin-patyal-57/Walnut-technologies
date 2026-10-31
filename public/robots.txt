@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://walnut-technologies.vercel.app/sitemap.xml
+Sitemap: https://walnut.work.gd/sitemap.xml
 
 # Disallow admin pages
 Disallow: /admin

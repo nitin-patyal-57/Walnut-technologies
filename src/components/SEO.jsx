@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 const SITE_NAME = 'Walnut Technologies';
-const DEFAULT_URL = 'https://walnut-technologies.vercel.app';
+const DEFAULT_URL = 'https://walnut.work.gd';
 const DEFAULT_IMAGE = '/images/brand/Walnut_Technologies_logo_transparent.webp';
 
 export default function SEO({
