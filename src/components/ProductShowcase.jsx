@@ -8,32 +8,32 @@ const brandedSoundboxes = [
   { image: '/images/products/LDQR.webp', name: 'LDQR' },
   {
     image: '/images/fintech%20soudbox/sbi_payments_qr_4k_white_transparent.png',
-    name: 'SBI Payments',
+    name: 'SBI Payment Device',
     details: ['Common soundbox', '2000 mAh battery', 'QR sticker', '4G SIM network', '4 switch types', 'Speaker'],
   },
   {
     image: '/images/fintech%20soudbox/paytm_qr_4k_white_transparent.png',
-    name: 'Paytm',
-    details: ['2600 mAh battery', 'QR scanner', '57 mm speaker', 'Single or dual SIM', '4G/2G connectivity', 'Removable battery', 'QR standee'],
+    name: 'Paytm Payment Device',
+    details: ['2000 mAh battery', 'QR scanner', '57 mm speaker', 'Single or dual SIM', '4G/2G connectivity', 'Removable battery', 'QR standee'],
   },
   {
     image: '/images/fintech%20soudbox/mswipe_qr_4k_white_transparent.png',
-    name: 'Mswipe',
-    details: ['2000 mAh battery', 'QR', '57 mm speaker', 'Merchant segment display', 'Single SIM', '4G/2G connectivity', '4 button types', 'Non-removable battery'],
+    name: 'Mswipe Payment Device',
+    details: ['2600 mAh battery', 'QR', '57 mm speaker', 'Merchant segment display', 'Single SIM', '4G/2G connectivity', '4 button types', 'Non-removable battery'],
   },
   {
     image: '/images/fintech%20soudbox/hdfc_payzapp_qr_4k_white_transparent.png',
-    name: 'HDFC PayZapp',
-    details: ['2000 mAh battery', 'QR code standee', '40 mm Miller speaker', 'Dual SIM available', '4G/2G connectivity'],
+    name: 'HDFC Payment Device',
+    details: ['2600 mAh battery', 'QR code standee', '40 mm Miller speaker', 'Dual SIM available', '4G/2G connectivity'],
   },
   {
     image: '/images/fintech%20soudbox/bharatpe_qr_4k_white_transparent.png',
-    name: 'BharatPe',
+    name: 'BharatPe Payment Device',
     details: ['Non-removable button', '2000 mAh battery', 'QR sticker', '57 mm loud speaker', '4G/2G connectivity', '5 switch types'],
   },
   {
     image: '/images/fintech%20soudbox/airtel_payments_bank_qr_4k_white_transparent.png',
-    name: 'Airtel Payments Bank',
+    name: 'Airtel Payment Device',
     details: ['Common soundbox', '2000 mAh battery', 'QR sticker', '4G SIM network', '4 switch types', 'Speaker'],
   },
 ];
