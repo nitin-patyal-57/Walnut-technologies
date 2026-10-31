@@ -131,8 +131,8 @@ export default function CareerPage() {
               "hiringOrganization": {
                 "@type": "Organization",
                 "name": "Walnut Technologies Pvt. Ltd.",
-                "sameAs": "https://walnut-technologies.vercel.app",
-                "logo": "https://walnut-technologies.vercel.app/images/brand/Walnut_Technologies_logo_transparent.webp"
+                "sameAs": "https://poorankharol.work.gd",
+                "logo": "https://poorankharol.work.gd/images/brand/Walnut_Technologies_logo_transparent.webp"
               },
               "jobLocation": {
                 "@type": "Place",
