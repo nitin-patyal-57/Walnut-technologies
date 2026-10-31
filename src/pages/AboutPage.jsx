@@ -1,11 +1,10 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { brand, about } from '../data/content';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import {
-  FiArrowRight, FiTarget, FiEye, FiZap, FiShield,
+  FiArrowRight, FiZap, FiShield,
   FiCheckCircle, FiArrowUpRight,
   FiPackage, FiSettings
 } from 'react-icons/fi';
@@ -189,87 +188,6 @@ export default function AboutPage() {
                     <div className="text-[11px] text-slate-500 font-medium">{stat.label}</div>
                   </div>
                 ))}
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════
-          MISSION & VISION
-      ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-10 lg:py-14 bg-slate-50">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            {/* Left — Mission & Vision */}
-            <div>
-              <AnimatedSection>
-                <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
-                  Our Purpose
-                </span>
-                <h2 className="text-3xl md:text-4xl font-black font-display text-slate-900 mb-6 leading-tight">
-                  Purpose-Driven
-                  <br />
-                  <span className="text-blue-600">Technology</span>
-                </h2>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.1}>
-                <div className="relative p-6 bg-white rounded-2xl border border-blue-100 hover:shadow-xl transition-all duration-300 overflow-hidden mb-4">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <div className="relative flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
-                      <FiTarget className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-sm font-black text-blue-600 uppercase tracking-wider mb-2">Our Mission</h3>
-                      {about.missionPillars?.length ? (
-                        /* Mission pillars from the admin panel (About Us > Mission
-                           pillars): a 2x2 grid of titled commitments. Falls back
-                           to the plain Mission paragraph when the list is empty. */
-                        <div className="grid grid-cols-1 sm:grid-cols-2">
-                          {about.missionPillars.map((pillar, i) => (
-                            <div
-                              key={pillar.title}
-                              className={`py-2 ${i % 2 === 0 ? 'sm:pr-4 sm:border-r border-slate-200' : 'sm:pl-4'} ${i >= 2 ? 'border-t border-slate-200' : ''}`}
-                            >
-                              <p className="text-sm font-bold text-slate-900 leading-snug">{pillar.title}</p>
-                              <p className="text-sm text-slate-600 leading-snug mt-0.5">{pillar.description}</p>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="text-sm text-slate-600 leading-relaxed">{about.mission}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.2}>
-                <div className="relative p-6 bg-white rounded-2xl border border-emerald-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <div className="relative flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20">
-                      <FiEye className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-black text-emerald-600 uppercase tracking-wider mb-2">Our Vision</h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">{about.vision}</p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
-
-            {/* Right — Image */}
-            <AnimatedSection delay={0.15}>
-              <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
-                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
-                  src="/images/about/13_Purpose_Products.webp"
-                  alt="Walnut Technologies Products - Medical Devices, Payment Systems, Electronics"
-                  className="w-full h-auto object-contain"
-                />
               </div>
             </AnimatedSection>
           </div>
