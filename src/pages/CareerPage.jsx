@@ -334,7 +334,7 @@ export default function CareerPage() {
               <AnimatedSection key={step.step} delay={i * 0.08}>
                 <div className="relative">
                   {i < hiringSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-6 left-full w-full h-0.5 bg-blue-200 -translate-x-1/2" />
+                    <div className="hidden lg:block absolute top-6 left-1/2 ml-6 w-[calc(100%-2rem)] h-0.5 bg-blue-200" />
                   )}
                   <div className="text-center">
                     <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
