@@ -261,7 +261,7 @@ export default function NeuroShowcase({ onBack }) {
 
             <ProductTile
 
-              image="/images/products/medstim-neuro-devices-zoom.webp"
+              image="/images/products/medstim-neuro-devices-cutout.webp"
               imageFit="photo-contain"
               alt="MedStim Neuromuscular Electrical Stimulation System"
               badge="Muscle Stimulation"

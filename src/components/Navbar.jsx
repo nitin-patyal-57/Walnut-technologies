@@ -18,7 +18,7 @@ const navLinks = [
     to: '/solutions',
     dropdown: [
       { label: 'Neuro Rehab', to: '/solutions?category=Neuro Rehab Devices', image: '/images/products/walklab-product.webp', desc: 'Advanced rehabilitation systems' },
-      { label: 'Medical', to: '/solutions?category=Medical', image: '/images/products/medstim-neuro-devices.webp', desc: 'Precision healthcare devices' },
+      { label: 'Medical', to: '/solutions?category=Medical', image: '/images/products/bp-monitor-removebg.webp', desc: 'Precision healthcare devices' },
       { label: 'Fintech', to: '/solutions?category=Fintech', image: '/images/products/DQR.webp', desc: 'Digital payment solutions' },
       { label: 'IoT Solutions', to: '/solutions?category=IoT', image: '/images/products/smartlock-product.webp', desc: 'Connected smart devices' },
       { label: 'Automotive', to: '/solutions?category=Automotive', image: '/images/backgrounds/cluster-background1.webp', desc: 'Smart instrument clusters' },
