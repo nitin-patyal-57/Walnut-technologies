@@ -197,7 +197,7 @@ export default function NeuroShowcase({ onBack }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <ProductTile
 
-              image="/images/neuro/walklab-journey.jpg"
+              image="/images/neuro/walklab-journey.webp"
               imageFit="photo-contain"
               alt="WalkLab Gait Training System"
               badge="Flagship Product"
@@ -213,7 +213,7 @@ export default function NeuroShowcase({ onBack }) {
             <ProductTile
 
               flip
-              image="/images/neuro/weebo presentation.png"
+              image="/images/neuro/weebo presentation.webp"
               imageFit="photo"
               alt="Weebo Early Rehabilitation Robot"
               badge="Therapeutic System"
@@ -277,7 +277,7 @@ export default function NeuroShowcase({ onBack }) {
             <ProductTile
 
               flip
-              image="/images/neuro/walkex.jpg"
+              image="/images/neuro/walkex.webp"
               imageFit="photo-contain"
               alt="Walkex Functional Electrical Stimulation System"
               badge="FES Therapy"

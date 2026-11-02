@@ -19,7 +19,7 @@ const products = [
     subtitle: 'Advanced instrumentation',
     description: 'Next-generation automotive cluster displays with high-resolution screens, real-time vehicle data visualization, and customizable driver interfaces. Built for durability and clarity.',
     highlights: ['Digital Cluster', 'Real-time Data', 'High Resolution', 'Durable'],
-    image: '/images/journey/cluster-tractor.jpg',
+    image: '/images/journey/cluster-tractor.webp',
   },
 ];
 

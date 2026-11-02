@@ -16,8 +16,8 @@ import { scrollBehavior } from '../utils/motion';
 
 // Keep these requested image swaps visible even while the published CMS snapshot is stale.
 const JOURNEY_IMAGE_OVERRIDES = {
-  2016: '/images/journey/2016%20journey.png',
-  2020: '/images/journey/journey%20mass%20production.png',
+  2016: '/images/journey/2016%20journey.webp',
+  2020: '/images/journey/journey%20mass%20production.webp',
 };
 
 function JourneySection() {

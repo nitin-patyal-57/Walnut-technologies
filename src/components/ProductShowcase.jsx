@@ -7,32 +7,32 @@ const brandedSoundboxes = [
   { image: '/images/products/DQR.webp', name: 'DQR' },
   { image: '/images/products/LDQR.webp', name: 'LDQR' },
   {
-    image: '/images/fintech%20soudbox/sbi_payments_qr_4k_white_transparent.png',
+    image: '/images/fintech%20soudbox/sbi_payments_qr_4k_white_transparent.webp',
     name: 'SBI Payment Device',
     details: ['Common soundbox', '2000 mAh battery', 'QR sticker', '4G SIM network', '4 switch types', 'Speaker'],
   },
   {
-    image: '/images/fintech%20soudbox/paytm_qr_4k_white_transparent.png',
+    image: '/images/fintech%20soudbox/paytm_qr_4k_white_transparent.webp',
     name: 'Paytm Payment Device',
     details: ['2000 mAh battery', 'QR scanner', '57 mm speaker', 'Single or dual SIM', '4G/2G connectivity', 'Removable battery', 'QR standee'],
   },
   {
-    image: '/images/fintech%20soudbox/mswipe_qr_4k_white_transparent.png',
+    image: '/images/fintech%20soudbox/mswipe_qr_4k_white_transparent.webp',
     name: 'Mswipe Payment Device',
     details: ['2600 mAh battery', 'QR', '57 mm speaker', 'Merchant segment display', 'Single SIM', '4G/2G connectivity', '4 button types', 'Non-removable battery'],
   },
   {
-    image: '/images/fintech%20soudbox/hdfc_payzapp_qr_4k_white_transparent.png',
+    image: '/images/fintech%20soudbox/hdfc_payzapp_qr_4k_white_transparent.webp',
     name: 'HDFC Payment Device',
     details: ['2600 mAh battery', 'QR code standee', '40 mm Miller speaker', 'Dual SIM available', '4G/2G connectivity'],
   },
   {
-    image: '/images/fintech%20soudbox/bharatpe_qr_4k_white_transparent.png',
+    image: '/images/fintech%20soudbox/bharatpe_qr_4k_white_transparent.webp',
     name: 'BharatPe Payment Device',
     details: ['Non-removable button', '2000 mAh battery', 'QR sticker', '57 mm loud speaker', '4G/2G connectivity', '5 switch types'],
   },
   {
-    image: '/images/fintech%20soudbox/airtel_payments_bank_qr_4k_white_transparent.png',
+    image: '/images/fintech%20soudbox/airtel_payments_bank_qr_4k_white_transparent.webp',
     name: 'Airtel Payment Device',
     details: ['Common soundbox', '2000 mAh battery', 'QR sticker', '4G SIM network', '4 switch types', 'Speaker'],
   },
@@ -351,7 +351,7 @@ export default function ProductShowcase({ onBack }) {
             </div>
             <div className="bg-[#eaf4fc] p-2 sm:p-4">
               <Picture
-                src="/images/fintech%20soudbox/TMS%20soudbox.png"
+                src="/images/fintech%20soudbox/TMS%20soudbox.webp"
                 alt="Terminal Management System dashboard showing soundbox device, network, battery and performance details"
                 sizes="(max-width: 1280px) 100vw, 1152px"
                 loading="lazy"
