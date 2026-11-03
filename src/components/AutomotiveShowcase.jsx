@@ -82,8 +82,10 @@ export default function AutomotiveShowcase({ onBack }) {
           <FiArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">All Divisions</span>
         </button>
-        <div className={`h-[min(90vh,900px)] min-h-[340px] overflow-hidden transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <Picture sizes="100vw" src="/images/backgrounds/cluster-back.webp" alt="Walnut automotive digital cluster display" width="1448" height="1086" className="w-full h-full object-cover object-center" loading="lazy" />
+        {/* Mobile shows the full image at its natural height (like every other
+            showcase hero); md+ keeps the immersive full-bleed crop. */}
+        <div className={`h-auto md:h-[min(90vh,900px)] md:min-h-[340px] overflow-hidden transition-opacity duration-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <Picture sizes="100vw" src="/images/backgrounds/cluster-back.webp" alt="Walnut automotive digital cluster display" width="1448" height="1086" className="w-full h-auto md:h-full md:object-cover md:object-center" loading="lazy" />
         </div>
       </section>
 

@@ -68,16 +68,31 @@ try {
     const committedMilestones = new Map(
       committed.journey.filter((milestone) => milestone.year).map((milestone) => [milestone.year, milestone]),
     );
+    // A path only counts if its file actually exists in public/ - the CMS can
+    // still hold pre-WebP paths (walkex.jpg, rnd-journey.png, ...) after an
+    // asset swap, which shipped as 404 broken images on the live site.
+    const fileExists = (image) => {
+      if (typeof image !== 'string' || !image.startsWith('/')) return false;
+      try {
+        return fs.existsSync(path.join(root, 'public', decodeURIComponent(image.slice(1))));
+      } catch {
+        return false; // malformed percent-encoding
+      }
+    };
     let restoredImages = 0;
     content.journey = content.journey.map((milestone) => {
       const committedMilestone = committedMilestones.get(milestone.year);
-      if (!milestone.image && committedMilestone?.image) {
+      if (
+        (!milestone.image || !fileExists(milestone.image)) &&
+        committedMilestone?.image &&
+        fileExists(committedMilestone.image)
+      ) {
         restoredImages++;
         return { ...milestone, image: committedMilestone.image };
       }
       return milestone;
     });
-    if (restoredImages) console.log(`[content] kept committed journey images for ${restoredImages} milestones`);
+    if (restoredImages) console.log(`[content] repaired ${restoredImages} journey images (CMS path missing on disk)`);
   }
 
   fs.writeFileSync(target, JSON.stringify(content, null, 2) + '\n');
