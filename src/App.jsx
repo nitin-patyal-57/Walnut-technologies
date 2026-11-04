@@ -10,9 +10,12 @@ import ScheduleCallModal from './components/ScheduleCallModal';
 import WhatsAppButton from './components/WhatsAppButton';
 import ErrorBoundary from './components/ErrorBoundary';
 import MobileBottomNav from './components/MobileBottomNav';
+import RouteTracker from './components/RouteTracker';
+import ConsentBanner from './components/ConsentBanner';
 import HomePage from './pages/HomePage';
 import SEO from './components/SEO';
 import { scrollBehavior } from './utils/motion';
+import { trackEvent } from './lib/analytics';
 
 const ChatWidget = lazy(() => import('./components/ChatWidget'));
 const InstallPrompt = lazy(() => import('./components/InstallPrompt'));
@@ -59,18 +62,25 @@ function AppContent() {
   const [scheduleModalOpen, setScheduleModalOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+  // Single entry point for every "Schedule a Call" CTA (navbar, hero, home).
+  const openSchedule = () => {
+    setScheduleModalOpen(true);
+    trackEvent('schedule_call_open');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <ScrollToTop />
+      <RouteTracker />
       <Navbar
-        onOpenSchedule={() => setScheduleModalOpen(true)}
+        onOpenSchedule={openSchedule}
       />
 
       <main id="main-content" tabIndex={-1} className="focus:outline-none">
         <Suspense fallback={<PageLoader />}>
           <Routes>
-          <Route path="/" element={<ErrorBoundary isPageLevel><HomePage onOpenSchedule={() => setScheduleModalOpen(true)} /></ErrorBoundary>} />
+          <Route path="/" element={<ErrorBoundary isPageLevel><HomePage onOpenSchedule={openSchedule} /></ErrorBoundary>} />
           <Route path="/about" element={<ErrorBoundary isPageLevel><AboutPage /></ErrorBoundary>} />
           <Route path="/about/evolution/:slug" element={<ErrorBoundary isPageLevel><EvolutionDetailPage /></ErrorBoundary>} />
           <Route path="/about/future/:slug" element={<ErrorBoundary isPageLevel><FutureDetailPage /></ErrorBoundary>} />
@@ -102,6 +112,7 @@ function AppContent() {
         <InstallPrompt />
       </Suspense>
       <MobileBottomNav />
+      <ConsentBanner />
     </div>
   );
 }

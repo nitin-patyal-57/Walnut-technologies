@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiDownload, FiX } from 'react-icons/fi';
+import { trackEvent } from '../lib/analytics';
 
 export default function InstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -29,6 +30,7 @@ export default function InstallPrompt() {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === 'accepted') {
+      trackEvent('pwa_install_accept');
       setShowPrompt(false);
     }
     setDeferredPrompt(null);

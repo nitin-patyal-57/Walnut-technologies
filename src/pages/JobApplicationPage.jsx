@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fi';
 import SEO from '../components/SEO';
 import { sendApplication } from '../utils/sendEmail';
+import { trackEvent } from '../lib/analytics';
 import { scrollBehavior } from '../utils/motion';
 
 const steps = [
@@ -164,6 +165,7 @@ export default function JobApplicationPage() {
         formTime: openedAt.current,
       });
       setSubmitted(true);
+      trackEvent('job_application_submit', { form_location: 'job_application_page' });
       window.scrollTo({ top: 0, behavior: scrollBehavior() });
     } catch (err) {
       setSubmitError(err.message || 'Could not submit your application. Please try again.');

@@ -1,9 +1,11 @@
 import Modal from './Modal';
 import { FiPhone, FiMessageCircle, FiArrowRight } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
+import { brand } from '../data/content';
 
 export default function ScheduleCallModal({ isOpen, onClose }) {
   const { t } = useLanguage();
+  const telHref = `tel:${(brand.phone || '').replace(/[^+\d]/g, '')}`;
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={t('schedule.title')} size="max-w-md">
@@ -22,10 +24,10 @@ export default function ScheduleCallModal({ isOpen, onClose }) {
               <h4 className="text-sm font-semibold text-slate-900 mb-1">{t('schedule.phoneCall')}</h4>
               <p className="text-xs text-slate-500 mb-3">{t('schedule.phoneDesc')}</p>
               <a
-                href="tel:+917719463719"
+                href={telHref}
                 className="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-700 hover:text-cyan-800 transition-colors"
               >
-                +91 77194 63719
+                {brand.phone}
                 <FiArrowRight className="w-3 h-3" />
               </a>
             </div>
@@ -42,7 +44,7 @@ export default function ScheduleCallModal({ isOpen, onClose }) {
               <h4 className="text-sm font-semibold text-slate-900 mb-1">{t('schedule.whatsapp')}</h4>
               <p className="text-xs text-slate-500 mb-3">{t('schedule.whatsappDesc')}</p>
               <a
-                href="https://wa.me/917719463719"
+                href={`https://wa.me/${(brand.phone || '').replace(/\D/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-700 hover:text-emerald-800 transition-colors"

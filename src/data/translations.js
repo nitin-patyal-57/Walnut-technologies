@@ -554,6 +554,13 @@ const enTranslations = {
     previous: 'Previous',
     continue: 'Continue',
   },
+  consent: {
+    title: 'Cookie consent',
+    text: 'We use Google Analytics to understand how visitors use this site — anonymous usage statistics only, no advertising. Accept to allow it, or Reject to browse without analytics.',
+    accept: 'Accept',
+    reject: 'Reject',
+    learnMore: 'Privacy policy',
+  },
   privacy: {
     title: 'Privacy Policy',
     subtitle: 'Your privacy matters to us. Learn how we collect, use, and protect your information.',
@@ -601,12 +608,12 @@ const enTranslations = {
       {
         title: 'Cookies & Tracking',
         icon: 'cookie',
-        content: 'Our website uses essential storage to keep the site working and fast. We do not use advertising or behavioral analytics cookies.',
+        content: 'Our website uses essential storage to keep the site working and fast, and we do not use advertising cookies. With your consent, we use Google Analytics to collect anonymous statistics about how the site is used. No analytics is loaded before you accept, and choosing Reject means no analytics cookies are set.',
         details: [
           'Essential storage for site preferences and session continuity',
           'Cached assets served locally for faster repeat visits',
-          'No advertising or behavioral analytics cookies are set',
-          'No cross-site tracking of your activity on other websites',
+          'Google Analytics usage statistics only after you accept the consent notice',
+          'No advertising cookies and no cross-site tracking of your activity on other websites',
           'You can clear stored data anytime in your browser settings',
         ],
       },
@@ -617,6 +624,7 @@ const enTranslations = {
         details: [
           'Google Fonts for font delivery',
           'Google Maps for the location map on our contact page',
+          'Google Analytics for anonymous website usage statistics (only after consent)',
           'Resend for delivering your form submissions to our team',
           'Vercel for hosting and content delivery',
           'WhatsApp for optional direct messaging with our team',

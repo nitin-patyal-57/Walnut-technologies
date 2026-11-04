@@ -11,6 +11,7 @@ import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { sendContactEmail } from '../utils/sendEmail';
 import Picture from '../components/Picture';
+import { trackEvent } from '../lib/analytics';
 
 export default function ContactPage() {
   const ref = useRef(null);
@@ -77,6 +78,7 @@ export default function ContactPage() {
     try {
       await sendContactEmail({ ...form, formTime: formTimeRef.current.toString() });
       setSubmitted(true);
+      trackEvent('contact_form_submit', { form_location: 'contact_page' });
       timeoutRef.current = setTimeout(() => {
         setSubmitted(false);
         setForm({ name: '', company: '', email: '', phone: '', subject: '', message: '', privacy: false, website: '' });
@@ -118,14 +120,14 @@ export default function ContactPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="tel:+917719463719"
+                  href={telHref}
                   className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20"
                 >
                   <FiPhone className="w-4 h-4" />
                   {t('contact.callUs')}
                 </a>
                 <a
-                  href="mailto:contact@walnutmedical.in"
+                  href={`mailto:${brand.email}`}
                   className="inline-flex items-center gap-2 px-5 py-3 border border-slate-300 text-slate-700 text-sm font-semibold rounded-xl hover:border-slate-400 hover:bg-white transition-all"
                 >
                   <FiMail className="w-4 h-4" />

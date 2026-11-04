@@ -9,6 +9,7 @@ import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
 import QuoteModal from './QuoteModal';
 import { scrollBehavior } from '../utils/motion';
+import { trackEvent } from '../lib/analytics';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -79,7 +80,10 @@ export default function Navbar({ onOpenSchedule }) {
   }, [isMobileOpen, activeDropdown, handleMobileEscape]);
 
   useEffect(() => {
-    const openQuote = () => setIsQuoteOpen(true);
+    const openQuote = () => {
+      setIsQuoteOpen(true);
+      trackEvent('quote_modal_open');
+    };
     document.addEventListener('open-walnut-quote', openQuote);
     return () => document.removeEventListener('open-walnut-quote', openQuote);
   }, []);

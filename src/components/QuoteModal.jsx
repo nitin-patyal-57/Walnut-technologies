@@ -6,6 +6,7 @@ import Button from './ui/Button';
 import { captureLead } from '../hooks/useLeads';
 import { sendQuoteEmail } from '../utils/sendEmail';
 import { useLanguage } from '../context/LanguageContext';
+import { trackEvent } from '../lib/analytics';
 
 export default function QuoteModal({ isOpen, onClose }) {
   const { t } = useLanguage();
@@ -74,6 +75,7 @@ export default function QuoteModal({ isOpen, onClose }) {
       });
       await sendQuoteEmail({ ...form, formTime: formTimeRef.current.toString() });
       setSubmitted(true);
+      trackEvent('quote_form_submit', { form_location: 'quote_modal' });
       setTimeout(() => {
         onClose();
         setSubmitted(false);

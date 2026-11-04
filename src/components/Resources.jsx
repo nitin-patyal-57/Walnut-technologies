@@ -6,8 +6,9 @@ import {
   FiFilter, FiGrid, FiList, FiExternalLink, FiArrowUpRight,
   FiX, FiMail, FiCheck, FiSend, FiUser, FiAlertCircle
 } from 'react-icons/fi';
-import { resources } from '../data/content';
+import { resources, brand } from '../data/content';
 import { sendResourceRequest } from '../utils/sendEmail';
+import { trackEvent } from '../lib/analytics';
 
 const typeConfig = {
   Whitepaper: {
@@ -93,6 +94,7 @@ function RequestModal({ resource, onClose }) {
         formTime: openedAt.current,
       });
       setSubmitted(true);
+      trackEvent('resource_request_submit', { form_location: 'resources_page' });
       setTimeout(onClose, 3000);
     } catch (err) {
       setError(err.message || 'Could not send your request. Please try again.');
@@ -281,6 +283,7 @@ function ResourceCard({ resource, index, isInView, view, onRequest }) {
                   href={resource.file}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('brochure_download', { resource_type: resource.type })}
                   className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold ${config.text} hover:bg-slate-50 rounded-lg transition-colors`}
                 >
                   <FiExternalLink className="w-3.5 h-3.5" />
@@ -339,6 +342,7 @@ function ResourceCard({ resource, index, isInView, view, onRequest }) {
               href={resource.file}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('brochure_download', { resource_type: resource.type })}
               className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white bg-gradient-to-r from-slate-700 to-slate-900 rounded-xl hover:opacity-90 transition-opacity shadow-md"
             >
               <FiExternalLink className="w-3.5 h-3.5" />
@@ -586,7 +590,7 @@ export default function Resources() {
                 <FiArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="mailto:contact@walnutmedical.in"
+                href={`mailto:${brand.email}`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-semibold transition-all"
               >
                 <FiArrowUpRight className="w-4 h-4" />
