@@ -55,7 +55,7 @@ export const config = {
   // job applications). Defaults to the address published on the website.
   leadNotifyEmail: env.LEAD_NOTIFY_EMAIL || 'contact@walnutmedical.in',
   deployHookUrl: env.VERCEL_DEPLOY_HOOK_URL || '',
-  publicCorsOrigins: list(env.PUBLIC_CORS_ORIGINS || 'https://walnut-technologies.vercel.app,https://www.walnut-technologies.vercel.app,http://localhost:3001,http://localhost:5173,http://localhost:3000'),
+  publicCorsOrigins: list(env.PUBLIC_CORS_ORIGINS || 'https://walnutai.tech,https://www.walnutai.tech,https://walnut-technologies.vercel.app,https://www.walnut-technologies.vercel.app,http://localhost:3001,http://localhost:5173,http://localhost:3000'),
 
   // Security policy
   accessTokenTtlSec: 15 * 60,

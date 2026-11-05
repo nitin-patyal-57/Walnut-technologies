@@ -50,11 +50,20 @@ function getClientIp(req) {
 }
 
 const ALLOWED_ORIGINS = [
+  // Live domain (custom domain attached after this list was written - forms
+  // 403'd with "Origin not allowed" until both apex and www were added).
+  'https://walnutai.tech',
+  'https://www.walnutai.tech',
   'https://walnut-technologies.vercel.app',
   'https://www.walnut-technologies.vercel.app',
   'http://localhost:3000',
   'http://localhost:3001',
   'http://localhost:5173',
+  // Per-deployment extras without a code change (comma separated).
+  ...(process.env.CONTACT_ALLOWED_ORIGINS || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean),
 ];
 
 const ALLOWED_TYPES = ['contact', 'quote', 'resource', 'application'];
