@@ -13,6 +13,7 @@ import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
 import { journey, clientLogos, certifications as certificationList, trustSignals } from '../data/content';
 import { scrollBehavior } from '../utils/motion';
+import imgV from '../utils/imgVersion';
 
 // Keep these requested image swaps visible even while the published CMS snapshot is stale.
 const JOURNEY_IMAGE_OVERRIDES = {
@@ -273,7 +274,7 @@ function JourneySection() {
                           <div className="w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100 mb-3 border border-slate-100">
                             <Picture
                               sizes="(max-width: 1024px) 90vw, 520px"
-                              src={item.image}
+                              src={imgV(item.image)}
                               alt={`${item.title} ${item.year}`}
                               loading="lazy"
                               decoding="async"
@@ -697,7 +698,7 @@ function ClientsCertifications() {
                     className="group mr-2 flex h-14 w-[136px] shrink-0 items-center justify-center rounded-xl border border-transparent bg-white px-2 shadow-[0_1px_6px_rgba(9,36,77,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_6px_18px_rgba(37,99,235,0.14)] sm:mr-3 sm:h-16 sm:w-[164px]"
                   >
                     <Picture
-                      src={client.logo}
+                      src={imgV(client.logo)}
                       alt={client.name}
                       sizes="164px"
                       loading="lazy"
@@ -779,7 +780,7 @@ function CTASection() {
                       transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
                       className="flex items-center gap-4 bg-white border border-slate-200/80 rounded-2xl p-4 hover:border-blue-200 hover:shadow-md transition-all duration-300"
                     >
-                      <Picture src={item.logo} alt="" width="48" height="48" sizes="48px" className="w-12 h-12 object-contain shrink-0" />
+                      <Picture src={imgV(item.logo)} alt="" width="48" height="48" sizes="48px" className="w-12 h-12 object-contain shrink-0" />
                       <div>
                         <div className="text-sm font-bold text-slate-900">{item.value}</div>
                         <div className="text-xs text-slate-500">{item.desc}</div>

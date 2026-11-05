@@ -61,7 +61,7 @@ export default function Preloader() {
               className="relative z-10 mb-2"
             >
               <motion.img
-                src="/images/brand/Walnut_Technologies_logo_transparent.webp"
+                src="/images/brand/Walnut_Technologies_logo_transparent.webp?v=2"
                 alt="Walnut Technologies"
                 fetchpriority="high"
                 loading="eager"
