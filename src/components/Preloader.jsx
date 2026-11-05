@@ -63,6 +63,8 @@ export default function Preloader() {
               <motion.img
                 src="/images/brand/Walnut_Technologies_logo_transparent.webp"
                 alt="Walnut Technologies"
+                fetchpriority="high"
+                loading="eager"
                 className="w-64 h-auto object-contain"
                 animate={{
                   scale: [1, 1.05, 1],

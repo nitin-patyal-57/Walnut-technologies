@@ -187,7 +187,11 @@ export default function Navbar({ onOpenSchedule }) {
           <div className="flex items-center justify-between h-14 md:h-14">
             {/* Logo */}
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })} className="flex items-center group shrink-0">
-              <Picture loading="lazy" decoding="async" sizes="(max-width: 640px) 80px, 160px"
+              {/* The header logo is visible on every page from the first frame, so it
+                  must never be lazy: WebKit/Firefox defer loading="lazy" images that are
+                  already in the viewport until something forces a re-check (a refresh or
+                  any click), which made the logo look missing on a first visit. */}
+              <Picture loading="eager" fetchpriority="high" decoding="async" sizes="(max-width: 640px) 80px, 160px"
                 src="/images/brand/Walnut_Technologies_logo_transparent.webp"
                 alt="Walnut Technologies"
                 width="160"
@@ -404,7 +408,7 @@ export default function Navbar({ onOpenSchedule }) {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
               <div className="relative p-6">
                 <div className="flex items-center justify-between mb-4">
-                   <Picture loading="lazy" decoding="async" sizes="(max-width: 640px) 80px, 160px" src="/images/brand/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
+                   <Picture loading="eager" fetchpriority="high" decoding="async" sizes="(max-width: 640px) 80px, 160px" src="/images/brand/Walnut_Technologies_logo_transparent.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
                   <button
                     ref={sidebarCloseRef}
                     onClick={() => setIsSidebarOpen(false)}
