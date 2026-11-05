@@ -24,7 +24,7 @@ const enTranslations = {
   },
   hero: {
     tagline: 'Electronics for the World',
-    subtitle: 'Vertically integrated Original Design Manufacturer delivering medical devices, payment systems, and custom electronics with international certifications.',
+    subtitle: 'Vertically integrated Original Design Manufacturer delivering medical devices, payment systems, automotive electronics, and IoT devices.',
     cta1: 'Get in Touch',
     cta2: 'View Solutions',
     stat1: 'Years of Excellence',
@@ -232,7 +232,7 @@ const enTranslations = {
     and: 'and',
   },
   footer: {
-    desc: 'Vertically integrated Original Design Manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.',
+    desc: 'Vertically integrated Original Design Manufacturer for medical devices, payment systems, automotive electronics, and IoT devices. ISO 13485 certified.',
     solutions: 'Solutions',
     company: 'Company',
     resources: 'Resources',

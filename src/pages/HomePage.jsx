@@ -802,9 +802,9 @@ export default function HomePage({ onOpenSchedule }) {
     <div className="relative">
       <SEO
         title="Electronics for the World"
-        description="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems and custom electronics. ISO 13485 certified, 500K+ units/month in India."
+        description="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, automotive electronics, and IoT devices. ISO 13485 certified, 500K+ units/month in India."
         path="/"
-        keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
+        keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, automotive electronics, IoT devices, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
       />
       <Hero onOpenSchedule={onOpenSchedule} />
       <HeroStats />

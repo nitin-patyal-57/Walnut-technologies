@@ -53,7 +53,7 @@ export default function Footer() {
               <Picture loading="eager" fetchpriority="high" decoding="async" sizes="(max-width: 640px) 80px, 160px" src="/images/brand/Walnut_Technologies_logo_transparent.webp?v=2" alt="Walnut Technologies" width="120" height="32" className="h-8 w-auto object-contain" />
             </Link>
             <p className="text-xs text-slate-500 leading-relaxed mb-4 max-w-[280px]">
-              Vertically integrated Original Design Manufacturer for medical devices, payment systems, and custom electronics. ISO 13485 certified.
+              Vertically integrated Original Design Manufacturer for medical devices, payment systems, automotive electronics, and IoT devices. ISO 13485 certified.
             </p>
             <div className="space-y-2">
               <div className="flex items-start gap-2 text-xs text-slate-500">
