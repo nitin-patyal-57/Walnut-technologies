@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.walnutai.tech</loc>
+    <loc>https://www.walnutai.tech/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -139,27 +139,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.walnutai.tech/apply</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.walnutai.tech/contact</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://www.walnutai.tech/privacy</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.walnutai.tech/terms</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+  <!-- /apply, /privacy and /terms are marked noindex in the app
+       (JobApplicationPage, PrivacyPage, TermsPage) — noindex pages must not
+       appear in a sitemap, so they are intentionally omitted here. -->
 </urlset>

@@ -20,17 +20,21 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Walnut Tech" />
     <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png" />
-    <meta name="description" content="OEM/ODM manufacturer of medical devices, payment systems, automotive electronics, and IoT devices. ISO 13485 certified, 500K+ units/month. Mohali, Punjab, India." />
+    <!-- SEO NOTE: description / robots / canonical are intentionally NOT set here.
+         src/components/SEO.jsx (react-helmet-async) injects them per page after
+         React renders. A static copy in this file would DUPLICATE them, and with
+         duplicate tags the browser/crawler uses the FIRST one — which would make
+         every inner page canonicalize to the homepage and would override the
+         noindex on /apply, /privacy and /terms. Googlebot executes JS, so it
+         sees Helmet's per-page tags. -->
     <meta name="keywords" content="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India" />
     <meta name="author" content="Walnut Technologies Pvt. Ltd." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.walnutai.tech" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Walnut Technologies | Electronics for the World" />
     <meta property="og:description" content="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, automotive electronics, and IoT devices. ISO 13485 certified." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.walnutai.tech" />
+    <!-- og:url also injected per page by SEO.jsx — do not duplicate it here (see SEO NOTE above) -->
     <meta property="og:image" content="https://www.walnutai.tech/images/brand/og-cover.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
