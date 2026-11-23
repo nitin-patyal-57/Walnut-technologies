@@ -107,8 +107,11 @@ function JourneySection() {
             <div className="w-14 h-0.5 bg-blue-600 mx-auto rounded-full mt-1.5" />
           </motion.div>
 
-          {/* Circle Grid - Row 1 (5 items) */}
-          <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-4 mb-1 px-1">
+          {/* Circle Grid - Row 1 (5 items)
+              Below lg the row spreads with justify-between so all five steps
+              always fit on one line (phones/tablets used to wrap to 4+1 with a
+              dangling arrow); lg+ keeps the original centered layout. */}
+          <div className="flex flex-wrap justify-between items-center gap-x-0 gap-y-1 sm:gap-x-2 md:gap-x-2 lg:justify-center lg:gap-x-4 mb-1 px-1">
             {processImages.slice(0, 5).map((item, i) => (
               <motion.div
                 key={i}
@@ -117,8 +120,8 @@ function JourneySection() {
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                 className="flex items-center shrink-0"
               >
-                <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
+                <div className="relative group pr-1.5 lg:pr-0">
+                  <div className="relative mx-auto w-11 h-11 sm:w-20 sm:h-20 md:w-[105px] md:h-[105px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.from}
@@ -132,12 +135,12 @@ function JourneySection() {
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[10px] sm:text-xs md:text-xs lg:text-sm font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[9px] sm:text-xs md:text-xs lg:text-sm font-bold text-slate-900 leading-tight">{item.from}</p>
                   </div>
                 </div>
                 {i < 4 && (
-                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 lg:mx-3 -mt-3 md:-mt-4">
-                    <div className="w-2 sm:w-3 md:w-6 lg:w-8 h-[1.5px] bg-blue-400" />
+                  <div className="hidden min-[360px]:flex items-center mx-0 sm:mx-1 lg:mx-3 -mt-3 md:-mt-4">
+                    <div className="w-1.5 sm:w-3 md:w-5 lg:w-8 h-[1.5px] bg-blue-400" />
                     <div className="w-0 h-0 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent border-l-[3px] border-l-blue-400 md:border-t-[3px] md:border-b-[3px] md:border-l-[5px]" />
                   </div>
                 )}
@@ -145,8 +148,8 @@ function JourneySection() {
             ))}
           </div>
 
-          {/* Circle Grid - Row 2 (5 items) */}
-          <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-4 px-1">
+          {/* Circle Grid - Row 2 (5 items) - same sizing rules as Row 1 */}
+          <div className="flex flex-wrap justify-between items-center gap-x-0 gap-y-1 sm:gap-x-2 md:gap-x-2 lg:justify-center lg:gap-x-4 px-1">
             {processImages.slice(5, 10).map((item, i) => (
               <motion.div
                 key={i}
@@ -155,8 +158,8 @@ function JourneySection() {
                 transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
                 className="flex items-center shrink-0"
               >
-                <div className="relative group">
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-[130px] md:h-[130px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
+                <div className="relative group pr-1.5 lg:pr-0">
+                  <div className="relative mx-auto w-11 h-11 sm:w-20 sm:h-20 md:w-[105px] md:h-[105px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
                     <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
                       src={item.image} 
                       alt={item.from}
@@ -170,12 +173,12 @@ function JourneySection() {
                     </div>
                   </div>
                   <div className="text-center mt-1">
-                    <p className="text-[10px] sm:text-xs md:text-xs lg:text-sm font-bold text-slate-900 leading-tight">{item.from}</p>
+                    <p className="text-[9px] sm:text-xs md:text-xs lg:text-sm font-bold text-slate-900 leading-tight">{item.from}</p>
                   </div>
                 </div>
                 {i < 4 && (
-                  <div className="flex items-center mx-0.5 sm:mx-1 md:mx-2 lg:mx-3 -mt-3 md:-mt-4">
-                    <div className="w-2 sm:w-3 md:w-6 lg:w-8 h-[1.5px] bg-blue-400" />
+                  <div className="hidden min-[360px]:flex items-center mx-0 sm:mx-1 lg:mx-3 -mt-3 md:-mt-4">
+                    <div className="w-1.5 sm:w-3 md:w-5 lg:w-8 h-[1.5px] bg-blue-400" />
                     <div className="w-0 h-0 border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent border-l-[3px] border-l-blue-400 md:border-t-[3px] md:border-b-[3px] md:border-l-[5px]" />
                   </div>
                 )}
