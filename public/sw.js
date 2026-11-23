@@ -1,4 +1,4 @@
-const CACHE_NAME = 'walnut-v10';
+const CACHE_NAME = 'walnut-v11';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -23,7 +23,12 @@ self.addEventListener('activate', (event) => {
           .filter((name) => name !== CACHE_NAME)
           .map((name) => caches.delete(name))
       );
-    }).then(() => self.clients.claim())
+    })
+      .then(() => self.clients.claim())
+      // Navigation preload: the browser starts fetching the page in parallel
+      // with this worker booting, instead of waiting for us (~1s saved on
+      // repeat visits where the worker is already installed).
+      .then(() => self.registration.navigationPreload?.enable())
   );
 });
 
@@ -65,12 +70,18 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Pages: network-first so a new deploy is picked up immediately.
+  // Pages: use the browser's preloaded response when it has one (it started
+  // before this worker finished booting), otherwise network-first so a new
+  // deploy is picked up immediately; cached copy only as offline fallback.
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request)
-        .then((response) => response)
-        .catch(() => caches.match('/index.html'))
+      (async () => {
+        try {
+          return (await event.preloadResponse) || (await fetch(request));
+        } catch {
+          return (await caches.match('/index.html')) || Response.error();
+        }
+      })()
     );
     return;
   }

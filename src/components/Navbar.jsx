@@ -192,7 +192,7 @@ export default function Navbar({ onOpenSchedule }) {
                   already in the viewport until something forces a re-check (a refresh or
                   any click), which made the logo look missing on a first visit. */}
               <Picture loading="eager" fetchpriority="high" decoding="async" sizes="(max-width: 640px) 80px, 160px"
-                src="/images/brand/Walnut_Technologies_logo_transparent.webp?v=2"
+                src="/images/brand/Walnut_Technologies_logo_transparent-512.webp"
                 alt="Walnut Technologies"
                 width="160"
                 height="44"
@@ -408,7 +408,7 @@ export default function Navbar({ onOpenSchedule }) {
               <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
               <div className="relative p-6">
                 <div className="flex items-center justify-between mb-4">
-                   <Picture loading="eager" fetchpriority="high" decoding="async" sizes="(max-width: 640px) 80px, 160px" src="/images/brand/Walnut_Technologies_logo_transparent.webp?v=2" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
+                   <Picture loading="eager" fetchpriority="high" decoding="async" sizes="(max-width: 640px) 80px, 160px" src="/images/brand/Walnut_Technologies_logo_transparent-512.webp" alt="Walnut Technologies" width="192" height="48" className="h-12 w-auto object-contain" />
                   <button
                     ref={sidebarCloseRef}
                     onClick={() => setIsSidebarOpen(false)}
