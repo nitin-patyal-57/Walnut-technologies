@@ -185,11 +185,6 @@ function JourneySection() {
               </motion.div>
             ))}
           </div>
-
-          {/* Connecting line from Row 1 to Row 2 */}
-          <div className="flex justify-center my-1">
-            <div className="w-[2px] h-2 bg-blue-400" />
-          </div>
         </div>
       </div>
 
