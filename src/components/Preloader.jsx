@@ -1,10 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { brand } from '../data/content';
 
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+
+  // Before paint (layout effect): flag the body so CSS lifts the nav above
+  // the overlay in the very same frame React mounts — a passive effect would
+  // paint one frame with the preloader covering the logo.
+  useLayoutEffect(() => {
+    document.body.classList.add('preloader-active');
+    return () => document.body.classList.remove('preloader-active');
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -23,6 +31,9 @@ export default function Preloader() {
       setTimeout(() => {
         setIsLoading(false);
         document.body.style.overflow = 'unset';
+        // Keep nav above the overlay until its 400ms exit fade finishes,
+        // otherwise the logo blinks out one last time during the fade.
+        setTimeout(() => document.body.classList.remove('preloader-active'), 450);
       }, 400);
     };
 
@@ -38,6 +49,7 @@ export default function Preloader() {
       clearTimeout(forceDismiss);
       clearInterval(progressInterval);
       window.removeEventListener('load', dismiss);
+      document.body.classList.remove('preloader-active');
     };
   }, []);
 

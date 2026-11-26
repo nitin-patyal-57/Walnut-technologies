@@ -450,6 +450,18 @@ body.consent-visible [data-floating-ui] {
   pointer-events: none !important;
 }
 
+/* The preloader (z-[100]) used to cover the header the moment React mounted,
+   so the logo painted in index.html disappeared until the overlay dismissed
+   ("logo appears only after JS loads"). Raise the nav above the overlay for
+   its whole lifetime instead — page content and floats stay hidden beneath
+   it as before. transition: none makes the z-index jump instant (the nav's
+   transition-all would otherwise animate 40 -> 101 over 300ms and leave a
+   window where the preloader still covers the logo). */
+body.preloader-active nav[aria-label="Main"] {
+  z-index: 101;
+  transition: none;
+}
+
 .back-to-top.visible {
   @apply opacity-100 pointer-events-auto;
 }
