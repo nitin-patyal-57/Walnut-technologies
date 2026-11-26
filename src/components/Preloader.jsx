@@ -23,10 +23,10 @@ export default function Preloader() {
       setTimeout(() => {
         setIsLoading(false);
         document.body.style.overflow = 'unset';
-      }, 600);
+      }, 400);
     };
 
-    const forceDismiss = setTimeout(dismiss, 3000);
+    const forceDismiss = setTimeout(dismiss, 1800);
 
     if (document.readyState === 'complete') {
       setTimeout(dismiss, 800);
@@ -46,7 +46,7 @@ export default function Preloader() {
       {isLoading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.7, ease: 'easeInOut' } }}
+          exit={{ opacity: 0, transition: { duration: 0.4, ease: 'easeInOut' } }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-white"
         >
           <div className="relative flex flex-col items-center">

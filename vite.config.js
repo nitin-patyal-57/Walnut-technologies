@@ -1,5 +1,25 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { resolve } from 'node:path'
+
+// Report #3: sitemap.xml ships with a fixed lastmod (2026-10-17) for every
+// URL. Stamp it with the build date after the bundle is written, so crawlers
+// see when the site actually changed.
+function stampSitemapLastmod() {
+  return {
+    name: 'stamp-sitemap-lastmod',
+    apply: 'build',
+    closeBundle() {
+      const file = resolve(process.cwd(), 'dist', 'sitemap.xml')
+      if (!existsSync(file)) return
+      const xml = readFileSync(file, 'utf8')
+      const today = new Date().toISOString().slice(0, 10)
+      const stamped = xml.replace(/<lastmod>[^<]*<\/lastmod>/g, `<lastmod>${today}</lastmod>`)
+      if (stamped !== xml) writeFileSync(file, stamped)
+    },
+  }
+}
 
 // Runs the Vercel serverless handlers locally so forms work in `npm run dev`
 function localApi() {
@@ -65,7 +85,7 @@ function localApi() {
 }
 
 export default defineConfig({
-  plugins: [react(), localApi()],
+  plugins: [react(), localApi(), stampSitemapLastmod()],
   server: {
     host: true,
     port: 3001,

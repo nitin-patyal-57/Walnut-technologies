@@ -3,12 +3,18 @@
     "fallback": "/images/about/02_Electronics_Engineer_Lab.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -18,11 +24,17 @@
     "fallback": "/images/about/03_Microchip_PCB.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -32,12 +44,18 @@
     "fallback": "/images/about/04_Engineering_Team.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -47,12 +65,18 @@
     "fallback": "/images/about/05_Global_Technology.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -62,11 +86,17 @@
     "fallback": "/images/about/07_PCB_Testing.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -76,12 +106,18 @@
     "fallback": "/images/about/08_Electronics_Manufacturing_Factory.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -91,12 +127,18 @@
     "fallback": "/images/about/11_Modern_Conference_Room.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -106,11 +148,17 @@
     "fallback": "/images/about/12_Business_Partnership.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -120,11 +168,17 @@
     "fallback": "/images/about/13_Purpose_Products.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -134,11 +188,17 @@
     "fallback": "/images/about/life-at-walnut.webp",
     "fallbackWidth": 1672,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -148,11 +208,17 @@
     "fallback": "/images/about/team-collab.webp",
     "fallbackWidth": 1448,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -162,11 +228,17 @@
     "fallback": "/images/about/who-we-are.webp",
     "fallbackWidth": 1532,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -176,11 +248,17 @@
     "fallback": "/images/backgrounds/aboutbackground.webp",
     "fallbackWidth": 1536,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -190,26 +268,116 @@
     "fallback": "/images/backgrounds/career.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
+    ]
+  },
+  "images/backgrounds/cluster back": {
+    "fallback": "/images/backgrounds/cluster back.png",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/cluster main": {
+    "fallback": "/images/backgrounds/cluster main.png",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/cluster-back": {
+    "fallback": "/images/backgrounds/cluster-back.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/backgrounds/cluster-back-crop": {
+    "fallback": "/images/backgrounds/cluster-back-crop.webp",
+    "fallbackWidth": 830,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
     ]
   },
   "images/backgrounds/cluster-background": {
     "fallback": "/images/backgrounds/cluster-background.webp",
     "fallbackWidth": 1536,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -219,21 +387,53 @@
     "fallback": "/images/backgrounds/cluster-background1.webp",
     "fallbackWidth": 612,
     "avif": [
+      96,
+      160,
+      320,
       480
     ],
     "webp": [
+      96,
+      160,
+      320,
       480
+    ]
+  },
+  "images/backgrounds/cluster-main": {
+    "fallback": "/images/backgrounds/cluster-main.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
     ]
   },
   "images/backgrounds/contactbackground": {
     "fallback": "/images/backgrounds/contactbackground.webp",
     "fallbackWidth": 1717,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -243,12 +443,18 @@
     "fallback": "/images/backgrounds/fintech-homebackground.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -258,12 +464,18 @@
     "fallback": "/images/backgrounds/gpsgatewaybackground.webp",
     "fallbackWidth": 1984,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
@@ -274,11 +486,17 @@
     "fallback": "/images/backgrounds/home-background.webp",
     "fallbackWidth": 1458,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -288,12 +506,18 @@
     "fallback": "/images/backgrounds/iot-smartlock-background1.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -303,25 +527,137 @@
     "fallback": "/images/backgrounds/medical-background.webp",
     "fallbackWidth": 2171,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ]
   },
+  "images/brand/WM_fevicon": {
+    "fallback": "/images/brand/WM_fevicon.webp",
+    "fallbackWidth": 1278,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/brand/Walnut_Technologies_logo_transparent": {
+    "fallback": "/images/brand/Walnut_Technologies_logo_transparent.webp",
+    "fallbackWidth": 1600,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/brand/Walnut_Technologies_logo_transparent-512": {
+    "fallback": "/images/brand/Walnut_Technologies_logo_transparent-512.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/brand/icon-512": {
+    "fallback": "/images/brand/icon-512.png",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/brand/og-cover": {
+    "fallback": "/images/brand/og-cover.png",
+    "fallbackWidth": 1200,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/clients/apollo": {
+    "fallback": "/images/clients/apollo.webp",
+    "fallbackWidth": 217,
+    "avif": [
+      96,
+      160
+    ],
+    "webp": [
+      96,
+      160
+    ]
+  },
   "images/clients/bhartpe": {
     "fallback": "/images/clients/bhartpe.webp",
     "fallbackWidth": 600,
     "avif": [
+      96,
+      160,
+      320,
       480
     ],
     "webp": [
+      96,
+      160,
+      320,
       480
     ]
   },
@@ -329,22 +665,64 @@
     "fallback": "/images/clients/hdfc.webp",
     "fallbackWidth": 900,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
+    ]
+  },
+  "images/clients/indian-army": {
+    "fallback": "/images/clients/indian-army.webp",
+    "fallbackWidth": 330,
+    "avif": [
+      96,
+      160,
+      320
+    ],
+    "webp": [
+      96,
+      160,
+      320
+    ]
+  },
+  "images/clients/paytm-logo": {
+    "fallback": "/images/clients/paytm-logo.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
     ]
   },
   "images/clients/sbi": {
     "fallback": "/images/clients/sbi.webp",
     "fallbackWidth": 1080,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -353,11 +731,17 @@
     "fallback": "/images/expertise/circuit-blue.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -367,11 +751,17 @@
     "fallback": "/images/expertise/circuit-macro.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -381,11 +771,17 @@
     "fallback": "/images/expertise/engineer-work.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -395,11 +791,17 @@
     "fallback": "/images/expertise/factory-line.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -409,11 +811,17 @@
     "fallback": "/images/expertise/global-network.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -423,12 +831,18 @@
     "fallback": "/images/expertise/hero-engineer.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -438,12 +852,18 @@
     "fallback": "/images/expertise/medical-tech.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -453,12 +873,18 @@
     "fallback": "/images/expertise/payment-terminal.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -468,11 +894,779 @@
     "fallback": "/images/expertise/software-code.webp",
     "fallbackWidth": 1600,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/fintech soudbox/TMS soudbox": {
+    "fallback": "/images/fintech soudbox/TMS soudbox.webp",
+    "fallbackWidth": 1996,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/fintech soudbox/airtel_payments_bank_qr_4k_white": {
+    "fallback": "/images/fintech soudbox/airtel_payments_bank_qr_4k_white.jpg",
+    "fallbackWidth": 3840,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/fintech soudbox/airtel_payments_bank_qr_4k_white_transparent": {
+    "fallback": "/images/fintech soudbox/airtel_payments_bank_qr_4k_white_transparent.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/fintech soudbox/bharatpe_qr_4k_white": {
+    "fallback": "/images/fintech soudbox/bharatpe_qr_4k_white.jpg",
+    "fallbackWidth": 3840,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/fintech soudbox/bharatpe_qr_4k_white_transparent": {
+    "fallback": "/images/fintech soudbox/bharatpe_qr_4k_white_transparent.webp",
+    "fallbackWidth": 948,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/fintech soudbox/hdfc_payzapp_qr_4k_white": {
+    "fallback": "/images/fintech soudbox/hdfc_payzapp_qr_4k_white.jpg",
+    "fallbackWidth": 3840,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/fintech soudbox/hdfc_payzapp_qr_4k_white_transparent": {
+    "fallback": "/images/fintech soudbox/hdfc_payzapp_qr_4k_white_transparent.webp",
+    "fallbackWidth": 625,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/fintech soudbox/mswipe_qr_4k_white": {
+    "fallback": "/images/fintech soudbox/mswipe_qr_4k_white.jpg",
+    "fallbackWidth": 3840,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/fintech soudbox/mswipe_qr_4k_white_transparent": {
+    "fallback": "/images/fintech soudbox/mswipe_qr_4k_white_transparent.webp",
+    "fallbackWidth": 836,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/fintech soudbox/paytm_qr_4k_white": {
+    "fallback": "/images/fintech soudbox/paytm_qr_4k_white.jpg",
+    "fallbackWidth": 3840,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/fintech soudbox/paytm_qr_4k_white_transparent": {
+    "fallback": "/images/fintech soudbox/paytm_qr_4k_white_transparent.webp",
+    "fallbackWidth": 687,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/fintech soudbox/sbi_payments_qr_4k_white": {
+    "fallback": "/images/fintech soudbox/sbi_payments_qr_4k_white.jpg",
+    "fallbackWidth": 3840,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280,
+      1920
+    ]
+  },
+  "images/fintech soudbox/sbi_payments_qr_4k_white_transparent": {
+    "fallback": "/images/fintech soudbox/sbi_payments_qr_4k_white_transparent.webp",
+    "fallbackWidth": 1200,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/iot/gps-gateway-portfolio": {
+    "fallback": "/images/iot/gps-gateway-portfolio.webp",
+    "fallbackWidth": 1400,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/iot/gps-tracker-portfolio": {
+    "fallback": "/images/iot/gps-tracker-portfolio.webp",
+    "fallbackWidth": 1400,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/2016 journey": {
+    "fallback": "/images/journey/2016 journey.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/advance-production": {
+    "fallback": "/images/journey/advance-production.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/bp-presentation": {
+    "fallback": "/images/journey/bp-presentation.webp",
+    "fallbackWidth": 1447,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/cluster-tractor": {
+    "fallback": "/images/journey/cluster-tractor.webp",
+    "fallbackWidth": 1024,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/journey/gps-tracker-presentation": {
+    "fallback": "/images/journey/gps-tracker-presentation.webp",
+    "fallbackWidth": 1672,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/intro-wt": {
+    "fallback": "/images/journey/intro-wt.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/journey mass production": {
+    "fallback": "/images/journey/journey mass production.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/journey-2016": {
+    "fallback": "/images/journey/journey-2016.png",
+    "fallbackWidth": 1536,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/mass-production": {
+    "fallback": "/images/journey/mass-production.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/rnd-journey": {
+    "fallback": "/images/journey/rnd-journey.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/soundbox-presentation": {
+    "fallback": "/images/journey/soundbox-presentation.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/journey/walkex": {
+    "fallback": "/images/journey/walkex.webp",
+    "fallbackWidth": 1080,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/logos/Location": {
+    "fallback": "/images/logos/Location.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/logos/certificate": {
+    "fallback": "/images/logos/certificate.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/logos/country": {
+    "fallback": "/images/logos/country.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/logos/gmail": {
+    "fallback": "/images/logos/gmail.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/logos/phone": {
+    "fallback": "/images/logos/phone.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/logos/rate": {
+    "fallback": "/images/logos/rate.webp",
+    "fallbackWidth": 512,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/medical/Compressor Nebulizer final": {
+    "fallback": "/images/medical/Compressor Nebulizer final.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/medical/Oxygen Concentrator final": {
+    "fallback": "/images/medical/Oxygen Concentrator final.webp",
+    "fallbackWidth": 1536,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/medical/Thermometer final": {
+    "fallback": "/images/medical/Thermometer final.webp",
+    "fallbackWidth": 1448,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/medical/bp final": {
+    "fallback": "/images/medical/bp final.webp",
+    "fallbackWidth": 1447,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ]
+  },
+  "images/neuro/walkex": {
+    "fallback": "/images/neuro/walkex.webp",
+    "fallbackWidth": 1080,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/neuro/walklab-journey": {
+    "fallback": "/images/neuro/walklab-journey.webp",
+    "fallbackWidth": 344,
+    "avif": [
+      96,
+      160,
+      320
+    ],
+    "webp": [
+      96,
+      160,
+      320
+    ]
+  },
+  "images/neuro/weebo presentation": {
+    "fallback": "/images/neuro/weebo presentation.webp",
+    "fallbackWidth": 1672,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768,
+      1280
+    ],
+    "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -482,10 +1676,16 @@
     "fallback": "/images/process/after-sales-support.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -494,10 +1694,16 @@
     "fallback": "/images/process/continuous-improvement.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -506,11 +1712,17 @@
     "fallback": "/images/process/contract-manufacturing.webp",
     "fallbackWidth": 1835,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -520,10 +1732,16 @@
     "fallback": "/images/process/design-and-engineering.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -532,12 +1750,18 @@
     "fallback": "/images/process/embedded-electronics-and-iot.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -547,10 +1771,16 @@
     "fallback": "/images/process/idea-and-requirement.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -559,10 +1789,16 @@
     "fallback": "/images/process/iot-software-development.webp",
     "fallbackWidth": 800,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -571,11 +1807,17 @@
     "fallback": "/images/process/ip-oriented-product.webp",
     "fallbackWidth": 1376,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -585,9 +1827,15 @@
     "fallback": "/images/process/it-electronics.webp",
     "fallbackWidth": 720,
     "avif": [
+      96,
+      160,
+      320,
       480
     ],
     "webp": [
+      96,
+      160,
+      320,
       480
     ]
   },
@@ -595,10 +1843,16 @@
     "fallback": "/images/process/manufacturing-engineering-and-mold-design.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -607,10 +1861,16 @@
     "fallback": "/images/process/molding-process.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -619,10 +1879,16 @@
     "fallback": "/images/process/packaging-and-dispatch.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -631,10 +1897,16 @@
     "fallback": "/images/process/quality-assurance.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -643,10 +1915,16 @@
     "fallback": "/images/process/research-and-market-analysis.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -655,10 +1933,16 @@
     "fallback": "/images/process/validation-and-testing.webp",
     "fallbackWidth": 1000,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -667,10 +1951,16 @@
     "fallback": "/images/products/BP-Gold-Standart-qtp66wfdztt00ify69tbdni4142gjk00uh6ziametw1.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -679,9 +1969,31 @@
     "fallback": "/images/products/DQR.webp",
     "fallbackWidth": 666,
     "avif": [
+      96,
+      160,
+      320,
       480
     ],
     "webp": [
+      96,
+      160,
+      320,
+      480
+    ]
+  },
+  "images/products/LDQR": {
+    "fallback": "/images/products/LDQR.webp",
+    "fallbackWidth": 559,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
       480
     ]
   },
@@ -689,10 +2001,34 @@
     "fallback": "/images/products/Nebulizer.webp",
     "fallbackWidth": 1080,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ]
+  },
+  "images/products/Oxygen-Concentrator-5": {
+    "fallback": "/images/products/Oxygen-Concentrator-5.webp",
+    "fallbackWidth": 1080,
+    "avif": [
+      96,
+      160,
+      320,
+      480,
+      768
+    ],
+    "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -701,9 +2037,15 @@
     "fallback": "/images/products/RTOS.webp",
     "fallbackWidth": 666,
     "avif": [
+      96,
+      160,
+      320,
       480
     ],
     "webp": [
+      96,
+      160,
+      320,
       480
     ]
   },
@@ -711,11 +2053,17 @@
     "fallback": "/images/products/TDCS.webp",
     "fallbackWidth": 1536,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -725,10 +2073,16 @@
     "fallback": "/images/products/Thermometer.webp",
     "fallbackWidth": 1080,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -737,12 +2091,18 @@
     "fallback": "/images/products/bharatpay-m.webp",
     "fallbackWidth": 1983,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
@@ -753,10 +2113,16 @@
     "fallback": "/images/products/boxsound-home.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -765,23 +2131,49 @@
     "fallback": "/images/products/bp-home.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
+    ]
+  },
+  "images/products/bp-monitor-removebg": {
+    "fallback": "/images/products/bp-monitor-removebg.webp",
+    "fallbackWidth": 403,
+    "avif": [
+      96,
+      160,
+      320
+    ],
+    "webp": [
+      96,
+      160,
+      320
     ]
   },
   "images/products/ces-repose": {
     "fallback": "/images/products/ces-repose.webp",
     "fallbackWidth": 1521,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -791,9 +2183,15 @@
     "fallback": "/images/products/cluster-removebg.webp",
     "fallbackWidth": 612,
     "avif": [
+      96,
+      160,
+      320,
       480
     ],
     "webp": [
+      96,
+      160,
+      320,
       480
     ]
   },
@@ -801,10 +2199,16 @@
     "fallback": "/images/products/cluster1.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -813,10 +2217,16 @@
     "fallback": "/images/products/cluster1-home.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -825,12 +2235,18 @@
     "fallback": "/images/products/gps-gateway.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -840,10 +2256,16 @@
     "fallback": "/images/products/iot-lock-smart.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -852,10 +2274,16 @@
     "fallback": "/images/products/iot-lock-smart-home.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -864,11 +2292,17 @@
     "fallback": "/images/products/iot-smaart-lock.webp",
     "fallbackWidth": 1672,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -878,24 +2312,48 @@
     "fallback": "/images/products/medstim-neuro-devices.webp",
     "fallbackWidth": 847,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
+    ]
+  },
+  "images/products/medstim-neuro-devices-cutout": {
+    "fallback": "/images/products/medstim-neuro-devices-cutout.webp",
+    "fallbackWidth": 262,
+    "avif": [
+      96,
+      160
+    ],
+    "webp": [
+      96,
+      160
     ]
   },
   "images/products/neuro": {
     "fallback": "/images/products/neuro.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -905,12 +2363,18 @@
     "fallback": "/images/products/neuro-rehab-display.webp",
     "fallbackWidth": 1920,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280,
       1920
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
@@ -920,10 +2384,16 @@
     "fallback": "/images/products/neuro_rehab_device.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -932,23 +2402,49 @@
     "fallback": "/images/products/neuro_rehab_device-home.webp",
     "fallbackWidth": 1200,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
+    ]
+  },
+  "images/products/repose": {
+    "fallback": "/images/products/repose.webp",
+    "fallbackWidth": 433,
+    "avif": [
+      96,
+      160,
+      320
+    ],
+    "webp": [
+      96,
+      160,
+      320
     ]
   },
   "images/products/smartlock-product": {
     "fallback": "/images/products/smartlock-product.webp",
     "fallbackWidth": 1280,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -957,11 +2453,17 @@
     "fallback": "/images/products/smartlock-product-removebg.webp",
     "fallbackWidth": 1280,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -970,25 +2472,53 @@
     "fallback": "/images/products/soundbox-new.webp",
     "fallbackWidth": 1448,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
+    ]
+  },
+  "images/products/soundbox-removebg": {
+    "fallback": "/images/products/soundbox-removebg.webp",
+    "fallbackWidth": 577,
+    "avif": [
+      96,
+      160,
+      320,
+      480
+    ],
+    "webp": [
+      96,
+      160,
+      320,
+      480
     ]
   },
   "images/products/tilt-bed": {
     "fallback": "/images/products/tilt-bed.webp",
     "fallbackWidth": 1280,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]
@@ -997,11 +2527,17 @@
     "fallback": "/images/products/walklab-product.webp",
     "fallbackWidth": 1280,
     "avif": [
+      96,
+      160,
+      320,
       480,
       768,
       1280
     ],
     "webp": [
+      96,
+      160,
+      320,
       480,
       768
     ]

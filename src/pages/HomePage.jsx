@@ -122,7 +122,7 @@ function JourneySection() {
               >
                 <div className="relative group pr-1.5 lg:pr-0">
                   <div className="relative mx-auto w-11 h-11 sm:w-20 sm:h-20 md:w-[105px] md:h-[105px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
+                    <Picture sizes="(max-width: 639px) 44px, (max-width: 767px) 84px, (max-width: 1023px) 108px, (max-width: 1114px) 134px, (max-width: 2160px) calc((100vw - 400px) / 5.5), 324px" 
                       src={item.image} 
                       alt={item.from}
                       width="150"
@@ -160,7 +160,7 @@ function JourneySection() {
               >
                 <div className="relative group pr-1.5 lg:pr-0">
                   <div className="relative mx-auto w-11 h-11 sm:w-20 sm:h-20 md:w-[105px] md:h-[105px] lg:w-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] lg:h-[clamp(130px,calc((100vw_-_400px)/5.5),320px)] rounded-full overflow-hidden border-2 border-slate-200 bg-slate-50 group-hover:border-blue-400 transition-colors duration-300">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" 
+                    <Picture sizes="(max-width: 639px) 44px, (max-width: 767px) 84px, (max-width: 1023px) 108px, (max-width: 1114px) 134px, (max-width: 2160px) calc((100vw - 400px) / 5.5), 324px" 
                       src={item.image} 
                       alt={item.from}
                       width="150"
@@ -276,7 +276,9 @@ function JourneySection() {
                         {item.image ? (
                           <div className="w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100 mb-3 border border-slate-100">
                             <Picture
-                              sizes="(max-width: 1024px) 90vw, 520px"
+                              sizes={isCenter
+                                ? '(max-width: 639px) 100vw, (max-width: 1279px) 360px, (max-width: 1535px) 420px, 480px'
+                                : '(max-width: 639px) 208px, (max-width: 1279px) 200px, (max-width: 1535px) 260px, 320px'}
                               src={imgV(item.image)}
                               alt={`${item.title} ${item.year}`}
                               loading="lazy"
@@ -432,7 +434,7 @@ function DivisionsPreview() {
               >
                 {/* Full Image */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-slate-50 flex-shrink-0">
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+                  <Picture sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 20vw"
                     src={sol.image}
                     alt={sol.title}
                     loading="lazy"
@@ -448,7 +450,7 @@ function DivisionsPreview() {
                       <p className="text-[11px] text-slate-500 leading-snug">{sol.desc}</p>
                     </div>
                     <div className="w-full sm:w-40 h-32 sm:h-auto overflow-hidden border-t sm:border-t-0 sm:border-l border-slate-100 flex-shrink-0">
-                      <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+                      <Picture sizes="(max-width: 639px) 100vw, 160px"
                         src={sol.sideImage}
                         alt={`${sol.title} - Weebo`}
                         loading="lazy"
@@ -703,7 +705,7 @@ function ClientsCertifications() {
                     <Picture
                       src={imgV(client.logo)}
                       alt={client.name}
-                      sizes="164px"
+                      sizes={client.logo.includes('bhartpe') ? '64px' : '48px'}
                       loading="lazy"
                       className={`max-w-full object-contain opacity-85 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 ${
                         client.logo.includes('bhartpe')

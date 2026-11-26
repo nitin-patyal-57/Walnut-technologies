@@ -440,6 +440,16 @@ picture {
   @apply fixed bottom-24 left-6 z-40 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none;
 }
 
+/* Report #4/#5: the floating buttons (WhatsApp, chat, install, back-to-top)
+   share z-40/50 with the nav and paint over the open mobile menu and the
+   consent bar, covering their CTAs — hide them while either is open. */
+body.nav-menu-open [data-floating-ui],
+body.consent-visible [data-floating-ui] {
+  opacity: 0 !important;
+  visibility: hidden;
+  pointer-events: none !important;
+}
+
 .back-to-top.visible {
   @apply opacity-100 pointer-events-auto;
 }

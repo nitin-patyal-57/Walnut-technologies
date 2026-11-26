@@ -482,7 +482,7 @@ export default function Resources() {
                     className={`inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-xl transition-all duration-300 ${
                       isActive
                         ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20'
-                        : 'bg-white text-slate-500 border border-slate-200 hover:border-slate-300 hover:text-slate-700'
+                        : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-slate-700'
                     }`}
                   >
                     {filter}
@@ -500,16 +500,20 @@ export default function Resources() {
             <div className="flex items-center gap-1 bg-slate-100 rounded-lg p-1">
               <button
                 onClick={() => setView('grid')}
+                aria-label="Grid view"
+                aria-pressed={view === 'grid'}
                 className={`w-8 h-8 rounded-md flex items-center justify-center transition-all ${
-                  view === 'grid' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-600'
+                  view === 'grid' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-700'
                 }`}
               >
                 <FiGrid className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setView('list')}
+                aria-label="List view"
+                aria-pressed={view === 'list'}
                 className={`w-8 h-8 rounded-md flex items-center justify-center transition-all ${
-                  view === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-600'
+                  view === 'list' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-700'
                 }`}
               >
                 <FiList className="w-4 h-4" />

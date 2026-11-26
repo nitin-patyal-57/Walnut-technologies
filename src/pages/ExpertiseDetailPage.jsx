@@ -412,7 +412,7 @@ export default function ExpertiseDetailPage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800">
-                <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                <Picture sizes="(max-width: 1023px) 100vw, 50vw" loading="lazy" decoding="async"
                   src={data.heroImage}
                   alt={data.title}
                   className="w-full h-[350px] md:h-[450px] object-cover object-center"

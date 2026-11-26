@@ -89,13 +89,13 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2.5">
             <a href={brand.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/5 transition-all">
-              <FaLinkedinIn className="w-3.5 h-3.5" />
+              <FaLinkedinIn aria-hidden="true" className="w-3.5 h-3.5" />
             </a>
             <a href={brand.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-[#FF0000] hover:border-[#FF0000]/40 hover:bg-[#FF0000]/5 transition-all">
-              <SiYoutube className="w-3.5 h-3.5" />
+              <SiYoutube aria-hidden="true" className="w-3.5 h-3.5" />
             </a>
             <a href={brand.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 !min-h-0 rounded-full border border-slate-200 flex items-center justify-center text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/5 transition-all">
-              <SiInstagram className="w-3.5 h-3.5" />
+              <SiInstagram aria-hidden="true" className="w-3.5 h-3.5" />
             </a>
           </div>
           <div className="flex items-center gap-4 text-[11px] text-slate-500">
@@ -109,6 +109,7 @@ export default function Footer() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
+        data-floating-ui
         className="fixed bottom-24 lg:bottom-6 left-6 z-40 w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 text-slate-500 hover:text-cyan-700 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400 flex items-center justify-center transition-all shadow-sm"
       >
         <FiArrowUp className="w-4 h-4" />

@@ -5,7 +5,11 @@ const stripQuery = (s) => s.split('?')[0];
 
 function keyOf(src) {
   if (typeof src !== 'string' || !src.startsWith('/')) return null;
-  return stripQuery(src).slice(1).replace(/\.[a-z0-9]+$/i, '');
+  // decodeURIComponent: content data stores some paths URL-encoded (e.g.
+  // "/images/journey/2016%20journey.webp") while manifest keys come from the
+  // decoded filesystem path — without this the lookup misses and the image
+  // falls back to the full-size original with no srcset.
+  return decodeURIComponent(stripQuery(src).slice(1).replace(/\.[a-z0-9]+$/i, ''));
 }
 
 export default function Picture({ src, alt = '', sizes = '100vw', preferWebp = false, ...props }) {

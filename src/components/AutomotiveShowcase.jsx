@@ -128,6 +128,7 @@ export default function AutomotiveShowcase({ onBack }) {
             {products.map((product, index) => (
               <ProductTile
                 key={product.number}
+                sizes="(max-width: 1023px) 100vw, 50vw"
                 image={product.image}
                 alt={product.title}
                 title={product.title}

@@ -90,7 +90,7 @@ function ProcessSteps() {
               >
                 <div className="relative">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg bg-slate-50">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 639px) 64px, (max-width: 767px) 96px, 160px" loading="lazy" decoding="async"
                       src={stepImages[index]}
                       alt={step.title}
                       className="w-full h-full object-cover object-center"
@@ -135,7 +135,7 @@ function ProcessSteps() {
               >
                 <div className="relative">
                   <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-2 md:border-4 border-white shadow-lg bg-slate-50">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 639px) 64px, (max-width: 767px) 96px, 160px" loading="lazy" decoding="async"
                       src={stepImages[index + 5]}
                       alt={step.title}
                       className="w-full h-full object-cover object-center"

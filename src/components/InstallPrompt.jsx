@@ -50,6 +50,7 @@ export default function InstallPrompt() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
+        data-floating-ui
         className="fixed bottom-24 right-6 z-50 max-w-xs"
       >
         <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-4">
@@ -63,7 +64,7 @@ export default function InstallPrompt() {
               <div className="flex gap-2 mt-3">
                 <button
                   onClick={handleInstall}
-                  className="px-4 py-1.5 bg-cyan-500 hover:bg-cyan-400 text-white text-xs font-semibold rounded-lg transition-colors"
+                  className="px-4 py-1.5 bg-cyan-700 hover:bg-cyan-800 text-white text-xs font-semibold rounded-lg transition-colors"
                 >
                   Install
                 </button>

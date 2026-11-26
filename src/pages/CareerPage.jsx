@@ -307,7 +307,7 @@ export default function CareerPage() {
               <AnimatedSection key={team.name} delay={i * 0.04}>
                 <div className="group text-center">
                   <div className="w-full aspect-square rounded-lg overflow-hidden mb-2 relative bg-slate-50">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+                    <Picture sizes="(max-width: 639px) 34vw, (max-width: 1023px) 25vw, 13vw"
                       src={team.image}
                       alt={team.name}
                       className="w-full h-full object-cover object-center"

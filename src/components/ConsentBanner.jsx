@@ -19,6 +19,14 @@ export default function ConsentBanner() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Report #5: while the bar is visible the floating buttons would sit on top
+  // of it (and it sits on top of the mobile tab bar) — flag the body so
+  // index.css hides the floats until the visitor chooses.
+  useEffect(() => {
+    document.body.classList.toggle('consent-visible', visible);
+    return () => document.body.classList.remove('consent-visible');
+  }, [visible]);
+
   if (!visible) return null;
 
   const decide = (value) => {
@@ -31,7 +39,7 @@ export default function ConsentBanner() {
       role="dialog"
       aria-live="polite"
       aria-label={t('consent.title')}
-      className="fixed inset-x-0 bottom-0 z-[110] border-t border-slate-200 bg-white/95 backdrop-blur shadow-[0_-4px_20px_rgba(15,23,42,0.10)]"
+      className="fixed inset-x-0 bottom-[calc(67px+env(safe-area-inset-bottom,0px))] lg:bottom-0 z-[110] border-t border-slate-200 bg-white/95 backdrop-blur shadow-[0_-4px_20px_rgba(15,23,42,0.10)]"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-3">
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed flex-1">

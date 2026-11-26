@@ -139,7 +139,7 @@ function NewsModal({ item, onClose, onSelect }) {
         >
           {/* Hero Image */}
           <div className="relative h-72 md:h-96 overflow-hidden bg-slate-100">
-            <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+            <Picture sizes="(max-width: 896px) 100vw, 896px" loading="lazy" decoding="async"
               src={item.image}
               alt={item.title}
               width="1280"
@@ -271,7 +271,7 @@ function NewsModal({ item, onClose, onSelect }) {
                         className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                       >
                         <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-slate-50">
-                          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async" src={r.image} alt={r.title} width="64" height="64" className="w-full h-full object-cover object-center" />
+                          <Picture sizes="64px" loading="lazy" decoding="async" src={r.image} alt={r.title} width="64" height="64" className="w-full h-full object-cover object-center" />
                         </div>
                         <div>
                           <span className={`text-[10px] font-bold ${rConfig.tag} px-2 py-0.5 rounded-full uppercase tracking-wider`}>
@@ -325,7 +325,7 @@ function FeaturedCard({ item, isInView, onReadMore }) {
       <div className="grid lg:grid-cols-2 h-full">
         {/* Image */}
         <div className="relative h-64 lg:h-full overflow-hidden bg-slate-100">
-          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 1023px) 100vw, 50vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
             className="w-full h-full object-cover object-center"
@@ -382,7 +382,7 @@ function NewsCard({ item, index, isInView, onReadMore }) {
       <div className="relative bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-500 overflow-hidden h-full flex flex-col">
         {/* Image */}
         <div className="relative h-48 overflow-hidden bg-slate-100">
-          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" loading="lazy" decoding="async"
             src={item.image}
             alt={item.title}
             className="w-full h-full object-cover object-center"
@@ -453,7 +453,7 @@ function TimelineCard({ item, index, isInView, onReadMore }) {
           <div className="flex items-stretch">
             {/* Image */}
             <div className="w-32 shrink-0 overflow-hidden hidden sm:block bg-slate-50">
-              <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+              <Picture sizes="128px" loading="lazy" decoding="async"
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover object-center"
@@ -604,7 +604,7 @@ export default function News() {
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 ${
                       isActive
                         ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20'
-                        : 'bg-white text-slate-500 border border-slate-200 hover:border-slate-300 hover:text-slate-700'
+                        : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-slate-700'
                     }`}
                   >
                     {cat}
@@ -625,7 +625,7 @@ export default function News() {
                   key={v}
                   onClick={() => setView(v)}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all capitalize ${
-                    view === v ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-600'
+                    view === v ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-700'
                   }`}
                 >
                   {v}
@@ -680,7 +680,7 @@ export default function News() {
                         <div className="bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
                           <div className="flex items-stretch">
                             <div className="w-40 shrink-0 overflow-hidden hidden sm:block bg-slate-50">
-                              <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                              <Picture sizes="160px" loading="lazy" decoding="async"
                                 src={item.image}
                                 alt={item.title}
                                 className="w-full h-full object-cover object-center"

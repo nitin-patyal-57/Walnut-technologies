@@ -8,8 +8,13 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
 const MANIFEST = path.join(ROOT, 'src', 'data', 'imageVariants.json');
 
-const WIDTHS = [480, 768, 1280, 1920];
-const MIN_WIDTH = 600;
+// 96/160/320 cover the small renders the site actually has: 20-64px logos,
+// 40-172px process circles and 48px trust icons (at dpr1-3). Without them a
+// 48px logo had to download the 480px variant — a ~10x byte over-fetch.
+const WIDTHS = [96, 160, 320, 480, 768, 1280, 1920];
+// 200 (was 600) so 512px logos (certificate/country/rate, paytm) and 403px
+// product cutouts get variants; smaller files render fine as the original.
+const MIN_WIDTH = 200;
 // Quality settings. AVIF at q55/4:2:0 was visibly soft across the whole site,
 // so both formats now encode at higher quality with full-range chroma (4:4:4)
 // to keep logo and text edges crisp. Originals in public/ are never modified —
@@ -17,8 +22,10 @@ const MIN_WIDTH = 600;
 const AVIF = { quality: 72, effort: 5, chromaSubsampling: '4:4:4' };
 const WEBP = { quality: 88, effort: 6, chromaSubsampling: '4:4:4' };
 
+// images/brand/ is NOT skipped: Navbar/Footer pass explicit small `sizes`
+// (80/160px) for the header logo, and without variants Picture falls back to
+// the 512px original for every render size.
 const SKIP = (rel) =>
-  rel.startsWith('images/brand/') ||
   rel.startsWith('walnut-logo/') ||
   /^(favicon|apple-touch-icon|android-chrome|logo)/i.test(rel);
 
@@ -62,7 +69,7 @@ let reused = 0;
 for (const file of files) {
   const rel = toPosix(path.relative(PUBLIC, file));
   if (SKIP(rel)) continue;
-  if (/-\d+\.(webp|avif)$/i.test(rel)) continue;
+  if (new RegExp(`-(${WIDTHS.join('|')})\\.(webp|avif)$`, 'i').test(rel)) continue;
 
   const meta = await sharp(file).metadata();
   if (!meta.width || meta.width < MIN_WIDTH) continue;
@@ -142,7 +149,7 @@ if (hero && hero.avif.length) {
   console.log(`wrote public/preload.js (avif srcset: ${srcset})`);
 }
 
-const VARIANT_RE = /^(.+)-(480|768|1280|1920)\.(avif|webp)$/;
+const VARIANT_RE = /^(.+)-(96|160|320|480|768|1280|1920)\.(avif|webp)$/;
 let pruned = 0;
 for (const file of await walk(PUBLIC)) {
   const rel = toPosix(path.relative(PUBLIC, file));

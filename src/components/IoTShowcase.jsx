@@ -148,6 +148,7 @@ export default function IoTShowcase({ onBack }) {
             {products.map((product, index) => (
               <ProductTile
                 key={product.number}
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
                 image={product.image}
                 alt={product.title}
                 title={product.title}

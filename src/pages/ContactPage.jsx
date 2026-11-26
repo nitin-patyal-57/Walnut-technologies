@@ -264,6 +264,7 @@ export default function ContactPage() {
                         onChange={(e) => setForm({...form, email: e.target.value})}
                         className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder="you@company.com"
+                        maxLength={254}
                       />
                     </div>
                     <div>
@@ -275,6 +276,7 @@ export default function ContactPage() {
                         onChange={(e) => setForm({...form, phone: e.target.value})}
                         className="w-full px-4 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                         placeholder="+91 98765 43210"
+                        maxLength={20}
                       />
                     </div>
                   </div>

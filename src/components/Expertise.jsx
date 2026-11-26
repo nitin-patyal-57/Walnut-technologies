@@ -153,7 +153,7 @@ export default function Expertise() {
             >
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-slate-50">
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 1023px) 100vw, 50vw" loading="lazy" decoding="async"
                     src="/images/expertise/hero-engineer.webp"
                     alt="Engineer working on electronics at Walnut Technologies"
                     className="w-full h-[300px] sm:h-[360px] md:h-[420px] object-cover object-center"
@@ -232,7 +232,7 @@ export default function Expertise() {
                   >
                     {/* Image */}
                     <div className="relative h-44 overflow-hidden bg-slate-50">
-                      <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+                      <Picture sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
                         src={item.image}
                         alt={title}
                         loading="lazy"

@@ -12,7 +12,7 @@ const ACCENTS = {
   },
 };
 
-export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', imagePosition = 'center', compact = false, dense = false }) {
+export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, title, subtitle, description, features = [], stats, visible = true, delay = '0ms', flip = false, accent = 'blue', imageFit = 'contain', imagePosition = 'center', compact = false, dense = false, sizes = '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw' }) {
   const a = ACCENTS[accent] || ACCENTS.blue;
   const isPhoto = imageFit === 'photo' || imageFit === 'photo-contain';
   const imageHeight = dense
@@ -37,7 +37,7 @@ export default function ProductTile({ image, alt, badge, badgeIcon: BadgeIcon, t
           </>
         )}
         <Picture
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+          sizes={sizes}
           loading="lazy"
           decoding="async"
           src={image}

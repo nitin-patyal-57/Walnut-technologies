@@ -137,7 +137,7 @@ function CategoryCard({ division, onSelect, index }) {
       {/* Image Container */}
       <div className="relative rounded-3xl bg-slate-100/80 aspect-[4/3] mb-4 overflow-hidden group-hover:bg-slate-200/60 transition-colors duration-300">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(59,130,246,0.18),transparent_65%)]" />
-        <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+        <Picture sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 20vw" loading="lazy" decoding="async"
           src={division.products[0].image}
           alt={division.products[0].name}
           className="relative z-10 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-out"
@@ -211,7 +211,7 @@ function FeaturesSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="relative overflow-hidden rounded-2xl bg-slate-900 md:row-span-2 group cursor-pointer"
         >
-          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 767px) 100vw, 50vw" loading="lazy" decoding="async"
             src={features[0].image}
             alt={features[0].title}
             className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
@@ -236,7 +236,7 @@ function FeaturesSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[160px]"
           >
-            <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+            <Picture sizes="(max-width: 767px) 100vw, 50vw" loading="lazy" decoding="async"
               src={features[1].image}
               alt={features[1].title}
               className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700"
@@ -263,7 +263,7 @@ function FeaturesSection() {
                 className="relative overflow-hidden rounded-2xl bg-slate-900 group cursor-pointer h-[240px]"
               >
                 {feature.image && (
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 767px) 50vw, 25vw" loading="lazy" decoding="async"
                     src={feature.image}
                     alt={feature.title}
                     className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-all duration-700 ${feature.title === 'MedStim Neuro Devices' ? 'scale-110' : ''}`}
@@ -350,7 +350,7 @@ function ProductCard({ product, index }) {
           <span className="absolute top-1 right-4 text-[3rem] lg:text-[3.5rem] font-black text-slate-200/90 leading-none select-none z-10 pointer-events-none">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+          <Picture sizes="(max-width: 639px) 50vw, (max-width: 1023px) 34vw, 25vw" loading="lazy" decoding="async"
             src={product.image}
             alt={product.title}
             className="relative z-10 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -488,7 +488,7 @@ export default function Solutions() {
                     >
                       {/* Full Image */}
                       <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
-                        <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+                        <Picture sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 20vw"
                           src={division.products[0]?.image}
                           alt={division.title}
                           loading="lazy"

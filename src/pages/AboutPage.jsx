@@ -146,7 +146,7 @@ export default function AboutPage() {
             <AnimatedSection className="lg:col-span-5">
               <div className="relative">
                 <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 1023px) 100vw, 45vw" loading="lazy" decoding="async"
                     src="/images/about/who-we-are.webp"
                     alt="Walnut Technologies — SMT assembly line, microscope inspection and CAD design review"
                     className="w-full h-auto"
@@ -246,14 +246,14 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48 bg-slate-50">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 1023px) 50vw, 30vw" loading="lazy" decoding="async"
                       src="/images/about/04_Engineering_Team.webp"
                       alt="Engineering Team"
                       className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64 bg-slate-50">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 1023px) 50vw, 30vw" loading="lazy" decoding="async"
                       src="/images/about/team-collab.webp"
                       alt="Team Collaboration"
                       className="w-full h-full object-cover object-center"
@@ -262,14 +262,14 @@ export default function AboutPage() {
                 </div>
                 <div className="space-y-4 pt-8">
                   <div className="rounded-2xl overflow-hidden shadow-lg h-64 bg-slate-50">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 1023px) 50vw, 30vw" loading="lazy" decoding="async"
                       src="/images/about/11_Modern_Conference_Room.webp"
                       alt="Conference Room"
                       className="w-full h-full object-cover object-center"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg h-48 bg-slate-50">
-                    <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                    <Picture sizes="(max-width: 1023px) 50vw, 30vw" loading="lazy" decoding="async"
                       src="/images/about/12_Business_Partnership.webp"
                       alt="Business Partnership"
                       className="w-full h-full object-cover object-center"
@@ -292,7 +292,7 @@ export default function AboutPage() {
             <AnimatedSection>
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-50">
-                  <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+                  <Picture sizes="(max-width: 1023px) 100vw, 50vw" loading="lazy" decoding="async"
                     src="/images/about/07_PCB_Testing.webp"
                     alt="Quality Testing"
                     className="w-full h-[400px] object-cover object-center"
@@ -355,7 +355,7 @@ export default function AboutPage() {
       ═══════════════════════════════════════════════════════════════ */}
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0">
-          <Picture sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" loading="lazy" decoding="async"
+          <Picture sizes="100vw" loading="lazy" decoding="async"
             src="/images/about/08_Electronics_Manufacturing_Factory.webp"
             alt=""
             className="w-full h-full object-cover"

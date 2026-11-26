@@ -79,6 +79,14 @@ export default function Navbar({ onOpenSchedule }) {
     return () => document.removeEventListener('keydown', handleMobileEscape);
   }, [isMobileOpen, activeDropdown, handleMobileEscape]);
 
+  // Report #4: while the mobile menu is open the floating buttons (same
+  // z-index, later in the DOM) paint over its CTAs — flag the body so the
+  // CSS rule in index.css can hide them.
+  useEffect(() => {
+    document.body.classList.toggle('nav-menu-open', isMobileOpen);
+    return () => document.body.classList.remove('nav-menu-open');
+  }, [isMobileOpen]);
+
   useEffect(() => {
     const openQuote = () => {
       setIsQuoteOpen(true);
@@ -260,7 +268,7 @@ export default function Navbar({ onOpenSchedule }) {
                               onClick={(e) => { handleNavClick(e, item.to); setActiveDropdown(null); }}
                             >
                               <div className="h-36 overflow-hidden bg-slate-100">
-                                <Picture loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw" src={item.image} alt={item.label} className="w-full h-full object-contain object-center p-2 mix-blend-multiply" />
+                                <Picture loading="lazy" decoding="async" sizes="(max-width: 1279px) 176px, 208px" src={item.image} alt={item.label} className="w-full h-full object-contain object-center p-2 mix-blend-multiply" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                               </div>
                               <div className="absolute bottom-0 left-0 right-0 p-4">

@@ -196,7 +196,7 @@ export default function NeuroShowcase({ onBack }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <ProductTile
-
+              sizes="(max-width: 1023px) 100vw, 50vw"
               image="/images/neuro/walklab-journey.webp"
               imageFit="photo-contain"
               alt="WalkLab Gait Training System"
@@ -211,7 +211,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-
+              sizes="(max-width: 1023px) 100vw, 50vw"
               flip
               image="/images/neuro/weebo presentation.webp"
               imageFit="photo"
@@ -228,7 +228,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-
+              sizes="(max-width: 1023px) 100vw, 50vw"
               image="/images/products/TDCS.webp"
               imageFit="photo-contain"
               alt="tDCS Transcranial Direct Current Stimulation System"
@@ -243,7 +243,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-
+              sizes="(max-width: 1023px) 100vw, 50vw"
               flip
               image="/images/products/repose.webp"
               imageFit="photo-contain"
@@ -260,7 +260,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-
+              sizes="(max-width: 1023px) 100vw, 50vw"
               image="/images/products/medstim-neuro-devices-cutout.webp"
               imageFit="photo-contain"
               alt="MedStim Neuromuscular Electrical Stimulation System"
@@ -275,7 +275,7 @@ export default function NeuroShowcase({ onBack }) {
             />
 
             <ProductTile
-
+              sizes="(max-width: 1023px) 100vw, 50vw"
               flip
               image="/images/neuro/walkex.webp"
               imageFit="photo-contain"
