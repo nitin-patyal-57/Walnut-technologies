@@ -13,7 +13,12 @@ export default function SEO({
   keywords,
   noindex = false,
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Electronics for the World`;
+  // Don't double the brand when a title already includes it (e.g.
+  // "About Walnut Technologies"), and keep the full tag under ~60 chars so
+  // Google doesn't truncate it in results.
+  const fullTitle = title
+    ? (title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`)
+    : `${SITE_NAME} | Electronics for the World`;
   const url = `${DEFAULT_URL}${path}`;
   const ogImage = image ? (image.startsWith('http') ? image : `${DEFAULT_URL}${image}`) : `${DEFAULT_URL}${DEFAULT_IMAGE}`;
 

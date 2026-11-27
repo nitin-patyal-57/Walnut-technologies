@@ -801,10 +801,10 @@ export default function HomePage({ onOpenSchedule }) {
   return (
     <div className="relative">
       <SEO
-        title="Electronics for the World"
+        title="OEM Electronics Manufacturer India"
         description="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, automotive electronics, and IoT devices. ISO 13485 certified, 500K+ units/month in India."
         path="/"
-        keywords="OEM, ODM, electronics manufacturer, medical devices, payment systems, automotive electronics, IoT devices, POS terminals, oxygen concentrators, PCB design, SMT assembly, India"
+        keywords="walnut technologies, electronics manufacturer india, OEM ODM manufacturer, medical devices, payment systems, automotive electronics, IoT devices, POS terminals, oxygen concentrators, PCB design, SMT assembly"
       />
       <Hero onOpenSchedule={onOpenSchedule} />
       <HeroStats />

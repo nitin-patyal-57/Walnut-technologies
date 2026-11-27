@@ -252,7 +252,8 @@ const enTranslations = {
   },
   career: {
     title: 'Join Our Team',
-    subtitle: 'Build the future of electronics manufacturing with us.',
+    subtitle: 'Walnut Careers: Build the Future of Electronics Manufacturing',
+    intro: 'Explore open positions in engineering, R&D, manufacturing and software at Walnut Technologies in Mohali, Punjab — and build products that ship worldwide.',
     openings: 'Open Positions',
     apply: 'Apply Now',
   },

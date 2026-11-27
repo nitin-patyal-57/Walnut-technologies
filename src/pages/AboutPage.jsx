@@ -34,10 +34,10 @@ export default function AboutPage() {
   return (
     <div className="bg-white min-h-screen">
       <SEO
-        title="About Us"
+        title="About Walnut Technologies"
         description="ISO 13485 certified OEM/ODM manufacturer with 10+ years of experience and 500K+ units/month capacity, serving medical, payment and electronics markets."
         path="/about"
-        keywords="about walnut technologies, OEM manufacturer India, electronics manufacturing company, ISO 13485 certified"
+        keywords="walnut technologies, about walnut, OEM manufacturer India, electronics manufacturing company, ISO 13485 certified, medical device manufacturer India"
       />
 
       {/* HERO */}

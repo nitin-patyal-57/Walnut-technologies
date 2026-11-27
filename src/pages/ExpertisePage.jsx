@@ -5,10 +5,10 @@ export default function ExpertisePage() {
   return (
     <>
       <SEO
-        title="Our Expertise"
+        title="Medical Electronics & IoT Expertise"
         description="Explore Walnut Technologies' expertise in medical electronics, embedded systems, IoT, payment solutions, and custom electronics manufacturing."
         path="/expertise"
-        keywords="medical electronics, embedded systems, IoT expertise, payment solutions, electronics manufacturing expertise"
+        keywords="walnut technologies expertise, medical electronics, embedded systems, IoT expertise, payment solutions, electronics manufacturing expertise"
       />
       <Expertise />
     </>

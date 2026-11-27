@@ -110,10 +110,10 @@ export default function CareerPage() {
   return (
     <div className="bg-white">
       <SEO
-        title="Career"
-        description="Explore careers at Walnut Technologies in medical electronics, embedded systems, IoT and software development. Grow with us in Mohali, Punjab."
+        title="Walnut Careers in Mohali"
+        description="Walnut Technologies careers in Mohali - electronics, embedded systems, IoT, medical device and software jobs in Punjab, India. See openings and apply."
         path="/career"
-        keywords="Walnut Technologies careers, electronics jobs, medical device careers, embedded systems jobs, IoT careers India"
+        keywords="walnut career, walnut careers, walnut technologies jobs, electronics jobs mohali, embedded systems jobs india, IoT jobs india, medical device careers, software jobs mohali"
       />
       
       {/* JobPosting Structured Data */}
@@ -189,7 +189,7 @@ export default function CareerPage() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-sm text-slate-500 mb-6 max-w-lg leading-relaxed"
               >
-                {t('career.subtitle')}
+                {t('career.intro')}
               </motion.p>
 
               <motion.div
