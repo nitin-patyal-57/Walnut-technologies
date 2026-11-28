@@ -34,13 +34,15 @@ export default function Preloader() {
         // Keep nav above the overlay until its 400ms exit fade finishes,
         // otherwise the logo blinks out one last time during the fade.
         setTimeout(() => document.body.classList.remove('preloader-active'), 450);
-      }, 400);
+      }, 300);
     };
 
-    const forceDismiss = setTimeout(dismiss, 1800);
+    // Only has to mask the first paint - capped so a slow connection can never
+    // hold the page hostage (was 1800ms force + 800ms load-path delays).
+    const forceDismiss = setTimeout(dismiss, 900);
 
     if (document.readyState === 'complete') {
-      setTimeout(dismiss, 800);
+      setTimeout(dismiss, 150);
     } else {
       window.addEventListener('load', dismiss, { once: true });
     }

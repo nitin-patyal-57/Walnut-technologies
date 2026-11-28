@@ -93,7 +93,7 @@ function JourneySection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center mb-2"
           >
             <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-1">
@@ -117,7 +117,7 @@ function JourneySection() {
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
                 className="flex items-center shrink-0"
               >
                 <div className="relative group pr-1.5 lg:pr-0">
@@ -128,6 +128,7 @@ function JourneySection() {
                       width="150"
                       height="150"
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
@@ -155,7 +156,7 @@ function JourneySection() {
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.05 }}
                 className="flex items-center shrink-0"
               >
                 <div className="relative group pr-1.5 lg:pr-0">
@@ -166,6 +167,7 @@ function JourneySection() {
                       width="150"
                       height="150"
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute -top-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 rounded-full bg-blue-600 text-white text-[10px] sm:text-[10px] md:text-[10px] font-bold flex items-center justify-center shadow-md z-10">
@@ -198,7 +200,7 @@ function JourneySection() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="text-center mb-2 md:mb-3"
           >
             <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-1">
@@ -215,7 +217,7 @@ function JourneySection() {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4, delay: 0.6 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="relative w-full max-w-[1400px] mx-auto flex items-center justify-center"
             tabIndex={0}
             onKeyDown={handleKeyDown}
@@ -278,6 +280,7 @@ function JourneySection() {
                               alt={`${item.title} ${item.year}`}
                               loading="lazy"
                               decoding="async"
+                              fetchpriority={isCenter ? 'high' : 'auto'}
                               className="w-full h-full object-cover object-center"
                             />
                           </div>
@@ -307,13 +310,38 @@ function JourneySection() {
             >
               <FiArrowRight className="text-sm" />
             </button>
+
+            {/* Prefetch the neighbours' photos once the section is on screen,
+                so clicking prev/next paints from cache instead of showing the
+                grey placeholder while the image downloads. sizes mirrors the
+                centre card (the size these become when shown) and fetchpriority
+                low keeps them from competing with the visible photo. */}
+            {isInView &&
+              visibleMilestones
+                .filter(({ item, position }) => position !== 1 && item.image)
+                .map(({ item }) => (
+                  <span
+                    key={'prefetch-' + item.year}
+                    aria-hidden="true"
+                    className="absolute w-0 h-0 overflow-hidden pointer-events-none"
+                  >
+                    <Picture
+                      src={imgV(item.image)}
+                      sizes="(max-width: 639px) 100vw, (max-width: 1279px) 360px, (max-width: 1535px) 420px, 480px"
+                      loading="eager"
+                      decoding="async"
+                      fetchpriority="low"
+                      alt=""
+                    />
+                  </span>
+                ))}
           </motion.div>
 
           {/* Timeline Footer */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4, delay: 0.7 }}
+            transition={{ duration: 0.4, delay: 0.25 }}
             className="mt-1 max-w-6xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-sm px-4 sm:px-6 py-2"
           >
             <div className="flex items-center justify-between w-full mb-1.5 px-2">
