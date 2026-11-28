@@ -56,6 +56,24 @@ function JourneySection() {
   }));
 
   const [milestoneIndex, setMilestoneIndex] = useState(0);
+  // Warm the ACTIVE card's photo shortly after the window load event so it is
+  // already in cache when a visitor scrolls down to the journey - the card
+  // then paints with just the entrance fade instead of downloading on arrival.
+  // The prefetch img renders at fetchpriority=low, so it never competes with
+  // the hero; the neighbours are only warmed once the section is on screen.
+  const [prefetchReady, setPrefetchReady] = useState(false);
+  useEffect(() => {
+    let timer;
+    const start = () => {
+      timer = setTimeout(() => setPrefetchReady(true), 800);
+    };
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('load', start);
+    };
+  }, []);
   const pillsRef = useRef(null);
   const prevIndex = (milestoneIndex - 1 + milestones.length) % milestones.length;
   const nextIndex = (milestoneIndex + 1) % milestones.length;
@@ -311,14 +329,17 @@ function JourneySection() {
               <FiArrowRight className="text-sm" />
             </button>
 
-            {/* Prefetch the neighbours' photos once the section is on screen,
-                so clicking prev/next paints from cache instead of showing the
-                grey placeholder while the image downloads. sizes mirrors the
-                centre card (the size these become when shown) and fetchpriority
-                low keeps them from competing with the visible photo. */}
-            {isInView &&
-              visibleMilestones
-                .filter(({ item, position }) => position !== 1 && item.image)
+            {/* Prefetch the three cards' photos: the active one as soon as the
+                page has settled (prefetchReady), the neighbours once the
+                section is on screen - so clicking prev/next or scrolling here
+                paints from cache instead of the grey placeholder. sizes mirrors
+                the centre card (the size these become when shown) and
+                fetchpriority low keeps them from competing with visible work. */}
+            {visibleMilestones
+                .filter(
+                  ({ item, position }) =>
+                    item.image && (position === 1 ? prefetchReady : isInView)
+                )
                 .map(({ item }) => (
                   <span
                     key={'prefetch-' + item.year}
