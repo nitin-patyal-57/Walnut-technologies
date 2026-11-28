@@ -802,7 +802,7 @@ export default function HomePage({ onOpenSchedule }) {
     <div className="relative">
       <SEO
         title="OEM Electronics Manufacturer India"
-        description="Vertically integrated OEM/ODM manufacturer serving medical devices, payment systems, automotive electronics, and IoT devices. ISO 13485 certified, 500K+ units/month in India."
+        description="Vertically integrated OEM/ODM manufacturer of medical devices, payment systems, automotive electronics and IoT. ISO 13485 certified, 500K+ units/month."
         path="/"
         keywords="walnut technologies, electronics manufacturer india, OEM ODM manufacturer, medical devices, payment systems, automotive electronics, IoT devices, POS terminals, oxygen concentrators, PCB design, SMT assembly"
       />
