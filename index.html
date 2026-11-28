@@ -26,8 +26,11 @@
          duplicate tags the browser/crawler uses the FIRST one — which would make
          every inner page canonicalize to the homepage and would override the
          noindex on /apply, /privacy and /terms. Googlebot executes JS, so it
-         sees Helmet's per-page tags. -->
-    <meta name="keywords" content="OEM, ODM, electronics manufacturer, medical devices, payment systems, POS terminals, oxygen concentrators, PCB design, SMT assembly, India" />
+         sees Helmet's per-page tags.
+         The keywords meta below IS static (kept for pre-JS crawlers) and must be
+         kept in sync with the homepage keywords in src/pages/HomePage.jsx —
+         with two keywords tags the crawler reads this first one. -->
+    <meta name="keywords" content="walnut technologies, electronics manufacturer india, OEM ODM manufacturer, medical devices, payment systems, automotive electronics, IoT devices, POS terminals, oxygen concentrators, PCB design, SMT assembly, soundbox manufacturer india, medical device manufacturer india, electronics manufacturer mohali, embedded systems company india, contract electronics manufacturing india" />
     <meta name="author" content="Walnut Technologies Pvt. Ltd." />
 
     <!-- Open Graph -->
