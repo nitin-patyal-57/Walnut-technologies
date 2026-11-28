@@ -9,7 +9,6 @@ import {
 } from 'react-icons/fi';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
-import Faq from '../components/Faq';
 import { useLanguage } from '../context/LanguageContext';
 import Picture from '../components/Picture';
 import { journey, clientLogos, certifications as certificationList, trustSignals } from '../data/content';
@@ -798,36 +797,6 @@ function CTASection() {
   );
 }
 
-// FAQ questions double as search targets - each one is phrased the way
-// people actually type it into Google, and Faq.jsx emits matching FAQPage
-// JSON-LD so these can surface in "People also ask" results.
-const homeFaqs = [
-  {
-    q: 'Who is Walnut Technologies?',
-    a: 'Walnut Technologies is an ISO 13485 certified OEM/ODM electronics manufacturer in Mohali, Punjab, India. We design and build medical devices, payment soundboxes, automotive electronics and IoT devices for clients in 10+ countries.',
-  },
-  {
-    q: 'What is OEM ODM manufacturing?',
-    a: 'OEM (Original Equipment Manufacturing) means we build your design exactly as specified. ODM (Original Design Manufacturing) means we design and develop the product for you end to end - electronics engineering, PCB design, firmware, tooling and mass production.',
-  },
-  {
-    q: 'Where is Walnut Technologies located?',
-    a: 'Walnut Technologies is located at Plot No. 132, JLPL Industrial Park, Sector 82, Mohali, Punjab 160055, India, with a 150,000 sq ft manufacturing facility and 4 high-speed SMT lines.',
-  },
-  {
-    q: 'Is Walnut Technologies ISO 13485 certified?',
-    a: 'Yes. Walnut Technologies is ISO 13485 certified for medical device manufacturing, with a 99.8% first-pass yield and a capacity of 500,000+ units per month across medical, fintech and automotive product lines.',
-  },
-  {
-    q: 'What products does Walnut Technologies manufacture?',
-    a: 'Walnut Technologies manufactures payment soundboxes and QR sound devices, neuro rehab and medical electronics, automotive instrument clusters, IoT and embedded systems, PCB assemblies and oxygen concentrators.',
-  },
-  {
-    q: 'Do Walnut Technologies hire engineers in Mohali?',
-    a: 'Yes. Walnut Technologies regularly hires for embedded systems, hardware, PCB design, firmware, quality and manufacturing roles in Mohali, Punjab - including freshers. Open positions are listed on the Walnut Technologies careers page.',
-  },
-];
-
 export default function HomePage({ onOpenSchedule }) {
   return (
     <div className="relative">
@@ -842,7 +811,6 @@ export default function HomePage({ onOpenSchedule }) {
       <DivisionsPreview />
       <JourneySection />
       <ClientsCertifications />
-      <Faq id="faq" items={homeFaqs} />
       <CTASection />
     </div>
   );
